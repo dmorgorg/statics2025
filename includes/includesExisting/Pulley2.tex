@@ -1,0 +1,26 @@
+% !TEX root = ../Beamer/statikz/statikz.tex
+
+%\PinnedConnection[rotate=0]{coordinate}{draw}{fill}{scale}{line width}
+\newcommand{\Pulley}[6][0]{
+	\def\rotate{#1};
+	\def\pin{#2}
+	\def\pulcol{#4}
+	\def\supportcol{#3}
+	\def\rollerScale{#5};
+	\def\lwidth{#6};
+	\def\h{1}
+	\def\r{0.3}
+	\def\rr{0.5}
+	\begin{scope}[scale=\rollerScale, rotate=\rotate]
+
+		\filldraw[fill=\pulcol, line width = \lwidth pt, draw=\pulcol!50!black] (\pin) circle (\h*\rr cm);
+		\filldraw[fill=\pulcol, thin, draw=\pulcol] (\pin) circle (\h*\rr*.8 cm);
+		% \draw[\pulcol!80!black, line width = \lwidth pt] ($ (\pin) + (0,-0.6*\h)$) circle (\h*4 mm);
+		\filldraw[rounded corners= \rollerScale pt, draw=\supportcol!30!black, fill=\supportcol, line width = \lwidth pt] ($(\pin) + (-\r,0) $)arc(-180:0:\r) -- ++(0,0.8) -- ++(-2*\r, 0) -- cycle;
+
+		\filldraw[rounded corners= \rollerScale pt, draw=\supportcol!30!black, fill=\supportcol, line width = \lwidth pt] ($ (\pin)+(-0.75,0.8) $) rectangle  ($ (\pin)+(0.75,1) $);
+
+		\shadedraw[fill=\pulcol, line width = \lwidth pt, draw=\pulcol!80!black] (\pin) circle (\h mm);
+
+	\end{scope}
+}

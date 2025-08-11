@@ -1,0 +1,78 @@
+\newcommand{\DL}[9][1]{
+  \def\forcedown{#1} % defaults to 1, force is downward
+  \def\tl{#2} % top left, a coordinate
+  \def\tr{#3} % top right. a coordinate
+  \def\b{#4} % anywhere along the baseline (before any rotation), a coordinate 
+  \def\lfill{#5} % background fill color
+  \def\stroke{#6} % drawing color
+  \def\spaces{#7} % number of spaces between arrows 
+  \def\llinewidth{#8}
+  \def\tiplength{#9}
+
+  \gettikzxy{(\tl)}{\tlx}{\tly}
+	\gettikzxy{(\tr)}{\trx}{\try}
+	\gettikzxy{(\b)}{\bx}{\by}
+  \pgfmathparse{abs(\try-\by)} \let\rlength\pgfmathresult
+  \pgfmathparse{abs(\tly-\by)} \let\llength\pgfmathresult
+
+  \fill[\lfill] (\tlx, \tly)--(\trx, \try)--(\trx, \by)--(\tlx, \by);
+  \draw[\stroke, line cap = round, line width = \llinewidth mm] (\tl)--(\tr);
+  
+  % no empty lines in \tikzmath!
+  \tikzmath{
+    % Calculate the width of the load, and the spacing between arrows
+    % Also, calculate the difference in length between adjacent arrows.
+    \dx = \trx - \tlx; % width of dist load
+    \dx = \dx / \spaces; % space between arrows
+    \dy = \try - \tly; % difference between two load values
+    \dy = \dy / \spaces; % difference between arrow-line lengths
+    %    
+    if \forcedown == 1 then {       
+			for \i in {0,...,\spaces} {	
+        \starty = \tly+\i*\dy;
+        \length = \starty-\by;
+        % in \tikzmath, drawing commands are enclosed in { }; 
+        {
+          \begin{scope}          
+            \clip (\tlx,\tly) -- (\trx, \try) -- (\trx,\by) --(\tlx,\by);
+            \draw[\stroke, line width = \llinewidth mm, -{Latex[length=\tiplength]}](\tlx+\i*\dx, \starty pt)-- +(270: \length pt);
+          \end{scope}
+        };
+			};
+    } else {
+      for \i in {0,...,\spaces} {	
+        \starty = \tly+\i*\dy;
+        \length = \starty-\by;			
+				{
+          \begin{scope}          
+            \clip (\tlx,\tly) -- (\trx, \try) -- (\trx,\by) --(\tlx,\by);
+            \draw[\stroke, line width = \llinewidth mm, {Latex[length=\tiplength]}-](\tlx+\i*\dx, \starty pt)-- +(270: \length pt);
+          \end{scope}          
+        };
+			};      
+    };
+    if \forcedown == 1 then {
+      if \rlength > \tiplength then {
+        {\draw[\stroke, line width = \llinewidth mm, -{Latex[length=\tiplength]}] (\trx, \try)--(\trx, \by);};
+      } else {
+         {\draw[\stroke, line width = \llinewidth mm] (\trx, \try)--(\trx, \by);};
+      };    
+      if \llength > \tiplength then {
+        {\draw[\stroke, line width = \llinewidth mm, -{Latex[length=\tiplength]}] (\tlx, \tly)--(\tlx, \by);};
+      } else {
+        {\draw[\stroke, line width = \llinewidth mm] (\tlx, \tly)--(\tlx, \by);};
+      };
+    } else {
+      if \rlength > \tiplength then {
+        {\draw[\stroke, line width = \llinewidth mm, {Latex[length=\tiplength]}-] (\trx, \try)--(\trx, \by);};
+      } else {
+        {\draw[\stroke, line width = \llinewidth mm] (\trx, \try)--(\trx, \by);};
+      };    
+      if \llength > \tiplength then {
+        {\draw[\stroke, line width = \llinewidth mm, {Latex[length=\tiplength]}-] (\tlx, \tly)--(\tlx, \by);};
+      } else {
+        {\draw[\stroke, line width = \llinewidth mm] (\tlx, \tly)--(\tlx, \by);};
+      };
+    };    
+  } % \end tikzmath environment
+} % end of \DL definition

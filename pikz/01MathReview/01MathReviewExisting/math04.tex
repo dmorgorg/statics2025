@@ -1,0 +1,97 @@
+% !TEX root = ../../Beamer/01MathReview/01STCS200MathReview.tex
+
+
+\makeatletter
+\providecommand{\gettikzxy}[3]{%
+	\tikz@scan@one@point\pgfutil@firstofone#1\relax
+	\edef#2{\the\pgf@x}%
+	\edef#3{\the\pgf@y}%
+}
+\makeatother
+
+% \def\scale{0.6}
+\begin{tikzpicture}[scale=\scale]
+
+	\def\thickness{thick}
+	% \def\stroke{black}
+	\def\hi{.225}
+	\def\radii{.225}
+	\def\extend{0.225}
+
+	\def\offset{0.4}
+
+	\coordinate (E) at (0,0);
+	\coordinate (F) at (3,0);
+	\coordinate (G) at (6,0);
+	\coordinate (A) at (9,0);
+	\coordinate (B) at (6,2.5);
+	\coordinate (C) at (3,3.75);
+	\coordinate (D) at (0,5);
+	\coordinate (Right) at ($ (A)+(1.5,0)$);
+	\coordinate (Bottom) at ($ (A)+(0,-1.5)$);
+
+	\fill[mucus] ($(D)+(-0.66,1)$) rectangle ($(E)+(-1.5,-1.5)$);
+
+
+	\gettikzxy{(A)}{\ax}{\ay}
+	\gettikzxy{(B)}{\bx}{\by}
+	\gettikzxy{(C)}{\cx}{\cy}
+	\gettikzxy{(D)}{\ddx}{\ddy}
+	\gettikzxy{(E)}{\ex}{\ey}
+	\gettikzxy{(F)}{\fx}{\fy}
+	\gettikzxy{(G)}{\gx}{\gy}
+	\gettikzxy{(Right)}{\rx}{\ry}
+	\gettikzxy{(Bottom)}{\bbx}{\bby}
+
+	\draw ($ (A)+(\offset,0)$) -- (\rx,\ay);
+	\draw ($ (B)+(1.25*\offset,0)$) -- (\rx,\by);
+	\draw ($ (C)+(2*\offset,0)$) -- (\rx,\cy);
+	\draw ($ (D)+(2*\offset,0)$) -- (\rx,\ddy);
+	\draw ($ (D)+(0, -\offset)$) -- (\ex,\ey+1.25*\offset cm);
+	\draw ($ (E)+(0, -\offset)$) -- (\ex,\bby);
+	\draw ($ (F)+(0, -\offset)$) -- (\fx,\bby);
+	\draw ($ (G)+(0, -\offset)$) -- (\gx,\bby);
+	\draw ($ (A)+(0, -\offset)$) -- (\ax,\bby);
+
+	\small
+	\draw[latex-latex] (\ex,\bby+\offset cm) -- node[fill=white] {$3.00$ m}(\fx,\bby+\offset cm);
+	\draw[latex-latex] (\fx,\bby+\offset cm) -- node[fill=white] {$3.00$ m}(\gx,\bby+\offset cm);
+	\draw[latex-latex] (\gx,\bby+\offset cm) -- node[fill=white] {$3.00$ m}(\ax,\bby+\offset cm);
+	\draw[latex-latex] (\rx-\offset cm,\ay) -- node[fill=white] {$2.50$ m}(\rx-\offset cm,\by);
+	\draw[latex-latex] (\rx-\offset cm,\by) -- node[fill=white] {$1.25$ m}(\rx-\offset cm,\cy);
+	\draw[latex-latex] (\rx-\offset cm,\cy) -- node[fill=white] {$1.25$ m}(\rx-\offset cm,\ddy);
+	\normalsize
+
+	\pgfoonew \BC=new rr(B,C,Burlywood1,black, 0.2)
+	\pgfoonew \CD=new rr(C,D,Burlywood1,black, 0.2)
+	\pgfoonew \EF=new rr(E,F,Burlywood1,black, 0.2)
+	\pgfoonew \FG=new rr(G,F,Burlywood1,black, 0.2)
+	\pgfoonew \AG=new rr(A,G,Burlywood1,black, 0.2)
+	\pgfoonew \AB=new rr(A,B,Burlywood1,black, 0.2)
+	\pgfoonew \CE=new rr(C,E,Burlywood1,black, 0.2)
+	\pgfoonew \BF=new rr(B,F,Burlywood1,black, 0.2)
+	\pgfoonew \CF=new rr(C,F,Burlywood1,black, 0.2)
+	\pgfoonew \BG=new rr(B,G,Burlywood1,black, 0.2)
+
+	\PinnedConnection[-90]{D}{DarkKhaki}{black}{0.65}{0.125}
+	\PinnedConnection[-90]{E}{DarkKhaki}{black}{0.65}{0.125}
+
+	\shadedraw[ball color=Burlywood4] (A) circle (4pt) node[xshift=1.5mm, yshift=3mm] {$A$};
+	\shadedraw[ball color=Burlywood4] (B) circle (4pt) node[xshift=1.5mm, yshift=3mm] {$B$};
+	\shadedraw[ball color=Burlywood4] (C) circle (4pt) node[xshift=1.5mm, yshift=3mm] {$C$};
+	\shadedraw[ball color=Burlywood4] (D) circle (4pt) node[xshift=1.5mm, yshift=3mm] {$D$};
+	\shadedraw[ball color=Burlywood4] (E) circle (4pt) node[xshift=1.5mm, yshift=-3mm] {$E$};
+	\shadedraw[ball color=Burlywood4] (F) circle (4pt) node[xshift=1.5mm, yshift=-3mm] {$F$};
+	\shadedraw[ball color=Burlywood4] (G) circle (4pt) node[xshift=1.5mm, yshift=-3mm] {$G$};
+
+
+
+	% \draw[very thin,color=gray] (-0.3,-2.3) grid (2.9,3.3);
+	% \draw[->] (-0.2,0) -- (3.2,0) node[right] {$x$};
+	% \draw[->] (0,-2.5) -- (0,3.8) node[above] {$y$};
+	% \draw[domain=-0.2:2.5, color=red, thick] plot[id=1] function{(7-2*x)/3}
+	% node[below] {$2x+3y=7$};
+	% \draw[domain=-0.2:0.8, color=blue, thick] plot[id=2] function{6*x-1}
+	% node[right] {$6x-y=1$};
+
+\end{tikzpicture}

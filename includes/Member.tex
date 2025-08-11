@@ -1,0 +1,39 @@
+%\Member{startpt}{endpt}{outer fill color}{inner fill color}{stroke}{height}{radius}{linewidth}
+\providecommand{\Member}[8]{
+  % name the points
+  \coordinate(start) at (#1);
+  \coordinate(end) at (#2);
+  \edef\ofill{#3}%
+  \edef\ifill{#4}%
+  \edef\stroke{#5}%
+  \edef\height{#6} % cm
+  \edef\radius{#7} % cm
+  \edef\linewidth{#8} % mm
+
+  \coordinate(delta) at ($ (end)-(start) $);
+  \gettikzxy{(delta)}{\dx}{\dy}
+  \gettikzxy{(start)}{\sx}{\sy}
+  \pgfmathparse{veclen(\dx, \dy)} \let\length\pgfmathresult
+
+  \pgfmathparse{\dx==0}%
+  % \ifnum low-level TeX for integers
+  \ifnum\pgfmathresult=1 % \dx == 0
+    \pgfmathsetmacro{\rot}{\dy > 0 ? 90 : -90}
+  \else
+    \pgfmathsetmacro{\rot}{\dx > 0 ? atan(\dy / \dx) : 180 + atan(\dy / \dx)}
+  \fi
+
+  
+   
+  \shadedraw[transform canvas = { rotate around = {\rot:(\sx,\sy)}}, line width = \linewidth, rounded corners = \radius mm, top color = \ofill, bottom color = \ofill, middle color = \ifill, draw = \stroke] ($ (start)+(-0.5*\height, 0.5*\height) $) -- ++(\height cm +\length pt, 0 ) -- ++(0, -\height) -- ++ (-\height cm -\length pt, 0) -- cycle;
+
+
+  \shadedraw[ball color = \ofill!50!\ifill, draw = \stroke] (start) circle (\height/8);
+  \shadedraw[ball color = \ofill!50!\ifill, draw = \stroke] (end) circle (\height/8);
+  %  \pgfresetboundingbox
+
+  
+  
+
+
+}

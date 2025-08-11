@@ -1,0 +1,33 @@
+% !TEX root = ../../Beamer/statikz/statikz.tex
+
+
+\begin{tikzpicture}[scale=\scale]
+
+	\coordinate (A) at (0,0);
+	\coordinate (B) at ($(A)+(215:1.936)  $);
+	\coordinate (C) at ($ (B)+(-60:2.129) $);
+  \coordinate (X) at (1,-2);
+	\coordinate (Y) at ($ (X)+(0:4.5) $);
+	\coordinate (Z) at ($ (Y)+(135:1.936) $);
+
+	\small
+	\filldraw[fill=Linen, draw=black] (A) -- (B) -- (C) -- cycle;
+  \filldraw[fill=Linen, draw=black] (X) -- (Y) -- (Z) -- cycle;
+
+	\draw[left] (B) node {$B$};
+	\draw[above] (A) node {$A$};
+	\draw[below] (C) node {$C$};
+  \draw[left] (X) node {$X$};
+	\draw[right] (Y) node {$Y$};
+	\draw[above] (Z) node {$Z$};
+
+	\node at ($(C)+(100:0.6)$) {$\gamma $};
+	\node at ($(B)+(-12.5:0.35)$) {$\beta $};
+	\node at ($(A)+(-122.5:0.6)$) {$\alpha $};
+	\node at ($(X)+(11:0.85)$) {$\gamma $};
+	\node at ($(Z)+(-100:0.35)$) {$\beta $};
+	\node at ($(Y)+(160:0.5)$) {$\alpha $};
+
+
+
+\end{tikzpicture}

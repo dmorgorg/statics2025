@@ -1,0 +1,1257 @@
+%!TEX option = --enable-write18
+
+\documentclass[9pt,xcolor={svgnames, x11names}]{beamer}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}  % for top and bottom spacing in table cells
+% \usepackage{mathpazo}
+\usepackage{textcomp}
+\usepackage{multirow}
+\usepackage{cancel}
+% \usepackage{lmodern}
+\usepackage{array}
+%\usepackage{enumerate}
+% \usepackage{enumitem} %causes compile error, stack size exceeded?
+\usepackage[many]{tcolorbox}
+\usepackage{verbatim}
+\usepackage{bm}
+\usepackage{graphicx}
+% \usepackage{tikz}
+% \usepackage{tkz-linknodes}
+\usepackage{gensymb} % for \degree
+\usepackage[export]{adjustbox} % for tight borders around photos
+% \usepackage{pgfmath}
+\usepgfmodule{oo}
+\usetikzlibrary{shapes,decorations,shadows,calc}
+\usetikzlibrary{decorations.shapes}
+\usetikzlibrary{shapes.callouts}
+
+\usetikzlibrary{positioning}
+\usetikzlibrary{decorations.text}
+\usetikzlibrary{decorations.pathmorphing}
+\usetikzlibrary{positioning,arrows.meta}
+\usetikzlibrary{decorations.markings}
+% bloody coils
+
+\usetikzlibrary{shapes.multipart}
+\tikzset{every picture/.append style={line cap=round}}
+
+\input{../../includes/macros.tex}
+% \input{../../includes/definedColors.tex}
+\input{../../includes/tikzObjects.tex}
+\input{../../includes/Roller.tex}
+\input{../../includes/Ronly.tex}
+\input{../../includes/Rone.tex}
+\input{../../includes/Rocker.tex}
+\input{../../includes/PinnedConnection.tex}
+\input{../../includes/EyeConnection.tex}
+\input{../../includes/EyeBolt.tex}
+\input{../../includes/WBeam.tex}
+\input{../../includes/WWBeam.tex}
+\input{../../includes/Channel.tex}
+\input{../../includes/DLOne.tex}
+\input{../../includes/Pulley.tex}
+
+
+% \usefonttheme{structureitalicserif} %make titles fancy ;-)
+\usefonttheme[onlymath]{serif}
+
+\usepackage[absolute,overlay]{textpos}
+\setlength{\TPHorizModule}{1.0cm}
+\setlength{\TPVertModule}{\TPHorizModule}
+\textblockorigin{0.0cm}{0.0cm}  %start all at upper left corner
+% \usepackage{hyperref}
+\hypersetup{colorlinks=true, urlcolor=saitMaroon}
+
+% \setlength{\parskip}{\medskipamount}
+% \setlength{\parindent}{0pt}
+
+% \usetheme{Antibes}
+
+% \usecolortheme[named=saitMaroon]{structure}
+\definecolor{structurecolor}{rgb}{0.55,0.53,0.31}
+\setbeamertemplate{items}[triangle]
+\setbeamertemplate{blocks}[rounded][shadow=false]
+\setbeamertemplate{headline}{\vspace{.1cm}}
+\setbeamertemplate{footline}{ \hfill \insertshorttitle\quad
+	\insertshortsubtitle
+	\quad \insertframenumber/\inserttotalframenumber\quad{ }\vspace{0.125cm}}
+\addtobeamertemplate{footline}{\hypersetup{linkcolor=.}}{}
+\setbeamertemplate{navigation symbols}{} % empty braces suppresses all navigation symbols
+\setbeamercolor{frametitle}{fg=Linen}
+% \setbeamercolor{block title}{fg=Linen,bg=structure}
+\setbeamercolor{block body}{bg=saitMaroon!25, fg=black}
+\setbeamercolor{background canvas}{bg=white}
+\setbeamersize{text margin left = 1cm, text margin right=1cm}
+
+\everymath{\displaystyle}
+
+\usepackage[export]{adjustbox}
+
+% \usepackage{pgf}
+
+
+\newcommand{\stcsfig}[2][1]{
+	\cfigb[saitMaroon]{1pt}{#1}{#2}
+	%\cfigb[black]{1pt}{#1}{#2}
+}
+% itemize indent
+\setlength{\leftmargini}{1.5em}
+\def\scale{1} % initialisation for pikz
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%define title content
+\title[statikz]{\Huge \textcolor{white}{$Sta$\textcolor{saitRed!50!white}{$TikZ$}}}
+\subtitle[]{\Large\textcolor{white}{Figures for Statics, using \LaTeX{}/Ti$k$Z}}
+
+
+\date{\small \textcolor{gray}{Updated on \today}}
+
+\raggedright
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\centering
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[plain]
+	\titlepage\
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Includes}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{includes: Channel.tex}
+
+	\tikz{
+		\coordinate (A) at (0,0);
+		% \Channel[rotate=0]{coordinate}{draw}{fill}{scale}{lineWidth}
+		\Channel{A}{llHeaderGrey}{dHeaderGrey}{1}{1}
+	}
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{includes: PinnedConnection.tex}
+	\tikz{
+		\coordinate (A) at (0,0);
+		% \PinnedConnection[rotate=0]{coordinate}{draw}{fill}{scale}{line width}
+		\PinnedConnection{A}{llHeaderGrey}{dHeaderGrey}{2}{1}
+	}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{includes: Pulley.tex}
+
+	\tikz{
+		\coordinate (A) at (0,0);
+		% \Pulley[rotate=0]{coordinate}{draw}{fill}{scale}{line width}
+		\Pulley{A}{Burlywood3}{dHeaderGrey}{2}{1}
+	}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{includes: Rocker.tex}
+
+	\tikz{
+		\coordinate (A) at (0,0);
+		% \Rocker[rotate=0]{coordinate}{draw}{fill}{scale}{line width}
+		\Rocker{A}{llHeaderGrey}{dHeaderGrey}{2}{1}
+	}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{includes: Roller.tex}
+
+	\tikz{
+		\coordinate (A) at (0,0);
+		% \Roller[rotate=0]{coordinate}{draw}{fill}{scale}{line width}
+		\Roller[-10]{A}{llHeaderGrey}{dHeaderGrey}{2}{1}
+	}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{includes: Rone.tex}
+
+	\tikz{
+		\coordinate (A) at (0,0);
+		% \Rone[rotate=0]{coordinate}{draw}{fill}{scale}{line width}
+		\Rone{A}{llHeaderGrey}{dHeaderGrey}{2}{1}
+	}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{includes: Ronly.tex}
+
+	\tikz{
+		\coordinate (A) at (0,0);
+		% \Ronly[rotate=0]{coordinate}{draw}{fill}{scale}{line width}
+		\Ronly{A}{llHeaderGrey}{dHeaderGrey}{2}{1}
+	}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{includes: WBeam.tex}
+
+	\tikz{
+		\coordinate (A) at (0,0);
+		% \WBeam[rotate=0]{coordinate}{draw}{fill}{scale}{line width}
+		\WBeam{A}{llHeaderGrey}{dHeaderGrey}{1}{1}
+	}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{includes: WWBeam.tex}
+
+	\tikz{
+		\coordinate (A) at (0,0);
+		% \WWBeam[rotate=0]{coordinate}{draw}{fill}{scale}{line width}
+		\WWBeam{A}{llHeaderGrey}{dHeaderGrey}{1}{1}
+	}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{01MathReview}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{math01.tex}
+	\def\scale{0.8}
+	\centering
+	\input{../../pikz/01MathReview/math01.tex}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{math02.tex}
+	\def\scale{0.8}
+	\centering
+	\input{../../pikz/01MathReview/math02.tex}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{math03.tex}
+	\def\scale{0.8}
+	\centering
+	\input{../../pikz/01MathReview/math03.tex}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{math04.tex}
+	\def\scale{0.8}
+	\centering
+	\input{../../pikz/01MathReview/math04.tex}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{math05.tex}
+	\def\scale{0.8}
+	\centering
+	\input{../../pikz/01MathReview/math05.tex}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{math06.tex}
+	\def\scale{0.8}
+	\centering
+	\input{../../pikz/01MathReview/math06.tex}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{math07.tex}
+	\def\scale{0.8}
+	\centering
+	\input{../../pikz/01MathReview/math07.tex}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{math11.tex}
+	\def\scale{0.8}
+	\centering
+	\input{../../pikz/01MathReview/math11.tex}
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{02ForceVectors}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{frame}{fv00.tex}
+	\def\scale{0.8}
+	\centering
+	\input{../../pikz/02ForceVectors/fv00}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{fv01.tex}
+	\def\scale{0.8}
+	\centering
+	\input{../../pikz/02ForceVectors/fv01}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{fv02.tex}
+	\def\scale{0.8}
+	\centering
+	\input{../../pikz/02ForceVectors/fv02}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{fv03.tex}
+	\def\scale{0.8}
+	\centering
+	\input{../../pikz/02ForceVectors/fv03}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{fv04.tex}
+	\def\scale{0.8}
+	\centering
+	\input{../../pikz/02ForceVectors/fv04}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{fv05.tex}
+	\def\scale{0.8}
+	\centering
+	\input{../../pikz/02ForceVectors/fv05}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{fv06.tex}
+	\def\scale{0.8}
+	\centering
+	\input{../../pikz/02ForceVectors/fv06}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{fv07.tex}
+	\def\scale{0.8}
+	\centering
+	\input{../../pikz/02ForceVectors/fv07}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{fv08.tex}
+	\def\scale{0.8}
+	\centering
+	\input{../../pikz/02ForceVectors/fv08}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{fv09.tex}
+	\def\scale{0.8}
+	\centering
+	\input{../../pikz/02ForceVectors/fv09}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{fv10.tex}
+	\def\scale{0.8}
+	\centering
+	\input{../../pikz/02ForceVectors/fv10}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{fv11.tex (Overlays --- blank on first)}
+	\def\scale{0.8}
+	\centering
+	\input{../../pikz/02ForceVectors/fv11}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{fv12.tex (Overlays)}
+	\def\scale{0.8}
+	\centering
+	\input{../../pikz/02ForceVectors/fv12}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{fv13.tex}
+	\def\scale{0.8}
+	\centering
+	\input{../../pikz/02ForceVectors/fv13}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{fv14.tex}
+	\def\scale{0.8}
+	\centering
+	\input{../../pikz/02ForceVectors/fv14}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{fv15.tex}
+	\def\scale{0.8}
+	\centering
+	\input{../../pikz/02ForceVectors/fv15}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{fv16.tex (Overlays)}
+	\def\scale{0.8}
+	\centering
+	\input{../../pikz/02ForceVectors/fv16}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{fv17.tex }
+	\def\scale{0.8}
+	\centering
+	\input{../../pikz/02ForceVectors/fv17}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{fv18.tex (Overlays)}
+	\def\scale{0.8}
+	\centering
+	\input{../../pikz/02ForceVectors/fv18}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{fv19.tex (Overlays)}
+	\def\scale{0.8}
+	\centering
+	\input{../../pikz/02ForceVectors/fv19}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{fv20.tex (Overlays)}
+	\def\scale{0.8}
+	\centering
+	\input{../../pikz/02ForceVectors/fv20}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{fv21.tex}
+	\def\scale{1}
+	\centering
+	\input{../../pikz/02ForceVectors/fv21}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{resultantMT1A2016.tex}
+	\def\scale{0.8}
+	\centering
+	\input{../../pikz/02ForceVectors/resultantMT1A2016}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{resultantMT1B2016.tex}
+	\def\scale{0.8}
+	\centering
+	\input{../../pikz/02ForceVectors/resultantMT1B2016}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{03EquiConc}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{03EquiConc01.tex -- Force Transmissability01}
+	\def\scale{1}
+	\centering
+	\input{../../pikz/03EquiConc/03EquiConc01.tex}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{03EquiConc02.tex -- Force Transmissability02}
+	\def\scale{1}
+	\centering
+	\input{../../pikz/03EquiConc/03EquiConc02.tex}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{03EquiConc03.tex -- Force Transmissability03}
+	\def\scale{1}
+	\centering
+	\input{../../pikz/03EquiConc/03EquiConc03.tex}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{03EquiConc04Springs.tex}
+	\def\scale{1}
+	\centering
+	\input{../../pikz/03EquiConc/03EquiConc04Springs.tex}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{equiConcMT1A2016.tex}
+	\def\scale{0.8}
+	\centering
+	\input{../../pikz/03EquiConc/equiConcMT1A2016.tex}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{equiConcMT1B2016.tex}
+	\def\scale{0.8}
+	\centering
+	\input{../../pikz/03EquiConc/equiConcMT1B2016.tex}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{04MoJ}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{thetruss.tex}
+% 	\def\scale{0.8}
+% 	\centering
+% 	\input{../../pikz/04MoJ/theTruss.tex}
+% \end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{truss1.tex (3 overlays)}
+% 	\def\scale{0.8}
+% 	\centering
+% 	\input{../../pikz/04MoJ/truss1.tex}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{truss1b.tex}
+% 	\def\scale{0.8}
+% 	\centering
+% 	\input{../../pikz/04MoJ/truss1b.tex}
+% \end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{tenscomp1.tex}
+% 	\def\scale{1}
+% 	\centering
+% 	\input{../../pikz/04MoJ/tenscomp1.tex}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{tenscomp2.tex}
+% 	\def\scale{1}
+% 	\centering
+% 	\input{../../pikz/04MoJ/tenscomp2.tex}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{tenscomp3.tex}
+% 	\def\scale{1}
+% 	\centering
+% 	\input{../../pikz/04MoJ/tenscomp3.tex}
+% \end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{tenscomp4.tex}
+% 	\def\scale{1}
+% 	\centering
+% 	\input{../../pikz/04MoJ/tenscomp4.tex}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{tenscomp5.tex}
+% 	\def\scale{1}
+% 	\centering
+% 	\input{../../pikz/04MoJ/tenscomp5.tex}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{tenscomp6.tex}
+% 	\def\scale{1}
+% 	\centering
+% 	\input{../../pikz/04MoJ/tenscomp6.tex}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{04truss03.tex}
+% 	\def\scale{1}
+% 	\centering
+% 	\input{../../pikz/04MoJ/04truss03.tex}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{04truss03Soln.tex (Solved Angles)}
+% 	\def\scale{1}
+% 	\centering
+% 	\input{../../pikz/04MoJ/04truss03Soln.tex}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{04truss03SolnJointA.tex }
+% 	\def\scale{1}
+% 	\centering
+% 	\input{../../pikz/04MoJ/04truss03SolnJointA.tex}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{04truss03Soln2.tex }
+% 	\def\scale{1}
+% 	\centering
+% 	\input{../../pikz/04MoJ/04truss03Soln2.tex}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{04truss03SolnJointG.tex }
+% 	\def\scale{1}
+% 	\centering
+% 	\input{../../pikz/04MoJ/04truss03SolnJointG.tex}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{04truss03Soln3.tex }
+% 	\def\scale{1}
+% 	\centering
+% 	\input{../../pikz/04MoJ/04truss03Soln3.tex}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{04truss03SolnJointB.tex }
+% 	\def\scale{1}
+% 	\centering
+% 	\input{../../pikz/04MoJ/04truss03SolnJointB.tex}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{04truss03Soln4.tex }
+% 	\def\scale{1}
+% 	\centering
+% 	\input{../../pikz/04MoJ/04truss03Soln4.tex}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{04truss03SolnJointF.tex }
+% 	\def\scale{1}
+% 	\centering
+% 	\input{../../pikz/04MoJ/04truss03SolnJointF.tex}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{04truss03Soln5.tex }
+% 	\def\scale{1}
+% 	\centering
+% 	\input{../../pikz/04MoJ/04truss03Soln5.tex}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{04truss03SolnJointC.tex  }
+% 	\def\scale{1}
+% 	\centering
+% 	\input{../../pikz/04MoJ/04truss03SolnJointC.tex}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{04truss03Soln6.tex }
+% 	\def\scale{1}
+% 	\centering
+% 	\input{../../pikz/04MoJ/04truss03Soln6.tex}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{04truss03Soln7.tex }
+% 	\def\scale{0.65}
+% 	\centering
+% 	\input{../../pikz/04MoJ/04truss03Soln7.tex}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{trussQuiz3A2016.tex}
+% 	\def\scale{0.5}
+% 	\centering
+% 	\input{../../pikz/04MoJ/trussQuiz3A2016.tex}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{trussQuiz3B2016.tex}
+% 	\def\scale{0.5}
+% 	\centering
+% 	\input{../../pikz/04MoJ/trussQuiz3B2016.tex}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{trussQuiz3C2016.tex}
+% 	\def\scale{0.5}
+% 	\centering
+% 	\input{../../pikz/04MoJ/trussQuiz3C2016.tex}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{trussQuiz3D2016.tex}
+% 	\def\scale{0.5}
+% 	\centering
+% 	\input{../../pikz/04MoJ/trussQuiz3D2016.tex}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{trussMT1A2016DM.tex}
+% 	\def\scale{0.7}
+% 	\centering
+% 	\input{../../pikz/04MoJ/trussMT1A2016DM.tex}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{trussMT1B2016DM.tex}
+% 	\def\scale{0.7}
+% 	\centering
+% 	\input{../../pikz/04MoJ/trussMT1B2016DM.tex}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{zero1A2016DM.tex}
+% 	\def\scale{0.7}
+% 	\centering
+% 	\input{../../pikz/04MoJ/zero1A2016DM.tex}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{zero1B2016DM.tex}
+% 	\def\scale{0.7}
+% 	\centering
+% 	\input{../../pikz/04MoJ/zero1B2016DM.tex}
+% \end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{05Moments}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{moments1.tex}
+	\def\scale{1}
+	\centering
+	\input{../../pikz/05Moments/moments1.tex}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{moments2.tex (3 overlays)}
+	\def\scale{1}
+	\centering
+	\input{../../pikz/05Moments/moments2.tex}
+\end{frame}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{moments3.tex (2 overlays)}
+	\def\scale{0.8}
+	\centering
+	\input{../../pikz/05Moments/moments3.tex}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{moments4.tex }
+	\def\scale{0.8}
+	\centering
+	\input{../../pikz/05Moments/moments4.tex}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{moments5.tex }
+	\def\scale{1}
+	\centering
+	\input{../../pikz/05Moments/moments5.tex}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{moments6.tex }
+	\def\scale{1}
+	\centering
+	\input{../../pikz/05Moments/moments6.tex}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{moments7.tex }
+	\def\scale{0.6}
+	\centering
+	\input{../../pikz/05Moments/moments7.tex}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{moments8.tex }
+	\def\scale{0.8}
+	\centering
+	\input{../../pikz/05Moments/moments8.tex}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{moments9.tex }
+	\def\scale{0.8}
+	\centering
+	\input{../../pikz/05Moments/moments9.tex}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{moments10.tex }
+	\def\scale{0.8}
+	\centering
+	\input{../../pikz/05Moments/moments10.tex}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{moments11.tex }
+	\def\scale{0.8}
+	\centering
+	\input{../../pikz/05Moments/moments11.tex}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{moments12.tex }
+	\def\scale{0.8}
+	\centering
+	\input{../../pikz/05Moments/moments12.tex}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{moments13.tex }
+	\def\scale{0.8}
+	\centering
+	\input{../../pikz/05Moments/moments13.tex}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{moments14.tex }
+	\def\scale{0.7}
+	\centering
+	\input{../../pikz/05Moments/moments14.tex}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{moments15.tex }
+	\def\scale{0.8}
+	\centering
+	\input{../../pikz/05Moments/moments15.tex}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{moments16.tex }
+	\def\scale{1}
+	\centering
+	\input{../../pikz/05Moments/moments16.tex}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{moments17.tex }
+	\def\scale{0.6}
+	\centering
+	\input{../../pikz/05Moments/moments17.tex}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{momentsQuiz4A2016.tex }
+	\def\scale{0.6}
+	\centering
+	\input{../../pikz/05Moments/momentQuiz4A2016.tex}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{momentsQuiz4B2016.tex }
+	\def\scale{0.6}
+	\centering
+	\input{../../pikz/05Moments/momentQuiz4B2016.tex}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{momentsQuiz4C2016.tex }
+	\def\scale{0.8}
+	\centering
+	\input{../../pikz/05Moments/momentQuiz4C2016.tex}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{momentsQuiz4D2016.tex }
+	\def\scale{0.8}
+	\centering
+	\input{../../pikz/05Moments/momentQuiz4D2016.tex}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{04Centroids}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{04centroids01.tex (Overlays, after first blank) }
+% 	\def\scale{0.8}
+% 	\centering
+% 	\input{../../pikz/04Centroids/04centroids01.tex}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{06cog01.tex}
+% 	\def\scale{0.8}
+% 	\centering
+% 	\input{../../pikz/04Centroids/04cog01.tex}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{04centroids02.tex}
+% 	\def\scale{0.8}
+% 	\centering
+% 	\input{../../pikz/04Centroids/04centroids02.tex}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{04centroids03.tex (Overlays)}
+% 	\def\scale{1}
+% 	\centering
+% 	\input{../../pikz/04Centroids/04centroids03.tex}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{04centroids04.tex }
+% 	\def\scale{1}
+% 	\centering
+% 	\input{../../pikz/04Centroids/04centroids04.tex}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{04centroids05.tex }
+% 	\def\scale{1}
+% 	\centering
+% 	\input{../../pikz/04Centroids/04centroids05.tex}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{04centroids06.tex }
+% 	\def\scale{1}
+% 	\centering
+% 	\input{../../pikz/04Centroids/04centroids06.tex}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{04centroids06.tex }
+% 	\def\scale{1}
+% 	\centering
+% 	\input{../../pikz/04Centroids/04centroids06.tex}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{04centroids07.tex }
+% 	\def\scale{1}
+% 	\centering
+% 	\input{../../pikz/04Centroids/04centroids07.tex}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{04centroids08.tex }
+% 	\def\scale{1}
+% 	\centering
+% 	\input{../../pikz/04Centroids/04centroids08.tex}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{04centroids09.tex }
+% 	\def\scale{1}
+% 	\centering
+% 	\input{../../pikz/04Centroids/04centroids09.tex}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{04centroids10.tex }
+% 	\def\scale{1}
+% 	\centering
+% 	\input{../../pikz/04Centroids/04centroids10.tex}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{04centroids11.tex }
+% 	\def\scale{1}
+% 	\centering
+% 	\input{../../pikz/04Centroids/04centroids11.tex}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{04centroids11a.tex }
+% 	\def\scale{1}
+% 	\centering
+% 	\input{../../pikz/04Centroids/04centroids11a.tex}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{04centroids11b.tex }
+% 	\def\scale{1}
+% 	\centering
+% 	\input{../../pikz/04Centroids/04centroids11b.tex}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{04centroids11c.tex }
+% 	\def\scale{1}
+% 	\centering
+% 	\input{../../pikz/04Centroids/04centroids11c.tex}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{04centroids12.tex }
+% 	\def\scale{1}
+% 	\centering
+% 	\input{../../pikz/04Centroids/04centroids12.tex}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{04centroids13.tex }
+% 	\def\scale{1}
+% 	\centering
+% 	\input{../../pikz/04Centroids/04centroids13.tex}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{04centroids14.tex }
+% 	\def\scale{1}
+% 	\centering
+% 	\input{../../pikz/04Centroids/04centroids14.tex}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{04centroids15.tex }
+% 	\def\scale{1}
+% 	\centering
+% 	\input{../../pikz/04Centroids/04centroids15.tex}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{WbeamA.tex }
+% 	\def\scale{1}
+% 	\centering
+% 	\input{../../pikz/04Centroids/WbeamA.tex}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{WbeamB.tex }
+% 	\def\scale{1}
+% 	\centering
+% 	\input{../../pikz/04Centroids/WbeamB.tex}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{04centroids16.tex }
+% 	\def\scale{1}
+% 	\centering
+% 	\input{../../pikz/04Centroids/04centroids16.tex}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{04centroids17.tex }
+% 	\def\scale{1}
+% 	\centering
+% 	\input{../../pikz/04Centroids/04centroids17.tex}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{04centroids24.tex }
+% 	\def\scale{1}
+% 	\centering
+% 	\input{../../pikz/04Centroids/04centroids24.tex}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{04centroids25.tex }
+% 	\def\scale{1}
+% 	\centering
+% 	\input{../../pikz/04Centroids/04centroids25.tex}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{04centroids18.tex }
+% 	\def\scale{0.75}
+% 	\centering
+% 	\input{../../pikz/04Centroids/04centroids18.tex}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{04centroids19.tex (Overlays)}
+% 	\def\scale{1}
+% 	\centering
+% 	\input{../../pikz/04Centroids/04centroids19.tex}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{04centroids20.tex }
+% 	\def\scale{1}
+% 	\centering
+% 	\input{../../pikz/04Centroids/04centroids20.tex}
+% \end{frame}
+%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{04centroids21.tex }
+% 	\def\scale{1}
+% 	\centering
+% 	\input{../../pikz/04Centroids/04centroids21.tex}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{04centroids22.tex }
+% 	\def\scale{1}
+% 	\centering
+% 	\input{../../pikz/04Centroids/04centroids22.tex}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{04centroids23.tex }
+% 	\def\scale{1}
+% 	\centering
+% 	\input{../../pikz/04Centroids/04centroids23.tex}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{channelSection.tex }
+% 	\def\scale{1}
+% 	\centering
+% 	\input{../../pikz/04Centroids/channelSection.tex}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{channelSectionA.tex }
+% 	\def\scale{.8}
+% 	\centering
+% 	\input{../../pikz/04Centroids/channelSectionA.tex}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{06Quiz5A.tex }
+% 	\def\scale{1}
+% 	\centering
+% 	\input{../../pikz/04Centroids/04Quiz5A.tex}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{06Quiz5B.tex }
+% 	\def\scale{1}
+% 	\centering
+% 	\input{../../pikz/04Centroids/04Quiz5B.tex}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{06Quiz5Aq2.tex }
+% 	\def\scale{.8}
+% 	\centering
+% 	\input{../../pikz/04Centroids/04Quiz5Aq2.tex}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{06Quiz5Bq2.tex }
+% 	\def\scale{.8}
+% 	\centering
+% 	\input{../../pikz/04Centroids/04Quiz5Bq2.tex}
+% \end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \section{07EquilibriumOfRigidBodies}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{07erb01.tex }
+% 	\def\scale{1}
+% 	\centering
+% 	\input{../../pikz/07EquilRigidBodies/07erb01.tex}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{07erb01b.tex }
+% 	\def\scale{1}
+% 	\centering
+% 	\input{../../pikz/07EquilRigidBodies/07erb01b.tex}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{07erb01c.tex }
+% 	\def\scale{1}
+% 	\centering
+% 	\input{../../pikz/07EquilRigidBodies/07erb01c.tex}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{07erb01FBD.tex }
+% 	\def\scale{1}
+% 	\centering
+% 	\input{../../pikz/07EquilRigidBodies/07erb01FBD.tex}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{07erb01FBD2.tex }
+% 	\def\scale{1}
+% 	\centering
+% 	\input{../../pikz/07EquilRigidBodies/07erb01FBD2.tex}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{07erb01FBDsmall.tex }
+% 	\def\scale{1}
+% 	\centering
+% 	\input{../../pikz/07EquilRigidBodies/07erb01FBDsmall.tex}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{07erb02.tex }
+% 	\def\scale{0.6}
+% 	\centering
+% 	\input{../../pikz/07EquilRigidBodies/07erb02.tex}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{07erb03.tex }
+% 	\def\scale{0.6}
+% 	\centering
+% 	\input{../../pikz/07EquilRigidBodies/07erb03.tex}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{07erb04.tex }
+% 	\def\scale{0.85}
+% 	\centering
+% 	\input{../../pikz/07EquilRigidBodies/07erb04.tex}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{07erb05.tex }
+% 	\def\scale{0.75}
+% 	\centering
+% 	\input{../../pikz/07EquilRigidBodies/07erb05.tex}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{07erb06.tex }
+% 	\def\scale{0.65}
+% 	\centering
+% 	\input{../../pikz/07EquilRigidBodies/07erb06.tex}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{07erb08.tex }
+% 	\def\scale{0.85}
+% 	\centering
+% 	\input{../../pikz/07EquilRigidBodies/07erb08.tex}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{07erb09.tex }
+% 	\def\scale{0.95}
+% 	\centering
+% 	\input{../../pikz/07EquilRigidBodies/07erb09.tex}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{07erb10.tex }
+% 	\def\scale{0.95}
+% 	\centering
+% 	\input{../../pikz/07EquilRigidBodies/07erb10.tex}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{07erb11.tex }
+% 	\def\scale{0.65}
+% 	\centering
+% 	\input{../../pikz/07EquilRigidBodies/07erb11.tex}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{07erb12.tex }
+% 	\def\scale{0.65}
+% 	\centering
+% 	\input{../../pikz/07EquilRigidBodies/07erb12.tex}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{07erb13.tex }
+% 	\def\scale{0.65}
+% 	\centering
+% 	\input{../../pikz/07EquilRigidBodies/07erb13.tex}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{07erbMT2A.tex }
+% 	\def\scale{1}
+% 	\centering
+% 	\scalebox{0.8}{
+% 		\input{../../pikz/07EquilRigidBodies/07erbMT2A.tex}
+% 	}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{07erbMT2B.tex }
+% 	\def\scale{1}
+% 	\centering
+% 	\scalebox{0.8}{
+% 		\input{../../pikz/07EquilRigidBodies/07erbMT2B.tex}
+% 	}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{07sf01.tex }
+% 	\def\scale{0.5}
+% 	\def\hi{0.25}
+% 	\def\radii{\hi}
+% 	\def\extend{\hi}
+% 	\centering
+% 	\scalebox{1}{
+% 		\input{../../pikz/07EquilRigidBodies/07sf01.tex}
+% 	}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \section{09ComplexFrames}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{09cf01.tex }
+% 	\def\scale{0.6}
+% 	\centering
+% 	\scalebox{1}{
+% 		\input{../../pikz/09ComplexFrames/09cf01.tex}
+% 	}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{09cf02.tex }
+% 	\def\scale{0.6}
+% 	\centering
+% 	\scalebox{0.75}{
+% 		\input{../../pikz/09ComplexFrames/09cf02.tex}
+% 	}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{09cf03.tex }
+% 	\def\scale{0.65}
+% 	\def\hi{0.25}
+% 	\def\radii{\hi}
+% 	\def\extend{\hi}
+% 	\centering
+% 	\scalebox{1}{
+% 		\input{../../pikz/09ComplexFrames/09cf03.tex}
+% 	}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{09cf04.tex }
+% 	\def\scale{0.75}
+% 	\def\hi{0.25}
+% 	\def\radii{\hi}
+% 	\def\extend{\hi}
+% 	\centering
+% 	\scalebox{0.75}{
+% 		\input{../../pikz/09ComplexFrames/09cf04.tex}
+% 	}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{09cf05.tex }
+% 	\def\scale{0.65}
+% 	\def\hi{0.25}
+% 	\def\radii{\hi}
+% 	\def\extend{\hi}
+% 	\centering
+% 	\scalebox{1}{
+% 		\input{../../pikz/09ComplexFrames/09cf05.tex}
+% 	}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{09cf06.tex }
+% 	\def\scale{0.65}
+% 	\def\hi{0.25}
+% 	\def\radii{\hi}
+% 	\def\extend{\hi}
+% 	\centering
+% 	\scalebox{1}{
+% 		\input{../../pikz/09ComplexFrames/09cf06.tex}
+% 	}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{09cf07.tex }
+% 	\def\scale{0.825}
+% 	\def\hi{0.25}
+% 	\def\radii{\hi}
+% 	\def\extend{\hi}
+% 	\centering
+% 	\scalebox{0.9}{
+% 		\input{../../pikz/09ComplexFrames/09cf07.tex}
+% 	}
+% \end{frame}
+%
+%
+%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{qwizm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{qwizmPikz/02FV/fv01qwizm.tex}
+	\def\scale{0.8}
+	\centering
+	\input{../../pikz/qwizmPikz/02FV/fv01qwizm.tex}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{qwizmPikz/04MoJ/moj01qwizm.tex}
+	\def\scale{0.8}
+	\centering
+	\input{../../pikz/qwizmPikz/04MoJ/moj01qwizm.tex}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{qwizmPikz/07CF/cf01qwizm.tex}
+	\def\scale{0.8}
+	\centering
+	\input{../../pikz/qwizmPikz/07CF/cf01qwizm.tex}
+\end{frame}
+
+
+
+
+\end{document}

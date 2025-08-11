@@ -1,0 +1,186 @@
+% counter for resuming enumerated list numbers
+\newcounter{resumeenumi}
+\newcommand{\suspend}{\setcounter{resumeenumi}{\theenumi}}
+\newcommand{\resume}{\setcounter{enumi}{\theresumeenumi}}
+
+\newcommand\lb{\linebreak}
+\newcommand\pars{\par\smallskip}
+\newcommand\parm{\par\medskip}
+\newcommand\parb{\par\bigskip}
+\providecommand\mcr{\color{red}}
+
+\makeatletter
+\providecommand{\gettikzxy}[3]{%
+	\tikz@scan@one@point\pgfutil@firstofone#1\relax
+	\edef#2{\the\pgf@x}%
+	\edef#3{\the\pgf@y}%
+}
+\makeatother
+
+
+
+% full width colored block but color specifiable
+%\cb[body bg strength]{header bg}{header text}{body text}
+\newcommand{\cb}[4][15]{
+	\setbeamercolor{block title}{bg = #2}
+	\setbeamercolor{block body}{bg = #2!#1}
+	\setbeamercolor{item projected}{bg=#2, fg=white}
+	\begin{center}
+		\begin{block}{#3}
+			#4
+		\end{block}
+	\end{center}
+}
+
+% colored block with width specified
+% \cbw[body bg strength]{header bg}{width}{header text}{body text}
+\newcommand{\cbw}[5][15]{
+	\begin{center}
+		%\vspace{-0.35cm}
+		\begin{minipage}{#3\textwidth}
+			\setbeamercolor{block title}{bg= #2}
+			\setbeamercolor{block body}{bg= #2!#1}
+			\setbeamercolor{item projected}{bg=#2, fg=white}
+			\begin{block}{#4}
+				\raggedright
+				#5
+			\end{block}
+		\end{minipage}
+	\end{center}
+}
+
+% centered minipage with text \raggedright
+%\cmini[width]{content}
+\newcommand{\cmini}[2][0.8]{
+	\begin{center}
+		\begin{minipage}{#1\columnwidth}
+			\raggedright
+			#2
+		\end{minipage}
+	\end{center}
+}
+
+%left flushed minipage
+\newcommand{\mini}[2][0.8]{
+	\begin{minipage}{#1\columnwidth}
+		\raggedright
+		#2
+	\end{minipage}
+}
+
+%left flushed minipage
+\newcommand{\minit}[2][0.8]{
+	\begin{minipage}[t]{#1\columnwidth}
+		\raggedright
+		#2
+	\end{minipage}
+}
+
+%left flushed minipage
+\newcommand{\miniT}[2][0.8]{
+	\begin{minipage}[T]{#1\columnwidth}
+		\raggedright
+		#2
+	\end{minipage}
+}
+
+%left flushed minipage
+\newcommand{\minib}[2][0.8]{
+	\begin{minipage}[b]{#1\columnwidth}
+		\raggedright
+		#2
+	\end{minipage}
+}
+
+\newcommand{\cfig}[2][1]{% centred, scaled graphic
+	\begin{center}
+		\includegraphics[scale=#1]{#2}
+	\end{center}
+}
+% figure with tight border for photos
+% \cfigb[saitMaroon]{borderwidth with unit}{scale}{image}
+\newcommand{\cfigb}[4][structure]{
+	% \usepackage{adjustbox}
+	\setlength{\fboxrule}{1pt}
+	\begin{center}
+		\includegraphics[scale=#3, cframe= #1 #2]{#4}
+	\end{center}
+}
+
+\newcommand{\imgbox}[3]{
+	% \setlength{\fboxsep}{12pt}
+	\includegraphics[scale=#1, cframe= structure #3]{#2}
+}
+
+% \imgboxbg[bg color=white]{scale}{path/to/img}{border, e.g. 2pt}{margin, e.g. 4pt}
+\newcommand{\imgboxbg}[5][white]{
+	\setlength{\fboxrule}{#4}
+	\setlength{\fboxsep}{#5}
+	\fcolorbox{structure}{#1}{\includegraphics[scale=#2]{#3}}
+}
+
+\newcommand{\fig}[2][1]{% scaled graphic
+
+	\includegraphics[scale=#1]{#2}
+
+}
+
+% centred framed colored box black border
+%\cbox[width]{content}
+\newcommand{\cbox}[2][1]{% framed centered color box
+	\setlength\fboxsep{5mm}
+	\setlength\fboxrule{.2 mm}
+	\begin{center}
+		\fcolorbox{black}{white}{
+			\vspace{-0.5cm}
+			\begin{minipage}{#1\columnwidth}
+				\raggedright
+				#2
+			\end{minipage}
+		}
+	\end{center}
+	\setlength\fboxsep{0cm}
+}
+
+
+% requires \usepackage[many]{tcolorbox}
+\newtcolorbox{mybox}[1][]
+{
+	colback=white,
+	top=0.125cm,
+	bottom=0.125cm,
+	left=0pt,
+	right=0pt,
+	colframe=structure,
+	fonttitle=\bfseries,
+	enhanced, drop fuzzy shadow,
+	attach boxed title to top left={yshift=-2mm, xshift=3.5mm}, colbacktitle=structure, #1}
+
+% requires \usepackage[many]{tcolorbox}
+\newtcolorbox{plainbox}[1][]{colback=white, sharp corners, top=0.125cm, bottom=0.125cm, left=0pt, right=0pt, boxrule=0.5pt,colframe=structure,fonttitle=\bfseries, colbacktitle=structure, arc=0mm, #1}
+
+% requires \usepackage[many]{tcolorbox}
+\newtcbtheorem{myexam}{Example}%
+{
+	enhanced,
+	colback=white,
+	colframe=saitMaroon,
+	fonttitle=\bfseries,
+	drop fuzzy shadow,
+	%description font=\mdseries\itshape,
+	attach boxed title to top left={yshift=-2mm, xshift=5mm},
+	colbacktitle=saitMaroon
+	}{exam}% then \pageref{exer:theoexample} references the theo
+
+% requires \usepackage[many]{tcolorbox}
+\newtcbtheorem{myexer}{Exercise}%
+{
+	enhanced,
+	colback=white,
+	colframe=saitMaroon,
+	fonttitle=\bfseries,
+	drop fuzzy shadow,
+	%description font=\mdseries\itshape,
+	attach boxed title to top left={yshift=-2mm, xshift=5mm},
+	colbacktitle=saitMaroon
+	}{exer}

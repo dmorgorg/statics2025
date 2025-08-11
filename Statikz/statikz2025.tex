@@ -1,0 +1,156 @@
+%!TEX option = --enable-write18
+
+\documentclass[9pt, xcolor={svgnames, x11names}]{beamer}
+
+\input{../includes/definedColors.tex}
+\input{../includes/macros.tex}
+\input{../includes/Member.tex}
+\input{../includes/PC.tex}
+\input{../includes/DL.tex}
+% \input{../includes/all.tex}
+
+\usepackage{mathtools}
+\usefonttheme[onlymath]{serif} 
+\usepackage{pxfonts} % for mathpazo font
+\usepackage{verbatim}
+
+\setbeamertemplate{navigation symbols}{} % remove navigation symbols
+\setbeamertemplate{headline}{\vspace{0.125cm}}
+\setbeamertemplate{footline}{ \hfill \insertshorttitle\qquad \insertsection \qquad \insertframenumber/\inserttotalframenumber\quad{ }\vspace{0.125cm}}
+\setbeamertemplate{items}[default]
+\setbeamertemplate{blocks}[shadow=true]
+
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, math, calc, shadings}
+\usepackage{pgfmath}
+% \usepgflibrary{shadings}
+
+\usecolortheme[named=saitMaroon]{structure}
+\setbeamercolor{title}{bg=saitMaroon, fg=Azure}
+\setbeamercolor{frametitle}{fg=white, bg=saitMaroon}
+\setbeamercolor{block title}{bg=saitMaroon, fg=white}
+\setbeamercolor{block body}{bg=MistyRose, fg=black}
+
+\setlength{\parskip}{\medskipamount}
+\setlength{\parindent}{0pt}
+
+\renewcommand{\ttdefault}{pcr}
+\verbatimfont{\ttfamily\footnotesize\color{black}}
+
+
+
+
+
+% Title page details: 
+\title[StaTikz]{\Huge Sta\textcolor{black}{Ti\textit{k}Z}}
+\subtitle[]{\Large Figures for Statics, using \textcolor{black}{\LaTeX{}} and \textcolor{black}{Ti\textit{k}Z}}
+\author{Dave Morgan}
+\date{\small Updated on: \today}
+
+\begin{document}
+\centering
+\small
+
+% Title page frame
+\begin{frame}[plain]
+    \titlepage
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{includes}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{/includes/Member.tex}
+
+			\begin{verbatim}
+					\coordinate (A) at (0,0);
+					\coordinate (B) at (3,2);		
+					\Member{A}{B}{RosyBrown4}{RosyBrown2}{Black}{0.25}{1.25}{0.5}		
+			\end{verbatim}
+	
+	\tikz{		
+			\coordinate (A) at (0,0);
+			\coordinate (B) at (3,2);		
+			\Member{A}{B}{RosyBrown4}{RosyBrown2}{Black}{0.25}{1.25}{0.5}			
+	}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{/includes/Member.tex}
+	\tikzset {
+		bbx/.style={red,thick}
+	}
+	\tikz{		
+			\coordinate (A) at (0,0);
+			\coordinate (B) at (3,0);
+			\coordinate (C) at ($ (B) + (216:3) $);	
+			\coordinate (D) at ($ (C) + (72:3) $);	
+			\coordinate (E) at ($ (D) + (-72:3) $);	
+			\Member{A}{B}{RosyBrown4}{RosyBrown2}{Black}{0.25}{1.25}{0.5}
+			\Member{B}{C}{DarkSeaGreen4}{DarkSeaGreen2}{Black}{0.25}{1.25}{0.5}
+			\Member{C}{D}{Goldenrod4}{Goldenrod2}{Black}{0.25}{1.25}{0.5}
+			\Member{D}{E}{LightCyan4}{LightCyan2}{Black}{0.25}{1.25}{0.5}
+			\Member{E}{A}{SkyBlue4}{SkyBlue2}{Black}{0.25}{1.25}{0.5}
+			\Member{D}{E}{LightCyan4}{LightCyan2}{Black}{0.25}{1.25}{0.5}
+			  % the transform in Member messes with the bounding box, including the coordinate of the temporary horizontal member so resetting it here removes it entirely. The path following resets it to the coordinates.
+			\pgfresetboundingbox
+			\path (A)--(B)--(C)--(D)--(E)--cycle;
+			\draw[bbx](current bounding box.south west) rectangle (current bounding box.north east);
+	}
+	
+
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{/includes/PC.tex \qquad (a pinned connection)}	
+
+				\begin{verbatim}
+					\tikz{
+							\coordinate (A) at (0,0);
+							% \PC[rotate=0]{coordinate}{draw}{fill}{scale}{line width}
+							\PC[30]{A}{Cornsilk2}{black}{1.5}{0.25}
+					} 
+				\end{verbatim}
+
+	\tikz{
+		\coordinate (A) at (0,0);
+		\PC[30]{A}{Cornsilk2}{black}{1.5}{0.25}
+	}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{/includes/DL.tex}	
+
+										\begin{verbatim}
+											\begin{scope}[rotate=10, scale=1.75]
+												\coordinate (tl) at (0,0);
+												\coordinate (tr) at (4,1);
+												\coordinate (base) at (0,0);		
+												\DL{tl}{tr}{base}{Cornsilk2}{Red4}{10}{0.25}{6}
+											\end{scope}
+										\end{verbatim}
+
+	\begin{itemize}
+		\item There is an optional first argument \verb|[0]| to specify an upward load. The default argument \verb|[1]| specifies force down.
+		\item The arguments, in order, are force direction, first load coordinate, second load coordinate, a coordinate for the base, fill colour, line colour, number of spaces between directed line segments, the line width (mm) and the arrow tip length (mm). 
+	\end{itemize}	
+
+	\tikz{
+		\begin{scope}[rotate=10, scale=1.75]
+			\coordinate (tl) at (0,0);
+			\coordinate (tr) at (4,1);
+			\coordinate (base) at (0,0);		
+			\DL{tl}{tr}{base}{Cornsilk2}{Cornsilk4}{10}{0.25}{6}
+		\end{scope}	
+	}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document}

@@ -1,0 +1,231 @@
+% \begin{comment}
+% Shadings are useful to give the illusion of 3D in examples and exercises presented to engineering technology students.
+% Vertical and horizontal shadings of rectangles are fairly straightforward to produce with the shading library included in
+% a recent build of Tikz.
+% Rotation of shaded squares is also intuitive, but rotation of a shaded rectangle appears to be both a function of the specified
+% rotation angle and the length to width ratio of the rectangle. This makes aligning the shading of a rotated rectangle's
+% fill with the stroke of a rotated rectangle a bit of an inelegant trial-and-error exercise (for me, at any rate).
+%
+%
+% \end{comment}
+
+%http://tex.stackexchange.com/questions/33703/extract-x-y-coordinate-of-an-arbitrary-point-in-tikz
+\makeatletter
+\providecommand{\gettikzxy}[3]{%
+	\tikz@scan@one@point\pgfutil@firstofone#1\relax
+	\edef#2{\the\pgf@x}%
+	\edef#3{\the\pgf@y}%
+}
+\makeatother
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% A CLASS FOR ROTATED RECTANGLES WITH A SHADED FILL %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+		\pgfooclass{rrect}{
+			\method rrect(#1,#2,#3,#4,#5,#6,#7,#8,#9) { % The constructor; everything is done in here
+			\def\pt2cm{28.4556}
+			\gettikzxy{(#1)}{\spx}{\spy}
+			\gettikzxy{(#2)}{\epx}{\epy}
+				\def\outercolor{#3} \def\innercolor{#4}
+				\def\stroke{#5} \def\HI{#6} \def\RADII{#7} \def\extend{#8} \def\LINEWIDTH{#9}
+				\pgfmathparse{divide(\spx,\pt2cm)} \let\STARTX\pgfmathresult
+				\pgfmathparse{divide(\spy,\pt2cm)} \let\STARTY\pgfmathresult
+				\pgfmathparse{divide(\epy,\pt2cm)} \let\ENDY\pgfmathresult
+				\pgfmathparse{divide(\epx,\pt2cm)} \let\ENDX\pgfmathresult
+				\pgfmathparse{\ENDX-\STARTX} \let\deltaX\pgfmathresult
+				\pgfmathparse{\ENDY-\STARTY} \let\deltaY\pgfmathresult
+				\ifthenelse{\equal{\deltaX}{0.0}}
+				{	% vertical rod is a special case; otherwise atan gets a div by 0 error
+					\pgfmathparse{\ENDY>\STARTY} \let\ccw\pgfmathresult
+					\ifthenelse{\equal{\ccw}{1}}{%
+						\def\rot{90}}
+					{\def\rot{-90}}}
+			{	% not vertical
+				\pgfmathparse{\STARTX<\ENDX} \let\iseast\pgfmathresult
+				\ifthenelse{\equal{\iseast}{1}}{%
+					\pgfmathparse{atan(\deltaY/\deltaX)} \let\rot\pgfmathresult
+				} % end is east
+				{
+					\pgfmathparse{180+atan(\deltaY/\deltaX)} \let\rot\pgfmathresult
+				} % end !east
+				}
+				%shading boundaries work for vertical and horizontal but otherwise ``spills'' outside it supposed boundaries,
+				%particularly at multiples of 45deg
+				%make some adjustments from a max at 45 to nothing at 0 or 90
+				\pgfmathparse{abs(\deltaY)} \let\absdeltaY\pgfmathresult
+				\pgfmathparse{abs(\deltaX)} \let\absdeltaX\pgfmathresult
+				%\def\shadeangle{-42}
+				\ifthenelse{\equal{\deltaX}{0.0}}
+				{\def\shadeangle{0.0}}
+				{\pgfmathparse{\absdeltaY > \absdeltaX} \let\foo\pgfmathresult
+					\ifthenelse{\equal{\foo}{1}}
+					{\pgfmathparse{90-atan(\absdeltaY/\absdeltaX)} \let\shadeangle\pgfmathresult}
+					{\pgfmathparse{atan(\absdeltaY/\absdeltaX)} \let\shadeangle\pgfmathresult}
+				}
+				\pgfmathparse{tan(\shadeangle)} \let\fudge\pgfmathresult
+				\pgfmathparse{veclen(\deltaX,\deltaY)} \let\len\pgfmathresult
+				\pgfmathparse{max(\HI,\len+2*\extend)} \let\shadeboxside\pgfmathresult
+				\pgfmathparse{50-25/\shadeboxside*\HI+8*\HI*\fudge/\shadeboxside} \let\mybot\pgfmathresult
+				\pgfmathparse{50+25/\shadeboxside*\HI-8*\HI*\fudge/\shadeboxside} \let\mytop\pgfmathresult
+				\pgfdeclareverticalshading{myshade}{100bp}{%
+					color(0bp)=(\outercolor);
+					color(\mybot bp)=(\outercolor);
+					color(50 bp)=(\innercolor);
+					color(\mytop bp)=(\outercolor);
+					color(100bp)=(\outercolor)}
+				\tikzset{shading=myshade}
+				\begin{scope}	[rotate around = {\rot:(\STARTX, \STARTY )}]
+					\begin{scope}
+						\draw[clip, rounded corners = 0.5*\scale*\RADII cm] (\STARTX-\extend/2,\STARTY-\HI/2) rectangle +(\len+2*\extend/2,\HI);
+						\shade[ shading angle=\rot] (\STARTX-\extend,\STARTY-\shadeboxside/2) rectangle +(\shadeboxside, \shadeboxside);
+					\end{scope} %end clipping
+					\draw[rounded corners=0.5*\scale*\RADII cm, \stroke, line width=\LINEWIDTH mm] (\STARTX-\extend/2,\STARTY-\HI/2) rectangle +(\len+2*\extend/2,\HI);
+				\end{scope}
+				} % end of constructor
+				} % end of rrect class
+
+		\pgfooclass{rr}{
+			\method rr(#1,#2,#3,#4,#5) { % The constructor; everything is done in here
+				% Here I can get named x and y coordinates
+				\def\phil{#3} \def\stroke{#4} \def\line{#5}
+				\gettikzxy{(#1)}{\spx}{\spy}
+				\gettikzxy{(#2)}{\epx}{\epy}
+				% I'd like named points to work with
+				\coordinate (Start) at (\spx, \spy);
+				\coordinate (End) at (\epx, \epy);
+				% Find the length between start and end. Then the angle between x axis and Diff will be the rotation to apply.
+				\coordinate (Diff) at ($ (End)-(Start) $);
+				\gettikzxy{(Diff)}{\dx}{\dy}
+				\pgfmathparse{veclen(\dx, \dy)} \pgfmathresult
+				\let\length\pgfmathresult
+				\pgfmathparse{\dx==0}%
+				% \ifnum low-level TeX for integers
+				\ifnum\pgfmathresult=1 % \dx == 0
+					\pgfmathsetmacro{\rot}{\dy > 0 ? 90 : -90}
+				\else% \dx != 0
+					\pgfmathsetmacro{\rot}{\dx > 0 ? atan(\dy / \dx) : 180 + atan(\dy / \dx)}
+				\fi
+				\begin{scope}	[rotate around ={\rot:(Start)}]
+					% \filldraw[ultra thick, fill=\phil, draw=\stroke] ($ (Start)+(0,\HI) $) arc(90:270:\HI) -- +(\length pt, 0) arc(-90:90:\HI) -- cycle;
+					\filldraw[rounded corners=\scale*\radii cm, line width=\line mm, fill=\phil, draw=\stroke] (\spx-\extend cm,\spy-\hi cm) rectangle +(2*\extend cm + \length pt, 2*\hi cm);
+				\end{scope}
+			}
+		}
+
+		\pgfooclass{rr2}{
+			\method rr2(#1,#2,#3,#4,#5,#6,#7,#8,#9) { % The constructor; everything is done in here
+				% Here I can get named x and y coordinates
+				\def\phil{#3} \def\innercolor{#4} \def\stroke{#5} \def\HI{#6} \def\RADII{#7} \def\extend{#8} \def\LINEWIDTH{#9}
+				\gettikzxy{(#1)}{\spx}{\spy}
+				\gettikzxy{(#2)}{\epx}{\epy}
+				% I'd like named points to work with
+				\coordinate (Start) at (\spx, \spy);
+				\coordinate (End) at (\epx, \epy);
+				% Find the length between start and end. Then the angle between x axis and Diff will be the rotation to apply.
+				\coordinate (Diff) at ($ (End)-(Start) $);
+				\gettikzxy{(Diff)}{\dx}{\dy}
+				\pgfmathparse{veclen(\dx, \dy)} \pgfmathresult
+				\let\length\pgfmathresult
+				\pgfmathparse{\dx==0}%
+				% \ifnum low-level TeX for integers
+				\ifnum\pgfmathresult=1 % \dx == 0
+					\pgfmathsetmacro{\rot}{\dy > 0 ? 90 : -90}
+				\else% \dx != 0
+					\pgfmathsetmacro{\rot}{\dx > 0 ? atan(\dy / \dx) : 180 + atan(\dy / \dx)}
+				\fi
+				\begin{scope}	[transform canvas = { rotate around = {\rot:(\spx,\spy)}}]
+					% \filldraw[ultra thick, fill=\phil, draw=\stroke] ($ (Start)+(0,\HI) $) arc(90:270:\HI) -- +(\length pt, 0) arc(-90:90:\HI) -- cycle;
+					\filldraw[rounded corners=\scale*\RADII cm, line width=\LINEWIDTH mm, top color=\phil, bottom color=\phil, middle color=\innercolor, draw=\stroke] (\spx-\extend cm,\spy-\HI cm) rectangle +(2*\extend cm + \length pt, 2*\HI cm);
+				\end{scope}
+			}
+		}
+
+		% \pgfooclass{beam}{
+		% 	\method beam(#1,#2,#3,#4,#5) { % The constructor; everything is done in here
+		% 		% Here I can get named x and y coordinates
+		% 		\def\phil{#3} \def\stroke{#4} \def\line{#5}
+		% 		\gettikzxy{(#1)}{\spx}{\spy}
+		% 		\gettikzxy{(#2)}{\epx}{\epy}
+		% 		% I'd like named points to work with
+		% 		\coordinate (Start) at (\spx, \spy);
+		% 		\coordinate (End) at (\epx, \epy);
+		% 		% Find the length between start and end. Then the angle between x axis and Diff will be the rotation to apply.
+		% 		\coordinate (Diff) at ($ (End)-(Start) $);
+		% 		\gettikzxy{(Diff)}{\dx}{\dy}
+		% 		\pgfmathparse{veclen(\dx, \dy)} \pgfmathresult
+		% 		\let\length\pgfmathresult
+		% 		\pgfmathparse{\dx==0}%
+		% 		% \ifnum low-level TeX for integers
+		% 		\ifnum\pgfmathresult=1 % \dx == 0
+		% 			\pgfmathsetmacro{\rot}{\dy > 0 ? 90 : -90}
+		% 		\else% \dx != 0
+		% 			\pgfmathsetmacro{\rot}{\dx > 0 ? atan(\dy / \dx) : 180 + atan(\dy / \dx)}
+		% 		\fi
+		% 		\begin{scope}	[rotate around = {\rot:(\spx, \spy )}]
+		% 			\fill[\phil] (\spx-\extend cm,\spy-\HI cm) rectangle +( 2*\extend cm + \length pt, 2*\HI cm );
+		% 			\draw[draw=\stroke, line width=\line mm] (\spx-\extend cm,\spy-\HI cm) -- +(2*\extend cm + \length pt, 0);
+		% 			\draw[draw=\stroke, line width=\line mm] (\spx-\extend cm,\spy+\HI cm) -- +(2*\extend cm + \length pt, 0);
+		% 		\end{scope}
+		% 	}
+		% }
+
+		\pgfooclass{beam}{
+			\method beam(#1,#2,#3,#4,#5,#6,#7) { % The constructor; everything is done in here
+				% Here I can get named x and y coordinates
+				\def\phil{#3} \def\stroke{#4} \def\HI{#5} \def\extend{#6} \def\LINEWIDTH{#7}
+				\gettikzxy{(#1)}{\spx}{\spy}
+				\gettikzxy{(#2)}{\epx}{\epy}
+				% I'd like named points to work with
+				\coordinate (Start) at (\spx, \spy);
+				\coordinate (End) at (\epx, \epy);
+				% Find the length between start and end. Then the angle between x axis and Diff will be the rotation to apply.
+				\coordinate (Diff) at ($ (End)-(Start) $);
+				\gettikzxy{(Diff)}{\dx}{\dy}
+				\pgfmathparse{veclen(\dx, \dy)} \pgfmathresult
+				\let\length\pgfmathresult
+				\pgfmathparse{\dx==0}%
+				% \ifnum low-level TeX for integers
+				\ifnum\pgfmathresult=1 % \dx == 0
+					\pgfmathsetmacro{\rot}{\dy > 0 ? 90 : -90}
+				\else% \dx != 0
+					\pgfmathsetmacro{\rot}{\dx > 0 ? atan(\dy / \dx) : 180 + atan(\dy / \dx)}
+				\fi
+				\begin{scope}	[rotate around = {\rot:(\spx, \spy )}]
+					\fill[\phil] (\spx-\extend cm,\spy-\HI cm) rectangle +( 2*\extend cm + \length pt, 2*\HI cm );
+					\draw[draw=\stroke, line width=\LINEWIDTH mm] (\spx-\extend cm,\spy-\HI cm) -- +(2*\extend cm + \length pt, 0);
+					\draw[draw=\stroke, line width=\LINEWIDTH mm] (\spx-\extend cm,\spy+\HI cm) -- +(2*\extend cm + \length pt, 0);
+				\end{scope}
+			}
+		}
+
+		% \pgfooclass{bottomChord}{
+		% 	\method beam(#1,#2,#3,#4,#5) { % The constructor; everything is done in here
+		% 		% Here I can get named x and y coordinates
+		% 		\def\phil{#3} \def\stroke{#4} \def\line{#5}
+		% 		\gettikzxy{(#1)}{\spx}{\spy}
+		% 		\gettikzxy{(#2)}{\epx}{\epy}
+		% 		% I'd like named points to work with
+		% 		\coordinate (Start) at (\spx, \spy);
+		% 		\coordinate (End) at (\epx, \epy);
+		% 		% Find the length between start and end. Then the angle between x axis and Diff will be the rotation to apply.
+		% 		\coordinate (Diff) at ($ (End)-(Start) $);
+		% 		\gettikzxy{(Diff)}{\dx}{\dy}
+		% 		\pgfmathparse{veclen(\dx, \dy)} \pgfmathresult
+		% 		\let\length\pgfmathresult
+		% 		\pgfmathparse{\dx==0}%
+		% 		% \ifnum low-level TeX for integers
+		% 		\ifnum\pgfmathresult=1 % \dx == 0
+		% 			\pgfmathsetmacro{\rot}{\dy > 0 ? 90 : -90}
+		% 		\else% \dx != 0
+		% 			\pgfmathsetmacro{\rot}{\dx > 0 ? atan(\dy / \dx) : 180 + atan(\dy / \dx)}
+		% 		\fi
+		% 		\begin{scope}	[rotate around = {\rot:(\spx, \spy )}]
+		% 			% \fill[\phil] (\spx-\extend cm,\spy-\HI cm) rectangle +(2*\extend cm + \length pt, 2*\HI cm);
+		% 			% \draw[draw=\stroke, line width=\line mm] (\spx-\extend cm,\spy-\HI cm) -- +(2*\extend cm + \length pt, 0);
+		%
+		% 			\draw[draw=\stroke, line width=\line mm] (\spx-\extend cm,\spy+\HI cm) -- +(2*\extend cm + \length pt, 0);
+		% 			\draw[draw=\stroke, line width=\line mm] (\spx-\extend cm,\spy+\HI cm) -- +(2*\extend cm + \length pt, 0);
+		% 		\end{scope}
+		% 	}
+		% }

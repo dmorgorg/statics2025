@@ -1,0 +1,24 @@
+\input{../../includes/macros}
+\input{../../Includes/definedColors.tex}
+\input{../../Includes/tikzObjects.tex}
+\input{../../Includes/Channel.tex}
+\input{../../Includes/DLOne.tex}
+\input{../../Includes/EyeBolt.tex}
+\input{../../includes/EyeConnection.tex}
+\input{../../Includes/PinnedConnection.tex}
+\input{../../Includes/Pulley.tex}
+\input{../../Includes/Ring.tex}
+\input{../../Includes/Rocker.tex}
+\input{../../Includes/Roller.tex}
+\input{../../Includes/Rone.tex}
+\input{../../Includes/Ronly.tex}
+\input{../../Includes/Wbeam.tex}
+\input{../../Includes/WWbeam.tex}
+
+\makeatletter
+\providecommand{\gettikzxy}[3]{%
+	\tikz@scan@one@point\pgfutil@firstofone#1\relax
+	\edef#2{\the\pgf@x}%
+	\edef#3{\the\pgf@y}%
+}
+\makeatother

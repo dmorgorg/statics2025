@@ -1,0 +1,25 @@
+\frametitle{/includes/DL.tex}
+
+										\begin{verbatim}
+											\begin{scope}[rotate=10, scale=1.75]
+												\coordinate (tl) at (0,0);
+												\coordinate (tr) at (4,1);
+												\coordinate (base) at (0,0);		
+												\DL{tl}{tr}{base}{Cornsilk2}{Red4}{10}{0.25}{6}
+											\end{scope}
+										\end{verbatim}
+
+	\begin{itemize}
+		\item There is an optional first argument \verb|[0]| to specify an upward load. The default argument \verb|[1]| specifies force down.
+		\item The arguments, in order, are force direction, first load coordinate, second load coordinate, a coordinate for the base, fill colour, line colour, number of spaces between directed line segments, the line width (mm) and the arrow tip length (mm).
+	\end{itemize}	
+
+	\tikz{
+		\begin{scope}[rotate=10, scale=1.75]
+			\coordinate (tl) at (0,0);
+			\coordinate (tr) at (4,1);
+			\coordinate (base) at (0,0);		
+			\DL{tl}{tr}{base}{Cornsilk2}{Cornsilk4}{10}{0.25}{6}
+		\end{scope}	
+	}
+

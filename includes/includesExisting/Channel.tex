@@ -1,0 +1,15 @@
+% !TEX root = ../Beamer/statikz/statikz.tex
+
+% \Channel[rotate=0]{coordinate}{draw}{fill}{scale}{lineWidth}
+\newcommand{\Channel}[6][0]{
+	\def\rotate{#1};
+	\def\mid{#2}
+	\def\lfill{#3}
+	\def\lstroke{#4}
+	\def\scale{#5};
+	\def\lineWidth{#6};
+
+	\begin{scope}[rounded corners=1pt, scale=\scale, rotate=\rotate]
+		\filldraw[draw=\lstroke, fill=\lfill, line width=\lineWidth pt] ($(\mid) + (0,-3) $) -- ++(1.7,0) arc(0:85:0.25) -- ($ (\mid)+(0.4,-2.6) $) -- ($ (\mid)+(0.4,2.6) $) -- +(8.13:1.097)arc(-81.87:0:0.25) -- ($ (\mid)+(0,3) $)  -- cycle;
+	\end{scope}
+}

@@ -1,0 +1,15 @@
+% !TEX root = ../Beamer/statikz/statikz.tex
+
+% \WBeam[rotate=0]{coordinate}{draw}{fill}{scale}{line width}
+\providecommand{\WBeam}[6][0]{
+	\def\lrotate{#1}
+	\def\lcentroid{#2}
+	\def\lfill{#3}
+	\def\ldraw{#4}
+	\def\lscale{#5}
+	\def\llineWidth{#6}
+
+	\begin{scope}[rounded corners=1pt, scale=\lscale, rotate=\lrotate]
+		\filldraw[draw=\ldraw, fill=\lfill, line width=\llineWidth pt] ($(\lcentroid) + (-2,-3) $) -- ++(4,0) -- ++(0,0.5) -- ++(-1.85,0) -- ++(0,5) -- ++(1.85,0) -- ++(0,0.5) -- ++(-4,0) -- ++(0,-0.5) -- ++(1.85,0) -- ++(0,-5) -- ++(-1.85, 0) -- cycle;
+	\end{scope}
+}

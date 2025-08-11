@@ -1,0 +1,59 @@
+\newcommand\lb{\linebreak}
+\newcommand\cd{\!\cdot\!}
+% \renewcommand\times{\!\times\!}
+\newcommand\x{\!\times\!}
+\newcommand\pars{\par\smallskip}
+\newcommand\parm{\par\medskip}
+\newcommand\parb{\par\bigskip}
+
+
+% https://tex.stackexchange.com/questions/33703/extract-x-y-coordinate-of-an-arbitrary-point-in-tikz
+\makeatletter
+\providecommand{\gettikzxy}[3]{%
+	\tikz@scan@one@point\pgfutil@firstofone#1\relax
+	\edef#2{\the\pgf@x}%
+	\edef#3{\the\pgf@y}%
+}
+\makeatother
+
+\makeatletter
+\newcommand{\verbatimfont}[1]{\def\verbatim@font{#1}}%
+\makeatother
+
+\providecommand{\dg}{
+	^\circ
+}
+\renewcommand{\deg}{^\circ}
+
+\newcommand{\mini}[2][0.8]{
+	\begin{minipage}[c]{#1\columnwidth}
+		% \raggedright
+		#2
+	\end{minipage}
+}
+\newcommand{\minit}[2][0.8]{
+	\begin{minipage}[t]{#1\columnwidth}
+		% \raggedright
+		#2
+	\end{minipage}
+}
+
+% centered minipage with text \raggedright
+%\cmini[width]{content}
+\newcommand{\cmini}[2][0.8]{
+	\begin{center}
+		\begin{minipage}{#1\columnwidth}
+			\raggedright
+			#2
+		\end{minipage}
+	\end{center}
+}
+
+\newcommand{\fig}[2][1]{% scaled graphic
+	\includegraphics[scale=#1]{#2}
+}
+
+
+
+
+

@@ -1,0 +1,279 @@
+\documentclass[9pt, xcolor={svgnames, x11names}]{beamer}
+
+\input{../../includes/definedColors.tex}
+\input{../../includes/macros.tex}
+
+\usepackage{mathtools}
+\usefonttheme[onlymath]{serif} 
+\usepackage{pxfonts} % for mathpazo font
+\usepackage[many]{tcolorbox}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, math, calc}
+
+\usecolortheme[named=saitMaroon]{structure}
+\setbeamertemplate{navigation symbols}{} % remove navigation symbols
+\setbeamertemplate{headline}{\vspace{0.125cm}}
+\setbeamertemplate{footline}{ \hfill \insertshorttitle\qquad \insertsection \qquad \insertframenumber/\inserttotalframenumber\quad{ }\vspace{0.125cm}}
+\setbeamertemplate{items}[default]
+\setbeamertemplate{blocks}[shadow=true]
+
+\setbeamercolor{title}{bg=saitMaroon, fg=Azure}
+\setbeamercolor{frametitle}{fg=Gainsboro, bg=saitMaroon}
+\setbeamercolor{background canvas}{bg=Gainsboro!85}
+\setbeamercolor{block title}{bg=saitMaroon, fg=white}
+\setbeamercolor{block body}{bg=MistyRose, fg=black}
+
+\setlength{\parskip}{\medskipamount}
+\setlength{\parindent}{0pt}
+
+% Title page details: 
+\title[Math Review]{\Huge 01 Math Review}
+\subtitle[STCS200]{\Large\textcolor{white}{Civil Engineering Statics, STCS 200}}
+\author{}
+\date{\small Updated on: \today}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newtcolorbox{staticsbox}{colback=white, colframe=structure}
+\newtcolorbox{mybox}[1]{colback=red!5!white,colframe=red!75!black,title={#1}}
+\newtcolorbox{titledbox}[1]{colback=white,colframe=structure,title={#1}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[plain]    %don't need footer on titlepage
+	\titlepage
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Statics and Math }
+	% centered minipage with text raggedright
+	%cmini[width]{content}
+	\cmini[0.8]{
+		\begin{tcolorbox}[colframe=structure, colback=white, left=0pt]
+			% \raggedright
+			\begin{itemize}
+				\item Statics is all math! All but the most trivial statics problems require algebra and/or trigonometry and/or geometry to solve.
+				\item[]\item The good news is that the math is not very difficult. You won't need anything more advanced than high-school math.
+				\item[]\item We will do a quick review here that should cover all the math you'll need for STCS 200.
+			\end{itemize}
+		\end{tcolorbox}
+
+	}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Trigonometry}
+	\centering
+	Triangles are a strong, stable shape and often used in engineering.
+	\parm
+	Triangles help avoid issues like this:
+	\parm
+	\tcbox[colback=white,boxsep=0pt,top=5pt,bottom=5pt,left=5pt,
+	right=5pt, colframe=structure]{\fig[0.25]{../../images/house2.jpg}}
+	\parm
+	Triangles mean we need trigonometry.
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Right Triangle}
+
+	% centered minipage with text raggedright
+	%cmini[width]{content}
+	\cmini[0.8]{
+		\centering
+		A {\bf right triangle} is a triangle having one $90^\circ$ angle.
+		 \pars
+
+
+		\tcbox[colback=white,boxsep=0pt,top=5pt,bottom=5pt,left=5pt,
+		right=5pt, colframe=structure]
+		{
+			\input{../../pikz/01MathReview/math01}
+		}
+    \pars
+		\uncover<2->{
+		
+			
+			Label the three sides $a$, $b$ and $c$. The side $a$, opposite the right angle, is called the {\bf hypotenuse}. \parm
+		}
+		\uncover<3>{ If we know the lengths of any two sides, we can calculate the length of the third side using the {\bfseries Pythagorean Theorem}:
+			\par
+			% centered minipage with text raggedright
+			%cmini[width]{content}
+			\cmini[0.5]{
+				\begin{tcolorbox}[colback=white,colframe=structure, title=Pythagorean Theorem]
+					\[ a^2 = b^2 + c^2 \]
+				\end{tcolorbox}
+			}
+
+
+		} % end \only<2>
+	} % end \cmini[0.8]
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Significant Digits}
+	\cmini[0.9]{
+    \begin{staticsbox}
+      \begin{itemize}
+        \item Significant {\bf  digits} and significant {\bf figures} are the same thing.
+        \parb\pause
+        \item Significant digits are a measure of the {\bf accuracy} of a number.
+        \parb\pause
+        {\small It is \textcolor{structure}{\bf extremely important} to recognize that we can get no more
+              accuracy out of a calculation than we put in. If the inputs to a
+              problem have three significant digits, we cannot expect any higher
+              accuracy than three significant digits in our result --- even if the
+              calculator does give ten digits.}
+      \end{itemize}
+    \end{staticsbox}
+	}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Significant Digits}
+
+	\cmini[0.8]{
+    \begin{titledbox}{Non-zero digits}
+      Non-zero digits {\bf are} significant:
+      \begin{itemize}
+			      	\item $1234$ has \textcolor{saitMaroon}{4} significant digits.			      	
+			      	\item $12.34$ has \textcolor{structure}{4} significant digits.
+			      	% \item $0.01234$ has four significant digits.
+			      \end{itemize}
+    \end{titledbox}
+    \pause\parb
+    \begin{titledbox}{Zeros between non-zero digits are significant}
+      \begin{itemize}
+			      	\item $12034$ has \textcolor{saitMaroon}{5} significant digits.			      	
+			      	\item $12.0034$ has \textcolor{structure}{6} significant digits.
+			      	% \item $0.01234$ has four significant digits.
+			      \end{itemize}
+    \end{titledbox}   
+	}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Significant Digits}
+ 
+	\cmini[0.8]{
+    \begin{titledbox}{Leading zeros are {\bf not} significant}
+      \begin{itemize}			      	
+        \item $0.1234$ has \textcolor{saitMaroon}{4} significant digits.
+        \item $0.0001234$ has \textcolor{saitMaroon}{4} significant digits.
+      \end{itemize}          
+    \end{titledbox}
+    \pause\pars
+    \begin{titledbox}{Trailing zeros (on decimal numbers) {\bf are} significant}
+      \begin{itemize}			      	
+        \item $1234.0$ has \textcolor{saitMaroon}{5} significant digits.
+        \item $1.23400$ has \textcolor{saitMaroon}{6} significant digits.
+      \end{itemize}          
+    \end{titledbox}
+    \pause\pars
+    \begin{titledbox}{Trailing zeros (on whole numbers, i.e.\! integers) are more {\bf complicated}}
+      \begin{itemize}			      	
+        \item $1234.0$ has \textcolor{saitMaroon}{5} significant digits.
+        \item $1.23400$ has \textcolor{saitMaroon}{6} significant digits.
+      \end{itemize}          
+    \end{titledbox}
+		    
+		
+			
+			      
+	
+	
+		% 	\item Leading zeros are {\bf not} significant.
+
+		% 	\item Trailing zeros are a little more complicated: \pause
+			      % \begin{enumerate}[a)]
+			      % 	\item Trailing zeros in integers (i.e. without a decimal point) are {\em generally} placeholders for the scale of the number and are not significant.
+			      % 	      \begin{itemize}                      
+			      % 	      	\item $1.2 \text{ m}$ has two significant digits. It is the same value as $1200\text{ mm}$ so this also has two significant digits. This is usually the correct interpretation of $1200$ but ...
+			      % 	      	\item ... consider this situation: $1200.3\text{ mm}$ has five significant digits, but if it is rounded down to three significant digits we get $1200\text{ mm}$ where the first 0 is significant and the second 0 is not!
+			      % 	      	\item If we want to emphasize that $1200$ has three significant digits, we can write $1.20(10^3)$.
+			    
+			      % 	      \end{itemize}
+			      % \end{enumerate}
+		% \end{itemize}
+	}
+
+\end{frame}
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{Significant Digits}
+
+% 	\cmini[0.8]{
+% 		\begin{itemize}     
+% 			\item Non-zero digits {\bfseries are} significant
+			
+% 			      \begin{itemize}
+% 			      	\item $1234$ has four significant digits.
+% 			      	\item $12340$ has four significant digits (usually ... see below).
+% 			      	\item $12.34$ has four significant digits.
+% 			      \end{itemize}
+% 			      \pause
+% 			\item Zeros between non-zero digits {\bfseries are} significant.
+% 			      \begin{itemize}
+% 			      	\item $1204$ has four significant digits.
+% 			      \end{itemize}
+% 			      \pause
+% 			\item Leading zeros are {\bf not} significant.
+% 			      \begin{itemize}
+% 			      	\item $0.1234$ has four significant digits.
+% 			      	\item $0.0001234$ has four significant digits.
+% 			      \end{itemize}
+% 			      \pause
+% 			\item Trailing zeros are a little more complicated: \pause
+% 			      \begin{enumerate}[a)]
+% 			      	\item Trailing zeros in integers (i.e. without a decimal point) are {\em generally} placeholders for the scale of the number and are not significant.
+% 			      	      \begin{itemize}
+%                       \begin{smallmatrix}
+                        
+%                       \end{smallmatrix}
+% 			      	      	\item $1.2 \text{ m}$ has two significant digits. It is the same value as $1200\text{ mm}$ so this also has two significant digits. This is usually the correct interpretation of $1200$ but ...
+% 			      	      	\item ... consider this situation: $1200.3\text{ mm}$ has five significant digits, but if it is rounded down to three significant digits we get $1200\text{ mm}$ where the first 0 is significant and the second 0 is not!
+% 			      	      	\item If we want to emphasize that $1200$ has three significant digits, we can write $1.20(10^3)$.
+% 			      	      \end{itemize}
+% 			      	      \pause
+% 			      	\item Trailing zeros after a decimal point {\bf are} significant.
+% 			      	      \begin{itemize}
+% 			      	      	\item $1.2340$ has five significant digits.
+% 			      	      	\item $1.23400$ has six significant digits.
+% 			      	      \end{itemize}
+% 			      \end{enumerate}
+% 		\end{itemize}
+% 	}
+
+% \end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Calculations for Exercises}
+	\cmini[0.8]{
+		\begin{itemize}
+			\item In practive, it is often difficult to measure objects more accurately than to three significant digits so {\bfseries input values for exercises are generally given to \textcolor{saitMaroon}{3} significant digits}. ({\small Or sometimes \textcolor{saitMaroon}{4} significant digits if the leading significant digit is a \textcolor{saitMaroon}{1}})
+      \parm\pause
+			\item We cannot expect to get more accuracy in our result at the end of a calculation than from our given input values at the beginning of the calculation so {\bfseries solutions should be correct to \textcolor{saitMaroon}{3} significant digits, not more than the accuracy of the calculation inputs! }\parm\pause
+			\item Intermediate calculations will accumulate rounding errors quickly if we use only three significant digits and these can affect the final result. {\bfseries For intermediate calculations, use \textcolor{saitMaroon}{5} or more significant digits.}\parm
+			{\small (When I write solutions down, I use 5 significant digits for intermediate calculations. You may use more if it is more convenient for you, e.g., if you are storing intermediate results in your calculator.)}
+		\end{itemize}
+	}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

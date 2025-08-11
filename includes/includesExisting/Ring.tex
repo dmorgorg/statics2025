@@ -1,0 +1,46 @@
+% !TEX root = ../Beamer/statikz/statikz.tex
+
+% \Ring{A}{outer color}{inner color}{outer radius}{inner radius}{line width}
+\newcommand{\Ring}[6]{
+	\def\lpin{#1}
+	\def\lfill{#2}
+	\def\ldraw{#3}
+	\def\outerr{#4}
+	\def\innerr{#5}
+	\def\lwidth{#6}
+
+	\begin{scope}
+
+		\makeatletter
+		\providecommand{\gettikzxy}[3]{%
+			\tikz@scan@one@point\pgfutil@firstofone#1\relax
+			\edef#2{\the\pgf@x}%
+			\edef#3{\the\pgf@y}%
+		}
+		\makeatother
+
+		\gettikzxy{(\lpin)}{\cx}{\cy}
+		\pgfdeclareradialshading{ring}{\pgfpoint{0cm}{0cm}}
+		{
+			color(0cm)=(black);
+			color(0.5cm)=(\lfill);
+			color(.65cm)=(\ldraw);
+			color(1cm)=(\lfill)
+		}
+		% \pgfuseshading{ring}
+
+
+
+	\end{scope}
+
+
+\begin{scope}[even odd rule]
+	% \draw (\lpin) circle (\innerr);
+	\filldraw[shading=ring, fill=\lfill, draw=\ldraw, line width=\lwidth] (\lpin) circle (\outerr cm)
+		(\lpin) circle (\innerr);
+		\draw[black, line width = \lwidth mm] (\lpin) circle (\innerr cm);
+		\draw[black, line width = \lwidth mm] (\lpin) circle (\outerr cm);
+\end{scope}
+
+
+}
