@@ -1,34 +1,39 @@
-\documentclass[9pt, xcolor={svgnames, x11names}]{beamer}
+%!TEX option = --enable-write18
+
+\documentclass[9pt, xcolor={svgnames, x11names},professionalfonts, mathserif]{beamer}
 
 \input{../../includes/definedColors.tex}
 \input{../../includes/macros.tex}
 
 \usepackage{mathtools}
 \usefonttheme[onlymath]{serif} 
-\usepackage{pxfonts} % for mathpazo font
+\usepackage{mathpazo}
+\usepackage{bm}
 \usepackage[many]{tcolorbox}
 \usepackage{tikz}
 \usetikzlibrary{arrows.meta, math, calc}
 
-\usecolortheme[named=saitMaroon]{structure}
+\usefonttheme{structureitalicserif} %make titles fancy ;-)
+
+\usecolortheme[named=statsMaroon]{structure}
 \setbeamertemplate{navigation symbols}{} % remove navigation symbols
 \setbeamertemplate{headline}{\vspace{0.125cm}}
 \setbeamertemplate{footline}{ \hfill \insertshorttitle\qquad \insertsection \qquad \insertframenumber/\inserttotalframenumber\quad{ }\vspace{0.125cm}}
 \setbeamertemplate{items}[default]
 \setbeamertemplate{blocks}[shadow=true]
 
-\setbeamercolor{title}{bg=saitMaroon, fg=Azure}
-\setbeamercolor{frametitle}{fg=Gainsboro, bg=saitMaroon}
-\setbeamercolor{background canvas}{bg=Gainsboro!85}
-\setbeamercolor{block title}{bg=saitMaroon, fg=white}
-\setbeamercolor{block body}{bg=MistyRose, fg=black}
+\setbeamercolor{title}{bg=statsMaroon, fg=Azure}
+\setbeamercolor{frametitle}{fg=white, bg=statsMaroon}
+\setbeamercolor{background canvas}{bg=Gainsboro!50}
+\setbeamercolor{block title}{bg=statsMaroon, fg=white}
+\setbeamercolor{block body}{bg=white, fg=black}
 
 \setlength{\parskip}{\medskipamount}
 \setlength{\parindent}{0pt}
 
 % Title page details: 
 \title[Math Review]{\Huge 01 Math Review}
-\subtitle[STCS200]{\Large\textcolor{white}{Civil Engineering Statics, STCS 200}}
+\subtitle[STCS200]{\Large\textcolor{white}{Engineering Statics, STCS 200}}
 \author{}
 \date{\small Updated on: \today}
 
@@ -53,14 +58,14 @@
 	% centered minipage with text raggedright
 	%cmini[width]{content}
 	\cmini[0.8]{
-		\begin{tcolorbox}[colframe=structure, colback=white, left=0pt]
+		\begin{staticsbox}
 			% \raggedright
 			\begin{itemize}
 				\item Statics is all math! All but the most trivial statics problems require algebra and/or trigonometry and/or geometry to solve.
 				\item[]\item The good news is that the math is not very difficult. You won't need anything more advanced than high-school math.
 				\item[]\item We will do a quick review here that should cover all the math you'll need for STCS 200.
 			\end{itemize}
-		\end{tcolorbox}
+		\end{staticsbox}
 
 	}
 \end{frame}
@@ -73,6 +78,7 @@
 	\parm
 	Triangles help avoid issues like this:
 	\parm
+	% \tcbox fits width to content
 	\tcbox[colback=white,boxsep=0pt,top=5pt,bottom=5pt,left=5pt,
 	right=5pt, colframe=structure]{\fig[0.25]{../../images/house2.jpg}}
 	\parm
@@ -143,7 +149,7 @@
     \begin{titledbox}{Non-zero digits}
       Non-zero digits {\bf are} significant:
       \begin{itemize}
-			      	\item $1234$ has \textcolor{saitMaroon}{4} significant digits.			      	
+			      	\item $1234$ has \textcolor{statsMaroon}{4} significant digits.			      	
 			      	\item $12.34$ has \textcolor{structure}{4} significant digits.
 			      	% \item $0.01234$ has four significant digits.
 			      \end{itemize}
@@ -151,7 +157,7 @@
     \pause\parb
     \begin{titledbox}{Zeros between non-zero digits are significant}
       \begin{itemize}
-			      	\item $12034$ has \textcolor{saitMaroon}{5} significant digits.			      	
+			      	\item $12034$ has \textcolor{statsMaroon}{5} significant digits.			      	
 			      	\item $12.0034$ has \textcolor{structure}{6} significant digits.
 			      	% \item $0.01234$ has four significant digits.
 			      \end{itemize}
@@ -165,107 +171,75 @@
 	\cmini[0.8]{
     \begin{titledbox}{Leading zeros are {\bf not} significant}
       \begin{itemize}			      	
-        \item $0.1234$ has \textcolor{saitMaroon}{4} significant digits.
-        \item $0.0001234$ has \textcolor{saitMaroon}{4} significant digits.
+        \item $0.1234$ has \textcolor{statsMaroon}{4} significant digits.
+        \item $0.0001234$ has \textcolor{statsMaroon}{4} significant digits.
       \end{itemize}          
     \end{titledbox}
     \pause\pars
-    \begin{titledbox}{Trailing zeros (on decimal numbers) {\bf are} significant}
+    \begin{titledbox}{Trailing zeros (after a decimal point) {\bf are} significant}
       \begin{itemize}			      	
-        \item $1234.0$ has \textcolor{saitMaroon}{5} significant digits.
-        \item $1.23400$ has \textcolor{saitMaroon}{6} significant digits.
+        \item $1234.0$ has \textcolor{statsMaroon}{5} significant digits.
+        \item $1.23400$ has \textcolor{statsMaroon}{6} significant digits.
       \end{itemize}          
-    \end{titledbox}
-    \pause\pars
+    \end{titledbox}			 
+	}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Significant Digits}
+ 
+	\cmini[0.8]{
+           
+   
     \begin{titledbox}{Trailing zeros (on whole numbers, i.e.\! integers) are more {\bf complicated}}
       \begin{itemize}			      	
-        \item $1234.0$ has \textcolor{saitMaroon}{5} significant digits.
-        \item $1.23400$ has \textcolor{saitMaroon}{6} significant digits.
+        \item $12300$ can have \textcolor{statsMaroon}{3}, \textcolor{statsMaroon}{4} or \textcolor{statsMaroon}{5} significant digits!\parm
+        \begin{itemize}
+					\item Consider $12.3\,$m. This value has \textcolor{statsMaroon}{3} significant digits. It is equal to $12300\,$mm, so in this case the $12300$ also has \textcolor{statsMaroon}{3} significant digits.\parm
+					\item Now consider $12.30\,$m. This value has \textcolor{statsMaroon}{4} significant digits. But it is still equal to $12300\,$mm, so in this case the $12300$ has \textcolor{statsMaroon}{4} significant digits.\parm
+					\item What if $12300\,$mm refers to $12.300\,$m? Then it has \textcolor{statsMaroon}{5} significant digits.
+				\end{itemize}
+				\item Usually, the trailing zeros are placeholders for the magnitude of a value and we don't need to worry unduly.
+				\item If we want to emphasize that $12300$ has \textcolor{statsMaroon}{4} significant digits, we can write $1.230\x\left(10^3\right)$.
       \end{itemize}          
     \end{titledbox}
-		    
-		
-			
-			      
-	
-	
-		% 	\item Leading zeros are {\bf not} significant.
-
-		% 	\item Trailing zeros are a little more complicated: \pause
-			      % \begin{enumerate}[a)]
-			      % 	\item Trailing zeros in integers (i.e. without a decimal point) are {\em generally} placeholders for the scale of the number and are not significant.
-			      % 	      \begin{itemize}                      
-			      % 	      	\item $1.2 \text{ m}$ has two significant digits. It is the same value as $1200\text{ mm}$ so this also has two significant digits. This is usually the correct interpretation of $1200$ but ...
-			      % 	      	\item ... consider this situation: $1200.3\text{ mm}$ has five significant digits, but if it is rounded down to three significant digits we get $1200\text{ mm}$ where the first 0 is significant and the second 0 is not!
-			      % 	      	\item If we want to emphasize that $1200$ has three significant digits, we can write $1.20(10^3)$.
-			    
-			      % 	      \end{itemize}
-			      % \end{enumerate}
-		% \end{itemize}
 	}
 
 \end{frame}
 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \begin{frame}{Significant Digits}
-
-% 	\cmini[0.8]{
-% 		\begin{itemize}     
-% 			\item Non-zero digits {\bfseries are} significant
-			
-% 			      \begin{itemize}
-% 			      	\item $1234$ has four significant digits.
-% 			      	\item $12340$ has four significant digits (usually ... see below).
-% 			      	\item $12.34$ has four significant digits.
-% 			      \end{itemize}
-% 			      \pause
-% 			\item Zeros between non-zero digits {\bfseries are} significant.
-% 			      \begin{itemize}
-% 			      	\item $1204$ has four significant digits.
-% 			      \end{itemize}
-% 			      \pause
-% 			\item Leading zeros are {\bf not} significant.
-% 			      \begin{itemize}
-% 			      	\item $0.1234$ has four significant digits.
-% 			      	\item $0.0001234$ has four significant digits.
-% 			      \end{itemize}
-% 			      \pause
-% 			\item Trailing zeros are a little more complicated: \pause
-% 			      \begin{enumerate}[a)]
-% 			      	\item Trailing zeros in integers (i.e. without a decimal point) are {\em generally} placeholders for the scale of the number and are not significant.
-% 			      	      \begin{itemize}
-%                       \begin{smallmatrix}
-                        
-%                       \end{smallmatrix}
-% 			      	      	\item $1.2 \text{ m}$ has two significant digits. It is the same value as $1200\text{ mm}$ so this also has two significant digits. This is usually the correct interpretation of $1200$ but ...
-% 			      	      	\item ... consider this situation: $1200.3\text{ mm}$ has five significant digits, but if it is rounded down to three significant digits we get $1200\text{ mm}$ where the first 0 is significant and the second 0 is not!
-% 			      	      	\item If we want to emphasize that $1200$ has three significant digits, we can write $1.20(10^3)$.
-% 			      	      \end{itemize}
-% 			      	      \pause
-% 			      	\item Trailing zeros after a decimal point {\bf are} significant.
-% 			      	      \begin{itemize}
-% 			      	      	\item $1.2340$ has five significant digits.
-% 			      	      	\item $1.23400$ has six significant digits.
-% 			      	      \end{itemize}
-% 			      \end{enumerate}
-% 		\end{itemize}
-% 	}
-
-% \end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}{Calculations for Exercises}
 	\cmini[0.8]{
 		\begin{itemize}
-			\item In practive, it is often difficult to measure objects more accurately than to three significant digits so {\bfseries input values for exercises are generally given to \textcolor{saitMaroon}{3} significant digits}. ({\small Or sometimes \textcolor{saitMaroon}{4} significant digits if the leading significant digit is a \textcolor{saitMaroon}{1}})
+			\item In practice, it is often difficult to measure objects more accurately than to three significant digits so {\bfseries input values for exercises are generally given to \textcolor{statsMaroon}{3} significant digits}. ({\small Or sometimes \textcolor{statsMaroon}{4} significant digits when the leading significant digit is a \textcolor{statsMaroon}{1}})
       \parm\pause
-			\item We cannot expect to get more accuracy in our result at the end of a calculation than from our given input values at the beginning of the calculation so {\bfseries solutions should be correct to \textcolor{saitMaroon}{3} significant digits, not more than the accuracy of the calculation inputs! }\parm\pause
-			\item Intermediate calculations will accumulate rounding errors quickly if we use only three significant digits and these can affect the final result. {\bfseries For intermediate calculations, use \textcolor{saitMaroon}{5} or more significant digits.}\parm
+			\item We cannot expect to get more accuracy in our result at the end of a calculation than from our given input values at the beginning of the calculation so {\bfseries solutions should be correct to \textcolor{statsMaroon}{3} significant digits, not more than the accuracy of the calculation inputs! }\parm\pause
+			\item Intermediate calculations will accumulate rounding errors quickly if we use only three significant digits and these can affect the final result. {\bfseries For intermediate calculations, use \textcolor{statsMaroon}{5} or more significant digits.}\parm
 			{\small (When I write solutions down, I use 5 significant digits for intermediate calculations. You may use more if it is more convenient for you, e.g., if you are storing intermediate results in your calculator.)}
 		\end{itemize}
 	}
 
+\end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Significant Digits and Rounding}
+	\cmini[0.8]{
+		\begin{itemize}
+			\item When using five significant digits for intermediate calculations, it is necessary to convert to three (or four) when providing the final answer to an exercise. Then, {\bf rounding} is often involved:
+      \parm\pause
+			\begin{itemize}
+				\item $2.3456$ becomes $2.35$ because the first non-significant digit (the $5$ in
+				this case) is $\ge 5$ and so the $4$ rounds up.\pars
+				\item $2.3446$ becomes $2.34$ because the first non-significant digit (the $4$ in
+				this case) is $< 5$ and the last significant digit, $4$, remains unchanged.
+			\end{itemize}
+			\item When the first discarded digit is a $5$ (or higher), round up the digit
+			before the $5$ (or higher)\parm
+			\item There are various rules (such as the odd-even rule) which take a
+			more complicated approach to rounding $5$ but, for our purposes, $\bm 5$ {\bf rounds up}!
+		\end{itemize}
+	}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

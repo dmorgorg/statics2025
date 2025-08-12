@@ -1,0 +1,402 @@
+%!TEX option = --enable-write18
+
+\documentclass[8pt, xcolor={svgnames, x11names}]{beamer}
+
+\input{../../includes/definedColors.tex}
+\input{../../includes/macros.tex}
+\input{../../includes/Member.tex}
+\input{../../includes/PC.tex}
+\input{../../includes/Rocker.tex}
+\input{../../includes/Roller.tex}
+
+\usepackage{mathtools}
+\usefonttheme[onlymath]{serif} 
+\usepackage{mathpazo} % for mathpazo font
+% \usepackage{gensymb} % for \degree
+\usepackage[detect-all]{siunitx}
+\usepackage{bm}
+
+\setbeamertemplate{navigation symbols}{} % remove navigation symbols
+\setbeamertemplate{headline}{\vspace{0.125cm}}
+% \setbeamertemplate{footline}{ \hfill \insertshorttitle\qquad \insertsection \qquad \insertframenumber/\inserttotalframenumber\quad{ }\vspace{0.125cm}}
+\setbeamertemplate{footline}{ \hfill \insertshorttitle\qquad \insertsection \qquad\vspace{0.125cm}}
+\setbeamertemplate{items}[default]
+\setbeamertemplate{blocks}[shadow=true]
+
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, math, calc, shadings}
+\usepackage{pgfmath}
+\usepackage{cancel}
+\usepackage[absolute,overlay]{textpos}
+\setlength{\TPHorizModule}{1.0cm}
+\setlength{\TPVertModule}{\TPHorizModule}
+\textblockorigin{0.0cm}{0.0cm}  %start all at upper left corner
+% \textblockcolor{yellow}
+\usepackage[many]{tcolorbox}
+% \usepgflibrary{shadings}
+
+\colorlet{boxBG}{Ivory3!50}
+\newtcolorbox{statsbox}[2][] {  
+  % colback=Ivory3!50,
+  colback=boxBG,
+  colbacktitle=structure,
+  colframe=structure,
+  coltitle=boxBG,  
+  top=0.25cm,
+	bottom=0.125cm,
+	left=0mm,
+	right=0mm,
+  fonttitle=\bfseries,
+  halign=flush left, 
+  enhanced,
+  drop fuzzy shadow,
+  attach boxed title to top left={xshift=3.5mm, yshift=-2mm},
+  title={#2}, #1}
+
+\usecolortheme[named=statsMaroon]{structure}
+\setbeamercolor{title}{bg=statsMaroon, fg=boxBG}
+\setbeamercolor{frametitle}{fg=boxBG, bg=statsMaroon}
+\setbeamercolor{block title}{bg=statsMaroon, fg=boxBG}
+\setbeamercolor{block body}{bg=MistyRose, fg=black}
+
+\setlength{\parskip}{\medskipamount}
+\setlength{\parindent}{0pt}
+
+\renewcommand{\ttdefault}{pcr}
+
+\hfuzz=110pt % suppress Overfull \hbox warnings, up to specified size
+\vfuzz=100pt
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title[MoJ]{\huge \textcolor{white}{Complex Frames --- Step by Step Examples}}
+\subtitle[]{\Large\textcolor{white}{Engineering Statics}}
+
+\date{Last revision on \today}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\footnotesize
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[plain]
+    \titlepage
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Example 1}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+
+  \begin{textblock*}{0.9\paperwidth}(0.875cm, 0.5cm)
+    \input{../../pikz/07MoJ/SxS/07MoJSxS01tikz.tex}
+  \end{textblock*}
+
+  \only<1>{  
+    \begin{textblock*}{8cm}(2.5cm, 5.5cm)
+      \normalsize
+      \begin{statsbox}[colback=Bisque3!50, coltitle=Bisque3!50]{Method of Joints: Example 1}
+        \centering
+        The truss is supported by a pinned connection at $A$ and a roller, inclined at $ 35\deg$ to the horizontal, at $D$. \pars
+        Determine the internal force in each truss member due \\to the applied loads at $E$ and $F$. 
+      \end{statsbox}
+    \end{textblock*}
+  }
+  \only<2-4>{
+    \begin{textblock*}{7.5cm}(2.75cm, 5cm)
+     
+      \begin{statsbox}[colback=Bisque3!50, coltitle=Bisque3!50]{Find the reaction at $\bm D$}
+        \centering
+        Take moments of the external forces acting on the truss, about $A$:
+        
+          \uncover<3->{
+          $$\sum M_A = R_D\cos 35\deg\x 12.0\,\text{m}-2.00\,\text{kN}\x 4.00\,\text{m}-4.00\;\text{kN}\x 8.00\;\text{m} = 0 $$
+          }
+          \begin{align*}
+            \uncover<4->{
+              \Rightarrow R_D &= \frac{40.0\,\mathsf{kN\cd m}}{12.0\,\text{m}\x\cos 35\deg}\\
+              &= 4.0692\,\text{kN}
+          }
+        \end{align*} 
+      \end{statsbox}
+    \end{textblock*}
+  }
+  \only<5>{
+    \begin{textblock*}{7.5cm}(2.75cm, 5cm)     
+      \begin{statsbox}[colback=Bisque3!50, coltitle=Bisque3!50, left=2.5mm,right=2mm]{Find the reaction at $\bm A$}        
+        \textcolor{statsMaroon}{\bf Note:} We could proceed to find all the forces in the truss members, working from $D$ back to $A$, {\bf without} finding the reaction at $A$. But the reaction at $A$ is useful for a check -- at the end of the problem -- to make sure that we haven't made any errors along the way.        
+      \end{statsbox}
+    \end{textblock*}
+  }
+  \only<6-7>{
+    \begin{textblock*}{7.5cm}(2.75cm, 5cm)     
+      \begin{statsbox}[colback=Bisque3!50, coltitle=Bisque3!50, left=2.5mm,right=2mm]{Find the reaction at $\bm A$}
+        \begin{align*}
+          \uncover<6->{
+            \sum F_x &= R_{Ax}-4.0692 \sin 35\deg\,\text{kN}=0\\
+            \Rightarrow R_{Ax} &= 2.3340\,\text{kN}\\\\
+          }
+          \uncover<7->{
+            \sum F_y &= R_{Ay}+ 4.0692\cos 35\deg\,\text{kN}-2.00\,\text{kN} -4.00\,\text{kN}=0\\
+            \Rightarrow R_{Ay} &= 2.6667\,\text{kN}
+          }
+        \end{align*} 
+      \end{statsbox}
+    \end{textblock*}
+  }
+  \only<8>{
+    \begin{textblock*}{7.5cm}(2.75cm, 4.96cm)     
+      \begin{statsbox}[colback=Bisque3!50, coltitle=Bisque3!50, left=2.5mm,right=2mm]{Find the truss angle}
+        \begin{align*}          
+            \angle CDE &= \tan^{-1}\left[ \frac{CE}{DE} \right]\\
+            &= \tan^{-1}\left[ \frac{2.65\,\text{m}}{4.00\,\text{m}} \right]\\
+            &= 33.524\deg 
+        \end{align*} 
+      \end{statsbox}
+    \end{textblock*}
+  }
+  \only<9-11>{
+    \begin{textblock*}{9.5cm}(1.75cm, 5cm)     
+      \begin{statsbox}[colback=Bisque3!50, coltitle=Bisque3!50, left=2.5mm,right=2mm]{Joint $\bm D$}
+        \mini[0.3]{
+          \raggedright
+          First, the free body diagram:\pars
+          \tikz{%color
+            \coordinate (D) at (0,0);
+            \draw[statsMaroon, thick, -latex] (D) -- (125:1.75) node[above, black] {$ 4.0692\,$kN};
+            \draw[thick, -latex] (D) -- (146.5:1.75) node[left, black] {$ F_{CD} $};
+            \draw[thick, -latex] (D) -- (180:1.75) node[left, black] {$ F_{DE} $};
+            \draw[thin, gray] ($ (D)+(0, 0.25) $) -- +(0,1.25);
+            \draw[latex-latex] ($ (D)+(90:1.25) $) arc (90:125:1.25)node[midway,yshift=0.125cm] {$ 35\deg $};
+            \draw[latex-latex] ($ (D)+(146.5:1.25) $)arc(146.5:180:1.25) node[midway, fill=Bisque3!50, inner sep=0.35mm]{ $ 33.524\deg $};
+            \fill (D) circle (0.075)node[below left]{$D$};
+          }
+        }        
+        \mini[0.65]{
+          \centering
+          \begin{align*}
+            \uncover<10->{
+              \sum F_y &= 4.0692 \cos  35\deg \, \text{kN} + F_{CD}\sin 33.524\deg = 0\\
+              \Rightarrow \bm{F_{CD}} &\bm{=-6.0354}\,\text{\bf kN}\\\\
+            }            
+            \uncover<11->{
+              \sum F_x &= -4.0692 \sin 35\deg \, \text{kN} - F_{CD}\cos 33.524\deg-F_{DE} = 0\\
+               &= -2.3340 \, \text{kN} - \left(-6.0354\,\text{kN}\right)\cos 33.524\deg-F_{DE} = 0\\
+              \Rightarrow \bm{F_{DE}} &\bm{= 2.6974}\,\text{\bf kN}
+            }            
+          \end{align*}
+        }
+      \end{statsbox}
+    \end{textblock*}
+  }
+  \only<12-14>{
+    \begin{textblock*}{9.5cm}(1.75cm, 5cm)     
+      \begin{statsbox}[colback=Bisque3!50, coltitle=Bisque3!50, left=2.5mm,right=2mm]{Joint $\bm C$}
+        \mini[0.35]{
+          \raggedright
+          \tikz{%color
+            \coordinate (C) at (0,0);
+            \draw[thick, -latex] (C) -- (180:1.5) node[left] {$ F_{BC} $};
+            \draw[thick, -latex] (C) -- (270:1) node[left] {$ F_{CE} $};
+            \draw[thick, -latex] (C) -- (146.5:1.5) node[above] {$ 6.0354\,$kN};
+            \draw[latex-latex] ($ (C)+(146.5:1.125) $)arc(146.5:180:1.125) node[midway, fill=Bisque3!50, inner sep=0.35mm]{ $ 33.524\deg $};
+            \fill (C) circle (0.075) node[below left] {$C$};
+          }
+        }        
+        \mini[0.6]{
+          \centering
+          \begin{align*}
+            \uncover<13->{
+              \sum F_y &= 6.0354 \sin 33.524\deg \,\text{kN} - F_{CE} = 0\\
+              \Rightarrow \bm{F_{CE}} &\bm{= 3.3333}\,\text{\bf kN}\\\\
+            }            
+            \uncover<14->{
+              \sum F_x &= -6.0354 \cos 33.524\deg \, \text{kN} - F_{BC} = 0\\
+               \Rightarrow \bm{F_{BC}} &\bm{= -5.0314}\,\text{kN}
+            }            
+          \end{align*}
+        }
+      \end{statsbox}
+    \end{textblock*}
+  }
+  \only<15-17>{
+    \begin{textblock*}{9.5cm}(1.75cm, 5cm)     
+      \begin{statsbox}[colback=Bisque3!50, coltitle=Bisque3!50, left=0mm,right=2mm]{Joint $\bm E$}
+        \mini[0.35]{
+          \raggedright
+          \tikz{%color
+            \coordinate (E) at (0,0);
+            \draw[thick, -latex] (E) -- (180:1.25) node[below] {$ F_{EF} $};
+            \draw[statsMaroon, thick, -latex] (E) -- (270:0.75) node[left] {$ 4.00\,$kN};
+            \draw[thick, -latex] (E) -- (146.5:1.25) node[above] {$ F_{BE}$};
+            \draw[thick, -latex] (E) -- (90:0.75) node[above] {$ 3.3333\,$kN};
+            \draw[thick, -latex] (E) -- (0:0.75) node[below] {$ 2.6974\,$kN};
+            \draw[latex-latex] ($ (E)+(146.5:1) $)arc(146.5:180:1) node[midway, fill=Bisque3!50, inner sep=0.15mm]{\scriptsize $ 33.524\deg $};
+            \fill (E) circle (0.075) node[below left] {$E$};
+          }
+        }        
+        \mini[0.6]{
+          \centering
+          \begin{align*}
+            \uncover<16->{
+              \sum F_y &= 3.3333\,\text{kN}+F_{BE} \sin 33.524\deg \,\text{kN} - 4.00\,\text{kN} = 0\\
+              \Rightarrow \bm{F_{BE}} &\bm{= 1.2072}\,\text{\bf kN}\\\\
+            }            
+            \uncover<17->{
+              \sum F_x &= 2.6974\,\text{kN} -1.2072 \cos 33.524\deg \, \text{kN} - F_{EF} = 0\\
+               \Rightarrow \bm{F_{EF}} &\bm{= 1.6910}\,\text{\bf kN}
+            }            
+          \end{align*}
+        }
+      \end{statsbox}
+    \end{textblock*}
+  }
+  \only<18-20>{
+    \begin{textblock*}{9.5cm}(1.75cm, 5cm)     
+      \begin{statsbox}[colback=Bisque3!50, coltitle=Bisque3!50, left=2.5mm,right=2mm]{Joint $\bm F$}
+        \mini[0.45]{
+          \raggedright
+          \tikz{%color
+            \coordinate (F) at (0,0);
+            \draw[thick, -latex] (F) -- (180:0.75) node[left] {$ F_{AF} $};
+            \draw[statsMaroon, thick, -latex] (F) -- (270:0.75) node[left] {$ 2.00\,$kN};
+            \draw[thick, -latex] (F) -- (0:.75) node[above] {$ 1.6910\,$kN};
+            \draw[thick, -latex] (F) -- (90:0.75) node[above] {$ F_{BF}$};           
+            \fill (F) circle (0.075) node[below left] {$F$};
+          }
+        }        
+        \mini[0.5]{
+        %   \centering 
+          \begin{align*}                  
+            \uncover<19->{
+              \sum F_y &= F_{BF}-2.00\,\text{kN}\\
+              \Rightarrow \bm{F_{BF}} &\bm{= 2.00}\,\text{\bf kN}\\\\
+            }                    
+            \uncover<20->{
+              \sum F_x &= 1.6910\,\text{kN}-F_{AF}=0\\
+              \Rightarrow \bm{F_{AF}} &\bm{= 1.6910}\,\text{\bf kN}
+            } 
+          \end{align*}     
+        }
+      \end{statsbox}
+    \end{textblock*}
+  }
+  \only<21-23>{
+    \begin{textblock*}{9.5cm}(1.75cm, 5cm)     
+      \begin{statsbox}[colback=Bisque3!50, coltitle=Bisque3!50, left=2.5mm,right=2mm]{Joint $\bm B$}
+        \mini[0.4]{
+          \raggedright
+          \tikz{
+            \coordinate (B) at (0,0);
+            \draw[thick, latex-] ($ (B)+(0:0.0625) $) -- (0:1.25) node[above] {$ 5.0314\,$kN};
+            \draw[thick, -latex] (B) -- (-33.5:1.5) node[below] {$ 1.2072\,$kN};
+            \draw[thick, -latex] (B) -- (-90:1) node[below] {$ 2.00\,$kN};
+            \draw[thick, -latex] (B) -- (213.5:1.5) node[below] {$ F_{AB}$};
+            \draw[thin, gray] ($ (B)+(-0.25,0) $) -- +(180:1); 
+            \draw[latex-latex] ($ (B)+(213.5:1.125) $)arc(213.5:180:1.125) node[midway, fill=Bisque3!50, inner sep=0.35mm]{ $ 33.524\deg $};
+            \draw[latex-latex] ($ (B)+(-33.5:1.125) $)arc(-33.5:0:1.125) node[midway, fill=Bisque3!50, inner sep=0.35mm]{ $ 33.524\deg $};
+           
+            \fill (B) circle (0.075) node[above left] {$B$};
+          }
+        }        
+        \mini[0.55]{
+        %   \centering
+          \begin{align*}                   
+            \uncover<22->{
+              \sum F_x &= -5.0314\,\text{kN}+1.2072\cos 33.524\deg\,\text{kN}\\[-0.5em]
+              &\qquad\qquad\qquad -F_{AB}\cos 33.524\deg = 0\\
+              \Rightarrow \bm{F_{AB}} &\bm{= -4.8282}\,\text{kN}\\            
+            }
+          \end{align*}
+          \uncover<23->{
+            \centering
+            All the truss member forces are now found. %\linebreak\lb We are almost done!
+          }
+          
+             
+        }
+      \end{statsbox}
+    \end{textblock*}
+  }
+  \only<24-27>{
+    \begin{textblock*}{10cm}(1.5cm, 5cm)     
+      \begin{statsbox}[colback=Bisque3!50, coltitle=Bisque3!50, left=1.5mm,right=2mm]{Check for equilibrium at  $\bm A$}
+        \begin{center}
+          This is to verify that we haven't made an error in our member force calculations. 
+        \end{center}
+        \mini[0.4]{
+          \raggedright
+          \tikz{
+            \coordinate (A) at (0,0);
+            \draw[thick, -latex] ($ (A)+(0:0.0625) $) -- (0:1.5) node[below] {$ 1.6910\,$kN};
+            \draw[thick, latex-, statsMaroon] ($ (A)-(0:0.0625) $) -- (180:1) node[below] {$ 2.3340\,$kN};
+            \draw[thick, -latex, statsMaroon] ($ (A)-(90:0.0625) $) -- (90:1) node[above] {$ 2.6667\,$kN};
+            \draw[thick, latex-] ($ (A)+(33.5:0.0625) $) -- (33.5:1.5) node[above] {$4.8282\,$kN};
+           
+            \draw[latex-latex] ($ (A)+(0:1.125) $)arc(0:33.5:1.125) node[midway, fill=Bisque3!50, inner sep=0.35mm]{ $ 33.524\deg $};
+            \fill (A) circle (0.075) node[below left] {$A$};
+          }
+        }        
+        \mini[0.55]{
+        %   \centering
+          \begin{align*}                   
+            \uncover<25->{
+              \sum F_x &= 2.3340\,\text{kN}+1.6910\,\text{kN}-4.8282\cos 33.524\deg\,\text{kN}\\[-0.75em]
+              &= -0.000050918\,\text{kN} \approx 0 \qquad\textcolor{Green4}{\text{\Large \checkmark}}\\
+            }
+            \uncover<26->{
+              \sum F_y &= 2.6667\,\text{kN} - 4.8282\sin 33.524\deg\,\text{kN}\\[-0.75em]
+              &= 0.00015160\,\text{kN} \approx 0 \qquad\textcolor{Green4}{\text{\Large \checkmark}} 
+            } 
+          \end{align*}
+          \uncover<27->{
+            \centering
+            It only remains to convert the results back to the precision given by the input values.
+          }
+          
+          
+             
+        }
+      \end{statsbox}
+    \end{textblock*}
+  }
+  \only<28->{
+    % \begin{textblock*}{10cm}(1.5cm, 5.045cm)     
+    \begin{textblock*}{6cm}(3.5cm, 4.5cm)     
+      \begin{statsbox}[colback=Bisque3!50, coltitle=Bisque3!50, left=1.5mm,right=2mm]{The Results}
+        \centering
+        \begin{align*}
+          AB &= 4.83\,\text{kN}\quad\text{(Compression)} \\
+          AF &= 1.69\,\text{kN}\quad\text{(Tension)} \\
+          BC &= 5.03\,\text{kN}\quad\text{(Compression)} \\          
+          BE &= 1.21\,\text{kN}\quad\text{(Tension)} \\          
+          BF &= 2.00\,\text{kN}\quad\text{(Tension)} \\          
+          CD &= 6.04\,\text{kN}\quad\text{(Compression)} \\         
+          CE &= 3.33\,\text{kN}\quad\text{(Tension)} \\         
+          DE &= 2.70\,\text{kN}\quad\text{(Tension)} \\          
+          EF &= 1.69\,\text{kN}\quad\text{(Tension)}          
+        \end{align*}
+      \end{statsbox}
+    \end{textblock*}
+  }
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Example 2}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Example 3}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
