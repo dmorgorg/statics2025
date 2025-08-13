@@ -1,0 +1,50 @@
+% !TEX root = ../../Beamer/statikz/statikz.tex
+
+\scalebox{0.67}{
+\begin{tikzpicture}[scale=1]
+
+	\coordinate (C) at (0,0);
+	\coordinate (B) at ($ (C)+(90:1.8)  $);
+	\coordinate (A) at ($ (B)+(90:2.75) $);
+  \coordinate (D) at ($ (C)+(0:2.45) $);
+	\coordinate (E) at ($ (D)+(-90:1.45) $);
+	\coordinate (F) at ($ (B)+(180:2.375) $);
+	\def\delta{0.2cm}
+
+	\gettikzxy{(A)}{\ax}{\ay}
+  \gettikzxy{(B)}{\bx}{\by}
+  \gettikzxy{(C)}{\cx}{\cy}
+  \gettikzxy{(D)}{\ddx}{\ddy}
+  \gettikzxy{(E)}{\ex}{\ey}
+  \gettikzxy{(F)}{\fx}{\fy}
+
+	\filldraw[fill=Ivory3!70!MistyRose4, draw=black] (\cx-\delta, \cy)--(\cx-\delta, \ay)arc(180:90:\delta)--+(1,0)arc(90:0:1.65)--(\ddx+\delta, \ddy)arc(0:-90:\delta)--(\cx, \cy-\delta)arc(270:180:\delta);
+
+	\PC[270]{F}{MistyRose2}{black}{0.5}{0.25}
+	\PC{E}{MistyRose2}{black}{0.5}{0.25}
+
+	\Member{F}{B}{MistyRose4}{MistyRose2}{black}{0.275}{1.125}{0.5}
+	\Member{D}{E}{MistyRose4}{MistyRose2}{black}{0.325}{1.125}{0.5}
+
+	\small
+	% \filldraw[fill=Gainsboro!65, draw=black] (A) -- (B) -- (C) -- cycle;
+  % \filldraw[fill=Gainsboro!65, draw=black] (X) -- (Y) -- (Z) -- cycle;
+
+
+	\large
+	\shadedraw [draw=black, ball color = Ivory4] (C) circle (0.15cm) node[xshift=-0.35cm, yshift=-0.35cm] {\large $\bm C$};
+	\shadedraw [draw=black, ball color = Ivory4] (B) circle (0.1cm) node[xshift=-0.35cm,yshift=-0.35cm] {$\bm B$};
+	\shadedraw [draw=black, ball color = Ivory4] (A) circle (0.05cm) node[xshift=-0.35cm, yshift=0.35cm] {$\bm A$};
+	\shadedraw [draw=black, ball color = Ivory4] (D) circle (0.1cm) node[yshift=0.35cm,xshift=0.35cm] {$\bm D$};
+	\shadedraw [draw=black, ball color = Ivory4] (E) circle (0.1cm) node[xshift=0.35cm] {$\bm E$};
+	\shadedraw [draw=black, ball color = Ivory4] (F) circle (0.1cm) node[yshift=0.35cm] {$\bm F$};
+	% \node at ($(B)+(-12.5:0.35)$) {$\beta $};
+	% \node at ($(A)+(-122.5:0.6)$) {$\alpha $};
+	% \node at ($(X)+(11:0.85)$) {$\gamma $};
+	% \node at ($(Z)+(-100:0.35)$) {$\beta $};
+	% \node at ($(Y)+(160:0.5)$) {$\alpha $};
+
+
+
+\end{tikzpicture}
+}

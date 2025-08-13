@@ -1,0 +1,23 @@
+% !TEX root = ../../Presentations/01MathReview/01STCS200MathReview.tex
+
+\begin{tikzpicture}
+
+	\coordinate (A) at (0,0);
+	\coordinate (B) at (0,2);
+	\coordinate (C) at (3,0);
+
+	\filldraw[fill=Gainsboro!65, draw=black] (A) -- (B) -- (C) -- cycle;
+	\draw ($ (A)+(0.2,0) $) -- ++(0,0.2) -- ++(-0.2,0);
+
+	\draw[above left] (B) node {$B$};
+	\draw[below left] (A) node {$A$};
+	\draw[below right] (C) node {$C$};
+
+	
+		\path (B) -- (C) node[midway, sloped, yshift=0.25cm] {hypotenuse};
+		\path (A) -- (B) node[midway, sloped, yshift=0.25cm] {opposite};
+		\node[below] at ($ (A)!0.5!(C) $) {adjacent};
+		\node at ($ (C)+(-0.75,0.225) $) {$\theta$};
+
+
+\end{tikzpicture}

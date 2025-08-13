@@ -1,9 +1,11 @@
 %!TEX option = --enable-write18
 
-\documentclass[9pt, xcolor={svgnames, x11names},professionalfonts, mathserif]{beamer}
+\documentclass[9pt, xcolor={svgnames, x11names},professionalfonts]{beamer}
 
 \input{../../includes/definedColors.tex}
 \input{../../includes/macros.tex}
+\input{../../includes/Member.tex}
+\input{../../includes/PC.tex}
 
 \usepackage{mathtools}
 \usefonttheme[onlymath]{serif} 
@@ -14,6 +16,7 @@
 \usetikzlibrary{arrows.meta, math, calc}
 
 \usefonttheme{structureitalicserif} %make titles fancy ;-)
+\usefonttheme[onlymath]{serif}
 
 \usecolortheme[named=statsMaroon]{structure}
 \setbeamertemplate{navigation symbols}{} % remove navigation symbols
@@ -31,6 +34,9 @@
 \setlength{\parskip}{\medskipamount}
 \setlength{\parindent}{0pt}
 
+\def\scale{1}
+\newcounter{myexercisecounter}
+
 % Title page details: 
 \title[Math Review]{\Huge 01 Math Review}
 \subtitle[STCS200]{\Large\textcolor{white}{Engineering Statics, STCS 200}}
@@ -42,9 +48,44 @@
 \begin{document}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newtcolorbox{staticsbox}{colback=white, colframe=structure}
-\newtcolorbox{mybox}[1]{colback=red!5!white,colframe=red!75!black,title={#1}}
+\newtcolorbox{statsbox}[2][] {  
+  % colback=Ivory3!50,
+  colback=white,
+  colbacktitle=structure,
+  colframe=structure,
+  coltitle=white,  
+  top=0.25cm,
+	bottom=0.125cm,
+	left=0mm,
+	right=0mm,
+  fonttitle=\bfseries,
+  halign=flush left, 
+  enhanced,
+  drop fuzzy shadow,
+  attach boxed title to top left={xshift=3.5mm, yshift=-2mm},
+  title={#2}, #1}
+\newtcolorbox{redbox}{colback=white, colframe=structure, enhanced, drop fuzzy shadow}
 \newtcolorbox{titledbox}[1]{colback=white,colframe=structure,title={#1}}
+\newtcbox{\tcb}[1][]{colback=white,boxsep=0pt,top=5pt,bottom=5pt,left=5pt,
+		right=5pt, colframe=structure,  enhanced, drop fuzzy shadow, #1}
+% tcb title
+\newtcbox{\tcbt}[2][]{colback=white,boxsep=0pt,top=5pt,bottom=5pt,left=5pt,
+		right=5pt, colframe=structure, enhanced, drop fuzzy shadow,  title={#2}, #1}
+% tcb left title
+\newtcbox{\tcbtl}[2][]{ colback=white,
+  colbacktitle=structure,
+  colframe=structure,
+  coltitle=white,  
+  top=0.25cm,
+	bottom=0.125cm,
+	left=0mm,
+	right=0mm,
+  fonttitle=\bfseries,
+  halign=flush left, 
+  enhanced,
+  drop fuzzy shadow,
+  attach boxed title to top left={xshift=3.5mm, yshift=-2mm}, 
+	title={#2}, #1}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -58,14 +99,14 @@
 	% centered minipage with text raggedright
 	%cmini[width]{content}
 	\cmini[0.8]{
-		\begin{staticsbox}
+		\begin{redbox}
 			% \raggedright
 			\begin{itemize}
 				\item Statics is all math! All but the most trivial statics problems require algebra and/or trigonometry and/or geometry to solve.
 				\item[]\item The good news is that the math is not very difficult. You won't need anything more advanced than high-school math.
 				\item[]\item We will do a quick review here that should cover all the math you'll need for STCS 200.
 			\end{itemize}
-		\end{staticsbox}
+		\end{redbox}
 
 	}
 \end{frame}
@@ -79,8 +120,7 @@
 	Triangles help avoid issues like this:
 	\parm
 	% \tcbox fits width to content
-	\tcbox[colback=white,boxsep=0pt,top=5pt,bottom=5pt,left=5pt,
-	right=5pt, colframe=structure]{\fig[0.25]{../../images/house2.jpg}}
+	\tcb{\fig[0.0625]{../../images/090517_042.jpg}}
 	\parm
 	Triangles mean we need trigonometry.
 \end{frame}
@@ -95,17 +135,11 @@
 		\centering
 		A {\bf right triangle} is a triangle having one $90^\circ$ angle.
 		 \pars
-
-
-		\tcbox[colback=white,boxsep=0pt,top=5pt,bottom=5pt,left=5pt,
-		right=5pt, colframe=structure]
-		{
+		\tcb{
 			\input{../../pikz/01MathReview/math01}
 		}
     \pars
-		\uncover<2->{
-		
-			
+		\uncover<2->{			
 			Label the three sides $a$, $b$ and $c$. The side $a$, opposite the right angle, is called the {\bf hypotenuse}. \parm
 		}
 		\uncover<3>{ If we know the lengths of any two sides, we can calculate the length of the third side using the {\bfseries Pythagorean Theorem}:
@@ -125,26 +159,46 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}{Right Triangle Exercises}
+\begin{frame}{Right Triangle Exercises (1)}
+	\centering
+	% \tcb[colback=yellow]		
+	\tcb		
+		{			
+			\input{../../pikz/01MathReview/math04truss.tex}
+		}
+	\cmini[0.65]{
+		\begin{enumerate}
+			\item  Use the Pythagorean Theorem to determine the lengths of $CE$ and $CB$
+			\setcounter{myexercisecounter}{\theenumi}
+		\end{enumerate}
+	}
 
+	\vfill
+
+	% answers, gray, centered, upside down	
+	% \footnotesize
+	% \textcolor{gray}{
+	% 	\rotatebox[origin=c]{180}{
+	% 		($CE=4.80\text{ m},\, CD=3.25\text{ m} $ )
+	% 	}
+	% }
 
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Significant Digits}
 	\cmini[0.9]{
-    \begin{staticsbox}
+    \begin{redbox}
       \begin{itemize}
         \item Significant {\bf  digits} and significant {\bf figures} are the same thing.
         \parb\pause
         \item Significant digits are a measure of the {\bf accuracy} of a number.
         \parb\pause
-        {\small It is \textcolor{structure}{\bf extremely important} to recognize that we can get no more
-              accuracy out of a calculation than we put in. If the inputs to a
-              problem have three significant digits, we cannot expect any higher
-              accuracy than three significant digits in our result --- even if the
-              calculator does give ten digits.}
+        {\small It is \textcolor{structure}{\bf extremely important} to recognize that we can get 	no more accuracy out of a calculation than we put in. If the inputs to a
+				problem have three significant digits, we cannot expect any higher
+				accuracy than three significant digits in our result --- even if the
+				calculator does give ten digits.}
       \end{itemize}
-    \end{staticsbox}
+    \end{redbox}
 	}
 \end{frame}
 
@@ -157,7 +211,6 @@
       \begin{itemize}
 			      	\item $1234$ has \textcolor{statsMaroon}{4} significant digits.			      	
 			      	\item $12.34$ has \textcolor{structure}{4} significant digits.
-			      	% \item $0.01234$ has four significant digits.
 			      \end{itemize}
     \end{titledbox}
     \pause\parb
@@ -165,7 +218,6 @@
       \begin{itemize}
 			      	\item $12034$ has \textcolor{statsMaroon}{5} significant digits.			      	
 			      	\item $12.0034$ has \textcolor{structure}{6} significant digits.
-			      	% \item $0.01234$ has four significant digits.
 			      \end{itemize}
     \end{titledbox}   
 	}
@@ -199,13 +251,13 @@
    
     \begin{titledbox}{Trailing zeros (on whole numbers, i.e.\! integers) are more {\bf complicated}}
       \begin{itemize}			      	
-        \item $12300$ can have \textcolor{statsMaroon}{3}, \textcolor{statsMaroon}{4} or \textcolor{statsMaroon}{5} significant digits!\parm
+        \item $12300$ can have \textcolor{statsMaroon}{3}, \textcolor{statsMaroon}{4} or \textcolor{statsMaroon}{5} significant digits!\parm\pause
         \begin{itemize}
-					\item Consider $12.3\,$m. This value has \textcolor{statsMaroon}{3} significant digits. It is equal to $12300\,$mm, so in this case the $12300$ also has \textcolor{statsMaroon}{3} significant digits.\parm
-					\item Now consider $12.30\,$m. This value has \textcolor{statsMaroon}{4} significant digits. But it is still equal to $12300\,$mm, so in this case the $12300$ has \textcolor{statsMaroon}{4} significant digits.\parm
-					\item What if $12300\,$mm refers to $12.300\,$m? Then it has \textcolor{statsMaroon}{5} significant digits.
+					\item Consider $12.3\,$m. This value has \textcolor{statsMaroon}{3} significant digits. It is equal to $12300\,$mm, so in this case the $12300$ also has \textcolor{statsMaroon}{3} significant digits.\parm\pause
+					\item Now consider $12.30\,$m. This value has \textcolor{statsMaroon}{4} significant digits. But it is still equal to $12300\,$mm, so in this case the $12300$ has \textcolor{statsMaroon}{4} significant digits.\parm\pause
+					\item What if $12300\,$mm refers to $12.300\,$m? Then it has \textcolor{statsMaroon}{5} significant digits.\pause
 				\end{itemize}
-				\item Usually, the trailing zeros are placeholders for the magnitude of a value and we don't need to worry unduly.
+				\item Usually, the trailing zeros are placeholders for the magnitude of a value and we don't need to worry unduly.\pause
 				\item If we want to emphasize that $12300$ has \textcolor{statsMaroon}{4} significant digits, we can write $1.230\x\left(10^3\right)$.
       \end{itemize}          
     \end{titledbox}
@@ -232,16 +284,16 @@
 \begin{frame}{Significant Digits and Rounding}
 	\cmini[0.8]{
 		\begin{itemize}
-			\item When using five significant digits for intermediate calculations, it is necessary to convert to three (or four) when providing the final answer to an exercise. Then, {\bf rounding} is often involved:
+			\item When using five significant digits for intermediate calculations, it is necessary to convert to three (or four) significant digits when providing the final answer to an exercise. Then, {\bf rounding} is often involved:
       \parm\pause
 			\begin{itemize}
 				\item $2.3456$ becomes $2.35$ because the first non-significant digit (the $5$ in
-				this case) is $\ge 5$ and so the $4$ rounds up.\pars
+				this case) is $\ge 5$ and so the $4$ rounds up.\pars\pause
 				\item $2.3446$ becomes $2.34$ because the first non-significant digit (the $4$ in
-				this case) is $< 5$ and the last significant digit, $4$, remains unchanged.
+				this case) is $< 5$ and the last significant digit, $4$, remains unchanged.\pause
 			\end{itemize}
 			\item When the first discarded digit is a $5$ (or higher), round up the digit
-			before the $5$ (or higher)\parm
+			before the $5$ (or higher)\parm\pause
 			\item There are various rules (such as the odd-even rule) which take a
 			more complicated approach to rounding $5$ but, for our purposes, $\bm 5$ {\bf rounds up}!
 		\end{itemize}
@@ -250,18 +302,262 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}{Right Triangle Exercises}
+\begin{frame}{More About Right Triangle}
+	
+	\cmini[0.8]{
+		The sine, cosine and tangent trigonometrical functions relate an acute angle ($\theta$, in this example) in a right triangle to two of the sides of the triangle.
+		\parm
+		\begin{center}
+			\tcb		
+				{			
+					\input{../../pikz/01MathReview/math02.tex}
+				}
+		\end{center}
+		\pause
+	} % end cmini
+
+	\begin{statsbox}[top=0mm]{Right Triangle Trigonometry Formul\ae}
+		\centering
+		$$		
+		\sin\theta = \frac{{\bm o}\text{\textcolor{gray}{pposite}}}{{\bm h}\text{\textcolor{gray}{ypotenuse}}}, \quad
+		\cos\theta = \frac{{\bm a}\text{\textcolor{gray}{djacent}}}{{\bm h}\text{\textcolor{gray}{ypotenuse}}},
+		\quad
+		\tan\theta = \frac{{\bm o}\text{\textcolor{gray}{pposite}}}{{\bm a}\text{\textcolor{gray}{djacent}}}
+		$$
+  \end{statsbox}
+	\centering
+	Remember: {\bfseries SOHCAHTOA}
+
+	
 
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Right Triangle Exercises (2)}
+	%cmini[width]{content}
+	\cmini[0.85]{
+		\centering
+		\tcb{
+			\input{../../pikz/01MathReview/math04truss}
+		}
+		\par
+		\begin{enumerate}
+			\setcounter{enumi}{\themyexercisecounter}
+			\item Use the {\bfseries tangent} function to calculate $\angle CEF$.
+			      % {\footnotesize
+			      % 	\textcolor{gray}{
+			      % 		\rotatebox[origin=c, y=2.5pt]{180}{
+			      % 			( $51.3^\circ$)
+			      % 		}
+			      % 	}
+			      % }			      
+
+			\item From $\angle CEF$ just found ({\bfseries use the intermediate, 5 or more significant digit, form!}) and the {\bfseries sine} rule to verify the length of $CE$ found earlier.
+
+
+			\item Use the {\bfseries cosine} function and the length of $CB$ found earlier to calculate the angle between $BC$ and the horizontal. 
+			
+			% {\footnotesize\textcolor{gray}{\rotatebox[origin=c, y=2.5pt]{180}{($22.6^\circ$ )}}}
+
+			\item Use the {\bfseries tangent} function to verify the previous result.
+			      \setcounter{myexercisecounter}{\theenumi}
+		\end{enumerate}
+	}
+\end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Triangles - Sine Rule}
+	% centered minipage with text raggedright
+	%cmini[width]{content}
+	\cmini[0.9]{
+		\centering
+		Not all triangles contain a right angle. To solve for these triangles (finding the lengths of the side and the triangle angles), we have to employ some different tools: 	 the {\bfseries sine rule} and (later) the {\bfseries cosine rule}
+		\parm
+		\centering
+		\tcb{\input{../../pikz/01MathReview/math06}}
+	}
+	% centered minipage with text raggedright
+	%cmini[width]{content}
+	\cmini[0.9]{
+		\mini[0.45]{
+			\centering
+			\begin{statsbox}[top=0mm]{Sine Rule}
+				\[ \frac{\sin A}{a} = \frac{\sin B}{b}=\frac{\sin C}{c} \]
+			\end{statsbox}
+		}
+		or
+		\mini[0.45]{
+			\begin{statsbox}[top=0mm]{Sine Rule}
+				\[ \frac{a}{\sin A} = \frac{b}{\sin B}=\frac{c}{\sin C} \]
+			\end{statsbox}
+		}
+	}
+\end{frame}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Triangles - Sine Rule Exercises}
+
+	\mini[0.6]{
+		\begin{enumerate}
+			\setcounter{enumi}{\themyexercisecounter}
+			\item Using the sine rule, find $\angle ACB$. 
+			% {\footnotesize\textcolor{gray}{\rotatebox[origin=c, y=2.5pt]{180}{($95.8^\circ$)}}}
+					      
+			\item Using the sine rule, find $\angle ABC$. 
+			% {\footnotesize\textcolor{gray}{\rotatebox[origin=c, y=2.5pt]{180}{($28.2^\circ$)}}}
+			\item Sum the interior angles of the triangle. 
+			      \setcounter{myexercisecounter}{\theenumi}
+		\end{enumerate}
+	}
+	\mini[0.35]{
+		\centering
+		\tcb{\input{../../pikz/01MathReview/math03}}
+	}
+\end{frame}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Trig Identities}
+	\setlength{\tabcolsep}{1mm}
+	% centered minipage with text raggedright
+	%cmini[width]{content}
+	\cmini[0.8]{
+		\centering
+		A couple of trig identities that will come in useful:
+		\tcbtl[left=5mm, right=5mm]{Identities}{%
+		% align* doesn't seem to work in tcbox but aligned does when in math mode
+		$\begin{aligned}
+			\sin\left(180\deg-\theta\right) &=\sin\theta\\
+			\cos\left(-\theta\right) &= \cos\theta
+		\end{aligned}$
+		}
+		\parb
+		\begin{statsbox}[left=5mm, right=5mm]{Note:}
+			\centering
+			\begin{tabular}{rcccl}
+				$\sin(140\deg)$ &=& $\sin(40\deg)$ &=& $0.64279$\\
+				$\cos(42\deg)$ &=& $\cos(-42\deg)$ &=& $0.74314$\\
+			\end{tabular}
+			\parb
+			Thus, we have to be careful when using inverse trigonometric functions:
+			\parb
+			\begin{tabular}{rcccl}
+				$\sin^{-1}(0.64279)$ &=& $40\deg$ &or& $140\deg$\\
+				$\cos^{-1}0.74314)$ &=& $-42\deg$ &or& $42\deg$\\
+			\end{tabular}
+		\end{statsbox}
+	}
+
+	
+	
+\end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Triangles - Cosine Rule}
+	% centered minipage with text raggedright
+	%cmini[width]{content}
+	\cmini[0.8]{
+		\centering
+		\tcb{\input{../../pikz/01MathReview/math05}}
+	}
+	% centered minipage with text raggedright
+	%cmini[width]{content}
+	\cmini[0.6]{
+		\begin{statsbox}[top=0 mm]{Cosine Rule}
+			\begin{align*}
+				a^2 & = b^2 + c^2 -2bc\cos A \\
+				b^2 & = a^2 + c^2 -2ac\cos B \\
+				c^2 & = a^2 + b^2 -2ab\cos C 
+			\end{align*}
+		\end{statsbox}
+		\parm
+		The cosine rule is useful when you have all the sides of a triangle and want to find the angles.
+
+	}
+\end{frame}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Triangles - Cosine Rule Exercises}
+
+	\mini[0.5]{
+		\begin{enumerate}
+			\setcounter{enumi}{\themyexercisecounter}
+			\item Determine $\angle ABC$, using the value for $AB$ found earlier
+			\item Compare the value for $\angle ABC$ with the value calculated earlier. \lb Is it the same? It should be!
+			      \setcounter{myexercisecounter}{\theenumi}
+		\end{enumerate}
+	}
+	\mini[0.4]{
+		\centering
+		\tcb{\input{../../pikz/01MathReview/math03}}
+	}
+\end{frame}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Similar Triangles}
+	\begin{center}
+		\tcb{\input{../../pikz/01MathReview/math07}}
+	\end{center}
+	% centered minipage with text raggedright
+	%cmini[width]{content}
+	\cmini[0.7]{
+		\centering
+		If triangles $ABC$ and $XYZ$ have the same angles, they are said to be {\bfseries similar triangles}.
+		\parm\pause
+		The ratios of the lengths of corresponding sides of similar triangles are equal:
+		\parm
+		\centering
+		\tcb[left=5mm,right=5mm]{
+			$ \frac{AB}{XY} = \frac{BC}{XZ} = \frac{AC}{YZ} $
+		}
+	}
+\end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Similar Triangles - Exercises}
+	\mini[0.4]{
+		\raggedright
+		$ABCD$ is a rigid (i.e., it does not deform) plate, pinned at $C$. \parm
+		When horizontal force $P$ is applied at $A$, $ABCD$ rotates about $C$ and $A$ deflects $2.45\,$mm horizontally rightwards. \parm
+		Assume that $BF$ remains horizontal and that $DE$ remains vertical.
+		
+		\begin{enumerate}
+			\setcounter{enumi}{\themyexercisecounter}
+			\item Determine $\delta_{BF}$, the change in length of $BF$.
+			\item Determine $\delta_{DE}$, the change in length of $DE$.
+						\setcounter{myexercisecounter}{\theenumi}
+		\end{enumerate}
+	
+	
+		%\uncover<2>{
+			% answers, gray, centered, upside down
+			% \begin{center}
+			% 	\footnotesize
+			% 	\textcolor{gray}{
+			% 		\rotatebox[origin=c]{180}{
+			% 			($\delta_{BF}=0.969\text{ mm},\,\delta_{DE}=1.319\text{ mm}$)
+			% 		}
+			% 	}
+			% \end{center}
+		%}
+	}
+	\hfill	
+	\mini[0.5]{
+		\only<1>{
+			\tcbox[colback=white,boxsep=0pt,top=5pt,bottom=5pt,left=5pt,
+			right=5pt, colframe=structure]{\input{../../pikz/01MathReview/math08}}
+		}
+		\only<2>{
+			\tcbox[colback=white,boxsep=0pt,top=5pt,bottom=5pt,left=5pt,
+			right=5pt, colframe=structure]{\input{../../pikz/01MathReview/math08}}
+		}
+
+	}
+
+\end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
