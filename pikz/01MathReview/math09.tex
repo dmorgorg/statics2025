@@ -1,0 +1,36 @@
+% !TEX root = ../../Beamer/statikz/statikz.tex
+
+
+\begin{tikzpicture}[scale=0.6]
+
+	\coordinate (A) at (0,0);
+	\coordinate (B) at (0,3);
+	\coordinate (C) at (4,0);
+	% super cool tikzlibrary{calc} to get the point D on BC perpendicular from A
+	\coordinate (D) at ($ (B)!(A)!(C) $);
+
+	
+  
+
+	\small
+	\filldraw[thick, fill=Gainsboro!65, draw=black] (A) -- (B) --  (C) --  cycle;
+	\filldraw[thick, fill=Gainsboro!65, draw=black] (A) -- (D);
+	\draw[gray, thin] ($ (D)+(-36.87:0.35) $) -- ++(233.13:0.35)-- +(144.13:0.35);
+	\draw[gray, thin] (0,0.35) -- (0.35,0.35)-- (0.35,0);
+  
+	% \path (A) -- (C) node[midway, sloped, above] {$6.43\,$cm};
+	% \path (C) -- (B) node[midway, sloped, above, rotate=180] {$5.26\,$cm};
+	% \path (A) -- (B) node[midway, sloped, below] {$3.35\,$cm};
+	\draw[below left] (A) node {$\bm A$};
+	\draw[above left] (B) node {$\bm B$};
+	\draw[below right] (C) node {$\bm C$};
+	\draw[above right] (D) node {$\bm D$};
+
+	% \draw ($ (A)+(54.7:1) $) arc (54.7:0:1)node[midway, fill=Gainsboro!65, inner sep=0.5mm,xshift=1mm] {\scriptsize $ 54.7\deg $};
+  
+
+	% \node[xshift=-0.5cm, yshift=0.15cm] at (C) {$\theta $};
+
+
+
+\end{tikzpicture}

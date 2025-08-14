@@ -520,16 +520,12 @@
 \begin{frame}{Similar Triangles - Exercises}
 	\mini[0.4]{
 		\raggedright
+		\normalsize
 		$ABCD$ is a rigid (i.e., it does not deform) plate, pinned at $C$. \parm
 		When horizontal force $P$ is applied at $A$, $ABCD$ rotates about $C$ and $A$ deflects $2.45\,$mm horizontally rightwards. \parm
 		Assume that $BF$ remains horizontal and that $DE$ remains vertical.
 		
-		\begin{enumerate}
-			\setcounter{enumi}{\themyexercisecounter}
-			\item Determine $\delta_{BF}$, the change in length of $BF$.
-			\item Determine $\delta_{DE}$, the change in length of $DE$.
-						\setcounter{myexercisecounter}{\theenumi}
-		\end{enumerate}
+		
 	
 	
 		%\uncover<2>{
@@ -545,21 +541,86 @@
 		%}
 	}
 	\hfill	
-	\mini[0.5]{
-		\only<1>{
-			\tcbox[colback=white,boxsep=0pt,top=5pt,bottom=5pt,left=5pt,
-			right=5pt, colframe=structure]{\input{../../pikz/01MathReview/math08}}
-		}
-		\only<2>{
-			\tcbox[colback=white,boxsep=0pt,top=5pt,bottom=5pt,left=5pt,
-			right=5pt, colframe=structure]{\input{../../pikz/01MathReview/math08}}
-		}
-
+	\mini[0.55]{
+		\centering	
+		\tcb[top=5mm,bottom=5mm]{\input{../../pikz/01MathReview/math08}}
 	}
 
+	\cmini[0.7]{
+		\parb
+		\only<1>{
+				\begin{enumerate}
+					\setcounter{enumi}{\themyexercisecounter}
+					\item Determine $\delta_{BF}$, the change in length of $BF$.
+					\item Determine $\delta_{DE}$, the change in length of $DE$.
+								%\setcounter{myexercisecounter}{\theenumi}
+				\end{enumerate}
+			}
+			% to avoid incrementing question numbers on overlay, do not save after the first overlay.
+			\only<2>{
+				\begin{enumerate}
+					\setcounter{enumi}{\themyexercisecounter}
+					\item Determine $\delta_{BF}$, the change in length of $BF$.
+					\item Determine $\delta_{DE}$, the change in length of $DE$.
+								\setcounter{myexercisecounter}{\theenumi}
+				\end{enumerate}
+			}
+	}
+	\vspace{-0.75cm}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Right Triangles and Trigonometric Functions - Exercises}
+	\hspace{-0.5cm}
+	% left-aligned minipage with text raggedright
+	%mini[width]{content}
+	\mini[0.55]{
+		\begin{enumerate}
+			\setcounter{enumi}{\themyexercisecounter}
+			\item  Show that right triangles $\triangle ABC$, $\triangle ABD$ and $\triangle ACD$ all have the same angles (i.e. they are all similar).
+			\item Given that $AC=100\text{ mm}$ and $AD=65\text{ mm}$, determine $\angle ACD$ and $\angle ABD$. 
+			% {\footnotesize\textcolor{gray}{\rotatebox[origin=c, y=2.5pt]{180}{($\angle ACD=40.5^\circ, \, \angle ABD = 49.5^\circ$)}}}
+			\item Find the remaining lengths: $AB$, $BD$ and $CD$. 
+			% {\footnotesize\textcolor{gray}{\rotatebox[origin=c, y=2.5pt]{180}{($CD=76.0\text{ mm, }AB=85.5\text{ mm, }BD=55.6\text{ mm}$)}}}
+			\item Verify your lengths found above by using the Pythagorean Theorem on $\triangle ABC$
+			      \setcounter{myexercisecounter}{\theenumi}
+		\end{enumerate}
+
+
+	}
+	\hfill
+	\mini[0.4]{
+		% \centering
+		\tcb[top=5mm,bottom=5mm, left=5mm, right=5mm]{\input{../../pikz/01MathReview/math09}}
+	}
+\end{frame}
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Triangles and Trig Exercise}
+	% \hspace{-.75cm}
+	\mini[0.4]{
+		\raggedright
+		This is a standard type of statics problem to determine the forces in cables $AC$ and $BC$. But first we have to find the angles $\theta_{AC}$ and $\theta_{BC}$. This involves the use of the Pythagorean Theorem, the sine and cosine rules, and one of the trigonometric functions.
+		\parb
+		\begin{enumerate}
+			\setcounter{enumi}{\themyexercisecounter}
+			\item Find $\theta_{AC}$.
+			\item Find $\theta_{BC}$.
+
+		\end{enumerate}
+		% {\bfseries Don't give up yet!} Spend a few minutes and figure out how you can use the dimensions given to work towards finding angles $\theta_{AC}$ and $\theta_{BC}$.\parb
+		% \textcolor{gray}{If you are really stuck, there are hints on the next slide :)}
+	}
+	\hfill
+	\mini[0.55]{
+		\centering
+		\tcb{\input{../../pikz/01MathReview/math10.tex}}}
+	
+\end{frame}
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

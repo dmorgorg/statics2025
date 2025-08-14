@@ -1,0 +1,54 @@
+% !TEX root = ../../Beamer/statikz/statikz.tex
+
+
+\begin{tikzpicture}[scale=0.88]
+
+	\coordinate (O) at (0,0);
+	\coordinate (B) at (4.5,0);
+	\coordinate (BB) at ($(B)+(218:10)$);
+	\coordinate (A) at (0,-1);
+	\coordinate (AA) at ($(A)+(-21.7:10)$);
+	% super cool tikzlibrary{calc} to get the intersection
+	\coordinate (C) at (intersection of A--AA and B--BB);
+	\coordinate (D) at ($ (C)+(0,-1.5) $);
+
+	\fill[Seashell3] (O) -- ($ (B)+(0.85,0) $) --+(0,1.25)--(-1.25,1.25) -- (-1.25, -4.5) -- +(1.25,0)--cycle;
+	\draw[thin] ($ (B)+(0.85,0) $) -- (O) -- ($ (A)+(0,-3.5) $);
+	\draw[very thick, OrangeRed3] (A)--(C);
+	\draw[very thick, OrangeRed3] (B)--(C);
+	\draw[very thick, OrangeRed3] (C)--(D);
+	\shade[ball color=green] (D) circle (.5cm);
+
+	\draw[thin] ($ (C)+(0.25,0) $) --+(0.625,0);
+	\draw[thin] ($ (C)+(-0.25,0) $) --+(-1,0);
+	\node at ($ (C)+(15:0.75) $) {\footnotesize $ \theta_{BC} $};
+	\node at ($ (C)+(169:1) $) {\footnotesize $ \theta_{AC} $};
+
+	\draw[thin]  ($ (O)+(-0.25,0) $) --+(-0.625,0);
+	\draw[thin]  ($ (A)+(-0.25,0) $) --+(-0.625,0);
+	\draw[latex-latex] ($ (O)+(-0.625,0) $) -- node[fill=Seashell3, inner sep=0.5mm] {\scriptsize $1.00\,\text{m}$}($ (A)+(-0.625,0) $);
+
+	
+	\draw[thin]  ($ (O)+(0,0.25) $) --+(0, 0.625);
+	\draw[thin]  ($ (B)+(0,0.25) $) --+(0, 0.625);
+	\draw[latex-latex] ($ (O)+(0,.625) $) -- node[fill=Seashell3, inner sep=0.5mm] {\scriptsize $4.50\,\text{m}$}($ (B)+(0,0.625) $);
+
+	
+	
+	\draw[thin]  ($ (C)+(-52:0.25) $) --+(-52:.75);
+	\draw[thin]  ($ (B)+(-52:0.25) $) --+(-52:.75);
+	\draw[latex-latex] ($(C)+(-52:0.75)$) -- node[fill=white, sloped, inner sep=0.5mm] {\scriptsize $3.00\,\text{m}$}($(B)+(-52:0.75)$);
+	\draw[thin]  ($ (A)+(68.3:0.125) $) --+(68.3:0.5);
+	\draw[thin]  ($ (C)+(68.3:0.125) $) --+(68.3:0.5);
+	\draw[latex-latex] ($(A)+(68.3:0.375)$) -- node[fill=white, sloped, inner sep=0.5mm] {\scriptsize $2.30\,\text{m}$}($(C)+(68.3:0.375)$);
+
+  
+	\small
+	\shadedraw [draw=black, ball color = Ivory4] (O) circle (0.05cm) node[OrangeRed4, xshift=-0.175cm, yshift=0.175cm] { $O$};
+	\shadedraw [draw=black, ball color = Ivory4] (B) circle (0.05cm) node[OrangeRed4, xshift=0.15cm, yshift=0.1875cm] {$B$};
+	\shadedraw [draw=black, ball color = Ivory4] (A) circle (0.05cm) node[OrangeRed4, xshift=-0.15cm, yshift=-0.1875cm] {$A$};
+	\shadedraw [draw=black, ball color = Ivory4] (C) circle (0.05cm) node[OrangeRed4, xshift=-0.15cm, yshift=-0.1875cm] {$C$};
+
+
+
+\end{tikzpicture}
