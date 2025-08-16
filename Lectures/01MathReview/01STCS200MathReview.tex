@@ -1,4 +1,5 @@
-%!TEX option = --enable-write18
+
+%!TEX option = --shell-escape
 
 \documentclass[9pt, xcolor={svgnames, x11names},professionalfonts]{beamer}
 
@@ -11,9 +12,15 @@
 \usefonttheme[onlymath]{serif} 
 \usepackage{mathpazo}
 \usepackage{bm}
+\usepackage{cancel}
 \usepackage[many]{tcolorbox}
+% \tcbset{fonttitle=\itshape\rmfamily\bfseries}
+\tcbset{fonttitle=\itshape\rmfamily}
 \usepackage{tikz}
-\usetikzlibrary{arrows.meta, math, calc}
+\usetikzlibrary{arrows.meta, math, calc,animations}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
 
 \usefonttheme{structureitalicserif} %make titles fancy ;-)
 \usefonttheme[onlymath]{serif}
@@ -43,6 +50,8 @@
 \author{}
 \date{\small Updated on: \today}
 
+% \raggedright
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
@@ -58,7 +67,7 @@
 	bottom=0.125cm,
 	left=0mm,
 	right=0mm,
-  fonttitle=\bfseries,
+  % fonttitle=\itshape\rmfamily,
   halign=flush left, 
   enhanced,
   drop fuzzy shadow,
@@ -80,7 +89,7 @@
 	bottom=0.125cm,
 	left=0mm,
 	right=0mm,
-  fonttitle=\bfseries,
+  % fonttitle=\bfseries,
   halign=flush left, 
   enhanced,
   drop fuzzy shadow,
@@ -129,8 +138,6 @@
 
 \begin{frame}{Right Triangle}
 
-	% centered minipage with text raggedright
-	%cmini[width]{content}
 	\cmini[0.8]{
 		\centering
 		A {\bf right triangle} is a triangle having one $90^\circ$ angle.
@@ -147,12 +154,10 @@
 			% centered minipage with text raggedright
 			%cmini[width]{content}
 			\cmini[0.5]{
-				\begin{tcolorbox}[colback=white,colframe=structure, title=Pythagorean Theorem]
+				\begin{redbox}
 					\[ a^2 = b^2 + c^2 \]
-				\end{tcolorbox}
+				\end{redbox}
 			}
-
-
 		} % end \only<2>
 	} % end \cmini[0.8]
 \end{frame}
@@ -571,7 +576,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}{Right Triangles and Trigonometric Functions - Exercises}
-	\hspace{-0.5cm}
+	% \hspace{-0.5cm}
 	% left-aligned minipage with text raggedright
 	%mini[width]{content}
 	\mini[0.55]{
@@ -615,20 +620,340 @@
 	}
 	\hfill
 	\mini[0.55]{
-		\centering
-		\tcb{\input{../../pikz/01MathReview/math10.tex}}}
+		\begin{center}
+			\tcb[left=2.5mm,right=2.5mm,top=3mm,bottom=3mm]{\input{../../pikz/01MathReview/math10.tex}}
+		\end{center}
+	}
 	
 \end{frame}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Algebraic Manipulation}
+
+	\cmini[0.8]{
+		We frequently need to solve an equation for a particular variable \lb(i.e., rearrange an equation to isolate a given variable)\parm
+		For example:\parm
+
+		\begin{statsbox}[top=3mm,left=5mm]{Example}
+			Solve  $\delta = \dfrac{F\cdot L}{A\cdot E} \text{ for } E$\parm
+			Solution:\vspace{-1cm}
+			\begin{center}
+				\begin{align*}
+					\intertext{Multiply both sides of the equation by $E/\delta$. Then:}				
+					\cancel{\delta}\cdot\frac {E}{\cancel{\delta}} & = \dfrac{F\cdot L}{A\cdot \cancel{E}} \cdot\frac {\cancel{E}}{\delta}\\[1em]
+					E & = \dfrac{F\cdot L}{A\cdot\delta}    
+				\end{align*}
+			\end{center}
+		\end{statsbox}
+	}	
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Algebraic Manipulation - Exercises }
+
+	\cmini[0.8]{
+		\begin{redbox}
+			\begin{center}			
+				\begin{enumerate}
+					\setcounter{enumi}{\themyexercisecounter}
+					\item Solve \textcolor{Maroon}{$a^2=b^2+c^2$} for \textcolor{Maroon}{$b$}. 
+					% {\footnotesize
+					% 	\rotatebox[origin=c, y=2.5pt]{180}{
+					% 		\textcolor{gray}{
+					% 			\Big( $\pm\sqrt{a^2-b^2}$ \bigg)
+					% 		}
+					% 	}
+					% 	}
+					\parm
+					\item Solve \textcolor{Maroon}{$V=\frac43 \pi r^3$} for \textcolor{Maroon}{$r$}. 
+					
+					% {\footnotesize
+					% 	\rotatebox[origin=c, y=2.5pt]{180}{
+					% 		\textcolor{gray}{
+					% 			\Big( $\sqrt[3]{\frac{3V}{4\pi}}$ \bigg)
+					% 		}
+					% 	}
+					% 	}
+					\parm
+
+					\item Solve \textcolor{Maroon}{$c^2=a^2+b^2-2bc\cos C$} for \textcolor{Maroon}{$\cos C$}.
+								% {\footnotesize
+								% 	\rotatebox[origin=c, y=2.5pt]{180}{
+								% 		\textcolor{gray}{
+								% 			\Big( $\frac{a^2+b^2-c^2}{2bc} $\bigg)
+								% 		}
+								% 	}
+								% 	}
+					\parm
+					\item Solve \textcolor{Maroon}{$b^2=a^2+c^2-2ac\cos B$} for \textcolor{Maroon}{$B$}.
+								% \begin{center}
+								% 	\footnotesize
+								% 	\rotatebox[origin=c]{180}{
+								% 		\textcolor{gray}{
+								% 			\Big($\cos^{-1}\left(\frac{a^2+c^2-b^2}{2ac}\right)$ \bigg)
+								% 		}
+								% 	}
+								% 	\setcounter{myexercisecounter}{\theenumi}
+								% \end{center}
+					\parm
+					\item One representation of the Hazen-Williams Equation for flow of water in a pipe is:
+			      \textcolor{Maroon}{$$  Q=\frac{CD^{2.63}\left(\frac{h_L}{L}\right)^{0.54}}{279000}$$}\lb
+			      Solve the equation for \textcolor{Maroon}{$h_L$}, then evaluate \textcolor{Maroon}{$h_L$} using the values \textcolor{Maroon}{$Q=135$, $C=120$, $D=202.7$ and $L=1200$}.
+						\setcounter{myexercisecounter}{\theenumi} 
+				\end{enumerate}
+			\end{center}
+		\end{redbox}
+	}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Simultaneous Equations}
+
+	\mini[0.475]{
+		\tcbox[colback=white,boxsep=0pt,top=5pt,bottom=5pt,left=5pt,
+		right=5pt, colframe=structure]{
+			\scalebox{.8}{\input{../../pikz/01MathReview/math11.tex}}
+		}
+	}
+	\hfill
+	\mini[0.475]{
+		% \begin{flushright}
+			\tcbox[colback=white,boxsep=0pt,top=5pt,bottom=5pt,left=5pt,
+		right=5pt, colframe=structure]{
+			\scalebox{.8}{\input{../../pikz/01MathReview/math10.tex}}
+		% \end{flushright}
+		
+	}
+	}
+	% centered minipage with text raggedright
+	%cmini[width]{content}
+	\cmini[0.8]{
+		\centering
+		Calculating the forces in $AC$ and $BC$ in each of the examples shown involves solving two equations in two unknowns \lb(also known as solving a system of simultaneous equations).\parm
+		
+		We'll review how to do this.
+	}
+
+\end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\begin{frame}{Solving Simultaneous Equations}
+	\cmini[0.8]{
+		This is a simple system of simultaneous equations:
+		\begin{align}
+			2x + 3y & = 7 \\
+			6x-y    & = 1
+		\end{align}
+		Our objective is to find the value of $x$ and $y$ that satisfies both equations.\pause
+		\parb
+		Equation (1) is a straight line, with slope $-2/3$, that intersects the $x$ axis at $x=3.5$ and intersects the $y$ axis at $y=7/3$. \parm
+		Equation (2) is a straight line, with slope $6$, that intersects the $x$ axis at $x=1/6$ and intersects the $y$ axis at  $y=-1$. \parm
+		\pause
+		These lines have different slopes, so they must intersect somewhere. At the point $(x, \, y)$ where they intersect, both equations are satisfied. This is the solution we're looking for.
+	}
+\end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Solving Simultaneous Equations (cont'd)}
+	\mini[0.49]{
+		\raggedright
+		Graphically, the lines look like this. \parm
+		It looks like the point at which they intersect is in the region of $(0.5,\, 2))$ \parm
+		We can check whether this is the correct solution be substituting the values of $x=0.5$ and $y=2$ to see whether they satisfy both equations. \parm
+		Generally, we can solve algebraically using a procedure called the Method of Subsitution. Or use the {\bf system-solver} on your calculator.\parm
+		
+		(The system-solver is allowed for quizzes and examinations; it saves time --- and improves accuracy when rushed. Make sure you know how your calculator works. Trying to figure it out in an exam is not recommended!)
+	}
+	\hfill
+	\mini[0.47]{
+
+		\begin{redbox}
+			\begin{tikzpicture}[scale=0.65]
+				\draw[very thin,color=gray!50] (-0.3,-2.3) grid (4.2,4.5);
+				\draw[->] (-0.35,0) -- (4.4,0) node[right] {$x$};
+				\draw[->] (0,-2.5) -- (0,4.5) node[above] {$y$};
+    		\draw[color=red,domain=-0.25:4.2, thick] plot (\x,{-2/3*\x+7/3}) 
+        	node[above right, xshift=-1.2cm, yshift=0.6cm,sloped] {$\bm{2x+3y=7}$};
+    		\draw[color=orange,domain=-0.125:0.875, thick] plot (\x,{6*\x-1}) 
+        	node[right,yshift=-0.5cm,xshift=-0.1cm] {$\bm{6x-y=1$}};
+				\draw (0,0) node[xshift=-0.15cm, yshift=-0.15cm] {\footnotesize $0$};
+				\draw (1,0) node[yshift=-0.15cm] {\footnotesize $1$};
+				\draw (2,0) node[yshift=-0.15cm] {\footnotesize $2$};
+				\draw (3,0) node[yshift=-0.15cm] {\footnotesize $3$};
+				\draw (4,0) node[yshift=-0.15cm] {\footnotesize $4$};
+				\draw (0,-1) node[xshift=-0.175cm] {\footnotesize $-1$};
+				\draw (0,1) node[xshift=-0.175cm] {\footnotesize $1$};
+				\draw (0,2) node[xshift=-0.175cm] {\footnotesize $2$};
+				\draw (0,3) node[xshift=-0.175cm] {\footnotesize $3$};
+				\draw (0,4) node[xshift=-0.175cm] {\footnotesize $4$};
+			\end{tikzpicture}
+			
+		\end{redbox}
+	}
+
+\end{frame}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}
+% 	\begin{tikzpicture}[scale=0.5]
+% 		\begin{axis}[
+% 			axis x line=middle, 
+% 			axis y line=middle, 
+% 			 ylabel=$y$, 
+% 			xlabel=$x$
+% 			]
+%     	\addplot[domain=-10000:10000, blue, ultra thick, smooth] {14*x - x^2};
+% 		\end{axis}
+% 	\end{tikzpicture}
+% 	\begin{tikzpicture}[scale=0.5]
+% 		\begin{axis}[
+% 			axis x line=middle, 
+% 			axis y line=middle, 
+% 			 ylabel=$y$, 
+% 			xlabel=$x$
+% 			]
+%     	\addplot[domain=-0.125:0.875, blue, ultra thick, smooth] {6*\x-1};
+%     	\addplot[domain=-0.25:3.7, orange, ultra thick, smooth] {-2/3*\x+7/3};
+% 		\end{axis}
+% 	\end{tikzpicture}
+% \end{frame}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Solving Simultaneous Equations using the Method of Subsitution}
+	\small
+	\cmini[0.8]{
+		\setcounter{equation}{0}
+		\begin{align}
+			2x + 3y & = 7 \\
+			6x-y    & = 1
+		\end{align}
+		The process:
+		\begin{enumerate}[(a)]
+			\item  Choose an equation and solve for one of the variables.
+			      Here I choose equation (2) and solve for the variable $y$.
+			      \begin{align}
+			      	y & = 6x-1
+			      \end{align}
+			\item Use equation (3) to substitute $6x-1$ wherever $y$ occurs in the other equation:
+			      \begin{align*}
+			      	2x+3(6x-1) & = 7   \\
+			      	2x+18x-3   & = 7   \\
+			      	20x        & = 10  \\
+			      	x          & = 0.5
+			      \end{align*}
+			\item Substitute this value for $x$ in either of equation (1) or (2):
+			      \begin{align*}
+			      	6x-y & = 1 \\
+			      	3d-y & = 1 \\
+			      	y    & = 2
+			      \end{align*}
+			\item We have our solution: $(0.5, \, 2)$.
+
+		\end{enumerate}
+	}
+\end{frame}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Typical Statics System of Equations}
+	% left-aligned minipage with text raggedright
+	%mini[width]{content}
+	\mini[0.4]{
+		\raggedright
+		In an earlier exercise, we calculated that $\theta_{AC}=21.661\deg$ and
+		$\theta_{BC}=38.049\deg$. \parm
+		(Note that we are using 5 significant digits here because we will be using these values for calculations.)
+
+	}
+	\hfill
+	\mini[0.53]{
+		\vspace{0.375cm}
+		\tcb[colback=white,boxsep=0pt,top=5pt,bottom=5pt,left=5pt,
+		right=5pt, colframe=structure]{\input{../../pikz/01MathReview/math10.tex}}
+	}
+	\vspace{0.35cm}
+	\cmini[0.8]{
+
+		The system shown yields the following two equations:
+		\begin{align*}
+			% \setcounter{equation}{0}
+			F_{AC}\sin\left(21.661^\circ\right) + F_{BC}\sin\left(38.049^\circ\right) & = 2011.1\,\text{N} \\
+			F_{BC}\cos\left(38.049^\circ\right)-F_{AC}\cos\left(21.661^\circ\right)   & = 0
+		\end{align*}
+
+	}
+
+\end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{System of Equations Exercise (1)}
+	\cmini[0.8]{
+		This looks more difficult than our previous example.
+		\begin{align}
+			\setcounter{equation}{0}
+			F_{AC}\sin\left(21.661^\circ\right) + F_{BC}\sin\left(38.049^\circ\right) & = 2011.1 \\
+			F_{BC}\cos\left(38.049^\circ\right)-F_{AC}\cos\left(21.661^\circ\right)   & = 0
+		\end{align}
+		Fortunately, it only {\bfseries looks} harder. $F_{AC}$ and $F_{BC}$ are variables, just like $x$ and $y$ in the earlier example.
+		And the sines and cosines are just numbers. We get:
+		\vspace{-0.125cm}
+		\begin{align}
+			0.36911x + 0.61633y & = 2011.1 \\
+			0.78748y - 0.92938x & = 0
+		\end{align}
+
+		This is the same system, with $x$ replacing $F_{AC}$, $y$ replacing $F_{BC}$ and the trigonemetric functions evaluated.
+		\parb
+		\begin{enumerate}
+			\setcounter{enumi}{\themyexercisecounter}
+			\item Solve for $x$ ($F_{AC}$ in the original system) 
+			% {\footnotesize\textcolor{gray}{\rotatebox[origin=c, y=2.5pt]{180}{(1830)}}}\\
+			\item Solve for $y$ ($F_{BC}$ in the original system) 
+			% {\footnotesize\textcolor{gray}{\rotatebox[origin=c, y=2.5pt]{180}{(2160)}}}
+			      \setcounter{myexercisecounter}{\theenumi}
+		\end{enumerate}
+	}
+\end{frame}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{System of Equations Exercise (2)}
+	\mini[0.45]{
+		\tcbox[colback=white,boxsep=0pt,top=5pt,bottom=5pt,left=5pt,
+		right=5pt, colframe=structure]{\input{../../pikz/01MathReview/math11.tex}}
+	}
+	\hfill
+	% centered minipage with text raggedright
+	%cmini[width]{content}
+	\mini[0.5]{
+		The system shown yields the following two equations in the two unknowns $F_{AC}$ and $F_{BC}$:
+		\begin{align*}
+			F_{BC}\sin15^\circ + F_{AC}\cos35^\circ + 1030.1 & = 0 \\
+			F_{BC}\cos 15^\circ+F_{AC}\sin35^\circ           & = 0
+		\end{align*}
+		\parb
+		\begin{enumerate}
+			\setcounter{enumi}{\themyexercisecounter}
+			\item Determine $F_{AC}$
+			%  {\footnotesize\textcolor{gray}{\rotatebox[origin=c, y=2.5pt]{180}{(-1550)}}}\\
+			\item Determine $F_{BC}$
+			%  {\footnotesize\textcolor{gray}{\rotatebox[origin=c, y=2.5pt]{180}{(919)}}}
+			      \setcounter{myexercisecounter}{\theenumi}
+		\end{enumerate}
+	}
+
+
+
+\end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
