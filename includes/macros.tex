@@ -53,6 +53,23 @@
 	\includegraphics[scale=#1]{#2}
 }
 
+% centred framed colored box black border
+%\cbox[width]{content}
+\newcommand{\cbox}[2][1]{% framed centered color box
+	\setlength\fboxsep{5mm}
+	\setlength\fboxrule{.2 mm}
+	\begin{center}
+		\fcolorbox{black}{white}{
+			\vspace{-0.5cm}
+			\begin{minipage}{#1\columnwidth}
+				\raggedright
+				#2
+			\end{minipage}
+		}
+	\end{center}
+	\setlength\fboxsep{0cm}
+}
+
 
 
 

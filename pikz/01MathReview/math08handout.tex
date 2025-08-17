@@ -1,0 +1,84 @@
+
+
+
+\scalebox{0.75}{
+\begin{tikzpicture}[scale=1]
+
+	\coordinate (C) at (0,0);
+	\coordinate (B) at ($ (C)+(90:1.8)  $);
+	\coordinate (BB) at ($ (B)+(0:0.148)  $);
+	\coordinate (A) at ($ (B)+(90:2.75) $);
+	\coordinate (AA) at ($ (A)+(0:0.245) $);
+  \coordinate (D) at ($ (C)+(0:2.45) $);
+  \coordinate (DD) at ($ (D)+(-90:.132) $);
+	\coordinate (E) at ($ (D)+(-90:1.45) $);
+	\coordinate (F) at ($ (B)+(180:2.375) $);
+	\def\d{0.2cm}
+
+	\gettikzxy{(A)}{\ax}{\ay}
+	\gettikzxy{(AA)}{\aax}{\aay}
+  \gettikzxy{(B)}{\bx}{\by}
+  \gettikzxy{(BB)}{\bbx}{\bby}
+  \gettikzxy{(C)}{\cx}{\cy}
+  \gettikzxy{(D)}{\ddx}{\ddy}
+  \gettikzxy{(DD)}{\dddx}{\dddy}
+  \gettikzxy{(E)}{\ex}{\ey}
+  \gettikzxy{(F)}{\fx}{\fy}
+
+	\PC[270]{F}{gray}{black}{0.5}{0.25}
+	\PC{E}{gray}{black}{0.5}{0.25}
+	\PC{C}{gray}{black}{0.5}{0.25}
+
+	\small
+
+
+		\filldraw[thick, fill=gray!50, draw=black] (\cx-\d, \cy)--(\cx-\d, \ay)arc(180:90:\d)--+(1,0)arc(90:0:1.65)--(\ddx+\d, \ddy)arc(0:-90:\d)--(\cx, \cy-\d)arc(270:180:\d);
+
+
+		
+		\draw[thin] (\ddx+0.35cm, \ddy) -- +(2,0);
+		\draw[Latex-Latex] (\ddx+1.35cm,\ddy) -- node[fill=white] { $290\,\text{mm}$}(\ddx+1.35cm,\ey);
+	
+		\fill [gray] (B) circle (0.1cm) node[black, xshift=0.3cm] {\large $\bm B$};	
+		\fill [gray] (A) circle (0.05cm) node[black, xshift=0.2cm, yshift=-0.25cm] {\large $\bm A$};
+		\fill [gray] (D) circle (0.1cm) node[black, xshift=-0.3cm, yshift=0.2cm] {\large $\bm D$};
+
+
+
+		\filldraw[thick, gray!25, draw=black] (\cx-\d, \cy)--(\aax-\d, \aay)arc(180:90:\d)--+(1,0)arc(90:0:1.65)--(\dddx+\d, \dddy)arc(0:-90:\d)--(\cx, \cy-\d)arc(270:180:\d);
+		% \draw[Latex-Latex] (\dddx+1.35cm,\dddy) -- node[fill=white] { $290\,\mathsf{mm}-\delta_{DE}$}(\ddx+1.35cm,\ey);
+		\draw[thin] (\dddx+0.35cm, \dddy) -- +(2,0);
+
+		\Member{F}{BB}{white}{white}{black}{0.275}{1.125}{0.5}
+		\Member{DD}{E}{white}{white}{black}{0.325}{1.125}{0.5}
+		
+		\fill [gray] (BB) circle (0.1cm) node[black, xshift=0.35cm] {\large $\bm B'$};
+		\fill [gray] (AA) circle (0.05cm) node[black, xshift=0.2cm, yshift=-0.25cm] {\large $\bm A'$};
+		\fill [gray] (DD) circle (0.1cm) node[black, xshift=-0.3cm, yshift=0.2cm] {\large $\bm D'$};
+		\draw[-Latex, ultra thick, black] (AA)--+(1.5,0)node[black, below]{\large $\bm P$};
+
+
+
+	\draw[Latex-Latex] (\cx-1.125cm,\ddy) -- node[fill=white] { $360\,\mathsf{mm}$}(\cx-1.125cm,\by);
+	\draw[Latex-Latex] (\cx-1.125cm,\ay) -- node[fill=white] { $550\,\mathsf{mm}$}(\cx-1.125cm,\by);
+	\draw[Latex-Latex] (\fx,\cy-1cm) -- node[fill=white] { $475\,\mathsf{mm}$}(\cx,\cy-1cm);
+	\draw[Latex-Latex] (\cx,\cy-1cm) -- node[fill=white] { $490\,\mathsf{mm}$}(\ddx,\cy-1cm);
+
+	\draw[thin] (\ax-0.5cm, \ay) -- +(-1.25, 0);
+	\draw[thin] (\bx-0.5cm, \by) -- +(-1.25, 0);
+	\draw[thin] (\cx-0.5cm, \cy) -- +(-1.25, 0);
+	\draw[thin] (\cx, \cy-0.6cm) -- +(0, -0.65);
+	\draw[thin] (\ddx, \ddy-0.6cm) -- +(0, -0.65);
+	\draw[thin] (\ex+0.3cm, \ey) -- +(2,0);
+	\draw[thin] (\fx, \fy-0.35cm) -- (\fx, \cy-1.35cm);
+	
+	\large 
+	\fill [gray] (E) circle (0.1cm) node[black, xshift=-0.35cm] {$\bm E$};
+	\fill [gray] (F) circle (0.1cm) node[black, yshift=0.35cm] {$\bm F$};
+	\fill [gray] (C) circle (0.15cm) node[black, xshift=0.25cm, yshift=0.25cm] {\large $\bm C$};
+	
+
+
+
+\end{tikzpicture}
+}

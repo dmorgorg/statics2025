@@ -1,0 +1,328 @@
+\documentclass[10pt,oneside, professionalfonts, mathserif]{amsart}
+\renewcommand{\familydefault}{\sfdefault}
+% \usepackage{mathpazo}
+% \usepackage[usenames,svgnames, x11names]{xcolor}
+% \usepackage[letterpaper]{geometry}
+% \geometry{verbose,tmargin=0.5in,bmargin=0.5in,lmargin=1in,rmargin=1in}
+\setlength{\parskip}{\medskipamount}
+% \setlength{\parindent}{0pt}
+\usepackage{booktabs}
+\usepackage{amsthm}
+% \usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{amssymb}
+\usepackage{textcomp}
+\usepackage[many]{tcolorbox}
+\usepackage{bm}
+\usepackage{array}
+\usepackage{makebox}
+\usepackage{verbatim}
+% \usepackage{tikz}
+\usepackage{gensymb}
+\usetikzlibrary{calc,3d}
+\usetikzlibrary{arrows}
+\usetikzlibrary{positioning}
+\usepackage{enumitem}
+% \usepackage{pgfplots}
+\usepackage{xifthen}
+\usepgfmodule{oo}
+\usepackage{graphicx}
+% \usepackage[absolute,overlay]{textpos}
+% \setlength{\TPHorizModule}{1.0cm}
+% \setlength{\TPVertModule}{\TPHorizModule}
+% \textblockorigin{0.0cm}{0.0cm}  %start all at upper left corner
+
+\pagestyle{plain}
+\everymath{\displaystyle}
+
+% \input{../../includes/macros}
+% \input{../../includes/definedColors}
+% \input{../../includes/PC}
+% \input{../../includes/Roller.tex}
+
+\begin{document}
+\Huge
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def\scale{1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{textblock*}{1.0\textwidth}(1in, 0.25in)
+	\begin{tikzpicture}[line width= 0.3mm, scale=1.0525]
+		\draw[ color=gridLight, step=0.25in] (0,0) grid (7in,10in);
+	\end{tikzpicture}
+\end{textblock*}
+
+\begin{textblock*}{6.75in}(1in, 0.125in)
+	\cbox{
+		\centering
+		\Huge
+		\textbf{STCS200 - Statics - Math Review Handout}
+	}
+\end{textblock*}
+
+\def\scale{0.7}
+\normalsize
+
+\begin{textblock*}{3.25in}(4.6in, 1in)
+	\cbox{
+		\centering
+		\input{../../pikz/01MathReview/math04truss.tex}
+	}
+\end{textblock*}
+
+\begin{textblock*}{3in}(1in, 1in)
+	\cbox{
+		1) Use the Pythagorean Theorem to determine the lengths of $CE$ and $CB$
+	}
+\end{textblock*}
+
+\begin{textblock*}{6.875in}(1in, 5in)
+	\cbox{
+		2) Use the tangent function to calculate $\angle CEF$
+	}
+\end{textblock*}
+
+\begin{textblock*}{6.875in}(1in, 7in)
+	\cbox{
+		3) Use $\angle CEF$ just found and the sine rule to verify the length of $CE$ found in 1) above.
+	}
+\end{textblock*}
+
+\begin{textblock*}{6.875in}(1in, 9in)
+	\cbox{
+		4) Use the cosine function and the length of $CB$ found earlier to calculate the angle between $BC$ and the horizontal.
+	}
+\end{textblock*}
+
+.\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{textblock*}{1.0\textwidth}(1in, 0.25in)
+	\begin{tikzpicture}[line width= 0.3mm, scale=1.0525]
+		\draw[ color=gridLight, step=0.25in] (0,0) grid (7in,10in);
+	\end{tikzpicture}
+\end{textblock*}
+
+\begin{textblock*}{6.75in}(1in, 0.125in)
+	\cbox{
+		5) Use the tangent function to verify the previous result.
+	}
+\end{textblock*}
+
+\def\scale{0.7}
+\normalsize
+
+\begin{textblock*}{2.25in}(5.6in, 1.75in)
+	\cbox{
+		\centering
+		\input{../../pikz/01MathReview/math03}
+	}
+\end{textblock*}
+
+\begin{textblock*}{3in}(1in, 1.75in)
+	\cbox{
+		6) Using the sine rule, find $\angle ACB$.
+	}
+\end{textblock*}
+
+\begin{textblock*}{6.875in}(1in, 4.5in)
+	\cbox{
+		7) Using the sine rule, find $\angle ABC$.
+	}
+\end{textblock*}
+
+\begin{textblock*}{6.875in}(1in, 6.5in)
+	\cbox{
+		8) Sum the interior angles of the triangle.
+	}
+\end{textblock*}
+
+\begin{textblock*}{2.25in}(5.6in, 8in)
+	\cbox{
+		\centering
+		\input{../../pikz/01MathReview/math02}
+	}
+\end{textblock*}
+
+\begin{textblock*}{4in}(1in, 8in)
+	\cbox{
+		9) Using the cosine rule, determine $\angle ABC$ \lb\lb
+		10) Compare the value for $\angle ABC$ with the value calculated earlier.
+	}
+\end{textblock*}
+
+.\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{textblock*}{1.0\textwidth}(1in, 0.125in)
+	\begin{tikzpicture}[line width= 0.3mm, scale=1.0525]
+		\draw[ color=gridLight, step=0.25in] (0,0) grid (7in,10in);
+	\end{tikzpicture}
+\end{textblock*}
+
+\begin{textblock*}{2.75in}(5.1in, 0in)
+	\cbox{
+		\centering
+		\fig[0.35]{../../Figs/01MathReview/simTriangles}
+	}
+\end{textblock*}
+
+\begin{textblock*}{3.525in}(1in, 0in)
+	\cbox{
+		$ABCD$ is a rigid (i.e., it does not deform) plate, pinned at $C$. \parm
+		When horizontal force $P$ is applied at $A$, $ABCD$ rotates about $C$ and $A$ deflects 2.45~mm horizontally rightwards. \parm
+		Assume that $BF$ remains horizontal and that $DE$ remains vertical.\parm
+		11) Determine $\delta_{BF}$, the change in length of $BF$. \parm
+		12) Determine $\delta_{DE}$, the change in length of $DE$.
+	}
+\end{textblock*}
+
+\begin{textblock*}{1.75in}(6.1in, 6in)
+	\cbox{
+		\centering
+		\fig[0.35]{../../Figs/01MathReview/simTrianglesC}
+	}
+\end{textblock*}
+
+\begin{textblock*}{4.5in}(1in, 6in)
+	\cbox{
+		13) Show that right triangles $\triangle ABC$, $\triangle ABD$ and $\triangle ACD$ all have the same angles (i.e. they are all similar).
+	}
+\end{textblock*}
+
+\begin{textblock*}{6.875in}(1in, 9in)
+	\cbox{
+		14) Given that $AC=100\text{ mm}$ and $AD=65\text{ mm}$, determine $\angle ACD$ and $\angle ABD$.
+	}
+\end{textblock*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+.\newpage
+
+\begin{textblock*}{1.0\textwidth}(1in, 0.125in)
+	\begin{tikzpicture}[line width= 0.3mm, scale=1.0525]
+		\draw[ color=gridLight, step=0.25in] (0,0) grid (7in,10in);
+	\end{tikzpicture}
+\end{textblock*}
+
+\begin{textblock*}{6.875in}(1in, 0in)
+	\cbox{
+		15) Find the remaining lengths: $AB$, $BD$ and $CD$.
+	}
+\end{textblock*}
+
+\begin{textblock*}{6.875in}(1in, 3in)
+	\cbox{
+		16) Verify the lengths found above by using the Pythagorean Theorem on $\triangle ABC$
+	}
+\end{textblock*}
+
+\begin{textblock*}{2.75in}(5.1in, 4.5in)
+	\cbox{
+		\centering
+		\fig[0.75]{../../Figs/01MathReview/conc1}
+	}
+\end{textblock*}
+
+\begin{textblock*}{3.5in}(1in, 4.5in)
+	\cbox{
+		17) Find $\theta_{AC}$.\qquad\qquad\qquad\qquad
+		18) Find $\theta_{BC}$.
+	}
+\end{textblock*}
+
+
+.\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{textblock*}{1.0\textwidth}(1in, 0.125in)
+	\begin{tikzpicture}[line width= 0.3mm, scale=1.0525]
+		\draw[ color=gridLight, step=0.25in] (0,0) grid (7in,10in);
+	\end{tikzpicture}
+\end{textblock*}
+
+\begin{textblock*}{2in}(1in, 2.5in)
+	\cbox{
+		19) Solve $a^2=b^2+c^2$ for $b$.
+	}
+\end{textblock*}
+
+\begin{textblock*}{2in}(1in, 4.5in)
+	\cbox{
+		20) Solve $V=\frac43 \pi r^3$ for $r$.
+	}
+\end{textblock*}
+
+\begin{textblock*}{3in}(1in, 6.5in)
+	\cbox{
+		21) Solve $c^2=a^2+b^2-2bc\cos C$ for $\cos C$.
+	}
+\end{textblock*}
+
+\begin{textblock*}{3in}(1in, 8.5in)
+	\cbox{
+		22) Solve $b^2=a^2+c^2-2ac\cos B$ for $B$.
+	}
+\end{textblock*}
+
+.\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{textblock*}{1.0\textwidth}(1in, 0.125in)
+	\begin{tikzpicture}[line width= 0.3mm, scale=1.0525]
+		\draw[ color=gridLight, step=0.25in] (0,0) grid (7in,10in);
+	\end{tikzpicture}
+\end{textblock*}
+
+\begin{textblock*}{6.875in}(1in, 0in)
+	\cbox{
+		$$  Q=\frac{CD^{2.63}\left(\frac{h_L}{L}\right)^{0.54}}{279000}$$\parb
+		23)  Solve the equation for $h_L$, then evaluate $h_L$ using the values $Q=135$, $C=120$, $D=202.7$ and $L=1200$
+	}
+\end{textblock*}
+
+\begin{textblock*}{6.875in}(1in, 4in)
+	\cbox{
+		 \begin{align*}
+			 0.36911x + 0.61633y & = 2011.1 \\
+	 			0.78748y - 0.92938x & = 0
+	\end{align*}\parm
+	24) and 25) Find the values of $x$ and  $y$
+	}
+\end{textblock*}
+
+.\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{textblock*}{1.0\textwidth}(1in, 0.125in)
+	\begin{tikzpicture}[line width= 0.3mm, scale=1.0525]
+		\draw[ color=gridLight, step=0.25in] (0,0) grid (7in,10in);
+	\end{tikzpicture}
+\end{textblock*}
+
+\begin{textblock*}{6.875in}(1in, 0in)
+	\cbox{
+
+	\begin{align*}
+		\setcounter{equation}{0}
+		F_{BC}\sin15^\circ + F_{AC}\cos35^\circ + 1030.1 & = 0 \\
+		F_{BC}\cos 15^\circ+F_{AC}\sin35^\circ           & = 0
+	\end{align*}
+
+	\parm
+	26) and 27) Determine $F_{AC}$ and $F_{BC}$
+	}
+\end{textblock*}
+
+
+\end{document}
