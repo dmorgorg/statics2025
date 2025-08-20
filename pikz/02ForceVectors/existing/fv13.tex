@@ -1,0 +1,17 @@
+% !TEX root = ../../statikz/statikz.tex
+
+
+\begin{tikzpicture}[scale = 0.5, style={line cap = round}]
+  \filldraw [thick, white, draw=saitMaroon, drop shadow={opacity=0.25}] (-1.5, -1.5) rectangle (6, 6);
+  \draw (3.125,0) -- (4.75,0) node[right] {$x$};
+  \draw (-0.75,0) -- (0,0) ;
+  \draw (0, -0.75) -- (0, 0);
+  \draw (0, 4.125) -- (0, 4.75) node[above] {$y$};
+  \draw[lHeaderGrey] (0, 4) -- (3, 4);
+  \draw[lHeaderGrey] (3, 0) -- (3, 4);
+  \draw[ultra thick, saitMaroon, ->, >=stealth] (0, 0) -- (3, 4) node [above right, black] {\large ${\bm{\mathrm F }}$};
+  \draw[ultra thick, black, ->, >=stealth] (0, 0) -- node [below] {\large $\bm{\mathrm{F}_x }$} ++(3, 0) ;
+  \draw[ultra thick, black, ->, >=stealth] (0, 0) --  node [left] {\large $\bm{ \mathrm{F}_y }$} ++(0, 4);
+  \draw[<->] (1.5cm, 0.5mm) arc[start angle = 0, end angle = 51, radius = 1.5cm];
+  \node [rectangle, right] at (1.25, 0.9) {$\theta$};
+\end{tikzpicture}

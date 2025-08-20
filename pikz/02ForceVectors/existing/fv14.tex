@@ -1,0 +1,21 @@
+% !TEX root = ../../statikz/statikz.tex
+
+\begin{tikzpicture}
+  \filldraw [white, draw=saitMaroon, ultra thick ] (0, 0) circle (3.5cm);
+  \draw[thick, black] (-3.75,0) -- (3.75, 0) node [right] {$x$};
+  \draw[thick, black] (0, -3.75) -- (0, 3.75) node [above] {$y$};
+
+  \path[decorate, decoration={text along path, text={|\color{saitMaroon}\Large\bf|1st Quadrant||\ }, text align = center}] (0, 3.6) arc (90:0:3.6);
+
+  \path[decorate, decoration={text along path, text={|\color{saitMaroon}\Large\bf|2nd Quadrant||\ }, text align = center}] (-3.6, 0) arc (180:90:3.6);
+
+  \path[decorate, decoration={text along path, text={|\color{saitMaroon}\Large\bf|3rd Quadrant||\ }, text align = center}] (-3.875, 0) arc (180:270:3.875);
+
+  \path[decorate, decoration={text along path, text={|\color{saitMaroon}\Large\bf|4th Quadrant||\ }, text align = center}] (0, -3.875) arc (270:360:3.875);
+
+  \node at (1.5, 1.25) {\huge $ \begin{aligned}{F_x} &>0\\F_y &>0\end{aligned} $};
+  \node at (-1.5, 1.25) {\huge $ \begin{aligned}F_x &<0\\F_y &>0\end{aligned} $};
+  \node at (-1.5, -1.25) {\huge $ \begin{aligned}F_x &<0\\F_y &<0\end{aligned} $};
+  \node at (1.5, -1.25) {\huge $ \begin{aligned}F_x &>0\\F_y &<0\end{aligned} $};
+
+\end{tikzpicture}

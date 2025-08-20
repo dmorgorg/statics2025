@@ -1,0 +1,28 @@
+% % !TEX root = ../../statikz/statikz.tex
+
+\makeatletter
+\providecommand{\gettikzxy}[3]{%
+	\tikz@scan@one@point\pgfutil@firstofone#1\relax
+	\edef#2{\the\pgf@x}%
+	\edef#3{\the\pgf@y}%
+}
+\makeatother
+
+\begin{tikzpicture}[scale=\scale]
+
+	\coordinate (A) at (0, 0);
+
+	\fill[gray!30!white] ($ (A)+(0.5,-2.00) $) rectangle ($ (A)+(1.5,2) $);
+
+	\PinnedConnection[90]{A}{mucus}{black}{0.5}{0.5}
+
+	\fill[black] (A) circle (3pt) node[ right, outer sep=4mm] {\LARGE $A$};
+
+	\draw[thick, <->] ($ (A)+(0,2) $)arc (90:155:2) node[fill=white, inner sep = 0.125em] at ($ (A)+(122.5:2) $) {$65.0^\circ$};
+	\draw[thick, <->] ($ (A)+(155:2) $)arc (155:230:2) node[fill=white, inner sep = 0.125em] at ($ (A)+(190:2) $) {$73.0^\circ$};
+
+	\draw[line width=0.75mm, black, -latex] (A) -- +(90:3) node[above left] {\Large 4.20 kN};
+	\draw[line width=0.75mm, black, -latex] (A) -- +(155:3) node[left] {\Large 3.70 kN};
+	\draw[line width=0.75mm, black, -latex] (A) -- +(230:3) node[left] {\Large 2.80 kN};
+
+\end{tikzpicture}

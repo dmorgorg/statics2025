@@ -1,0 +1,268 @@
+
+%!TEX option = --shell-escape
+
+\documentclass[9pt, xcolor={svgnames, x11names},professionalfonts]{beamer}
+
+\input{../../includes/definedColors}
+\input{../../includes/macros}
+\input{../../includes/Member}
+\input{../../includes/PC}
+
+\usepackage{mathtools}
+\usepackage{xcolor}
+\usefonttheme[onlymath]{serif} 
+\usepackage{mathpazo}
+\usepackage{bm}
+\usepackage{cancel}
+\usepackage[many]{tcolorbox}
+% \tcbset{fonttitle=\itshape\rmfamily\bfseries}
+\tcbset{fonttitle=\itshape\rmfamily}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, math, calc, shadows}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+
+\usefonttheme{structureitalicserif} %make titles fancy ;-)
+\usefonttheme[onlymath]{serif}
+
+\usecolortheme[named=statsMaroon]{structure}
+\setbeamertemplate{navigation symbols}{} % remove navigation symbols
+\setbeamertemplate{headline}{\vspace{0.125cm}}
+\setbeamertemplate{footline}{ \hfill \insertshorttitle\qquad \insertsection \qquad \insertframenumber/\inserttotalframenumber\quad{ }\vspace{0.125cm}}
+\setbeamertemplate{items}[default]
+\setbeamertemplate{blocks}[shadow=true]
+
+\setbeamercolor{title}{bg=statsMaroon, fg=Azure}
+\setbeamercolor{frametitle}{fg=white, bg=statsMaroon}
+\setbeamercolor{background canvas}{bg=Gainsboro!50}
+\setbeamercolor{block title}{bg=statsMaroon, fg=white}
+\setbeamercolor{block body}{bg=white, fg=black}
+
+\setlength{\parskip}{\medskipamount}
+\setlength{\parindent}{0pt}
+
+\def\scale{1}
+\newcounter{myexercisecounter}
+
+% Title page details: 
+\title[Force Vectors]{\Huge 02 Force Vectors}
+\subtitle[Engineering Statics]{\Large\textcolor{white}{Engineering Statics}}
+\author{}
+\date{\small Updated on: \today}
+
+% \raggedright
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newtcolorbox{statsbox}[2][] {  
+  % colback=Ivory3!50,
+  colback=white,
+  colbacktitle=structure,
+  colframe=structure,
+  coltitle=white,  
+  top=0.25cm,
+	bottom=0.125cm,
+	left=0mm,
+	right=0mm,
+  % fonttitle=\itshape\rmfamily,
+  halign=flush left, 
+  enhanced,
+  drop fuzzy shadow,
+  attach boxed title to top left={xshift=3.5mm, yshift=-2mm},
+  title={#2}, #1}
+\newtcolorbox{redbox}{colback=white, colframe=structure, enhanced, drop fuzzy shadow}
+\newtcolorbox{titledbox}[1]{colback=white,colframe=structure,title={#1}}
+\newtcbox{\tcb}[1][]{colback=white,boxsep=0pt,top=5pt,bottom=5pt,left=5pt,
+		right=5pt, colframe=structure,  enhanced, drop fuzzy shadow, #1}
+% tcb title
+\newtcbox{\tcbt}[2][]{colback=white,boxsep=0pt,top=5pt,bottom=5pt,left=5pt,
+		right=5pt, colframe=structure, enhanced, drop fuzzy shadow,  title={#2}, #1}
+% tcb left title
+\newtcbox{\tcbtl}[2][]{ colback=white,
+  colbacktitle=structure,
+  colframe=structure,
+  coltitle=white,  
+  top=0.25cm,
+	bottom=0.125cm,
+	left=0mm,
+	right=0mm,
+  % fonttitle=\bfseries,
+  halign=flush left, 
+  enhanced,
+  drop fuzzy shadow,
+  attach boxed title to top left={xshift=3.5mm, yshift=-2mm}, 
+	title={#2}, #1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[plain]    %don't need footer on titlepage
+	\titlepage
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Scalars versus Vectors }
+	% centered minipage with text raggedright
+	%cmini[width]{content}
+	\cmini[0.8]{
+		\begin{redbox}
+		\begin{itemize}
+			\item Physical quantities in this course are measured using either {\bf
+				scalars} or {\bf vectors}.\parm
+			\item A scalar quantity can be fully specified by its {\bf magnitude}
+			      (or size) and units alone. \pars Examples are temperature, speed, mass, time,
+			      length, volume, density and energy.\parm
+			\item A vector quantity requires both magnitude {\bf and direction} -
+			      in addition to units - to be fully specified. \pars Examples are displacement,
+			      velocity, force and momentum.\parm
+			\item 110 km/h is a speed. 110 km/h in a north-easterly direction is a vector.\parm
+			\item The vector quantity that is of most interest to us is {\bf
+			force}.
+		\end{itemize}
+	\end{redbox}
+	}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Graphical Vector Representation}
+	\cmini[1]{
+		\begin{redbox}
+			\begin{itemize}
+				\item To represent a vector on a diagram, we draw a directed line
+							segment -- a line with an arrow tip.
+				\item The length of the line segment is proportional to the magnitude of the
+							vector.
+				\item The direction of the line segment shows the direction of the vector.
+				\item The arrow head gives the sense of that direction (up and rightwards in this case).
+			\end{itemize}
+		\end{redbox}
+	}
+	\mini[0.35]{
+		\tcb{
+			\input{../../pikz/02ForceVectors/fv00}
+		}
+	}
+	\uncover<2->{
+		\hfill	
+		\mini[0.6]{	
+			\begin{statsbox}[left=0mm]{}
+				\begin{itemize}
+					\item $\theta$ indicates the direction of the line of action of the vector
+								${\bm{\mathrm{ v }}}$  relative to some reference. \lb(I.e., the horizontal axis in this case.)
+					
+				\end{itemize}
+			\end{statsbox}
+		}
+	}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Multiplication of a vector by a scalar}
+	
+	\cmini[0.8]{
+		\begin{statsbox}[left=5mm, right=5mm]{}
+			Multiplication of a vector by a scalar affects the magnitude and, if the scalar is negative, the sense of the direction of the vector.
+			\parb	
+			\centering
+			\input{../../pikz/02ForceVectors/fv01}
+		\end{statsbox}
+	}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Addition of Vectors}
+	% centered minipage with text raggedright
+	%cmini[width]{content}
+	\cmini[0.8]{
+
+		\mini[0.5]{
+			Consider two vectors, $\bm{\mathrm{ A }}$ and $\bm{\mathrm{ B }}$:
+		}
+		\hfill
+		\mini[0.45]{
+			\centering
+			\input{../../pikz/02ForceVectors/fv02}
+		}
+		\parm\pause
+		\mini[0.5]{
+			To add vectors  $\bm{\mathrm{ A }}$ and  $\bm{\mathrm{ B }}$, written $\bm{\mathrm{ A+B }}$, place the tail of $\bm{\mathrm{ B }}$ at the tip of~$\bm{\mathrm{ A }}$.
+		}
+		\hfill
+		\mini[0.45]{
+			\centering
+			\input{../../pikz/02ForceVectors/fv03}
+		}
+		\parm\pause
+		\mini[0.5]{
+			The sum, $\bm{ A+B}$, is obtained by drawing a vector ${\bm R}$ from the tail of $\bm{\mathrm{ A }}$ to the tip of $\bm{\mathrm{ B }}$.
+			\[ \bm{\mathrm{A+B=R}} \]
+		}
+		\hfill
+		\mini[0.45]{
+			\centering
+			\input{../../pikz/02ForceVectors/fv04}
+		}
+		\par\pause
+		% centered minipage with text raggedright
+		%cmini[width]{content}
+		\cmini[0.9]{
+			{\bf Note that the sum of two vectors is itself a vector.}
+		}
+
+	}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

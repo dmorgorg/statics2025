@@ -1,0 +1,9 @@
+\begin{tikzpicture}[scale = 0.5, style={line cap = round}]
+  % \filldraw [thick, white, draw=saitMaroon, drop shadow={opacity=0.25}] (-1, -1) rectangle (5,5);
+  \draw (-0.75,0) -- (4.75,0);
+  \draw (0, -0.75) -- (0, 4.75);
+  \draw[ultra thick, saitMaroon, ->, >=stealth] (0, 0) -- (3, 4) node [xshift=-1cm, yshift=-1.05cm] {\LARGE ${\bm{\mathrm{ v }}}$};
+  \only<2>{
+    \draw[latex-latex] (2.5, 0) arc (0:52:2.5cm)  node[midway, fill=white, inner sep=0.1mm]{$\theta$};
+  }
+\end{tikzpicture}

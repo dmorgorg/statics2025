@@ -1,0 +1,8 @@
+% !TEX root = ../../statikz/statikz.tex
+
+\begin{tikzpicture}[scale =0.75, style={line cap = round}]
+  \filldraw [white, draw=saitMaroon, thick, drop shadow={opacity=0.25}] (0.5, 0.5) rectangle (4.5,3.5);
+  \draw[ultra thick, blue, ->, >=stealth] (1, 1) -- (2, 3) node [xshift=-0.5cm, yshift=-1cm, left] {\large ${\bm{\mathrm{ A }}}$};
+  \draw[ultra thick, green, ->, >=stealth] (2, 3) -- (4, 2) node [xshift=-1cm, yshift=0.5cm, above] {\large ${\bm{\mathrm{ B }}}$};
+  \draw[ultra thick, saitMaroon, ->, >=stealth] (1, 1) -- (4, 2) node [xshift=-1.5cm, yshift=-0.5cm, above] {\large ${\bm{\mathrm{ R }}}$};
+\end{tikzpicture}

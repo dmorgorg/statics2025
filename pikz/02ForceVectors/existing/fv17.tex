@@ -1,0 +1,14 @@
+% !TEX root = ../../statikz/statikz.tex
+
+\begin{tikzpicture}[scale = 0.4, style={line cap = round}]
+
+  \draw[thick, black, ->, >=stealth] (0, 0) -- (5, 0) node[above]{\small $5.00$ kN};
+
+  \draw[thick, black, ->, >=stealth] (0, 0) -- (270:4cm) node[below]{\small $4.00$ kN};
+
+  \draw[thick, black, <-, >=stealth] (0.5mm, -0.5mm) -- ++(-60:4cm) node[below right]{\small ${\bm{\mathrm{ F }_{}}}$};
+
+  \draw[<->] (0, -2.5) arc[start angle = 270, end angle = 300, radius = 2.5cm];
+  \node [rectangle, below] at (0.9, -2.2) {\small $30\degree$};
+
+\end{tikzpicture}

@@ -1,0 +1,43 @@
+
+% !TEX root = ../../Beamer/02ForceVectors/02ForceVectors.tex
+
+
+\begin{tikzpicture}[scale=\scale, line cap=round,decoration={
+		markings,% switch on markings
+		mark=% actually add a mark
+		between positions 0 and 1 step 14pt
+		with
+		{
+			\begin{scope}[scale=0.8]
+				\draw[SteelBlue4, very thick] (0pt,-3pt) -- ++(6pt,0) arc(-90:90:3pt) -- ++(-6pt,0pt) arc(90:270:3pt) -- cycle;
+				\draw[SteelBlue4,very thick] (-11pt,0) -- (0pt,0);
+			\end{scope}
+		}
+	}]
+
+	\coordinate (D) at (-3,1);
+	\coordinate (E) at (3, 2.5);
+	\coordinate (C) at (0, 0);
+
+\begin{scope}[rotate=25]
+	\fill[Ivory4] (-3,1) rectangle (3,2.5);
+	\draw[thin, black] (-3,1) -- ($(3,2.5)-(0,1.5) $);
+	\EyeConnection[180]{C}{Ivory3}{black}{1}{0.5}
+\end{scope}
+
+	\draw[latex-latex] ($ (C)+(180:1.5)$) arc (180:237:1.5) node[fill=white, midway, inner sep=0.25mm] {$\bm \theta$};
+	\draw[latex-latex] ($ (C)+(0:2.12)$) arc (0:25:2.12) node[fill=white, midway, inner sep=0.25mm] {$ 26^\circ $};
+
+
+	\path[postaction={decorate}] ($ (C)+(25:0.45) $) -- +(25:2);
+	\path[postaction={decorate}] ($ (C)+(237:0.45) $) -- +(237:2);
+	\draw[line width=2pt, -latex, saitMaroon] ($ (C)+(25:1.25) $) -- +(25:2) node[black, right]{$F_1=4.72 $\text{ kN}};
+	\draw[line width=2pt, -latex, saitMaroon] ($ (C)+(237:1.25) $) -- +(237:2) node[black, below]{$\bm F $};
+
+	\draw[thin] ($(C)+(-0.5,0) $) -- +(-1.5,0);
+	\draw[thin] ($(C)+(0.5,0) $) -- +(2.25,0) node[right] {$x$};
+
+
+
+
+\end{tikzpicture}

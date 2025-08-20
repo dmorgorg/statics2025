@@ -1,0 +1,23 @@
+% !TEX root = ../../statikz/statikz.tex
+
+\begin{tikzpicture}[scale = 0.4, style={line cap = round}]
+  \filldraw [thick, white, draw=saitMaroon, drop shadow={opacity=0.25}] (-1.5, -5.4) rectangle (7, 2.5);
+  % \draw[thick] (0, 0) -- (5, 0) node[above]{\footnotesize $5.00$ };
+  \draw[thick] (5, 0) -- node[above, sloped]{\footnotesize $4.00$ kN} ++(270:4cm);
+  \draw[thick] (0, 0) -- (5, 0);
+  % draw[thick] (5, 0) --  ++(270:4cm);
+
+  \draw[thick, black] (5, -4) -- ++(120:5.964cm);
+
+  \draw [thin, saitRed] ($ (2.005, 1.165) - (120:0.35) $) -- ++(210:0.35) -- ++(120:0.35);
+  \draw [thin, saitRed] (5,-0.35) -- ++(180:0.35) -- ++(90:0.35);
+  \draw[<->] (5, -2.3) arc[start angle = 90, end angle = 120, radius = 1.75cm];
+  \node [rectangle, below] at (4.5, -1.45) {\footnotesize $30\degree$};
+  \draw[thick] (0, 0) -- node[sloped, above]{\footnotesize ${ F }_{R}$} ++(30:2.33) ;
+  \node [below, black] at (0, 0) {\footnotesize $O$};
+  \node [above, saitRed] at (2.02, 1.17) {\footnotesize $A$};
+  \node [above right, saitRed] at (2.69, 0) {\footnotesize $B$};
+  \node [below, saitRed] at (5, -4) {\footnotesize $C$};
+  \node [above right, saitRed] at (5, 0) {\footnotesize $D$};
+
+\end{tikzpicture}
