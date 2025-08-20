@@ -1,0 +1,506 @@
+\documentclass[10pt,oneside]{article}
+
+\usepackage{amsmath}
+\usepackage{bm} 
+% \usepackage{textcomp}
+\usepackage{mathpazo}
+\usepackage{graphicx}
+% \usepackage{makebox}
+\usepackage[x11names, svgnames]{xcolor} % for \definecolor
+\usepackage{tikz}
+\usetikzlibrary{calc, arrows.meta}
+\usepackage[letterpaper]{geometry}
+\geometry{verbose,tmargin=0.25in,bmargin=0.5in,lmargin=1in,rmargin=1.15in}
+\usepackage[absolute,overlay]{textpos}
+\setlength{\TPHorizModule}{1.0cm}
+\setlength{\TPVertModule}{\TPHorizModule}
+\textblockorigin{0.0cm}{0.0cm}  %start all at upper left corner
+
+% don't place this before \usepackage{xcolor} if using \definecolor
+\input{../../includes/definedColors.tex}
+\input{../../includes/macros.tex}
+\input{../../includes/Member.tex}
+\input{../../includes/PC.tex}
+
+\hfuzz=150pt
+\setlength{\parindent}{0pt}
+\Large
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% page 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{textblock*}{6.775in}(1in, 0.225in)
+  \cbox{
+		\Large\centering
+    \textbf{Engineering Statics - 01 Math Review Handout (Instructor Copy)}
+  }
+\end{textblock*}
+
+\begin{textblock*}{3in}(1in, 1in)
+	\large
+	\cbox{
+		{\bf 1)} Solve $a^2=b^2+c^2$ for $b$.\parm
+		\begin{align*}
+			b^2 & = a^2-c^2  \\
+			b   & = \bm{\pm\sqrt{a^2-c^2}}
+		\end{align*}
+	}
+\end{textblock*}
+
+\begin{textblock*}{3in}(1in, 2.65in)
+	\large
+	\cbox{
+		{\bf 2)} Solve $V=\frac43 \pi r^3$ for $r$. \parm
+		\begin{align*}
+			r^3 & = \frac{3V}{4\pi}                \\[1em]
+			r   & = \bm{\sqrt[3]{\frac{3V}{4\pi}}}
+		\end{align*}
+	}
+\end{textblock*}
+
+\begin{textblock*}{3.75in}(1in, 4.70in)
+	\large
+	\cbox{
+		{\bf 3)} Solve $c^2=a^2+b^2-2bc\cos C$ for $\cos C$.\parm
+		\begin{align*}
+			2bc\cos C & = a^2+b^2-c^2                  \\[1em]
+			\bm{\cos C}    & \bm{=\frac{a^2+b^2-c^2}{2bc}}
+		\end{align*}
+	}
+\end{textblock*}
+
+
+
+
+
+\begin{textblock*}{3.75in}(1in, 6.625in)
+	\large
+	\cbox{
+		{\bf 4)} Solve $b^2=a^2+c^2-2ac\cos B$ for $B$.\parm
+		\begin{align*}
+			2ac\cos B & = a^2+c^2-b^2                                   \\[1em]
+			\cos B    & = \frac{a^2+c^2-b^2}{2bc}                       \\[1em]
+				\bm B         & \bm{ = \cos^{-1}\left(\frac{a^2+c^2-b^2}{2bc}\right)}
+		\end{align*}
+	}
+\end{textblock*}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% page 2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+.\newpage
+
+\begin{textblock*}{6.5in}(1in, 0.225in)
+	\large
+	\cbox{
+		{\bf 5)}  Solve the equation for $h_L$, then evaluate $h_L$ using the values $Q=135$, $C=120$, $D=202.7$ and $L=1200$\parm
+		\begin{align*}
+			Q                                             & = \frac{CD^{2.63}\left(\frac{h_L}{L}\right)^{0.54}}{279000} \\[1em]
+			\Rightarrow \left(\frac{h_L}{L}\right)^{0.54} & = \frac{279000Q}{CD^{2.63}}                                 \\[1em]
+			\Rightarrow \frac{h_L}{L}                     & = \left(\frac{279000Q}{CD^{2.63}}\right)^{1/0.54}           \\[1em]
+			\Rightarrow \bm{ h_L}                               & \bm{= L\left(\frac{279000Q}{CD^{2.63}}\right)^{1.85}}         \\\\
+			h_L &= 1200\left(\frac{279000\times 135}{120\times 202.7^{2.63}}\right)^{1.85} \\[1em]
+			&=105.73 \\[1em]
+			\bm{h_L} &\bm{= 106}
+		\end{align*}
+	}
+\end{textblock*}
+
+
+\begin{textblock*}{3.25in}(1in, 5.5in)
+	\large
+	\cbox{
+		{\bf 6)} Use the Pythagorean Theorem to determine the lengths of $CE$ and $CB$\parm
+		\large
+		\begin{align*}
+			CE^2 & = EF^2+CF^2                              \\
+			     & = (3.00\,\mathsf{m})^2+3.75^2                          \\
+			CE   & = 4.8023                                 \\
+			     & = \bm{4.80\,\mathsf{ m}} \\\\
+			CB^2 & = 1.25^2+3.00^2                          \\
+			CB   & = 3.2500                                 \\
+			     & = \bm{3.25\,\mathsf{ m}}
+		\end{align*}
+	}
+
+
+\end{textblock*}
+
+\begin{textblock*}{2.625in}(4.875in, 5.5in)  
+	\cbox{
+		\centering
+    \vspace{-0.25cm}
+    \input{../../pikz/01MathReview/math04trusshandout.tex}
+    \vspace{-0.125cm}
+	}
+\end{textblock*}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% page 3
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+.\newpage
+
+\begin{textblock*}{6.75in}(1in, 0.225in)
+	\large
+	\cbox{
+		{\bf 7)} Use the tangent function to calculate $\angle CEF$\parm		
+		$$ \angle CEF = \tan^{-1}\left(\frac{CF}{EF}\right) =  \tan^{-1}\left(\frac{3.75\,\mathsf{m}}{3.00\,\mathsf{m}}\right) = 51.340\deg = \bm{51.3\deg}  $$
+	}
+\end{textblock*}
+
+\begin{textblock*}{6.75in}(1in, 1.75in)
+	\large
+	\cbox{
+		{\bf 8)} Use $\angle CEF$ just found and the sine function to verify the length of $CE$ found above.\parm
+		\begin{align*}
+			\frac{CD}{\sin 90\deg} & = \frac{CF}{\sin \angle CEF}                 \\[1em]
+			\Rightarrow CE           & = \frac{(3.75\,\mathsf{m})\sin 90\deg}{\sin 51.340\deg} 		\\[1em]
+			                         & = 4.8024                                     \\[1em]
+			            \bm{CE}     & = \bm{4.80\,\mathsf{m}}
+		\end{align*}
+	}
+\end{textblock*}
+
+
+\begin{textblock*}{6.75in}(1in, 4.75in)
+	\large
+	\cbox{
+		{\bf 9)} Use the cosine function and the length of $BC$ found earlier to calculate the angle, $\theta$, between $BC$ and the horizontal.\parm		
+		\begin{align*}
+			(1.25\,\mathsf{m})^2 &= (3.00\,\mathsf{m})^2 + (3.25\,\mathsf{m})^2-2(3.00\,\mathsf{m})(3.25\,\mathsf{m})\cos\theta \\[0.5em]
+			\Rightarrow \cos\theta &= \frac{(3.00\,\mathsf{m})^2 + (3.25\,\mathsf{m})^2-(1.25\,\mathsf{m})^2}{2(3.00\,\mathsf{m})(3.25\,\mathsf{m})} \\[0.5em]
+			&= 0.92308\\\\
+			\Rightarrow \theta &= 22.619\deg\\[0.5em]			
+			\bm{\theta} & \bm{=22.6\deg}
+		\end{align*}
+	}
+\end{textblock*}
+
+
+\begin{textblock*}{6.75in}(1in, 8.125in)
+	\large
+	\cbox{
+		{\bf 10)} Use the tangent function to verify the previous result.\parm
+		
+		$$ \theta = \tan^{-1}\left(\frac{1.25\,\mathsf{m}}{3.00\,\mathsf{m}}\right)= 22.620 =\bm{22.6\deg} $$
+	}
+\end{textblock*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% page 4
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+.\newpage
+
+\begin{textblock*}{4in}(1in, 0.225in)
+	\large
+	\cbox{
+		{\bf 11)} Using the sine rule, find $\angle ACB$.\parm
+		\large
+		\begin{align*}
+			\frac{\angle ACB}{3.35\,\mathsf{cm}} & = \frac{\sin 54.7\deg}{5.26\,\mathsf{cm}}                           \\
+			\Rightarrow\angle ACB   & = \sin^{-1}\left(\frac{(3.35\,\mathsf{cm})\sin 54.7\deg}{5.26\,\mathsf{cm}}\right) \\
+			                        & = 31.318\deg                                           \\
+			                        & = \bm{31.3\deg}
+		\end{align*}
+	}
+\end{textblock*}
+
+\begin{textblock*}{2in}(5.675in, 0.225in)
+	\cbox{
+		\centering
+		\input{../../pikz/01MathReview/math03handout}
+	}
+\end{textblock*}
+
+\begin{textblock*}{6.75in}(1in, 2.75in)
+	\large
+	\cbox{
+		{\bf 12)} Using the sine rule, find $\angle ABC$.\parm
+		\begin{align*}
+			\frac{\angle ABC}{6.43\,\mathsf{cm}} & = \frac{\sin 54.7\deg}{5.26\,\mathsf{cm}}                           \\[1em]
+			\Rightarrow\angle ABC   & = \sin^{-1}\left(\frac{(6.43\,\mathsf{cm})\sin 54.7\deg}{5.26\,\mathsf{cm}}\right) \\
+			                        & = 86.091\deg \\[1em]
+							\bm{\angle ABC} &  \bm{=86.1\deg}\qquad\text{(or $93.9(09)\deg$\ldots)}
+		\end{align*}
+	}
+\end{textblock*}
+
+\begin{textblock*}{6.75in}(1in, 5.625in)
+	\large
+	\cbox{
+		{\bf 13)} Sum the interior angles of the triangle.\parm		 
+		$$ = 54.7\deg+ 33.318\deg + 86.091\deg = \bm{172.11\deg} $$
+		\parm
+		(Explain it's due to choice of $\angle ABC=86.1\deg$ from the inverse $\sin$ above. Or wait until $\angle ABC$ is found from the $\cos$ rule in the next exercise.)
+	}
+\end{textblock*}
+
+\begin{textblock*}{6.75in}(1in, 7.625in)
+	\large
+	\cbox{
+		{\bf 14)} Using the cosine rule, determine $\angle ABC$ \pars
+		{\bf 15)} Compare with the earlier value calculated for $\angle ABC$ 
+		% 10) Compare the value for $\angle ABC$ with the value calculated earlier.\parm\Large
+		\begin{align*}
+			(6.43\,\mathsf{cm})^2 & = (3.35\,\mathsf{cm})^2+(5.26\,\mathsf{cm})^2-2(3.35\,\mathsf{cm})(5.26\,\mathsf{cm})\cos\angle ABC \\[0.35em]
+			\Rightarrow \angle ABC & = \cos^{-1}\left[\frac{(3.35\,\mathsf{cm}^2)+(5.26\,\mathsf{cm})^2-(6.43\,\mathsf{cm})^2}{2(3.35\,\mathsf{cm})(5.26\,\mathsf{cm})}\right]       \\[0.35em]
+			    & =93.994\deg \\[0.35em]
+			\bm{\angle ABC}    & \bm{=94.0\deg}
+		\end{align*}
+		\vspace{-0.25em}
+		(Slightly different since from $93.9\deg$ since $54.7\deg$ is accurate to $3$ significant digits and not a more precise given value.)
+	}
+\end{textblock*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% page 5
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+.\newpage
+
+
+
+
+\begin{textblock*}{2.725in}(5.075in, 0.225in)
+	\cbox{
+    \vspace{-0.25cm}
+		\centering
+		\input{../../pikz/01MathReview/math08handout}
+    \vspace{-0.25cm}
+	}
+\end{textblock*}
+
+\begin{textblock*}{3.5125in}(1in, 0.225in)
+	\large
+	\cbox{
+		When horizontal force $P$ is applied at $A$, $ABCD$ rotates about $C$ and $A$ deflects 2.45~mm horizontally rightwards. \parm
+		Assume that $BF$ remains horizontal and that $DE$ remains vertical.\parm
+		{\bf 16)} Determine $\delta_{BF}$, the change in length of $BF$. \parm
+		$\triangle CAA'$, $\triangle CBB'$ and $\triangle CDD'$ are all similar.
+		\begin{align*}
+			\frac{\delta_{BF}}{2.45\,\mathsf{mm}}    & = \frac{360\,\mathsf{mm}}{360\,\mathsf{mm}+550\,\mathsf{mm}}            \\[0.5em]
+			\Rightarrow \delta_{BF} & =0.96923\,\mathsf{mm}                        \\[0.5em]
+			      \bm{\delta_{BF}} 	&\bm{=0.969}\text{ \bfseries mm}			
+		\end{align*}
+	}
+\end{textblock*}
+
+\begin{textblock*}{3.5125in}(1in, 3.45in)
+	\large
+	\cbox{		
+		{\bf 17)} Determine $\delta_{DE}$, the change in length of $DE$.\pars
+		\begin{align*}
+			\frac{\delta_{DE}}{2.45\,\mathsf{mm}}    & = \frac{490\,\mathsf{mm}}{360\,\mathsf{mm}+550\,\mathsf{mm}}            \\[0.5em]
+			\Rightarrow \delta_{BF} & =1.3192                          \\[0.5em]
+			                            & = \bm{1.32}\text{ \bfseries mm}
+		\end{align*}
+	}
+\end{textblock*}
+	
+
+\begin{textblock*}{1.77in}(5.95in, 5.675in)
+	\cbox{
+    \vspace{-0.25cm}
+		\centering
+		\input{../../pikz/01MathReview/math09handout}
+    \vspace{-0.5cm}
+	}
+\end{textblock*}
+
+\begin{textblock*}{4.35in}(1in, 5.675in)
+	\large
+	\cbox{
+    {\bf 18)} Show that right triangles $\triangle ABC$, $\triangle ABD$ and $\triangle ACD$ all have the same angles (i.e. they are all similar).
+    \begin{align*}
+			\text{Let }\angle DCA  & = \theta          \\[0.35em]
+			\text{Then }\angle DAC & = 90^\circ-\theta \\[0.35em]
+			\Rightarrow \angle DAB & = \theta          \\[0.35em]
+			\Rightarrow \angle DBA & = 90^\circ-\theta
+		\end{align*}
+		Each of the three triangles has angles $\theta$, $90^\circ-\theta$ and $90^\circ$, so they are similar.
+	}
+\end{textblock*}
+
+\begin{textblock*}{6.775in}(1in, 8.5in)
+	\large
+	\cbox{
+    \vspace{-0.25cm}
+		{\bf 19)} Given that $AC=100\text{ mm}$ and $AD=65\text{ mm}$, determine $\angle ACD$ and $\angle ABD$.
+		\begin{align*}
+			\angle ACD & = \sin^{-1}\left(\frac{65\,\mathsf{mm}}{100\,\mathsf{mm}}\right) = 40.542\deg = \bm{40.5\deg}. \\
+			\angle ABD & = 90\deg- 40.542\deg = 49.458\deg = \bm{49.5\deg}.           
+		\end{align*}
+	}
+\end{textblock*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% page 6
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+.\newpage
+
+\begin{textblock*}{6.75in}(1in, 0.225in)
+	\large
+	\cbox{
+   {\bf 20)} Find the remaining lengths: $AB$, $BD$ and $CD$.
+	 \begin{gather*}
+			\frac{AB}{100\,\mathsf{mm}} = \tan 40.542\deg \Rightarrow AB = 85.263\,\mathsf{mm}= \bm{85.2\,\mathsf{mm}}\\[0.75em]
+			\frac{BD}{65\,\mathsf{mm}} = \tan 40.542\deg \Rightarrow BD = 55.598\,\mathsf{mm} = \bm{55.6\,\mathsf{mm}}\\[0.75em]
+			\frac{DC}{65\,\mathsf{mm}} = \tan \left(90\deg-40.542\deg\right) \Rightarrow DC = 75.993\,\mathsf{mm} = \bm{76.0\,\mathsf{ mm}}
+		\end{gather*}
+	}
+\end{textblock*}
+
+\begin{textblock*}{6.75in}(1in, 2.4in)
+	\large
+	\cbox{    
+		{\bf 21)} Verify the lengths found above by using the Pythagorean Theorem on $\triangle ABC$
+		\begin{align*}
+			AC^2 + AB^2 &= (100\,\mathsf{mm})^2 + (85.263\,\mathsf{mm})^2 
+			= 17270\,\mathsf{mm^2} 
+			= BC^2 \\[0.25em]
+			\Rightarrow BC &= 131.42\,\mathsf{mm} \\
+			BD+CD &= 55.598\,\mathsf{mm}+75.993\,\mathsf{mm} 
+			= BC 
+			\Rightarrow BC = 131.59\,\mathsf{mm}
+		\end{align*}
+			An accumulation of rounding errors can start to cause differences when there are so many calculations and so many rounded intermediate values to use.   
+	}
+
+\end{textblock*}
+
+\begin{textblock*}{2.26in}(5.5in, 4.45in)
+	\cbox{
+		\centering
+		\resizebox{2.4in}{!}{
+		\input{../../pikz/01MathReview/math10handout}}
+	}
+\end{textblock*}
+
+\begin{textblock*}{4.125in}(1in, 4.45in)
+	\large
+	\cbox{
+		{\bf 22)} Find $\theta_{AC}$.\qquad\qquad
+		{\bf 23) } Find $\theta_{BC}$.
+		\begin{align*}
+			AB^2 &= OA^2+OB^2 \\
+			&= (1.00\,\mathsf{m})^2+(4.50\,\mathsf{m})^2 \\
+			\Rightarrow AB &= 4.6098\,\mathsf{m}\\[0.5em]
+			\cos \angle ACB &= \frac{AB^2+BC^2-AB^2}{2(AB)(BC)} \\
+			&= \frac{(2.30\,\mathsf{m})^2+(3.00\,\mathsf{m})^2-(4.6098\,\mathsf{m})^2}{2(2.30\,\mathsf{mm})(3.00\,\mathsf{m}^2)} \\
+			\Rightarrow \angle ACB &= 120.29\deg 
+			% \angle OBA &= \tan^{-1}\left(\frac{1.00\,\mathsf{mm}}{4.50\,\mathsf{mm}}\right)=12.529\deg \\[0.5em]
+			% \frac{\sin \angle ABC}{AC}  
+		\end{align*}
+	}
+\end{textblock*}
+
+\begin{textblock*}{6.75in}(1in, 7in)
+	\large
+	\cbox{
+		\vspace{-0.75em}					
+			$$\angle OBA = \tan^{-1}\left(\frac{1.00\,\mathsf{m}}{4.50\,\mathsf{m}}\right)=12.529\deg $$
+			$$
+			\frac{\sin  ABC}{AC} = \frac{\sin  ACB}{AB} \Rightarrow \frac{\sin  ABC}{2.30\,\mathsf{m}} = \frac{\sin  120.29\deg}{4.6098\,\mathsf{m}} \Rightarrow \angle ABC = 25.520\deg
+			$$
+
+			$$ \theta_{BC} = \angle OBA + \angle ABC = 12.259\deg+25.520\deg = 38.049\deg \qquad\text{(Alternate angles.)}$$
+
+			$$ \theta_{AC} = 180\deg - \angle ACB - \theta_{BC} =180\deg-120.29\deg-38.049\deg = 21.661\deg $$
+
+			$$\bm{\theta_{AC}=21.7\deg,\quad\theta_{BC}=38.0\deg }$$
+	}
+\end{textblock*}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% page 7
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+.\newpage
+
+
+
+\begin{textblock*}{6.775in}(1in, 0.225in)
+	\large
+	\cbox{
+		\mini[0.45]{
+			\centering
+      {\bf 24)} and {\bf 25)} Find the values of $\bm x$ and  $\bm y$ in the system shown.
+    }
+		\hfill
+    \mini[0.5]{
+      \vspace{-0.625cm}
+      \begin{align}
+        0.36911x + 0.61633y & = 2011.1 \\
+        0.78748y - 0.92938x & = 0
+      \end{align}
+    }
+    \parb
+   From (2),
+		\begin{equation}
+			y = \frac{0.92938}{0.78748}x  = 1.1802x
+		\end{equation}
+    Substitute in (1) to find $x$
+		\begin{align*}
+			0.36911x + 0.61633(1.1802x) & = 2011.1 \\[0.5em]
+			\Rightarrow \left(0.36911+0.61633(1.1802)\right)x & = 2011.1 \\[0.5em]
+			\Rightarrow x & = \frac{2011.1}{\left(0.36911+0.61633(1.1802)\right)} \\
+										& = 1834.1 \\
+						\bm x		& \bm{=1830}
+		\end{align*}
+		
+		Substitute back in (3) for $y$
+		\begin{align*}
+			0.78748y -0.92938(1834.1) & = 0         \\
+			y                         & = 	2164.6   \\
+			 \bm y                    & \bm{=2160}
+		\end{align*}
+  }  
+\end{textblock*}
+
+
+\begin{textblock*}{6.775in}(1in, 4.875in)
+	\large
+	\setcounter{equation}{0}
+	\cbox{
+    
+    
+    \mini[0.4]{
+      {\bf 26)} and {\bf 27)} Determine $F_{AC}$ and  $F_{BC}$
+    }
+		\hfill
+		\mini[0.5]{
+      \vspace{-0.625cm}
+      \begin{align}
+        F_{BC}\sin15\deg + F_{AC}\cos35\deg + 1030.1 & = 0 \\
+				F_{BC}\cos 15\deg+F_{AC}\sin35\deg           & = 0
+      \end{align}
+    }
+		\parm
+    From (2)
+		\begin{align}
+			F_{BC} & = -\frac{\sin 35^\circ}{\cos 15^\circ}F_{AC} = -0.59381F_{AC}
+		\end{align}
+		Substitute into (1)
+		\begin{align*}
+			\left(-0.59381F_{AC}\right)\sin{15^\circ}+F_{AC}\cos 35^\circ &= -1030.1\\[0.5em]
+			-0.15369F_{AC}+0.81915F_{AC} &= -1030.1\\[1em]
+			\Rightarrow F_{AC} &= \frac{-1030.1}{-0.15369+0.81915}\\
+			&= -1548.0\\
+			&= \bm{-1550}
+		\end{align*}
+		Substitute back into (3)
+		\begin{equation*}
+			F_{BC} = -0.59381(-1548.0) = 919.19 = \bm{919}
+		\end{equation*}
+  }  
+\end{textblock*}
+
+
+
+\end{document}

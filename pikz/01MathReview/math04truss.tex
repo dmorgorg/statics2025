@@ -40,12 +40,12 @@
 	\draw ($ (A)+(0, -\offset)$) -- (\ax,\bby);
 
 	\small
-	\draw[latex-latex] (\ex,\bby+\offset cm) -- node[fill=white, inner sep=0.35mm] {\scriptsize $3.00$ m}(\fx,\bby+\offset cm);
-	\draw[latex-latex] (\fx,\bby+\offset cm) -- node[fill=white, inner sep=0.35mm] {\scriptsize $3.00$ m}(\gx,\bby+\offset cm);
-	\draw[latex-latex] (\gx,\bby+\offset cm) -- node[fill=white, inner sep=0.35mm] {\scriptsize $3.00$ m}(\ax,\bby+\offset cm);
-	\draw[latex-latex] (\rx-\offset cm,\ay) -- node[fill=white, inner sep=0.35mm] {\scriptsize $2.50$ m}(\rx-\offset cm,\by);
-	\draw[latex-latex] (\rx-\offset cm,\by) -- node[fill=white, inner sep=0.35mm] {\scriptsize $1.25$ m}(\rx-\offset cm,\cy);
-	\draw[latex-latex] (\rx-\offset cm,\cy) -- node[fill=white, inner sep=0.35mm] {\scriptsize $1.25$ m}(\rx-\offset cm,\ddy);
+	\draw[latex-latex] (\ex,\bby+\offset cm) -- node[fill=white, inner sep=0.35mm] {\scriptsize $3.00\,$ m}(\fx,\bby+\offset cm);
+	\draw[latex-latex] (\fx,\bby+\offset cm) -- node[fill=white, inner sep=0.35mm] {\scriptsize $3.00\,$ m}(\gx,\bby+\offset cm);
+	\draw[latex-latex] (\gx,\bby+\offset cm) -- node[fill=white, inner sep=0.35mm] {\scriptsize $3.00\,$ m}(\ax,\bby+\offset cm);
+	\draw[latex-latex] (\rx-\offset cm,\ay) -- node[fill=white, inner sep=0.35mm] {\scriptsize $2.50\,\mathsf{ m}$}(\rx-\offset cm,\by);
+	\draw[latex-latex] (\rx-\offset cm,\by) -- node[fill=white, inner sep=0.35mm] {\scriptsize $1.25\,$ m}(\rx-\offset cm,\cy);
+	\draw[latex-latex] (\rx-\offset cm,\cy) -- node[fill=white, inner sep=0.35mm] {\scriptsize $1.25\,$ m}(\rx-\offset cm,\ddy);
 	\normalsize
 
 	% \pgfoonew \BC=new rr(B,C,Burlywood1,black, 0.2)
@@ -84,6 +84,6 @@
 	\shadedraw[ball color=Burlywood4] (F) circle (1.5pt) node[xshift=1.5mm, yshift=-3mm] {\scriptsize $F$};
 	\shadedraw[ball color=Burlywood4] (G) circle (1.5pt) node[xshift=1.5mm, yshift=-3mm] {\scriptsize $G$};
 \pgfresetboundingbox
-\draw[white] ($ (D)+ (-0.75,0.5) $) rectangle ($ (A)+(0.75,-1) $);
+\draw[white] ($ (D)+ (-1,0.5) $) rectangle ($ (A)+(1,-1) $);
 
 \end{tikzpicture}

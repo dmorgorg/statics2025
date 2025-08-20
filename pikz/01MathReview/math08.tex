@@ -43,8 +43,10 @@
 		\shadedraw [draw=black, ball color = Ivory4] (A) circle (0.05cm) node[statsMaroon, xshift=0.2cm, yshift=-0.25cm] {\large $\bm A$};
 		\shadedraw [draw=black, ball color = Ivory4] (D) circle (0.1cm) node[statsMaroon, xshift=-0.3cm, yshift=0.2cm] {\large $\bm D$};
 	}
+	
 
-	\only<2>{
+	\only<2->{
+		\fill[thick, fill=Snow3!80!black] (\cx-\d, \cy)--(\cx-\d, \ay)arc(180:90:\d)--+(1,0)arc(90:0:1.65)--(\ddx+\d, \ddy)arc(0:-90:\d)--(\cx, \cy-\d)arc(270:180:\d);
 		\filldraw[thick, fill=Snow3!50, draw=black] (\cx-\d, \cy)--(\aax-\d, \aay)arc(180:90:\d)--+(1,0)arc(90:0:1.65)--(\dddx+\d, \dddy)arc(0:-90:\d)--(\cx, \cy-\d)arc(270:180:\d);
 		\draw[Latex-Latex] (\dddx+1.35cm,\dddy) -- node[fill=white] { $290\,\text{mm}-\delta_{DE}$}(\ddx+1.35cm,\ey);
 		\draw[thin] (\dddx+0.35cm, \dddy) -- +(2,0);
@@ -54,7 +56,7 @@
 		
 		\shadedraw [draw=black, ball color = Ivory4] (BB) circle (0.1cm) node[statsMaroon, xshift=0.35cm] {\large $\bm B'$};
 		\shadedraw [draw=black, ball color = Ivory4] (AA) circle (0.05cm) node[statsMaroon, xshift=0.2cm, yshift=-0.25cm] {\large $\bm A'$};
-		\shadedraw [draw=black, ball color = Ivory4] (DD) circle (0.1cm) node[xshift=-0.3cm, yshift=0.2cm] {\large $\bm D'$};
+		\shadedraw [draw=black, ball color = Ivory4] (DD) circle (0.1cm) node[statsMaroon, xshift=-0.3cm, yshift=0.2cm] {\large $\bm D'$};
 		\draw[-Latex, ultra thick, statsMaroon] (AA)--+(1.5,0)node[statsMaroon, below]{\large $\bm P$};
 
 	}

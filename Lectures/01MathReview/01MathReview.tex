@@ -47,7 +47,7 @@
 
 % Title page details: 
 \title[Math Review]{\Huge 01 Math Review}
-\subtitle[STCS200]{\Large\textcolor{white}{Engineering Statics, STCS 200}}
+\subtitle[STCS200]{\Large\textcolor{white}{Engineering Statics}}
 \author{}
 \date{\small Updated on: \today}
 
@@ -123,6 +123,88 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\begin{frame}{Algebraic Manipulation}
+
+	\cmini[0.8]{
+		We frequently need to solve an equation for a particular variable \lb(i.e., rearrange an equation to isolate a given variable)\parm
+		For example:\parm
+
+		\begin{statsbox}[top=3mm,left=5mm]{Example}
+			Solve  $\delta = \dfrac{F\cdot L}{A\cdot E} \text{ for } E$\parm
+			Solution:\vspace{-1cm}
+			\begin{center}
+				\begin{align*}
+					\intertext{Multiply both sides of the equation by $E/\delta$. Then:}				
+					\cancel{\delta}\cdot\frac {E}{\cancel{\delta}} & = \dfrac{F\cdot L}{A\cdot \cancel{E}} \cdot\frac {\cancel{E}}{\delta}\\[1em]
+					E & = \dfrac{F\cdot L}{A\cdot\delta}    
+				\end{align*}
+			\end{center}
+		\end{statsbox}
+	}	
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Algebraic Manipulation - Exercises }
+
+	\cmini[0.8]{
+		\begin{redbox}
+			\begin{center}			
+				\begin{enumerate}
+					\setcounter{enumi}{\themyexercisecounter}
+					\item Solve \textcolor{Maroon}{$a^2=b^2+c^2$} for \textcolor{Maroon}{$b$}. 
+					% {\footnotesize
+					% 	\rotatebox[origin=c, y=2.5pt]{180}{
+					% 		\textcolor{gray}{
+					% 			\Big( $\pm\sqrt{a^2-b^2}$ \bigg)
+					% 		}
+					% 	}
+					% 	}
+					\parm
+					\item Solve \textcolor{Maroon}{$V=\frac43 \pi r^3$} for \textcolor{Maroon}{$r$}. 
+					
+					% {\footnotesize
+					% 	\rotatebox[origin=c, y=2.5pt]{180}{
+					% 		\textcolor{gray}{
+					% 			\Big( $\sqrt[3]{\frac{3V}{4\pi}}$ \bigg)
+					% 		}
+					% 	}
+					% 	}
+					\parm
+
+					\item Solve \textcolor{Maroon}{$c^2=a^2+b^2-2bc\cos C$} for \textcolor{Maroon}{$\cos C$}.
+								% {\footnotesize
+								% 	\rotatebox[origin=c, y=2.5pt]{180}{
+								% 		\textcolor{gray}{
+								% 			\Big( $\frac{a^2+b^2-c^2}{2bc} $\bigg)
+								% 		}
+								% 	}
+								% 	}
+					\parm
+					\item Solve \textcolor{Maroon}{$b^2=a^2+c^2-2ac\cos B$} for \textcolor{Maroon}{$B$}.
+								% \begin{center}
+								% 	\footnotesize
+								% 	\rotatebox[origin=c]{180}{
+								% 		\textcolor{gray}{
+								% 			\Big($\cos^{-1}\left(\frac{a^2+c^2-b^2}{2ac}\right)$ \bigg)
+								% 		}
+								% 	}
+								% 	\setcounter{myexercisecounter}{\theenumi}
+								% \end{center}
+					\parm
+					\item One representation of the Hazen-Williams Equation for flow of water in a pipe is:
+			      \textcolor{Maroon}{$$  Q=\frac{CD^{2.63}\left(\frac{h_L}{L}\right)^{0.54}}{279000}$$}\lb
+			      Solve the equation for \textcolor{Maroon}{$h_L$}, then evaluate \textcolor{Maroon}{$h_L$} using the values \textcolor{Maroon}{$Q=135$, $C=120$, $D=202.7$ and $L=1200$}.
+						\setcounter{myexercisecounter}{\theenumi} 
+				\end{enumerate}
+			\end{center}
+		\end{redbox}
+	}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{frame}{Trigonometry}
 	\centering
 	Triangles are a strong, stable shape and often used in engineering.
@@ -174,6 +256,7 @@
 		}
 	\cmini[0.65]{
 		\begin{enumerate}
+			\setcounter{enumi}{\themyexercisecounter}
 			\item  Use the Pythagorean Theorem to determine the lengths of $CE$ and $CB$
 			\setcounter{myexercisecounter}{\theenumi}
 		\end{enumerate}
@@ -215,15 +298,15 @@
     \begin{titledbox}{Non-zero digits}
       Non-zero digits {\bf are} significant:
       \begin{itemize}
-			      	\item $1234$ has \textcolor{statsMaroon}{4} significant digits.			      	
-			      	\item $12.34$ has \textcolor{structure}{4} significant digits.
+			      	\item $1234$ has $\color{statsMaroon}{4}$ significant digits.			      	
+			      	\item $12.34$ has $\color{statsMaroon}{4}$ significant digits.
 			      \end{itemize}
     \end{titledbox}
     \pause\parb
     \begin{titledbox}{Zeros between non-zero digits are significant}
       \begin{itemize}
-			      	\item $12034$ has \textcolor{statsMaroon}{5} significant digits.			      	
-			      	\item $12.0034$ has \textcolor{structure}{6} significant digits.
+			      	\item $12034$ has $\color{statsMaroon}{5}$ significant digits.			      	
+			      	\item $12.0034$ has $\color{statsMaroon}{6}$ significant digits.
 			      \end{itemize}
     \end{titledbox}   
 	}
@@ -235,15 +318,15 @@
 	\cmini[0.8]{
     \begin{titledbox}{Leading zeros are {\bf not} significant}
       \begin{itemize}			      	
-        \item $0.1234$ has \textcolor{statsMaroon}{4} significant digits.
-        \item $0.0001234$ has \textcolor{statsMaroon}{4} significant digits.
+        \item $0.1234$ has $\color{statsMaroon}{4}$ significant digits.
+        \item $0.0001234$ has $\color{statsMaroon}{4}$ significant digits.
       \end{itemize}          
     \end{titledbox}
     \pause\pars
     \begin{titledbox}{Trailing zeros (after a decimal point) {\bf are} significant}
       \begin{itemize}			      	
-        \item $1234.0$ has \textcolor{statsMaroon}{5} significant digits.
-        \item $1.23400$ has \textcolor{statsMaroon}{6} significant digits.
+        \item $1234.0$ has $\color{statsMaroon}{5}$ significant digits.
+        \item $1.23400$ has $\color{statsMaroon}{6}$ significant digits.
       \end{itemize}          
     \end{titledbox}			 
 	}
@@ -257,14 +340,14 @@
    
     \begin{titledbox}{Trailing zeros (on whole numbers, i.e.\! integers) are more {\bf complicated}}
       \begin{itemize}			      	
-        \item $12300$ can have \textcolor{statsMaroon}{3}, \textcolor{statsMaroon}{4} or \textcolor{statsMaroon}{5} significant digits!\parm\pause
+        \item $12300$ can have $\color{statsMaroon}{3}$, $\color{statsMaroon}{4}$ or $\color{statsMaroon}{5}$ significant digits!\parm\pause
         \begin{itemize}
-					\item Consider $12.3\,$m. This value has \textcolor{statsMaroon}{3} significant digits. It is equal to $12300\,$mm, so in this case the $12300$ also has \textcolor{statsMaroon}{3} significant digits.\parm\pause
-					\item Now consider $12.30\,$m. This value has \textcolor{statsMaroon}{4} significant digits. But it is still equal to $12300\,$mm, so in this case the $12300$ has \textcolor{statsMaroon}{4} significant digits.\parm\pause
-					\item What if $12300\,$mm refers to $12.300\,$m? Then it has \textcolor{statsMaroon}{5} significant digits.\pause
+					\item Consider $12.3\,$m. This value has $\color{statsMaroon}{3}$ significant digits. It is equal to $12300\,$mm, so in this case the $12300$ also has $\color{statsMaroon}{3}$ significant digits.\parm\pause
+					\item Now consider $12.30\,$m. This value has $\color{statsMaroon}{4}$ significant digits. But it is still equal to $12300\,$mm, so in this case the $12300$ has $\color{statsMaroon}{4}$ significant digits.\parm\pause
+					\item What if $12300\,$mm refers to $12.300\,$m? Then it has $\color{statsMaroon}{5}$ significant digits.\pause
 				\end{itemize}
 				\item Usually, the trailing zeros are placeholders for the magnitude of a value and we don't need to worry unduly.\pause
-				\item If we want to emphasize that $12300$ has \textcolor{statsMaroon}{4} significant digits, we can write $1.230\x\left(10^3\right)$.
+				\item If we want to emphasize that $12300$ has $\color{statsMaroon}{4}$ significant digits, we can write $1.230\x\left(10^3\right)$.
       \end{itemize}          
     \end{titledbox}
 	}
@@ -276,11 +359,12 @@
 \begin{frame}{Calculations for Exercises}
 	\cmini[0.8]{
 		\begin{itemize}
-			\item In practice, it is often difficult to measure objects more accurately than to three significant digits so {\bfseries input values for exercises are generally given to \textcolor{statsMaroon}{3} significant digits}. ({\small Or sometimes \textcolor{statsMaroon}{4} significant digits when the leading significant digit is a \textcolor{statsMaroon}{1}})
+			\item In practice, it is often difficult to measure objects more accurately than to three significant digits so {\bfseries input values for exercises are generally given to $\color{statsMaroon}{3}$ significant digits}. 
+			% ({\small Or sometimes $\color{statsMaroon}{4}$ significant digits when the leading significant digit is a $\color{statsMaroon}{1}$})
       \parm\pause
-			\item We cannot expect to get more accuracy in our result at the end of a calculation than from our given input values at the beginning of the calculation so {\bfseries solutions should be correct to \textcolor{statsMaroon}{3} significant digits, not more than the accuracy of the calculation inputs! }\parm\pause
-			\item Intermediate calculations will accumulate rounding errors quickly if we use only three significant digits and these can affect the final result. {\bfseries For intermediate calculations, use \textcolor{statsMaroon}{5} or more significant digits.}\parm
-			{\small (When I write solutions down, I use 5 significant digits for intermediate calculations. You may use more if it is more convenient for you, e.g., if you are storing intermediate results in your calculator.)}
+			\item We cannot expect to get more accuracy in our result at the end of a calculation than from our given input values at the beginning of the calculation so {\bfseries solutions should be correct to $\color{statsMaroon}{3}$ significant digits, not more than the accuracy of the calculation inputs! }\parm\pause
+			\item Intermediate calculations will accumulate rounding errors quickly if we use only three significant digits and these can affect the final result. {\bfseries For intermediate calculations, use $\color{statsMaroon}{5}$ or more significant digits.}\parm
+			{\small (When I write solutions down, I use $5$ significant digits for intermediate calculations. You may use more if it is more convenient for you, e.g., if you are storing intermediate results in your calculator.)}
 		\end{itemize}
 	}
 
@@ -290,7 +374,7 @@
 \begin{frame}{Significant Digits and Rounding}
 	\cmini[0.8]{
 		\begin{itemize}
-			\item When using five significant digits for intermediate calculations, it is necessary to convert to three (or four) significant digits when providing the final answer to an exercise. Then, {\bf rounding} is often involved:
+			\item When using five significant digits for intermediate calculations, it is necessary to convert back to three significant digits when providing the final answer to an exercise. Then, {\bf rounding} is often involved:
       \parm\pause
 			\begin{itemize}
 				\item $2.3456$ becomes $2.35$ because the first non-significant digit (the $5$ in
@@ -343,7 +427,7 @@
 	%cmini[width]{content}
 	\cmini[0.85]{
 		\centering
-		\tcb{
+		\tcb[right=2mm]{
 			\input{../../pikz/01MathReview/math04truss}
 		}
 		\par
@@ -528,8 +612,11 @@
 		\raggedright
 		\normalsize
 		$ABCD$ is a rigid (i.e., it does not deform) plate, pinned at $C$. \parm
-		When horizontal force $P$ is applied at $A$, $ABCD$ rotates about $C$ and $A$ deflects $2.45\,$mm horizontally rightwards. \parm
-		Assume that $BF$ remains horizontal and that $DE$ remains vertical.
+		
+		\uncover<2->{
+			When horizontal force $P$ is applied at $A$, $ABCD$ rotates about $C$ and $A$ deflects $2.45\,$mm horizontally rightwards. \parm
+			Assume that $BF$ remains horizontal and that $DE$ remains vertical.
+		}
 		
 		
 	
@@ -554,16 +641,16 @@
 
 	\cmini[0.7]{
 		\parb
-		\only<1>{
-				\begin{enumerate}
-					\setcounter{enumi}{\themyexercisecounter}
-					\item Determine $\delta_{BF}$, the change in length of $BF$.
-					\item Determine $\delta_{DE}$, the change in length of $DE$.
-								%\setcounter{myexercisecounter}{\theenumi}
-				\end{enumerate}
-			}
+		% \only<1>{
+		% 		\begin{enumerate}
+		% 			\setcounter{enumi}{\themyexercisecounter}
+		% 			\item Determine $\delta_{BF}$, the change in length of $BF$.
+		% 			\item Determine $\delta_{DE}$, the change in length of $DE$.
+		% 						%\setcounter{myexercisecounter}{\theenumi}
+		% 		\end{enumerate}
+		% 	}
 			% to avoid incrementing question numbers on overlay, do not save after the first overlay.
-			\only<2>{
+			\uncover<3>{
 				\begin{enumerate}
 					\setcounter{enumi}{\themyexercisecounter}
 					\item Determine $\delta_{BF}$, the change in length of $BF$.
@@ -583,7 +670,7 @@
 	\mini[0.55]{
 		\begin{enumerate}
 			\setcounter{enumi}{\themyexercisecounter}
-			\item  Show that right triangles $\triangle ABC$, $\triangle ABD$ and $\triangle ACD$ all have the same angles (i.e. they are all similar).
+			\item  Show that right triangles $\triangle ABC$, $\triangle ABD$ and $\triangle ACD$ all have the same angles (i.e., they are all similar).
 			\item Given that $AC=100\text{ mm}$ and $AD=65\text{ mm}$, determine $\angle ACD$ and $\angle ABD$. 
 			% {\footnotesize\textcolor{gray}{\rotatebox[origin=c, y=2.5pt]{180}{($\angle ACD=40.5^\circ, \, \angle ABD = 49.5^\circ$)}}}
 			\item Find the remaining lengths: $AB$, $BD$ and $CD$. 
@@ -614,7 +701,7 @@
 			\setcounter{enumi}{\themyexercisecounter}
 			\item Find $\theta_{AC}$.
 			\item Find $\theta_{BC}$.
-
+			\setcounter{myexercisecounter}{\theenumi}
 		\end{enumerate}
 		% {\bfseries Don't give up yet!} Spend a few minutes and figure out how you can use the dimensions given to work towards finding angles $\theta_{AC}$ and $\theta_{BC}$.\parb
 		% \textcolor{gray}{If you are really stuck, there are hints on the next slide :)}
@@ -629,86 +716,8 @@
 \end{frame}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}{Algebraic Manipulation}
 
-	\cmini[0.8]{
-		We frequently need to solve an equation for a particular variable \lb(i.e., rearrange an equation to isolate a given variable)\parm
-		For example:\parm
-
-		\begin{statsbox}[top=3mm,left=5mm]{Example}
-			Solve  $\delta = \dfrac{F\cdot L}{A\cdot E} \text{ for } E$\parm
-			Solution:\vspace{-1cm}
-			\begin{center}
-				\begin{align*}
-					\intertext{Multiply both sides of the equation by $E/\delta$. Then:}				
-					\cancel{\delta}\cdot\frac {E}{\cancel{\delta}} & = \dfrac{F\cdot L}{A\cdot \cancel{E}} \cdot\frac {\cancel{E}}{\delta}\\[1em]
-					E & = \dfrac{F\cdot L}{A\cdot\delta}    
-				\end{align*}
-			\end{center}
-		\end{statsbox}
-	}	
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}{Algebraic Manipulation - Exercises }
-
-	\cmini[0.8]{
-		\begin{redbox}
-			\begin{center}			
-				\begin{enumerate}
-					\setcounter{enumi}{\themyexercisecounter}
-					\item Solve \textcolor{Maroon}{$a^2=b^2+c^2$} for \textcolor{Maroon}{$b$}. 
-					% {\footnotesize
-					% 	\rotatebox[origin=c, y=2.5pt]{180}{
-					% 		\textcolor{gray}{
-					% 			\Big( $\pm\sqrt{a^2-b^2}$ \bigg)
-					% 		}
-					% 	}
-					% 	}
-					\parm
-					\item Solve \textcolor{Maroon}{$V=\frac43 \pi r^3$} for \textcolor{Maroon}{$r$}. 
-					
-					% {\footnotesize
-					% 	\rotatebox[origin=c, y=2.5pt]{180}{
-					% 		\textcolor{gray}{
-					% 			\Big( $\sqrt[3]{\frac{3V}{4\pi}}$ \bigg)
-					% 		}
-					% 	}
-					% 	}
-					\parm
-
-					\item Solve \textcolor{Maroon}{$c^2=a^2+b^2-2bc\cos C$} for \textcolor{Maroon}{$\cos C$}.
-								% {\footnotesize
-								% 	\rotatebox[origin=c, y=2.5pt]{180}{
-								% 		\textcolor{gray}{
-								% 			\Big( $\frac{a^2+b^2-c^2}{2bc} $\bigg)
-								% 		}
-								% 	}
-								% 	}
-					\parm
-					\item Solve \textcolor{Maroon}{$b^2=a^2+c^2-2ac\cos B$} for \textcolor{Maroon}{$B$}.
-								% \begin{center}
-								% 	\footnotesize
-								% 	\rotatebox[origin=c]{180}{
-								% 		\textcolor{gray}{
-								% 			\Big($\cos^{-1}\left(\frac{a^2+c^2-b^2}{2ac}\right)$ \bigg)
-								% 		}
-								% 	}
-								% 	\setcounter{myexercisecounter}{\theenumi}
-								% \end{center}
-					\parm
-					\item One representation of the Hazen-Williams Equation for flow of water in a pipe is:
-			      \textcolor{Maroon}{$$  Q=\frac{CD^{2.63}\left(\frac{h_L}{L}\right)^{0.54}}{279000}$$}\lb
-			      Solve the equation for \textcolor{Maroon}{$h_L$}, then evaluate \textcolor{Maroon}{$h_L$} using the values \textcolor{Maroon}{$Q=135$, $C=120$, $D=202.7$ and $L=1200$}.
-						\setcounter{myexercisecounter}{\theenumi} 
-				\end{enumerate}
-			\end{center}
-		\end{redbox}
-	}
-\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
