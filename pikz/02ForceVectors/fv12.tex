@@ -1,0 +1,23 @@
+% !TEX root = ../../statikz/statikz.tex
+
+\begin{tikzpicture}[scale =0.75]
+  \only<1>{
+    \draw[very thick, Goldenrod3, -latex] (5.5, 3) -- +(-1.5, .5) node[below right, yshift=-0.1cm]{ ${\bm{\mathrm{ F }}}$}; 
+    \draw[very thick, BlueViolet, ->, -latex] (3.5, 4.5) -- +(2, -1.5) node[above]{ ${\bm{\mathrm{ E }}}$};
+    \draw[very thick, cyan, -latex] (2,4.5) -- + (1.5, 0) node[above]{ ${\bm{\mathrm{ D }}}$} ;
+    \draw[very thick,Orange1, -latex] (3, 1.5) -- ++ (-1, 3) node[left]{ ${\bm{\mathrm{ C }}}$} ;
+    \draw[very thick, green, -latex] (2, 3) -- ++ (1, -1.5)node[left,xshift=-0.5mm]{ ${\bm{\mathrm{ B }}}$} ;
+    \draw[very thick, blue, -latex] (1, 1) -- ++(1, 2)node[left,xshift=-0.5mm] { ${\bm{\mathrm{ A }}}$} ;
+  }
+  \only<2->{
+    \draw[very thick, Goldenrod3, -latex, opacity=0.4] (5.5, 3) -- +(-1.5, .5) node[below right, yshift=-0.1cm]{ ${\bm{\mathrm{ F }}}$}; 
+    \draw[very thick, BlueViolet, ->, -latex, opacity=0.4] (3.5, 4.5) -- +(2, -1.5) node[above]{ ${\bm{\mathrm{ E }}}$};
+    \draw[very thick, cyan, -latex, opacity=0.4] (2,4.5) -- + (1.5, 0) node[above]{ ${\bm{\mathrm{ D }}}$} ;
+    \draw[very thick,Orange1, -latex, opacity=0.4] (3, 1.5) -- ++ (-1, 3) node[left]{ ${\bm{\mathrm{ C }}}$} ;
+    \draw[very thick, green, -latex, opacity=0.4] (2, 3) -- ++ (1, -1.5)node[left,xshift=-0.5mm]{ ${\bm{\mathrm{ B }}}$};
+    \draw[very thick, blue, -latex, opacity=0.4] (1, 1) -- ++(1, 2)node[left,xshift=-0.5mm] { ${\bm{\mathrm{ A }}}$};
+    \draw[ultra thick, statsMaroon, -latex] (1, 1) -- (4, 3.5)node[left,xshift=-3mm, yshift=-1.5mm] { ${\bm{\mathrm{ R }}}$};
+
+
+  }
+\end{tikzpicture}

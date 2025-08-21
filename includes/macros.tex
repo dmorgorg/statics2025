@@ -5,6 +5,13 @@
 \newcommand\pars{\par\smallskip}
 \newcommand\parm{\par\medskip}
 \newcommand\parb{\par\bigskip}
+\renewcommand{\deg}{^\circ}
+
+% counter for resuming enumerated list numbers
+\newcounter{resumeenumi}
+\newcommand{\suspend}{\setcounter{resumeenumi}{\theenumi}}
+\newcommand{\resume}{\setcounter{enumi}{\theresumeenumi}}
+
 
 
 % https://tex.stackexchange.com/questions/33703/extract-x-y-coordinate-of-an-arbitrary-point-in-tikz
@@ -20,10 +27,93 @@
 \newcommand{\verbatimfont}[1]{\def\verbatim@font{#1}}%
 \makeatother
 
-\providecommand{\dg}{
-	^\circ
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\btb}{\begin{textblock*}}
+\newcommand{\etb}{\end{textblock*}}
+
+\newcommand{\tb}[4][0.8]{
+	\begin{textblock*}{#1}(#2, #3)
+		% \raggedright
+		#4
+	\end{textblock*}
 }
-\renewcommand{\deg}{^\circ}
+
+
+
+
+
+
+\newtcolorbox{statsbox}[2][] { 
+  colback=white,
+  colbacktitle=structure,
+  colframe=structure,
+  coltitle=white,  
+  top=0.25cm,
+	bottom=0.125cm,
+	left=0mm,
+	right=0mm,
+  % fonttitle=\itshape\rmfamily,
+  halign=flush left, 
+  enhanced,
+  drop fuzzy shadow,
+  attach boxed title to top left={xshift=3.5mm, yshift=-2mm},
+  title={#2}, #1}
+\newtcolorbox{redbox}{colback=white, colframe=structure, enhanced, drop fuzzy shadow}
+\newtcolorbox{titledbox}[1]{colback=white,colframe=structure,title={#1}}
+\newtcbox{\tcb}[1][]{colback=white,boxsep=0pt,top=5pt,bottom=5pt,left=5pt,
+		right=5pt, colframe=structure,  enhanced, drop fuzzy shadow, #1}
+% tcb title
+\newtcbox{\tcbt}[2][]{colback=white,boxsep=0pt,top=5pt,bottom=5pt,left=5pt,
+		right=5pt, colframe=structure, enhanced, drop fuzzy shadow,  title={#2}, #1}
+% tcb left title
+\newtcbox{\tcbtl}[2][]{ colback=white,
+  colbacktitle=structure,
+  colframe=structure,
+  coltitle=white,  
+  top=0.25cm,
+	bottom=0.125cm,
+	left=0mm,
+	right=0mm,
+  % fonttitle=\bfseries,
+  halign=flush left, 
+  enhanced,
+  drop fuzzy shadow,
+  attach boxed title to top left={xshift=3.5mm, yshift=-2mm}, 
+	title={#2}, #1}
+
+\newtcbtheorem{myexam}{Example}%
+{
+	enhanced,
+	colback=white,
+	colframe=structure,
+	fonttitle=\bfseries,
+	drop fuzzy shadow,
+	%description font=\mdseries\itshape,
+	attach boxed title to top left={yshift=-2mm, xshift=5mm},
+	colbacktitle=structure
+	}{exam}% then \pageref{exer:theoexample} references the theo
+
+% \newcommand{\myexample}[2][red]{
+% 	% \tcb\tcbset{theostyle/.style={colframe=red,colbacktitle=yellow}}
+% 	\begin{myexam}{}{}
+% 		#2
+% 	\end{myexam}
+% 	% \tcbset{colframe=structure,colbacktitle=structure}
+% }
+
+\newtcbtheorem{myexer}{Exercise}%
+{
+	enhanced,
+	colback=white,
+	colframe=structure,
+	fonttitle=\bfseries,
+	drop fuzzy shadow,
+	%description font=\mdseries\itshape,
+	attach boxed title to top left={yshift=-2mm, xshift=5mm},
+	colbacktitle=structure
+	}{exer}
+
+
 
 \newcommand{\mini}[2][0.8]{
 	\begin{minipage}[c]{#1\columnwidth}
@@ -48,6 +138,8 @@
 		\end{minipage}
 	\end{center}
 }
+
+
 
 \newcommand{\fig}[2][1]{% scaled graphic
 	\includegraphics[scale=#1]{#2}
