@@ -28,8 +28,7 @@
 \makeatother
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newcommand{\btb}{\begin{textblock*}}
-\newcommand{\etb}{\end{textblock*}}
+
 
 \newcommand{\tb}[4][0.8]{
 	\begin{textblock*}{#1}(#2, #3)
@@ -86,7 +85,8 @@
 	enhanced,
 	colback=white,
 	colframe=structure,
-	fonttitle=\bfseries,
+	% fonttitle=\bfseries,
+	fonttitle=\itshape\rmfamily,
 	drop fuzzy shadow,
 	%description font=\mdseries\itshape,
 	attach boxed title to top left={yshift=-2mm, xshift=5mm},
@@ -106,9 +106,10 @@
 	enhanced,
 	colback=white,
 	colframe=structure,
-	fonttitle=\bfseries,
+	% fonttitle=\bfseries,
 	drop fuzzy shadow,
-	%description font=\mdseries\itshape,
+	fonttitle=\itshape\rmfamily,
+	% description font=\mdseries\itshape,
 	attach boxed title to top left={yshift=-2mm, xshift=5mm},
 	colbacktitle=structure
 	}{exer}

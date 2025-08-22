@@ -1,0 +1,75 @@
+
+\begin{tikzpicture}
+
+	\def\offset{0.2}
+	
+	\coordinate (A) at (0,0);
+	\coordinate (B) at (2.5,0);
+	\coordinate (C) at (5.5,0);
+	\coordinate (D) at (8,1.25);
+	\coordinate (G) at (2.5,-3);
+	\coordinate (F) at (5.5,-3);
+	\coordinate (E) at (8,-3);
+	\coordinate (Right) at ($ (A)+(0.75,0)$);
+	\coordinate (Bottom) at ($ (A)+(0,-0.75)$);
+
+	\fill[statsMaroon] ($(D)+(-0.325,0.5)$) rectangle ($(E)+(-.75,-1)$);
+	\draw ($(D)+(-0.325,0.5)$) -- ($(E)+(-0.325,-1)$);
+
+
+	\gettikzxy{(A)}{\ax}{\ay}
+	\gettikzxy{(B)}{\bx}{\by}
+	\gettikzxy{(C)}{\cx}{\cy}
+	\gettikzxy{(D)}{\ddx}{\ddy}
+	\gettikzxy{(E)}{\ex}{\ey}
+	\gettikzxy{(F)}{\fx}{\fy}
+	\gettikzxy{(G)}{\gx}{\gy}
+	\gettikzxy{(Right)}{\rx}{\ry}
+	\gettikzxy{(Bottom)}{\bbx}{\bby}
+
+	\draw ($ (A)+(\offset,0)$) -- (\rx,\ay);
+	\draw ($ (B)+(1.25*\offset,0)$) -- (\rx,\by);
+	\draw ($ (C)+(2*\offset,0)$) -- (\rx,\cy);
+	\draw ($ (D)+(2*\offset,0)$) -- (\rx,\ddy);
+	\draw ($ (D)+(0, -\offset)$) -- (\ex,\ey+1.25*\offset cm);
+	\draw ($ (E)+(0, -\offset)$) -- (\ex,\bby);
+	\draw ($ (F)+(0, -\offset)$) -- (\fx,\bby);
+	\draw ($ (G)+(0, -\offset)$) -- (\gx,\bby);
+	\draw ($ (A)+(0, -\offset)$) -- (\ax,\bby);
+
+	\small
+	\draw[latex-latex] (\ex,\bby+\offset cm) -- node[fill=white, inner sep=0.35mm] {\scriptsize $3.00\,$ m}(\fx,\bby+\offset cm);
+	\draw[latex-latex] (\fx,\bby+\offset cm) -- node[fill=white, inner sep=0.35mm] {\scriptsize $3.00\,$ m}(\gx,\bby+\offset cm);
+	\draw[latex-latex] (\gx,\bby+\offset cm) -- node[fill=white, inner sep=0.35mm] {\scriptsize $3.00\,$ m}(\ax,\bby+\offset cm);
+	\draw[latex-latex] (\rx-\offset cm,\ay) -- node[fill=white, inner sep=0.35mm] {\scriptsize $2.50\,\mathsf{ m}$}(\rx-\offset cm,\by);
+	\draw[latex-latex] (\rx-\offset cm,\by) -- node[fill=white, inner sep=0.35mm] {\scriptsize $1.25\,$ m}(\rx-\offset cm,\cy);
+	\draw[latex-latex] (\rx-\offset cm,\cy) -- node[fill=white, inner sep=0.35mm] {\scriptsize $1.25\,$ m}(\rx-\offset cm,\ddy);
+	\normalsize
+
+	 \Member{B}{C}{Cornsilk4}{white}{black}{0.2}{1.125}{0.25}
+	 \Member{C}{D}{Cornsilk4}{white}{black}{0.2}{1.125}{0.25}
+	 \Member{A}{G}{Cornsilk4}{white}{black}{0.2}{1.125}{0.25}
+	 \Member{A}{B}{Cornsilk4}{white}{black}{0.2}{1.125}{0.25}
+	 \Member{F}{G}{Cornsilk4}{white}{black}{0.2}{1.125}{0.25}
+	 \Member{F}{E}{Cornsilk4}{white}{black}{0.2}{1.125}{0.25}
+	 \Member{B}{F}{Cornsilk4}{white}{black}{0.2}{1.125}{0.25}
+	 \Member{B}{G}{Cornsilk4}{white}{black}{0.2}{1.125}{0.25}
+	 \Member{C}{E}{Cornsilk4}{white}{black}{0.2}{1.125}{0.25}
+	 \Member{C}{F}{Cornsilk4}{white}{black}{0.2}{1.125}{0.25}
+
+	\PC[-90]{D}{statsMaroon}{black}{0.325}{0.125}
+	\PC[-90]{E}{statsMaroon}{black}{0.325}{0.125}
+
+	\draw[very thick, statsMaroon, -latex] (A) -- +(0,-1);
+
+	\shadedraw[ball color=Burlywood4] (A) circle (1.5pt) node[xshift=1.5mm, yshift=3mm] {\scriptsize $A$};
+	\shadedraw[ball color=Burlywood4] (B) circle (1.5pt) node[xshift=1.5mm, yshift=3mm] {\scriptsize $B$};
+	\shadedraw[ball color=Burlywood4] (C) circle (1.5pt) node[xshift=1.5mm, yshift=3mm] {\scriptsize $C$};
+	\shadedraw[ball color=Burlywood4] (D) circle (1.5pt) node[xshift=1.5mm, yshift=3mm] {\scriptsize $D$};
+	\shadedraw[ball color=Burlywood4] (E) circle (1.5pt) node[xshift=1.5mm, yshift=-3mm] {\scriptsize $E$};
+	\shadedraw[ball color=Burlywood4] (F) circle (1.5pt) node[xshift=1.5mm, yshift=-3mm] {\scriptsize $F$};
+	\shadedraw[ball color=Burlywood4] (G) circle (1.5pt) node[xshift=1.5mm, yshift=-3mm] {\scriptsize $G$};
+\pgfresetboundingbox
+\draw[yellow] ($ (D)+ (-1,0.5) $) rectangle ($ (A)+(1,-1) $);
+
+\end{tikzpicture}

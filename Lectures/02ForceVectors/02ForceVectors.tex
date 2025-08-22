@@ -16,7 +16,10 @@
 \tcbset{fonttitle=\itshape\rmfamily}
 \usepackage{tikz}
 \usetikzlibrary{arrows.meta, math, calc, shadows}
-\usetikzlibrary{decorations.shapes, decorations.text, decorations.pathmorphing, decorations.markings}
+% \usetikzlibrary{decorations.shapes, decorations.text, decorations.pathmorphing, decorations.markings}
+\usetikzlibrary{decorations.markings, decorations.fractals}
+% \usetikzlibrary{shapes.callouts,shapes.multipart}
+\usetikzlibrary{positioning}
 
 \usepackage[absolute,overlay]{textpos}
 \setlength{\TPHorizModule}{1.0cm}
@@ -474,7 +477,7 @@
 	\mini[0.45]{
 		\begin{itemize}
 			\item<2-> In this case, $\bm{\mathrm{ R }}$ is the resultant of $6$ component forces: $\bm{\mathrm{ A }}$, $\bm{\mathrm{ B }}$, $\bm{\mathrm{ C }}$, $\bm{\mathrm{ D }}$, $\bm{\mathrm{ E }}$ and $\bm{\mathrm{ F }}$\parb
-			\item<3-> For each force $\bm{R}$, we shall generally need only two components.
+			\item<3-> In this course, for each force $\bm{R}$ we shall generally need only two components.
 		\end{itemize}
 	}
 	\hfill
@@ -496,13 +499,12 @@
 	\begin{myexam}{}{}
 
 		Determine the magnitude and the direction (measured clockwise from the the positive $x$-axis) of the resultant of the two forces. \parm\centering
-		(One kilonewton is one thousand newtons, i.e., $1\,\mathsf{kN} = 1000\,\mathsf{N}$)
+		{\bf Note}: One kilonewton is one thousand newtons, i.e., $1\,\mathsf{kN} = 1000\,\mathsf{N}$
 		\parb
 
 		\begin{center}
-			\def\scale{0.8}
-			hello
-			% \input{../../pikz/02ForceVectors/fv21.tex}
+			\def\scale{0.9}
+			\input{../../pikz/02ForceVectors/fv21.tex}
 
 			% \footnotesize
 			% \rotatebox[origin=c]{180}{
@@ -517,9 +519,32 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+% \begin{frame}
+% 	\begin{tikzpicture}[line cap = round,
+% 			postaction=decorate,
+%   		decoration = {markings, mark = between positions 0
+%   		and 1 step 16pt with 
+% 			{
+% 				\draw[statsMaroon, ultra thick]  (0, -3pt)--++(3pt, 0)arc(-90:90:3pt)--++(-6pt,0)arc(90:270:3pt)--cycle;
+%         \draw[red,ultra thick] (-13pt,0) -- (-3pt,0); 
+% 			}
+% 			}
+% 			]
+%       \path[postaction={decorate}](0,0) arc(180:0:1) arc(-180:0:1);
+%       \path[postaction={decorate}](5,0) -- +(4,-2);
+			
+% 	\end{tikzpicture}
+	
+	
+
+% \end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{frame}{Resultant Forces}
 
 	\begin{myexer}{}{}
+		\def\scale{0.8}
 		\input{../../pikz/02ForceVectors/fv23.tex}
 		\parb
 
@@ -550,7 +575,7 @@
 			\item The weight of an object is a force. It is the gravitational attractive force between the object and the earth.\parb
 			\item If we denote the acceleration due to gravity by $\bm g$ ($g=9.81\mathsf{\;m/s^2}=32.2\mathsf{\;ft/s^2} $) and denote the mass of the object by $\bm m$, then the weight of the object, $\bm W$, is given by:
 		\end{itemize}
-
+		\parb
 		\centering
 		\begin{statsbox}[width=3cm, top=1mm]{}
 			\[ W=mg \]
@@ -559,6 +584,159 @@
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Metric (SI) Units of Measurement}
+	\cmini{
+		\begin{itemize}
+			\item There are four basic quantities involved in $F=ma$: force, mass, distance and time. \parb
+			\item According to Newton, a net force of one newton ({\bfseries N}) causes a mass of one kilogram ({\bfseries kg}) to accelerate by\lb 1 metre/sec/sec ({\bfseries m/s}$\bm{^2}$).\parb
+			\item A rock dropped from a bridge is subject to a gravitational attractive force and will have an acceleration of $9.81\mathsf{\;m/s^2}$. If the rock has a mass of $2.75\text{ kg}$, this force is given by:
+			      \begin{align*}
+			      	F & = ma                                        \\
+			      	  & = 2.75\text{ kg}\times 9.81\mathsf{\;m/s^2} \\
+			      	  & = 27.0\text{ N}
+			      \end{align*}
+			      This force $F$ is the weight, $W$, of the rock. So, $W=mg$
+		\end{itemize}
+	}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Metric (or SI) Units of Measurement}
+	\cmini{
+		To summarize:
+		\begin{enumerate}
+			\item $	1 \mathsf{\,N} = 1\mathsf{\,kg} \times 1\mathsf{\,m/s^2} = 1 \mathsf{\,kg\cdot m/s^2}$\parb
+			\item To calculate the weight of an object from its mass, multiply the mass in kg by $g=9.81\,\mathsf{m/s^2}$. The weight is in newtons.\parb
+			\item To calculate the mass of an object from its weight, divide the weight in newtons by
+			      $g=9.81\,\mathsf{m/s^2}$. The mass is in kilograms.
+		\end{enumerate}
+
+	}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{US Customary (or Imperial) Units of Measurement}
+	\cmini{
+		\begin{itemize}
+			\item Acceleration due to gravity in feet and seconds is $$g=32.2\,\mathsf{ft/s^2}$$
+			\item The unit for force is the pound, or {\bf lb}. \lb(It may also be described as pound-force, or {\bf lbf}.)\parb
+			\item The unit for mass is the {\bfseries slug}.\parb
+			\item	 $	1 \mathsf{lb} = 1\mathsf{\,slug} \times 1\mathsf{\,ft/s^2} \Rightarrow 1 \mathsf{\,slug}$ has the units $\frac{\mathsf{lb\cdot sec}}{\mathsf{ft^2}}$\parb
+			\item To calculate the mass of an object from its weight, divide the weight in pounds by
+			      $g=32.2\,\mathsf{ft/s^2}$. The mass is in slugs.\parb
+			\item To calculate the weight of an object from its mass, multiply the mass in slugs by $g=32.2\,\mathsf{ft/s^2}$. The weight is in pounds.
+		\end{itemize}
+
+	}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Component Forces}
+	\cmini[0.9]{
+		\begin{myexam}{}{}
+			\mini[0.45]{
+				\raggedright
+				The weight, $W$, of the traffic lights (with mass $105\;\text{kg}$) acts vertically downwards. \parm Find the value of $ W$ and use it to determine the magnitudes of its two components directed along the axes of $AC$ and $BC$.
+			}
+			\mini[0.45]{
+				\centering
+				\input{../../pikz/01MathReview/math11.tex}
+			}
+			% \begin{center}
+			% 	\footnotesize
+			% 	\rotatebox[origin=c]{180}{
+			% 		\textcolor{gray}{
+			% 			($BC=919\text{ N}, AC=1.55\text{ kN}$)
+			% 		}
+			% 	}
+			% \end{center}
+		\end{myexam}
+	}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Component Forces}
+
+
+	\begin{myexer}{}{}
+		\centering
+		\scalebox{0.675}{
+			\input{../../pikz/02ForceVectors/fv22.tex}
+		}
+		\parm
+		\cmini[0.9]{
+			Resolve the $42.0$ kN load suspended from $A$ into components parallel to the truss members $AB$ and $AG$. Give the magnitude of the components and their direction measured counter-clockwise from the positive $x$ axis.
+		}
+
+
+		% \begin{center}
+		% 	\footnotesize
+		% 	\rotatebox[origin=c]{180}{
+		% 		\textcolor{gray}{
+		% 			($35.0\text{ kN at } 180^\circ, 54.7\text{ kN at} 310^\circ $)
+		% 		}
+		% 	}
+		% \end{center}
+	\end{myexer}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Component Forces}
+	\cmini[1]{
+		\begin{myexer}[bottom=0mm]{}{}
+			\mini[0.4]{
+				\raggedright
+				The decoration suspended at $D$ weighs $1124\,\mathsf{N}$.\parm 
+				Determine the magnitudes of the two force components of the weight of $D$, in the direction of $AB$ and $BC$.
+			}
+			\hfill
+			\mini[0.5]{
+				\centering
+				\def\scale{0.7}
+				\input{../../pikz/02ForceVectors/fv27.tex}
+			}
+			% \begin{center}
+			% 	\footnotesize
+			% 	\rotatebox[origin=c]{180}{
+			% 		\textcolor{gray}{
+			% 			($1170$ kN along $AB$ and $1080$ kN along $BC$)
+			% 		}
+			% 	}
+			% \end{center}
+		\end{myexer}
+	}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \begin{frame}{Resultant \& Component Forces}
+% 	\cmini[1]{
+% 		\begin{myexam}{}{}
+% 			\mini[0.4]{
+% 				\begin{enumerate}[{a)}]
+% 					\item Determine the resultant ${\bm{\mathrm{ R }_{}}}$ of the two vectors ${\bm{\mathrm{ F }_{}}}$ and ${\bm{\mathrm{ G }_{}}}$.
+% 					\item Determine the $x$-component of ${\bm{\mathrm{ R }}}$ (i.e., the horizontal component).
+% 					\item Determine the $x$-component of ${\bm{\mathrm{ F }}}$.
+% 					\item Determine the $x$-component of ${\bm{\mathrm{ G }}}$.
+% 					\item Add the two previous results.
+% 				\end{enumerate}
+% 			}
+% 			\hfill
+% 			% left-aligned minipage with text raggedright
+% 			%mini[width]{content}
+% 			\mini[0.35]{
+% 				\input{../../pikz/02ForceVectors/fv27.tex}
+% 			}
+% 		\end{myexam}
+% 	}
+
+% \end{frame}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

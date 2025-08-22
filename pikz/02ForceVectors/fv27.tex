@@ -1,0 +1,36 @@
+
+\begin{tikzpicture}[scale=\scale, decoration=Koch snowflake,draw=statsMaroon,fill=Cornsilk3,thick]
+
+	\coordinate (A) at (0,-2);
+	\coordinate (AA) at ($(A)+(-26:1)$);
+	\coordinate (C) at (5,-1);
+	\coordinate (CC) at ($(C)+(214:1)$);
+	\coordinate (B) at (intersection of A--AA and C--CC);
+	\coordinate (D) at ($ (B)+(0,-1.6875) $);
+
+	\fill[Cornsilk3] ($ (A)+(0,2) $) rectangle  ($ (A)+(-1,-4.5) $); 
+	\fill[Cornsilk3] ($ (C)+(0,1) $) rectangle  ($ (C)+(1,-5.5) $); 
+	\draw[thick, statsMaroon] ($ (A)+(0,2) $) -- ($ (A)+(0,-4.5) $); 
+	\draw[thick, statsMaroon] ($ (C)+(0,1) $) -- ($ (C)+(0,-5.5) $); 
+
+
+	\draw[very thick, statsMaroon] (A)--(B);
+	\draw[very thick, statsMaroon] (B)--(C);
+	\draw[very thick, statsMaroon] (B)--(D);
+
+	\filldraw[xshift=1.5375cm, yshift=-2.5cm] decorate{ decorate{ (0,-2.5) -- ++(60:1) -- ++(-60:1) -- cycle }};
+
+
+	\draw[black, thin, latex-latex] ($ (B)+(154:1.25) $) arc (154:34:1.25) node[fill=white, inner sep=0.25mm, midway] {\footnotesize $120\deg$};
+	\draw[black, thin, latex-latex] ($ (C)+(270:1.75) $) arc (270:214:1.75) node[fill=white, inner sep=0.25mm, midway] {\footnotesize $56.0\deg$};
+
+
+	\shadedraw [draw=black, ball color = Cornsilk4] (B) circle (0.1cm) node[statsMaroon,above] {$B$};
+	\shadedraw [draw=black, ball color = Cornsilk4] (A) circle (0.1cm) node[statsMaroon, left] {$A$};
+	\shadedraw [draw=black, ball color = Cornsilk4] (C) circle (0.1cm) node[statsMaroon, right] {$C$};
+	\node[statsMaroon] at (D) {$\bm D$};
+	\node[black, xshift=0.5cm, yshift=-0.5cm] at (D) {\footnotesize $1124\,\mathsf{N}$};
+
+
+
+\end{tikzpicture}
