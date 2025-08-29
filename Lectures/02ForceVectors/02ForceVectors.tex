@@ -56,6 +56,10 @@
 \setlength{\parskip}{\medskipamount}
 \setlength{\parindent}{0pt}
 
+% https://tex.stackexchange.com/questions/731957/how-to-supress-missing-character-there-is-no-u003b-in-font-nullfont
+\tracinglostchars=1
+\hfuzz 120pt
+
 \def\scale{1}
 \newcounter{examnumber}
 \newcounter{exernumber}
@@ -663,6 +667,7 @@
 
 	\begin{myexer}{}{}
 		\centering
+		\def\scale{0.675}
 		\scalebox{0.675}{
 			\input{../../pikz/02ForceVectors/fv22.tex}
 		}
