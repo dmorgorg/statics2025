@@ -3,42 +3,29 @@
 
 \documentclass[9pt, xcolor={svgnames, x11names},professionalfonts]{beamer}
 
-
-
-\usepackage{mathtools}
-\usepackage{xcolor}
-\usefonttheme[onlymath]{serif} 
-\usepackage{mathpazo}
-\usepackage{bm}
-\usepackage{cancel}
-\usepackage[many]{tcolorbox}
-% \tcbset{fonttitle=\itshape\rmfamily\bfseries}
-\tcbset{fonttitle=\itshape\rmfamily}
-\usepackage{tikz}
-\usetikzlibrary{arrows.meta, math, calc, shadows}
 % \usetikzlibrary{decorations.shapes, decorations.text, decorations.pathmorphing, decorations.markings}
-\usetikzlibrary{decorations.markings, decorations.fractals}
+% \usetikzlibrary{decorations.markings, decorations.fractals}
 % \usetikzlibrary{shapes.callouts,shapes.multipart}
-\usetikzlibrary{positioning}
+% \usetikzlibrary{positioning}
 
-\usepackage[absolute,overlay]{textpos}
-\setlength{\TPHorizModule}{1.0cm}
-\setlength{\TPVertModule}{\TPHorizModule}
-\textblockorigin{0.0cm}{0.0cm}  %start all at upper left corner
+% \setlength{\TPHorizModule}{1.0cm}
+% \setlength{\TPVertModule}{\TPHorizModule}
 
-
-% have to include macros.tex after \usepackage[many]{tcolorbox} since macros.tex uses tcolorbox
+\input{../../includes/macros}
 \input{../../includes/definedColors}
 \input{../../includes/EyeConnection.tex}
-\input{../../includes/macros}
 \input{../../includes/Member}
 \input{../../includes/PC}
 
+
+\tcbset{fonttitle=\itshape\rmfamily}
+\usepackage{mathpazo}
+ 
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.18}
-
+\usefonttheme[onlymath]{serif} % this needs to be before structureitalicserif?
 \usefonttheme{structureitalicserif} %make titles fancy ;-)
-\usefonttheme[onlymath]{serif}
+% 
 
 \usecolortheme[named=statsMaroon]{structure}
 \setbeamertemplate{navigation symbols}{} % remove navigation symbols
@@ -673,7 +660,7 @@
 		}
 		\parm
 		\cmini[0.9]{
-			Resolve the $42.0$ kN load suspended from $A$ into components parallel to the truss members $AB$ and $AG$. Give the magnitude of the components and their direction measured counter-clockwise from the positive $x$ axis.
+			Resolve the $4.20$ kN load suspended from $A$ into components parallel to the truss members $AB$ and $AG$. Give the magnitude of the components and their direction measured counter-clockwise from the positive $x$ axis.
 		}
 
 
@@ -719,28 +706,26 @@
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% \begin{frame}{Resultant \& Component Forces}
-% 	\cmini[1]{
-% 		\begin{myexam}{}{}
-% 			\mini[0.4]{
-% 				\begin{enumerate}[{a)}]
-% 					\item Determine the resultant ${\bm{\mathrm{ R }_{}}}$ of the two vectors ${\bm{\mathrm{ F }_{}}}$ and ${\bm{\mathrm{ G }_{}}}$.
-% 					\item Determine the $x$-component of ${\bm{\mathrm{ R }}}$ (i.e., the horizontal component).
-% 					\item Determine the $x$-component of ${\bm{\mathrm{ F }}}$.
-% 					\item Determine the $x$-component of ${\bm{\mathrm{ G }}}$.
-% 					\item Add the two previous results.
-% 				\end{enumerate}
-% 			}
-% 			\hfill
-% 			% left-aligned minipage with text raggedright
-% 			%mini[width]{content}
-% 			\mini[0.35]{
-% 				\input{../../pikz/02ForceVectors/fv27.tex}
-% 			}
-% 		\end{myexam}
-% 	}
+\begin{frame}{Resultant \& Component Forces}
+	
+		\begin{myexam}{}{}
+			\mini[0.55]{
+				\begin{enumerate}[{a)}]
+					\item Determine the resultant ${\bm R}$ of the two vectors ${\bm F}$ and ${\bm G}$.
+					\item Determine the $x$-component of ${\bm R }$ (i.e., the horizontal component).
+					\item Determine the $x$-component of ${\bm F }$.
+					\item Determine the $x$-component of ${\bm  G }$.
+					\item Add the two previous results. Compare it with the result from $\color{statsMaroon}b)$ above.
+				\end{enumerate}
+			}
+			\hfill
+			\mini[0.35]{
+				\input{../../pikz/02ForceVectors/fv28.tex}
+			}
+		\end{myexam}
+	
 
-% \end{frame}
+\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

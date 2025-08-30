@@ -1,0 +1,64 @@
+\tikz{%
+  \coordinate (A) at (0,0);
+  \coordinate (B) at (2.5,0);
+  \coordinate (C) at (5.5,0);
+  \coordinate (D) at (8,1.25);
+  \coordinate (E) at (8,-3);
+  \coordinate (F) at (5.5,-3);
+  \coordinate (G) at (2.5,-3);
+
+  \gettikzxy{(C)}{\Cx}{\Cy};
+	\gettikzxy{(E)}{\Ex}{\Ey};
+	\gettikzxy{(D)}{\Dx}{\Dy};
+
+  \fill[gray] ($ (E)+(0.5,-1) $) rectangle ($ (D)+(1.5,1.5) $);
+	\draw[black, thick] ($ (E)+(0.5,-1) $) -- ($ (D)+(0.5,1.5) $);
+
+  \PC[90]{D}{gray}{black}{0.5}{0.25}
+	\PC[90]{E}{gray}{black}{0.5}{0.25}
+
+  \Member{A}{B}{gray}{white}{black}{0.3125}{1.5}{0.25}
+  \Member{B}{C}{gray}{white}{black}{0.3125}{1.5}{0.25}
+  \Member{C}{D}{gray}{white}{black}{0.3125}{1.5}{0.25}
+  \Member{E}{F}{gray}{white}{black}{0.3125}{1.5}{0.25}
+  \Member{F}{G}{gray}{white}{black}{0.3125}{1.5}{0.25}
+  \Member{A}{G}{gray}{white}{black}{0.3125}{1.5}{0.25}
+  \Member{C}{G}{gray}{white}{black}{0.3125}{1.5}{0.25}
+  \Member{C}{E}{gray}{white}{black}{0.3125}{1.5}{0.25}
+  \Member{B}{G}{gray}{white}{black}{0.3125}{1.5}{0.25}
+  \Member{C}{F}{gray}{white}{black}{0.3125}{1.5}{0.25}
+
+  \draw[thin, black] ($ (A)+(0,0.325)$) -- +(0,2.25);
+  \draw[thin, black] ($ (B)+(0,0.325)$) -- +(0,2.25);
+  \draw[thin, black] ($ (C)+(0,0.325)$) -- +(0,2.25);
+  \draw[thin, black] ($ (D)+(0,0.325)$) -- +(0,1);
+  \draw[thin, black] ($ (D)+(0.25,0)$) -- +(2.25,0);
+  \draw[thin, black] ($ (E)+(0.25,0)$) -- +(2.25,0);
+  \draw[thin, black] ($ (C)+(0.5,0)$) -- +(4.5,0);
+
+  \draw[thick, latex-latex] ([yshift=2.125cm]A) -- node[fill=white, inner sep=0.375mm]{$2.50$ m}([yshift=2.125cm]B);
+	\draw[thick, latex-latex] ([yshift=2.125cm]B) -- node[fill=white, inner sep=0.375mm]{$3.00$ m}([yshift=2.125cm]C);
+	\draw[thick, latex-latex] ([yshift=2.125cm]C) -- node[fill=white, inner sep=0.375mm]{$2.50$ m}([yshift=0.875cm]D);
+	\draw[thick, latex-latex] (10.125, \Dy) -- node[fill=white, inner sep=0.75mm]{$1.25$ m}(10.125, \Cy);
+	\draw[thick, latex-latex] (10.125, \Cy) -- node[fill=white, inner sep=0.75mm]{$3.00$ m}(10.125, \Ey);
+
+
+  \draw[line width=0.625mm, -Latex, line cap=round] (A) -- +(0,-2.5) node[below] {\Large {$\bm{4.20}$ \bf kN}};
+
+  \fill[ball color=gray] (A) circle (3pt) node[above left, inner sep=2mm] {\large $\bm A$};
+	\fill[ball color=gray] (B) circle (3pt) node[above left, inner sep=2mm] {\large $\bm B$};
+	\fill[ball color=gray] (C) circle (3pt) node[above left, inner sep=2mm] {\large $\bm C$};
+	\fill[ball color=gray] (D) circle (3pt) node[above left, inner sep=1.5mm] {\large $\bm D$};
+	\fill[ball color=gray] (E) circle (3pt) node[below left, inner sep=2.5mm] {\large $\bm E$};
+	\fill[ball color=gray] (F) circle (3pt) node[below left, inner sep=2mm] {\large $\bm F$};
+	\fill[ball color=gray] (G) circle (3pt) node[below left, inner sep=2mm] {\large $\bm G$};
+
+
+  % \pgfresetboundingbox
+  \useasboundingbox ($ (A)+ (-0.75,3) $) rectangle ($ (E)+(2.875,-1.25) $);
+
+
+
+
+
+}

@@ -1,0 +1,44 @@
+
+\begin{tikzpicture}[scale=0.5]
+
+	\coordinate (C) at (0,0);
+	\coordinate (B) at ($ (C)+(-15:5.176) $);
+	\coordinate (A) at ($ (C)+(-55:8.717) $);
+	\coordinate (D) at ($ (C)+(0,-3) $);
+
+	\gettikzxy{(A)}{\ax}{\ay}
+  \gettikzxy{(B)}{\bx}{\by}
+  \gettikzxy{(C)}{\cx}{\cy}
+
+	\PC[90]{B}{Seashell4}{black}{0.67}{0.125}
+	\PC[90]{A}{Seashell4}{black}{0.67}{0.125}
+
+	\fill[gray] ($ (\bx+0.67cm, \cy+1cm) $) rectangle ($ (\ax+2cm, \ay-2cm) $);
+	\draw[thin]  ($ (\bx+0.67cm, \cy+1cm) $) -- ($ (\bx+0.67cm, \ay-2cm) $);
+	
+	\Member{C}{A}{gray!75!white}{gray!25!white}{black}{0.5}{1.125}{0.5}	
+	\Member{C}{D}{gray!75!white}{gray!25!white}{black}{0.2}{.125}{0.5}
+	\Member{C}{B}{gray!75!white}{gray!25!white}{black}{0.5}{1.125}{0.5}
+
+	\filldraw[rounded corners, fill=Seashell4] ($ (D)+(-0.5,-1.5) $) rectangle ($ (D)+(0.5,1.5) $);
+	\shadedraw[ball color=gray!60!black] (D) circle (.3cm);
+	\shadedraw[ball color=gray!60!black] ($(D)+(0,0.75)$) circle (.3cm);
+	\shadedraw[ball color=gray!20] ($(D)+(0,-0.75)$) circle (.3cm);
+	\node at ($ (D)-(-0.5,2) $) {\footnotesize $ 105\,$kg};
+
+	\draw[Latex-Latex] ($ (B)+(-15:0.6936)+(0,1.25) $) arc (90:165:1.25) node[midway,xshift=-1.5mm, yshift=1.3mm] {\footnotesize $75\deg$};
+	\draw[Latex-Latex] ($ (A)+(-55:1.168)+(0,2.4) $) arc (90:125:2.4) node[midway,yshift=1.75mm] {\footnotesize $35\deg$};
+
+	\small
+	
+	\shadedraw [draw=black] (B) circle (0.1cm) node[xshift=-0.2cm, yshift=-0.25cm] {$B$};
+	\shadedraw [draw=black] (A) circle (0.1cm) node[xshift=-0.2cm, yshift=-0.2cm] {$A$};
+	\shadedraw [draw=black] (C) circle (0.1cm) node[xshift=-0.3cm, yshift=-0.1cm] {$C$};
+
+	\pgfresetboundingbox
+	\draw[white] (\cx-1.5cm, \cy+1cm) rectangle (\ax+2cm, \ay-2cm);
+	
+
+\end{tikzpicture}
+
+

@@ -8,23 +8,12 @@
 \input{../../includes/Member}
 \input{../../includes/PC}
 
-\usepackage{mathtools}
-\usepackage{xcolor}
-\usefonttheme[onlymath]{serif} 
+% \usepackage{pgfplots}
+% \pgfplotsset{compat=1.18}
 \usepackage{mathpazo}
-\usepackage{bm}
-\usepackage{cancel}
-\usepackage[many]{tcolorbox}
-% \tcbset{fonttitle=\itshape\rmfamily\bfseries}
-\tcbset{fonttitle=\itshape\rmfamily}
-\usepackage{tikz}
-\usetikzlibrary{arrows.meta, math, calc}
-
-\usepackage{pgfplots}
-\pgfplotsset{compat=1.18}
-
-\usefonttheme{structureitalicserif} %make titles fancy ;-)
 \usefonttheme[onlymath]{serif}
+\usefonttheme{structureitalicserif} %make titles fancy ;-)
+\tcbset{fonttitle=\itshape\rmfamily}
 
 \usecolortheme[named=statsMaroon]{structure}
 \setbeamertemplate{navigation symbols}{} % remove navigation symbols
@@ -42,6 +31,8 @@
 \setlength{\parskip}{\medskipamount}
 \setlength{\parindent}{0pt}
 
+
+
 \def\scale{1}
 \newcounter{myexercisecounter}
 
@@ -58,44 +49,7 @@
 \begin{document}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newtcolorbox{statsbox}[2][] {  
-  % colback=Ivory3!50,
-  colback=white,
-  colbacktitle=structure,
-  colframe=structure,
-  coltitle=white,  
-  top=0.25cm,
-	bottom=0.125cm,
-	left=0mm,
-	right=0mm,
-  % fonttitle=\itshape\rmfamily,
-  halign=flush left, 
-  enhanced,
-  drop fuzzy shadow,
-  attach boxed title to top left={xshift=3.5mm, yshift=-2mm},
-  title={#2}, #1}
-\newtcolorbox{redbox}{colback=white, colframe=structure, enhanced, drop fuzzy shadow}
-\newtcolorbox{titledbox}[1]{colback=white,colframe=structure,title={#1}}
-\newtcbox{\tcb}[1][]{colback=white,boxsep=0pt,top=5pt,bottom=5pt,left=5pt,
-		right=5pt, colframe=structure,  enhanced, drop fuzzy shadow, #1}
-% tcb title
-\newtcbox{\tcbt}[2][]{colback=white,boxsep=0pt,top=5pt,bottom=5pt,left=5pt,
-		right=5pt, colframe=structure, enhanced, drop fuzzy shadow,  title={#2}, #1}
-% tcb left title
-\newtcbox{\tcbtl}[2][]{ colback=white,
-  colbacktitle=structure,
-  colframe=structure,
-  coltitle=white,  
-  top=0.25cm,
-	bottom=0.125cm,
-	left=0mm,
-	right=0mm,
-  % fonttitle=\bfseries,
-  halign=flush left, 
-  enhanced,
-  drop fuzzy shadow,
-  attach boxed title to top left={xshift=3.5mm, yshift=-2mm}, 
-	title={#2}, #1}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -127,8 +81,7 @@
 
 	\cmini[0.8]{
 		We frequently need to solve an equation for a particular variable \lb(i.e., rearrange an equation to isolate a given variable)\parm
-		For example:\parm
-
+		 
 		\begin{statsbox}[top=3mm,left=5mm]{Example}
 			Solve  $\delta = \dfrac{F\cdot L}{A\cdot E} \text{ for } E$\parm
 			Solution:\vspace{-1cm}

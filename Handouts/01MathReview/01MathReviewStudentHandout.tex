@@ -1,26 +1,19 @@
 \documentclass[10pt,oneside]{article}
 
-\usepackage{amsmath}
-\usepackage{bm} 
-% \usepackage{textcomp}
-\usepackage{mathpazo}
-\usepackage{graphicx}
-% \usepackage{makebox}
-\usepackage[x11names, svgnames]{xcolor} % for \definecolor
-\usepackage{tikz}
-\usetikzlibrary{calc, arrows.meta}
-\usepackage[letterpaper]{geometry}
-\geometry{verbose,tmargin=0.25in,bmargin=0.5in,lmargin=1in,rmargin=1.15in}
-\usepackage[absolute,overlay]{textpos}
-\setlength{\TPHorizModule}{1.0cm}
-\setlength{\TPVertModule}{\TPHorizModule}
-\textblockorigin{0.0cm}{0.0cm}  %start all at upper left corner
-
-% don't place this before \usepackage{xcolor} if using \definecolor
-\input{../../includes/definedColors.tex}
 \input{../../includes/macros.tex}
+\input{../../includes/definedColors.tex}
 \input{../../includes/Member.tex}
 \input{../../includes/PC.tex}
+
+% \setlength{\TPHorizModule}{1.0cm}
+% \setlength{\TPVertModule}{\TPHorizModule}
+
+
+\usepackage[letterpaper]{geometry}
+\geometry{verbose,tmargin=0.25in,bmargin=0.5in,lmargin=1in,rmargin=1.06in}
+
+% https://tex.stackexchange.com/questions/731957/how-to-supress-missing-character-there-is-no-u003b-in-font-nullfont
+\tracinglostchars=1
 
 \hfuzz=150pt
 \setlength{\parindent}{0pt}
@@ -38,7 +31,7 @@
 \end{textblock*}
 
 
-\begin{textblock*}{6.775in}(1in, 0.225in)
+\begin{textblock*}{6.75in}(1in, 0.225in)
   \cbox{
     \centering\huge
     \textbf{Engineering Statics - 01 Math Review Handout}
@@ -93,7 +86,7 @@
 	\end{tikzpicture}
 \end{textblock*}
 
-\begin{textblock*}{6.775in}(1in, 0.225in)
+\begin{textblock*}{6.75in}(1in, 0.225in)
 	\cbox{
 		$$  Q=\frac{CD^{2.63}\left(\frac{h_L}{L}\right)^{0.54}}{279000}$$\parb
 		5)  Solve the equation for $h_L$, then evaluate $h_L$ using the values $Q=135$, $C=120$, $D=202.7$ and $L=1200$
@@ -101,7 +94,7 @@
 \end{textblock*}
 
 
-\begin{textblock*}{3in}(1in, 5in)
+\begin{textblock*}{2.95in}(1in, 5in)
 	\cbox{
     \vspace{-0.25cm}
 		6) Use the Pythagorean Theorem to determine the lengths of $CE$ and $CB$
@@ -109,7 +102,7 @@
 	}
 \end{textblock*}
 
-\begin{textblock*}{3.255in}(4.5125in, 5in)  
+\begin{textblock*}{3.255in}(4.5in, 5in)  
 	\cbox{
 		\centering
     \vspace{-0.25cm}
@@ -132,7 +125,7 @@
 \end{textblock*}
 
 
-\begin{textblock*}{6.775in}(1in, 0.225in)
+\begin{textblock*}{6.75in}(1in, 0.225in)
 	\cbox{
     \vspace{-0.25cm}
 		7) Use the tangent function to calculate $\angle CEF$
@@ -140,7 +133,7 @@
 	}
 \end{textblock*}
 
-\begin{textblock*}{6.775in}(1in, 2.5in)
+\begin{textblock*}{6.75in}(1in, 2.5in)
 	\cbox{
     \vspace{-0.25cm}
 		8) Use $\angle CEF$ just found and the sine rule to verify the length of $CE$ found in 1) above.
@@ -148,7 +141,7 @@
 	}
 \end{textblock*}
 
-\begin{textblock*}{6.775in}(1in, 5in)
+\begin{textblock*}{6.75in}(1in, 5in)
 	\cbox{
     \vspace{-0.25cm}
 		9) Use the cosine function and the length of $BC$ found earlier to calculate the angle between $BC$ and the horizontal.
@@ -157,7 +150,7 @@
 \end{textblock*}
 
 
-\begin{textblock*}{6.775in}(1in, 7.5in)
+\begin{textblock*}{6.75in}(1in, 7.5in)
 	\cbox{
     \vspace{-0.25cm}
 		10) Use the tangent function to verify the previous result.
@@ -177,14 +170,14 @@
 	\end{tikzpicture}
 \end{textblock*}
 
-\begin{textblock*}{2.5in}(5.275in, 0.225in)
+\begin{textblock*}{2.5in}(5.25in, 0.225in)
 	\cbox{
 		\centering
-		\input{../../pikz/01MathReview/math03handout}
+		\input{../../pikz/01MathReview/math03}
 	}
 \end{textblock*}
 
-\begin{textblock*}{3.75in}(1in, 0.225in)
+\begin{textblock*}{3.7in}(1in, 0.225in)
 	\cbox{
     \vspace{-0.25cm}
 		11) Using the sine rule, find $\angle ACB$.
@@ -192,7 +185,7 @@
 	}
 \end{textblock*}
 
-\begin{textblock*}{6.775in}(1in, 2.5in)
+\begin{textblock*}{6.75in}(1in, 2.5in)
 	\cbox{
     \vspace{-0.25cm}
 		12) Using the sine rule, find $\angle ABC$.
@@ -200,7 +193,7 @@
 	}
 \end{textblock*}
 
-\begin{textblock*}{6.775in}(1in, 4.5in)
+\begin{textblock*}{6.75in}(1in, 4.5in)
 	\cbox{
     \vspace{-0.25cm}
 		13) Sum the interior angles of the triangle.
@@ -208,7 +201,7 @@
 	}
 \end{textblock*}
 
-\begin{textblock*}{4in}(1in, 6.5in)
+\begin{textblock*}{3.95in}(1in, 6.5in)
 	\cbox{
     \vspace{-0.25cm}
 		14) Using the cosine rule, determine $\angle ABC$ \lb
@@ -217,10 +210,10 @@
 	}
 \end{textblock*}
 
-\begin{textblock*}{2.25in}(5.5375in, 6.5in)
+\begin{textblock*}{2.225in}(5.525in, 6.5in)
 	\cbox{
 		\centering
-		\input{../../pikz/01MathReview/math03handout}
+		\input{../../pikz/01MathReview/math03}
 	}
 \end{textblock*}
 
@@ -239,7 +232,7 @@
 
 
 
-\begin{textblock*}{2.725in}(5.05in, 0.225in)
+\begin{textblock*}{2.725in}(5.025in, 0.225in)
 	\cbox{
     \vspace{-0.25cm}
 		\centering
@@ -248,7 +241,7 @@
 	}
 \end{textblock*}
 
-\begin{textblock*}{3.525in}(1in, 0.225in)
+\begin{textblock*}{3.475in}(1in, 0.225in)
 	\cbox{
     \vspace{-0.25cm}
 		$ABCD$ is a rigid (i.e., it does not deform) plate, pinned at $C$. \parm
@@ -260,7 +253,7 @@
 	}
 \end{textblock*}
 
-\begin{textblock*}{1.77in}(6in, 5.25in)
+\begin{textblock*}{1.75in}(6in, 5.25in)
 	\cbox{
     \vspace{-0.25cm}
 		\centering
@@ -269,7 +262,7 @@
 	}
 \end{textblock*}
 
-\begin{textblock*}{4.5in}(1in, 5.25in)
+\begin{textblock*}{4.45in}(1in, 5.25in)
 	\cbox{
     \vspace{-0.25cm}
 		18) Show that right triangles $\triangle ABC$, $\triangle ABD$ and $\triangle ACD$ all have the same angles (i.e. they are all similar).
@@ -277,7 +270,7 @@
 	}
 \end{textblock*}
 
-\begin{textblock*}{6.775in}(1in, 8.5in)
+\begin{textblock*}{6.75in}(1in, 8.5in)
 	\cbox{
     \vspace{-0.25cm}
 		19) Given that $AC=100\text{ mm}$ and $AD=65\text{ mm}$, determine $\angle ACD$ and $\angle ABD$.
@@ -298,7 +291,7 @@
 \end{textblock*}
 
 
-\begin{textblock*}{6.775in}(1in, 0.225in)
+\begin{textblock*}{6.75in}(1in, 0.225in)
 	\cbox{
     \vspace{-0.25cm}
 		20) Find the remaining lengths: $AB$, $BD$ and $CD$.
@@ -306,7 +299,7 @@
 	}
 \end{textblock*}
 
-\begin{textblock*}{6.775in}(1in, 3in)
+\begin{textblock*}{6.75in}(1in, 3in)
 	\cbox{
     \vspace{-0.25cm}
 		21) Verify the lengths found above by using the Pythagorean Theorem on $\triangle ABC$
@@ -314,14 +307,14 @@
 	}
 \end{textblock*}
 
-\begin{textblock*}{2.75in}(5.025in, 4.5in)
+\begin{textblock*}{2.75in}(5in, 4.5in)
 	\cbox{
 		\centering
 		\input{../../pikz/01MathReview/math10handout}
 	}
 \end{textblock*}
 
-\begin{textblock*}{3.5in}(1in, 4.5in)
+\begin{textblock*}{3.44in}(1in, 4.5in)
 	\cbox{
     \vspace{-0.25cm}
 		22) Find $\theta_{AC}$.\qquad\qquad\qquad\qquad
@@ -351,7 +344,7 @@
 \end{textblock*}
 
 
-\begin{textblock*}{6.775in}(1in, 0.225in)
+\begin{textblock*}{6.75in}(1in, 0.225in)
 	\cbox{
     \mini[0.4]{
       \vspace{-0.625cm}
@@ -369,7 +362,7 @@
 \end{textblock*}
 
 
-\begin{textblock*}{6.775in}(1in, 5in)
+\begin{textblock*}{6.75in}(1in, 5in)
 	\cbox{
     \mini[0.4]{
       \vspace{-0.625cm}
