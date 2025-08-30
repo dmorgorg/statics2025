@@ -1,24 +1,26 @@
 % !TEX root = ../../statikz/statikz.tex
 
 \begin{tikzpicture}[scale = 0.425, style={line cap = round}]
-  \filldraw [thick, white, draw=saitMaroon, drop shadow={opacity=0.25}] (-5.5, -5.5) rectangle (6, 6);
-  \draw (-4.75,0) -- (4.75,0) node[right] {$x$};
-  \draw (0, -4.75) -- (0, 4.75) node[above] {$y$};
+  \footnotesize
+  \draw[gray] (-4.75,0) -- (4.75,0) node[right, black] {$x$};
+  \draw[gray] (0, -4.75) -- (0, 4.75) node[above, black] {$y$};
 
-  \draw[ultra thick, red, ->, >=stealth] (0, 0) -- node[above, sloped]{\small $5.50$ kN} ++(33:5cm) node [above right] {\large ${\bm{\mathrm A }}$};
-  \draw[<->] (2.5cm, 0mm) arc[start angle = 0, end angle = 33, radius = 2.5cm];
-  \node [rectangle, right] at (2.4, 0.7) {\small $33\degree$};
+  \draw[ultra thick, Red3, -latex] (0, 0) -- node[above, sloped]{$5.50$ kN} ++(33:5cm) node [above right] {\large $\bm A $};
+  \draw[latex-latex] (2.5cm, 0mm) arc[start angle = 0, end angle = 33, radius = 2.5cm];
+  \node [right] at (2.4, 0.7) { $33\deg$};
 
-  \draw[ultra thick, green, ->, >=stealth] (0, 0) -- node[above, sloped]{\small $4.20$ kN} ++(124:4cm) node [above left] {\large ${\bm{\mathrm B }}$};
-  \draw[<->] (-2.5cm, 0mm) arc[start angle = 180, end angle = 124, radius = 2.5cm];
-  \node [rectangle, right] at (-3.5, 1.25) {\small $56\degree$};
+  \draw[ultra thick, Green3, -latex] (0, 0) -- node[above, sloped, xshift=-0.125cm]{\footnotesize $4.20$ kN} ++(124:4cm) node [above left] {\large $ \bm B $};
+  \draw[latex-latex] (-2.5cm, 0mm) arc[start angle = 180, end angle = 124, radius = 2.5cm];
+  \node [right] at (-3.5, 1.25) { $56\deg$};
 
-  \draw[ultra thick, blue, ->, >=stealth] (0, 0) -- node[above, sloped]{\small $3.75$ kN} ++(242:3.5cm) node [below left] {\large ${\bm{\mathrm C }}$};
-  \draw[<->] (0, -2.5cm) arc[start angle = 270, end angle = 242, radius = 2.5cm];
-  \node [rectangle, right] at (-1.375, -2.8) {\small $28\degree$};
+  \draw[ultra thick, Blue3, -latex] (0, 0) -- node[above, sloped]{ $3.75$ kN} ++(242:3.5cm) node [below left] {\large $\bm C $};
+  \draw[latex-latex] (0, -2.5cm) arc[start angle = 270, end angle = 242, radius = 2.5cm];
+  \node [right] at (-1.25, -2.9) { $28\deg$};
 
-  \draw[ultra thick, orange, ->, >=stealth] (0, 0) -- node[below, sloped]{\small $6.25$ kN} ++(-45:5.75cm) node [below right] {\large ${\bm{\mathrm D }}$};
-  \draw[<->] (2.5cm, 0) arc[start angle = 0, end angle = -45, radius = 2.5cm];
-  \node [rectangle, right] at (2.25, -1.15) {\small $45\degree$};
+  \draw[ultra thick, Orange3, -latex] (0, 0) -- node[below, sloped]{ $6.25$ kN} ++(-45:5.75cm) node [below right] {\large $\bm D $};
+  \draw[latex-latex] (2.5cm, 0) arc[start angle = 0, end angle = -45, radius = 2.5cm];
+  \node [right] at (2.25, -1.15) { $45\deg$};
+
+  \shadedraw[ball color=gray] (0,0) circle (0.25cm);
 
 \end{tikzpicture}

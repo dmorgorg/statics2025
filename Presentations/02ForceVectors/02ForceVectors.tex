@@ -3,7 +3,7 @@
 
 \documentclass[9pt, xcolor={svgnames, x11names},professionalfonts]{beamer}
 
-% \usetikzlibrary{decorations.shapes, decorations.text, decorations.pathmorphing, decorations.markings}
+
 % \usetikzlibrary{decorations.markings, decorations.fractals}
 % \usetikzlibrary{shapes.callouts,shapes.multipart}
 % \usetikzlibrary{positioning}
@@ -16,6 +16,8 @@
 \input{../../includes/EyeConnection.tex}
 \input{../../includes/Member}
 \input{../../includes/PC}
+
+
 
 
 \tcbset{fonttitle=\itshape\rmfamily}
@@ -722,18 +724,209 @@
 			\mini[0.35]{
 				\input{../../pikz/02ForceVectors/fv28.tex}
 			}
-		\end{myexam}
-	
+		\end{myexam}	
 
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Resultant \& Component Forces}
+
+	
+		\begin{myexer}{}{}
+			\mini[0.5]{
+				\begin{enumerate}[{a)}]
+					\item Determine the magnitude of the component of ${\bm R }$ (found in the previous example) along the $y-$axis (i.e., the vertical component).
+					\item Determine the magnitude of the component of ${\bm F }$ along the $y$ axis.
+					\item Determine the magnitude of the component of ${\bm G }$ along the $y$ axis.
+					\item Add the two previous results.
+				\end{enumerate}
+			} % end mini
+			\hfill
+			\mini[0.35]{
+				\input{../../pikz/02ForceVectors/fv28.tex}
+			}
+		\end{myexer}
+
+\end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Rectangular Components}
+	\mini[0.9]{
+		\raggedright
+		When a force vector, $\bm F$, is resolved into horizontal and vertical components (i.e., along the $x$-axis and the $y$-axis), they are referred to as {\bf rectangular components} (or $x$ and $y$-components). 
+	}
+	\parm
+	
+	\mini[0.35]{
+		\begin{statsbox}{}
+			\input{../../pikz/02ForceVectors/fv13}
+		\end{statsbox}
+	}
+	\hfill
+	\mini[0.6]{
+		\begin{itemize}
+			\item<2->  Force $\bm F $  is resolved into component vectors $\bm {F _x}$  and $\bm {F_y}$ along the $x$ and $y$-axes. $$ \bm{ F = F_x + F_y} $$
+			\item<3-> We know the directions of the component vectors (along the axes) so we are generally only interested in the magnitude of these vectors, which is a scalar value. The magnitudes of  $\bm{F_x}$  and $\bm{F_y}$ are given by the scalar values:
+			      $$ \bm{\mathrm{F}_x=\lvert F\rvert \cd\cos\theta \text{ and } \mathrm{F}_y=\lvert F\rvert\cd\sin\theta} $$
+						where $\lvert F\rvert$ is the length/magnitude of $F$.
+			\item<4-> Rectangular components along the negative axes have negative scalar values.
+		\end{itemize}
+	}
+\end{frame}
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Rectangular Components: Signs by Quadrant}
+	\centering
+	\input{../../pikz/02ForceVectors/fv14}
+\end{frame}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Rectangular Components}
+
+	\begin{myexam}{}{}
+		\mini[0.5]{
+			\input{../../pikz/02ForceVectors/fv15}
+		}
+		\hfill
+		\mini[0.45]{
+			\small
+
+			Find the rectangular components of each of  $\bm A$, $\bm B$, $\bm C$ and $\bm D$.
+
+			\mini[0.8]{
+
+				\uncover<2->{
+					\color{Red3}
+					\begin{align*}
+						\mathrm{A}_x & = 5.50\cos 33\deg\text{ kN} = 4.61\text{ kN} \\
+						\mathrm{A}_y & = 5.50\sin 33\deg\text{ kN} = 3.00\text{ kN}
+					\end{align*}
+				}
+				\uncover<3->{
+					\color{Green3}
+					\vspace{-0.5cm}
+					\begin{align*}
+						\mathrm{B}_x & = -4.20\cos 56\deg\text{ kN} = -2.35\text{ kN} \\
+						\mathrm{B}_y & = 4.20\sin 56\deg\text{ kN} = 3.48\text{ kN}
+					\end{align*}
+				}
+				\uncover<4->{
+					\color{Blue3}
+					\vspace{-0.5cm}
+					\begin{align*}
+						\mathrm{C}_x & = -3.75\sin 28\deg\text{ kN}= -1.761\text{ kN} \\
+						\mathrm{C}_y & = -3.75\cos 28\deg\text{ kN} = -3.31\text{ kN}
+					\end{align*}
+				}
+				\uncover<5->{
+					\color{Orange3}
+					\vspace{-0.5cm}
+					\begin{align*}
+						\mathrm{D}_x & = 6.25\cos 45\deg\text{ kN}  = 4.42\text{ kN}  \\
+						\mathrm{D}_y & = -6.25\cos 45\deg\text{ kN} = -4.42\text{ kN}
+					\end{align*}
+				}
+			}
+		}
+	\end{myexam}
+
+\end{frame}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Force Resultants using Rectangular Components}
+
+
+	\cmini[0.8]{
+		To determine the resultant of several forces:\parb
+		\begin{enumerate}
+			\item Resolve each force into its $x$ and $y$-components.
+			\item Sum the $x$ components, $\Sigma \mathrm{F}_x$.
+			\item Thenk $\Sigma \mathrm{F}_x = \mathrm{R}_x$, the $x$-component of the resultant.
+			\item Similarly, sum the $y$ components, $\Sigma \mathrm{F}_y$, to find $\mathrm{R}_y$, the $y$-component of the resultant.
+			\item From the $\mathrm{R}_x$ and $\mathrm{R}_y$, determine the magnitude and direction of the resultant vector.
+		\end{enumerate}
+		\parb
+		This process makes finding the resultant of more than two forces much simpler than repeated applications of the triangle or parallelogram laws.
+	}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{From Rectangular Components to the Resultant Components}
+	\begin{myexam}{}{}
+		\mini[0.5]{
+
+			\input{../../pikz/02ForceVectors/fv16a.tex}
+		}
+		\hfill
+		\mini[0.45]{
+			\small\raggedright
+			
+			Find the rectangular components of $\bm R$, where $\bm R$ is the resultant of forces $\bm A$, $\bm B$, $\bm C$ and $\bm D$ from the previous example.
+		
+			\uncover<2->{
+				\begin{align*}
+					R_x & = \Sigma F_x                              \\
+							& = 4.6127\text{ kN} - 2.3486\text{ kN}     \\
+							& \qquad -1.7605\text{ kN}+4.4194\text{ kN} \\
+							& = 4.9230\text{ kN}
+				\end{align*}				
+			}
+			\uncover<3>{
+				\begin{align*}
+					R_y & = \Sigma F_y                              \\
+							& = 2.9955\text{ kN} + 3.4820\text{ kN}     \\
+							& \qquad -3.3111\text{ kN}-4.4194\text{ kN} \\
+							& = -1.2530\text{ kN}
+				\end{align*}
+			}
+		}			
+	
+	\end{myexam}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{The Resultant, From its Components}
+	\begin{myexam}{}{}
+		\mini[0.5]{
+			\begin{enumerate}
+				\item<1-> Draw the components. (Negative components are drawn along the negative axes.)
+				\item<2-> Form a rectangle.
+				\item<3-> Draw the resultant (the diagonal of the rectangle, starting at the origin).
+			\end{enumerate}
+
+		}
+		\hfill
+		\mini[0.45]{
+			\input{../../pikz/02ForceVectors/fv16.tex}
+		}
+		\vspace{0.125cm}
+		\begin{enumerate}
+			\setcounter{enumi}{3}
+			\item<4-> The magnitude of the resultant is given by \footnotesize
+			$$ \bm{ \lvert R \rvert }= \sqrt{(4.9230\text{ kN})^2+(1.2530\text{ kN})^2} = 5.0800 \text{ kN} = \bm{5.08\text{ \bfseries kN}}$$
+			\item<5-> The direction of the resultant is given by \footnotesize
+			$$  \bm\theta = \tan^{-1}\frac{\lvert \mathrm{R}_y\rvert}{\left|\mathrm{R}_x\right|}=\tan^{-1}\left[\frac{1.2530}{4.9230}\right] = 14.280^\circ = \bm{14.3^\circ}$$
+		\end{enumerate}
+		\vspace{-0.5cm}
+	\end{myexam}
+	\uncover<6>{ \small\centering
+
+		\tcb{%
+			${\bm R}$ is $5.08\text{ kN}$ at $14.3\deg $, measure clockwise from the positive $x$-axis.		
+		}
+	}
+\end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
