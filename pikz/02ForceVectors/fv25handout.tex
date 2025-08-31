@@ -1,0 +1,46 @@
+
+% !TEX root = ../../Beamer/02ForceVectors/02ForceVectors.tex
+
+
+\begin{tikzpicture}[scale=\scale, line cap=round,decoration={
+		markings,% switch on markings
+		mark=% actually add a mark
+		between positions 0 and 1 step 14pt
+		with
+		{
+			\begin{scope}[scale=0.8]
+				\draw[SteelBlue4, very thick] (0pt,-3pt) -- ++(6pt,0) arc(-90:90:3pt) -- ++(-6pt,0pt) arc(90:270:3pt) -- cycle;
+				\draw[SteelBlue4,very thick] (-11pt,0) -- (0pt,0);
+			\end{scope}
+		}
+	}]
+
+	\coordinate (D) at (-3,1);
+	\coordinate (E) at (3, 2.5);
+	\coordinate (C) at (0, 0);
+
+\begin{scope}
+	\fill[gray!50] (1.5,-3) rectangle (2.5,3);
+	% \draw[thin, black] (-3,-1) -- ($(3,-2.5)+(0,1.5) $);
+	\EyeBolt[90]{C}{gray!35}{black}{1}{0.5}
+\end{scope}
+
+	\draw[latex-latex] ($ (C)+(115:2) $) arc (115:180:2) node[fill=white, midway, inner sep=0.25mm] {$\theta $};
+	\draw[latex-latex] ($ (C)+(180:2) $) arc (180:205:2) node[fill=white, midway, inner sep=0.25mm] {$ 25^\circ $};
+	\draw[latex-latex] ($ (C)+(205:2) $) arc (205:265:2) node[fill=white, midway, inner sep=0.25mm] {$ 60^\circ $};
+
+
+
+	\draw[line width=2pt, -latex] ($ (C)+(-95:0.1) $) -- +(-95:2.75) node[xshift=-0.25cm, black, below]{$ F_1=27.5 $ kN};
+	\draw[line width=2pt, -latex] ($ (C)+(115:.1) $) -- +(115:2.75) node[black, above]{$F$};
+	\draw[line width=2pt, -latex] ($ (C)+(205:.1) $) -- +(205:2.75) node[black, left]{$F_2=17.0 $ kN};
+
+
+
+	\draw[thin] ($(C)+(0.5,0) $) -- +(2.25,0) node[right] {$x$};
+	\draw[thin] ($(C)+(-0.5,0) $) -- +(-2.25,0);
+
+
+
+
+\end{tikzpicture}

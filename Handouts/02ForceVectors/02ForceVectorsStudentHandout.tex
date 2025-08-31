@@ -1,37 +1,28 @@
 \documentclass[10pt,oneside]{article}
 
 \usepackage{amsmath}
-\usepackage{bm} 
-% \usepackage{textcomp}
+\usepackage{bm}
 \usepackage{mathpazo}
 \usepackage{graphicx}
-% \usepackage{makebox}
+\usepackage{enumerate}
 \usepackage[x11names, svgnames]{xcolor} % for \definecolor
-\usepackage{tikz}
-\usetikzlibrary{calc, arrows.meta}
-\usetikzlibrary{decorations.markings, decorations.fractals}
-% \usetikzlibrary{decorations.shapes, decorations.text, decorations.pathmorphing, decorations.markings}
+
 \usepackage[letterpaper]{geometry}
 \geometry{verbose,tmargin=0.25in,bmargin=0.5in,lmargin=1in,rmargin=1.15in}
-\usepackage[absolute,overlay]{textpos}
-\setlength{\TPHorizModule}{1.0cm}
-\setlength{\TPVertModule}{\TPHorizModule}
-\textblockorigin{0.0cm}{0.0cm}  %start all at upper left corner
-% not used in this document but macros defines new commands using it so it has to be here
-\usepackage[many]{tcolorbox}
 
-% don't place this before \usepackage{xcolor} if using \definecolor
 \input{../../includes/definedColors.tex}
 \input{../../includes/macros.tex}
 \input{../../includes/Member.tex}
 \input{../../includes/PC.tex}
 \input{../../includes/EyeConnection.tex}
+\input{../../includes/EyeBolt.tex}
 
 % https://tex.stackexchange.com/questions/731957/how-to-supress-missing-character-there-is-no-u003b-in-font-nullfont
 \tracinglostchars=1
 
 \hfuzz=150pt
 \setlength{\parindent}{0pt}
+\def\scale{1}
 
 \begin{document}
 
@@ -193,23 +184,24 @@
 	}
 \end{textblock*}
 
-% \begin{textblock*}{3in}(1in, 5.25in)
-% 	\cbox{
-% 	Example 5 \parm
-% 	\begin{enumerate}[label=\alph*)]
-% 		\item Determine the resultant ${\bm{\mathrm{ R }}}$ of the two vectors ${\bm{\mathrm{ F }}}$ and ${\bm{\mathrm{ G }}}$.
-% 		\item Determine the $x$-component of ${\bm{\mathrm{ R }}}$ \lb(i.e., the horizontal component).
-% 		% \item Determine the $y$-component of ${\bm{\mathrm{ R }}}$ \lb(i.e., the vertical component).
-% 		\item Determine the $x$-component of ${\bm{\mathrm{ F }}}$.
-% 		\item Determine the $x$-component of ${\bm{\mathrm{ G }}}$.
-% 		\item Add the two previous results.
-% 	\end{enumerate}
-
-% 	}
-% \end{textblock*}
-\begin{textblock*}{3.25in}(4.625in, 5.25in)
+\begin{textblock*}{4.25in}(1in, 5.25in)
 	\cbox{
-		% \cfig[0.125]{../../Figs/02ConcurrentForces/conc2016A}
+	\underline{Example 5} \parm
+	\begin{enumerate}[{a)}]
+		\item Determine the resultant $\bm R $ of the two vectors $\bm F$ and $\bm G $.
+		\item Determine the $x$-component of $\bm R$ \lb(i.e., the horizontal component).
+		% \item Determine the $y$-component of ${\bm{\mathrm{ R }}}$ \lb(i.e., the vertical component).
+		\item Determine the $x$-component of $\bm F$.
+		\item Determine the $x$-component of $\bm G$.
+		\item Add the two previous results.
+	\end{enumerate}
+
+	}
+\end{textblock*}
+\begin{textblock*}{2in}(5.765in, 5.25in)
+	\cbox{
+		\centering
+		\input{../../pikz/02ForceVectors/fv28handout.tex}
 	}
 \end{textblock*}
 
@@ -224,6 +216,40 @@
 	\end{tikzpicture}
 \end{textblock*}
 
+\begin{textblock*}{4.25in}(1in, 0.235in)
+	\cbox{
+		\underline{Exercise 4} \parm
+		\begin{enumerate}[{a)}]
+			\item Determine the magnitude of the component of ${\bm{\mathrm{ R }_{}}}$  along the $y$ axis (i.e., the vertical component).
+			\item Determine the magnitude of the component of ${\bm{\mathrm{ F }_{}}}$ along the $y$ axis.
+			\item Determine the magnitude of the component of ${\bm{\mathrm{ G }_{}}}$ along the $y$ axis.
+			\item Add the two previous results.
+		\end{enumerate}
+
+	}
+\end{textblock*}
+\begin{textblock*}{2in}(5.765in, 0.235in)
+	\cbox{
+		\centering
+		\input{../../pikz/02ForceVectors/fv28handout.tex}
+	}
+\end{textblock*}
+
+\begin{textblock*}{3in}(1in, 6.25in)
+	\cbox{
+	\underline{Example 9} \parm
+		Determine the resultant (magnitude and direction counterclockwise from the positive $x$ axis) of the three forces $F_1,\;F_2$ and $F_3$ acting at a single point.
+
+	}
+\end{textblock*}
+\begin{textblock*}{3.25in}(4.525in, 6.25in)
+	\cbox{
+	\def\scale{0.8}
+	\centering
+	\input{../../pikz/02ForceVectors/fv24handout}
+	}
+\end{textblock*}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % page 6
@@ -235,16 +261,31 @@
 	\end{tikzpicture}
 \end{textblock*}
 
+\begin{textblock*}{3.5in}(1in, 0.235in)
+	\cbox{
+		\underline{Example 10} \parm
+		The resultant of the forces $F,\;F_1$ and $F_2$ acting upon the eye-bolt is $30.7$ kN at $197^\circ$ measured counter-clockwise from the positive $x$ axis. Determine $F$ and $\theta$.
+
+	}
+\end{textblock*}
+\begin{textblock*}{2.75in}(5.025in, 0.235in)
+	\cbox{
+	\def\scale{0.8}
+	\centering
+	\input{../../pikz/02ForceVectors/fv25handout}
+	}
+\end{textblock*}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % page 7
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-.\newpage
-\begin{textblock*}{7.25in}(1in, 0.375in)
-	\begin{tikzpicture}[line width=0.1mm]
-		\draw[color=gray!50, step=0.25in] (0,0) grid +(7.25in,10.25in);
-	\end{tikzpicture}
-\end{textblock*}
+% .\newpage
+% \begin{textblock*}{7.25in}(1in, 0.375in)
+% 	\begin{tikzpicture}[line width=0.1mm]
+% 		\draw[color=gray!50, step=0.25in] (0,0) grid +(7.25in,10.25in);
+% 	\end{tikzpicture}
+% \end{textblock*}
 
 
 
