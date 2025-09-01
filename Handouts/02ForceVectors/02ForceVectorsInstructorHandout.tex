@@ -1,0 +1,552 @@
+\documentclass[10pt,oneside]{article}
+
+\usepackage{amsmath}
+\usepackage{bm}
+\usepackage{mathpazo}
+\usepackage{graphicx}
+\usepackage{enumerate}
+\usepackage[x11names, svgnames]{xcolor} % for \definecolor
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage[letterpaper]{geometry}
+\geometry{verbose,tmargin=0.25in,bmargin=0.5in,lmargin=1in,rmargin=1.15in}
+
+
+\input{../../includes/definedColors.tex}
+\input{../../includes/macros.tex}
+\input{../../includes/Member.tex}
+\input{../../includes/PC.tex}
+\input{../../includes/EyeConnection.tex}
+\input{../../includes/EyeBolt.tex}
+
+% https://tex.stackexchange.com/questions/731957/how-to-supress-missing-character-there-is-no-u003b-in-font-nullfont
+\tracinglostchars=1
+
+\hfuzz=150pt
+\setlength{\parindent}{0pt}
+\def\scale{1}
+\Large
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% page 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{textblock*}{6.775in}(1in, 0.225in)
+  \cbox{
+    \centering\huge
+    \textbf{02 Force Vectors Handout - Instructor Copy}
+  }
+\end{textblock*}
+
+\begin{textblock*}{4in}(1in, 1in)
+	\cbox{
+		\underline{Example 1} \parm
+			      % A displacement is a change in position. It has a magnitude (the distance moved) and a direction, so displacement is a vector quantity.\parb
+			      A truck drives due east on a straight road for 40 km, then drives north on a straight road for 30 km before stopping. \parb
+			      What is the resultant displacement of the truck?
+	}
+\end{textblock*}
+
+\begin{textblock*}{4in}(1.5in, 2.75in)
+	\tikz{
+		\draw[very thick, blue, -latex] (0,0) -- node[below]{$40$ km}(4,0);
+		\draw[very thick, blue, -latex] (4,0) -- node[sloped, below]{$30$ km}(4,3);
+		\draw[red, ultra thick, -latex] (0,0) -- node[sloped, above]{$50$ km}(4,3);
+		\node at (1,0.325) {$\theta$};
+	}
+\end{textblock*}
+
+\begin{textblock*}{4in}(4in, 2.5in)
+	\large
+	\begin{align*}
+		R^2           & = (40.0\text{ km})^2+(30.0\text{ km})^2                       \\
+		\Rightarrow R & = 50.0\text{ km}                                          \\\\
+		\theta        & = \tan^{-1}\left(\frac{30\text{ km}}{40\text{ km}}\right) \\
+		              & = 36.870\deg
+	\end{align*}
+	\parm
+	The displacement of the truck is $50.0$ km, $36.9\deg$ north of east (i.e., counterclockwise from the positive $x$ axis).
+\end{textblock*}
+
+\begin{textblock*}{4in}(1in, 5in)
+	\cbox{
+		\underline{Example 2} 
+		\parm
+		A plane flies NNW (i.e., $22.5\deg$ west of north) with a velocity of $275\text{ km/h}$. There is a wind blowing at $55\text{ km/h}$ from the NW \lb(i.e., $45\deg$ west of north).
+		\parb Determine the resultant velocity of the plane relative to the ground.
+		\parb Determine the wind speed that would cause the plane to fly due north. What is the ground speed in this case?
+	}
+	\end{textblock*}
+
+	\begin{textblock*}{3in}(1.5in, 7.5in)
+	\tikz[scale=1]{
+		\coordinate (O) at (0,0);
+		\coordinate (A) at ($ (O)+(112.5:5.5) $);
+		\coordinate (B) at ($ (A)+(-45:1.5) $);
+		\large
+		\draw[very thick, blue,-latex] (O) -- node[sloped, below]{$275$ km/h}(A);
+		\draw[very thick, blue,-latex] (A) -- node[sloped, above]{$55$ km/h}(B);
+		\draw[ultra thick, red,-latex] (O) -- node[sloped, above]{$\bm{\mathrm{F_R}}$}(B);
+		\draw[thin] ($ (O)+(0,-1.5) $) -- ($(O)+(0,1.5)$) node[above right]{$N$};
+		\draw[thin] ($ (O)+(1.5,0) $) -- ($(O)+(-1.5,0)$) node[left]{$W$};
+		\draw[thick, latex-] ($ (A)+(0.5,-0.625) $) -- ++(180:1.5) node[above]{$22.5\deg$};
+		\draw[thin, latex-] ($ (O)+(108:1) $) -- ++(180:1.5) node[left]{$\theta$};
+	}
+\end{textblock*}
+
+\begin{textblock*}{4in}(3.5in, 7.5in)
+	\large
+	\begin{align*}
+		\left|F_R\right| ^2          & = 275^2+55^2  -2(275)(55)\cos 22.5\deg             \\
+		\Rightarrow \left|F_R\right| & = 225.17\text{ km/h}                          \\\\
+		\frac{\sin\theta}{55}        & =\frac{\sin 22.5\deg}{275}                  \\
+		\Rightarrow \theta           & = 4.3895\deg                                \\\\
+		\bm{\mathrm{F_R}}            & = \bm{225\text{\bfseries km/h at } 117\deg} \\
+		                             & \quad (\text{ccw from pos $ x $ axis})        \\
+		                             & \quad (\text{or } 17.1\deg \text{ W of N})
+	\end{align*}
+\end{textblock*}
+
+.\newpage
+
+\begin{textblock*}{2in}(1in, 0.2355in)
+	\tikz[scale=1]{
+		\coordinate (O) at (0,0);
+		\coordinate (A) at ($ (O)+(112.5:5.5) $);
+		\coordinate (B) at ($ (A)+(-45:1.5) $);
+
+		\draw[thick, latex-] ($ (A)+(0.5,-0.625) $)  -- ++(180:1.5) node[above]{$22.5\deg$};
+		\draw[thick, latex-] ($ (O)+(-0.125,1) $) -- ++(180:1.5) node[left]{$22.5\deg$};
+		\draw[thin] ($ (O)+(0,-1.5) $) -- ($(O)+(0,4.5)$) node[above right]{$N$};
+		\draw[thin] ($ (O)+(1.5,0) $) -- ($(O)+(-1.5,0)$) node[left]{$W$};
+		\draw[blue,-latex, very thick] (O) -- node[sloped, below]{$275$ km/h}(A);
+		\draw[blue,-latex, very thick] (A) -- node[sloped, above]{$v$}(0,2.98);
+		\draw[red,-latex, ultra thick] (O) -- node[sloped, below]{$\bm{F_R}$}(0,2.98);
+	}
+
+\end{textblock*}
+
+\begin{textblock*}{3in}(4in, 0.2355in)
+	\large
+	\begin{align*}		
+		\frac{v}{\sin 22.5\deg}      & = \frac{275\text{ km/h}}{\sin 135\deg} \\\\
+		\Rightarrow v                  & = 148.83 \text{ km/h}                    \\
+		\Rightarrow  \bm{F_R} & = 148.83 \text{ km/h}                    \\
+	\end{align*}
+	Because of the isosceles triangle, wind speed equals ground speed and is $\bm{149}$ {\bfseries km/h}.
+\end{textblock*}
+
+\begin{textblock*}{4in}(1in, 4in)
+	\cbox{
+		Example 3 \parm
+		Determine the magnitude and the direction (measured clockwise from the the positive $x$-axis) of the resultant of the two forces.
+
+	}
+\end{textblock*}
+\begin{textblock*}{2.25in}(5.56in, 4in)
+	\cbox{
+		\centering
+		\def\scale{0.8}
+		\input{../../pikz/02ForceVectors/fv21handout.tex}
+	}
+\end{textblock*}
+
+\begin{textblock*}{4.5in}(1.5in, 6.25in)
+	\large
+	\begin{align*}
+		\left(R\right)^2 &= (2.50\,\text{kN})^2+(3.75\,\text{kN})^2-2(2.50\,\text{kN})(3.75\,\text{kN})\cos 75\deg \\
+		&= (15.460\,\text{kN})^2\\
+		\Rightarrow \lvert R \rvert &= 3.9319\,\text{kN} \\\\
+	% \end{align*}
+	% \begin{align*}
+		\frac{\sin\phi}{3.75\,\text{kN}} &= \frac{\sin 75\deg}{R} = \frac{\sin 75\deg}{3.9319\,\text{kN}} \\
+		\Rightarrow \phi &= \sin^{-1}\left[\frac{3.75\,\text{kN}\cdot\sin 75\deg}{3.9319\,\text{kN}}\right] \\
+		&=67.108\deg \\\\
+		R_\theta &= \phi + 30\deg\\
+		&= 97.108\deg
+	\end{align*}
+	\centering
+	The resultant of the two forces is $3.93$ kN at $97.1\deg$ measured clockwise from the positive $x$-axis.
+	
+\end{textblock*}
+\begin{textblock*}{4in}(4.75in, 7.5in)
+	\large
+	\centering
+	\tikz{
+		\coordinate (O) at (0,0);
+		\coordinate (A) at ($ (O)+(-30:2.5) $);
+		\coordinate (B) at ($ (A)+(225:3.75) $);
+
+		\draw[thin] ($ (O)+(-2,0) $) -- +(4,0)node[right]{$ x $};
+		\draw[very thick, blue,-latex] (O) -- node[above, sloped]{$2.50\,$kN}(A) ;
+		\draw[very thick, blue,-latex] (A) -- node[below, sloped]{$3.75\,$kN}(B) ;
+		\draw[thin] ($ (A)+(-0.5,0) $) -- +(-1.5,0) ;
+		\node at ($ (A)+(-1.25,0.275) $) {$ 30\deg $};
+		\node at ($ (A)+(-1.25,-0.275) $) {$ 45\deg $};
+		\node at ($ (O)+(.175,-0.4) $) {$ \phi $};
+		\draw[ultra thick, red,-latex] (O) -- node[above, sloped]{$F_R$}(B) ;
+	}
+\end{textblock*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+.\newpage
+
+
+\begin{textblock*}{3in}(1in, 0.235in)
+	\cbox{
+		\underline{Exercise 1} \parm
+		The resultant of the forces $F$ and $F_1$ is $3.14$ kN at $37\deg$ clockwise from the
+					positive $x$ axis.\parm
+					Determine $F$ and $\theta$.
+
+	}
+\end{textblock*}
+\begin{textblock*}{3.25in}(4.525in, 0.235in)
+	\cbox{
+		\centering
+		\def\scale{0.8}
+		\input{../../pikz/02ForceVectors/fv23handout.tex}
+	}
+\end{textblock*}
+
+\begin{textblock*}{3in}(5in, 3.5in)
+	\tikz{
+		\draw (-1,0) -- (2,0)node[right]{$x$};
+		\draw (0,-1) -- (0,1)node[right]{$y$};
+		\draw[blue, -latex, very thick] (0,0) -- node[above, sloped]{$ 4.72\text{ kN} $}(26:5);
+		\draw[very thick, red, -latex] (0,0) -- node[below, sloped]{$ 3.14\text{ kN} $}(-37:3.14);
+		\node at (11:1.2) {$ 26\deg$};
+		\node at (-15:1.2) {$ 37\deg$};
+		\draw[ultra thick, blue, -latex] ($(0,0)+(26:5)$) -- node[above, sloped, black]{$ \bm{\mathrm{F}} $}($(0,0)+(-37:3.14)$);
+		\node at ($ (0,0)+(22:4.25)$) {$ \phi $};
+	}
+	% \parm
+	% \begin{align*}
+	% 	\left|F\right| ^2               & = (4.72\text{ kN})^2+(3.14\text{ kN})^2                \\
+	% 	                                & \qquad -2(4.72\text{ kN})(3.14\text{ kN})\cos 63\deg \\
+	% 	\Rightarrow \left|F\right|      & = 4.3222\text{ kN}                                     \\\\
+	% 	\frac{\sin\phi}{3.14\text{ kN}} & =\frac{\sin 63\deg}{4.3222{\text{ kN}}}              \\
+	% 	\Rightarrow \phi                & = 40.338\deg                                         \\
+	% 	\Rightarrow \theta              & = 40.338\deg  + 26\deg                             \\
+	% \end{align*}
+	% $$ \bm{F} = 4.32\text{ kN and }\theta = 66.3\deg $$
+\end{textblock*}
+\begin{textblock*}{3in}(1in, 2in)
+	\large
+	\begin{align*}
+		\left|F\right| ^2               & = (4.72\text{ kN})^2+(3.14\text{ kN})^2                \\
+		                                & \qquad -2(4.72\text{ kN})(3.14\text{ kN})\cos 63\deg \\
+		\Rightarrow \left|F\right|      & = 4.3222\text{ kN}                                     \\\\
+		\frac{\sin\phi}{3.14\text{ kN}} & =\frac{\sin 63\deg}{4.3222{\text{ kN}}}              \\[0.5em]
+		\Rightarrow \phi                & = 40.338\deg                                         \\[0.5em]
+		\Rightarrow \theta              & = 40.338\deg  + 26\deg                             \\
+	\end{align*}
+	$$ \bm{F = 4.32\,\text{\bf kN}} \text{ and } \bm{\theta = 66.3\deg} $$
+\end{textblock*}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% page 3
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{textblock*}{4in}(1in, 5.5in)
+	\cbox{
+		\underline{Example 4} \parm
+		The weight, $W$, of the traffic lights (with mass $105\;\text{kg}$) acts vertically downward.
+					\parm
+					Find the value of $ W$ and use it to determine the magnitudes of its two components directed along the axes of $AC$ and $BC$.
+
+	}
+\end{textblock*}
+\begin{textblock*}{2.25in}(5.525in, 5.5in)
+	\cbox{
+		\centering
+		\input{../../pikz/01MathReview/math11handout}
+		
+	}
+\end{textblock*}
+
+\begin{textblock*}{4in}(6in, 8.25in)
+	\tikz[scale=0.8]{
+	\draw (-1,0) -- (2,0)node[right]{$x$};
+	\draw (0,-1) -- (0,1)node[right]{$y$};
+	\draw[ultra thick, red, -latex] (0,0) -- node[above, sloped]{$1030.1\text{ kN}$}(0,-5.1505);
+	% \draw[dashed] ($(0,0)+(165:1)$) -- ($(0,0)+(-15:2)$);
+	% \draw[dashed] ($(0,-5.1505)+(165:1)$) -- ($(0,-5.1505)+(-15:5)$);
+	% \draw[dashed] ($(0,0)+(125:1)$) -- ($(0,0)+(-55:8.5)$);
+	% \draw[dashed] ($(0,-5.1505)+(125:1)$) -- ($(0,-5.1505)+(-55:1)$);
+	\draw[blue, very thick, -latex] (0,0) -- node[sloped, above]{$AC$}(-55:7.75);
+	\draw[blue, very thick, -latex] ($ (0,0)+(-55:7.75)$) -- node[sloped, above]{$BC$}(0,-5.1505);
+	\node at (0.4,-1.25) {$35\deg$};
+	\node at (0.6,-4.875) {$105\deg$};
+	}
+\end{textblock*}
+\begin{textblock*}{4in}(1in, 8in)
+	\large
+	\begin{align*}
+		\frac{AC}{\sin 105\deg} = \frac{1030.1\text{ kN}}{\sin 40\deg} &\Rightarrow AC = 1547.9\text{ kN} = \bm{1550\text{ \bfseries kN}} \\\\
+		\frac{BC}{\sin 35\deg} = \frac{1030.1\text{ kN}}{\sin 40\deg} &\Rightarrow AC = 919.19\text{ kN} = \bm{919\text{ \bfseries kN}}
+	\end{align*}
+\end{textblock*}
+
+.\newpage
+
+\begin{textblock*}{2.5in}(1in, 0.235in)
+	\cbox{
+	\underline{Exercise 2} \parm
+		Resolve the $4.20$ kN load suspended from $A$ into components parallel to the truss members $AB$ and $AG$.
+		\parm
+		Give the magnitude of the components and their direction measured counter-clockwise from the positive $x$ axis.
+
+	}
+\end{textblock*}
+\begin{textblock*}{3.75in}(4.025in, 0.235in)
+	\cbox{
+		\centering
+		\scalebox{0.8}{
+			\input{../../pikz/02ForceVectors/fv22handout.tex}
+		}
+	}
+\end{textblock*}
+
+\begin{textblock*}{2in}(1.5in, 2.5in)
+	\tikz{
+	\draw[blue, ultra thick, -latex](0,0)-- node[sloped, below]{$ 4.2\text{ kN}$}(0,-4.2);
+	\draw[red, very thick, -latex](0,0)-- node[sloped, above]{$ AG $}(-50.194:5.4672);
+	\draw[red, very thick, -latex](3.5,-4.2)-- node[sloped, below]{$ AB $}++(180:3.5);
+\node at (2.5,-3.9){$50.194\deg$};
+	}
+\end{textblock*}
+\begin{textblock*}{3.25in}(4in, 3.5in)
+	\begin{align*}
+		\angle BAG &= \tan^{-1}\frac{BG}{AB}=\tan^{-1}\frac{3.00\,\text{m}}{2.50\,\text{m}}=50.194\deg\\\\
+		AG &= \frac{4.2\text{ kN}}{\sin 50.194\deg} = 5.4672\text{ kN} = \bm{5.47\text{ \bfseries  kN at } 310\deg}\\\\
+		AB &=  (5.4672\text{ kN})\cos 50.194 = 3.5000\text{ kN} = \bm{3.50\,\text{\bfseries kN at } 180\deg}\\
+	\end{align*}
+\end{textblock*}
+
+
+\begin{textblock*}{3.75in}(1in, 6in)
+	\cbox{
+		\underline{Exercise 3} \parm
+		The decoration suspended at $D$ weighs $1120\,\mathsf{N}$.\parm 
+				Determine the magnitudes of the two force components of the weight of $D$, in the direction of $AB$ and $BC$.
+
+	}
+\end{textblock*}
+\begin{textblock*}{2.5in}(5.275in, 6in)
+	\cbox{
+		\centering
+		\def\scale{0.8}
+		\input{../../pikz/02ForceVectors/fv27handout.tex}
+	}
+\end{textblock*}
+
+\begin{textblock*}{3in}(1.5in, 8in)
+	
+	\tikz{
+		\draw[thin](-2,0)--(2,0) node[right] {$x$};
+		\draw[ultra thick, red, -latex] (0,0) -- node[above, sloped]{$1120\text{ N}$} (0,-5.62);
+		% \draw[dashed] ($ (0,0)+(154:1) $) -- ($ (0,0)+(-26:6.5)$);
+		\draw[blue, very thick, -latex] (0,0)-- node[above, sloped]{$AB$}(-26:5.38);
+		\draw[blue, very thick, -latex] (-26:5.38) -- node[above, sloped]{$BC$}+(214:5.833);
+		\node at (0.4, -5) {$56\deg $};
+		\node at (0.4, -.5) {$64\deg $};
+		\node at (-30:4.75) {$60\deg $};
+	}
+\end{textblock*}
+\begin{textblock*}{4in}(4in, 8.75in)
+	\large
+	\begin{align*}
+		\frac{BC}{\sin 64\deg} &= \frac{1120\text{ N}}{\sin 60\deg} \Rightarrow BC = 1162.4\text{ N}\\\\
+		\frac{AB}{\sin 56\deg} &= \frac{1120\text{ N}}{\sin 60\deg} \Rightarrow AB = 1072.2\text{ N}
+	\end{align*}
+	\parm\centering
+	Components are $1070$ N along $AB$, $1160$ N along $BC$
+\end{textblock*}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% page 5
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+.\newpage
+
+\begin{textblock*}{4.125in}(1in, 0.235in)
+	\cbox{
+	\underline{Example 5} \parm
+	\begin{enumerate}[{a)}]
+		\item Determine the resultant $\bm R $ of the two vectors $\bm F$ and $\bm G $.
+		\item Determine the $x$-component of $\bm R$ \lb(i.e., the horizontal component).
+		% \item Determine the $y$-component of ${\bm{\mathrm{ R }}}$ \lb(i.e., the vertical component).
+		\item Determine the $x$-component of $\bm F$.
+		\item Determine the $x$-component of $\bm G$.
+		\item Add the two previous results.
+	\end{enumerate}
+
+	}
+\end{textblock*}
+\begin{textblock*}{2in}(5.765in, 0.235in)
+	\cbox{
+		\centering
+		\input{../../pikz/02ForceVectors/fv28handout.tex}
+	}
+\end{textblock*}
+
+\begin{textblock*}{3.25in}(1in, 3in)
+	\tikz{
+		\coordinate (A) at (117:4.5);
+		\draw[blue, very thick, -latex] (0,0)--node[below,sloped]{$900$ N}(A);
+		\draw[blue, very thick, -latex] (A)--node[below,sloped]{$920$ N}+(221:4.6);
+		\draw[red,ultra thick, -latex] (0,0)--node[above,sloped]{$R$}($(169.81:5.605)$);
+		\draw[thin] ($ (A)+(-3,0) $) -- +(6,0);
+		\draw[thin] (0,-1) -- +(0,4);
+		\draw[latex-latex] ($ (A)+(1.5,0) $) arc(0:-63:1.5)node[midway, fill=white]{$63\deg$};
+		\draw[latex-latex] ($ (A)+(-1.5,0) $) arc(180:221:1.5)node[midway, fill=white]{$41\deg$};
+		\draw[latex-latex] ($ (A)+(-63:1.5) $) arc(-63:-139:1.5)node[midway, fill=white]{$76\deg$};
+		\draw[latex-latex] (0,2.5) arc(90:117:2.5)node[midway, fill=white, inner sep=0.1mm]{$27\deg$};
+		\node at (-0.75,0.5) {$\theta $};
+	}
+\end{textblock*}
+
+\begin{textblock*}{3.25in}(4in, 2.5in)
+	\large
+	\begin{align*}
+		\intertext{\bf a)}\vspace{-0.5cm}
+		\left|\bm{\mathrm R}\right|^2 &= \left(920\,\text{N}\right)^2+\left(900\,\text{N}\right)^2-2\left(920\,\text{N}\right)\left(900\,\text{N}\right)\cos 76\deg\\[0.5em]
+		 \left|\bm{\mathrm R}\right| &= 1120.6\,\text{N}\\\\
+		 \frac{\sin\theta}{920\,\text{N}} &= \frac{\sin 76\deg}{1120.6}\Rightarrow \theta = 52.807\deg\\\\
+		 \bm{\mathrm R} &= 1121\,\text{N at } (90\deg+27\deg+52.807\deg) \\[0.25em]
+		 &= 1121\,\text{N at }169.81\deg \\[0.25em]
+		 &= 1121\,\text{N at }170\deg \text{ (measured c-wise from the pos }x\text{-axis.)}
+	\end{align*}
+\end{textblock*}
+
+\begin{textblock*}{3.25in}(4in, 5.5in)
+	\large
+	\begin{align*}
+		\text{\bf b) } &\mathrm{R}_x =-(1120.6\,\text{N})\cos 10.190\deg = \bm{-1102.9\,\text{\bf N}}\\[0.5em]
+		\text{\bf c) } &\mathrm{F}_x = -(920\,\text{N})\cos 41\deg =		-694.33\,\text{N} \\[0.5em]
+		\text{\bf d) } &\mathrm{G}_x = -(900\,\text{N})\cos 63\deg =		-408.59\,\text{N} \\[0.5em]
+		\text{\bf e) } &\mathrm{F}_x+\mathrm{G}_x = -694.33\,\text{N} -408.59\,\text{N} 
+			=\bm{-1102.9\,\text{\bf N}} 
+	\end{align*}
+\end{textblock*}
+
+\begin{textblock*}{2.25in}(1in, 7in)
+	\cbox{
+		\underline{Exercise 4} Using $R$ from Example~5: \parm
+		\begin{enumerate}[{a)}]
+			\item Determine the magnitude of the component of ${\bm{\mathrm{ R }}}$  along the $y$ axis (i.e., the vertical component).
+			\item Determine the magnitude of the component of ${\bm{\mathrm{ F }}}$ along the $y$ axis.
+			\item Determine the magnitude of the component of ${\bm{\mathrm{ G }}}$ along the $y$ axis.
+			\item Add the two previous results.
+		\end{enumerate}
+	}
+\end{textblock*}
+
+\begin{textblock*}{4in}(4in, 7.5in)
+	\large
+	Using $R$ from previous example:
+	\begin{align*}		
+		\text{\bf a) } &\mathrm{R}_y =(1120.6\,\text{N})\sin 10.190\deg = 198.25\text{N} \\[0.25em]
+		\text{\bf b) } &\mathrm{F}_y = -(920\,\text{N})\sin 41\deg =		-603.57\text{N} \\[0.25em]
+		\text{\bf c) } &\mathrm{G}_y = -(900\text\,{N})\sin 63\deg =		801.91\text{N} \\[0.25em]
+		\text{\bf d) } &\mathrm{F}_y+\mathrm{G}_y = 198.34\,\text{N} 
+	\end{align*}
+\end{textblock*}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% page 7
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+.\newpage
+
+\begin{textblock*}{3in}(1in, 0.235in)
+	\cbox{
+		\underline{Example 9} \parm
+		Determine the resultant (magnitude and direction counterclockwise from the positive $x$ axis) of the three forces $F_1,\;F_2$ and $F_3$ acting at a single point.
+
+	}
+\end{textblock*}
+\begin{textblock*}{3.25in}(4.525in, 0.235in)
+	\cbox{
+	\def\scale{0.8}
+	\centering
+	\input{../../pikz/02ForceVectors/fv24handout}
+	}
+\end{textblock*}
+
+\begin{textblock*}{2in}(1in, 2in)
+	\tikz{
+	\draw (-1,0) -- (2,0)node[right]{$x$};
+	\draw (0,-1) -- (0,6)node[right]{$y$};
+	\draw[thick, blue, -latex] (0,0) -- node[below, sloped]{$0.19575\text{ kN}$}(0.5,0);
+	\draw[thick, blue, -latex] (0.5,0) -- node[below, sloped]{$5.6657\text{ kN}$}(0.5,5);
+	\draw[ultra thick, red, -latex] (0,0) -- node[above, sloped]{$\bm{\mathrm{F_R}}$}(0.5,5);
+	}
+\end{textblock*}
+
+\begin{textblock*}{5in}(3in, 2.75in)
+	\begin{align*}
+		\mathrm{R}_x &= (4.50\text{ kN})\cos 26\deg + (3.75\text{ kN})\cos 80\deg - 4.50\text{ kN} = 0.19575\text{ kN}\\\\
+		\mathrm{R}_y &= (4.50\text{ kN})\sin 26\deg + (3.75\text{ kN})\sin 80\deg = 5.6657\text{ kN}\\\\
+		\left|R\right| &= \sqrt{(0.19575\text{ kN})^2+(5.6657\text{ kN})^2} = 5.6691\text{ kN} = 5.67\,\text{kN}\\\\
+		\theta &= \tan^{-1}\left(\frac{5.6657}{0.19575}\right) = 88.021\deg = 88.0\deg
+	\end{align*}
+	\centering
+	$R$ is $5.67\,\text{kN}$ at $88.0\deg$, measured counter-clockwise from the positive $x$-axis.
+
+\end{textblock*}
+~\newpage
+\begin{textblock*}{3.45in}(1in, 0.235in)
+	\cbox{
+		\underline{Example 10} \parm
+		The resultant of the forces $F,\;F_1$ and $F_2$ acting upon the eye-bolt is $3.07$ kN at $197\deg$ measured counter-clockwise from the positive $x$ axis. Determine $F$ and $\theta$.
+
+	}
+\end{textblock*}
+\begin{textblock*}{2.75in}(5.025in, 0.235in)
+	\cbox{
+	\def\scale{0.7}
+	\centering
+	\input{../../pikz/02ForceVectors/fv25handout}
+	}
+\end{textblock*}
+
+	\begin{textblock*}{3in}(1in, 2.25in)
+		\large
+		\begin{align*}
+			\mathrm{R}_x &= -(3.07\text{ kN})\cos 17\deg = -2.9359\text{ kN}\\
+			\text{and }\mathrm{R}_y &= -(3.07\text{ kN})\sin 17\deg = -0.89758\text{ kN}\\[0.25em]
+			\text{Then: } \Sigma F_x &= \mathrm{R}_x \\[0.25em]
+			&= -F\cos\theta - (1.70\text{ kN})\cos 25\deg - (2.75\text{ kN})\cos 85\deg\\[0.25em]
+			&=-F\cos\theta - 1.7804\text{ kN}\\[0.25em]
+			&= 	 -2.9359\text{ kN}\\[0.25em]
+			 -2.9359\text{ kN} &= -F\cos\theta - 1.7804\text{ kN}\\[0.25em]
+			\Rightarrow F\cos\theta &=  1.1555\text{ kN}\\\\
+			\text{ And: } \Sigma F_y &= \mathrm{R}_y \\[0.25em]
+			&= F\sin\theta - (1.70\text{ kN})\sin 25\deg - (2.75\text{ kN})\sin 85\deg\\[0.25em]
+			&=F\sin\theta - 3.4580\text{ kN}\\[0.25em]
+			&= 	 -0.89758\text{ kN}\\[0.25em]
+			 -0.89758\text{ kN} &= F\sin\theta - 3.4580\text{ kN}\\[0.25em]
+			\Rightarrow F\sin\theta &= 2.5604\text{ kN}\\[0.25em]
+			\Rightarrow \frac{F\sin\theta}{F\cos\theta} &= \frac{2.5604\text{ kN}}{1.1555\text{ kN}}\\[0.25em]
+			\Rightarrow \tan\theta &=  2.2185\\[0.25em]
+			\Rightarrow \theta &= 65.710\deg\\[0.25em]
+			\Rightarrow F\sin 65.710\deg &= 2.5604\text{ kN}\\[0.25em] \Rightarrow F &= 2.8091\text{ kN}
+		\end{align*}
+		\centering
+		\underline{$\bm{F=2.81}$\,\text{\bf kN} and $\bm{\theta=65.7\deg}$.}
+	\end{textblock*}
+
+
+
+
+
+\end{document}
