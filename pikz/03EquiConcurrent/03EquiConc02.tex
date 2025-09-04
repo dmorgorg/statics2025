@@ -1,0 +1,13 @@
+% !TEX root = ../../statikz/statikz.tex
+
+
+\begin{tikzpicture}
+
+  
+  \filldraw [ thick, gray] (0.25,0.25) rectangle (1,3.75);
+  \draw [ultra thick] (2.25, 3.25) -- (2.25, 2.25);
+  \filldraw [ thick, gray] (1,3.25) rectangle (2.75,3.5);
+  \shade [ball color = saitPurple] (2.25, 2) circle (0.5cm);
+  \draw[line width=1mm, -Latex, saitRed, line cap = round] (2.25, 2) -- (2.25, 0.75) node[below]{\Large$\bm F $};
+  \node at (2.25, 3.375)  {$\bm A$};
+\end{tikzpicture}

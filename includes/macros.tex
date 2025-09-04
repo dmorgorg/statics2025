@@ -10,8 +10,10 @@
 \usetikzlibrary{decorations.text} % ior fitting text to a path
 % \usetikzlibrary{decorations.pathmorphing}
 \usepackage[many]{tcolorbox}
-\usepackage[absolute,overlay]{textpos}
-\textblockorigin{0.0cm}{0.0cm}  %start all at upper left corner
+\usepackage[absolute,overlay,showboxes]{textpos}
+% \usepackage{textpos}
+% \textblockorigin{0.0cm}{0.0cm}  %start all at upper left corner
+\TPshowboxesfalse
 
 \newcommand\lb{\linebreak}
 \newcommand\cd{\!\cdot\!}
@@ -127,7 +129,7 @@
 
 \newcommand{\mini}[2][0.8]{
 	\begin{minipage}[c]{#1\columnwidth}
-		% \raggedright
+		\raggedright
 		#2
 	\end{minipage}
 }
@@ -170,6 +172,12 @@
 		}
 	\end{center}
 	\setlength\fboxsep{0cm}
+}
+
+\newcommand{\cfig}[2][1]{% centred, scaled graphic
+	\begin{center}
+		\includegraphics[scale=#1]{#2}
+	\end{center}
 }
 
 

@@ -1,0 +1,21 @@
+
+\begin{tikzpicture}[scale=\scale, line cap = round]
+
+	\coordinate (A) at (0,0);
+
+	\EyeConnection[90]{A}{gray!50}{black}{0.625}{0.375}
+	\fill[gray!50] ($ (A)+(0.625,2) $) rectangle ($ (A)+(1.125,-2) $);
+	\draw ($ (A)+(0.625,2) $) -- ($ (A)+(0.625,-2) $);
+
+	\node at (A) {$A$};
+
+	\draw[ultra thick, -latex] ($ (A)+(117:0.04) $) -- +(117:2) node[black, yshift=0.25cm] {\small $ G=900\,$N};
+	\draw[ultra thick, -latex] ($ (A)+(221:0.04) $) -- +(221:2) node[black, yshift=-0.25cm] {\small $ F=920\,$N};
+
+	\draw[gray] ($ (A)-(0.35cm,0) $) -- +(-1.5,0);
+
+	\draw[latex-latex] ($ (A)+(117:1.5) $) arc (117:180:1.5) node[midway, fill=white] {\small $ 63\deg $};
+	\draw[latex-latex] ($ (A)+(221:1.5) $) arc (221:180:1.5) node[midway, fill=white] {\small $ 41\deg $};
+
+
+\end{tikzpicture}
