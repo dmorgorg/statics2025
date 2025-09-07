@@ -4,13 +4,6 @@
 \documentclass[9pt, xcolor={svgnames, x11names},professionalfonts]{beamer}
 
 
-% \usetikzlibrary{decorations.markings, decorations.fractals}
-% \usetikzlibrary{shapes.callouts,shapes.multipart}
-% \usetikzlibrary{positioning}
-
-% \setlength{\TPHorizModule}{1.0cm}
-% \setlength{\TPVertModule}{\TPHorizModule}
-
 \input{../../includes/macros}
 \input{../../includes/definedColors}
 \input{../../includes/EyeBolt.tex}
@@ -18,6 +11,11 @@
 \input{../../includes/Member}
 \input{../../includes/PC}
 \input{../../includes/Ring}
+\input{../../includes/Pulley}
+\input{../../includes/PulleyB}
+\input{../../includes/PulleyC}
+\input{../../includes/Luke.tex}
+\input{../../includes/Skywalker.tex}
 
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{\medskipamount}
@@ -30,7 +28,7 @@
 \pgfplotsset{compat=1.18}
 \usefonttheme[onlymath]{serif} % this needs to be before structureitalicserif?
 \usefonttheme{structureitalicserif} %make titles fancy ;-)
-% 
+
 
 \usecolortheme[named=statsMaroon]{structure}
 \setbeamertemplate{navigation symbols}{} % remove navigation symbols
@@ -302,6 +300,67 @@
 \end{frame}
 
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Force Transmissability}
+
+	\begin{itemize}
+		\item The {\bf line of action} of a force is the line along the force direction, extended infinitely in both directions.
+		\item The effect of a force on a body is the same wherever the force is applied along its line of action.
+	\end{itemize}
+
+	\hfill
+	\mini[0.31]{
+		\centering
+		\begin{statsbox}{}
+			\centering
+			\input{../../pikz/03EquiConcurrent/03EquiConc01.tex}
+		\end{statsbox}		
+	}
+	\mini[0.31]{
+		\centering
+		\begin{statsbox}{}
+			\centering
+			\input{../../pikz/03EquiConcurrent/03EquiConc02.tex}
+		\end{statsbox}
+	}
+	\mini[0.3]{
+		\centering
+		\begin{statsbox}{}
+			\centering
+			\input{../../pikz/03EquiConcurrent/03EquiConc03.tex}
+		\end{statsbox}
+	}
+
+	\begin{itemize}
+		\item All these loadings have the same effect on the beam at $A$.
+	\end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Force Transmissability and Concurrency}
+
+	\begin{textblock*}{1.0\textwidth}(1cm, 3.25cm)
+		\begin{tcolorbox}[colframe=structure, colback=white, left=0pt]
+			\centering
+			\def\scale{0.5}
+			\input{../../pikz/03EquiConcurrent/03EquiConc11}
+		\end{tcolorbox}
+	\end{textblock*}
+
+	\begin{textblock*}{1.0\textwidth}(1.0cm, 1cm)
+		\begin{itemize}
+			\item If the lines of action of forces go through a single point (or particle), then the forces are concurrent.
+			\item Each of the force systems shown is a concurrent system.
+			\uncover<2->{Their force lines of action intersect at a single point.}
+		\end{itemize}
+	\end{textblock*}
+
+
+\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -743,96 +802,128 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Force Transmissability}
 
-	\begin{itemize}
-		\item The {\bf line of action} of a force is the line along the force direction, extended infinitely in both directions.
-		\item The effect of a force on a body is the same wherever the force is applied along its line of action.
-	\end{itemize}
-
-	\hfill
-	\mini[0.31]{
-		\centering
-		\begin{statsbox}{}
-			\centering
-			\input{../../pikz/03EquiConcurrent/03EquiConc01.tex}
-		\end{statsbox}		
-	}
-	\mini[0.31]{
-		\centering
-		\begin{statsbox}{}
-			\centering
-			\input{../../pikz/03EquiConcurrent/03EquiConc02.tex}
-		\end{statsbox}
-	}
-	\mini[0.3]{
-		\centering
-		\begin{statsbox}{}
-			\centering
-			\input{../../pikz/03EquiConcurrent/03EquiConc03.tex}
-		\end{statsbox}
-	}
-
-	\begin{itemize}
-		\item All these loadings have the same effect on the beam at $A$.
-	\end{itemize}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}{Force Transmissability and Concurrency}
-
-	\begin{textblock*}{1.0\textwidth}(1cm, 3.25cm)
-		\begin{tcolorbox}[colframe=structure, colback=white, left=0pt]
-			\centering
-			\def\scale{0.5}
-			\input{../../pikz/03EquiConcurrent/03EquiConc11}
-		\end{tcolorbox}
-	\end{textblock*}
-
-	\begin{textblock*}{1.0\textwidth}(1.0cm, 1cm)
-		\begin{itemize}
-			\item If the lines of action of forces go through a single point (or particle), then the forces are concurrent.
-			\item Each of the force systems shown is a concurrent system.
-			\uncover<2->{Their force lines of action intersect at a single point.}
-		\end{itemize}
-	\end{textblock*}
-
-
-\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
 
-	\begin{myexer}{}{}
-
-		\mini[0.45]{
-			Determine the reaction at $A$.
+	\begin{myexer}{}{}		
+		\cmini{
+			\centering
+			\input{../../pikz/03EquiConcurrent/03EquiConc04.tex}
 		}
-		\mini[0.5]{
-			% \cfig[0.3]{../../Figs/02ConcurrentForces/conc2016B.png}
+		\cmini{
+			The trolley can move freely along the horizontal beam on frictionless rollers. Currently, it is in equilibrium. Determine the reaction at $A$.
 		}
-		\parm
-		\begin{center}
-			\footnotesize
-			\rotatebox[origin=c]{180}{
-				\textcolor{gray}{
-					($R=14.9$ kN at $2.91^\circ$ cw from positive $x$ axis.)
-				}
-			}
-		\end{center}
 	\end{myexer}
 
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{Pulley Tests}
+% 	\tikz{%color
+% 		\coordinate (A) at (0,0);
+% 		\coordinate (B) at (4,0);
+% 		\coordinate (C) at (8,0);
 
+% 	\Pulley {A}{green}{black}{1}{0.125};
+% 	\PulleyB {B}{green}{black}{1}{0.125};
+% 	\PulleyC {C}{green}{black}{1}{0.125};
+% 	}
 
+% \end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Skywalker Test}
+	\begin{myexer}{}{}
+		\centering
+		\tikz{%color
+			\coordinate (0) at (0,0);
+			\coordinate (A) at (0,3);
+			\coordinate (B) at (3,3);
+			\Skywalker[0.5]{B}{Maroon}{Maroon}{Black}{Gainsboro!50}{0.5}{.25}	
+			\Skywalker[-0.5]{A}{Maroon}{Maroon}{Black}{Gainsboro!50}{0.5}{.25}	
+		}
+	\end{myexer}
+	
+
+	
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{Another test}
+	
+% 	\begin{myexer}{}{}
+% 		\centering
+% 		\tikz{%color
+% 		  \coordinate (J) at (1,0);
+% 			\coordinate (A) at ($ (J)+(160:2) $);
+% 			\coordinate (G) at ($ (J)+(-4:5) $);
+% 			\coordinate (B) at ($ (G)+(16:2) $);
+% 			\draw[thick] (A)--(J)--(G)--(B);
+% 			\Skywalker{G}{Maroon}{Green}{Black}{Gainsboro!50}{.5}{10.25}
+% 			\Luke{J}{Green}{Maroon}{Black}{Gainsboro!50}{1}{2.5}
+% 		}
+% 	\end{myexer}
+	
+% \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+
+	\begin{myexer}{}{}		
+		
+			\centering
+			\tikz{%color
+				
+				\coordinate (J) at (2,0);
+				\coordinate (A) at ($ (J)+(160:2) $);
+				\coordinate (G) at ($ (J)+(-4:5) $);
+				\coordinate (B) at ($ (G)+(16:2) $);
+				\draw[thick] (A)--(J)--(G)--(B);
+				\path ($ (current bounding box.south west)+(-0.5,-0.5) $) rectangle  ($ (current bounding box.north east)+(0.5,1.25) $);
+				
+				\node[below left] at (J) {J};
+				\node[below right] at (G) {G};
+				\draw[thin, gray] ($ (J)+(0,-0.25) $) -- +(0,-1);
+				\draw[ultra thick, -latex, statsMaroon] (G) -- +(0,-1.25) node[black, below] {\small $780\,$N};
+
+				\draw[thin, {Latex[length=3pt]}-{Latex[length=3pt]}] ($ (J)+(0,-0.875) $) arc [start angle =-90, end angle=-4, radius = 0.875] node[fill=white, midway, inner sep=0.75mm] {\small $ 86\deg $};
+				\draw[thin, {Latex[length=3pt]}-{Latex[length=3pt]}] ($ (J)+(0,-0.875) $) arc [start angle =270, end angle=160, radius = 0.875] node[fill=white, midway, inner sep=0.75mm] {\small $ 110\deg $};
+				\draw[thin, {Latex[length=3pt]}-{Latex[length=3pt]}] ($ (G)+(0,-0.875) $) arc [start angle =-90, end angle=16, radius = 0.875] node[fill=white, midway, inner sep=0.75mm] {\small $ 106\deg $};
+				\draw[thin, {Latex[length=3pt]}-{Latex[length=3pt]}] ($ (G)+(0,-0.875) $) arc [start angle =270, end angle=176, radius = 0.875] node[fill=white, midway, inner sep=0.75mm] {\small $ 94\deg $};
+
+
+				% \draw[red, thin] (current bounding box.south west) rectangle (current bounding box.north east);
+			}
+
+	
+			
+		
+		\cmini{
+			\parm
+			\centering
+			Jacques and Gilles are high-wire artistes. Gille weighs $780\,\text{N}$.
+			How much does Jacques weigh?
+		}
+	\end{myexer}
+
+		\begin{textblock*}{2cm}(3.95cm, 3.95cm)
+			\tikz{%color
+				\coordinate (origin) at (0,0);
+				\Skywalker[0.5]{origin}{PaleGreen4}{PaleGreen4}{Black}{White}{0.5}{.25}
+			}
+		\end{textblock*}
+		\begin{textblock*}{2cm}(8.94cm, 4.32cm)
+			\tikz{%color
+				\coordinate (origin) at (0,0);
+				\Skywalker[-0.5]{origin}{PaleGreen4}{PaleGreen4}{Black}{White}{0.5}{.25}
+			}
+		\end{textblock*}
+
+\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

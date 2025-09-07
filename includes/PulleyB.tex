@@ -1,0 +1,28 @@
+% !TEX root = ../Beamer/statikz/statikz.tex
+
+%\PinnedConnection[rotate=0]{coordinate}{draw}{fill}{scale}{line width}
+\newcommand{\PulleyB}[6][0]{
+	\def\rotate{#1};
+	\def\pin{#2}
+	\def\lfill{#3}
+	\def\ldraw{#4}
+	\def\lscale{#5};
+	\def\lwidth{#6};
+	\def\h{1}
+	\def\r{0.35}
+	\def\rr{0.675}
+	\begin{scope}[scale=\lscale, rotate=\rotate]
+
+		
+		
+		\filldraw[draw=\ldraw, fill=\lfill, line width=\lwidth mm] (\pin) circle (\h*\rr cm);
+
+		\filldraw[draw=\ldraw, fill=\lfill!70!black, line width=\lwidth mm] (\pin) circle (\h*\rr*0.75 cm);
+
+		\filldraw[ draw=\ldraw, fill=\lfill, line width = \lwidth mm] ($(\pin) + (-\r,0) $)arc(180:0:\r) -- ++(0,-0.9) -- ++(-2*\r,0) -- cycle;
+
+		\shadedraw[ball color=\lfill, draw=\ldraw, line width = \lwidth mm] (\pin) circle (2*\h*\rr mm);
+
+		\filldraw[rounded corners=\lscale pt, draw=\ldraw, fill=\lfill, line width=\lwidth mm] ($ (\pin) - (1,1) $) rectangle +(2,0.25);
+	\end{scope}
+}

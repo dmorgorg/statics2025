@@ -1,0 +1,33 @@
+% !TEX root = ../Beamer/statikz/statikz.tex
+
+% \Pulley[rotation]{A}{wheel color}{support color}{scale}{line width}
+\newcommand{\Luke}[8][1]{
+	\def\xscale{#1};
+	\def\root{#2}
+	\def\bodyfill{#3}
+	\def\bodydraw{#4}
+	\def\polefill{#5}
+	\def\bg{#6}
+	\def\scale{#7}
+	\def\lwidth{#8}
+
+	\coordinate (ra) at ($ (\root)+(-0.2*\scale*\xscale, 0.2125*\scale) $);	% right ankle
+	
+
+
+	% \begin{scope}[scale=\scale, xscale=\xscale]
+		\providecommand{\Calf}[2][0]{
+			\fill[\bodyfill, rotate around={##1:(##2)}, line width =\lwidth mm, rounded corners =\scale*0.14 cm] ($ (##2)+(-\scale*\xscale*0.14,-\scale*0.14) $) -- ++(-\scale*\xscale*0.02,\scale*1.25)--  ++(\scale*\xscale*0.32, 0) --    +(-\scale*\xscale*0.02,-\scale*1.25) -- cycle;	
+		}
+		\providecommand{\Foot}[2][0]{
+			\filldraw[fill=\bodyfill, draw=\bodydraw, rotate around={##1:(##2)}, line width =\lwidth mm, rounded corners=0.25*\scale mm] ($ (##2)+(0.05*\scale*\xscale, -0.05*\scale) $)-- ++(-0.4*\scale,0)--  ++(0, 0.25*\scale)-- ($ (##2)+(0.05*\scale*\xscale, 0.05*\scale) $) -- cycle;	
+		}
+	\begin{scope}
+		\Foot[-30]{\root}
+		\Calf[-7.5]{ra}
+	\end{scope}
+		
+
+		% \shadedraw[ball color=\lfill, draw=\ldraw, line width = \lwidth mm] (\lpin) circle (2mm);
+
+}
