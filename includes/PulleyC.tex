@@ -1,13 +1,13 @@
-% !TEX root = ../Beamer/statikz/statikz.tex
 
-%\PinnedConnection[rotate=0]{coordinate}{draw}{fill}{scale}{line width}
-\newcommand{\PulleyC}[6][0]{
+\newcommand{\PulleyC}[8][0]{
 	\def\rotate{#1};
 	\def\pin{#2}
 	\def\lfill{#3}
 	\def\ldraw{#4}
-	\def\lscale{#5};
-	\def\lwidth{#6};
+	\def\len{#5}
+	\def\wid{#6}
+	\def\lscale{#7};
+	\def\lwidth{#8};
 	\def\h{1}
 	\def\r{0.35}
 	\def\rr{0.675}
@@ -19,15 +19,11 @@
 		
 		\filldraw[draw=\ldraw, fill=\lfill!70!black, line width=\lwidth mm] (\pin) circle (\h*\rr*0.75 cm);
 
-
-
-		\filldraw[ draw=\ldraw, fill=\lfill, line width = \lwidth mm] ($(\pin) + (-\r,0) $)arc(180:0:\r) -- ++(0,-1) arc(0:-180:\r) -- cycle;
-
-		
+		\filldraw[ draw=\ldraw, fill=\lfill, line width = \lwidth mm] ($(\pin) + (-\wid,0) $) arc(180:0:\wid) -- ++(0,-\len) arc(0:-180:\wid) -- cycle;		
 
 		% \shadedraw[fill=\lfill, line width = \lwidth pt, draw=\lfill!80!black] (\pin) circle (\h mm);
 		\shadedraw[ball color=\lfill, draw=\ldraw, line width = \lwidth mm] (\pin) circle (2*\h*\rr mm);
-		\shadedraw[ball color=\lfill, draw=\ldraw, line width = \lwidth mm] ($ (\pin)+(0,-1) $) circle (2*\h*\rr mm);
+		\shadedraw[ball color=\lfill, draw=\ldraw, line width = \lwidth mm] ($ (\pin)+(0,-\len) $) circle (2*\h*\rr mm);
 
 		
 	\end{scope}

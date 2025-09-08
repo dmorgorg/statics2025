@@ -685,7 +685,7 @@
 					-\cos 26\deg\cdot x +\cos 34\deg\cdot y &= 0 \\
 					\sin 26\deg\cdot x + \sin 34\deg\cdot y &= 1120\text{ N} 
 				\end{align*}
-				where $x$ represents $F_{AB}$ and $y$ represents $F_{BC}$; $x$ and are just algebraic variables used by the calculator and are not related to the $x$ or $y$-axes. These equations are identical to the ones used for the simultaneous equation solution, with $F_{AB}$ and $F_{BC}$ relabeled $x$ and $y$, and a little reordering of terms. 
+				where $x$ represents $F_{AB}$ and $y$ represents $F_{BC}$; $x$ and $y$ are just algebraic variables used by the calculator and are not related to the $x$ or $y$-axes. These equations are identical to the ones used for the simultaneous equation solution, with $F_{AB}$ and $F_{BC}$ relabeled $x$ and $y$, and a little reordering of terms. 
 			\end{statsbox}
 		\end{textblock*}
 	}
@@ -827,29 +827,29 @@
 % 		\coordinate (B) at (4,0);
 % 		\coordinate (C) at (8,0);
 
-% 	\Pulley {A}{green}{black}{1}{0.125};
-% 	\PulleyB {B}{green}{black}{1}{0.125};
-% 	\PulleyC {C}{green}{black}{1}{0.125};
+% 		\Pulley {A}{green}{black}{1}{0.125}
+% 		\PulleyB {B}{green}{black}{1}{0.125}
+% 		\PulleyC {C}{green}{black}{1}{0.5}{1}{0.125}
 % 	}
 
 % \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Skywalker Test}
-	\begin{myexer}{}{}
-		\centering
-		\tikz{%color
-			\coordinate (0) at (0,0);
-			\coordinate (A) at (0,3);
-			\coordinate (B) at (3,3);
-			\Skywalker[0.5]{B}{Maroon}{Maroon}{Black}{Gainsboro!50}{0.5}{.25}	
-			\Skywalker[-0.5]{A}{Maroon}{Maroon}{Black}{Gainsboro!50}{0.5}{.25}	
-		}
-	\end{myexer}
+% \begin{frame}{Skywalker Test}
+% 	\begin{myexer}{}{}
+% 		\centering
+% 		\tikz{%color
+% 			\coordinate (0) at (0,0);
+% 			\coordinate (A) at (0,3);
+% 			\coordinate (B) at (3,3);
+% 			\Skywalker[0.5]{B}{Maroon}{Maroon}{Black}{Gainsboro!50}{0.5}{.25}	
+% 			\Skywalker[-0.5]{A}{Maroon}{Maroon}{Black}{Gainsboro!50}{0.5}{.25}	
+% 		}
+% 	\end{myexer}
 	
 
 	
-\end{frame}
+% \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % \begin{frame}{Another test}
 	
@@ -913,15 +913,97 @@
 		\begin{textblock*}{2cm}(3.95cm, 3.95cm)
 			\tikz{%color
 				\coordinate (origin) at (0,0);
-				\Skywalker[0.5]{origin}{PaleGreen4}{PaleGreen4}{Black}{White}{0.5}{.25}
+				\Skywalker[0.625]{origin}{PaleGreen4}{PaleGreen4}{Black}{white}{0.5}{.25}
 			}
 		\end{textblock*}
 		\begin{textblock*}{2cm}(8.94cm, 4.32cm)
 			\tikz{%color
 				\coordinate (origin) at (0,0);
-				\Skywalker[-0.5]{origin}{PaleGreen4}{PaleGreen4}{Black}{White}{0.5}{.25}
+				\Skywalker[-0.75]{origin}{PaleGreen4}{PaleGreen4}{Black}{white}{0.55}{.25}
 			}
 		\end{textblock*}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Cables and Pulleys}
+	\cmini[0.9]{
+		\begin{itemize}
+			\item {\bfseries Cables} are assumed to have minimal weight. They do not sag or stretch.
+			% \item A cable can only produce a pulling force referred as tension: you can't push with a cable. The tensile force acts in the direction of the cable.
+			\item {\bfseries Pulleys} are assumed to be frictionless. This means that the tension in a cable passing over a pulley is constant.  Also, unless otherwise noted, pulleys are sufficiently small that the forces loaded on a pulley are assumed to pass through the centre of the pulley.
+		\end{itemize}
+	}
+	\centering
+
+	\tcb[right=1mm, left=1.75mm]{
+		\centering
+		\input{../../pikz/03EquiConcurrent/03EquiConc06.tex}
+	}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Cables and Pulleys}
+	\cmini[0.9]{
+		\begin{myexam}{}{}
+			\raggedright
+			Determine $\theta$. Then find the tension in the rope and the pulley reaction at $B$ due to the suspended mass.
+		\end{myexam}
+	}
+	\centering
+
+	\tcb[right=1mm, left=1.75mm]{
+		\centering
+		\input{../../pikz/03EquiConcurrent/03EquiConc07.tex}
+	}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+	\begin{myexer}{}{}
+		\cmini[0.9]{
+			\centering
+			\input{../../pikz/03EquiConcurrent/03EquiConc05}
+			\parb
+			Cylinder $E$ has a mass of $28$ kg. The system is in equilibrium. Determine the mass of $A$ and the reactions at $C$ and $E$.
+			
+			
+		}
+	\end{myexer}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+
+	\begin{myexam}{}{}
+
+		\centering
+		\def\scale{0.7}
+		\input{../../pikz/03EquiConcurrent/03equiConc09}
+		\parm
+		\cmini{
+			Determine the maximum weight $W$ of the bucket that the system can support given that no single wire may support more than $450$ N. Determine $R_C$, the reaction at $C$, for this value of $W$.			
+		}
+	\end{myexam}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+
+	\begin{myexer}{}{}
+
+		\centering
+		\def\scale{0.6}
+		\input{../../pikz/03EquiConcurrent/03equiConc10}
+		\cmini{
+			The tension in cable $AC$ is $400$ N.
+			Determine the force $F$ necessary to hold the ring $A$ in the position shown. %What is 
+		}
+	\end{myexer}
 
 \end{frame}
 

@@ -1,20 +1,30 @@
-\begin{tikzpicture}
-  
+% !TEX root = ../../Beamer/03EquilibriumOfAParticle/03Equilibrium.tex
 
+\tikz[line cap=round, scale=0.9]{
+	\coordinate (A) at (0,-2);
+	\coordinate (B) at (0,0);
+	\coordinate (C) at (-3,0);
+	\coordinate (D) at ($ (30:3.746)+(-60:0.25) $);
+	\coordinate (E) at ($ (D)+(0.2625,0)+(0,-2.5) $);
 
-  \coordinate (J) at (1,0);
-  \coordinate (A) at ($ (J)+(160:2) $);
-  \coordinate (G) at ($ (J)+(-4:5) $);
-  \coordinate (B) at ($ (G)+(16:2) $);
+	\fill[right color=LightSteelBlue4, left color=LightSteelBlue2] ($ (C)+(-0.5,-1.5) $) rectangle +(-0.75,3);
+	\fill[bottom color=LightSteelBlue4, top color=LightSteelBlue2] ($ (D)+(-1.5,.5) $) rectangle +(3,0.75);
 
-  \draw[thick] (A)--(J)--(G)--(B);
-  % \Skywalker{J}{Maroon}{Maroon}{Black}{Gainsboro!50}{0.5}{.25}	
-	\Skywalker{G}{Maroon}{Maroon}{Black}{Gainsboro!50}{1}{.25}
-  \Luke [-0.5]{J}{green}{black}{Violet}{Mauve}{1}{0.125};	
+	\EyeConnection[-90]{C}{LightSteelBlue3}{black}{0.5}{0.5}
+	\Ring{B}{LightSteelBlue4}{LightSteelBlue2}{.25}{0.125}{0.01};
 
-
-  % \node at (J) [below]{J};
-  % \node at (G) [below]{G};
-
-
-\end{tikzpicture}
+	\draw[ultra thick, statsMaroon] ($ (B)+(30:0.1) $) -- ++(30:3.646)arc(120:0:0.25)-- ++(0,-2.5);
+	\draw[ultra thick, statsMaroon]($ (B)+(180:0.1) $) -- ($ (C)+(0.025,0) $);
+	\draw[ultra thick, statsMaroon]($ (B)+(270:0.1) $) -- ++(0,-2);
+	\Pulley[180]{D}{LightSteelBlue3}{black}{0.5}{0.125}
+	\draw[left color=Seashell4, right color=Seashell4, middle color=Seashell4!30] ($(A)+(-0.5,-.75)$) rectangle ($(A)+(0.5,0.75)$);
+	\draw[left color=Seashell4, right color=Seashell4, middle color=Seashell4!30] ($(E)+(-0.5,-.75)$) rectangle ($(E)+(0.5,0.75)$);
+	\draw[thin] ($ (B)+(0.5,0) $) -- +(1.5,0)node[right]{$ x $};
+	\draw[latex-latex] ($ (B)+(1.5,0) $)arc(0:30:1.5)node[midway, fill=white, inner sep=0.25mm]{$ 32^\circ $};
+	\node at (A) {\Large $A$};
+	\node at (E) {\Large $B$};
+	\node[yshift=0.375cm] at (C) {\Large $C$};
+	\node[xshift=0.5cm] at (D) {\Large $E$};
+	\node[xshift=-0.325cm, yshift=0.25cm] at (B) {\Large $D$};
+	\node[ yshift=-1cm] at (E) {\large $28\,\text{kg}$};
+}

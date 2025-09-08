@@ -1,0 +1,38 @@
+\begin{tikzpicture}[line cap=round]
+
+  \coordinate (A) at (-2.125,2.125);
+  \coordinate (B) at (1.5,2.75);
+  \coordinate (C) at (-0.675,1.55);
+  \coordinate (AA) at (-3.125,0.8675);
+  \coordinate (BB) at (3.15,0.835);
+  \coordinate (Cright) at ($ (C)+(0.375, 0) $);
+  \coordinate (Cleft) at ($ (C)+(-0.375, 0) $);
+
+ \filldraw[fill=Wheat3, rounded corners] ($ (C)+(-1,-.5) $) rectangle +(2,-0.75);
+  \EyeBolt[-90]{AA}{Wheat3}{black}{0.5}{0.325}
+  \EyeBolt[90]{BB}{Wheat3}{black}{0.5}{0.325}
+  \draw[statsMaroon, ultra thick] ($ (C)+(-40:0.25) $) -- +(40:2.3);
+  \draw[statsMaroon, ultra thick] ($ (C)+(220:0.25) $) -- +(140:1.5);
+  \draw[statsMaroon, ultra thick] ($ (A)+(170:0.25) $) -- +(240:1.5);
+  \draw[statsMaroon, ultra thick] ($ (B)+(35:0.25) $) -- +(-55:2.5);
+  \PulleyC[225]{A}{Wheat3}{Black}{1.5}{0.25}{0.4}{0.125}
+  \PulleyC[180]{B}{Wheat3}{Black}{1.5}{0.25}{0.4}{0.125}
+  \PulleyC{C}{Wheat3}{Black}{1.5}{0.25}{0.4}{0.125}
+  \filldraw[fill=Wheat3!50!Wheat4] (-4,0)-- +(0.5,0)arc(180:90:3.5)arc(90:0:3.5) -- (4,0) -- ++(0,4.5) -- ++(-8,0) -- cycle;
+  \node at ($ (C)+(0,-0.75) $) [below] {$ 120\,$kg};
+  \draw[thin, gray] ($ (C)+(0.5,0) $) -- +(1,0);
+  \draw[thin, gray] ($ (C)+(-0.5,0) $) -- +(-0.75,0);
+  \draw[thin, gray] ($ (BB)+(-0.25,0) $) -- +(-0.75,0);
+  \draw[thin, gray] ($ (AA)+(0.25,0) $) -- +(0.75,0);
+  \draw[latex-latex] ($ (Cright)+(1,0) $) arc (0:40:1) node[midway, fill=white, inner sep=0.5mm] {\small$42\deg$};
+  \node at ($ (C)+(110:0.45) $) {$C$};
+  \node at ($ (B)+(140:0.425) $) {$B$};
+  \node at ($ (A)+(50:0.475) $) {$A$};
+  \node at ($ (Cleft)+(160:0.5) $) {$\theta$};
+  \draw[latex-latex] ($ (AA)+(0.75,0) $) arc (0:60:0.75) node[midway, fill=white, inner sep=0.5mm] {\small$58\deg$};
+  \draw[latex-latex] ($ (BB)-(0.75,0) $) arc (180:125:0.75) node[midway, fill=white, inner sep=0.5mm] {\small$53\deg$};
+
+  % \fill[green] (Cright) circle (0.5mm);
+
+
+\end{tikzpicture}
