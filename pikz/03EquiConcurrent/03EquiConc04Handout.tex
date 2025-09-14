@@ -1,0 +1,34 @@
+\tikz[scale=\scale]{
+	\coordinate (O) at (0,0);
+	\coordinate (A) at (-0.75,0);
+	\coordinate (B) at ($ (A)+(-60:1.5) $);
+	\coordinate (C) at ($ (A)+(1.5,0)$);
+
+
+  \fill[Gray!50] ($ (A)+(-3,-0.35) $) rectangle +(7.5,1.5);
+  \draw[Black, line width=1mm] ($ (A)+(-3,-0.4) $) -- +(7.5,0);
+  \draw[Black, line width=1mm] ($ (A)+(-3,+1.1) $) -- +(7.5,0);
+	
+  \filldraw[Black] (A) circle (0.35cm);
+  \filldraw[Black] (C) circle (0.35cm);
+  \filldraw[White] (A) circle (0.3cm);
+  \filldraw[White] (C) circle (0.3cm);
+		
+	\filldraw[fill=Ivory3!60, rounded corners=0.35cm] ($ (A)+(150:0.4cm) $) -- ($ (C)+(30:0.4cm) $) -- ($ (B)+(0,-0.4cm) $) -- cycle;
+
+  \draw[Black, line width = 0.75mm, -latex] (B) -- +(-30:2.5) node[right] {$1260\,$N};
+  \draw[Black, line width = 0.75mm, -latex] (B) -- +(220:2.5) node[left] {$P$};
+
+	\shadedraw[ball color=Gray ] (A) circle (0.1cm);% node[left]{A};
+	\shadedraw[ball color=Gray ] (B) circle (0.1cm) ;%node[right]{B};
+	\shadedraw[ball color=Gray ] (C) circle (0.1cm);% node[below]{C};
+
+  \draw[thin, gray] ($ (B)+(0,-0.325) $) -- +(0,-1.5);
+
+  \draw[latex-latex] ($ (B)+(-30:1.5) $) arc (-30:-90:1.5) node[fill=white, midway, inner sep=0.25mm] {$ 58\deg $};
+  \draw[latex-latex] ($ (B)+(-90:1.5) $) arc (-90:-140:1.5) node[fill=white, midway, inner sep=0.25mm] {$ 47\deg $};
+
+  \node at ($ (B)+(0,0.3) $) {\large $ A $};
+
+
+}

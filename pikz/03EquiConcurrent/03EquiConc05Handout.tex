@@ -1,0 +1,30 @@
+% !TEX root = ../../Beamer/03EquilibriumOfAParticle/03Equilibrium.tex
+
+\tikz[line cap=round, scale=0.9]{
+	\coordinate (A) at (0,-2);
+	\coordinate (B) at (0,0);
+	\coordinate (C) at (-3,0);
+	\coordinate (D) at ($ (30:3.746)+(-60:0.25) $);
+	\coordinate (E) at ($ (D)+(0.2625,0)+(0,-2.5) $);
+
+	\fill[right color=Gray, left color=Gray!50] ($ (C)+(-0.5,-1.5) $) rectangle +(-0.75,3);
+	\fill[bottom color=Gray, top color=Gray!50] ($ (D)+(-1.5,.5) $) rectangle +(3,0.75);
+
+	\EyeConnection[-90]{C}{Gray!50}{black}{0.5}{0.5}
+	\Ring{B}{Gray!50}{Gray}{.25}{0.125}{0.01};
+
+	\draw[ultra thick, Black] ($ (B)+(30:0.1) $) -- ++(30:3.646)arc(120:0:0.25)-- ++(0,-2.5);
+	\draw[ultra thick, Black]($ (B)+(180:0.1) $) -- ($ (C)+(0.025,0) $);
+	\draw[ultra thick, Black]($ (B)+(270:0.1) $) -- ++(0,-2);
+	\Pulley[180]{D}{Gray0}{black}{0.5}{0.125}
+	\draw[left color=Gray, right color=Gray, middle color=Gray!30] ($(A)+(-0.5,-.75)$) rectangle ($(A)+(0.5,0.75)$);
+	\draw[left color=Gray, right color=Gray, middle color=Gray!30] ($(E)+(-0.5,-.75)$) rectangle ($(E)+(0.5,0.75)$);
+	\draw[thin] ($ (B)+(0.5,0) $) -- +(1.5,0)node[right]{$ x $};
+	\draw[latex-latex] ($ (B)+(1.5,0) $)arc(0:30:1.5)node[midway, fill=white, inner sep=0.25mm]{$ 32^\circ $};
+	\node at (A) {\Large $A$};
+	\node at (E) {\Large $B$};
+	\node[yshift=0.5cm] at (C) {\Large $C$};
+	\node[xshift=0.5cm] at (D) {\Large $E$};
+	\node[xshift=-0.325cm, yshift=0.325cm] at (B) {\Large $D$};
+	\node[ yshift=-1cm] at (E) {\large $28\,\text{kg}$};
+}

@@ -1,0 +1,429 @@
+\documentclass[9pt,xcolor={svgnames, x11names},professionalfonts, mathserif]{beamer}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}  % for top and bottom spacing in table cells
+\usepackage{mathpazo}
+\usepackage[mathpazo]{flexisym}
+\usepackage{breqn}
+\usepackage{textcomp}
+\usepackage{multirow}
+\usepackage{cancel}
+\usepackage{array}
+%\usepackage{enumerate}
+% \usepackage{enumitem} %causes compile error, stack size exceeded?
+\usepackage[many]{tcolorbox}
+\usepackage{verbatim}
+\usepackage{bm}
+\usepackage{tkz-linknodes}
+\usepackage{gensymb} % for \degree
+\usepackage[export]{adjustbox} % for tight borders around photos
+\usepackage{pgfmath}
+
+
+\usepgfmodule{oo}
+%\usetikzlibrary{shapes,decorations,shadows,calc}
+\usetikzlibrary{shadows,calc,arrows.meta}
+% \usetikzlibrary{decorations.shapes}
+%\usetikzlibrary{shapes.callouts}
+% bloody coils
+\usetikzlibrary{decorations.pathmorphing}
+\usetikzlibrary{shapes.multipart}
+
+
+
+\input{../../Includes/all.tex}
+
+
+\usefonttheme[onlymath]{serif}
+% \usefonttheme{structureitalicserif} %make titles fancy ;-)
+
+\usepackage[absolute,overlay]{textpos}
+\setlength{\TPHorizModule}{1.0cm}
+\setlength{\TPVertModule}{\TPHorizModule}
+\textblockorigin{0.0cm}{0.0cm}  %start all at upper left corner
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, urlcolor=saitMaroon}
+% \hypersetup{urlcolor=Blue4}
+
+\setlength{\parskip}{\medskipamount}
+\setlength{\parindent}{0pt}
+
+\usetheme{Antibes}
+
+
+
+\usecolortheme[named=saitMaroon]{structure}
+\definecolor{structurecolor}{rgb}{0.55,0.53,0.31}
+\setbeamertemplate{items}[triangle]
+\setbeamertemplate{blocks}[rounded][shadow=false]
+%\setbeamertemplate{background canvas}[vertical shading][bottom=Cyan1!50, middle=white, top=white, midpoint=0.05]
+\setbeamertemplate{headline}{\vspace{.1cm}}
+\setbeamertemplate{footline}{ \hfill \insertshorttitle \quad
+\insertshortsubtitle
+\quad \insertframenumber/\inserttotalframenumber \quad{ }\vspace{0.125cm}}
+\addtobeamertemplate{footline}{\hypersetup{linkcolor=.}}{}
+\setbeamertemplate{navigation symbols}{} % empty braces suppresses all navigation symbols
+\setbeamercolor{frametitle}{fg=Linen}
+% \setbeamercolor{footline}{fg=black}
+\setbeamercolor{block title}{fg=white,bg=structure}
+\setbeamercolor{block body}{bg=saitMaroon!25, fg=black}
+\setbeamercolor{background canvas}{bg=white}
+\setbeamersize{text margin left = 0.5cm, text margin right=0.5cm}
+%\useinnertheme[shadow]{rounded}
+%\raggedright
+\setbeamerfont{block title}{family=mathserif}
+
+\everymath{\displaystyle}
+
+\usepackage[export]{adjustbox}
+
+
+
+\resetcounteronoverlays{tcb@cnt@myexam}
+\resetcounteronoverlays{tcb@cnt@myexer}
+
+
+
+\newcommand{\stcsfig}[2][1]{
+	\cfigb[saitMaroon]{1pt}{#1}{#2}
+	%\cfigb[black]{1pt}{#1}{#2}
+}
+% itemize indent
+\setlength{\leftmargini}{1.5em}
+\def\scale{1} % initialisation for pikz
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title[MoJ]{\Huge \textcolor{white}{Method of Joints --- Step by Step}}
+\subtitle[]{\Large\textcolor{white}{Structural Statics}}
+% \author{Dave Morgan}
+\institute{}
+\date{Last revision on \today}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \begin{frame}[plain]
+%  \titlepage
+% \end{frame}
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% \begin{frame}
+%  \begin{myexam}{}{}
+%   \def\scale{0.75}
+%   \centering
+%   \input{../../pikz/07MoJ/07MoJSbyS01linen.tex}
+%   \parb
+%   Determine the internal forces in each truss member.
+%  \end{myexam}
+%
+% \end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\scriptsize\raggedright
+\begin{frame}
+
+ \def\scale{0.65}
+
+ \begin{textblock*}{0.65\linewidth}(0.5cm, 0.25cm)
+  \input{../../pikz/07MoJ/07MoJSbyS01overlays.tex}
+ \end{textblock*}
+
+ \only<1-6>{
+  \begin{textblock*}{3.75cm}(8.5cm,0.25cm)
+
+   \begin{mybox}[title=Calculate Angles, colback=Linen]
+    \scriptsize
+    \begin{align*}
+     \uncover<1-6>{
+     \angle BAG & = \tan^{-1} \left[\frac{2.50}{3.00}\right]  \\
+                & = 39.806\degree                             \\\\
+     }
+     \uncover<2-6>{
+     \theta     & = \tan^{-1} \left[\frac{1.500}{3.00}\right] \\
+                & = 26.565\degree                             \\\\
+     }
+     \uncover<3-6>{
+     \angle CEF & = \tan^{-1} \left[\frac{4.00}{3.00}\right]  \\
+                & = 53.130\degree
+     }
+    \end{align*}
+
+    \vspace{-1.25em}
+   \end{mybox}
+  \end{textblock*}
+ }
+
+
+ \begin{textblock*}{8cm}(2.5cm, 5.5cm)
+  \uncover<4-6>{
+   \begin{mybox}[left=0.25cm, right=0.25cm, title=Notice:, colback=Linen]
+    \parm
+    \begin{enumerate}
+     \item By inspection, truss member $BG$ is a \textcolor{saitMaroon}{\bfseries zero-force} member.\parm
+     \item <5-6> We can start at joint $A$ and proceed through the truss joints $A\rightarrow G\rightarrow B\rightarrow C\rightarrow F$, without calculating the reactions at $D$ and $E$.\parm
+     \item <6> Finding the reactions at $D$ and $E$ {\bfseries is} useful to verify our results; if we have not made mistakes, then the sum of all forces acting at $D$ (including the reaction) will equal $0$. Similarly, the sum of all forces acting at $E$ will equal $0$.
+    \end{enumerate}
+   \end{mybox}
+  }
+ \end{textblock*}
+
+
+ \only<7-9>{
+  \begin{textblock*}{3.75cm}(8.5cm,0.25cm)
+   \begin{mybox}[left=0.25cm, right=0.25cm, title=Free Body Diagram: $\bm A$, colback=Linen]
+    \begin{center}
+     \input{../../pikz/07MoJ/07truss03SolnJointALinen.tex}
+    \end{center}
+   \end{mybox}
+  \end{textblock*}
+
+  \begin{textblock*}{8cm}(2.5cm, 5.5cm)
+   \uncover<7-9>{
+    \begin{mybox}[left=0.25cm, right=0.25cm, title=Joint $\bm A$, colback=Linen]
+     \scriptsize\raggedright
+     \uncover<7-9>{
+      Sum the $y$ components first, so that we have only one variable and don't need to solve a system of simultaneous equations:
+     }
+     \begin{align*}
+      \uncover<8-9>{
+      \Sigma F_y         & = F_{AB}\sin 39.806\degree - 35\text{ kN} = 0 \\
+      \Rightarrow F_{AB} & = 54.671\text{ kN}                            \\\\
+      }
+      \uncover<9>{
+      \Sigma F_x         & = -F_{AB}\cos 39.806\degree - F_{AG} = 0      \\
+      \Rightarrow F_{AG} & = -54.671\cos 39.806\degree\text{ kN}         \\
+                         & = -41.999 \text{ kN}
+      }
+     \end{align*}
+    \end{mybox}
+   }
+  \end{textblock*}
+ }
+
+ \only<10-11>{
+  \begin{textblock*}{3.75cm}(8.5cm,0.25cm)
+   \begin{mybox}[left=0.25cm, right=0.25cm, title=Free Body Diagram: $\bm G$, colback=Linen]
+    \scriptsize\raggedright
+    % $G$ is a trivial joint.
+    \begin{center}
+     \input{../../pikz/07MoJ/07truss03SolnJointGLinen.tex}
+    \end{center}
+   \end{mybox}
+  \end{textblock*}
+
+  \begin{textblock*}{8cm}(2.5cm, 5.5cm)
+   \uncover<10-12>{
+    \begin{mybox}[left=0.25cm, right=0.25cm, title=Joint $\bm G$, colback=Linen]
+     \scriptsize\raggedright
+
+     \textcolor{saitMaroon}{\bfseries Known} forces, such as $F_{AG}$, are drawn in their actual direction.\pars \textcolor{saitMaroon}{\bfseries Unknown} forces, such as $F_{FG}$ and $F_{BG}$, are drawn in tension with the arrowheads pointing away from the joint.
+		 \uncover<11-12>{
+     \begin{align*}
+      \Sigma F_x         & = -F_{FG}-41.999\text{ kN} = 0 \\
+      \Rightarrow F_{FG} & = -41.999\text{ kN}
+			\end{align*}
+      }
+     \uncover<12>{%
+      Trivial joints, such as $G$, can be solved without drawing an $FBD$ or performing the algebra, if desired.
+     }
+    \end{mybox}
+   }
+  \end{textblock*}
+ }
+
+ \only<13-18>{
+  \begin{textblock*}{4.25cm}(8.25cm,0.25cm)
+   \begin{mybox}[left=0.25cm, right=0.25cm, title=Free Body Diagram: $\bm B$, colback=Linen]
+    \begin{center}
+     \input{../../pikz/07MoJ/07truss03SolnJointBLinen.tex}
+    \end{center}
+   \end{mybox}
+  \end{textblock*}
+ }
+
+ \begin{textblock*}{9cm}(2cm, 5.5cm)
+  \uncover<13-14>{
+   \begin{mybox}[left=0.25cm, right=0.25cm, title=Joint $\bm B$, colback=Linen]
+    \vspace{-0.25cm}
+    \begin{align*}			%
+     \Sigma F_y   = & \quad F_{BC}\sin 26.565\degree - F_{BF}\sin 39.806\degree -54.671\sin 39.806\degree \text{ kN}  = 0                  \\
+     \Rightarrow    & \quad F_{BC}\sin 26.565\degree - F_{BF}\sin 39.806\degree                                         = 35.000\text{ kN} \\\\
+     \Sigma F_x   = & \quad 54.671\cos 39.806\degree-F_{BC}\cos 26.565\degree -F_{BF}\cos 39.806\degree = 0                                \\
+     \Rightarrow    & \quad F_{BC}\cos 26.565\degree +F_{BF}\cos 39.806\degree = 41.999\text{ kN}
+    \end{align*}
+
+    \uncover<14>{
+     Use the \textcolor{saitMaroon}{\bfseries system-solver} on your calculator to find $ F_{BC}=58.696\text{ kN},\;F_{BF}=-13.668\text{ kN}  $
+    }
+   \end{mybox}
+  }
+ \end{textblock*}
+
+ \only<19-21>{
+  \begin{textblock*}{4.25cm}(8.25cm,0.25cm)
+   \begin{mybox}[left=0.25cm, right=0.25cm, title=Free Body Diagram, colback=Linen]
+    \begin{center}
+     \input{../../pikz/07MoJ/07truss03SolnJointFLinen.tex}
+    \end{center}
+   \end{mybox}
+  \end{textblock*}
+
+
+  \begin{textblock*}{9cm}(2cm, 5.5cm)
+   \uncover<20->{
+    \begin{mybox}[left=0.25cm, right=0.25cm, title=Joint F, colback=Linen]
+     \begin{align*}
+      \Sigma F_x         & = -F_{FE} -13.668\cos 39.806\degree \text{kN} - 41.999\,\text{kN}  = 0 \\
+      \Rightarrow F_{FE} & = -52.499\,\text{kN}                                                   \\\\
+      \uncover<21->{
+      \Sigma F_y         & = F_{FC}-13.668\sin 39.806^\circ = 0                                   \\
+      \Rightarrow F_{FC} & = 8.7501\,\text{kN}
+      }
+     \end{align*}
+    \end{mybox}
+   }
+  \end{textblock*}
+ }
+
+ \only<22->{
+  \begin{textblock*}{4.25cm}(8.25cm,0.25cm)
+   \def\scale{0.75}
+   \begin{mybox}[left=0.25cm, right=0.25cm, title=Free Body Diagram, colback=Linen]
+    \begin{center}
+     \input{../../pikz/07MoJ/07truss03SolnJointCLinen.tex}
+    \end{center}
+   \end{mybox}
+  \end{textblock*}
+
+%   \begin{textblock*}{9cm}(2cm, 5.5cm)
+%    \uncover<23-24>{
+%     \begin{mybox}[left=0.25cm, right=0.25cm, title=Joint C, colback=Linen]
+%      \begin{align*}
+%       \Sigma F_x            = -F_{CD}\cos 26.565\degree - F_{CE}\cos 53.130\degree + 58.696\cos 26.565\degree     & = 0       \\
+%       \Rightarrow F_{CD}\cos 26.565\degree + F_{CE}\cos 53.130\degree                                             & = 52.499  \\\\
+%       \Sigma F_y            = F_{CD}\sin 26.565\degree -F_{CE}\sin 53.130\degree -8.7501-58.696\sin 26.565\degree & = 0       \\
+%       \Rightarrow   F_{CD}\sin 26.565\degree -F_{CE}\sin 53.130\degree                                            & =  34.999
+%      \end{align*}
+%      \parm
+%      \uncover<24>{
+%       \centering
+%       From your calculator: $F_{CD}=64.031\text{ kN},\;F_{CE}=-7.9542\text{ kN}$
+%      }
+
+%     \end{mybox}
+%    }
+%   \end{textblock*}
+%  }
+% \end{frame}
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{frame}
+
+ \def\scale{0.65}
+
+ \begin{textblock*}{0.65\linewidth}(0.375cm, 0cm)
+  \input{../../pikz/07MoJ/07MoJSbyS01reactions.tex}
+ \end{textblock*}
+
+ \begin{textblock*}{3.5cm}(8.5cm,0.25cm)
+
+  \begin{mybox}[title=Finished\ldots, colback=Linen]
+   \scriptsize
+   \begin{align*}
+    AB & = 54.7\text{ kN (T)}  \\
+    AG & = 42.0\text{ kN (C)}  \\
+    BC & = 58.7\text{ kN (T)}  \\
+    BF & = 13.69\text{ kN (C)} \\
+    BG & = 0                   \\
+    CD & = 64.0\text{ kN (T)}  \\
+    CE & = 7.95\text{ kN (C)}  \\
+    CF & = 8.75\text{ kN (T)}  \\
+    EF & = 52.5\text{ kN (C)}
+   \end{align*}
+   \centering
+   But are they correct?
+  \end{mybox}
+ \end{textblock*}
+
+ \begin{textblock*}{5cm}(1cm, 5.75cm)
+  \uncover<2-4>{
+   \begin{mybox}[left=0.25cm, right=0.25cm, title=Check The Results!, colback=Linen]
+    Consider only the external forces acting on the truss:
+    \begin{enumerate}
+     \item<2->  There is a reaction at the pinned connection at $E$,
+     \item<3-> There is a connection at $D$ with known direction ($CD$ is a two-force member so the reaction at $D$ has the same line of action as $CD$.)
+     \item<4-> There is a $35\text{ kN}$ load at $A$.
+    \end{enumerate}
+   \end{mybox}
+  }
+ \end{textblock*}
+
+ \begin{textblock*}{5.75cm}(1cm, 5.75cm)
+  \uncover<5-6>{
+   \begin{mybox}[left=0.25cm, right=0.25cm, colback=Linen]
+    \vspace{-1em}
+    \begin{align*}
+     \Sigma M_E       & = R_D\cos\,26.565\degree\times 5.50\text{ m} -35\text{ kN}\times 9.00\text{ m}= 0 \\
+     \Rightarrow  R_D & = 64.033\text{ kN}
+    \end{align*}
+    \mini[0.85]{
+     \raggedright
+     $R_D=64.033\text{ kN}$ which makes it equal (apart from a rounding error) and opposite to $F_{CD}$, the tensile force in $CD$ so $\Sigma F_D=0$.
+    }
+    \textcolor{green}{\Huge\checkmark}
+   \end{mybox}
+  }
+ \end{textblock*}
+
+ \begin{textblock*}{4.5cm}(7.5cm, 5.75cm)
+  \uncover<6-7>{
+   \begin{mybox}[left=0.25cm, right=0.25cm, colback=Linen]
+    \vspace{-1em}
+    \begin{align*}
+     \Sigma F_x       & = E_x - R_D\cos\,26.565\degree= 0            \\
+     \Rightarrow  E_x & = 57.273\text{ kN}                           \\\\
+     \Sigma F_y       & = E_y+R_D\sin 26.565\degree-35\text{ kN} = 0 \\
+     \Rightarrow  E_y & = 6.3636\text{ kN}
+    \end{align*}
+   \end{mybox}
+  }
+ \end{textblock*}
+
+ \begin{textblock*}{4.25cm}(1cm,5.75cm)
+  \uncover<7->{
+   \def\scale{0.65}
+   \begin{mybox}[left=0.25cm, right=0.25cm, title=Free Body Diagram, colback=Linen]
+    \begin{center}
+     \input{../../pikz/07MoJ/07truss03SolnJointEReactions.tex}
+    \end{center}
+   \end{mybox}
+
+  }
+ \end{textblock*}
+
+ \begin{textblock*}{6cm}(6cm, 5.75cm)
+  \uncover<8>{
+   \begin{mybox}[left=0.25cm, right=0.25cm, title=Joint E, colback=Linen]
+    \vspace{-1em}
+    \begin{align*}
+     \Sigma F_x & = 57.273\text{ kN} - 52.499\text{ kN} - 7.9542\cos 39.806\degree \text{kN} \\
+                & = 0.00147\text{ kN}\approx 0\quad\textcolor{green}{\checkmark} \\
+     \Sigma F_y & = 6.3636\text{ kN}-7.9542\sin 53.130\degree \text{ kN}                     \\
+                & =0.000249\text{ kN}\approx 0\quad\textcolor{green}{\checkmark}
+    \end{align*}
+   \end{mybox}
+  }
+ \end{textblock*}
+\end{frame}
+
+
+
+
+\end{document}

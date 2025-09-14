@@ -1,0 +1,157 @@
+\documentclass[9pt,xcolor={svgnames, x11names}]{beamer}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}  % for top and bottom spacing in table cells
+\usepackage{mathpazo}
+\usepackage{textcomp}
+\usepackage{multirow}
+\usepackage{cancel}
+\usepackage{array}
+\usepackage{lmodern}
+% \usepackage{enumitem} %causes compile error, stack size exceeded?
+\usepackage[many]{tcolorbox}
+\usepackage{verbatim}
+\usepackage{bm}
+\usepackage{tikz}
+
+\input{../../../includes/macros}
+\input{../../../includes/includesExisting/tikzObjects}
+% \usepackage{tkz-linknodes}
+% \usepackage{gensymb} % for \degree
+\usepackage[export]{adjustbox} % for tight borders around photos
+\usepackage{pgfmath}
+\usepackage{ifthen}
+\usepgfmodule{oo}
+%\usetikzlibrary{shapes,decorations,shadows,calc}
+\usetikzlibrary{shadows,calc,positioning,arrows.meta}
+
+\usetikzlibrary{decorations.markings}
+%\usetikzlibrary{shapes.callouts}
+% bloody coils
+\usetikzlibrary{decorations.pathmorphing}
+\usetikzlibrary{shapes.multipart}
+
+\tikzset{every picture/.append style={line cap=round}}
+
+% \input{../../Includes/all}
+
+\usefonttheme[onlymath]{serif}
+
+\usepackage[absolute,overlay]{textpos}
+\setlength{\TPHorizModule}{1.0cm}
+\setlength{\TPVertModule}{\TPHorizModule}
+\textblockorigin{0.0cm}{0.0cm}  %start all at upper left corner
+% \usepackage{hyperref}
+% \hypersetup{colorlinks=true, urlcolor=saitMaroon}
+% \hypersetup{urlcolor=Blue4}
+
+\setlength{\parskip}{\medskipamount}
+\setlength{\parindent}{0pt}
+
+\colorlet{bgcolor}{gray!15}
+
+\usetheme{Antibes}
+
+\usecolortheme[named=Maroon]{structure}
+\definecolor{structurecolor}{rgb}{0.55,0.53,0.31}
+\setbeamertemplate{items}[triangle]
+\setbeamertemplate{blocks}[rounded][shadow=false]
+%\setbeamertemplate{background canvas}[vertical shading][bottom=Cyan1!50, middle=white, top=white, midpoint=0.05]
+\setbeamertemplate{headline}{\vspace{.1cm}}
+\setbeamertemplate{footline}{ \hfill \insertshorttitle \quad
+	\insertshortsubtitle
+	\quad \insertframenumber/\inserttotalframenumber \quad{ }\vspace{0.125cm}}
+\addtobeamertemplate{footline}{\hypersetup{linkcolor=.}}{}
+\setbeamertemplate{navigation symbols}{} % empty braces suppresses all navigation symbols
+\setbeamercolor{frametitle}{fg=bgcolor}
+% \setbeamercolor{footline}{fg=black}
+\setbeamercolor{block title}{fg=bgcolor,bg=structure}
+\setbeamercolor{block body}{bg=white, fg=black}
+\setbeamercolor{background canvas}{bg=bgcolor}
+\setbeamersize{text margin left = 1cm, text margin right=1cm}
+%\useinnertheme[shadow]{rounded}
+%\raggedright
+% \setbeamerfont{block title}{family=mathserif}
+
+\everymath{\displaystyle}
+
+\usepackage[export]{adjustbox}
+
+
+%test
+\resetcounteronoverlays{tcb@cnt@myexam}
+\resetcounteronoverlays{tcb@cnt@myexer}
+
+\newcommand{\stcsfig}[2][1]{
+	\cfigb[saitMaroon]{1pt}{#1}{#2}
+	%\cfigb[black]{1pt}{#1}{#2}
+}
+% itemize indent
+\setlength{\leftmargini}{1.5em}
+\def\scale{1} % initialisation for pikz
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%define title content
+
+
+\raggedright
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title[MoJ]{\Huge \textcolor{white}{07 -- Trusses and the Method of Joints}}
+\subtitle[STCS200]{\Large\textcolor{white}{Civil Engineering Statics, STCS200}}
+\author{CVT Statics Team}
+\institute{\large SAIT Polytechnic}
+\date{\small \textcolor{gray}{Last revision on \today}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[plain]
+	\titlepage
+\end{frame}
+
+
+
+\begin{frame}{Problem1}
+	\def\scale{0.65}
+	\centering
+	
+	\input{pikz/problem1.tex}
+
+
+
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+\begin{frame}{}
+	\begin{myexer}{}{}
+		\def\scale{0.65}
+		\centering
+		\input{pikz/07MoJ09}
+		\cmini[0.65]{
+			\centering
+			Determine the force in each truss member.
+		}
+	\end{myexer}
+\end{frame}
+
+%
+%
+%
+%
+%
+
+
+
+
+\end{document}

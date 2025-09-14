@@ -1,0 +1,641 @@
+\documentclass[10pt,oneside]{article}
+
+\usepackage{amsmath}
+\usepackage{bm}
+\usepackage{mathpazo}
+\usepackage{graphicx}
+\usepackage{enumerate}
+\usepackage[x11names, svgnames]{xcolor} % for \definecolor
+
+\usepackage[letterpaper]{geometry}
+\geometry{verbose,tmargin=0.25in,bmargin=0.5in,lmargin=1in,rmargin=1.15in}
+
+\input{../../includes/definedColors.tex}
+\input{../../includes/macros.tex}
+\input{../../includes/Member.tex}
+\input{../../includes/Meme.tex}
+\input{../../includes/PC.tex}
+\input{../../includes/EyeConnection.tex}
+\input{../../includes/EyeBolt.tex}
+\input{../../includes/Skywalker.tex}
+\input{../../includes/PulleyC.tex}
+\input{../../includes/Pulley.tex}
+\input{../../includes/Ring.tex}
+
+% https://tex.stackexchange.com/questions/731957/how-to-supress-missing-character-there-is-no-u003b-in-font-nullfont
+\tracinglostchars=1
+
+\hfuzz=150pt
+\setlength{\parindent}{0pt}
+\def\scale{1}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% page 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{textblock*}{6.775in}(1in, 0.225in)
+  \cbox{
+    \centering\huge
+    \textbf{Engineering Statics - 03 Equilibrium of a Particle / Concurrent Forces Handout - Instructor Copy}
+  }
+\end{textblock*}
+
+\begin{textblock*}{2.5in}(1in, 1.325in)
+	\cbox{
+		\underline{Exercise 1} \parm
+		The trolley can move freely along the horizontal beam on frictionless rollers. Currently, it is in equilibrium. Determine the reaction at A..
+		\parb
+		\centering
+		\scalebox{0.875}{
+			
+			\scalebox{.8}{
+				\centering
+				\input{../../pikz/03EquiConcurrent/03EquiConc04Handout.tex}
+			}			
+		}
+	}
+\end{textblock*}
+\begin{textblock*}{3in}(1in, 4.25in)
+		
+		$A$ is in equilibrium so: 
+		\begin{align*}
+			\sum F_x &= 0 \\
+			\Rightarrow P\sin 47\deg &= 1260\,\text{N}\cd\sin 58\deg \\
+			\Rightarrow P &= \frac{1260\,\text{N}\cd\sin 58\deg}{\sin 47\deg}\\
+			&= 1461.0\,\text{N}
+		\end{align*}
+	
+\end{textblock*}
+\begin{textblock*}{3in}(4.25in, 1.5in)
+		
+		\centering
+		\tikz{%color
+			\coordinate (A) at (0,0);
+			\draw[thick, -latex] (A)-- +(0,1.5)node[right]{$ R_{Ay} $};
+			\draw[thick, -latex] (A)-- +(1.5,0)node[right]{$ R_{Ax} $};
+			\draw[thick, -latex] (A)-- +(223:2)node[left]{$ 1461.0\,$N};
+			\draw[thick, -latex] (A)-- +(-32:2)node[right]{$ 1260\,$N};
+			\draw[gray] ($ (A)+(0,-0.25) $) -- +(0,-1.75);
+			\node[above left] at (A) {$A$};
+			\draw[latex-latex] ($ (A)+(-32:1.5)$)  arc (-32:-90:1.5)node[midway,fill=white,inner sep=0.1mm]{$58\deg$};
+			\draw[latex-latex] ($ (A)+(-90:1.5)$)  arc (-90:-137:1.5)node[midway,fill=white,inner sep=0.1mm]{$47\deg$};
+		}
+		\parb\raggedright
+		The reaction at $A$: 
+		\begin{align*}
+			\sum F_x &= R_{Ax}+(1260\,\text{N})\sin 58\deg-(1461.0\,\text{N})\sin 47\deg \\
+			&=0\\
+			\Rightarrow R_{Ax} &=(1461.0\,\text{N})\sin 47\deg-(1260\,\text{N})\sin 58\deg \\
+			&= -0.032543\,\text{N} \quad \text{(Rounding errors; should be 0)}\\
+			&\approx 0 			
+		\end{align*}
+		Why? Because if the two horizontal components do not sum to $0$, the frictionless trolley will move.
+		\begin{align*}
+			\sum F_y &= R_{Ay}-(1260\,\text{N})\cos 58\deg-(1461.0\,\text{N})\cos 47\deg \\
+			&=0\\
+			\Rightarrow R_{Ay} &=(1461.0\,\text{N})\cos 47\deg+(1260\,\text{N})\cos 58\deg \\
+			&= 1664.1\,\text{N} 
+		\end{align*}
+		$$ R_A = 1660\,\text{N} \text{ at } 90\deg, \text{ measured ccw from the +ve } x\text{-axis} $$
+	
+\end{textblock*}
+
+
+
+
+~\newpage
+\begin{textblock*}{4in}(1in, 0.25in)
+	\cbox{
+		\underline{Exercise 2} \parm
+		Jacques and Gilles are high-wire artistes. Gille weighs $780\,$N. How much does Jacques weigh?
+		\begin{center}
+			\input{../../pikz/03EquiConcurrent/03EquiConc08Handout.tex}
+		\end{center}
+	}
+\end{textblock*}
+\begin{textblock*}{2cm}(5.725cm, 5.125cm)
+	\tikz{%color
+		\coordinate (origin) at (0,0);
+		\Skywalker[0.625]{origin}{Gray}{Gray}{Black}{white}{0.5}{.25}
+	}
+\end{textblock*}
+\begin{textblock*}{2cm}(10.74cm, 5.5cm)
+	\tikz{%color
+		\coordinate (origin) at (0,0);
+		\Skywalker[-0.75]{origin}{Gray}{Gray}{Black}{white}{0.55}{.25}
+	}
+\end{textblock*}
+
+\begin{textblock*}{3.25in}(0.5in, 3.5in)
+	\centering
+	\tikz{%color
+		\coordinate (G) at (0,0);
+		\node[above] at (G) {$G$};
+		\draw[thick,-latex] (G)-- +(0,-2)node[below]{$ 780\,\text{N} $};
+		\draw[thick,-latex] (G)-- +(16:2)node[right]{$ F_{BG} $};
+		\draw[thick,-latex] (G)-- +(176:2)node[left]{$ F_{JG} $};
+		\draw[latex-latex] ($ (G)+(16:1.25)$)  arc (16:-90:1.25)node[midway,fill=white,inner sep=0.2mm]{$106\deg$};
+		\draw[latex-latex] ($ (G)+(176:1.25)$)  arc (176:270:1.25)node[midway,fill=white,inner sep=0.2mm]{$94\deg$};
+	}
+	\begin{align*}
+		\sum F_x &= F_{BG}\cos 16\deg -F_{JG}\cos 4\deg = 0 \\[0.5em]
+		\Rightarrow F_{BG} &= \frac{F_{JG}\cos 4\deg}{\cos 16\deg}\\[0.5em]
+		\Rightarrow F_{BG} &= 1.0378 F_{JG}\\\\
+		\sum F_y &= F_{BG}\sin 16\deg + F_{JG}\sin 4\deg -780\,\text{N}= 0 \\[0.5em]
+		\Rightarrow 780\,\text{N} &= 1.0378F_{JG} \sin 16\deg + F_{JG}\sin 4\deg \\[0.5em]
+		\Rightarrow F_{JG} &= \frac{780\,\text{N}}{1.0378\sin 16\deg + \sin 4\deg} \\[0.5em]
+		&= 2192.2\,\text{N} \\[0.5em]
+		\Rightarrow F_{BG} &= 1.0378(2192.2\,\text{N})\\[0.5em]
+		&= 2275.0\,\text{N}
+	\end{align*}
+	We don't need $F_{BG}$ for the next part.
+	
+\end{textblock*}
+\begin{textblock*}{3.25in}(4.75in, 3.5in)
+	\centering
+	\tikz{%color
+		\coordinate (J) at (0,0);
+		\node[above] at (J) {$J$};
+		\draw[thick,-latex] (J)-- +(0,-2)node[below]{$ W $};
+		\draw[thick,-latex] (J)-- +(-4:2)node[right]{$ 2192.2\,\text{N} $};
+		\draw[thick,-latex] (J)-- +(160:2)node[left]{$ F_{AJ} $};
+		\draw[latex-latex] ($ (J)+(-4:1.25)$)  arc (-4:-90:1.25)node[midway,fill=white,inner sep=0.3mm]{$86\deg$};
+		\draw[latex-latex] ($ (J)+(160:1.25)$)  arc (160:270:1.25)node[midway,fill=white,inner sep=0.3mm]{$110\deg$};
+	}
+
+	\begin{align*}
+		\sum F_x &= (2192\,\text{N})\cos 4\deg -F_{AJ}\cos 20\deg = 0 \\[0.5em]
+		\Rightarrow F_{AJ} &= \frac{(2192\,\text{N})\cos 4\deg}{\cos 20\deg}\\[0.5em]
+		 &= 2327.0\,\text{N}\\\\
+		\sum F_y &= F_{AJ}\sin 20\deg - 2192.2\sin 4\deg -W= 0 \\[0.5em]	
+		\Rightarrow W &= (2327.0\,\text{N})	\sin 20\deg - (2192.2\,\text{N})\sin 4\deg \\[0.5em]
+		&= 642.96\,\text{N}
+	\end{align*}
+	{\bf Jacques weighs} $\bm{643}\,\text{\bf N}$ \parb
+
+	(Or use the system-solver to avoid simultaneous equations!)
+\end{textblock*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% page 2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+~\newpage
+
+
+\begin{textblock*}{4in}(1in, 0.2in)
+	\cbox{
+		\underline{Example 3} \parm
+		Determine the internal forces in members $AC$ and $BC$. \lb Specify whether they are in tension or compression.
+
+	}
+\end{textblock*}
+\begin{textblock*}{2.25in}(5.525in, 0.2in)
+	\cbox{
+		\centering
+		\scalebox{0.6}{\input{../../pikz/03EquiConcurrent/03EquiConc12Handout.tex}}		
+	}
+\end{textblock*}
+
+\begin{textblock*}{3.5in}(1in,1.5in)
+	\centering
+	Convert the mass of the traffic lights into a force:
+	$$ W = 123\,\text{kg} \times 9.81\,\mathrm{m/s^2} = 1206.6\,\text{N} $$
+
+	Note: By default, draw $F_{AC}$ and $F_{BC}$ in tension.\parb
+	\tikz{%color
+		\coordinate (C) at (0,0);
+		\node[above left] at (C) {$C$};
+		\draw[very thick, -latex] (C) -- +(0,-2.25)node[below]{$1206.6\,$N};
+		\draw[very thick, -latex] (C) -- +(-12:2)node[right]{$F_{AC}$};
+		\draw[very thick, -latex] (C) -- +(-60:2.25)node[right]{$F_{BC}$};
+		\draw[latex-latex] ($ (C)+(-12:1.5) $) arc (-12:-60:1.5) node[midway, fill=white, inner sep=1mm] {$48\deg$};
+		\draw[latex-latex] ($ (C)+(-60:1.75) $) arc (-60:-90:1.75) node[midway, fill=white, inner sep=0.25mm] {\normalsize $30\deg$};
+	}
+	\begin{align*}
+		\sum F_x &= F_{AC}\cos 12\deg + F_{BC}\cos 60\deg = 0 \\[0.25em]
+		\Rightarrow F_{BC} &= -\frac{F_{AC}\cos 12\deg}{\cos 60\deg} \\[0.25em]
+		&= -1.9563F_{AC}
+	\end{align*}
+\end{textblock*}
+
+\begin{textblock*}{3.5in}(4.5in,3.125in)
+	\begin{align*}
+		\sum F_y &= F_{AC}\sin 12\deg + F_{BC}\sin 60\deg + 1206.6\,\text{N}= 0 \\[0.25em]
+		\Rightarrow 0 &= F_{AC}\sin 12\deg + F_{BC}\sin 60\deg + 1206.6\,\text{N} \\[0.25em]		
+		\Rightarrow 0 &= F_{AC}\sin 12\deg -1.9563F_{AC}\cd\sin 60\deg + 1206.6\,\text{N} \\[0.25em]		
+		\Rightarrow 0 &= F_{AC}\left(\sin 12\deg -1.9563\cd\sin 60\deg\right) + 1206.6\,\text{N} \\[0.25em]		
+		\Rightarrow 0 &= -1.4863F_{AC} + 1206.6\,\text{N} \\[0.25em]		
+		\Rightarrow F_{AC} &= 811.81\,\text{N} \\[0.25em]		
+		\Rightarrow F_{BC} &= -1.9563(811.81\,\text{N})  \\[0.25em]		
+		\Rightarrow F_{BC} &= -1588.2\,\text{N}  \\[0.25em]		
+	\end{align*}
+\end{textblock*}
+
+\begin{textblock*}{6.75in}(1in, 5.5in)
+	\centering
+	The force in $\bm{AC=811}\,$N (Tension). The force in $\bm{BC=1590}\,$N (Compression).
+\end{textblock*}
+
+\begin{textblock*}{3.5in}(1in,5.75in)
+	\cbox{
+		\underline{Exercise 3} \parm
+		Determine the internal forces in members $AC$ and $BC$. Specify whether they are in tension or compression.
+
+	}
+\end{textblock*}
+\begin{textblock*}{2.75in}(5.025in, 5.75in)
+	\cbox{
+		\centering
+		\input{../../pikz/03EquiConcurrent/03EquiConc13Handout.tex}		
+	}
+\end{textblock*}
+
+\begin{textblock*}{3.5in}(1in,7in)
+	\centering
+	\tikz{%color
+		\coordinate (C) at (0,0);
+		\draw[thick, -latex] (C)--+(0,-2)node[below]{$7.35\,\text{kN}$};
+		\draw[thick, -latex] (C)--+(-55:2 )node[below]{$F_{BC}$};
+		\draw[thick, -latex] (C)--+(207:2 )node[below]{$F_{AC}$};
+
+		\node[above] at (C) {$C$};
+
+		\draw[thin, gray] ($ (C)-(0.5,0) $) -- +(-1.25,0);
+		\draw[thin, gray] ($ (C)+(0.325,0) $) -- +(1.25,0);
+
+		\draw[latex-latex] ($ (C)+(0:1.25) $) arc (0:-55:1.25) node[fill=white, midway] {$55\deg$};
+		\draw[latex-latex] ($ (C)+(180:1.5) $) arc (180:207:1.5) node[fill=white, midway, inner sep=0.2mm] {$27\deg$};
+	}
+	\begin{align*}
+		\sum F_x &= F_{BC}\cos 55\deg - F_{AC}\cos 27\deg = 0 \\[0.25em]	
+		\Rightarrow F_{AC} &= \frac{F_{BC}\cos 55\deg}{\cos 27\deg} = 0.64374F_{BC} \\\\
+		\sum F_y &= F_{BC}\sin 55\deg + F_{AC}\sin 27\deg+ 7.35\,\text{N} = 0 \\[0.25em]
+		&\Rightarrow  F_{BC}\sin 55\deg + (0.64374F_{BC})\sin 27\deg + 7.35\,\text{N} = 0 \\[0.25em]
+		\Rightarrow F_{BC} &= \frac{-7.35\,\text{N}}{\sin 55\deg + 0.64374\sin 27\deg} = -6.6133\,\text{N} \\\\
+		\Rightarrow  F_{AC} &= 0.64374(-6.6133\,\text{N}) = -4.2572\,\text{N}
+	\end{align*}
+\end{textblock*}
+
+\begin{textblock*}{3in}(5.25in,8in)
+	Or, setting up for the system-solver:
+	\begin{align*}
+		-\cos 27\deg\cd x + \cos 55\deg\cd y &= 0 \\
+		\sin 27\deg\cd x + \sin 55\deg\cd y &= -7.35
+	\end{align*} 
+	\parb
+	\raggedright
+	The force in member $AC$ is 4.26\,\text{N} in compression and the force in member $BC$ is $6.61\,\text{N}$ in compression.
+	
+\end{textblock*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% page 3
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+~\newpage
+
+\begin{textblock*}{3in}(1in, 0.2in)
+	\cbox{
+		\underline{Example 4} \parm
+		Determine $\theta$. Then find the tension in the rope and the pulley
+		reaction at $B$ due to the suspended mass.
+	}
+\end{textblock*}
+\begin{textblock*}{3.25in}(4.525in, 0.2in)
+	\cbox{
+		\centering
+		\def\scale{0.8}
+		\input{../../pikz/03EquiConcurrent/03EquiConc07Handout.tex}
+	}
+\end{textblock*}
+
+\begin{textblock*}{3.5in}(1in, 1.75in)
+	\centering
+	\tikz{%color
+		\coordinate (C) at (0,0);
+		\draw[thick, -latex] (C) -- +(42:2) node[right] {$T$};
+		\draw[thick, -latex] (C) -- +(138:2) node[left] {$T$};
+		\draw[thick, -latex] (C) -- +(270:1) node[right] {$1177.2\,\text{N}$};
+		\draw[thin, gray] ($ (C)+(0.4,0) $) -- +(1.5,0);
+		\draw[thin, gray] ($ (C)+(-0.4,0) $) -- +(-1.5,0);
+		\draw[latex-latex] ($ (C)+(1.5,0) $) arc (0:42:1.5) node[midway, fill=white] {$42\deg$};
+		\draw[latex-latex] ($ (C)+(-1.5,0) $) arc (-180:-222:1.5) node[midway, fill=white] {$\theta$};
+		\node[above,yshift=0.5mm] at (C) {$C$};
+	}
+	\begin{align*}
+		\sum F_x &= T\cos 42\deg - T\cos\theta = 0 \\[0.25em]
+		\Rightarrow \cos 42\deg &= \cos\theta \\[0.25em]
+		\Rightarrow \theta &= 42\deg
+	\end{align*}
+	Note that pulley $C$ finds equilibrium when the angles of the cable on either side are equal.
+	\begin{align*}
+		\sum F_y &= 2T\sin 42\deg - 1177.2\,\text{N} = 0 \\[0.25em]
+		\Rightarrow T &= \frac{1177.2\,\text{N}}{2\sin 42\deg} = 879.65\,\text{N} \\[0.25em]
+	\end{align*}
+	\tikz{%color
+		\coordinate (B) at (0,0);
+		\draw[red, ultra thick, -latex] (B) -- +(0,2) node[right] {$R_{By}$};
+		\draw[red, ultra thick, -latex] (B) -- +(2,0) node[right] {$R_{Bx}$};
+		\draw[thick, -latex] (B) -- +(-53:2) node[right] {$T$};
+		\draw[thick, -latex] (B) -- +(222:2) node[left] {$T$};
+		\draw[thin, gray] ($ (B)-(0.2,0) $) -- +(-1.5,0);
+		\draw[latex-latex] ($ (B)-(1.25,0) $) arc (180:222:1.25)node[midway, fill=white, inner sep=0.5mm] {$ 42\deg $};
+		\draw[latex-latex] ($ (B)+(1.25,0) $) arc (0:-53:1.25)node[midway, fill=white, inner sep=0.5mm] {$ 53\deg $};
+		\node[above right] at (B) {$B$};
+	}
+\end{textblock*}
+
+\begin{textblock*}{3.5in}(4.75in,2.75in)
+	\begin{align*}
+		\sum F_x &= R_{Bx}+ T\cos 53\deg -T\cos 42\deg = 0 \\[0.25em]
+		\Rightarrow R_{Bx} &= T(\cos 42\deg-\cos 53\deg) \\[0.25em]
+		&= 124.32\,\text{N} \\\\
+		\sum F_y &= R_{By}- T\sin 53\deg -T\sin 42\deg = 0 \\[0.25em]
+		\Rightarrow R_{By} &= T(\sin 42\deg+\sin 53\deg) \\[0.25em]
+		&= 1291.1\,\text{N} 
+	\end{align*}
+	\centering
+	\tikz{%color
+		\coordinate (B) at (0,0);
+		\draw[red, very thick, -latex] (B) -- +(0,3) node[left, black] {$1291.1\,\text{N}$};
+		\draw[red, very thick, -latex] (B) -- +(0.62,0) node[below, black] {$124.32\,\text{N}$};
+		\node[left] at (B) {$B$};
+		\draw[-latex, very thick] (B)-- +(0.62,3);
+		\node[xshift=0.25cm,yshift=0.225cm] at (B) {$\theta$};
+	}
+	\begin{align*}
+		R_B &= \sqrt{(124.32\,\text{N})^2+(1291.1\,\text{N})^2} \\[0.25em]
+		 &= 1297.1\,\text{N} \\\\
+		 R_\theta &= \tan^{-1}\left[\frac{1291.1}{124.32}\right] \\[0.25em]
+		 &= 84.500\deg
+	\end{align*}
+\end{textblock*}
+\begin{textblock*}{6.75in}(1in,8.5in)
+	\cmini[0.6]{
+		\centering
+		\large
+		The tension in the cable is $880\,\text{N}$ \parb
+		The reaction at $B$ is $1297.1\,\text{N}$ at $84.5\deg$, measured counter-clockwise from the positive $x$-axis.
+	}
+\end{textblock*}
+
+`\newpage
+\begin{textblock*}{3in}(1in, 0.2in)
+	\cbox{
+		\underline{Exercise 4} \parm
+		Cylinder $B$ has a mass of 28 kg. The system is in equilibrium.
+		Determine the mass of $A$ and the reactions at $C$ and $E$.
+
+	}
+\end{textblock*}
+\begin{textblock*}{3.25in}(4.525in, 0.2in)
+	\cbox{
+		\centering
+		\def\scale{0.8}
+		\input{../../pikz/03EquiConcurrent/03EquiConc05Handout.tex}
+	}
+\end{textblock*}
+\begin{textblock*}{3.5in}(1in, 1.5in)
+	\centering
+	$$ T_{DEB} = 28\,\text{kg}\times 9.81\,\mathrm{m/s^2} = 274.68\,\text{N} $$
+	\tikz{%color
+		\coordinate (D) at (0,0);
+		\draw[thick, -latex] (D) -- +(32:2)node[right] {$274.68\,\text{N}$};
+		\draw[thick, -latex] (D) -- +(180:1.5)node[left] {$T_C$};
+		\draw[thick, -latex] (D) -- +(270:1.5)node[left] {$W$};
+		\draw[thin, gray] ($ (D)+(0.5,0) $) -- +(1.25,0);
+		\draw[latex-latex] ($ (D)+(1.5,0) $) arc (0:32:1.5) node [midway, fill=white] {$32\deg$};
+		\node[above] at (D) {$D$};
+	}
+	\begin{align*}
+		\sum F_x &= (274.68\,\text{N})\cos 32\deg-T_{CD} = 0 \\[0.25em]
+		\Rightarrow T_{CD} &= 232.94\,\text{N} \\\\
+		\sum F_y &= (274.68\,\text{N})\sin 32\deg-W = 0 \\[0.25em]
+		\Rightarrow W &= 145.56\,\text{N} \\\\
+	\end{align*}
+	Cylinder $A$ has a weight of $145.56\,\text{N}$ so it has mass:$$A=\frac{145.56\,\text{N}}{9.81\,\mathrm{m/s^2}} = 14.838\,\text{kg}$$
+	\parb
+	\tikz{%color
+		\coordinate (C) at (0,0);
+		\draw[thick, -latex] (C)--+(2,0) node[below] {$ 232.94\,\text{N} $};
+		\draw[thick, red, -latex] ($ (C)+(0,0.2) $) --+(1,0) node[above] {$ R_{Cx} $};
+		\draw[thick, red, -latex] ($ (C)+(0,0.2) $) --+(0,1) node[right] {$ R_{Cy} $};
+		% \node[xshift=0.75cm,yshift=0.225cm] at (D) {$\theta$};
+		\node[left] at (C) {$ C $};
+	}
+	\parb
+	\begin{align*}
+		\sum F_x &= 232.94\,\text{N}+R_{Cx} = 0 \\[0.25em]
+		\Rightarrow R_{Cx} &= -232.94\,\text{N}\\\\
+		\sum F_y &= R_{Cy} = 0 
+	\end{align*}
+	\parb
+	The reaction at $C$ is in the direction of the negative $x$-axis ($180\deg$ counter-clockwise from the positive $x$-axis.
+\end{textblock*}
+
+\begin{textblock*}{3in}(5in,3in)
+	\centering
+	\tikz{%color
+		\coordinate (E) at (0,0);
+		\draw[thick, red, -latex] (D) --+(1.5,0) node[above] {$ R_{Dx} $};
+		\draw[thick, red, -latex] (D) --+(0,1.5) node[right] {$ R_{Dy} $};
+		\draw[thick, -latex] (E) -- +(270:1.75)node[right] {$274.68\,\text{N}$};
+		\draw[thick, -latex] (E) -- +(212:1.75)node[left] {$274.68\,\text{N}$};
+		\draw[latex-latex] ($ (E)+(-90:1.25) $) arc (-90:-148:1.25) node [midway, fill=white, inner sep=0.5mm] {$58\deg$};
+		\node[above left] at (D) {$D$};
+	}
+	\begin{align*}
+		\sum F_x &= R_{Dx} -( 274.68\,\text{N})\sin 58\deg = 0 \\[0.25em]
+		\Ra R_{Dx} &= 232.94\,\text{N} \\\\
+		\sum F_y &= R_{Dy} -( 274.68\,\text{N})\cos 58\deg - ( 274.68\,\text{N}) = 0 \\[0.25em]
+		\Ra R_{Dy} &= 420.24\,\text{N} 
+	\end{align*}
+	\parb
+	\tikz{%color
+		\coordinate (D) at (0,0);
+		\draw[thick, red, -latex] (D) --+(1.2,0) node[black, below] {$ 232.94\,\text{N} $};
+		\draw[thick, red, -latex] (D) --+(0,2.1) node[black,left] {$ 420.24\,\text{N} $};
+		\draw[thick, -latex] (D) --+(1.2,2.1) node[right] {$ R_D $};
+		\node[xshift=0.325cm,yshift=0.225cm] at (D) {$\theta$};
+		\node[left] at (D) {$D$};
+	}
+	\parb
+	\begin{align*}
+		R_D &= \sqrt{(420.24\,\text{N})^2+(232.94\,\text{N})^2} \\[0.25em]
+		 &= 480.48\,\text{N} \\\\
+		\theta &= \tan^{-1}\left[\frac{420.24\,\text{N}}{232.94\,\text{N}}\right] \\[0.25em]
+		&= 61.000\deg
+	\end{align*}
+\end{textblock*}
+
+\begin{textblock*}{5.5in}(2in, 9.5in)
+	\centering
+	The mass of $A$ is $14.8\,$kg \parm
+	The reaction at $C$ is $233\,\text{N}$ at $180\deg$, counter-clockwise from the positive $x$-axis.\parm
+	The reaction $D$ is $480\,\text{N}$ at $61\deg$, counter-clockwise from the positive $x$-axis.
+\end{textblock*}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% page 6
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+~\newpage
+
+
+\begin{textblock*}{3in}(1in, 0.2in)
+	\cbox{
+		\underline{Example 5} \parm
+		Determine the maximum weight $W$ of the bucket that the system can support given that no single wire may support more than $450\,$N. Determine $R_C$, the reaction at $C$, for this value of $W$.
+
+	}
+\end{textblock*}
+\begin{textblock*}{3.25in}(4.525in, 0.2in)
+	\cbox{
+		\centering
+		\def\scale{0.8}
+		\input{../../pikz/03EquiConcurrent/03EquiConc09Handout.tex}
+	}
+\end{textblock*}
+
+\begin{textblock*}{4in}(0.5in,2in)
+	\centering
+	\tikz{
+		\coordinate (O) at (0,0);
+		\draw[-latex, thick] (O)-- +(0,-1)node[below]{$W$};
+		\draw[-latex, thick] (O)-- +(65:2)node[left]{$F_{CD}$};
+		\draw[-latex, thick] (O)-- +(135:2)node[left]{$F_{BD}$};
+		\draw[thin] ($(O)+(0.5,0)$)-- +(1.5,0);
+		\draw[thin] ($(O)+(-0.5,0)$)-- +(-1.5,0);
+		\draw[latex-latex] ($(O)+(-1.5,0)$)arc(180:135:1.5)node[fill=white, midway]{$45^\circ$};
+		\draw[latex-latex] ($(O)+(1.5,0)$)arc(0:65:1.5)node[fill=white, midway]{$60^\circ$};
+		\node[below right] at (O) {$D$};
+	}
+	\begin{align*}
+		\sum F_x &= F_{CD}\cos 60\deg - F_{BD}\cos 45\deg =0 \\[0.25em]
+		\Ra F_{CD} &= \frac{F_{BD}\cos 45\deg}{\cos 60\deg}= 1.4142F_{BD}\\\\
+		\sum F_y &= F_{CD}\sin 60\deg + F_{BD}\sin 45\deg-W =0 \\[0.25em]
+		\Ra W &= F_{CD}\sin 60\deg + F_{BD}\sin 45\deg \\[0.25em]
+		&= 1.4142F_{BD}\sin 60\deg + F_{BD}\sin 45\deg \\[0.25em]
+		&= 1.9318F_{BD} \\[0.25em]
+		\Ra F_{BD} &= 0.51764W \\[0.25em]
+		\Ra F_{CD} &= 0.73205W
+	\end{align*}
+	\tikz{
+		\coordinate (B) at (0,0);
+		\draw[-latex, thick] (B)-- +(-2,0)node[left]{$F_{AB}$};
+		\draw[-latex, thick] (B)-- +(30:2)node[right]{$F_{BC}$};
+		\draw[-latex, thick] (B)-- +(-45:2)node[below]{$0.51764W$};
+		\draw[thin] ($(B)+(0.5,0)$)-- +(1.5,0);
+		\node[above left] at (B) {$B$};
+		\draw[latex-latex] ($(B)+(1.5,0)$)arc(0:30:1.5)node[fill=white, midway, inner sep=0.5mm]{$25^\circ$};
+		\draw[latex-latex] ($(B)+(1.5,0)$)arc(0:-45:1.5)node[fill=white, midway]{$45^\circ$};
+	}
+	\parm 
+	\begin{align*}
+		\sum F_y &= F_{BC}\sin 25\deg - 0.51764W\cd\sin 45\deg =0 \\[0.25em]
+		\Ra F_{BC} &= \frac{0.51764W\cd\sin 45\deg}{\sin 25\deg} = 0.86609W \\\\
+		\sum F_x &= (0.86609W)\cos 25\deg + 0.51764W\cd\cos 45\deg-F_{AB} =0 \\[0.25em]
+		\Ra F_{AB} &= 1.1510W
+	\end{align*}
+	\parb
+	\raggedright
+	Comparing the tension values for all four cables, then highest tension is in cable $AB$. Set this tension to $450\,\text{N}$.
+	\begin{align*}
+		1.1510W &= 450\,\text{N} \\[0.25cm]
+		\Ra W &= \frac{450\,\text{N}}{1.1510}= 390.96\,\text{N}
+	\end{align*}
+	
+\end{textblock*}
+
+\begin{textblock*}{3.75in}(4.625in,3.25in)
+	\begin{align*}
+		\text{Then, } F_{BC} & = 0.86609\times 390.96 = 338.61\text{ N} \\
+		\text{and } F_{CD}   & = 0.73205\times 390.96 = 286.20\text{ N}
+	\end{align*}
+	\centering
+	\tikz{
+		\coordinate (C) at (0,0);
+		\draw[-latex, thick] (C)-- +(240:2.5)node[below]{$286.20$ N};
+		\draw[-latex, thick] (C)-- +(210:2.5)node[left]{$338.61$ N};
+		\draw[-latex, very thick, red] (C)-- +(0,2)node[right]{$R_{Cy}$};
+		\draw[-latex, very thick, red] (C)-- +(2,0)node[right]{$R_{Cx}$};
+		% \draw[thin] ($(O)+(0.5,0)$)-- +(1.5,0);
+		\draw[thin] ($(C)+(-0.5,0)$)-- +(-1.5,0);
+		\draw[latex-latex] ($(O)+(-1.75,0)$)arc(180:210:1.75)node[fill=white, midway, inner sep=0.5mm]{$25^\circ$};
+		\draw[latex-latex] ($(O)+(210:1.75)$)arc(210:240:1.75)node[fill=white, midway, inner sep=0.5mm]{$35^\circ$};
+		\node[below right] at (C) {$C$};
+	}
+	\parb
+	\begin{align*}
+		\sum F_x      & = R_{Cx}-(338.61\,\text{N})\cos 25^\circ-(286.20\,\text{N})\cos 60^\circ =0           \\
+		\Rightarrow R_{Cx} & = 449.98\,\text{N}                                          \\\\
+		\sum F_y      & = R_{Cy} -(338.61\,\text{N})\sin 25^\circ-(286.20\,\text{N})\sin 60^\circ =0           \\
+		\Rightarrow R_{Cy} & = 390.96\text{ N}                                          \\\\
+		\Rightarrow R_C & = \sqrt{449.98^2+390.96^2}=596.10 \text{ N}                \\\\
+		\theta          & = \tan^{-1}\left[\frac{390.96}{449.98}\right]=40.985^\circ
+	\end{align*}
+	\parb\large
+	Maximum value for $W$ is $390\,\text{N}$ \parb
+	Reaction at $C$ is $596$ N at $41.0^\circ$ ccw from the +ve $x$ axis.
+	\parb
+	\normalsize
+	(Discussion: Should we round $390.96$ up to $391$ as we would normally do? Or not, because this pushes the tension in $AB$ marginally over $450\,\text{N}$?)
+\end{textblock*}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% page 7
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+.\newpage
+
+\begin{textblock*}{3.1275in}(1in, 0.225in)
+	\cbox{
+		\underline{Exercise 5} \parm
+		The tension in cable $AC$ is $400\,$N. Determine the force $F$ necessary to hold the ring $A$ in the position shown..
+
+	}
+\end{textblock*}
+\begin{textblock*}{3.125in}(4.65in, 0.225in)
+	
+	\cbox{
+		\centering
+		\def\scale{0.7}		
+		\input{../../pikz/03EquiConcurrent/03EquiConc10Handout.tex}
+	}
+\end{textblock*}
+
+\begin{textblock*}{3in}(1in, 2in)
+	\centering
+	\tikz{
+	\coordinate (A) at (0,0);
+	\draw[-latex, thick] (A)-- +(41:2.5)node[above]{$400$ N};
+	\draw[-latex, thick] (A)-- +(-75:2.5)node[below]{$900$ N};
+	\draw[-latex, thick] (A)-- +(132:2.5)node[left]{$F$};
+	\draw[thin] ($(A)+(0.5,0)$)-- +(1.5,0);
+	\draw[thin] ($(A)+(-0.5,0)$)-- +(-1.5,0);
+	\draw[latex-latex] ($(O)+(-1.5,0)$)arc(180:132:1.5)node[fill=white, midway, inner sep=0.5mm]{$\theta$};
+	\draw[latex-latex] ($(O)+(0.5:1.5)$)arc(0:41:1.5)node[fill=white, midway, inner sep=0.5mm]{$41^\circ$};
+	\draw[latex-latex] ($(O)+(0.5:1.5)$)arc(0:-75:1.5)node[fill=white, midway, inner sep=0.5mm]{$75^\circ$};
+	\node[below left] at (A) {$A$};
+	}
+	\parb
+	\begin{align*}
+		\Sigma F_x &= 400\,\text{N}\cd\cos 41^\circ + 900\,\text{N}\cd\cos 75^\circ-F\cos\theta=0\\
+		\Rightarrow F\cos\theta &= 534.82\text{ N}\\\\
+		\Sigma F_y &= 400\,\text{N}\cd\sin 41^\circ - 900\,\text{N}\cd\sin 75^\circ+F\sin\theta=0\\
+		\Rightarrow F\sin\theta &= 606.91\text{ N}\\\\
+		\theta &= \tan^{-1}\left[\frac{F\sin\theta}{F\cos\theta}\right]=\tan^{-1}\left[\frac{606.91}{534.82}\right]=48.613^\circ\\\\
+		F &= \frac{606.91\text{ N}}{\sin 48.613^\circ} = 808.93\text{ N}
+	\end{align*}
+	\parb
+
+	$F=809\,\text{N}$ and $\theta=48.6\deg$
+\end{textblock*}
+
+\end{document}

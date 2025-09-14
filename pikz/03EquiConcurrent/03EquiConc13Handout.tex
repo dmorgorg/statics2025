@@ -1,0 +1,42 @@
+
+\begin{tikzpicture}
+
+	\coordinate (A) at (-2,0);
+	\coordinate (AA) at ($ (A)+(27:4) $);
+	\coordinate (B) at (2,0);
+	\coordinate (BB) at ($ (B)+(125:2.5) $);
+	\path[name path=AC] (A)--(AA);
+	\path[name path=BC] (B)--(BB);
+	\path[name intersections = {of=AC and BC, by=C}];
+
+	\PC{A}{Gray0}{black}{0.325}{0.125}
+	\PC{B}{Gray0}{black}{0.325}{0.125}
+	\fill[Gray0] ($ (A)+(-1,-0.325) $) rectangle ($ (B)+(1,-1) $);
+	\draw ($ (A)+(-1,-0.325) $) rectangle ($ (B)+(1,-0.325) $);
+	\Meme{A}{C}{LightGrey}{LightGrey!50}{black}{0.25}{0.12}{0.125}
+	\Meme{B}{C}{LightGrey}{LightGrey!50}{black}{0.25}{0.12}{0.125}
+	\draw[ultra thick, -latex] (C) -- +(0,-1) node[left]{\footnotesize $7.35\,$kN};
+	\node[above left] at (C) {$ C $};
+	\node[above left] at (A) {$ A $};
+	\node[above right] at (B) {$ B $};
+
+	\draw[thin] ($ (B)-(.25,0) $) -- +(-1,0);
+	\draw[thin] ($ (A)+(.5,0) $) -- +(1,0);
+
+	\draw[latex-latex] ($ (A)+(0:1.325) $) arc (0:27:1.325) node[midway, fill=white, inner sep=0.2mm, xshift=0.5mm] {\footnotesize $27\deg$};
+	\draw[latex-latex] ($ (B)+(125:0.875) $) arc (125:180:0.875) node[midway, fill=white, inner sep=0.3mm] {\footnotesize $55\deg$};
+
+	%  \Meme{A}{B}{Black}{White}{Red}{0.25}{0.125}{0.125}
+
+
+
+
+
+	
+	% \draw (current bounding box.south west) rectangle (current bounding box.north east);
+
+	
+
+\end{tikzpicture}
+
+

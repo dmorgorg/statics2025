@@ -1,5 +1,5 @@
 %\Member{startpt}{endpt}{outer fill color}{inner fill color}{stroke}{height}{radius}{linewidth}
-\providecommand{\Member}[8]{
+\providecommand{\Mem}[8]{
   % name the points
   \coordinate(start) at (#1);
   \coordinate(end) at (#2);
@@ -23,10 +23,20 @@
   \else
     \pgfmathsetmacro{\rot}{\dx > 0 ? atan(\dy / \dx) : 180 + atan(\dy / \dx)}
   \fi
+  \pgfmathparse{\dy==0}%
+  % \ifnum\pgfmathresult=1 % \dx == 0
+  %   \pgfmathsetmacro{\rot}{\dy > 0 ? 0 : 180}
+  % \fi
+
+  \pgfdeclareverticalshading{myshading}{\length pt}{
+    color(0)=(\ofill); color(0.5*\length pt-0.5*\height cm)=(\ofill); color(0.5*\length pt)=(\ifill); color(0.5*\length pt+0.5*\height cm)=(\ofill); color(\length pt)=(\ofill)
+  }
 
   
-  
-  \shadedraw[transform canvas = { rotate around = {\rot:(0,0)}}, line width = \linewidth mm, rounded corners = \radius cm, top color = \ofill, bottom color = \ofill, middle color = \ifill, draw = \stroke] ($ (start)+(-0.5*\height cm, 0.5*\height cm) $) -- ++(\height cm +\length pt, 0 ) -- ++(0, -\height) -- ++ (-\height cm -\length pt, 0) -- cycle;
+  \begin{scope}[shading=myshading] 
+    \shadedraw[rotate around = {\rot:(\sx,\sy)}, line width = \linewidth mm, rounded corners = \radius cm, draw = \stroke, shading angle=\rot] ($ (\sx,\sy)+(-0.5*\height cm, 0.5*\height cm) $) -- ++(\height cm +\length pt, 0 ) -- ++(0, -\height cm) -- ++ (-\height cm -\length pt, 0) -- cycle;
+    %  \node[below] at (\sx, \sy) {\length};
+  \end{scope}
 
 %  \pgfresetboundingbox
   \shadedraw[ball color = \ofill!50!\ifill, draw = \stroke] (start) circle (\height/8);

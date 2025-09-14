@@ -1,0 +1,37 @@
+
+\begin{tikzpicture}
+	\small
+	\coordinate (A) at (-2,0);
+	\coordinate (AA) at ($ (A)+(27:4) $);
+	\coordinate (B) at (2,0);
+	\coordinate (BB) at ($ (B)+(125:2.5) $);
+	\path[name path=AC] (A)--(AA);
+	\path[name path=BC] (B)--(BB);
+	\path[name intersections = {of=AC and BC, by=C}];
+
+	\PC{A}{DarkSeaGreen4}{black}{0.325}{0.125}
+	\PC{B}{DarkSeaGreen4}{black}{0.325}{0.125}
+	\fill[DarkSeaGreen4] ($ (A)+(-1,-0.325) $) rectangle ($ (B)+(1,-1) $);
+	\draw ($ (A)+(-1,-0.325) $) rectangle ($ (B)+(1,-0.325) $);
+	\Meme{A}{C}{Wheat4}{Wheat1}{black}{0.25}{0.12}{0.125}
+	\Meme{B}{C}{Wheat4}{Wheat1}{black}{0.25}{0.12}{0.125}
+	\draw[ultra thick, statsMaroon, -latex] (C) -- +(0,-1) node[left]{$7.35\,$kN};
+	\node[above left] at (C) {\large $ C $};
+	\node[above left] at (A) {\large $ A $};
+	\node[above right] at (B) {\large $ B $};
+
+	\draw[thin] ($ (B)-(.25,0) $) -- +(-1,0);
+	\draw[thin] ($ (A)+(.5,0) $) -- +(1,0);
+
+	\draw[latex-latex] ($ (A)+(0:1.325) $) arc (0:27:1.325) node[midway, fill=white, inner sep=0.2mm, xshift=0.5mm] {\footnotesize $27\deg$};
+	\draw[latex-latex] ($ (B)+(125:0.875) $) arc (125:180:0.875) node[midway, fill=white, inner sep=0.3mm] {\footnotesize $55\deg$};
+	
+	
+
+	% \draw (current bounding box.south west) rectangle (current bounding box.north east);
+
+	
+
+\end{tikzpicture}
+
+

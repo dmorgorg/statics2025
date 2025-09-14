@@ -1,0 +1,44 @@
+
+\begin{tikzpicture}
+
+	\coordinate (C) at (0,0);
+	\coordinate (B) at ($ (C)+(-15:5.176) $);
+	\coordinate (A) at ($ (C)+(-55:8.717) $);
+	\coordinate (D) at ($ (C)+(0,-3) $);
+
+	\gettikzxy{(A)}{\ax}{\ay}
+  \gettikzxy{(B)}{\bx}{\by}
+  \gettikzxy{(C)}{\cx}{\cy}
+
+	\PC[90]{B}{Gray!50}{black}{0.67}{0.125}
+	\PC[90]{A}{Gray!50}{black}{0.67}{0.125}
+
+	\fill[Gray0] ($ (\bx+0.67cm, \cy+1cm) $) rectangle ($ (\ax+2cm, \ay-2cm) $);
+	\draw[thin]  ($ (\bx+0.67cm, \cy+1cm) $) -- ($ (\bx+0.67cm, \ay-2cm) $);
+	
+	\Meme{C}{A}{Gray}{White}{black}{0.5}{0.24}{0.125}	
+	\Meme{C}{D}{Gray}{White}{black}{0.2}{.1}{0.125}
+	\Meme{C}{B}{Gray}{White}{black}{0.5}{0.24}{0.125}
+
+	\filldraw[rounded corners, fill=Gray0] ($ (D)+(-0.5,-1.5) $) rectangle ($ (D)+(0.5,1.5) $);
+	\shadedraw[ball color=gray!40!black] (D) circle (.3cm);
+	\shadedraw[ball color=gray!50] ($(D)+(0,0.75)$) circle (.3cm);
+	\shadedraw[ball color=gray!40!black] ($(D)+(0,-0.75)$) circle (.3cm);
+	\node at ($ (D)-(-0.5,2) $) {\large $ 123\,$kg};
+
+	\draw[Latex-Latex] ($ (B)+(-15:0.6936)+(0,1.25) $) arc (90:165:1.25) node[midway,fill=white] {\large $78\deg$};
+	\draw[Latex-Latex] ($ (A)+(-55:1.168)+(0,2.4) $) arc (90:125:2.4) node[midway,fill=white] { \large$30\deg$};
+
+	\small
+	
+	\shadedraw [draw=black] (B) circle (0.1cm) node[ xshift=-0.4cm, yshift=-0.5cm] {\Large$A$};
+	\shadedraw [draw=black] (A) circle (0.1cm) node[ xshift=-0.4cm, yshift=-0.5cm] {\Large$B$};
+	\shadedraw [draw=black] (C) circle (0.1cm) node[ xshift=-0.5cm, yshift=-0.1cm] {\Large$C$};
+
+	\pgfresetboundingbox
+	\draw[white] (\cx-1.5cm, \cy+1cm) rectangle (\ax+2cm, \ay-2cm);
+	
+
+\end{tikzpicture}
+
+

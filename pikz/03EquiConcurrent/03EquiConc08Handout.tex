@@ -1,0 +1,25 @@
+\tikz{%color
+				
+				\coordinate (J) at (2,0);
+				\coordinate (A) at ($ (J)+(160:2) $);
+				\coordinate (G) at ($ (J)+(-4:5) $);
+				\coordinate (B) at ($ (G)+(16:2) $);
+				\draw[thick] (A)--(J)--(G)--(B);
+				\path ($ (current bounding box.south west)+(-0.5,-0.5) $) rectangle  ($ (current bounding box.north east)+(0.5,1.25) $);
+				
+				\node[below left] at (J) {J};
+				\node[below right] at (G) {G};
+				\node[below left] at (A) {A};
+				\node[below right] at (B) {B};
+				\draw[thin, gray] ($ (J)+(0,-0.25) $) -- +(0,-1);
+				\draw[ultra thick, -latex] (G) -- +(0,-1.5) node[black, below,yshift=0.125cm] {\small $780\,$N};
+
+				\draw[thin, {Latex[length=3pt]}-{Latex[length=3pt]}] ($ (J)+(0,-0.875) $) arc [start angle =-90, end angle=-4, radius = 0.875] node[fill=white, midway, inner sep=0.75mm] {\small $ 86\deg $};
+				\draw[thin, {Latex[length=3pt]}-{Latex[length=3pt]}] ($ (J)+(0,-0.875) $) arc [start angle =270, end angle=160, radius = 0.875] node[fill=white, midway, inner sep=0.75mm] {\small $ 110\deg $};
+				\draw[thin, {Latex[length=3pt]}-{Latex[length=3pt]}] ($ (G)+(0,-0.875) $) arc [start angle =-90, end angle=16, radius = 0.875] node[fill=white, midway, inner sep=0.75mm] {\small $ 106\deg $};
+				\draw[thin, {Latex[length=3pt]}-{Latex[length=3pt]}] ($ (G)+(0,-0.875) $) arc [start angle =270, end angle=176, radius = 0.875] node[fill=white, midway, inner sep=0.75mm] {\small $ 94\deg $};
+				% \draw[red, thin] (current bounding box.south west) rectangle (current bounding box.north east);
+			}	
+
+      
+		

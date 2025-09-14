@@ -9,6 +9,8 @@
 \input{../../includes/EyeBolt.tex}
 \input{../../includes/EyeConnection.tex}
 \input{../../includes/Member}
+\input{../../includes/Mem}
+\input{../../includes/Meme}
 \input{../../includes/PC}
 \input{../../includes/Ring}
 \input{../../includes/Pulley}
@@ -16,6 +18,7 @@
 \input{../../includes/PulleyC}
 \input{../../includes/Luke.tex}
 \input{../../includes/Skywalker.tex}
+% \input{../../includes/includesExisting/tikzObjects.tex}
 
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{\medskipamount}
@@ -59,7 +62,7 @@
 % \newcounter{myexercisecounter}
 
 % Title page details: 
-\title[Equilibrium of a Particle/Concurrent Forces]{\Huge 03 Equilibrium of a Particle \\(Concurrent Forces)}
+\title[Equilibrium of a Particle / Concurrent Forces]{\Huge 03 Equilibrium of a Particle \\(Concurrent Forces)}
 \subtitle[Engineering Statics]{\Large\textcolor{white}{Engineering Statics}}
 \author{}
 \date{\small Updated on: \today}
@@ -78,6 +81,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+
 \begin{frame}{Statics and Equilibrium}
 	\small
 	\begin{itemize}
@@ -92,7 +96,7 @@
 
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}{Conditions for Equilibrium }
 	\def\scale{0.85}
@@ -133,8 +137,6 @@
 		\end{itemize}
 	}
 	\hfill
-	% left-aligned minipage with text raggedright
-	%mini[width]{content}
 	\mini[0.35]{
 		\cfig[0.2]{../../images/unicycle}
 		\centering\tiny
@@ -180,7 +182,6 @@
 		}
 	\end{textblock*}
 
-
 	\begin{textblock*}{1\textwidth}(2.3cm,1.7cm)
 		\tikz{
 			\uncover<2>{
@@ -197,7 +198,6 @@
 		}
 	\end{textblock*}
 
-
 \end{frame}
 
 
@@ -212,8 +212,6 @@
 		\end{itemize}\parm
 	}
 	\vspace{-1em}
-	% left-aligned minipage with text raggedright
-	%mini[width]{content}
 	\mini[0.45]{
 		\def\scale{0.65}
 		\tcb{\input{../../pikz/02ForceVectors/fv27.tex}}
@@ -239,7 +237,6 @@
 
 \begin{frame}{Actions \& Reactions (Forces Acting on the Pin)}
 
-	%\begin{textblock*}{width, e.g. 3cm}(x-coord eg 1cm, ycoord eg -0.5cm)
 	\begin{textblock*}{0.5\textwidth}(6cm, 4.5cm)
 		\tikz{
 			\node[inner sep=0pt](photo) at (0,0){
@@ -269,15 +266,12 @@
 
 	\begin{textblock*}{0.5\textwidth}(9.27cm, 4.45cm)
 		\tikz[line cap=round]{
-			% \begin{scope}[xshift=4cm, yshift=-1cm]
-			%\fill[cyan] (0,0) circle (5pt);
 			\uncover<4->{
 				\draw[scale=0.7, line width=1mm, green, latex-] (0,0) -- +(0,2);
 			}
 			\uncover<5->{
 				\draw[scale=0.7, line width=1mm, saitRed, latex-] (0,0) -- +(0,-2);
 			}
-			% \end{scope}
 		}
 	\end{textblock*}
 
@@ -381,7 +375,6 @@
 			
 		}
 		\hfill
-		% \vspace{-0.5cm}
 		\mini[0.55]{
 						
 			% \begin{overlayarea}{\columnwidth}{6.75cm}%l}
@@ -474,7 +467,7 @@
 \end{frame}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}{Solving a Concurrent Force System}
 
@@ -820,56 +813,13 @@
 
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \begin{frame}{Pulley Tests}
-% 	\tikz{%color
-% 		\coordinate (A) at (0,0);
-% 		\coordinate (B) at (4,0);
-% 		\coordinate (C) at (8,0);
 
-% 		\Pulley {A}{green}{black}{1}{0.125}
-% 		\PulleyB {B}{green}{black}{1}{0.125}
-% 		\PulleyC {C}{green}{black}{1}{0.5}{1}{0.125}
-% 	}
 
-% \end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \begin{frame}{Skywalker Test}
-% 	\begin{myexer}{}{}
-% 		\centering
-% 		\tikz{%color
-% 			\coordinate (0) at (0,0);
-% 			\coordinate (A) at (0,3);
-% 			\coordinate (B) at (3,3);
-% 			\Skywalker[0.5]{B}{Maroon}{Maroon}{Black}{Gainsboro!50}{0.5}{.25}	
-% 			\Skywalker[-0.5]{A}{Maroon}{Maroon}{Black}{Gainsboro!50}{0.5}{.25}	
-% 		}
-% 	\end{myexer}
-	
 
-	
-% \end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \begin{frame}{Another test}
-	
-% 	\begin{myexer}{}{}
-% 		\centering
-% 		\tikz{%color
-% 		  \coordinate (J) at (1,0);
-% 			\coordinate (A) at ($ (J)+(160:2) $);
-% 			\coordinate (G) at ($ (J)+(-4:5) $);
-% 			\coordinate (B) at ($ (G)+(16:2) $);
-% 			\draw[thick] (A)--(J)--(G)--(B);
-% 			\Skywalker{G}{Maroon}{Green}{Black}{Gainsboro!50}{.5}{10.25}
-% 			\Luke{J}{Green}{Maroon}{Black}{Gainsboro!50}{1}{2.5}
-% 		}
-% 	\end{myexer}
-	
-% \end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
 
@@ -925,7 +875,44 @@
 
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+	
+		\begin{myexam}{}{}
+			\mini[0.45]{
+				\raggedright
+				Determine the internal forces in rigid members $AC$ and $BC$. Specify whether they are in tension or compression.
+			}
+			\hfill
+			\mini[0.45]{
+				\input{../../pikz/03EquiConcurrent/03EquiConc12.tex}
+			}
+		\end{myexam}
+	
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{frame}
+
+		\begin{myexer}{}{}
+			\mini[0.35]{
+				\raggedright
+				Determine the internal forces in rigid members $AC$ and $BC.$ Specify whether they are in
+				tension or compression.
+			}
+			\hfill
+			\mini[0.6]{
+				\centering
+				\input{../../pikz/03EquiConcurrent/03EquiConc13.tex}
+			}
+		\end{myexer}
+	
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}{Cables and Pulleys}
 	\cmini[0.9]{
@@ -959,7 +946,7 @@
 	}
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
 	\begin{myexer}{}{}
@@ -967,7 +954,7 @@
 			\centering
 			\input{../../pikz/03EquiConcurrent/03EquiConc05}
 			\parb
-			Cylinder $E$ has a mass of $28$ kg. The system is in equilibrium. Determine the mass of $A$ and the reactions at $C$ and $E$.
+			Cylinder $B$ has a mass of $28$ kg. The system is in equilibrium. Determine the mass of $A$ and the reactions at $C$ and $E$.
 			
 			
 		}
@@ -1007,11 +994,11 @@
 
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \end{document}
 

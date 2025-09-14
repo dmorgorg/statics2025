@@ -1,0 +1,257 @@
+\documentclass[10pt,oneside]{article}
+
+\usepackage{amsmath}
+\usepackage{bm}
+\usepackage{mathpazo}
+\usepackage{graphicx}
+\usepackage{enumerate}
+\usepackage[x11names, svgnames]{xcolor} % for \definecolor
+
+\usepackage[letterpaper]{geometry}
+\geometry{verbose,tmargin=0.25in,bmargin=0.5in,lmargin=1in,rmargin=1.15in}
+
+\input{../../includes/definedColors.tex}
+\input{../../includes/macros.tex}
+\input{../../includes/Member.tex}
+\input{../../includes/Meme.tex}
+\input{../../includes/PC.tex}
+\input{../../includes/EyeConnection.tex}
+\input{../../includes/EyeBolt.tex}
+\input{../../includes/Skywalker.tex}
+\input{../../includes/PulleyC.tex}
+\input{../../includes/Pulley.tex}
+\input{../../includes/Ring.tex}
+
+% https://tex.stackexchange.com/questions/731957/how-to-supress-missing-character-there-is-no-u003b-in-font-nullfont
+\tracinglostchars=1
+
+\hfuzz=150pt
+\setlength{\parindent}{0pt}
+\def\scale{1}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% page 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{textblock*}{7.25in}(1in, 0.4in)
+	\begin{tikzpicture}[line width=0.1mm]
+		\draw[color=gray!50, step=0.25in] (0,0) grid +(7.25in,10.25in);
+	\end{tikzpicture}
+\end{textblock*}
+
+
+\begin{textblock*}{6.775in}(1in, 0.225in)
+  \cbox{
+    \centering\huge
+    \textbf{Engineering Statics - 03 Equilibrium of a Particle / Concurrent Forces Handout}
+  }
+\end{textblock*}
+
+\begin{textblock*}{2.5in}(1in, 1.25in)
+	\cbox{
+		\underline{Exercise 1} \parm
+		The trolley can move freely along the horizontal beam on frictionless rollers. Currently, it is in equilibrium. Determine the reaction at A..
+		\parb
+		\centering
+		\scalebox{0.875}{
+			
+			\scalebox{.8}{
+				\centering
+				\input{../../pikz/03EquiConcurrent/03EquiConc04Handout.tex}
+			}			
+		}
+	}
+\end{textblock*}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% page 2 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+~\newpage
+\begin{textblock*}{7.25in}(1in, 0.4in)
+	\begin{tikzpicture}[line width=0.1mm]
+		\draw[color=gray!50, step=0.25in] (0,0) grid +(7.25in,10.25in);
+	\end{tikzpicture}
+\end{textblock*}
+
+\begin{textblock*}{4in}(1in, 0.2in)
+	\cbox{
+		\underline{Exercise 2} \parm
+		Jacques and Gilles are high-wire artistes. Gille weighs $780\,$N. How much does Jacques weigh?
+		\begin{center}
+			\input{../../pikz/03EquiConcurrent/03EquiConc08Handout.tex}
+		\end{center}
+	}
+\end{textblock*}
+\begin{textblock*}{2cm}(5.725cm, 5cm)
+	\tikz{%color
+		\coordinate (origin) at (0,0);
+		\Skywalker[0.625]{origin}{Gray}{Gray}{Black}{white}{0.5}{.25}
+	}
+\end{textblock*}
+\begin{textblock*}{2cm}(10.74cm, 5.325cm)
+	\tikz{%color
+		\coordinate (origin) at (0,0);
+		\Skywalker[-0.75]{origin}{Gray}{Gray}{Black}{white}{0.55}{.25}
+	}
+\end{textblock*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% page 3
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+.\newpage
+\begin{textblock*}{7.25in}(1in, 0.4in)
+	\begin{tikzpicture}[line width=0.1mm]
+		\draw[color=gray!50, step=0.25in] (0,0) grid +(7.25in,10.25in);
+	\end{tikzpicture}
+\end{textblock*}
+
+\begin{textblock*}{4in}(1in, 0.25in)
+	\cbox{
+		\underline{Example 3} \parm
+		Determine the internal forces in members $AC$ and $BC$. \lb Specify whether they are in tension or compression.
+
+	}
+\end{textblock*}
+\begin{textblock*}{2.25in}(5.525in, 0.25in)
+	\cbox{
+		\centering
+		\scalebox{0.6}{\input{../../pikz/03EquiConcurrent/03EquiConc12Handout.tex}}
+		
+	}
+\end{textblock*}
+\begin{textblock*}{3.5in}(1in, 6in)
+	\cbox{
+		\underline{Exercise 3} \parm
+		Determine the internal forces in members $AC$ and $BC$. Specify whether they are in tension or compression.
+
+	}
+\end{textblock*}
+\begin{textblock*}{2.75in}(5.025in, 6in)
+	\cbox{
+		\centering
+	\input{../../pikz/03EquiConcurrent/03EquiConc13Handout.tex}
+		
+	}
+\end{textblock*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% page 4
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+.\newpage
+\begin{textblock*}{7.25in}(1in, 0.4in)
+	\begin{tikzpicture}[line width=0.1mm]
+		\draw[color=gray!50, step=0.25in] (0,0) grid +(7.25in,10.25in);
+	\end{tikzpicture}
+\end{textblock*}
+
+\begin{textblock*}{3in}(1in, 0.2in)
+	\cbox{
+		\underline{Example 4} \parm
+		Determine $\theta$. Then find the tension in the rope and the pulley
+		reaction at $B$ due to the suspended mass.
+
+	}
+\end{textblock*}
+\begin{textblock*}{3.25in}(4.525in, 0.2in)
+	\cbox{
+		\centering
+		\def\scale{0.8}
+		\input{../../pikz/03EquiConcurrent/03EquiConc07Handout.tex}
+	}
+\end{textblock*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% page 5
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+~\newpage
+\begin{textblock*}{7.25in}(1in, 0.4in)
+	\begin{tikzpicture}[line width=0.1mm]
+		\draw[color=gray!50, step=0.25in] (0,0) grid +(7.25in,10.25in);
+	\end{tikzpicture}
+\end{textblock*}
+
+
+\begin{textblock*}{3in}(1in, 0.2in)
+	\cbox{
+		\underline{Exercise 4} \parm
+		Cylinder $B$ has a mass of 28 kg. The system is in equilibrium.
+		Determine the mass of $A$ and the reactions at $C$ and $E$.
+
+	}
+\end{textblock*}
+\begin{textblock*}{3.25in}(4.525in, 0.2in)
+	\cbox{
+		\centering
+		\def\scale{0.8}
+		\input{../../pikz/03EquiConcurrent/03EquiConc05Handout.tex}
+	}
+\end{textblock*}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% page 6
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+~\newpage
+\begin{textblock*}{7.25in}(1in, 0.4in)
+  % \textblockcolor{pink}
+	\begin{tikzpicture}[line width=0.1mm]
+		\draw[color=gray!50, step=0.25in] (0,0) grid +(7.25in,10.25in);
+	\end{tikzpicture}
+\end{textblock*}
+
+\begin{textblock*}{3in}(1in, 0.2in)
+	\cbox{
+		\underline{Example 5} \parm
+		Determine the maximum weight $W$ of the bucket that the system can support given that no single wire may support more than $450\,$N. Determine $R_C$, the reaction at $C$, for this value of $W$.
+
+	}
+\end{textblock*}
+\begin{textblock*}{3.25in}(4.525in, 0.2in)
+	\cbox{
+		\centering
+		\def\scale{0.8}
+		\input{../../pikz/03EquiConcurrent/03EquiConc09Handout.tex}
+	}
+\end{textblock*}
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% page 5
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+.\newpage
+
+\begin{textblock*}{7.25in}(1in, 0.4in)
+  % \textblockcolor{pink}
+	\begin{tikzpicture}[line width=0.1mm]
+		\draw[color=gray!50, step=0.25in] (0,0) grid +(7.25in,10.25in);
+	\end{tikzpicture}
+\end{textblock*}
+\begin{textblock*}{3.1275in}(1in, 0.225in)
+	\cbox{
+		\underline{Exercise 5} \parm
+		The tension in cable $AC$ is $400\,$N. Determine the force $F$ necessary to hold the ring $A$ in the position shown..
+
+	}
+\end{textblock*}
+\begin{textblock*}{3.125in}(4.65in, 0.225in)
+	
+	\cbox{
+		\centering
+		\def\scale{0.7}		
+		\input{../../pikz/03EquiConcurrent/03EquiConc10Handout.tex}
+	}
+\end{textblock*}
+
+
+
+\end{document}

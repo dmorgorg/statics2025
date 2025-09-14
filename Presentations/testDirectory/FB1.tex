@@ -1,0 +1,149 @@
+\documentclass[10pt,oneside]{article}
+
+\input{../../includes/macros.tex}
+\input{../../includes/definedColors.tex}
+\input{../../includes/Member.tex}
+\input{../../includes/PC.tex}
+
+\usepackage{mathpazo}
+\usepackage[letterpaper]{geometry}
+\geometry{verbose,tmargin=0.25in,bmargin=0.5in,lmargin=1in,rmargin=1.15in}
+\hfuzz 50pt
+\setlength{\parindent}{0pt}
+\Large
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% page 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+% \begin{textblock*}{8in}(0in, 0.25in)
+	
+	% \cbox{
+		
+		% \mini[0.5]{
+			% \cbox{
+			\centering
+			\tikz{%color
+			\coordinate (O) at (0,0);
+			
+			\filldraw[fill=Gray0!30, draw=black, thick] (O) -- +(5,0) arc (0:180:5)-- cycle;
+			\filldraw[DarkOliveGreen2, draw=Black, thick] ($ (O)+(30:5) $) arc (30:60:5) -- ($ (O)+(120:5) $) arc (120:150:5) -- cycle;
+			\filldraw[Gold2, draw=Black, thick] ($ (O)+(60:5) $) arc (60:120:5) -- cycle;
+			
+			\fill (O) circle (1mm) node[below left] {$O$};
+			\draw ($ (O)+(0,-.5) $) -- +(0,6);
+			\draw (O) -- +(30:5);
+			\draw (O) -- +(60:5);
+			\draw ($ (O)+(14:4.8) $) -- ($ (O)+(14:5.2) $) ;
+			\draw ($ (O)+(16:4.8) $) -- ($ (O)+(16:5.2) $) ;
+			\draw ($ (O)+(44:4.8) $) -- ($ (O)+(44:5.2) $) ;
+			\draw ($ (O)+(46:4.8) $) -- ($ (O)+(46:5.2) $) ;
+			\draw ($ (O)+(74:4.8) $) -- ($ (O)+(74:5.2) $) ;
+			\draw ($ (O)+(76:4.8) $) -- ($ (O)+(76:5.2) $) ;
+
+			\node at ($ (O)+(14:1.25) $) {$30\deg$};
+			\node at ($ (O)+(42:1.25) $) {$30\deg$};
+			\node at ($ (O)+(72:1.25) $) {$30\deg$};
+
+			\node at ($ (O)+(150:5.325) $) {$A$};
+			\node at ($ (O)+(30:5.325) $) {$A'$};
+			\node at ($ (O)+(120:5.325) $) {$B$};
+			\node at ($ (O)+(60:5.325) $) {$B'$};
+		}
+		
+	%  }}
+	%  \hfill
+	 \cmini[0.6]{
+		% \cbox{
+		The 'gold' area is given by 
+		$$ A = \frac{(\theta-\sin\theta)D^2}{8} $$
+		where $\theta$ is the angle subtended at $O$ by $BB'$, in radians ($\pi/3$) and $D$ is the diameter ($ 12  $). 
+		\begin{align*}
+			A_{Gold} &= \frac{\left(\frac{\pi}{3}-\sin 60\deg\right)(24)^2}{8} \\
+				&= 13.044
+		\end{align*}
+		(Yes, I know I'm mixing units here but $\sin 60\deg=\sin \frac{\pi}{3}$ radians and I like to keep my calculator in degree mode -- because I have a habit of forgetting to return to degree mode...)
+		\parm
+		Similarly, the 'gold and green' areas are given by:
+		\begin{align*}
+			A_{Green+Gold} &= \frac{\left(\frac{2\pi}{3}-\sin 120\deg\right)(24)^2}{8} \\
+				&= 88.443
+		\end{align*}
+		So, the 'green' area ($AA'B'B$) is simply the difference between the two areas:
+		$$ A_{Green} = 88.443-13.044 = 75.399 $$
+		But the original question only wants half of this so the answer is 37.7 units.
+	
+		% }
+	 }
+		\newpage
+	 \tikz[scale=1]{
+			\coordinate (O) at (0,0);
+			
+			\filldraw[fill=Gray0!30, draw=black, thick] (O) -- node[midway, below]{12} +(5,0) arc (0:90:5)-- cycle;
+			\filldraw[DarkOliveGreen2, draw=Black, thick] ($ (O)+(30:5) $) arc (30:60:5) -- (0, 4.331) --(0,2.5) -- cycle;
+			
+			
+			\fill (O) circle (1mm) node[below left] {$O$};
+			\draw ($ (O)+(0,-.5) $) -- +(0,6);
+			\draw (O) -- +(30:5);
+			\draw (O) -- +(60:5);
+			\draw ($ (O)+(14:4.8) $) -- ($ (O)+(14:5.2) $) ;
+			\draw ($ (O)+(16:4.8) $) -- ($ (O)+(16:5.2) $) ;
+			\draw ($ (O)+(44:4.8) $) -- ($ (O)+(44:5.2) $) ;
+			\draw ($ (O)+(46:4.8) $) -- ($ (O)+(46:5.2) $) ;
+			\draw ($ (O)+(74:4.8) $) -- ($ (O)+(74:5.2) $) ;
+			\draw ($ (O)+(76:4.8) $) -- ($ (O)+(76:5.2) $) ;
+
+			\node at ($ (O)+(15:1.125) $) {$\frac{\pi}{6}$};
+			\node at ($ (O)+(45:1.125) $) {$\frac{\pi}{6}$};
+			\node at ($ (O)+(75:1.125) $) {$\frac{\pi}{6}$};
+			\node at ($ (O)+(35:3.8) $) {$\frac{\pi}{6}$};
+			\node at ($ (O)+(53:2.675) $) {$\frac{2\pi}{3}$};
+
+			\draw[thick] ($ (0.945,1.75)+(150:0.1) $) -- ($ (0.945,1.75)+(150:-0.2) $);
+			\draw[thick] ($ (47:3.4)+(0,0.15) $) -- ($ (47:3.4)+(0,-0.15) $);
+
+			\node[below] at ($ (O)+(5,0) $) {$A$};
+			\node at ($ (O)+(30:5.325) $) {$B$};
+			\node at ($ (O)+(60:5.325) $) {$C$};
+			\node[left] at ($ (O)+(90:4.331) $) {$D$};
+			\node[left] at ($ (O)+(90:2.5) $) {$E$};
+			\node[below] at ($ (O)+(66:3.25) $) {$F$};
+			
+			\node[below] at ($ (O)+(50:4.5) $) {$\bm A_1$};
+			\node[below] at ($ (O)+(75:4) $) {$\bm A_2$};
+		}
+		\cmini[0.6]{
+			% Or, more geometrically:
+			\begin{align*} 
+				\bm{A_1} &= \text{Area }OBC - \text{Area }OBF \\
+				\text{Area }OBC &= \frac{\pi/6}{2\pi}\cdot \pi(12)^2 = 12\pi \\
+				\intertext{For $\triangle OBF$:}			
+				\frac{BF}{\sin \pi/6} &= \frac{12}{\sin 2\pi/3} \\
+				\Rightarrow \frac{BF}{1/2} &= \frac{12}{\sqrt{3}/2} \\
+				\Rightarrow BF &= \frac{12}{\sqrt{3}} \\
+				OE &= 12\cos \pi/3 = 6 \\
+				\Rightarrow \text{Area }\triangle OBF &= \frac 12\cd\left(\frac{12}{\sqrt{3}}\right)\cd 6= \frac{36}{\sqrt{3}}
+				\intertext{Thus:}
+				\bm{A_1} &= 12\pi-\frac{36}{\sqrt{3}}
+				\intertext{Now, for $\bm{A_2}$}			
+				OD &= 12\cos \pi/6 = 12\cd \frac{\sqrt{3}}{2}=6\sqrt{3} \\
+				\Rightarrow DE &= OD-OE = 6\sqrt{3}-6 \\
+				CD &= 12\sin \pi/6 = 6 \\[0.125cm]
+				BE &= 12\cos \pi/6 = 6\sqrt{3} \\
+				\Rightarrow \text{Area }\triangle OCD &= \frac 12\cd CD \cd OD = \frac 12 \cd 6\cd 6\sqrt{3}=18\sqrt{3} \\
+				\text{ and area }\triangle OEF &= \frac 12\cd EF \cd OE = \frac 12 \cd \left(6\sqrt{3}-\frac{12}{\sqrt{3}}\right)\cd 6 \\
+				&= 18\sqrt{3}- \frac{36}{\sqrt{3}} \\
+				\Rightarrow \bm{A_2} &= 18\sqrt{3}-18\sqrt{3}+\frac{36}{\sqrt{3}}= \frac{36}{\sqrt{3}}\\
+				\text{Finally, } \bm{A_1+A_2} &= 12\pi - \frac{36}{\sqrt{3}}+\frac{36}{\sqrt{3}}=\bm{12\pi}
+			\end{align*}
+
+
+
+		}
+
+\end{document}

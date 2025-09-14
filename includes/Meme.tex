@@ -1,0 +1,88 @@
+%\Member{startpt}{endpt}{outer fill color}{inner fill color}{stroke}{height}{radius}{linewidth}
+\providecommand{\Meme}[8]{
+  \coordinate(start) at (#1);
+  \coordinate(end) at (#2);
+  \edef\ofill{#3}%
+  \edef\ifill{#4}%
+  \edef\stroke{#5}%
+  \edef\height{#6} % cm
+  \edef\radius{#7} % cm, should be half \height or less
+  \edef\linewidth{#8} % mm
+
+  
+
+
+  \coordinate(delta) at ($ (end)-(start) $);
+  \gettikzxy{(delta)}{\dx}{\dy}
+  \gettikzxy{(start)}{\sx}{\sy}
+  \gettikzxy{(end)}{\ex}{\ey}
+  \pgfmathparse{veclen(\dx, \dy)} \let\length\pgfmathresult
+  \pgfmathparse{\height*28.435} \let\heightpt\pgfmathresult
+  \pgfmathparse{\heightpt/\length} \let\ratio\pgfmathresult
+  \pgfmathparse{1/\ratio} \let\inverse\pgfmathresult
+  
+
+  \pgfmathparse{\dx==0}%
+  % \ifnum low-level TeX for integers
+  \ifnum\pgfmathresult=1 % \dx == 0
+    \pgfmathsetmacro{\rot}{\dy > 0 ? 90 : -90}
+  \else
+    \pgfmathsetmacro{\rot}{\dx > 0 ? atan(\dy / \dx) : 180 + atan(\dy / \dx)}
+  \fi
+
+  \pgfmathparse{round(mod(abs(\rot),90))} \let\tmp\pgfmathresult
+  \pgfmathsetmacro{\rotmod}{\tmp>45?90-\tmp:\tmp}
+  \pgfmathparse{(0.007*\rotmod-0.315)/45+1.017} \let\rotfudge\pgfmathresult
+
+  % \pgfmathparse{mod(abs(\rot),90)} \let\moded\pgfmathresult
+  % \ifthenelse{\moded>45}{
+  %   \pgfmathparse{90-\moded} \let\rotmod\pgfmathresult    
+  % }{
+  %   \pgfmathparse{div(\moded,1)} \let\rotmod\pgfmathresult   
+  % }
+
+
+  
+  \pgfmathparse{1+3.62/(1+(\inverse/0.714)^1.69)} \let\fudge\pgfmathresult
+  \pgfmathparse{50*(1-\ratio)*\fudge*\rotfudge} \let\colorstop\pgfmathresult
+  \pgfmathparse{(100-\colorstop)} \let\colorstoptwo\pgfmathresult
+
+  \pgfdeclareverticalshading{myshade}{100bp}{%
+					color(0bp)=(\ofill);
+					% color(\colorstop bp)=(\ofill);
+					color(\colorstop bp)=(\ofill);
+					color(50 bp)=(\ifill);
+					color(\colorstoptwo bp)=(\ofill);
+					color(100bp)=(\ofill)}
+
+  % \tikzset{shading=myshade}
+
+  \begin{scope}[rotate around = {\rot:(start)}, rounded corners = \radius cm, shading angle=\rot]
+    \begin{scope} 
+      \path[clip]($ (start)+(-0.5*\height, 0.5*\height cm) $) rectangle +(\length pt+\height cm, -\height);
+      \shade[shading=myshade] ($ (start)+(-0.5*\height, 0.5*\length pt) $) rectangle +(\length pt+\height cm, -\length pt);
+    \end{scope}
+  \draw[line width=\linewidth, \stroke] ($ (start)+(-0.5*\height, 0.5*\height cm) $) rectangle +(\length pt+\height cm, -\height);
+
+  % \shadedraw[top color=\ofill, bottom color=\ofill, middle color=\ifill, rotate around = {\rot:(start)}, draw=\stroke, rounded corners = \radius cm, , shading angle=\rot] ($ (start)+(-0.5*\height cm, 0.5*\length pt) $) rectangle +(\length pt+\height cm, -\length pt);
+  \end{scope}
+
+  % \pgfresetboundingbox
+
+
+  % \node[orange] at (0,-1) {rot: \rot};  
+  % \node[orange] at (0,-1.5) {rotmod: \rotmod};  
+  % \node[orange] at (0,-2) {rotfudge: \rotfudge};  
+  % \node[orange] at (-2,-1) {stop2: \colorstoptwo};  
+  % \node[orange] at (-2,-1.5) {l/h: \inverse};  
+  % \node[orange] at (-2,-2) {fudge: \fudge};  
+
+ 
+  
+  \shade[ball color=\ofill] (start) circle (\height/4);
+  \shade[ball color=\ofill] (end) circle (\height/4);
+
+  % \draw(current bounding box.south west) rectangle (current bounding box.north east);
+
+
+}

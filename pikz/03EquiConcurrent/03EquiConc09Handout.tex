@@ -1,0 +1,49 @@
+% !TEX root = ../../Beamer/03EquilibriumOfAParticle/03Equilibrium.tex
+
+\tikz[line cap=round, scale=\scale]{
+	\coordinate (A) at (0,0);
+	\coordinate (B) at (2,0);
+	\coordinate (C) at (6,2);
+	\coordinate (D) at (4,-2);
+	\coordinate (E) at (4,-3.5);
+
+
+
+
+
+  \Ring{B}{LightGrey}{LightGrey}{0.25}{0.125}{0.02}
+  \Ring{D}{LightGrey}{LightGrey}{0.25}{0.125}{0.02}
+
+  \EyeConnection[-90]{A}{LightGrey!50}{black}{0.75}{0.5}
+  \EyeConnection[90]{C}{LightGrey!50}{black}{0.75}{0.5}
+
+  \draw[ultra thick, Black] ($(B)+(0.05,-0.05)$) -- ($(D)+(-0.05,0.05)$);
+  \draw[ultra thick, Black] ($(A)+(0.05,0)$) -- ($(B)+(-0.0875,0)$);
+  \draw[ultra thick, Black] ($(B)+(30:0.05)$) -- ($(C)+(210:0.05)$);
+  \draw[ultra thick, Black] ($(D)+(63:0.05)$) -- ($(C)+(243:0.05)$);
+  \draw[ultra thick, Black] ($(D)+(0,-0.05)$) -- +(0,-1);
+
+	\filldraw[left color=LightGrey, right color=LightGrey, middle color=LightGrey!5] (E)-- ++(-0.5,0)-- ++(0.25,-1)-- ++(0.5,0)-- ++(0.25,1) -- cycle;
+
+	\draw[thick] ($(E)+(0.5,0)$)arc(0:180:0.5);
+
+  \fill[left color=LightGrey!40, right color=LightGrey] ($(A)+(-0.25,1)$) rectangle ($(A)+(-1,-2)$);
+	\draw ($(A)+(-0.25,1)$) rectangle ($(A)+(-0.25,-2)$);
+  \fill[right color=LightGrey!40, left color=LightGrey] ($(C)+(0.25,1)$) rectangle ($(C)+(1,-2)$);
+	\draw ($(C)+(0.25,1)$) rectangle ($(C)+(0.25,-2)$);
+
+  \node[below right] at (A) {$A$};
+  \node[xshift=-0.325cm, yshift=0.325cm] at (B) {$B$};
+  \node[xshift=-0.325cm,yshift=0.325cm] at (C) {$C$};
+  \node[xshift=-0.325cm,yshift=-0.325cm] at (D) {$D$};
+  \node[yshift=-0.5cm] at (E) {$W$};
+
+  \draw[thin] ($(B)+(0.5,0)$) -- +(2,0);
+  \draw[thin] ($(D)+(0.5,0)$) -- +(2,0);
+
+\small
+  \draw[latex-latex] ($(B)+(2,0)$)arc(0:26.565:2)node[midway, fill=white, inner sep=0.5mm]{$25^\circ$};
+  \draw[latex-latex] ($(B)+(2,0)$)arc(0:-45:2)node[midway, fill=white, outer sep=1mm]{$45^\circ$};
+  \draw[latex-latex] ($(D)+(1.5,0)$)arc(0:63.46:1.5)node[midway, fill=white, outer sep=1mm]{$60^\circ$};
+
+}

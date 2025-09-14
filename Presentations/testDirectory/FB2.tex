@@ -1,0 +1,135 @@
+\documentclass[12pt,oneside]{article}
+
+\input{../../includes/macros.tex}
+\input{../../includes/definedColors.tex}
+\input{../../includes/Member.tex}
+\input{../../includes/PC.tex}
+
+\renewcommand{\familydefault}{\sfdefault} 
+
+\usepackage{mathpazo}
+\usepackage[letterpaper]{geometry}
+\geometry{verbose,tmargin=0.25in,bmargin=0.5in,lmargin=1in,rmargin=1.15in}
+\hfuzz 50pt
+\setlength{\parindent}{0pt}
+\Large
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% page 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+% \begin{textblock*}{8in}(0in, 0.25in)
+	
+	% \cbox{
+		
+		% \mini[0.5]{
+			% \cbox{
+			\centering
+			\tikz{%color
+			\large
+			\coordinate (O) at (0,0);
+			
+			\coordinate (A) at ($ (O)+(90:5) $); %45
+			\coordinate (b) at ($ (O)+(60:5) $); %45
+			\coordinate (C) at ($ (O)+(30:5) $); %45
+			\coordinate (d) at ($ (O)+(0:5) $); %30
+			\coordinate (E) at ($ (O)+(-30:5) $); %30
+			\coordinate (f) at ($ (O)+(-90:5) $); %30
+			\coordinate (G) at ($ (O)+(-150:5) $); %30
+			\coordinate (h) at ($ (O)+(150:5) $); %45
+
+			\path[name path=Ob] (O)--(b);
+			\path[name path=AC] (A)--(C);
+			\path[name path=Od] (O)--(d);
+			\path[name path=CE] (C)--(E);
+			\path[name path=Of] (O)--(f);
+			\path[name path=EG] (E)--(G);
+			\path[name path=Oh] (O)--(h);
+			\path[name path=GA] (G)--(A);
+
+			\path[name intersections = {of=Ob and AC, by=B}];
+			\path[name intersections = {of=Od and CE, by=D}];
+			\path[name intersections = {of=Of and EG, by=F}];
+			\path[name intersections = {of=Oh and GA, by=H}];
+			% \path[name intersections = {of=AC and BC, by=C}];
+			% \path[name intersections = {of=AC and BC, by=C}];
+			
+			\filldraw [fill=OliveDrab2] (A)--(C)--(E)--(G)--cycle;
+			\filldraw [fill=white] (H)--(D)--(F)--cycle;
+			
+			
+			
+			
+			
+			
+			
+			\draw[thin, LightGrey] (O) circle (5cm);
+
+			% \fill (A) circle (0.5mm);
+			% \fill (B) circle (0.5mm);
+			% \fill (C) circle (0.5mm);
+			% \fill (D) circle (0.5mm);
+			% \fill (E) circle (0.5mm);
+			% \fill (F) circle (0.5mm);
+			% \fill (G) circle (0.5mm);
+			% \fill (H) circle (0.5mm);
+
+			\draw (O)--(A);
+			\draw (O)--(B);
+			\draw (O)--(C);
+			\draw (O)--(D);
+			\draw (O)--(E);
+			\draw (O)--(F);
+			\draw (O)--(G);
+			\draw (O)--(H);		
+
+			\node at ($ (O)!1.1!(A) $) {$A$};
+			\node at ($ (O)!1.1!(B) $) {$B$};
+			\node at ($ (O)!1.1!(C) $) {$C$};
+			\node at ($ (O)!1.1!(D) $) {$D$};
+			\node at ($ (O)!1.1!(E) $) {$E$};
+			\node at ($ (O)!1.1!(F) $) {$F$};
+			\node at ($ (O)!1.1!(G) $) {$G$};
+			\node at ($ (O)!1.2!(H) $) {$H$};
+
+			% \node at ($ (O)+(16:1.25) $) {$\frac{\pi}{6}$};
+			% \node at ($ (O)+(46:1.25) $) {$\frac{\pi}{6}$};
+			% \node at ($ (O)+(76:1.25) $) {$\frac{\pi}{6}$};
+			% \node at ($ (O)+(-16:1.25) $) {$\frac{\pi}{6}$};
+			% \node at ($ (O)+(120:1.25) $) {$\frac{\pi}{3}$};
+			% \node at ($ (O)+(180:1.25) $) {$\frac{\pi}{3}$};
+			% \node at ($ (O)+(240:1.25) $) {$\frac{\pi}{3}$};
+			% \node at ($ (O)+(-60:1.25) $) {$\frac{\pi}{3}$};
+
+			\draw ($(O)+(90:0.675)$) arc (90:60:0.675);
+			\draw ($(O)+(60:0.75)$) arc (60:30:0.75);
+			\draw ($(O)+(30:0.675)$) arc (30:0:0.675);
+			\draw ($(O)+(0:0.75)$) arc (0:-30:0.75);
+
+			\draw ($(O)+(90:0.675)$) arc (90:150:0.675);
+			\draw ($(O)+(90:0.75)$) arc (90:150:0.75);
+			\draw ($(O)+(150:0.825)$) arc (150:210:0.825);
+			\draw ($(O)+(150:0.75)$) arc (150:210:0.75);
+			\draw ($(O)+(210:0.675)$) arc (210:270:0.675);
+			\draw ($(O)+(210:0.75)$) arc (210:270:0.75);
+			\draw ($(O)+(270:0.825)$) arc (270:330:0.825);
+			\draw ($(O)+(270:0.75)$) arc (270:330:0.75);
+
+			\node[left, fill=white, inner sep=1mm,xshift=-0.5mm] at(O) {$O$};
+			\fill (O) circle (1mm);		
+		}
+		\centering\parb
+		The vertices of quadrilateral $ACEG$ lie on a circle with centre $O$.\parb
+		$ \angle AOB = \angle BOC = \angle COD = \angle DOE $ and $ \angle EOF = \angle FOG = \angle GOH = \angle HOA $ \parb
+		What fraction of $ACEG$'s area does it lose when $\triangle DFH$ is removed?
+		
+		
+	%  }}
+
+	 
+	
+\end{document}

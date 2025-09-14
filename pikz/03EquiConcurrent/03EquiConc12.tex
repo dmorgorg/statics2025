@@ -16,23 +16,23 @@
 	\fill[Seashell3] ($ (\bx+0.67cm, \cy+1cm) $) rectangle ($ (\ax+2cm, \ay-2cm) $);
 	\draw[thin]  ($ (\bx+0.67cm, \cy+1cm) $) -- ($ (\bx+0.67cm, \ay-2cm) $);
 	
-	\Member{C}{A}{Seashell4}{Seashell1}{black}{0.5}{.125}{0.125}	
+	\Member{C}{A}{Seashell4}{Seashell1}{black}{0.5}{0.125}{0.125}	
 	\Member{C}{D}{Seashell4}{Seashell1}{black}{0.2}{.1}{0.125}
-	\Member{C}{B}{Seashell4}{Seashell1}{black}{0.5}{.125}{0.125}
+	\Member{C}{B}{Seashell4}{Seashell1}{black}{0.5}{0.125}{0.125}
 
 	\filldraw[rounded corners, fill=Seashell4] ($ (D)+(-0.5,-1.5) $) rectangle ($ (D)+(0.5,1.5) $);
-	\shadedraw[ball color=orange!60!black] (D) circle (.3cm);
-	\shadedraw[ball color=red!60!black] ($(D)+(0,0.75)$) circle (.3cm);
-	\shadedraw[ball color=green] ($(D)+(0,-0.75)$) circle (.3cm);
-	\node at ($ (D)-(-0.5,2) $) {\footnotesize $ 105\,$kg};
+	\shadedraw[ball color=orange!40!black] (D) circle (.3cm);
+	\shadedraw[ball color=red] ($(D)+(0,0.75)$) circle (.3cm);
+	\shadedraw[ball color=green!40!black] ($(D)+(0,-0.75)$) circle (.3cm);
+	\node at ($ (D)-(-0.5,2) $) {\footnotesize $ 123\,$kg};
 
-	\draw[Latex-Latex] ($ (B)+(-15:0.6936)+(0,1.25) $) arc (90:165:1.25) node[midway,xshift=-1.5mm, yshift=1.3mm] {\footnotesize $75\deg$};
-	\draw[Latex-Latex] ($ (A)+(-55:1.168)+(0,2.4) $) arc (90:125:2.4) node[midway,yshift=1.75mm] {\footnotesize $35\deg$};
+	\draw[Latex-Latex] ($ (B)+(-15:0.6936)+(0,1.25) $) arc (90:165:1.25) node[midway,xshift=-1.5mm, yshift=1.3mm] {\footnotesize $78\deg$};
+	\draw[Latex-Latex] ($ (A)+(-55:1.168)+(0,2.4) $) arc (90:125:2.4) node[midway,yshift=1.75mm] {\footnotesize $30\deg$};
 
 	\small
 	
-	\shadedraw [draw=black] (B) circle (0.1cm) node[statsMaroon, xshift=-0.2cm, yshift=-0.25cm] {$B$};
-	\shadedraw [draw=black] (A) circle (0.1cm) node[statsMaroon, xshift=-0.2cm, yshift=-0.2cm] {$A$};
+	\shadedraw [draw=black] (B) circle (0.1cm) node[statsMaroon, xshift=-0.2cm, yshift=-0.25cm] {$A$};
+	\shadedraw [draw=black] (A) circle (0.1cm) node[statsMaroon, xshift=-0.2cm, yshift=-0.2cm] {$B$};
 	\shadedraw [draw=black] (C) circle (0.1cm) node[statsMaroon, xshift=-0.3cm, yshift=-0.1cm] {$C$};
 
 	\pgfresetboundingbox

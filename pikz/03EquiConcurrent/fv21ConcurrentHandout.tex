@@ -1,0 +1,26 @@
+\begin{tikzpicture}[scale=\scale, line cap=round]
+
+	\small
+
+	\coordinate (D) at (-3,1);
+	\coordinate (E) at (3, 2);
+	\coordinate (C) at (0, 0);	
+
+
+
+
+		\fill[Gray!50] (D) rectangle (E);
+		\draw[thin, black] (D) -- ($(E)-(0,1) $);
+		\EyeConnection[180]{C}{Gray!50}{black}{1}{0.5};
+		\draw[thin] ($(C)+(0.5,0) $) -- +(2,0) node[right] {$x$};
+	\draw[thin] ($(C)+(-0.5,0) $) -- +(-2.25,0);
+		\draw[line width=0.75mm, -latex, Black] (C) -- +(-30:3.1) node[black, below left]{\(2.50\,\text{ kN}\)};
+		\draw[line width=0.75mm, -latex, Black] (C) -- +(225:3.1) node[black, below right]{\(3.75\,\text{ kN}\)};
+	
+		\draw[latex-latex] ($ (C)+(180:2.12)$) arc (180:225:2.12) node[fill=white, midway, inner sep=0.25mm] {$ 45\deg $};
+		\draw[latex-latex] ($ (C)+(0:2.12)$) arc (0:-30:2.12) node[fill=white, midway, inner sep=0.25mm] {$ 30\deg $};		
+
+		\node at (0,0)[fill=white, inner sep=0.25mm,xshift=-0.625cm] {\LARGE $A$};
+
+
+\end{tikzpicture}

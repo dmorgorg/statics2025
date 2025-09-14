@@ -85,62 +85,35 @@
 				} % end of constructor
 				} % end of rrect class
 
-		\pgfooclass{rr}{
-			\method rr(#1,#2,#3,#4,#5) { % The constructor; everything is done in here
-				% Here I can get named x and y coordinates
-				\def\phil{#3} \def\stroke{#4} \def\line{#5}
-				\gettikzxy{(#1)}{\spx}{\spy}
-				\gettikzxy{(#2)}{\epx}{\epy}
-				% I'd like named points to work with
-				\coordinate (Start) at (\spx, \spy);
-				\coordinate (End) at (\epx, \epy);
-				% Find the length between start and end. Then the angle between x axis and Diff will be the rotation to apply.
-				\coordinate (Diff) at ($ (End)-(Start) $);
-				\gettikzxy{(Diff)}{\dx}{\dy}
-				\pgfmathparse{veclen(\dx, \dy)} \pgfmathresult
-				\let\length\pgfmathresult
-				\pgfmathparse{\dx==0}%
-				% \ifnum low-level TeX for integers
-				\ifnum\pgfmathresult=1 % \dx == 0
-					\pgfmathsetmacro{\rot}{\dy > 0 ? 90 : -90}
-				\else% \dx != 0
-					\pgfmathsetmacro{\rot}{\dx > 0 ? atan(\dy / \dx) : 180 + atan(\dy / \dx)}
-				\fi
-				\begin{scope}	[rotate around ={\rot:(Start)}]
-					% \filldraw[ultra thick, fill=\phil, draw=\stroke] ($ (Start)+(0,\HI) $) arc(90:270:\HI) -- +(\length pt, 0) arc(-90:90:\HI) -- cycle;
-					\filldraw[rounded corners=\scale*\radii cm, line width=\line mm, fill=\phil, draw=\stroke] (\spx-\extend cm,\spy-\hi cm) rectangle +(2*\extend cm + \length pt, 2*\hi cm);
-				\end{scope}
-			}
-		}
+		% \pgfooclass{rr}{
+		% 	\method rr(#1,#2,#3,#4,#5) { % The constructor; everything is done in here
+		% 		% Here I can get named x and y coordinates
+		% 		\def\phil{#3} \def\stroke{#4} \def\line{#5}
+		% 		\gettikzxy{(#1)}{\spx}{\spy}
+		% 		\gettikzxy{(#2)}{\epx}{\epy}
+		% 		% I'd like named points to work with
+		% 		\coordinate (Start) at (\spx, \spy);
+		% 		\coordinate (End) at (\epx, \epy);
+		% 		% Find the length between start and end. Then the angle between x axis and Diff will be the rotation to apply.
+		% 		\coordinate (Diff) at ($ (End)-(Start) $);
+		% 		\gettikzxy{(Diff)}{\dx}{\dy}
+		% 		\pgfmathparse{veclen(\dx, \dy)} \pgfmathresult
+		% 		\let\length\pgfmathresult
+		% 		\pgfmathparse{\dx==0}%
+		% 		% \ifnum low-level TeX for integers
+		% 		\ifnum\pgfmathresult=1 % \dx == 0
+		% 			\pgfmathsetmacro{\rot}{\dy > 0 ? 90 : -90}
+		% 		\else% \dx != 0
+		% 			\pgfmathsetmacro{\rot}{\dx > 0 ? atan(\dy / \dx) : 180 + atan(\dy / \dx)}
+		% 		\fi
+		% 		\begin{scope}	[rotate around ={\rot:(Start)}]
+		% 			% \filldraw[ultra thick, fill=\phil, draw=\stroke] ($ (Start)+(0,\HI) $) arc(90:270:\HI) -- +(\length pt, 0) arc(-90:90:\HI) -- cycle;
+		% 			\filldraw[rounded corners=\scale*\radii cm, line width=\line mm, fill=\phil, draw=\stroke] (\spx-\extend cm,\spy-\hi cm) rectangle +(2*\extend cm + \length pt, 2*\hi cm);
+		% 		\end{scope}
+		% 	}
+		% }
 
-		\pgfooclass{rr2}{
-			\method rr2(#1,#2,#3,#4,#5,#6,#7,#8,#9) { % The constructor; everything is done in here
-				% Here I can get named x and y coordinates
-				\def\phil{#3} \def\innercolor{#4} \def\stroke{#5} \def\HI{#6} \def\RADII{#7} \def\extend{#8} \def\LINEWIDTH{#9}
-				\gettikzxy{(#1)}{\spx}{\spy}
-				\gettikzxy{(#2)}{\epx}{\epy}
-				% I'd like named points to work with
-				\coordinate (Start) at (\spx, \spy);
-				\coordinate (End) at (\epx, \epy);
-				% Find the length between start and end. Then the angle between x axis and Diff will be the rotation to apply.
-				\coordinate (Diff) at ($ (End)-(Start) $);
-				\gettikzxy{(Diff)}{\dx}{\dy}
-				\pgfmathparse{veclen(\dx, \dy)} \pgfmathresult
-				\let\length\pgfmathresult
-				\pgfmathparse{\dx==0}%
-				% \ifnum low-level TeX for integers
-				\ifnum\pgfmathresult=1 % \dx == 0
-					\pgfmathsetmacro{\rot}{\dy > 0 ? 90 : -90}
-				\else% \dx != 0
-					\pgfmathsetmacro{\rot}{\dx > 0 ? atan(\dy / \dx) : 180 + atan(\dy / \dx)}
-				\fi
-				\begin{scope}	[transform canvas = { rotate around = {\rot:(\spx,\spy)}}]
-					% \filldraw[ultra thick, fill=\phil, draw=\stroke] ($ (Start)+(0,\HI) $) arc(90:270:\HI) -- +(\length pt, 0) arc(-90:90:\HI) -- cycle;
-					\filldraw[rounded corners=\scale*\RADII cm, line width=\LINEWIDTH mm, top color=\phil, bottom color=\phil, middle color=\innercolor, draw=\stroke] (\spx-\extend cm,\spy-\HI cm) rectangle +(2*\extend cm + \length pt, 2*\HI cm);
-				\end{scope}
-			}
-		}
-
+		
 		% \pgfooclass{beam}{
 		% 	\method beam(#1,#2,#3,#4,#5) { % The constructor; everything is done in here
 		% 		% Here I can get named x and y coordinates
