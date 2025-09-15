@@ -1,0 +1,16 @@
+% !TEX root = ../all/statikz.tex
+
+\begin{tikzpicture}[scale=\scale]
+  \draw[gray] (-3.5,-3.5) grid (3.5,3.5);
+  \draw[->, >=stealth, ultra thick, gray] (-3.75, 0) -- (3.75, 0) node[black, right] {$x$};
+  \draw[->, >=stealth, ultra thick, gray] (0, -3.75) -- (0,3.75) node[black, above] {$y$};
+
+  \filldraw[draw=black, fill=gray!20!white, very thick] (0,1.5)arc(90:-180:1.5)-- ++(-1.5,0)arc(-180:90:3)-- cycle;
+  \footnotesize
+
+  \node[below left, fill=white, inner sep=0.1em, outer sep=0.25em] at (0,0) { $(0, 0)$};
+  \node[left, fill=white, inner sep=0.1em, outer sep=0.25em] at (0,1.5) { $(0, 1.5)$};
+  \node[left, fill=white, inner sep=0.1em, outer sep=0.25em] at (0,3) { $(0, 3)$};
+  \node[above left, fill=white, inner sep=0.1em, outer sep=0.25em] at (-3,0) { $(-3, 0)$};
+  \node[above, fill=white, inner sep=0.1em, outer sep=0.25em] at (-1.5,0) { $(-1.5, 0)$};
+\end{tikzpicture}

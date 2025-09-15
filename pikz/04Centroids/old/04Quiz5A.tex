@@ -1,0 +1,36 @@
+% !TEX root = ../../quizzes/q05/STCS242Fa2016Q5A.tex
+
+\tikz[scale=\scale]{
+	\coordinate (A) at (0,0);
+	\coordinate (B) at (1.5,1.5);
+	\coordinate (C) at (1.5,2.5);
+	\coordinate (D) at (4.5,4);
+	\coordinate (E) at (6,0);
+	\def\scale{1}
+	\def\tiplength{4pt}
+	\begin{scope}[scale=\scale]
+		\DLOne{A}{B}{A}{llHeaderGrey}{black}{4}{0.25}
+		\DLOne{C}{D}{A}{llHeaderGrey}{black}{8}{0.25}
+		\DLOne{D}{E}{E}{llHeaderGrey}{black}{4}{0.25}
+	\end{scope}
+
+	% \fill[white] (-1,-0.75) rectangle (7,0);
+	\draw[thick, gray] (-1,0) -- (7, 0);
+	% \draw[thick, -Stealth, gray] (0,-1) -- (0, 5) node[black, right] {$y$-axis};
+
+	\fill[black] (A) circle (2pt) node[above left, inner sep=0.2mm]{$(0,0)$};
+	\fill[black] (B) circle (.1pt) node[left] {$1.500\thinspace\text{kN/m}$};
+	\fill[black] (C) circle (.1pt) node[left] {$2.50\thinspace\text{kN/m}$};
+	\fill[black] (D) circle (.1pt) node[right] {$4.00\thinspace\text{kN/m}$};
+	% \fill[mucus!90!black] (D) circle (1pt);
+
+	\draw ($ (A)+(0,-0.125) $) -- +(0,-.5);
+	\draw ($ (B)+(0,-1.625) $) -- +(0,-.5);
+	% \draw ($ (C)+(0,-3.625) $) -- +(0,-.5);
+	\draw ($ (D)+(0,-4.125) $) -- +(0,-.5);
+	\draw ($ (E)+(0,-0.125) $) -- +(0,-.5);
+
+	\draw[Stealth-Stealth] ($ (A)+(0,-0.375) $) -- node[fill=white] {$1.5\thinspace\text{m}$}($ (B)+(0,-1.875) $);
+	\draw[Stealth-Stealth] ($ (B)+(0,-1.875) $) --  node[fill=white] {$3.00\thinspace\text{m}$}($ (D)+(0,-4.375) $);
+	\draw[Stealth-Stealth] ($ (D)+(0,-4.375) $) --  node[fill=white] {$1.5\thinspace\text{m}$}($ (E)+(0,-0.375) $);
+}

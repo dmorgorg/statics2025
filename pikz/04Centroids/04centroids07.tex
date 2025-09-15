@@ -1,0 +1,17 @@
+% !TEX root = ../all/statikz.tex
+
+\begin{tikzpicture}
+  \coordinate (center) at (0,0);
+  \coordinate (C) at (0.849, 0.849);
+  \filldraw[fill=saitMaroon!20,draw=saitMaroon, thick] (center) -- (2,0) arc (0:90:2cm) -- (center);
+  \fill (center) circle (1.5pt);
+  \fill (C) circle (2pt) node[below left] {$C$};
+  \draw[latex-latex, thick] ($ (C) + (.25,0) $) -- node[right, scale=0.9] {$\frac{4r}{3\pi} $}($ (C) + (.25,-0.849) $);
+  \draw[latex-latex, thick] ($ (C) + (0,.25) $) -- node[above, scale=0.9] {$\frac{4r}{3\pi} $}($ (C) + (-0.849,.25) $);
+  \draw ($ (C) + (.125,0) $) -- ($ (C) + (.375,0) $);
+  \draw ($ (C) + (0,.125) $) -- ($ (C) + (0,.375) $);
+  % \draw[-latex, semithick] (center) -- node[sloped, below] {$r$} (0:2cm);
+  \node[below, scale=0.75] at (center) {$ (0,0) $};
+  \node[below, scale=0.75] at ($(center)+(2,0)$) {$ (r,0) $};
+  \node[left, scale=0.75] at ($(center)+(0,2)$) {$ (0,r) $};
+\end{tikzpicture}

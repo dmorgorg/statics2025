@@ -1,0 +1,24 @@
+% !TEX root = ../all/statikz.tex
+
+\tikz[scale=\scale]{
+
+
+  \def\phil{gray!50!white}
+  \def\stroke{black}
+
+  % \begin{scope}[scale=\scale]
+    \draw[gray, -latex] (-3.5,2.125) -- (3.5,2.125) node[above] {$x$};
+    \draw[gray, -latex] (0,-2) -- (0,3) node[right] {$y$};
+    \node at (-2,-0.5) {\footnotesize$A_1$};
+    \node at (2,-0.5) {\footnotesize$A_2$};
+    \node at (2,2.375) {\footnotesize$A_3$};
+    \filldraw[rounded corners=1pt, draw=\stroke, fill=\phil, thick] (-2.5, 1.5) rectangle (2.5,2.125);
+
+    \coordinate (A) at (-1.5,0);
+    \coordinate (B) at (1.5,0);
+
+    \WBeam{A}{\phil}{\stroke}{0.5}{1}
+    \WBeam{B}{\phil}{\stroke}{0.5}{1}
+
+  % \end{scope}
+}

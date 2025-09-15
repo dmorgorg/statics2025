@@ -1,0 +1,11 @@
+% !TEX root = ../all/statikz.tex
+
+\begin{tikzpicture}[scale=\scale]
+  \draw[gray] (-3.5,-1.49) grid (3.5,3.49);
+  \draw[->, >=stealth, thick, black] (-3.75, 0) -- (3.75, 0) node[right] {$x$};
+	\draw[->, >=stealth, thick, black] (0, -1.75) -- (0,3.75) node[above] {$y$};
+	\begin{scope}[even odd rule]
+		\filldraw[draw=saitPurple, fill=saitPurple!50!white, very thick] (2,-1) arc(-90:90:1) arc(270:180:1) arc(0:180:1) arc(0:-90:1) arc(90:180:1) arc(180:270:1) -- cycle
+    (0,0.5) circle (1);
+	\end{scope}
+\end{tikzpicture}

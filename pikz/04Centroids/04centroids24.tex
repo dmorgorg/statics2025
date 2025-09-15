@@ -1,0 +1,19 @@
+% !TEX root = ../all/statikz.tex
+
+\tikz[scale=\scale]{
+
+  \def\phil{gray!50!white}
+  \def\stroke{black}
+
+  \begin{scope}[scale=\scale]
+
+    \filldraw[rounded corners=1pt, draw=\stroke, fill=\phil, thick] (-2.5, 1.5) rectangle (2.5,2.125);
+
+    \coordinate (A) at (-1.5,0);
+    \coordinate (B) at (1.5,0);
+
+    \WBeam{A}{\phil}{\stroke}{0.5}{1}
+    \WBeam{B}{\phil}{\stroke}{0.5}{1}
+
+  \end{scope}
+}

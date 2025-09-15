@@ -1,0 +1,737 @@
+
+%!TEX option = --shell-escape
+
+\documentclass[9pt, xcolor={svgnames, x11names},professionalfonts]{beamer}
+
+
+\input{../../includes/macros}
+\input{../../includes/definedColors}
+\input{../../includes/Channel.tex}
+\input{../../includes/EyeBolt.tex}
+\input{../../includes/EyeConnection.tex}
+\input{../../includes/Member}
+\input{../../includes/Mem}
+\input{../../includes/Meme}
+\input{../../includes/PC}
+\input{../../includes/Ring}
+\input{../../includes/Pulley}
+\input{../../includes/PulleyB}
+\input{../../includes/PulleyC}
+\input{../../includes/Luke.tex}
+\input{../../includes/Skywalker.tex}
+\input{../../includes/WBeam.tex}
+% \input{../../includes/includesExisting/tikzObjects.tex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{\medskipamount}
+
+
+\tcbset{fonttitle=\itshape\rmfamily}
+\usepackage{mathpazo}
+ 
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usefonttheme[onlymath]{serif} % this needs to be before structureitalicserif?
+\usefonttheme{structureitalicserif} %make titles fancy ;-)
+
+
+\usecolortheme[named=statsMaroon]{structure}
+\setbeamertemplate{navigation symbols}{} % remove navigation symbols
+\setbeamertemplate{headline}{\vspace{0.125cm}}
+\setbeamertemplate{footline}{ \hfill \insertshorttitle\qquad \insertsection \qquad \insertframenumber/\inserttotalframenumber\quad{ }\vspace{0.125cm}}
+\setbeamertemplate{items}[default]
+\setbeamertemplate{blocks}[shadow=true]
+
+\setbeamercolor{title}{bg=statsMaroon, fg=Azure}
+\setbeamercolor{frametitle}{fg=white, bg=statsMaroon}
+\setbeamercolor{background canvas}{bg=Gainsboro!50}
+\setbeamercolor{block title}{bg=statsMaroon, fg=white}
+\setbeamercolor{block body}{bg=white, fg=black}
+
+\setlength{\parskip}{\medskipamount}
+\setlength{\parindent}{0pt}
+
+% https://tex.stackexchange.com/questions/731957/how-to-supress-missing-character-there-is-no-u003b-in-font-nullfont
+\tracinglostchars=1
+\hfuzz 120pt
+
+\def\scale{1}
+\newcounter{examnumber}
+\newcounter{exernumber}
+%test
+\resetcounteronoverlays{tcb@cnt@myexam}
+\resetcounteronoverlays{tcb@cnt@myexer}
+% \newcounter{myexercisecounter}
+
+% Title page details: 
+\title[Centroids]{\Huge 04 Centroids}
+\subtitle[Engineering Statics]{\Large\textcolor{white}{Engineering Statics}}
+\author{}
+\date{\small Updated on: \today}
+
+% \raggedright
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[plain]    %don't need footer on titlepage
+	\titlepage
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Centroids}
+	\begin{itemize}
+		\item Finding the {\bfseries centroid} of an area is important in studying the strength of a structural member. (This will be covered in detail in the Strength of Materials course next semester, and in structural courses in the second year of the programme.)\parb
+		\item Why learn it now?
+		      \pause
+		      \parm
+		      \begin{itemize}
+		      	\item Centroids are used in the analysis of {\bfseries distributed loads}, an important part of statics (and future courses!). \parb\pause
+		      	\item The forces we have considered so far have been {\bfseries concentrated loads}, meaning that each force acts at (is concentrated at) a single point. Distributed loads are spread out, e.g. snow on a roof, water against side of a swimming pool, wind on the wall of a building.
+		      \end{itemize}
+	\end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{The Centre of Gravity}
+	\begin{itemize}
+		\item  A body is made up of infinitely many small elements, each having a weight (a downward force due to gravity).\parb
+		\item The resultant of these parallel forces is also downward and the line of action of this resultant goes through a point called the {\bfseries centre of gravity}. \parm
+		\item The centre of gravity may be considered as the `balance point' for the body. It is the point where the total weight of the body acts.
+
+	\end{itemize}
+
+	\centering
+	\input{../../pikz/04Centroids/04centroids01}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{The Centre of Gravity}
+
+	\cmini[0.8]{
+		\begin{itemize}
+			\item If the see-saw is in equilibrium (i.e., if it is static or `balanced'), then the line of action of centre of gravity of the board and the two children passes through the supporting log.
+		\end{itemize}
+	}
+	\centering
+	\cmini{
+		\begin{statsbox}{}		
+				\centering
+				\input{../../pikz/04Centroids/04cog01.tex}		
+		\end{statsbox}
+	}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{The Centroid}
+	\centering
+	\parm
+	\def\scale{0.75}
+	\input{../../pikz/04Centroids/04centroids02}
+
+	\cmini[0.9]{
+		\begin{itemize}
+			\item  The resultant forces lines of action for the triangle shown assume a constant density of material.\parm
+			\item If part of the triangle was constructed from steel and the rest from wood, the balance point might be very different.\parm
+			\item But, if the body is of a uniform material, then the centre of gravity is at the geometric centre of the triangle shape. This geometric centre is called the {\bf centroid} of the area. \lb (You can think of it as the centre of gravity of the area.)\parm
+			\item In civil engineering, we are mainly concerned with the centroid.
+		\end{itemize}
+	}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Centroids}
+
+	\cmini[0.8]{
+		The centroids of simple shapes are well-known. We shall just assume the results for these simple shapes: rectangles, triangles, circles, semi-circles and quarter circles
+	}
+
+	\begin{statsbox}{The Centroid of a Rectangle}%
+		\footnotesize
+		\mini[0.4]{
+			\input{../../pikz/04Centroids/04centroids03}
+		}
+		\hfill
+		\mini[0.55]{
+			\begin{itemize}
+				\item<2-> The rectangle has a vertical axis of symmetry,  along the line $x=b/2$
+				\item[]<3->	And a horizontal axis of symmetry along the line $y=h/2$.
+				      \item<4-> If an area has an axis of symmetry, then the centroid will lie on that axis. In this case, the centroid must lie on both the vertical and the horizontal axes of symmetry.
+				      \item<5> 	The centroid of the rectangle is at $$(\overline{x}, \overline{y}) = \left(\frac{b}{2}, \frac{h}{2}\right)$$ where $\overline{x}$ and $\overline{y}$ designate the $x$ and $y$ coordinates of the centroid.
+			\end{itemize}
+		}
+	\end{statsbox}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Centroids of Triangles}
+
+	\cmini[0.9]{
+		We focus on right triangles since they generally satisfy our needs.
+	}
+
+	\begin{statsbox}{The Centroid of a Right Triangle}
+		\mini[0.45]{
+			\footnotesize
+			\input{../../pikz/04Centroids/04centroids04}
+
+		}
+		\mini[0.5]{
+			\begin{itemize}
+				\item The centroid, $C$, of the triangle is located at $$\left(\overline{x}, \overline{y}\right) = \left(\frac{b}{3}, \frac{h}{3}\right) $$
+			\end{itemize}
+		}
+
+	\end{statsbox}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Centroids of Triangles (again)}
+
+	\cmini[0.9]{
+		The centroid of {\bfseries any} triangle is given by the average values of its vertices.
+	}
+	\begin{statsbox}{The Centroid of any Triangle}
+		\mini[0.5]{
+			\footnotesize
+			\input{../../pikz/04Centroids/04centroids05}
+		}
+		\mini[0.45]{
+			\centering
+			The centroid, $C$, of the triangle is located at \small $$\left(\frac{x_1+x_2+x_3}{3}, \frac{y_1+y_2+y_3}{3}\right) $$
+		}
+	\end{statsbox}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Centroids of Parts of a Circle}
+
+	% begin{textblock*}{width, e.g. 3cm}(x-coord eg 1cm, ycoord eg -0.5cm)
+	\begin{textblock*}{1\textwidth}(1cm, 1.5cm)
+		\centering
+		The centroid of a circle is at the circle's centre \lb(the intersection of all axes of symmetry).\parm
+		The semi-circle and the quarter-circle are less obvious.
+	\end{textblock*}
+
+	% begin{textblock*}{width, e.g. 3cm}(x-coord eg 1cm, ycoord eg -0.5cm)
+	\begin{textblock*}{0.475\textwidth}(1cm, 3.5cm)
+		\begin{statsbox}{Centroid of a Semi-Circle}{%
+				\begin{center}
+					\input{../../pikz/04Centroids/04centroids06}
+					\footnotesize					
+						$$\left(\overline{x}, \overline{y}\right) = \left(0, \frac{4r}{3\pi}\right) $$					
+				\end{center}
+			}
+		\end{statsbox}
+	\end{textblock*}
+
+	\begin{textblock*}{0.475\textwidth}(6.75cm, 3.5cm)
+		\begin{statsbox}{Centroid of a Quarter-Circle}{%
+				\begin{center}					
+					\input{../../pikz/04Centroids/04centroids07}
+					\footnotesize					
+						$$\left(\overline{x}, \overline{y}\right) = \left(\frac{4r}{3\pi}, \frac{4r}{3\pi}\right) $$	
+				\end{center}
+			}
+		\end{statsbox}
+	\end{textblock*}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Simple Shape Exercises}
+	\begin{myexer}{}{}
+		\mini[0.45]{
+			\footnotesize
+			\input{../../pikz/04Centroids/04centroids08}
+		}
+		\hfill
+		\mini[0.4]{
+			Determine the location of the centroid of the triangle shown.
+		}
+	\end{myexer}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Simple Shape Exercises}
+	\begin{myexer}{}{}
+		\mini[0.45]{
+			\footnotesize
+			\input{../../pikz/04Centroids/04centroids09}
+		}
+		\hfill
+		\mini[0.4]{
+			Determine the location of the centroid of the semi-circle shown.			
+		}
+	\end{myexer}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Simple Shape Exercises}
+	\begin{myexer}{}{}
+		\mini[0.45]{
+			\footnotesize
+			\input{../../pikz/04Centroids/04centroids10}
+		}
+		\hfill
+		\mini[0.4]{
+			Determine the location of the centroid of the quarter-circle shown.
+		}
+	\end{myexer}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Composite Shapes}
+	Typically we are concerned with the properties of more complex shapes, composed of a number of simple shapes or standard structural cross-sections (such as wide-flange beams, channels, angles or plates).\parm
+
+	Whether we are dealing with simple geometrical shapes or with standard sections, the centroid of the composite shape is given:
+	\cmini[0.8]{
+		\begin{statsbox}{Centroid of a Composite Shape}		
+			{%
+				\begin{align*}
+					\overline{x} & = \frac{\Sigma Ax}{\Sigma A} = \frac{A_1 x_1 + A_2 x_2 + A_3 x_3 +\ldots}{A_1+A_2+A_3+\ldots} \\\\
+					\overline{y} & = \frac{\Sigma Ay}{\Sigma A} = \frac{A_1 y_1 + A_2 y_2 + A_3 y_3 +\ldots}{A_1+A_2+A_3+\ldots}
+				\end{align*}
+				\cmini[0.8]{
+					where the $A_i$ are the areas of the simple shapes making up the composite shape and the $x_i$ and $y_i$ are the $\overline{x}$ and the ${\overline{y}}$ of the simple shapes.
+				}
+			}
+		\end{statsbox}
+	}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Composite Shapes}
+	\begin{myexam}[height=7cm]{}{}
+		\vspace{0.5cm}
+		\mini[0.55]{
+			\input{../../pikz/04Centroids/04centroids11}
+		}
+		\hfill
+		\mini[0.4]{
+			Find the location of the centroid, $C$, relative to the coordinate origin.
+		}
+		\addtocounter{\tcbcounter}{-1}
+	\end{myexam}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Composite Shapes}
+	\begin{myexam}[height=7cm]{Solution}{}
+			\vspace{0.5cm}
+		\mini[0.5]{
+			% \def\scale{0.8}
+			\input{../../pikz/04Centroids/04centroids11a}
+		}
+		\hfill
+		\mini[0.45]{
+			\begin{enumerate}
+				\item Divide the composite shape into simple shapes:\pause
+				      \begin{itemize}
+				      	\item Notice that the `missing' quarter-circle is covered up by rectangle $A_1$.\pause
+				      	\item Draw in the quater-circle; we shall treat this area as negative\pause
+				      \end{itemize}
+				\item Apply the formul\ae{} for $\overline{x}$ and $\overline{y}$.
+				\item For complicated shapes, you may want to arrange your data in a table.
+			\end{enumerate}
+		}
+
+		\addtocounter{\tcbcounter}{-1}
+	\end{myexam}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Composite Shapes}
+	\begin{myexam}[height=7cm]{Solution}{}
+			\vspace{0.35cm}
+		\mini[0.325]{
+			\def\scale{0.6}
+			\input{../../pikz/04Centroids/04centroids11b}
+		}
+		\hfill
+		\mini[0.675]{
+			\footnotesize
+			\begin{align*}
+				\overline{x} & = \frac{A_1x_1+A_2x_2+A_3x_3+A_4x_4}{A_1+A_2+A_3+A_4}                                                        \\
+				             & = \frac{6(1.5)+1.5(1)+0.5(3.1667)-\frac{\pi}{4}\left(\frac{4\times 1}{3\pi}\right)}{6+1.5+0.5-\frac{\pi}{4}} \\
+				             & = \frac{11.750}{7.2146} = 1.6286                                                                             \\\\
+				\overline{y} & = \frac{A_1y_1+A_2y_2+A_3y_3+A_4y_4}{A_1+A_2+A_3+A_4}                                                        \\
+				             & =    \frac{6(1)+1.5(2.3333)+0.5(0.66667)-\frac{\pi}{4}\left(\frac{4\times 1}{3\pi}\right)}{7.2146}           \\
+				             & =   \frac{9.5000}{7.2146} = 1.3168
+			\end{align*}
+
+		}
+		\parb
+		\centering
+		\normalsize
+		The centroid is at the location $\left(\overline{x},\overline{y}\right)=(1.63,1.32)$.
+		\addtocounter{\tcbcounter}{-1}
+	\end{myexam}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Composite Shapes}
+	\begin{myexam}[height=7cm]{Solution Using Table}{}
+		\small
+			\vspace{0.8cm}
+		\centering
+		\begin{tabular}{cccccc}
+			Shape            & Area                          & $x_i$               & $y_i$               & $A_ix_i$                        & $A_iy_i$                        \\
+			\addlinespace
+			\midrule
+			$A_1$            & $6.0000$                      & $1.5000$            & $1.0000$            & \textcolor{saitRed}{$9.0000$}   & \textcolor{saitRed}{$6.0000$}   \\
+			\midrule
+			$A_2$            & $1.5000$                      & $1.0000$            & $2.3333$            & \textcolor{saitRed}{$1.5000$}   & \textcolor{saitRed}{$3.5000$}   \\
+			\midrule
+			$A_3$            & $0.50000$                     & $3.1667$            & $0.66667$           & \textcolor{saitRed}{$1.5834$}   & \textcolor{saitRed}{0.33333}    \\
+			\midrule
+			$A_4$            & $\bm -\frac{\pi}{4}$          & $\frac{4(1)}{3\pi}$ & $\frac{4(1)}{3\pi}$ & \textcolor{saitRed}{$-0.33333$} & \textcolor{saitRed}{$-0.33333$} \\
+			\bottomrule\addlinespace
+			{\Large$\Sigma$} & \textcolor{saitRed}{$7.2146$} &                     &                     & \textcolor{saitRed}{$11.750$}   & \textcolor{saitRed}{$9.5000$}
+		\end{tabular}
+
+		\parb
+		\centering
+		\normalsize
+		$$\left(\overline{x},\overline{y}\right)=\left(\frac{\Sigma A_ix_i}{A},\frac{\Sigma A_iy_i}{A}\right)=\left(\frac{11.750}{7.2146}, \frac{9.5000}{7.2146}\right)=(1.63,1.32)$$
+		\addtocounter{\tcbcounter}{-1}
+	\end{myexam}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Composite Shapes}
+	\begin{myexam}[height=7cm]{The Answer}{}
+		\centering
+		\vspace{0.5cm}
+		\def\scale{1}
+		\input{../../pikz/04Centroids/04centroids11c}
+	\end{myexam}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Composite Shapes}
+	\begin{myexer}{}{}
+		\small
+		\mini[0.65]{
+			\input{../../pikz/04Centroids/04centroids12}
+		}
+		\hfill
+		\mini[0.25]{
+			Find the location of the centroid, $C$, relative to the point~$O$.
+		}
+
+	\end{myexer}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Composite Shapes}
+	\begin{myexer}{}{}
+		\mini[0.65]{
+			\input{../../pikz/04Centroids/04centroids13}
+		}
+		\hfill
+		\mini[0.3]{
+			Find the location of the centroid, $C$, relative to the coordinate origin.			
+		}
+	\end{myexer}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Structural Steel}
+	\centering
+	\cfig[0.25]{../../images/2011-07-10-211.jpg}
+
+	\cmini[0.8]{
+		\centering
+		This modern Calgary high-rise contains a lot of steel...
+	}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Structural Steel}
+	\centering
+	\cfig[0.20]{../../images/2009-04-18-052.jpg}
+
+	\cmini[0.8]{
+		\centering
+		Just some of the steel that went into the highrise...
+	}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Structural Steel}
+	\centering
+	\cfig[0.35]{../../images/steelSections}
+	\begin{itemize}
+		\item There are many structural steel sections used in construction.
+		\item Details of their physical dimensions and structural properties are widely available in tables. 	     
+		\item Often, various sections are welded together to suit a particular need.
+	\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Wide-flanged I-beams}
+
+	\mini[0.3]{
+		\centering
+		\input{../../pikz/04Centroids/WbeamB.tex}
+	}
+	\hfill
+	\mini[0.65]{
+		\begin{itemize}
+			\item  A common beam used in construction has this characteristic I-shaped cross-section.
+			\item This is called a wide-flanged I-beam due to the large horizontal flanges top and bottom.
+			\item It has three parts: top and bottom horizontal {\bfseries flanges} and a vertical {\bfseries web}.
+			% \item Properties of these beams can be read from table A.3 (see page 459 in your textbook).
+			\item These beams are designated in the form\\ \textcolor{saitRed}{W depth x mass per unit length}.\par
+			\item A W460x82 beam has a wide flange (hence the W), a nominal depth of 460mm and a mass of 82 kg per metre.
+
+		\end{itemize}
+	}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Wide-flanged I-beams}
+
+	\mini[0.3]{
+		\centering
+		\input{../../pikz/04Centroids/WbeamA.tex}
+	}
+	\hfill
+	\mini[0.65]{
+		\begin{itemize}
+			\item  The beam has a vertical axis of symmetry so the centroid must be on that line.\parb
+			\item The beam also has a horizontal axis of symmetry so the centroid must be on that line, too.\parb
+			\item The centroid of the cross-sectional area of the beam is easily found at the intersection of the two axes of symmetry.
+
+
+		\end{itemize}
+	}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Structural Steel}
+
+	\begin{textblock*}{0.5\textwidth}(0.5cm, 1cm)
+		\centering
+		\cfig[0.14]{../../images/080914_22.jpg}
+		\mini[0.8]{
+			\centering
+			One of these beams may support your floor system at home...
+		}
+
+
+	\end{textblock*}
+
+	\begin{textblock*}{0.5\textwidth}(6.2cm, 2cm)
+		\centering
+		\cfig[0.14]{../../images/2011-05-18-062.jpg}
+		\hfill
+		\mini[0.6]{
+			\centering
+		...or the ceiling above my office...}
+	\end{textblock*}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Built-up Structural Steel Sections}
+	\begin{myexam}{}{}
+		\mini[0.5]{
+			\centering
+			\def\scale{0.85}
+			\input{../../pikz/04Centroids/04centroids24}
+
+		}
+		\hfill
+		\mini[0.45]{
+			Two W250X115 steel beams have a steel plate welded on top of them, as shown. The dimensions of the plate are 650 mm x 60 mm.\parb
+			How far below the top of the built-up section is the centroidal $x$-axis?
+			\parb
+			\footnotesize
+			\centering
+			\textcolor{statsMaroon}{
+			From the beam tables for W250X115:\lb
+			Area $= 14600\,\mathsf{mm^2}$\lb
+			Depth $=269\,\mathsf{mm}$}
+			
+		}
+		\addtocounter{\tcbcounter}{-1}
+	\end{myexam}
+
+\end{frame}
+
+\begin{frame}{Built-up Structural Steel Sections}
+	\begin{myexam}{Solution}{}
+		\mini[0.4]{
+		\def\scale{0.55}
+			\input{../../pikz/04Centroids/04centroids25}
+
+		}
+		\hfill
+		\mini[0.55]{
+			\centering\small
+			\begin{tabular}{cccc}
+				Shape    & $A_i$                            & $y_i$                          & $A_iy_i$                         \\
+				         & \footnotesize$\mathsf{\;(mm^2)}$ & \footnotesize$\mathsf{\;(mm)}$ & \footnotesize$\mathsf{\;(mm^3)}$ \\
+				\addlinespace
+				\midrule
+				$A_1$    & $14600$                          & $-194.5$                       & $-2839700$                       \\
+				\addlinespace
+				$A_2$    & $14600$                          & $-194.5$                       & $-2839700$                       \\
+				\addlinespace
+				$A_3$    & $39000$                          & $-30$                          & $-1170000$                       \\
+				\addlinespace
+				\bottomrule
+				\addlinespace
+				$\Sigma$ & $68200$                          &                                & -$6849400$
+			\end{tabular}
+			\parb
+			\[ \overline{y} = \frac{\Sigma A_iy_i}{\Sigma A_i} = -100.43\text{ mm}\]
+			\parb
+			The centroidal $x$ axis is $100$ mm below the top of the plate.
+		}
+	\end{myexam}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Channel Section}
+
+	\mini[0.3]{
+		\centering
+		\def\scale{0.75}
+		\input{../../pikz/04Centroids/channelSectionA.tex}
+	}
+	\hfill
+	\mini[0.65]{
+		\begin{itemize}
+
+			\item The channel section has a horizontal axis of symmetry ($X-X$) but no vertical axis of symmetry.
+			\item The centroidal $y$-axis is specified by $\overline{x}$ \lb(See the table A.5 in the course text for a particular section, sizes and corresponding properties.)
+		\end{itemize}
+	}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Built-up Structural Steel Sections}
+	\begin{myexam}{}{}
+		\mini[0.5]{
+			\input{../../pikz/04Centroids/04centroids16.tex}
+		}
+		\hfill
+		\mini[0.45]{
+			Two C180X22 and one C150X19 are welded together as shown. \parb
+			How far below the top of the built-up section is the centroidal $x$-axis?
+			\parb
+			\footnotesize
+			\centering
+			\textcolor{statsMaroon}{
+			From the beam tables for C180X22:\lb
+			Area $= 2790\,\mathsf{mm^2}$\lb
+			Depth $=178\,\mathsf{mm}$\lb
+			$\overline{x} =58\,\mathsf{mm}$\pars 
+			From the beam tables for C150X19:\lb
+			Area $= 2470\,\mathsf{mm^2}$\lb
+			Depth $=152\,\mathsf{mm}$\lb
+			$\overline{x} =54\,\mathsf{mm}$}
+		}
+		\addtocounter{\tcbcounter}{-1}
+	\end{myexam}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Built-up Structural Steel Sections}
+	\begin{myexam}{Solution}{}
+		\mini[0.35]{
+		\def\scale{0.75}
+			\input{../../pikz/04Centroids/04centroids17.tex}
+		}
+		\hfill
+		\mini[0.55]{
+			\centering\small
+			\begin{tabular}{cccc}
+				Shape    & $A_i$                            & $y_i$                          & $A_iy_i$                         \\
+				         & \footnotesize$\mathsf{\;(mm^2)}$ & \footnotesize$\mathsf{\;(mm)}$ & \footnotesize$\mathsf{\;(mm^3)}$ \\
+				\addlinespace
+				\midrule
+				$A_1$    & $2610$                           & $-101.5$                       & $-264920$                        \\
+				\addlinespace
+				$A_2$    & $2610$                           & $-101.5$                       & $-264920$                        \\
+				\addlinespace
+				$A_3$    & $1994$                           & $-12.67$                       & $-25264$                         \\
+				\addlinespace
+				\bottomrule
+				\addlinespace
+				$\Sigma$ & $7214$                           &                                & -$555104$
+			\end{tabular}
+			\parb
+			\[ \overline{y} = \frac{\Sigma A_iy_i}{\Sigma A_i} = -76.948\text{ mm}\]
+			\parb
+			The centroidal $x$ axis is $76.9$ mm below the top of the plate.
+		}
+
+	\end{myexam}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Built-up Structural Steel Sections}
+	\begin{myexer}{}{}
+		\mini[0.45]{
+			\parm
+			\def\scale{0.6}
+			\input{../../pikz/04Centroids/04centroids18.tex}
+		}
+		\hfill
+		\mini[0.55]{
+			Three C130 X 13 and a steel plate (12~mm~X~127~mm) are welded together. \parb
+			Determine the location of the centroid, relative to the bottom left hand corner of the composite area.
+			\parb
+			\footnotesize
+			\centering
+			\textcolor{statsMaroon}{
+			From the beam tables for C130X13:\lb
+			Area $= 1700\,\mathsf{mm^2}$\lb
+			Depth $=127\,\mathsf{mm}$\lb
+			$\overline{x} =47\,\mathsf{mm}$}
+		
+		}
+		\pars
+	\end{myexer}
+
+\end{frame}
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

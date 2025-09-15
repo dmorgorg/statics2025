@@ -1,0 +1,14 @@
+% !TEX root = ../all/statikz.tex
+
+\begin{tikzpicture}[scale=0.75, every node/.style={inner sep=.25ex}]
+  % \filldraw [white, draw=saitMaroon, thick, drop shadow={opacity=0.25}] (-0, 0) rectangle (3, 4);
+  \coordinate (A) at (-1.5,-0.75);
+  \coordinate (B) at (2.5,-0.75);
+  \draw[gray] (-2.5, -1.5) grid (3.5, 2.5);
+  \draw [thick, black, ->, >=stealth] (-2.75, 0) -- (3.75, 0) node[black, right] {$x$};
+  \draw [thick, black, ->, >=stealth] (0, -1.75) -- (0, 2.75) node[black, above] {$y$};
+  \filldraw[thick, fill=saitMaroon!20,draw=saitMaroon] (A) -- (B) arc (0:180:2cm);
+  \node[below = 0.275ex, fill=white] at (A) {\small $\left(-1.5, -0.75\right)$};
+  \node[below = 0.275ex, fill=white] at (B) {\small $\left(2.5, -0.75\right)$};
+
+\end{tikzpicture}

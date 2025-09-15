@@ -1,0 +1,31 @@
+% !TEX root = ../all/statikz.tex
+
+\begin{tikzpicture}[scale=\scale]
+	\draw[gray] (-0.49,-0.49) grid (3.99,3.49);
+	\draw[-latex, thick, black] (-0.75, 0) -- (4.25, 0) node[above] {$x$};
+	\draw[-latex, thick, black] (0, -0.75) -- (0,3.75) node[right] {$y$};
+	\filldraw[draw=saitMaroon, fill=green!20, very thick] (0,1) arc(90:0:1)-- (3.5, 0) -- (3,2) -- (0,3) -- cycle;
+
+	\footnotesize
+	\node[below left, fill=white, inner sep=0.1em, outer sep=0.25em] at (0,0) { $(0, 0)$};
+	\node[below, fill=white, inner sep=0.1em, outer sep=0.25em] at (1,0) { $(1, 0)$};
+	\node[below, fill=white, inner sep=0.1em, outer sep=0.25em] at (3.5,0) { $(3.5, 0)$};
+	\node[above, fill=white, inner sep=0.1em, outer sep=0.25em] at (3.25,2) { $(3, 2)$};
+	\node[above, fill=white, inner sep=0.1em, outer sep=0.25em] at (0,3) { $(0, 3)$};
+	\node[left, fill=white, inner sep=0.1em, outer sep=0.25em] at (0,1) { $(0, 1)$};
+
+	\uncover<2->{
+		\filldraw[fill=saitBlue!20] (0,0) rectangle (3,2);
+		\node at (2,1) {\Large $A_1$};
+		\filldraw[fill=yellow] (0,2) -- (3,2) -- (0,3) -- cycle;
+		\node at (0.75,2.375) {\Large $A_2$};
+		\filldraw[fill=pink] (3,0) -- (3,2) -- (3.5,0) -- cycle;
+		\node[fill=white, inner sep=0] at (3.75,0.5) {\Large $A_3$};
+	}
+  \uncover<3->{
+  \filldraw[fill=white] (0,0) -- (1,0)arc(0:90:1) -- cycle;
+  \node[fill=white, inner sep=0] at (0.3,0.3) {\Large $A_4$};
+  }
+
+
+\end{tikzpicture}

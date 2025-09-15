@@ -2,6 +2,7 @@
 \usepackage{cancel}
 \usepackage{bm}
 \usepackage{graphicx}
+\usepackage{booktabs}  % for top and bottom spacing in table cells, \addlinespace
 \usepackage[x11names, svgnames]{xcolor} % for colors in handouts, auto loaded in Beamer?
 \usepackage{tikz}
 \usetikzlibrary{arrows.meta, math, calc, shadows}
@@ -181,6 +182,16 @@
 \newcommand{\cfig}[2][1]{% centred, scaled graphic
 	\begin{center}
 		\includegraphics[scale=#1]{#2}
+	\end{center}
+}
+
+% figure with tight border for photos
+% \cfigb[saitMaroon]{borderwidth with unit}{scale}{image}
+\newcommand{\cfigb}[4][structure]{
+	% \usepackage{adjustbox}
+	\setlength{\fboxrule}{1pt}
+	\begin{center}
+		\includegraphics[scale=#3, cframe= #1 #2]{#4}
 	\end{center}
 }
 

@@ -1,0 +1,14 @@
+% !TEX root = ../all/statikz.tex
+
+\tikz[scale=\scale]{
+  \def\phil{gray!50!white}
+  \def\stroke{black}
+
+  \coordinate (A) at (-1.36,0);
+  \coordinate (B) at (1.36,0);
+  \coordinate (C) at (0,1.5);
+
+  \Channel[180]{A}{\phil}{\stroke}{0.5}{1}
+  \Channel{B}{\phil}{\stroke}{0.5}{1}
+  \Channel[-90]{C}{\phil}{\stroke}{0.45}{1}
+}

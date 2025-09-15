@@ -1,0 +1,23 @@
+% !TEX root = ../all/statikz.tex
+
+\begin{tikzpicture}[scale=0.9]
+  \draw [gray, ->, >=stealth] (-0.5, 0) -- (3.75, 0) node[black, right] {$x$};
+  \draw [gray, ->, >=stealth] (0, -0.5) -- (0, 2.75) node[black, right] {$y$};
+  \filldraw[draw=saitMaroon, very thick, fill=saitMaroon!30!white] (0, 0) rectangle (3, 2);
+  \node[below left] at (0, 0) {($0, 0$)};
+  \node[below] at (3, 0) {($b, 0$)};
+  \node[above] at (3, 2) {($b$, $h$)};
+  \node[above left] at (0, 2) {($0$, $h$)};
+  \uncover<2-4>{
+    \draw[thick, saitDeepBlue] (1.5, 2.25) -- (1.5, -0.25);
+  }
+  \uncover<3-4>{
+    \draw[thick, saitDeepBlue] (-0.25, 1) -- (3.25, 1);
+  }
+  \uncover<4->{
+    \fill (1.5, 1) circle (1.5pt);
+  }
+  \uncover<5>{
+    \node[below right] at (1.5, 1)  { $C$};
+  }
+\end{tikzpicture}

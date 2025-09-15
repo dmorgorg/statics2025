@@ -1,0 +1,20 @@
+% !TEX root = ../all/statikz.tex
+
+\begin{tikzpicture}
+
+  \draw [gray, ->, >=stealth] (-0.5, 0) -- (3.75, 0) node[black, right] {$x$};
+  \draw [gray, ->, >=stealth] (0, -0.5) -- (0, 2.75) node[black, right] {$y$};
+  % \draw [help lines] (-0.5, -0.5) grid (3.5, 2.5);
+  \filldraw[draw=saitMaroon, very thick, fill=saitMaroon!30!white] (0, 0) -- (3, 0) -- (0, 2) -- cycle;
+  \node[below left] at (0, 0) {$(0, 0)$};
+  \node[below] at (3, 0) {($b, 0$)};
+  \node[left, scale=0.9] at (0, 0.667) {$\left(0, \frac{h}{3}\right)$};
+  \node[below, scale=0.9] at (1, 0) {$\left(\frac{b}{3}, 0\right)$};
+  \node[left] at (0, 2) {($0, h$)};
+  \draw[thick, saitDeepBlue] (1, 2.5) -- (1, -0.0625);
+  \draw[thick, saitDeepBlue] (-0.0625, 0.6667) -- (3.5, 0.6667);
+  \fill (1, 0.667) circle (1.5pt) node[below right] {\normalsize  $\bm C$};  %{ $\left(\frac{b}{3}, \frac{h}{3}\right)$};
+  \draw[<->, >=stealth] (0, 2.25) -- node[fill=white] {$\overline{x}$} (1, 2.25);
+  \draw[<->, >=stealth] (3.25, 0) -- node[fill=white] {$\overline{y}$} (3.25, 0.667);
+
+\end{tikzpicture}

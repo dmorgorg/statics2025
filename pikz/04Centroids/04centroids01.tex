@@ -1,0 +1,28 @@
+% !TEX root = ../all/statikz.tex
+
+\begin{tikzpicture}[scale=0.75, line cap = round]
+
+  \uncover<2->{
+    \filldraw [white, draw=saitMaroon, thick, drop shadow={opacity=0.25}] (-1, -0.75) rectangle (11.5, 3.5);
+    \fill[very thick, green] (1, 0) -- ++(-60:0.5) -- ++(180:0.5) -- cycle;
+    \draw[very thick, dashed, green] (1,0) -- (1, 1.333);
+    \draw[very thick, saitRed] (0, 0) -- (3, 0) -- (0,2) -- cycle;
+  }
+  \uncover<3->{
+    \draw[thick, dashed, green] (4.667, 1) -- (6, 1);
+    \fill[very thick, blue] (5.333, 0) -- ++(-60:0.5) -- ++(180:0.5) -- cycle;
+    \draw[very thick, dashed, blue] (5.333, 0) -- ++(0, 2);
+    \draw[very thick, saitRed] (4, 0) -- ++(2, 0) -- ++(0,3) -- cycle;
+    \filldraw[fill=saitRed] (5.333,1) circle (2pt);% node[above right, inner sep=0.5mm]{$\bm C$};
+  }
+  \uncover<4>{
+    \draw[thick, dashed, green] (9.404, 0) -- ++(123.69:1.333);
+    \draw[thick, dashed, blue] (8.202, 0) -- ($ (7, 0) + (33.69:3) + (-56.31:0.667) $);
+    \draw[ultra thick, dashed, orange] (9.0353, 0) -- (9.0353, 1.357);
+    \draw[very thick, saitRed] (7, 0) -- ++(33.69:3) -- ++(-56.31:2) -- cycle;
+    \fill[orange] (9.0353, 0) -- ++(-60:0.5) -- ++(180:0.5) -- cycle;
+    % \node at (9.35,.5) (C2) ;
+    \filldraw[fill=saitRed] (9.0353,.55) circle (2pt);% node[right, inner sep=1mm]{$\bm C$};
+  }
+
+\end{tikzpicture}

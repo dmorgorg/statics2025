@@ -1,0 +1,18 @@
+% !TEX root = ../all/statikz.tex
+
+\begin{tikzpicture}[every node/.style={inner sep=.5ex}]
+  \coordinate (A) at (-1.75, -1.33);
+  \coordinate (B) at (0.75, 1.55);
+  \coordinate (C) at (1.8, -0.23);
+
+
+  \draw[gray, step=0.5cm]  (-2.25, -2.25) grid (2.75, 2.25);
+  \filldraw[draw=saitMaroon, very thick, fill=saitMaroon!30!white, fill opacity = 0.75ex] (A) -- (B) -- (C) -- cycle;
+  \node[below = 0.25ex, fill=white] at (A) {$\left(x_1, y_1\right)$};
+  \node[above = 0.25ex, fill=white] at (B) {$\left(x_2, y_2\right)$};
+  \node[right = 0.25ex, fill=white] at (C) {$\left(x_3, y_3\right)$};
+  \normalsize
+  \fill ($ 0.33*(A)+0.33*(B)+0.33*(C) $) circle (1.5pt)  node[below right, scale=0.9] {$C$};  %{ $\left(\frac{b}{3}, \frac{h}{3}\right)$};
+
+
+\end{tikzpicture}

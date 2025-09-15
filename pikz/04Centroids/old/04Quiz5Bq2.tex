@@ -1,0 +1,12 @@
+% !TEX root = ../../quizzes/q05/STCS242Fa2016Q5B.tex
+
+\begin{tikzpicture}[scale=\scale]
+  \draw[gray] (-.75,-.75) grid (4.75,6.75);
+  \draw[->, >=stealth, thick, black] (-1, 0) -- (5, 0) node[right] {$x$};
+	\draw[->, >=stealth, thick, black] (0, -1) -- (0,7) node[above] {$y$};
+  \node[below left] at (0,0) {$(0,0)$};
+	\begin{scope}[even odd rule]
+		\filldraw[draw=ddHeaderGrey, fill=llHeaderGrey, thick] (0,0) -- (0,4)arc(180:0:2) --(4,0) -- (3,0) -- (2,2) -- (1,0) -- cycle
+    (2,4) circle (1cm);
+	\end{scope}
+\end{tikzpicture}

@@ -1,0 +1,32 @@
+% !TEX root = ../all/statikz.tex
+
+\tikz[scale=1.25]{
+  \coordinate (O) at (0,0);
+  \coordinate (A) at (2,4);
+  \coordinate (B) at (3.5,2.5);
+  \coordinate (C) at (5,2.5);
+  \coordinate (D) at (6,0);
+
+  \DLOne{O}{A}{D}{mucus!50}{mucus}{8}{1}{1}
+  \DLOne{A}{B}{D}{mucus!50}{mucus}{5}{1}{1}
+  \DLOne{B}{C}{D}{mucus!50}{mucus}{5}{1}{1}
+  \DLOne{C}{D}{D}{mucus!50}{mucus}{5}{1}{1}
+
+  \fill[llHeaderGrey] (-1,-0.75) rectangle (5.5,0);
+  \draw (-1,0) -- (5.5, 0);
+
+  \fill[mucus!90!black] (O) circle (1pt) node[black, above left]{\small $(0,0)$};
+  \fill[mucus!90!black] (A) circle (1pt) node[black, above left] {\small $1.00\thinspace\text{kN/m}$};
+  \fill[mucus!90!black] (B) circle (1pt) node[black, above right] {\small $2.50\thinspace\text{kN/m}$};
+  \fill[mucus!90!black] (C) circle (1pt) node[black, above right] {\small $1.75\thinspace\text{kN/m}$};
+  \fill[mucus!90!black] (D) circle (1pt);
+
+  \draw ($ (O)+(0,-0.125) $) -- +(0,-.5);
+  \draw ($ (B)+(0,-2.625) $) -- +(0,-.5);
+  \draw ($ (C)+(0,-1.875) $) -- +(0,-.5);
+  \draw ($ (D)+(0,-0.125) $) -- +(0,-.5);
+
+  \draw[Stealth-Stealth] ($ (O)+(0,-0.375) $) -- node[fill=llHeaderGrey] {\small $1.50\thinspace\text{m}$}($ (A)+(0,-2.875) $);
+  \draw[Stealth-Stealth] ($ (B)+(0,-2.875) $) --  node[fill=llHeaderGrey] {\small $1.50\thinspace\text{m}$}($ (C)+(0,-2.125) $);
+  \draw[Stealth-Stealth] ($ (C)+(0,-2.125) $) --  node[fill=llHeaderGrey] {\small $1.50\thinspace\text{m}$}($ (D)+(0,-0.375) $);
+}

@@ -1,0 +1,14 @@
+% !TEX root = ../all/statikz.tex
+
+\begin{tikzpicture}
+  \coordinate (center) at (0,0);
+  \coordinate (C) at (0, 0.849);
+  \filldraw[thick, fill=saitMaroon!20,draw=saitMaroon] (-2,0) -- (2,0) arc (0:180:2cm) -- (center);
+  \draw[-latex, very thick, statsMaroon] (center) -- node[below,xshift=-0.125cm] {$r$} (150:2cm);
+  \fill (center) circle (1.5pt);
+  \fill (C) circle (2pt) node[above left] {$C$};
+  \draw[latex-latex, thick] ($ (center) + (.5,0) $) -- node[right, scale=0.9] {$\frac{4r}{3\pi} $}($ (C) + (.5,0) $);
+  \draw ($ (C) + (.125,0) $) -- ($ (C) + (.875,0) $);
+  \node[below, scale=0.75] at (center) {$ (0,0) $};  
+  \node[right, scale=0.75, white] at ($(center)+(0.75,2)$) {$ (0,r) $};
+\end{tikzpicture}

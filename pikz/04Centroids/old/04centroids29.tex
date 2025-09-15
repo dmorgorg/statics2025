@@ -1,0 +1,31 @@
+% !TEX root = ../all/statikz.tex
+
+\begin{tikzpicture}[scale=\scale]
+  \small
+    \coordinate (O) at (0,0);
+
+    \filldraw[fill=gray!50, draw=black, very thick] (O) -- ++(0,1) -- ++(1.5,0) -- ++(0,6) -- ++(-2.5,0) -- ++(0,1) -- ++(6,0) -- ++(0,-1) -- ++(-2.5,0) -- ++(0,-6) -- ++(1.5,0) -- ++(0,-1) -- cycle;
+    \fill[black] (O) circle (0.75mm)node[below left] {$O$};
+
+    \draw[thin] (0,-0.5) -- +(0,-1);
+    \draw[thin] (4,-0.5) -- +(0,-1);
+    \draw[latex-latex] (0,-1) -- node[fill=white]{$4.00$ in.}(4,-1);
+
+    \draw[thin] (0,1.5) -- +(0,1);
+    \draw[latex-latex] (0,2) -- node[fill=white, inner sep=0]{$1.50$ in.}(1.5,2);
+    \draw[thin] (4,1.5) -- +(0,1);
+    \draw[latex-latex] (4,2) -- node[fill=white, inner sep=0]{$1.50$ in.}(2.5,2);
+
+    \draw[thin] (-1,6.5) -- +(0,-1);
+    \draw[latex-latex] (-1,6) -- node[fill=white, inner sep=0]{$2.50$ in.}(1.5,6);
+    \draw[thin] (5,6.5) -- +(0,-1);
+    \draw[latex-latex] (5,6) -- node[fill=white, inner sep=0]{$2.50$ in.}(2.5,6);
+
+    \draw[thin] (-0.5,0) -- (-2.5,0);
+    \draw[thin] (-0.5,1) -- (-2.5,1);
+    \draw[thin] (-1.5,7) -- (-2.5,7);
+    \draw[thin] (-1.5,8) -- (-2.5,8);
+    \draw[latex-latex] (-2,0) -- node[fill=white]{$1.00$ in.}(-2,1);
+    \draw[latex-latex] (-2,1) -- node[fill=white]{$6.00$ in.}(-2,7);
+    \draw[latex-latex] (-2,7) -- node[fill=white]{$1.00$ in.}(-2,8);
+\end{tikzpicture}
