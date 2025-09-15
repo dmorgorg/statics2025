@@ -1,0 +1,45 @@
+\begin{tikzpicture}[scale=0.8]
+
+  \coordinate (O) at (0,0);
+  \coordinate (B) at (0,2);
+  \coordinate (C) at (4,2);
+  \coordinate (D) at (4,-1);
+  \coordinate (E) at (2,-2);
+  \coordinate (F) at (-1.5,-2);
+  \coordinate (G) at (-1.5,0);
+
+  \draw ($ (B)+(0,0.25) $) -- +(0,.5);
+  \draw ($ (C)+(0,0.25) $) -- +(0,.5);
+  \draw ($ (G)+(0,0.25) $) -- +(0,0.5);
+
+  \draw ($ (C)+(0.25, 0) $) -- +(1,0);
+  \draw ($ (D)+(0.25, 0) $) -- +(1,0);
+  \draw ($ (E)+(0.5, 0) $) -- +(2.75,0);
+
+  \draw ($ (D)+(0, -0.25) $) -- +(0,-1.5);
+  \draw ($ (E)+(0, -0.25) $) -- +(0,-.5);
+  \draw ($ (F)+(0, -0.25) $) -- +(0,-.5);
+
+  \draw ($ (F)+(-0.25, 0) $) -- +(-1,0);
+  \draw ($ (G)+(-0.25, 0) $) -- +(-1,0);
+  \draw ($ (B)+(-0.25, 0) $) -- +(-2.5,0);
+
+  \footnotesize
+
+  \draw[latex-latex] ($ (B)+(0,0.5) $) -- node[fill=white]{400 mm} ($ (C)+(0,0.5) $);
+  \draw[latex-latex] ($ (G)+(0,0.5) $) -- node[fill=white, inner sep=0]{150 mm} ($ (O)+(0,0.5) $);
+  \draw[latex-latex] ($ (D)-(0,1.5) $) -- node[fill=white]{200 mm} ($ (E)-(0,0.5) $);
+  \draw[latex-latex] ($ (E)-(0,0.5) $) -- node[fill=white]{350 mm} ($ (F)-(0,0.5) $);
+  \draw[latex-latex] ($ (C)+(0.75,0) $) -- node[fill=white]{300 mm} ($ (D)+(0.75,0) $);
+  \draw[latex-latex] ($ (D)+(0.75,0) $) -- node[fill=white]{100 mm} ($ (E)+(2.75,0) $);
+  \draw[latex-latex] ($ (F)-(0.75,0) $) -- node[fill=white]{200 mm} ($ (G)-(0.75,0) $);
+  \draw[latex-latex] ($ (G)-(0.75,0) $) -- node[fill=white]{200 mm} ($ (B)-(2.25,0) $);
+
+
+  \filldraw[draw=black, fill=Gray0!50, very thick] (O) -- (B) -- (C) -- (D) -- (E) -- (F) -- (G) -- cycle;
+  \fill (O) circle (2.5pt);
+  \footnotesize
+
+  \node[above right, inner sep=0.1em, outer sep=0.25em] at (0,0) {\Large $O$};
+
+\end{tikzpicture}

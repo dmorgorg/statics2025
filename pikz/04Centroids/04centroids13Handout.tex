@@ -1,0 +1,19 @@
+% !TEX root = ../all/statikz.tex
+
+\begin{tikzpicture}[scale=0.8]
+  \draw[gray] (-3.5,-.9) grid (3.5,3.49);
+  \draw[-latex, thick, black] (-3.75, 0) -- (3.75, 0) node[right] {$x$};
+  \draw[-latex, thick, black] (0, -1.25) -- (0,3.75) node[above] {$y$};
+  \filldraw[draw=black, fill=Gray0!50, very thick] (-1.5,0) -- (-3, 0) -- (-1, 2) arc (180:0:1) -- (3,0)  -- (1.5,0) arc (0:180:1.5) -- cycle;
+  \footnotesize
+
+  \node[below, fill=white, inner sep=0.1em, outer sep=0.25em] at (-1.5,0) { $(-1.5, 0)$};
+  \node[below, fill=white, inner sep=0.1em, outer sep=0.25em] at (-3,0) { $(-3, 0)$};
+  \node[above left, fill=white, inner sep=0.1em, outer sep=0.25em] at (-1,2) { $(-1, 2)$};
+  \node[above right, fill=white, inner sep=0.1em, outer sep=0.25em] at (1,2) { $(1, 2)$};
+  \node[below, fill=white, inner sep=0.1em, outer sep=0.25em] at (3,0) { $(3, 0)$};
+  \node[below, fill=white, inner sep=0.1em, outer sep=0.25em] at (1.5,0) { $(1.5, 0)$};
+  \node[below, fill=white, inner sep=0.1em, outer sep=0.25em] at (0,1.45) { $(0, 1.5)$};
+  \node[above, fill=white, inner sep=0.1em, outer sep=0.25em] at (0,3) { $(0,3)$};
+
+\end{tikzpicture}
