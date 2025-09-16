@@ -1,0 +1,36 @@
+% !TEX root = ../all/statikz.tex
+
+\begin{tikzpicture}[scale=1.2]
+  \draw[-latex, thick, black] (-.75, 0) -- (3.75, 0) node[right] {$x$};
+  \draw[-latex, thick, black] (0, -0.75) -- (0,3.75) node[above] {$y$};
+  \filldraw[draw=black, fill=Gray0!50, very thick] (0,0) -- (0,3) arc (90:0:1) -- (3,0)  -- (1.5,0) arc (0:90:1.5) -- cycle;
+  \node at (4,1.5) {\Huge$\bm =$};
+  \node at (9.5,1.5) {\Huge$\bm +$};
+  \draw[-latex, thick, black] (4.75, 0) -- (9.25, 0) node[right] {$x$};
+  \draw[-latex, thick, black] (5.5, -0.75) -- (5.5,3.75) node[above] {$y$};
+  \filldraw[draw=black, fill=Gray0!50, very thick] (0,0) -- (0,3) arc (90:0:1) -- (3,0)  -- (1.5,0) arc (0:90:1.5) -- cycle;
+  \filldraw[draw=black, fill=Gray0!50, very thick] (5.5,0) -- (5.5,3) arc (90:0:1) -- (8.5,0)  -- (7,0)--(5.5,0) -- cycle;
+  \filldraw[draw=black, fill=Gray0!50, very thick] (5.5,0) rectangle +(1,2);
+  \draw[-latex, thick, black] (10, 0) -- (14.25, 0) node[right] {$x$};
+  \draw[-latex, thick, black] (11, -0.75) -- (11,3.75) node[above] {$y$};
+   \filldraw[draw=black, fill=Gray0!50, very thick] (11,0)--(11,1.5) arc (90:0:1.5) -- (11,0)  -- cycle;
+
+
+  \node[above right, fill=white, inner sep=0.1em, outer sep=0.25em] at (1,2) { \normalsize $(1, 2)$};
+  \node[below, fill=white, inner sep=0.1em, outer sep=0.25em] at (3,0) { \normalsize  $(3, 0)$};
+  \node[below, fill=white, inner sep=0.1em, outer sep=0.25em] at (1.5,0) { \normalsize  $(1.5, 0)$};
+  \node[below, fill=white, inner sep=0.1em, outer sep=0.25em] at (0,1.45) { \normalsize  $(0, 1.5)$};
+  \node[above, fill=white, inner sep=0.1em, outer sep=0.25em] at (0,3) { \normalsize  $(0,3)$};
+  \node[above right, fill=white, inner sep=0.1em, outer sep=0.25em] at (6.5,2) {  \normalsize $(1, 2)$};
+  \node[below, fill=white, inner sep=0.1em, outer sep=0.25em] at (8.5,0) { \normalsize  $(3, 0)$};
+  % \node[below, fill=white, inner sep=0.1em, outer sep=0.25em] at (7,0) { \normalsize  $(1.5, 0)$};
+  \node[below, fill=white, inner sep=0.1em, outer sep=0.25em] at (5.5,0) { \normalsize  $(0, 0)$};
+  \node[above, fill=white, inner sep=0.1em, outer sep=0.25em] at (5.5,3) { \normalsize  $(0,3)$};
+
+  \node[above right, inner sep=0.1em, outer sep=0.25em] at (5.625,0.75) {\Large $\bm{A_1}$};
+  \node[above right, inner sep=0.1em, outer sep=0.25em] at (6.75,0.5) {\Large $\bm{A_2}$};
+  \node[above right, inner sep=0.1em, outer sep=0.25em] at (5.625,2.125) {\Large $\bm{A_3}$};
+  \node[above right, inner sep=0.1em, outer sep=0.25em] at (11.125,0.325) {\Large $\bm{-A_4}$};
+  \node[below, fill=white, inner sep=0.1em, outer sep=0.25em] at (11,0) { \normalsize  $(0, 0)$};
+  \node[below, fill=white, inner sep=0.1em, outer sep=0.25em] at (12.5,0) { \normalsize  $(1.5, 0)$};
+\end{tikzpicture}
