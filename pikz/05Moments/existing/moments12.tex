@@ -1,0 +1,51 @@
+% !TEX root = ../../Beamer/statikz/statikz.tex
+
+\makeatletter
+\providecommand{\gettikzxy}[3]{%
+	\tikz@scan@one@point\pgfutil@firstofone#1\relax
+	\edef#2{\the\pgf@x}%
+	\edef#3{\the\pgf@y}%
+}
+\makeatother
+
+\begin{tikzpicture}[scale=\scale]
+
+
+	\coordinate (A) at (-1.667, 5);
+	\coordinate (B) at (-2, 6);
+	\coordinate (C) at (0, 0);
+	\coordinate (D) at (3, 4);
+	% \coordinate (E) at (0, -3.5);
+	% \coordinate (F) at (0, 3.5);
+
+	\pgfoonew \AB=new beam(A,D,DarkGoldenrod1,DarkGoldenrod4, 0.2,0.22,0.45)
+	
+	\pgfoonew \AB=new beam(B, C,DarkGoldenrod1,DarkGoldenrod4, 0.3,0.3,0.45)
+
+	\fill[mucus] ($ (C)-(3,0) $) rectangle ($ (C)+(3,-1) $);
+
+	\draw[ultra thick, ->, >=stealth, saitBlue] (D) -- +(-147:2.25) node[black, below]{\small $ 1.024\text{ kN}$};
+
+	\fill[DarkGoldenrod4!50!black] (A) circle (2pt) node[left, outer sep=2mm] { $A$};
+	\fill[DarkGoldenrod4!50!black] (D) circle (2pt) node[right, outer sep=0.5mm] { $B$};
+
+
+	\draw ($(C)+(108.4:1.25)$) -- ($(C) +(108.4:2.25)$);
+	\draw[<->, >=stealth] ($ (C)+(108.4:1.75)  $)  arc (108.4:180:1.75);
+	\path ($ (C)+(148:1.75) $) node[fill=white, inner sep=0.5mm] {\small $72.6^\circ$};
+
+
+	\draw ($(D)+(167.9:1.25)$) -- ($(D) +(167.9:2.25)$);
+	\draw[<->, >=stealth] ($ (D)+(-147:1.75)  $)  arc (-147:-192.1:1.75);
+	\path ($ (D)+(190:1.75) $) node[fill=white, inner sep=0.5mm] {\small $35.1^\circ$};
+
+	\draw ($(A)+(-72.6:1.25)$) -- ($(A) +(-72.6:2.25)$);
+	\draw ($(A)+(-12.1:1.25)$) -- ($(A) +(-12.1:2.25)$);
+	\draw[<->, >=stealth] ($ (A)+(-12.1:1.75)  $)  arc (-12.1:-72.6:1.75);
+	\path ($ (A)+(-38:1.85) $) node[fill=white, inner sep=0.125mm] {\small $60.5^\circ$};
+
+	\draw ($ (A)+(73.9:0.75) $)-- ($ (A)+(73.9:1.5) $);
+	\draw ($ (D)+(73.9:0.5) $)-- ($ (D)+(73.9:1.5) $);
+	\draw[<->, >=stealth] ($ (A)+(73.9:1.125) $)--node[fill=white, sloped] {\small $2.56\text{ m}$} ($ (D)+(73.9:1.125) $);
+	%
+\end{tikzpicture}

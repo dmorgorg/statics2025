@@ -1,0 +1,85 @@
+% !TEX root = ../../Beamer/statikz/statikz.tex
+
+\makeatletter
+\providecommand{\gettikzxy}[3]{%
+	\tikz@scan@one@point\pgfutil@firstofone#1\relax
+	\edef#2{\the\pgf@x}%
+	\edef#3{\the\pgf@y}%
+}
+\makeatother
+
+\begin{tikzpicture}[scale=\scale]
+	\def\thickness{thick}
+	% \def\stroke{black}
+	\def\hi{.15}
+	\def\radii{\hi}
+	\def\extend{\hi}
+	\small
+
+	\coordinate (A) at (0, 0);
+	\coordinate (B) at (3, 0);
+	\coordinate (C) at (6, 0);
+	\coordinate (D) at (9, 0);
+	\coordinate (E) at (6, 2);
+	\coordinate (F) at (3, 2);
+	\coordinate (AA) at ($ (A)+(0,-0.5) $);
+
+	\gettikzxy{(AA)}{\aax}{\aay}
+
+	\fill[mucus!90!black] ($ (A)-(1,0.525) $) rectangle ($ (A)+(1,-1) $);
+	\fill[mucus!90!black] ($ (D)+(-0.875,-1) $) -- ++(25:2) -- +(-90:0.854) -- cycle;
+
+	\PinnedConnection{A}{DarkKhaki}{black}{0.55}{0.125}
+	\Roller[25]{D}{DarkKhaki}{black}{0.55}{0.125}
+
+	\draw ($ (A)+(0,-0.25) $) -- +(0,-1.5);
+	\draw ($ (B)+(0,-0.25) $) -- +(0,-1.5);
+	\draw ($ (C)+(0,-0.25) $) -- +(0,-1.5);
+	\draw ($ (D)+(0,-0.25) $) -- +(0,-1.5);
+
+	\pgfoonew \AB=new rr(A,B,Burlywood1,Burlywood4, 0.25)
+	\pgfoonew \BC=new rr(B,C,Burlywood1,Burlywood4, 0.25)
+	\pgfoonew \CD=new rr(C,D,Burlywood1,Burlywood4, 0.25)
+	\pgfoonew \DE=new rr(D,E,Burlywood1,Burlywood4, 0.25)
+	\pgfoonew \EF=new rr(E,F,Burlywood1,Burlywood4, 0.25)
+	\pgfoonew \AF=new rr(A,F,Burlywood1,Burlywood4, 0.25)
+	\pgfoonew \CF=new rr(C,F,Burlywood1,Burlywood4, 0.25)
+	\pgfoonew \BF=new rr(B,F,Burlywood1,Burlywood4, 0.25)
+	\pgfoonew \CE=new rr(C,E,Burlywood1,Burlywood4, 0.25)
+
+
+
+
+	% \draw ($ (B)+(0,-0.75) $) -- +(0,-1.752);
+	% \draw[line width=0.75mm, red, ->, >=stealth] (C) -- +(0,-2.5) node[below] { 15 kN};
+	% \draw[line width=0.75mm, red, <-, >=stealth] ($ (D)$) -- +(-90:2.25) node[below] {$\bm{\mathrm{ R }_{D}}$};
+	% \draw[line width=0.75mm, red, <-, >=stealth] ($ (A)$) -- +(-90:2.25) node[below] {$\bm{\mathrm{ R }_{A_y}}$};
+	\draw[line width=0.75mm, saitRed, <-, >=stealth] (E) -- +(125:2.25) node[right] {2.67 kN};
+	\draw ($ (E)+(-1.25,0) $)  -- ($ (E)+(-2.25,0) $);
+	\draw[<->, >=stealth] ($ (E)+(-1.75,0) $)  arc (180:125:1.75);
+	\path  ($ (E)+(150:1.75) $) node[fill=white, inner sep=0.5mm] {\small $55^\circ$};
+
+	\draw ($ (A)-(0.5, 0) $) -- ($ (A)-(1.5, 0) $);
+	\draw ($ (F)-(0.5, 0) $) -- ($ (F)-(4.5, 0) $);
+	\draw[ <->, >=stealth] ($ (A)-(1, 0) $) -- node[fill=white, outer sep= 0.2mm]{2.00 m}($ (F)-(4, 0) $);
+
+	\draw[ <->, >=stealth] ([yshift=-1.5cm]A) -- node[fill=white, inner sep= 0.2mm]{3.00 m}([yshift=-1.5cm]B);
+	\draw[ <->, >=stealth] ([yshift=-1.5cm]B) -- node[fill=white, inner sep= 0.2mm]{3.00 m}([yshift=-1.5cm]C);
+	\draw[ <->, >=stealth] ([yshift=-1.5cm]C) -- node[fill=white, inner sep= 0.2mm]{3.00 m}([yshift=-1.5cm]D);
+
+	 \draw ($ (D)+(-0.875,-1)+(25:2.25) $) -- +(25:0.5);
+	  \draw ($ (D)+(-0.875,-1)+(0:2.05) $) -- +(0:0.6);
+	 \draw[<->, >=stealth] ($ (D)+(-0.875,-1)+(0:2.5) $)  arc (0:25:2.5);
+	 \path  ($ (D)+(-0.875,-1)+(12:2.5) $) node[fill=white, inner sep=0.5mm] {\small $25^\circ$};
+
+	\shade[ball color=Burlywood4] (A) circle (2pt) node[above left, outer sep=0.5mm] {$A$};
+	\shade[ball color=Burlywood4] (B) circle (2pt) node[below right, yshift=-1mm] {$B$};
+	\shade[ball color=Burlywood4] (C) circle (2pt) node[below right, yshift=-1mm] {$C$};
+	\shade[ball color=Burlywood4] (D) circle (2pt) node[above right, outer sep=0.5mm] {$D$};
+	\shade[ball color=Burlywood4] (E) circle (2pt) node[above right, outer sep=0.5mm] {$E$};
+	\shade[ball color=Burlywood4] (F) circle (2pt) node[yshift=0.5mm, above, outer sep=0.5mm] {$F$};
+
+
+
+
+\end{tikzpicture}

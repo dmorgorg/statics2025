@@ -1,0 +1,54 @@
+% !TEX root = ../../Quizzes/05MomentsAndCouples/05MomentsAndCouplesQuizAFall2017.tex
+
+\tikz[scale=\scale]{
+	\coordinate (A) at (0,0);
+	\coordinate (B) at ($(A)+(65:3.87)$);
+	\coordinate (C) at ($(B)+(155:3.15)$);
+	\coordinate (D) at ($(C)+(245:1.90)$);
+
+
+	\def\hi{.25}
+	\def\radii{0}
+	\def\extend{0.5}
+  \def\y{-1.25}
+
+	\gettikzxy{(A)}{\Ax}{\Ay}
+	\gettikzxy{(B)}{\Bx}{\By}
+	\gettikzxy{(C)}{\Cx}{\Cy}
+	\gettikzxy{(D)}{\Dx}{\Dy}
+	\gettikzxy{(E)}{\Ex}{\Ey}
+
+
+  \filldraw[fill=gray!25,draw=black] (A)--(B)--(C)--(D)--cycle;
+
+\draw (A)--node[above,sloped]{$3.87\,$m}(B);
+\draw (B)--node[below,sloped]{$3.15\,$m}(C);
+\draw (D)--node[below,sloped]{$1.90\,$m}(C);
+\draw (A)--node[above,sloped]{$3.72\,$m}(D);
+
+  \draw[ultra thick, -Latex] (A)-- +(245:2)node[left]{$720\,\mathsf{N}$};
+  \draw[ultra thick, Latex-] (D)-- +(244:2)node[below]{$720\,\mathsf{N}$};
+  \draw[ultra thick, -Latex] (A)-- +(0:2)node[right]{$480\,\mathsf{N}$};
+  \draw[ultra thick, Latex-] (B)-- +(0:2)node[right]{$480\,\mathsf{N}$};
+  \draw[ultra thick, Latex-] (D)-- +(180:2)node[left]{$480\,\mathsf{N}$};
+  \draw[ultra thick, -Latex] (C)-- +(180:2)node[left]{$480\,\mathsf{N
+	}$};
+
+	\fill (A) circle (1.5pt);
+	\fill (B) circle (1.5pt);
+	\fill (C) circle (1.5pt);
+	\fill (D) circle (1.5pt);
+
+  \draw ($(B)+(155:0.25)$)-- ++(245:0.25)-- ++(-25:0.25);
+  \draw ($(C)+(245:0.25)$)-- ++(-25:0.25)-- ++(65:0.25);
+
+  \draw[latex-latex] ($(B)+(0:.8)$)arc(0:-115:.8)node[midway, fill=white,inner sep=0.5mm]{$115\degree$};
+  \draw[latex-latex] ($(A)+(0:.8)$)arc(0:65:.8)node[midway, fill=white,inner sep=0.5mm]{$65\degree$};
+  \draw[latex-latex] ($(A)+(0:.8)$)arc(0:-115:.8)node[midway, fill=white,inner sep=0.5mm]{$115\degree$};
+  \draw[latex-latex] ($(D)+(65:.9)$)arc(65:180:.9)node[midway, fill=white,inner sep=0.5mm]{$115\degree$};
+  \draw[latex-latex] ($(A)+(123:.8)$)arc(123:245:.8)node[midway, fill=white,inner sep=0.5mm]{$122\degree$};
+  \draw[latex-latex] ($(C)+(180:0.8)$)arc(180:245:0.8)node[midway, fill=white,inner sep=0.5mm]{$65\degree$};
+  \draw[latex-latex] ($(D)+(180:.9)$)arc(180:245:0.9)node[midway, fill=white,inner sep=0.5mm]{$65\degree$};
+  \draw[latex-latex] ($(D)+(245:.9)$)arc(245:303:0.9)node[midway, fill=white,inner sep=0.25mm]{$58\degree$};
+
+}

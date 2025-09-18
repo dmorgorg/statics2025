@@ -1,0 +1,28 @@
+% !TEX root = ../../Beamer/05Moments/05Moments.tex
+
+
+\tikz[scale=\scale]{
+\coordinate (O) at (0,1.5);
+\coordinate (B) at (16.7,12.6);
+\coordinate (A) at (25,0);
+\coordinate (C) at (0,0);
+\footnotesize
+\fill[white] ($(C)+(-15,-5)$) rectangle (35,15);
+  \fill[green!75] ($(O)-(1,-1)$) rectangle ($(C)+(1,0)$);
+  \fill[gray!50] ($(C)-(9,0)$) rectangle ($(A)+(5,-4)$);
+  \draw[line width=2mm, saitMaroon] (O)--node[above,sloped, black]{$20.0\,$m}(B)node[right,black]{$B$};
+  \draw[gray, thin] (B)--(A) node[above right,black] { $A$ };
+  \draw[very thick, saitDeepBlue, -latex] (B)--($(B)!.5!(A)$)node[ above right,black ]{ \small $P=4.00\,$kN };
+  \fill[black] (O) circle (2mm)node[above left]{$O$};
+  \fill[black] (A) circle (2mm);
+  \draw ($(A)+(0,-0.75)$)-- +(0,-2);
+  \draw ($(C)+(0,-0.75)$)-- +(0,-2);
+  \draw ($(O)+(-0.75,0)$)-- +(-7,0);
+  \draw ($(O)+(1.5,0)$)-- +(4,0);
+  \draw[latex-latex]($(C)+(0,-2.25)$)--node[fill=gray!50]{$25.0\,$m}($(A)+(0,-2.25)$);
+  \draw[-latex]($(O)+(-4,2)$)--($(O)+(-4,0)$);
+  \draw[-latex]($(C)+(-4,-2)$)--($(C)+(-4,0)$);
+  \node at ($(C)!.5!(O)+(-4,0)$){\footnotesize $1.50\,$m};
+  \node at ($(O)+(13.5:4)$){$\theta$};
+
+}

@@ -1,0 +1,47 @@
+%% !TEX root = ../../Beamer/statikz/statikz.tex
+
+% \makeatletter
+% \providecommand{\gettikzxy}[3]{%
+% 	\tikz@scan@one@point\pgfutil@firstofone#1\relax
+% 	\edef#2{\the\pgf@x}%
+% 	\edef#3{\the\pgf@y}%
+% }
+% \makeatother
+
+\begin{tikzpicture}[scale=\scale]
+	\def\thickness{thick}
+	\def\stroke{black}
+	\def\hi{.4}
+	\def\radii{0.5*\hi}
+	\def\extend{3*\hi}
+	\def\nuhi{0.45}
+	\def\nuext{1.25}
+
+	\coordinate (A) at (0, 0);
+	\coordinate (D) at (11, 2);
+	\coordinate (B) at ($ (A)!0.25!(D) $);
+	\coordinate (C) at ($ (A)!0.667!(D) $);
+
+	\fill[mucus!90!black] ($ (A)-(1.5,1.125) $) rectangle ($ (A)+(1.5,-1.5) $);
+	\fill[mucus!90!black] ($ (D)-(1.5,1.125) $) rectangle ($ (D)+(1.5,-1.5) $);
+
+	\pgfoonew \beam=new rr(A,D,Burlywood3,SaddleBrown, 0.5);
+	\fill[black] (A) circle (3pt) node[right, outer sep=3mm] {\Large $A$};
+	\fill[black] (B) circle (3pt) node[right] {\Large $B$};
+	\fill[black] (C) circle (3pt) node[right] {\Large $C$};
+	\fill[black] (D) circle (3pt) node[right, outer sep=3mm] {\Large $D$};
+
+	\PinnedConnection{A}{DarkKhaki}{black}{1.125}{0.75}
+	\Rocker{D}{DarkKhaki}{black}{1.125}{0.75}
+
+	\draw[->, >=stealth, blue, ultra thick] ($ (B)+(60:0.875) $) node[above, outer sep=2mm]{\small $18.00\mathsf{\;kN\cdot m}$} arc (60:390:0.875);
+	\draw[->, >=stealth, blue, ultra thick] ($ (C)+(330:0.875) $) node[below, outer sep=4mm]{\small $23.0\mathsf{\;kN\cdot m}$} arc (330:0:0.875);
+
+	\draw ($ (A)+(0,-0.75) $) -- +(0,-1.752);
+	\draw ($ (D)+(0,-0.75) $) --  +(0,-3.752);
+
+	\draw[thick, <->, >=stealth] ([yshift=-1.875cm]A) -- node[fill=white, inner sep= 0.2mm]{5.00 m}([yshift=-3.875cm]D);
+
+
+
+\end{tikzpicture}

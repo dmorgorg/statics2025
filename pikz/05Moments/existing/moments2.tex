@@ -1,0 +1,40 @@
+% !TEX root = ../../Beamer/05Moments/05Moments.tex
+
+
+\tikz[scale=\scale]{
+
+	\coordinate (A) at (-1,0) node[above] {$A$};
+	\coordinate (B) at (3,0);
+	\coordinate (C) at (6, 0);
+
+	\def\hi{0.2}
+	\def\radii{0}
+	\def\extend{1.5*\hi}
+
+	\fill[white] (-3,-2) rectangle (8,2.5);
+	\fill[Seashell3] (-2,-2) rectangle (7,-0.75);
+
+	
+	\PC{A}{saitBlue!50!white}{black}{0.75}{0.175};
+	\Roller{B}{saitBlue!50!white}{black}{0.75}{0.175};
+
+	\shade[ball color=gray!20!white] ($ (C)+(0,1.0) $) circle (0.75cm);
+
+	
+
+	\node at (A) [above = 1.5mm of A] {\Large $A$};
+	\node at (B) [above = 1.5mm of B] {\Large $B$};
+	\node at (C) [ right = 1.25mm of C] {\Large $C$};
+
+	\uncover<2->{
+		\draw[ultra thick, saitDeepBlue, ->, >=stealth, line cap=round] ($ (C)+(0,\hi) $) -- +(0, -1.7)node[right] {$\bm{\mathrm{ W }_{}}$};
+	}
+	\uncover<3->{
+		\draw[ultra thick, saitRed, <-, >=stealth, line cap=round] (B) -- +(0, -1.5)node[right] {$\bm{\mathrm{ R }_{B}}$};
+	}
+	\uncover<4->{
+		\draw[ultra thick, saitRed, <-, >=stealth, line cap=round] (A) -- +(0, -1.5)node[right] {$\bm{\mathrm{ R }_{A_y}}$};
+		\draw[ultra thick, saitRed, <-, >=stealth, line cap=round] (A) -- +(-1.5,0) node[below] {$\bm{\mathrm{ R }_{A_x}}$};
+	}
+
+}

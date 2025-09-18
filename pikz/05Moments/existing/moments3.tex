@@ -1,0 +1,41 @@
+% !TEX root = ../../Beamer/statikz/statikz.tex
+
+
+\tikz[scale=\scale]{
+
+	\coordinate (A) at (-1,0) node[above] {$A$};
+	\coordinate (B) at (3,0);
+	\coordinate (C) at (6, 0);
+
+	\def\hi{0.2}
+	\def\radii{0}
+	\def\extend{1.5*\hi}
+
+	\tikzset{
+		c/.style={every coordinate/.try}
+	}
+
+	\fill[white] (-4,-2) rectangle (8,1);
+
+		\pgfoonew \Beam=new beam(A,C,gray!50!white,gray!50!black,0.25,0.25,0.175)
+
+	\node at (A) [above = 1mm of A] {\Large $A$};
+	\node at (B) [above = 1mm of B] {\Large $B$};
+	\node at (C) [above = 1mm of C] {\Large $C$};
+
+	\only<1>{
+		\draw[ultra thick, saitDeepBlue, ->, >=stealth, line cap=round] (C) -- +(0, -1.7)node[right] {$\bm{\mathrm{ W }_{}}$};
+	}
+	\draw[ultra thick, saitRed, <-, >=stealth] (B) -- +(0, -1.5)node[right] {$\bm{\mathrm{ R }_{B}}$};
+	\draw[ultra thick, saitRed, <-, >=stealth] (A) -- +(0, -1.5)node[right] {$\bm{\mathrm{ R }_{A_y}}$};
+	\draw[ultra thick, saitRed, <-, >=stealth] (A) -- +(-1.5,0) node[below] {$\bm{\mathrm{ R }_{A_x}}$};
+	\uncover<2->{
+		\draw[ultra thick, saitDeepBlue, ->, >=stealth, line cap=round] (C) -- +(0, -1.7)node[right] {$\bm{\mathrm{ 5.00\text{ kN} }}$};
+		\begin{scope}[every coordinate/.style={shift={(0,-1)}}]
+			\draw[<->, >=stealth] ([c]A) -- node[fill=white]{2.00 m}([c]B);
+			\draw[<->, >=stealth] ([c]B) -- node[fill=white]{1.500 m}([c]C);
+		\end{scope}
+	}
+
+
+}

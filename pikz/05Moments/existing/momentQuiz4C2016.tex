@@ -1,0 +1,41 @@
+% !TEX root = ../../Beamer/statikz/statikz.tex
+
+\makeatletter
+\providecommand{\gettikzxy}[3]{%
+	\tikz@scan@one@point\pgfutil@firstofone#1\relax
+	\edef#2{\the\pgf@x}%
+	\edef#3{\the\pgf@y}%
+}
+\makeatother
+
+\begin{tikzpicture}[scale=\scale, line cap=round]
+
+	\coordinate (A) at (0, 0);
+	\coordinate (B) at (6, 0);
+	\coordinate (C) at (6, -3);
+	\coordinate (D) at (2, -5);
+	\coordinate (E) at (0, -5);
+
+	% \shade[top color=gray!50!white, bottom color=gray] (A) -- (B) -- (C) -- (D) -- (E);
+	\draw[line width=1mm, black] (C) -- (D);
+	\fill[black] ($(C)+(-0.095,0.1)$) circle (0.15cm);
+	\draw[Stealth-Stealth] ($ (D)+(26.565:1.25)$) arc (26.565:105:1.225);
+	\draw[Stealth-Stealth] ($ (C)!0.5!(D)+(26.565:1.25)$) arc (26.565:90:1.25);
+	\node[fill=white, inner sep=0.1mm] at ($(D)+(60:1.25)$) {\footnotesize $ 78.0^\circ$};
+\draw[black] ($ (C)!.575!(D)+(26.565:-0.4) $) -- ++(116.565:0.4) -- +(26.565:0.4);
+
+	\node[fill=white, inner sep=0.1mm] at ($(C)!0.5!(D)+(58:1.25)$) {\footnotesize $ 63.0^\circ$};
+	\draw[ultra thick, red,Stealth-] ($ (C)!.575!(D) $) -- +(116.57:1.75) node[above] {\small $57.0\text{ kN}$};
+	\draw[ultra thick, red, -Stealth] (D) -- +(105:2) node[right] { $\bm{\mathrm{ F }_{}}$};
+	\draw[ultra thick, red, Stealth-] ($ (C)!.5!(D) $) -- +(0,1.5) node[above right] {\small $ 2.95\text{kN}$};
+	\draw ($(D)+(-64.435:0.2)$) -- ($(D)+(-64.435:2.5)$);
+	\draw ($(C)+(-64.435:0.2)$) -- ($(C)+(-64.435:2.5)$);
+	\draw ($(C)!.5!(D)+(-64.435:0.2)$) -- ($(C)!0.5!(D)+(-64.435:1.5)$);
+	\draw ($(C)!.575!(D)+(-64.435:0.2)$) -- ($(C)!0.575!(D)+(-64.435:1.5)$);
+	\draw[Stealth-Stealth] ($(C)+(-64.435:2.125)$) -- node[sloped, fill=white] {\small $1.750\text{ m}$}($(D)+(-64.435:2.125)$);
+		\draw[<->, >=stealth] ($(C)!.5!(D)+(-64.435:1)$) -- node[fill=white,sloped] {\small $0.875\text{ m}$}($(C)+(-64.435:1)$);
+	\draw[Stealth-Stealth] ($ (D)+(-64.435:1)$) -- node[fill=white,sloped, inner sep=0.5mm] {\small $0.815\text{ m}$}($(C)!.5755!(D)+(-64.435:1)$);
+	\node[right] at (C) {$H$};
+
+
+\end{tikzpicture}

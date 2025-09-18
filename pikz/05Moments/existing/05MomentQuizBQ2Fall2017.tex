@@ -1,0 +1,52 @@
+% !TEX root = ../../Quizzes/05MomentsAndCouples/05MomentsAndCouplesQuizBFall2017.tex
+
+\tikz[scale=\scale]{
+	\coordinate (A) at (0,0);
+	\coordinate (B) at ($(A)+(-65:3)$);
+	\coordinate (C) at ($(B)+(25:3)$);
+	\coordinate (D) at ($(C)+(115:4.5)$);
+
+
+	\def\hi{.25}
+	\def\radii{0}
+	\def\extend{0.5}
+  \def\y{-1.25}
+
+	\gettikzxy{(A)}{\Ax}{\Ay}
+	\gettikzxy{(B)}{\Bx}{\By}
+	\gettikzxy{(C)}{\Cx}{\Cy}
+	\gettikzxy{(D)}{\Dx}{\Dy}
+	% \gettikzxy{(E)}{\Ex}{\Ey}
+
+
+  \filldraw[fill=gray!25,draw=black] (A)--(B)--(C)--(D)--cycle;
+
+\draw (A)--node[above,sloped]{$2.15\,$m}(B);
+\draw (B)--node[below,sloped]{$2.15\,$m}(C);
+\draw (D)--node[above,sloped]{$3.20\,$m}(C);
+\draw (A)--node[below,sloped]{$2.3927\,$m}(D);
+
+  \draw[ultra thick, -Latex] (A)-- +(115:2)node[above]{$720\,\mathsf{N}$};
+  \draw[ultra thick, Latex-] (D)-- +(115:2)node[above]{$720\,\mathsf{N}$};
+  \draw[ultra thick, Latex-] (A)-- +(180:2)node[left]{$480\,\mathsf{N}$};
+  \draw[ultra thick, Latex-] (B)-- +(180:2)node[left]{$480\,\mathsf{N}$};
+  \draw[ultra thick, Latex-] (D)-- +(0:2)node[right]{$480\,\mathsf{N}$};
+  \draw[ultra thick, Latex-] (C)-- +(0:2)node[right]{$480\,\mathsf{N}$};
+
+	\fill (A) circle (1.5pt);
+	\fill (B) circle (1.5pt);
+	\fill (C) circle (1.5pt);
+	\fill (D) circle (1.5pt);
+
+  \draw ($(B)+(25:0.25)$)-- ++(115:0.25)-- ++(205:0.25);
+  \draw ($(C)+(115:0.25)$)-- ++(205:0.25)-- ++(-65:0.25);
+
+  \draw[latex-latex] ($(B)+(115:1)$)arc(115:180:1)node[midway, fill=white]{$65\degree$};
+  \draw[latex-latex] ($(A)+(115:1)$)arc(115:180:1)node[midway, fill=white]{$65\degree$};
+  \draw[latex-latex] ($(A)+(180:1)$)arc(180:295:1)node[midway, fill=white]{$115\degree$};
+  \draw[latex-latex] ($(D)+(115:1)$)arc(115:232:1)node[midway, fill=white]{$117\degree$};
+  \draw[latex-latex] ($(A)+(51.6:1)$)arc(51.6:115:1)node[midway, fill=white,inner sep=0.25mm]{$63\degree$};
+  \draw[latex-latex] ($(D)+(0:1)$)arc(0:115:1)node[midway, fill=white,inner sep=0.25mm]{$115\degree$};
+  \draw[latex-latex] ($(C)+(0:1)$)arc(0:115:1)node[midway, fill=white,inner sep=0.25mm]{$115\degree$};
+
+}

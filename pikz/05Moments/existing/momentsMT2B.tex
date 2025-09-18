@@ -1,0 +1,37 @@
+% !TEX root = ../../Beamer/statikz/statikz.tex
+
+\begin{tikzpicture}[scale=\scale, xscale=-1, yscale=-1]
+	\def\thickness{thick}
+	\def\stroke{black}
+	\def\hi{.125}
+\footnotesize
+
+
+	\coordinate (A) at (0, 0);
+	\coordinate (B) at (1.375, 0);
+	\coordinate (C) at (3,0);
+	\coordinate (D) at (3,1.5);
+	\coordinate (E) at (0,2.5);
+	\coordinate (F) at (0,-2.5);
+
+	\filldraw[draw=black, fill=llHeaderGrey] (E) -- ++(0, -2.5+\hi) -- ++(3-\hi,0) -- ++(0,1.5) -- ++(2*\hi,0) -- ++(0,-1.5-2*\hi) -- ++(-3-\hi,0) -- ++(0, -2.5+\hi) -- ++(-1,0) -- ++(0,5) -- cycle;
+
+	\draw[-Stealth, ultra thick] (D)-- +(133:1.5) node[below] {$4.0\text{ kN}$};
+	\draw[-Stealth, ultra thick] (C)-- +(-47:1.5) node[above] {$4.0\text{ kN}$};
+	% \DLOne{(0,1.5)}{(3-\hi,0+\hi)}{(0,\hi)}{white}{black}{8}{0.25}
+	\fill (A) circle (1pt)node[right] {\normalsize $A$};
+	% \node at ($ (A)+(0,1.55) $) [right] {\footnotesize $ 2.50\;\text{kN/m} $};
+	%  \draw ($ (C)+(-\hi,-2*\hi) $) -- +(0,-1);
+	 \draw[Stealth-, ultra thick] ($(B)+(0,-\hi)$)-- +(0,-1.5) node[above] {$4.75\text{ kN}$};
+	 \draw[Stealth-Stealth] ([yshift=-1cm]A) -- node[fill=white]{$2.25\text{ m}$}([yshift=-1cm]B);
+	%  \draw[Stealth-Stealth] ([yshift=-1cm]B) -- node[fill=white]{$1.5\text{ m}$}([yshift=-1cm,xshift=-\hi cm]C);
+	 \draw ($ (C)+(2*\hi,0) $) -- +(1,0);
+	 \draw ($ (D)+(2*\hi,0) $) -- +(1,0);
+	 \draw[Stealth-Stealth] ([xshift=1cm]C) -- node[fill=white]{$2.25\text{ m}$}([xshift=1cm]D);
+	 \draw[Stealth-Stealth] ([xshift=1cm]C)arc(0:-47:1);
+	 \node[fill=white, inner sep=0.2mm] at ($ (C)+(-22:1.1) $) {$ 49^\circ$};
+	 \draw[Stealth-Stealth] ([xshift=1cm]D)arc(0:133:1);
+	 \node[fill=white, inner sep=0.3mm] at ($ (D)+(65:1) $) {$ 131^\circ$};
+
+
+\end{tikzpicture}

@@ -1,0 +1,51 @@
+% !TEX root = ../../Beamer/05Moments/05Moments.tex
+
+
+\tikz[scale=\scale]{
+	\coordinate (O) at (0,1.5);
+	\coordinate (B) at (16.7,12.6);
+	\coordinate (A) at (25,0);
+	\coordinate (C) at (0,0);
+	\footnotesize
+	\fill[white] ($(C)+(-6,-3)$) rectangle (27,15);
+	\draw (O)-- node[above, sloped]{$20.0\,$m}(B)--(A)--(C)--node[left]{$1.50\,$m}(O);
+	\node[above] at (O){$O$};
+	\node[above] at (B){$B$};
+	\node[below] at (A){$A$};
+	\node[below] at (C){$C$};
+	\draw[gray] ($(O)+(0.5,0)$)-- +(4,0);
+	\node at ($(O)+(17:3)$){$\theta$};
+  \draw ($(B)+(213.6:1)$) -- ++(-56.4:1) -- +(33.6:1);
+  \uncover<1-4>{
+  \node[below] at ($(C)!.5!(A)$) {$25.0\,$m};
+  }
+
+  \uncover<2->{
+    \coordinate (D) at (16.7,0);
+    \draw (B) -- (D)node[below]{$D$};
+    \draw ($(D)+(-1,0)$) -- ++(0,1)-- +(1,0);
+  }
+  \uncover<3->{
+    \coordinate (E) at (16.7,1.5);
+    \draw (O) -- (E);
+
+    \draw ($(E)+(-1,0)$) -- ++(0,1)-- +(1,0);
+  }
+  \uncover<3-4>{
+  \node[xshift=1.5mm,yshift=0.5mm] at (E){$E$};
+  }
+  \uncover<4>{
+  \draw (E)--node[above,sloped, saitMaroon]{$20.0\sin\theta$}(B);
+  \draw (O)--node[above,sloped, saitMaroon]{$20.0\cos\theta$}(E);
+  \node[saitMaroon] at ($(B)+(-75:2.5)$){$\theta$};
+  }
+  \uncover<5->{
+  \draw (E)--node[above,sloped]{$20.0\sin\theta$}(B);
+  \draw (O)--node[above,sloped]{$20.0\cos\theta$}(E);
+  \draw (C)--node[below]{$20.0\cos\theta$}(D);
+  \draw (D)--node[below, saitMaroon, align=center]{$25.0$ \\ $  -20.0\cos\theta$}(A);
+  \draw (B)--node[above, saitMaroon, xshift=3mm, sloped]{ $20.0\sin\theta\!+\!1.50$}(D);
+  \node at ($(B)+(-75:2.5)$){$\theta$};
+  \draw[thick, saitDeepBlue] (B)--(D)--(A)--cycle;
+  }
+}

@@ -1,0 +1,28 @@
+% !TEX root = ../../Beamer/05Moments/05Moments.tex
+
+\tikz{
+  \coordinate (A) at (0,0);
+  \coordinate (B) at (2,3);
+  \coordinate (C) at (6,2);
+
+  \DLOne{A}{B}{A}{saitBlue!50}{saitDeepBlue}{5}{1}{1}
+  \DLOne{B}{C}{A}{saitBlue!50}{saitDeepBlue}{10}{1}{1}
+
+  % \pgfoonew \Beam=new beam(A,C,gray!50!white,gray!70!black, 0.375)
+	% \PinnedConnection{A}{saitBlue!50!white}{black}{0.6}{0.25};
+	% \Roller{B}{saitBlue!50!white}{black}{0.6}{0.25};
+
+  \fill[llHeaderGrey] (-1,-0.75) rectangle (7,0);
+  \draw[black] (-1,0) -- (7,0);
+
+  \node[above right] at (B) {\small $3.00\thinspace\text{kN/m}$};
+  \node[right] at (C) {\small $2.00\thinspace\text{kN/m}$};
+  \fill[black] (A) circle (1pt) node[above left, inner sep=0.1 mm]{\small $(0,0)$};
+
+  \draw ($ (A)+(0,-0.125) $) -- +(0,-.5);
+  \draw ($ (B)+(0,-3.125) $) -- +(0,-.5);
+  \draw ($ (C)+(0,-2.125) $) -- +(0,-.5);
+
+  \draw[Stealth-Stealth] ($ (A)+(0,-0.375) $) -- node[fill=llHeaderGrey] {\small $2.10\thinspace\text{m}$}($ (B)+(0,-3.375) $);
+  \draw[Stealth-Stealth] ($ (B)+(0,-3.375) $) --  node[fill=llHeaderGrey] {\small $4.20\thinspace\text{m}$}($ (C)+(0,-2.375) $);
+}

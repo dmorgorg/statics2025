@@ -1,0 +1,68 @@
+% !TEX root = ../../Beamer/statikz/statikz.tex
+
+
+\makeatletter
+\providecommand{\gettikzxy}[3]{%
+	\tikz@scan@one@point\pgfutil@firstofone#1\relax
+	\edef#2{\the\pgf@x}%
+	\edef#3{\the\pgf@y}%
+}
+\makeatother
+
+\begin{tikzpicture}[scale=\scale]
+	\def\thickness{thick}
+	\def\stroke{black}
+	\def\hi{.2}
+	\def\radii{\hi}
+	\def\extend{\hi}
+	\def\delta{0.5}
+
+	% \fill[white] (0,0) rectangle (5.5,1);
+
+	\coordinate (A) at (0, 7);
+	\coordinate (B) at (3, 3);
+	\coordinate (C) at (3, 0);
+	\coordinate (D) at (0, 0);
+
+
+	% \fill[gray!30!white] ($ (A)-(1.5,1.25) $) rectangle ($ (A)+(1.5,-0.75) $);
+	\filldraw[rounded corners=3pt, fill=lllHeaderGrey, draw=black, thick] ($ (A)+(108.435:3.162*\delta) $) -- ($ (B)+(18.435:1.054*\delta) $) -- ($ (C)+(\delta,-\delta) $) -- ($ (D)+(-\delta, -\delta) $) -- cycle;
+	\draw (A) -- (B);
+	\draw (C) -- (D);
+	\draw ($ (A)+(216.87:0.375) $) -- ++(-53.13:0.375) -- ++(36.87:0.375);
+	\draw ($ (B)+(126.87:0.375) $) -- ++(36.87:0.375) -- ++(-53.13:0.375);
+
+
+
+
+	\fill[black] (A) circle (3pt);% node[left, inner sep=5mm] {\Large $A$};
+	\fill[black] (B) circle (3pt);% node[right, inner sep=5mm] {\Large $B$};
+	\fill[black] (C) circle (3pt);% node[below, inner sep=5mm] {\Large $C$};
+	\fill[black] (D) circle (3pt);% node[left, inner sep=7mm] {\Large $D$};
+
+	\draw[line width=0.75mm, black, -Stealth] (A) -- +(36.87:-2.5) node[below] { 1.450 kN};
+	\draw[line width=0.75mm, black, -Stealth] (B) -- +(36.87:2.5) node[above left] { 1.450 kN};
+	\draw[line width=0.75mm, black, -Stealth] (C) -- +(60:-2.5) node[below] { 1.450 kN};
+	\draw[line width=0.75mm, black, -Stealth] (D) -- +(60:2.5) node[below right] { 1.450 kN};
+%
+	\node at ($ (C)+(200:.75) $) {\small $ 60^\circ$};
+	\node at ($ (D)+(25:.75) $) {\small $ 60^\circ$};
+%
+	\draw ($ (A)+(-0.75,0) $) -- ($ (A)+(-4.5,0) $);
+	\draw ($ (D)+(-0.75,0) $) -- ($ (D)+(-4.5,0) $);
+	\draw ($ (D)+(0, -0.75) $) -- ($ (D)+(0, -3.75) $);
+	\draw ($ (C)+(0,-0.75) $) -- ($ (C)+(0, -3.75) $);
+	\draw ($ (C)+(0.75, 0) $) -- ($ (C)+(1.75, 0) $);
+	\draw ($ (B)+(0.75,0) $) -- ($ (B)+(1.75, 0) $);
+% %
+	\draw[thick, Stealth-Stealth] ([xshift=-4cm]A) -- node[fill=white]{7.00 m}([xshift=-4cm]D);
+	\draw[thick, Stealth-Stealth] ([yshift=-3.5cm]D) -- node[fill=white]{3.00 m}([yshift=-3.5cm]C);
+\draw[thick, Stealth-Stealth] ([xshift=1.5cm]B) -- node[fill=white]{3.00 m}([xshift=1.5cm]C);
+
+
+
+
+
+
+
+\end{tikzpicture}

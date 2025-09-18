@@ -1,0 +1,26 @@
+% !TEX root = ../../Beamer/statikz/statikz.tex
+
+\begin{tikzpicture}[scale=\scale]
+	\def\thickness{thick}
+	\def\stroke{black}
+	\def\hi{.125}
+
+
+
+	\coordinate (O) at (0, 0);
+	\coordinate (A) at (1.6703, -1.1);
+	\coordinate (B) at (1.6703, -2);
+	\coordinate (C) at (-2.5,-2);
+	\coordinate (D) at (-2.5,-2.5);
+
+	\coordinate (E) at (4,-2.5);
+	\coordinate (F) at (4,-1.1);
+\coordinate (G) at (0,2);
+	\def\rad{2}
+
+	\filldraw[draw=black, fill=llHeaderGrey, thick] ($ (O)+(0,\rad) $)arc(90:-180:\rad) -- cycle;
+	\fill (O) circle (1pt) node[above right] {$ (0,0)$};
+	\filldraw[draw=black, fill=llHeaderGrey!50, thick] (A)--(B)--(C)--(D)--(E)--(F)--cycle;
+	\draw[-Stealth, ultra thick] (G)-- +(3,0) node[above] { $\bm{\mathrm{ F }}$ };
+
+\end{tikzpicture}

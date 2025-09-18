@@ -1,0 +1,16 @@
+% !TEX root = ../all/statikz.tex
+
+\tikz{
+  \fill[white] (-0.5,-2.25) rectangle (3.5,2.5);
+  \coordinate (A) at (-0.5, 2);
+  \coordinate (B) at (3.5, 2);
+  \coordinate (C) at (0, 0);
+  \coordinate (D) at (1.5, 1);
+  \DLOne{A}{B}{C}{pink!80}{saitMaroon}{5}{1}{1}
+  \node[above left] at (B) {$w$};
+  \draw[saitDeepBlue, ultra thick, -Stealth] (D) -- +(0,-2.75) node[black, below] {$wL$};
+  \draw (-0.5, -0.25) -- +(0,-0.75);
+  \draw (3.5, -0.25) -- +(0,-0.75);
+  \draw[Stealth-Stealth] (-0.5, -0.625) -- node[fill=white] {$\frac{L}{2}$} (1.5, -0.625);
+  \draw[Stealth-Stealth] (1.5, -0.625) -- node[fill=white] {$\frac{L}{2}$}(3.5, -0.625);
+}

@@ -1,0 +1,20 @@
+% !TEX root = ../../Beamer/statikz/statikz.tex
+
+\tikz[scale=\scale]{
+
+	\coordinate (O) at (0,0);
+	\coordinate (A) at (1,7);
+	\coordinate (B) at (4,3);
+	\coordinate (C) at (7,-1);
+	\coordinate (D) at (8.5,-3);
+	\coordinate (E) at ($ (C)!0.8!(B) $);
+
+	\fill[black] (O) circle (3pt) node[above left] {$O$};
+	\draw (O) -- node[above] {$d$} (B);
+	\draw (A) -- (D);
+	\draw[line width = 1mm, ->, >=stealth, saitMaroon] (C) -- (E) node [right, outer sep=2mm]{ $\bm{\mathrm{ F }}$} ;
+	\draw ($ (B)+(-53.13:0.5) $) -- ++(216.87:0.5) -- +(126.87:0.5);
+
+
+
+}

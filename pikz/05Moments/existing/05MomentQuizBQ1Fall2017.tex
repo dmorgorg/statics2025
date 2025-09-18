@@ -1,0 +1,40 @@
+% !TEX root = ../../Quizzes/05MomentsAndCouples/05MomentsAndCouplesQuizBFall2017.tex
+
+\tikz[scale=\scale]{
+	\coordinate (A) at (0,0);
+	\coordinate (B) at (2,0);
+	\coordinate (C) at (4,0);
+	\coordinate (D) at (6,0);
+	\coordinate (E) at ($(C)+(0,1)$);
+
+	\def\hi{.25}
+	\def\radii{0}
+	\def\extend{0.5}
+  \def\y{-1.25}
+
+	\gettikzxy{(A)}{\Ax}{\Ay}
+	\gettikzxy{(B)}{\Bx}{\By}
+	\gettikzxy{(C)}{\Cx}{\Cy}
+	\gettikzxy{(D)}{\Dx}{\Dy}
+	\gettikzxy{(E)}{\Ex}{\Ey}
+	\footnotesize
+	\fill[right color=AntiqueWhite4, left color=AntiqueWhite3] ($(A)+(0,3.5)$) rectangle ($(A)+(-1,-3.5)$);
+	\pgfoonew \AB=new beam(A,D,AntiqueWhite2,AntiqueWhite4, 0.5)
+	\EyeBolt {E}{AntiqueWhite3}{black}{0.5}{0.5}
+	\draw[ultra thick, -Latex] (E)-- +(125:2) node[above left] {$7.00\,\mathsf{kN}$};
+	\draw[ultra thick, -Latex] (B)-- +(-90:2) node[below] {$7.00\,\mathsf{kN}$};
+	\draw[thin, gray] ($(A)+(0.25,0)$) -- ($(D)+(0.75,0)$) node[right] {$x$};
+	\draw[thin, gray] ($(E)+(-0.25,0)$) -- +(-1.5,0);
+	\draw[thin, gray] ($(C)+(0,0.75)$) -- (\Cx,\Ay-1.5 cm);
+	\draw[thin, gray] ($(D)+(0,-0.35)$) -- (\Dx,\Ay-1.5 cm);
+	\draw[latex-latex] ($(E)+(125:1.5)$)arc(125:180:1.5)node[fill=white, inner sep=0.5mm, midway] {\footnotesize $55\degree$};
+	\draw[latex-latex] ($(E)+(180:1.5)$)--node[fill=white, inner sep=0.5mm] {$0.75\,$m} (\Ex-1.5 cm,\Ay);
+	\draw[-latex, ultra thick] ($(D)+(25:0.5)$)arc(25:330:0.5)-- +(60:0.2);
+	\node at ($(D)+(0,0.7)$) {$7.00\,\mathsf{kN\!\cdot\!m}$};
+	\fill (A) circle (1.5pt) node[left] {$A$};
+	\fill (B) circle (1.5pt);
+	\fill (D) circle (1.5pt);
+  \draw[latex-latex] (\Ax,\y) -- node[fill=white, inner sep=0.5mm]{$1.75\,$m}(\Bx,\y);
+  \draw[latex-latex] (\Bx,\y) -- node[fill=white, inner sep=0.5mm]{$1.75\,$m}(\Cx,\y);
+  \draw[latex-latex] (\Cx,\y) -- node[fill=white, inner sep=0.5mm]{$1.75\,$m}(\Dx,\y);
+}

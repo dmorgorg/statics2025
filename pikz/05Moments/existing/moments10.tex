@@ -1,0 +1,50 @@
+% !TEX root = ../../Beamer/05Moments/05Moments.tex
+
+\makeatletter
+\providecommand{\gettikzxy}[3]{%
+	\tikz@scan@one@point\pgfutil@firstofone#1\relax
+	\edef#2{\the\pgf@x}%
+	\edef#3{\the\pgf@y}%
+}
+\makeatother
+
+\begin{tikzpicture}[scale=\scale]
+
+	\coordinate (A) at (0, 0);
+	\coordinate (B) at (3, 0);
+	\coordinate (C) at (5, 0);
+	\coordinate (D) at (8, 0);
+	\coordinate (E) at (0, -3.5);
+	\coordinate (F) at (0, 3.5);
+
+	\pgfoonew \AB=new beam(A, D,lightsteelblue,saitDeepBlue, 0.4,0,0.35)
+	\pgfoonew \AB=new beam(E, F,lightsteelblue,saitDeepBlue, 0.5,0,0.45)
+
+	\gettikzxy{(F)}{\Fx}{\Fy};
+	\gettikzxy{(E)}{\Ex}{\Ey};
+	\gettikzxy{(D)}{\Dx}{\Dy};
+
+
+	\draw ($ (B)+(0,-0.75) $) -- +(0,-1);
+	\draw ($ (C)+(0,-0.75) $) -- +(0,-1);
+	\draw ($ (D)+(0,-0.75) $) -- +(0,-1);
+	%
+	\draw[thick, latex-latex, inner sep=0.2mm] ([xshift=0.55cm, yshift=-1.25cm]A) -- node[fill=white]{\small 2.45 m}([yshift=-1.25cm]B);
+	\draw[thick, latex-latex, inner sep=0.2mm] ([yshift=-1.25cm]B) -- node[fill=white]{\small 2.00 m}([yshift=-1.25cm]C);
+	\draw[thick, latex-latex, inner sep=0.2mm] ([yshift=-1.25cm]C) -- node[fill=white]{\small 2.50 m}([yshift=-1.25cm]D);
+	%
+	\fill[black] ($ (A)+(0.55,0) $) circle (3pt) node[left] {\normalsize $A$};
+	\fill[black] (B) circle (3pt) node[left] {\normalsize $B$};
+	\fill[black] (C) circle (3pt) node[left] {\normalsize $C$};
+	\fill[black] (D) circle (3pt) node[left] {\normalsize $D$};
+
+	\draw[ultra thick, saitMaroon, ->, >=stealth] (C) -- +(0,-2) node[below] { 1.58 kN};
+	\draw[ultra thick, saitMaroon, ->, >=stealth] (D) -- +(35:2.25) node[above right] { 2.25 kN};
+	\draw[ultra thick, saitMaroon, <-, >=stealth] (B) -- +(35:2.25) node[right] { 2.25 kN};
+	\draw[ultra thick, saitMaroon, ->, >=stealth] (D) -- +(0,2.25) node[above] { 1.58 kN};
+	\draw ($ (B)+(0,0.75) $) -- +(0,1.25);
+	\draw[latex-latex] ($ (B)+(35:1.5)  $)  arc (35:90:1.5);
+	\draw[latex-latex] ($ (D)+(35:1.5)  $)  arc (35:90:1.5);
+	\path ($ (B)+(62.5:1.5) $) node[fill=white, inner sep=0.125mm] {\small $55^\circ$};
+	\path ($ (D)+(62.5:1.5) $) node[fill=white, inner sep=0.125mm] {\small $55^\circ$};
+\end{tikzpicture}
