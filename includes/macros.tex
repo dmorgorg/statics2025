@@ -2,6 +2,8 @@
 \usepackage{cancel}
 \usepackage{bm}
 \usepackage{graphicx}
+\usepackage{hyperref}
+\hypersetup{colorlinks, allcolors=.,urlcolor=structure}
 \usepackage{booktabs}  % for top and bottom spacing in table cells, \addlinespace
 \usepackage[x11names, svgnames]{xcolor} % for colors in handouts, auto loaded in Beamer?
 \usepackage{tikz}
@@ -156,13 +158,11 @@
 	\end{center}
 }
 
-
-
 \newcommand{\fig}[2][1]{% scaled graphic
 	\includegraphics[scale=#1]{#2}
 }
 
-% centred framed colored box black border
+% centred framed box black border
 %\cbox[width]{content}
 \newcommand{\cbox}[2][1]{% framed centered color box
 	\setlength\fboxsep{5mm}
@@ -173,6 +173,22 @@
 			\begin{minipage}{#1\columnwidth}
 				\raggedright
 				#2
+			\end{minipage}
+		}
+	\end{center}
+	\setlength\fboxsep{0cm}
+}
+\newcommand{\ccbox}[4][1]{% framed centered color box
+	\setlength\fboxsep{5mm}
+	\setlength\fboxrule{.2 mm}
+	\begin{center}
+		\fcolorbox{#2}{#3}{
+			% \vspace{-0.5cm}
+			\begin{minipage}{#1\columnwidth}
+				\vspace{-0.25cm}
+				\raggedright				
+				#4
+				\vspace{-0.75cm}
 			\end{minipage}
 		}
 	\end{center}

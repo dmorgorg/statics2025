@@ -1,0 +1,56 @@
+\documentclass[12pt,oneside]{article}
+
+\input{../../includes/macros.tex}
+\input{../../includes/definedColors.tex}
+\input{../../includes/Member.tex}
+\input{../../includes/PC.tex}
+
+\renewcommand{\familydefault}{\sfdefault} 
+
+\usepackage{mathpazo}
+\usepackage[letterpaper]{geometry}
+\geometry{verbose,tmargin=0.25in,bmargin=0.5in,lmargin=1in,rmargin=1.15in}
+\hfuzz 50pt
+\setlength{\parindent}{0pt}
+
+
+\begin{document}
+
+\mini[0.4]{
+  \tikz{
+    \coordinate (TR) at (3,3);
+    \coordinate (TL) at (-3,3);
+    \coordinate (BR) at (3,-3);
+    \coordinate (BL) at (-3,-3);
+    \coordinate (O) at ($ (TR)-(1.7574, 1.7574) $);
+
+
+    \draw[thin, gray] (TR)--(TL)--(BL)--(BR)--cycle;
+    \draw[thick, black] (TL)--(TR)--(BR)--cycle;
+    % \draw[thick, black] (O) circle (1.7574);
+
+    % \draw (BL) -- (tangent cs:node=O, point={(BL)}.solution=1);
+    % \node[circle] (c) at (O) [minimum size=40pt] {$O$};
+    % \path[name intersections = {of=AC and BC, by=C}];
+    \node[circle, draw, red, thick] (o) at (O) [minimum size=3.5147cm] {};
+
+    \draw[green] (BL) -- (tangent cs:node=o, point={(BL),solution=1});
+    \coordinate (T) at (tangent cs:node=o, point={(BL),solution=1});
+    \node[below right] at (T) {$ T $};
+    
+
+    \node[above left] at (TL) {$ A $};
+    \node[above right] at (TR) {$ B $};
+    \node[below right] at (BR) {$ C $};
+    \node[below left] at (BL) {$ D $};
+
+    \fill (O) circle (2pt);
+    \fill (T) circle (2pt);
+  }
+
+
+}
+			
+			
+			
+\end{document}

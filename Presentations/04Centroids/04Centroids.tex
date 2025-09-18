@@ -564,17 +564,17 @@
 		}
 		\hfill
 		\mini[0.45]{
-			Two W250X115 steel beams have a steel plate welded on top of them, as shown. The dimensions of the plate are 650 mm x 60 mm.\parb
+			Two W250X115 steel beams have a steel plate welded on top of them, as shown. \lb The dimensions of the plate are 650 mm x 60 mm.\parm
 			How far below the top of the built-up section is the centroidal $x$-axis?
-			\parb
+			\parm
 			\footnotesize
-			\centering
-			\textcolor{statsMaroon}{
-			From the beam tables for W250X115:\lb
+			\ccbox[0.7]{Gray0!50}{Gray0!50}{
+			Properties for W250X115:\lb
 			Area $= 14600\,\mathsf{mm^2}$\lb
-			Depth $=269\,\mathsf{mm}$}
-			
+			Depth $=269\,\mathsf{mm}$\parb}
+			(Beam tables at \href{https://beamdimensions.com/database/Canadian/CISC/W\_Wide\_Flange/}{ beamdimensions.com})
 		}
+		
 		\addtocounter{\tcbcounter}{-1}
 	\end{myexam}
 
@@ -595,20 +595,20 @@
 				         & \footnotesize$\mathsf{\;(mm^2)}$ & \footnotesize$\mathsf{\;(mm)}$ & \footnotesize$\mathsf{\;(mm^3)}$ \\
 				\addlinespace
 				\midrule
-				$A_1$    & $14600$                          & $-194.5$                       & $-2839700$                       \\
+				$A_1$    & $14600$  & $-134.5$  & \textcolor{statsMaroon}{$-1963700$}\\
 				\addlinespace
-				$A_2$    & $14600$                          & $-194.5$                       & $-2839700$                       \\
+				$A_2$    & $14600$  & $-134.5$  & \textcolor{statsMaroon}{$-1963700$}\\
 				\addlinespace
-				$A_3$    & $39000$                          & $-30$                          & $-1170000$                       \\
+				$A_3$    & $39000$  & $-30$     & \textcolor{statsMaroon}{$-1170000$}\\
 				\addlinespace
 				\bottomrule
 				\addlinespace
-				$\Sigma$ & $68200$                          &                                & -$6849400$
+				$\sum$ & \textcolor{statsMaroon}{$68200$} &  & \textcolor{statsMaroon}{$-5097400$}
 			\end{tabular}
 			\parb
-			\[ \overline{y} = \frac{\Sigma A_iy_i}{\Sigma A_i} = -100.43\text{ mm}\]
+			\[ \overline{y} = \frac{\Sigma A_iy_i}{\Sigma A_i} = -74.742\text{ mm}\]
 			\parb
-			The centroidal $x$ axis is $100$ mm below the top of the plate.
+			The centroidal $x$-axis of the built-up shape is $74.7$ mm below the top of the plate.
 		}
 	\end{myexam}
 \end{frame}
@@ -642,20 +642,21 @@
 		}
 		\hfill
 		\mini[0.45]{
-			Two C180X22 and one C150X19 are welded together as shown. \parb
+			Two C180X22 and one C150X19 are welded together as shown. \parm
 			How far below the top of the built-up section is the centroidal $x$-axis?
-			\parb
+			\parm
 			\footnotesize
-			\centering
-			\textcolor{statsMaroon}{
-			From the beam tables for C180X22:\lb
+			% \centering			
+			\ccbox[0.7]{Gray0!50}{Gray0!50}{
+			Properties for C180X22:\pars
 			Area $= 2790\,\mathsf{mm^2}$\lb
 			Depth $=178\,\mathsf{mm}$\lb
-			$\overline{x} =58\,\mathsf{mm}$\pars 
-			From the beam tables for C150X19:\lb
+			$\overline{x} =13.5\,\mathsf{mm}$\parm 
+			Properties for C150X19:\pars
 			Area $= 2470\,\mathsf{mm^2}$\lb
 			Depth $=152\,\mathsf{mm}$\lb
-			$\overline{x} =54\,\mathsf{mm}$}
+			$\overline{x} =12.9\,\mathsf{mm}$\parb}
+			(Beam tables at \href{https://beamdimensions.com/database/Canadian/CISC/C_Shapes/}{ beamdimensions.com})
 		}
 		\addtocounter{\tcbcounter}{-1}
 	\end{myexam}
@@ -678,20 +679,20 @@
 				         & \footnotesize$\mathsf{\;(mm^2)}$ & \footnotesize$\mathsf{\;(mm)}$ & \footnotesize$\mathsf{\;(mm^3)}$ \\
 				\addlinespace
 				\midrule
-				$A_1$    & $2610$                           & $-101.5$                       & $-264920$                        \\
+				$A_1$    & $2790$   & $-89$    & \textcolor{statsMaroon}{$-248310$ }  \\
 				\addlinespace
-				$A_2$    & $2610$                           & $-101.5$                       & $-264920$                        \\
+				$A_2$    & $2790$   & $-89$    & \textcolor{statsMaroon}{$-248310$ }  \\
 				\addlinespace
-				$A_3$    & $1994$                           & $-12.67$                       & $-25264$                         \\
+				$A_3$    & $2470$ 	& $-12.9$  & \textcolor{statsMaroon}{$-31863$}    \\
 				\addlinespace
 				\bottomrule
 				\addlinespace
-				$\Sigma$ & $7214$                           &                                & -$555104$
+				$\Sigma$ & \textcolor{statsMaroon}{$8050$} &  & \textcolor{statsMaroon}{$-528483$}
 			\end{tabular}
 			\parb
-			\[ \overline{y} = \frac{\Sigma A_iy_i}{\Sigma A_i} = -76.948\text{ mm}\]
+			\[ \overline{y} = \frac{\Sigma A_iy_i}{\Sigma A_i} = -65.650\text{ mm}\]
 			\parb
-			The centroidal $x$ axis is $76.9$ mm below the top of the plate.
+			The centroidal $x$-axis of the built-up shape is $65.7$ mm below the top of the plate.
 		}
 
 	\end{myexam}
@@ -709,17 +710,18 @@
 		}
 		\hfill
 		\mini[0.55]{
-			Three C130 X 13 and a steel plate (12~mm~X~127~mm) are welded together. \parb
+			\raggedright
+			Three C130X13 and a steel plate ($15\mathsf{mm}\x 174\mathsf{mm}$) are welded together. \parb
 			Determine the location of the centroid, relative to the bottom left hand corner of the composite area.
-			\parb
+			\parm
 			\footnotesize
-			\centering
-			\textcolor{statsMaroon}{
-			From the beam tables for C130X13:\lb
+			\ccbox[0.5]{Gray0!50}{Gray0!50}{
+			Properties for C130X13:\pars
 			Area $= 1700\,\mathsf{mm^2}$\lb
 			Depth $=127\,\mathsf{mm}$\lb
-			$\overline{x} =47\,\mathsf{mm}$}
-		
+			$\overline{x} =12\,\mathsf{mm}$\parb}
+			\centering
+			(Beam tables at \href{https://beamdimensions.com/database/Canadian/CISC/C_Shapes/}{ beamdimensions.com})
 		}
 		\pars
 	\end{myexer}
