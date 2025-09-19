@@ -7,6 +7,7 @@
 \input{../../includes/macros}
 \input{../../includes/definedColors}
 \input{../../includes/Channel.tex}
+\input{../../includes/Couple.tex}
 \input{../../includes/EyeBolt.tex}
 \input{../../includes/EyeConnection.tex}
 \input{../../includes/Member}
@@ -84,53 +85,62 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}{Bodies}
+% \begin{frame}{Bodies}
 
-	\begin{textblock*}{9cm}(2cm,1.25cm)
-		\begin{itemize}
-			\item So far, we have concerned ourselves with forces acting at a single point (or particle)\parm
-			\item We have learned how to analyze the (concurrent) forces acting at this point.\parm
-			\item We now start to look at non-concurrent forces, where several forces act upon a body but at different locations.
-		\end{itemize}
-	\end{textblock*}
-	\begin{textblock*}{9cm}(2.5cm, 5.375cm)
-		\def\scale{1}
-		\centering
-		\tcb{		
-			\centering
-			\input{../../pikz/05Moments/moments5.tex}		
-			\tiny\vspace{-0.575cm}
-			https://pixabay.com/en/teeter-totter-playground-children-148269/		
-		}
-		% \end{center}
-	\end{textblock*}
-\end{frame}
+% 	\begin{textblock*}{9cm}(2cm,1.25cm)
+% 		\begin{itemize}
+% 			\item So far, we have concerned ourselves with forces acting at a single point (or particle)\parm
+% 			\item We have learned how to analyze the (concurrent) forces acting at this point.\parm
+% 			\item We now start to look at non-concurrent forces, where several forces act upon a body but at different locations.
+% 		\end{itemize}
+% 	\end{textblock*}
+% 	\begin{textblock*}{9cm}(2.5cm, 5.375cm)
+% 		\def\scale{1}
+% 		\centering
+% 		\tcb{		
+% 			\centering
+% 			% \input{../../pikz/05Moments/moments5.tex}		
+% 			\tiny\vspace{-0.575cm}
+% 			https://pixabay.com/en/teeter-totter-playground-children-148269/		
+% 		}
+% 		% \end{center}
+% 	\end{textblock*}
+% \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Non-Concurrent Forces}
+% \begin{frame}{Non-Concurrent Forces}
 
-	\begin{textblock*}{9cm}(2cm, 1cm)
-		\begin{itemize}
-			\item We assume that $ABC$ is a {\bfseries rigid} beam and that it doesn't deflect under the load a $C$. We also assume that the weight of the beam is negligible compared to loads imposed upon it.\parm
-			\item External, non-concurrent forces act upon $ABC$:
-			      \begin{itemize}
-			      	\item<2->  A force \textcolor{saitDeepBlue}{$\bm{\mathrm{ W }_{}}$} due to the weight of the object at $C$,\parm
-			      	\item<3-> A reaction, \textcolor{saitMaroon}{$\bm{\mathrm{ R }_{B}}$}, from the roller at $B$, perpendicular to the surface the roller is resting on,\parm
-			      	\item<4-> Horizontal and vertical components, \textcolor{saitMaroon}{$\bm{\mathrm{ R }_{A_x}}$} and \textcolor{saitMaroon}{$\bm{\mathrm{ R }_{A_y}}$}, of the reaction from the pinned connection at $A$.
-			      \end{itemize}
-		\end{itemize}
-	\end{textblock*}
-	\uncover<1->{
-		\begin{textblock*}{9cm}(2.5cm, 5.375cm)
-			\def\scale{0.6}
-			\tcb{
-			 \input{../../pikz/05Moments/moments2.tex}
-			}
-		\end{textblock*}
+% 	\begin{textblock*}{9cm}(2cm, 1cm)
+% 		\begin{itemize}
+% 			\item We assume that $ABC$ is a {\bfseries rigid} beam and that it doesn't deflect under the load a $C$. We also assume that the weight of the beam is negligible compared to loads imposed upon it.\parm
+% 			\item External, non-concurrent forces act upon $ABC$:
+% 			      \begin{itemize}
+% 			      	\item<2->  A force \textcolor{saitDeepBlue}{$\bm{\mathrm{ W }_{}}$} due to the weight of the object at $C$,\parm
+% 			      	\item<3-> A reaction, \textcolor{saitMaroon}{$\bm{\mathrm{ R }_{B}}$}, from the roller at $B$, perpendicular to the surface the roller is resting on,\parm
+% 			      	\item<4-> Horizontal and vertical components, \textcolor{saitMaroon}{$\bm{\mathrm{ R }_{A_x}}$} and \textcolor{saitMaroon}{$\bm{\mathrm{ R }_{A_y}}$}, of the reaction from the pinned connection at $A$.
+% 			      \end{itemize}
+% 		\end{itemize}
+% 	\end{textblock*}
+% 	\uncover<1->{
+% 		\begin{textblock*}{9cm}(2.5cm, 5.375cm)
+% 			\def\scale{0.6}
+% 			\tcb{
+% 			%  \input{../../pikz/05Moments/moments2.tex}
+% 			}
+% 		\end{textblock*}
+% 	}
+% \end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Couple component}
+	\centering
+	\tikz{%color
+		\coordinate (C) at (0,0);
+		\Couple[0]{C}{statsMaroon}{1}{1}
 	}
-\end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \end{document}

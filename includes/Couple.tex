@@ -1,0 +1,20 @@
+\newcommand{\Couple}[5][1]{
+	\def\positive{#1};
+	\def\lpin{#2}	
+	\def\ldraw{#3}
+	\def\diam{#4}
+	\def\lwidth{#5}
+	
+	\begin{scope}[line cap = round]
+		\ifthenelse{\equal{\positive}{1}}
+			{
+				\draw[line width=\lwidth mm, \ldraw] ($ (\lpin)+(-150:\diam) $) arc (-150:140:\diam);
+				\draw[-Latex, \ldraw, line width=\lwidth mm] ($ (\lpin)+(130:\diam) $) --+ (230:0.5*\lwidth);
+			}
+			{
+				\draw[line width=\lwidth mm, \ldraw] ($ (\lpin)+(150:\diam) $) arc (150:-140:\diam);
+				\draw[-Latex, \ldraw, line width=\lwidth mm] ($ (\lpin)+(-140:\diam) $) --+ (120:0.5*\lwidth);
+			}
+		
+	\end{scope}
+}
