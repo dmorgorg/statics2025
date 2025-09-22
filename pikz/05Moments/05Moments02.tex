@@ -1,0 +1,28 @@
+% !TEX root = ../../Beamer/statikz/statikz.tex
+
+
+\tikz[scale=\scale]{
+
+	\coordinate (A) at (-1,0) node[above] {$A$};
+	\coordinate (B) at (3,0);
+	\coordinate (C) at (6, 0);
+
+	\def\hi{0.2}
+	\def\radii{0}
+	\def\extend{2.5*\hi}
+
+	% 
+
+	\fill[white] (-3,-1.5) rectangle (7.5,1.5);
+
+		% \pgfoonew \Beam=new beam(A,C,gray!50!white,gray!50!black,0.25,0.25,0.175)
+		\Meme{A}{C}{Wheat3}{Wheat3}{black}{0.5}{0.0625}{0.125}
+
+	\draw[ultra thick, saitRed, -Latex, line cap=round] (C) -- +(150:2)node[above] {$\bm{ F }$};
+	\draw[ultra thick, saitRed, -Latex, line cap=round] (A) -- +(-30:2)node[below] {$\bm{ F }$};
+
+
+
+
+
+}

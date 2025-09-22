@@ -26,26 +26,26 @@
 
 	\gettikzxy{(AA)}{\aax}{\aay}
 
-	\fill[mucus!90!black] ($ (A)-(1,0.525) $) rectangle ($ (A)+(1,-1) $);
-	\fill[mucus!90!black] ($ (D)+(-0.875,-1) $) -- ++(25:2) -- +(-90:0.854) -- cycle;
+	\fill[DarkSeaGreen4] ($ (A)-(1,0.525) $) rectangle ($ (A)+(1,-1) $);
+	\fill[DarkSeaGreen4] ($ (D)+(-0.875,-1) $) -- ++(25:2) -- +(-90:0.854) -- cycle;
 
-	\PinnedConnection{A}{DarkKhaki}{black}{0.55}{0.125}
-	\Roller[25]{D}{DarkKhaki}{black}{0.55}{0.125}
+	\PC{A}{DarkSeaGreen4}{black}{0.55}{0.125}
+	\Roller[25]{D}{DarkSeaGreen4}{black}{0.55}{0.125}
 
 	\draw ($ (A)+(0,-0.25) $) -- +(0,-1.5);
 	\draw ($ (B)+(0,-0.25) $) -- +(0,-1.5);
 	\draw ($ (C)+(0,-0.25) $) -- +(0,-1.5);
 	\draw ($ (D)+(0,-0.25) $) -- +(0,-1.5);
 
-	\pgfoonew \AB=new rr(A,B,Burlywood1,Burlywood4, 0.25)
-	\pgfoonew \BC=new rr(B,C,Burlywood1,Burlywood4, 0.25)
-	\pgfoonew \CD=new rr(C,D,Burlywood1,Burlywood4, 0.25)
-	\pgfoonew \DE=new rr(D,E,Burlywood1,Burlywood4, 0.25)
-	\pgfoonew \EF=new rr(E,F,Burlywood1,Burlywood4, 0.25)
-	\pgfoonew \AF=new rr(A,F,Burlywood1,Burlywood4, 0.25)
-	\pgfoonew \CF=new rr(C,F,Burlywood1,Burlywood4, 0.25)
-	\pgfoonew \BF=new rr(B,F,Burlywood1,Burlywood4, 0.25)
-	\pgfoonew \CE=new rr(C,E,Burlywood1,Burlywood4, 0.25)
+	\Meme{A}{B}{Burlywood4}{Burlywood1}{black}{0.25}{0.1}{0.125};
+	\Meme{B}{C}{Burlywood4}{Burlywood1}{black}{0.25}{0.1}{0.125};
+	\Meme{D}{C}{Burlywood4}{Burlywood1}{black}{0.25}{0.1}{0.125};
+	\Meme{D}{E}{Burlywood4}{Burlywood1}{black}{0.25}{0.1}{0.125};
+	\Meme{F}{E}{Burlywood4}{Burlywood1}{black}{0.25}{0.1}{0.125};
+	\Meme{F}{A}{Burlywood4}{Burlywood1}{black}{0.25}{0.1}{0.125};
+	\Meme{F}{C}{Burlywood4}{Burlywood1}{black}{0.25}{0.1}{0.125};
+	\Meme{F}{B}{Burlywood4}{Burlywood1}{black}{0.25}{0.1}{0.125};
+	\Meme{C}{E}{Burlywood4}{Burlywood1}{black}{0.25}{0.1}{0.125};
 
 
 

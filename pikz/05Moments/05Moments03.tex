@@ -1,0 +1,48 @@
+% !TEX root = ../../Beamer/statikz/statikz.tex
+
+
+\tikz[scale=\scale]{
+
+	\def\hi{0.1}
+
+	\def\radii{0.05}
+	\def\extend{0}
+
+	\coordinate (A) at (-2,0);
+	\coordinate (B) at (0,0);
+	\coordinate (C) at (3.5,0);
+	\coordinate (D) at (5.5,0);
+	\coordinate (E) at (1.75,1);
+  \coordinate (F) at ($ (B)!0.8!(E) $);
+  \coordinate (G) at ($ (B)!0.2!(E) $);
+
+  % \draw
+
+	% \pgfoonew \wallA =new rr(A, B, gray!50!white,gray!50!black, 0.25)
+	% \begin{scope}[opacity=0.35]
+	% 	\pgfoonew \door =new rr(B, C, gray!50!white,gray!50!black, 0.25)
+	% \end{scope}
+	% \pgfoonew \doorB =new rr(B, E, gray!50!white,gray!50!black, 0.25)
+	% \pgfoonew \wallB =new rr(C, D, gray!50!white,gray!50!black, 0.25)
+
+	% \Meme{A}{B}{Seashell3}{Seashell3}{black}{0.25}{0.03}{0.75}
+	% \Meme{B}{C}{Seashell3}{Seashell3}{black}{0.25}{0.03}{0.75}
+
+	\filldraw[fill=Seashell3, rounded corners=0.035 cm, line width=0.25mm] ($ (A)+(0,0.125) $) rectangle ($ (B)+(0,-0.125) $);
+	\filldraw[fill=Seashell3, rounded corners=0.035 cm, line width=0.25mm, opacity=0.25] ($ (B)+(0,0.125) $) rectangle ($ (C)+(0,-0.125) $);
+
+	\filldraw[fill=Seashell3, rounded corners=0.035 cm, line width=0.25mm] ($ (B)+(120:0.125)+(0.0625,0) $) -- ++(30:3.5)--++(-60:0.25)--++(-150:3.5)--cycle;
+
+	\filldraw[fill=Seashell3, rounded corners=0.035 cm, line width=0.25mm] ($ (C)+(0,0.125) $) rectangle ($ (D)+(0,-0.125) $);
+
+
+	\node[below right] at (E) {Door};
+	\fill[black] ($ (B)+(-0,0.15) $) circle (2pt) node[above left] {Hinge};
+  % \draw[ultra thick, saitMaroon, latex-] (F) -- +(120:2) node [above] {$\bm{ F }$};
+  % \draw[ultra thick, saitMaroon, latex-] (G) -- +(-60:2) node [below] {$\bm{ 3F $}};
+
+	\draw[ultra thick, saitMaroon, latex-] ($ (B)+(30:3) $) -- +(120:2)node [left] {$\bm{ F }$};
+	\draw[ultra thick, saitMaroon, latex-] ($ (B)+(30:1) $) -- +(-60:2)node [right] {$\bm{ 3F }$};
+
+
+}

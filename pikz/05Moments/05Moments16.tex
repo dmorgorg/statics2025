@@ -1,0 +1,31 @@
+% !TEX root = ../all/statikz.tex
+
+\tikz[scale=\scale]{
+  \coordinate (O) at (0,0);
+  \coordinate (A) at (0,1);
+  \coordinate (B) at (1.5,2.5);
+  \coordinate (C) at (3,1.75);
+  \coordinate (D) at (4.5,0);
+
+  \DL{A}{B}{D}{Cornsilk3}{Cornsilk4}{5}{0.4}{6}
+  \DL{B}{C}{D}{Cornsilk3}{Cornsilk4}{5}{0.4}{6}
+  \DL{C}{D}{D}{Cornsilk3}{Cornsilk4}{5}{0.4}{6}
+
+  \fill[Snow3] (-1,-0.75) rectangle (5.5,0);
+  \draw (-1,0) -- (5.5, 0);
+
+  \fill[Cornsilk3!50!black] (O) circle (1pt) node[black, above left]{\small $(0,0)$};
+  \fill[Cornsilk3!50!black] (A) circle (1pt) node[black, above left] {\small $1.00\thinspace\text{kN/m}$};
+  \fill[Cornsilk3!50!black] (B) circle (1pt) node[black, above right] {\small $2.50\thinspace\text{kN/m}$};
+  \fill[Cornsilk3!50!black] (C) circle (1pt) node[black, above right] {\small $1.75\thinspace\text{kN/m}$};
+  \fill[Cornsilk3!50!black] (D) circle (1pt);
+
+  \draw ($ (O)+(0,-0.125) $) -- +(0,-.5);
+  \draw ($ (B)+(0,-2.625) $) -- +(0,-.5);
+  \draw ($ (C)+(0,-1.875) $) -- +(0,-.5);
+  \draw ($ (D)+(0,-0.125) $) -- +(0,-.5);
+
+  \draw[Stealth-Stealth] ($ (O)+(0,-0.375) $) -- node[fill=Snow3] {\small $1.50\thinspace\text{m}$}($ (B)+(0,-2.875) $);
+  \draw[Stealth-Stealth] ($ (B)+(0,-2.875) $) --  node[fill=Snow3] {\small $1.50\thinspace\text{m}$}($ (C)+(0,-2.125) $);
+  \draw[Stealth-Stealth] ($ (C)+(0,-2.125) $) --  node[fill=Snow3] {\small $1.50\thinspace\text{m}$}($ (D)+(0,-0.375) $);
+}

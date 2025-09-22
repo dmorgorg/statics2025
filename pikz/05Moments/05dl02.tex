@@ -6,11 +6,11 @@
   \coordinate (B) at (3.5, 2);
   \coordinate (C) at (0, 0);
   \coordinate (D) at (1.5, 1);
-  \DLOne{A}{B}{C}{pink!80}{saitMaroon}{5}{1}{1}
+  \DL{A}{B}{C}{pink!80}{saitMaroon}{5}{0.5}{7.5}
   \node[above left] at (B) {$w$};
-  \draw[saitDeepBlue, ultra thick, -Stealth] (D) -- +(0,-2.75) node[black, below] {$wL$};
+  \draw[saitDeepBlue, ultra thick, -latex] (D) -- +(0,-2.75) node[black, below] {$wL$};
   \draw (-0.5, -0.25) -- +(0,-0.75);
   \draw (3.5, -0.25) -- +(0,-0.75);
-  \draw[Stealth-Stealth] (-0.5, -0.625) -- node[fill=white] {$\frac{L}{2}$} (1.5, -0.625);
-  \draw[Stealth-Stealth] (1.5, -0.625) -- node[fill=white] {$\frac{L}{2}$}(3.5, -0.625);
+  \draw[latex-latex] (-0.5, -0.625) -- node[fill=white] {$\frac{L}{2}$} (1.5, -0.625);
+  \draw[latex-latex] (1.5, -0.625) -- node[fill=white] {$\frac{L}{2}$}(3.5, -0.625);
 }

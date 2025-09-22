@@ -1,0 +1,41 @@
+\tikz[scale=\scale]{
+
+	\coordinate (A) at (0,0);
+	\coordinate (B) at (2.5,0);
+	\coordinate (C) at (5,0);
+	\coordinate (D) at (7,0);
+	\coordinate (Dd) at (7,-1);
+	\coordinate (Du) at (7,1);
+
+
+  \EyeBolt[180]{Dd}{Seashell2}{black}{0.5}{0.75}
+  \EyeBolt{Du}{Seashell2}{black}{0.5}{0.75}
+  \filldraw[fill=Seashell2, draw=black, rounded corners=0.75mm, line width=0.325mm ] ($ (A)+(-1,-3) $) -- ($ (A)+(0,-3) $) -- ($ (A)+(0,-0.25) $) -- ($ (D)+(0.65,-0.25) $) -- +(0,0.5) -- ($ (A)+(0,0.25) $) -- ($ (A)+(0,2) $) -- ($ (A)+(-1,2) $);
+
+  \fill (A) circle (2pt) node[left] {$A$};
+  \fill (B) circle (2pt) node[left] {$B$};
+  \fill (C) circle (2pt) node[right] {$C$};
+  \fill (D) circle (2pt) node[right] {$D$};
+
+  \draw[very thick, statsRed, -latex] (B) -- +(65:1.5) node[above] {$1020\,$N};
+  \draw[very thick, statsRed, -latex] (C) -- +(245:1.5) node[left] {$1020\,$N};
+  \draw[very thick, statsRed, -latex] (Du) -- +(180:1.75) node[left] {$1690\,$N};
+  \draw[very thick, statsRed, -latex] (Dd) -- +(0:1.75) node[right] {$1690\,$N};
+
+	\draw ($ (B)+(0.25,0) $) -- ($ (C)+(-0.25,0) $);
+  \draw[latex-latex] ($ (B)+(1,0) $)  arc(0:65:1) node[midway, fill=white, inner sep=0.3mm] {\small $65\deg$};
+  \draw[latex-latex] ($ (C)+(-1,0) $)  arc(180:245:1) node[midway, fill=white, inner sep=0.3mm] {\small $65\deg$};
+  
+  \draw ($ (Du)+(0.5,0) $) --+ (1.5,0);
+  \draw[latex-latex] ($ (Du)+(1.25,0) $) -- ($ (Dd)+(1.25,0) $) node[midway, fill=white, xshift=0.25cm] {\small $600\,$mm};
+
+  \draw ($ (D)+(0,-1.25) $) -- ($ (D)+(0,-2.5) $);
+  \draw ($ (C)+(0,-.5) $) -- ($ (C)+(0,-2.5) $);
+  \draw ($ (B)+(0,-.5) $) -- ($ (B)+(0,-2.5) $);
+
+  \draw[latex-latex] ($ (A)+(0, -2) $) -- ($ (B)+(0, -2) $) node[midway, fill=white] {\small $750\,$mm};
+  \draw[latex-latex] ($ (B)+(0, -2) $) -- ($ (C)+(0, -2) $) node[midway, fill=white] {\small $750\,$mm};
+  \draw[latex-latex] ($ (C)+(0, -2) $) -- ($ (D)+(0, -2) $) node[midway, fill=white] {\small $600\,$mm};
+
+
+}

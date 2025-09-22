@@ -1,0 +1,53 @@
+% !TEX root = ../../Beamer/05Moments/05Moments.tex
+
+
+\makeatletter
+\providecommand{\gettikzxy}[3]{%
+	\tikz@scan@one@point\pgfutil@firstofone#1\relax
+	\edef#2{\the\pgf@x}%
+	\edef#3{\the\pgf@y}%
+	}
+	\makeatother
+
+\tikz[scale=\scale]{
+	\coordinate (A) at (-1,0);
+	\coordinate (B) at (6,0);
+
+	\def\hi{0.2}
+
+	\coordinate (D) at (0,0.24);
+	\coordinate (E) at (2,2.2);
+	\coordinate (F) at (6,1.2);
+
+	\gettikzxy{(A)}{\ax}{\ay};
+	\gettikzxy{(D)}{\ddx}{\ddy};
+	\gettikzxy{(E)}{\eex}{\eey};
+	\gettikzxy{(B)}{\bbx}{\bby};
+
+	\fill[top color=LemonChiffon4, bottom color=LemonChiffon2] (-2,-1.2) rectangle (6.75,-0.6);
+
+	\Meme{A}{B}{LemonChiffon4}{LemonChiffon3}{black}{0.45}{0.225}{0.5}
+	\PC{A}{LemonChiffon4}{black}{0.6}{0.125};
+	\Rocker{B}{LemonChiffon4}{black}{0.6}{0.125};
+
+	\DL{D}{E}{D}{saitBlue!50}{saitDeepBlue}{5}{0.35}{7}
+	\DL{E}{F}{D}{saitBlue!50}{saitDeepBlue}{10}{0.35}{7}
+
+	\node[above] at (E) {\small $3.00\thinspace\text{kN/m}$};
+  \node[right] at (F) {\small $1.50\thinspace\text{kN/m}$};
+
+	\draw (\ax,-0.25)--(\ax,-1.75);
+	\draw (\ddx,0)--(\ddx,-1.75);
+	\draw (\eex,0)--(\eex,-1.75);
+	\draw (\bbx,-0.25)--(\bbx,-1.75);
+
+	\node[yshift=0.42cm] at (A){$O$};
+
+
+\footnotesize
+	\draw[latex-latex] (\ax,-1.375) -- node[fill=white, inner sep=0]{$1.00\,\text{m}$}(\ddx,-1.375);
+	\draw[latex-latex] (\ddx,-1.375) -- node[fill=white, inner sep=0.5mm]{$2.00\,\text{m}$}(\eex,-1.375);
+	\draw[latex-latex] (\eex,-1.375) -- node[fill=white, inner sep=0.5mm]{$4.00\,\text{m}$}(\bbx,-1.375);
+
+
+}

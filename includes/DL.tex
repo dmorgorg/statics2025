@@ -6,7 +6,7 @@
   \def\lfill{#5} % background fill color
   \def\stroke{#6} % drawing color
   \def\spaces{#7} % number of spaces between arrows 
-  \def\llinewidth{#8}
+  \def\llinewidth{#8} % mm
   \def\tiplength{#9}
 
   \gettikzxy{(\tl)}{\tlx}{\tly}
@@ -15,8 +15,8 @@
   \pgfmathparse{abs(\try-\by)} \let\rlength\pgfmathresult
   \pgfmathparse{abs(\tly-\by)} \let\llength\pgfmathresult
 
-  \fill[\lfill] (\tlx, \tly)--(\trx, \try)--(\trx, \by)--(\tlx, \by);
-  \draw[\stroke, line cap = round, line width = \llinewidth mm] (\tl)--(\tr);
+   \fill[\lfill] (\tlx, \tly)--(\trx, \try)--(\trx, \by)--(\tlx, \by);
+  
   
   % no empty lines in \tikzmath!
   \tikzmath{
@@ -33,10 +33,11 @@
         \length = \starty-\by;
         % in \tikzmath, drawing commands are enclosed in { }; 
         {
-          \begin{scope}          
+          \begin{scope}      
             \clip (\tlx,\tly) -- (\trx, \try) -- (\trx,\by) --(\tlx,\by);
             \draw[\stroke, line width = \llinewidth mm, -{Latex[length=\tiplength]}](\tlx+\i*\dx, \starty pt)-- +(270: \length pt);
           \end{scope}
+          % \draw[\stroke, line width = \llinewidth mm] (\tl)--(\tr);
         };
 			};
     } else {
@@ -44,7 +45,7 @@
         \starty = \tly+\i*\dy;
         \length = \starty-\by;			
 				{
-          \begin{scope}          
+          \begin{scope}
             \clip (\tlx,\tly) -- (\trx, \try) -- (\trx,\by) --(\tlx,\by);
             \draw[\stroke, line width = \llinewidth mm, {Latex[length=\tiplength]}-](\tlx+\i*\dx, \starty pt)-- +(270: \length pt);
           \end{scope}          
@@ -73,6 +74,11 @@
       } else {
         {\draw[\stroke, line width = \llinewidth mm] (\tlx, \tly)--(\tlx, \by);};
       };
-    };    
+    };
+    if \forcedown == 1 then {
+      {\draw[\stroke, line width = \llinewidth mm, line cap = round] (\tl)--(\tr);};
+    } else {
+       {\draw[\stroke, line width = \llinewidth mm, line cap = round] (\tlx, \by)--(\trx, \by);};
+    };
   } % \end tikzmath environment
 } % end of \DL definition

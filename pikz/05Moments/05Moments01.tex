@@ -1,0 +1,14 @@
+% !TEX root = ../../Beamer/04Centroids/04Centroids.tex
+\def\scale{1}
+\tikz[line cap=round]{
+  \coordinate (A) at (-2.675,-0.85);  
+	\coordinate (B) at (-0.55,-0.75) ;
+  \node at (0,-0.5) {\includegraphics[scale=0.15]{../../images/teeter-totter.png}} ;
+	\coordinate (C) at (2.8, -0.6);
+  % \draw[blue] (-3.5,1) rectangle (3.75,-2.5);
+  \only<2->{
+   \draw [line width= 0.75mm,latex-, red] (B) -- +(0,-1.2) node[right] {\Large $\bm {550}\,$\bf N};
+   \draw [line width= 0.75mm,-latex, red] (A) -- +(0,-1.2) node[right] {\Large $\bm {375}\,$\bf N};
+   \draw [line width= 0.75mm,-latex, red] (C) -- +(0,-1.2) node[left] {\Large $\bm {175}\,$\bf N};
+  }
+}

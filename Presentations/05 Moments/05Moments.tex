@@ -8,6 +8,7 @@
 \input{../../includes/definedColors}
 \input{../../includes/Channel.tex}
 \input{../../includes/Couple.tex}
+\input{../../includes/DL.tex}
 \input{../../includes/EyeBolt.tex}
 \input{../../includes/EyeConnection.tex}
 \input{../../includes/Member}
@@ -15,6 +16,7 @@
 \input{../../includes/Meme}
 \input{../../includes/PC}
 \input{../../includes/Ring}
+\input{../../includes/Rocker}
 \input{../../includes/Roller}
 \input{../../includes/Pulley}
 \input{../../includes/PulleyB}
@@ -85,64 +87,460 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% \begin{frame}{Bodies}
+\begin{frame}{Bodies}
 
-% 	\begin{textblock*}{9cm}(2cm,1.25cm)
-% 		\begin{itemize}
-% 			\item So far, we have concerned ourselves with forces acting at a single point (or particle)\parm
-% 			\item We have learned how to analyze the (concurrent) forces acting at this point.\parm
-% 			\item We now start to look at non-concurrent forces, where several forces act upon a body but at different locations.
-% 		\end{itemize}
-% 	\end{textblock*}
-% 	\begin{textblock*}{9cm}(2.5cm, 5.375cm)
-% 		\def\scale{1}
-% 		\centering
-% 		\tcb{		
-% 			\centering
-% 			% \input{../../pikz/05Moments/moments5.tex}		
-% 			\tiny\vspace{-0.575cm}
-% 			https://pixabay.com/en/teeter-totter-playground-children-148269/		
-% 		}
-% 		% \end{center}
-% 	\end{textblock*}
-% \end{frame}
+	\begin{textblock*}{9cm}(2cm,1.25cm)
+		\begin{itemize}
+			\only<1>{
+				\item So far, we have concerned ourselves with forces acting at a single point (or particle)\parm			
+				\item We now start to look at non-concurrent forces, where several forces act upon a body but at different locations.
+			}
+			\only<2>{
+				\item Consider the forces acting on the beam:
+				\item How can the teeter-totter balance when the force due to Wendy's weight is more than twice that of her younger brother?
+				\item As children, we all figured out that the solution involved the heavier person sitting closer to the fulcrum (the balance point); this was one of our first introdutions to {\bf moments}.
+			}
+			\only<3>{
+				\item A moment is a measure of a tendency to rotate. (It is the same as torque.)
+				\item The teeter-totter  will balance (that is, it is equilibrium) when counterclockwise moment due to Wendy equals the clockwise moment due to her little brother.
+				\item That is, when the tendency to rotate in the counter-clockwise direction is equal to the tendency to rotate in the clockwise direction.
+			}
+			\only<4-5>{
+				\item Moments, then, are related to force and to distance!
+				\item In general, when a force is applied to a structural body, there is a tendency for that body to rotate.
+			}
+			\only<5>{
+				\item {\bfseries Important}: We assume structural bodies are rigid -- they do not deform under load. Also, unless otherwise stated, structural bodies are assumed to have negligible weight compared to the forces applied to them.
+			}
+			
+		\end{itemize}
+	\end{textblock*}
+	\begin{textblock*}{8cm}(3cm, 5cm)	
+		
+		\begin{statsbox}{}		
+			\centering
+			\vspace{-0.25cm}
+			\input{../../pikz/05Moments/05Moments01.tex}		
+		\end{statsbox}
+		
+	\end{textblock*}
+\end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \begin{frame}{Non-Concurrent Forces}
+\begin{frame}{Why Two Equations Are Not Enough...}
+	\begin{itemize}
+		\item Consider a simple body, subject to two forces, equal in magnitude and opposite in direction:
+	\end{itemize}
 
-% 	\begin{textblock*}{9cm}(2cm, 1cm)
-% 		\begin{itemize}
-% 			\item We assume that $ABC$ is a {\bfseries rigid} beam and that it doesn't deflect under the load a $C$. We also assume that the weight of the beam is negligible compared to loads imposed upon it.\parm
-% 			\item External, non-concurrent forces act upon $ABC$:
-% 			      \begin{itemize}
-% 			      	\item<2->  A force \textcolor{saitDeepBlue}{$\bm{\mathrm{ W }_{}}$} due to the weight of the object at $C$,\parm
-% 			      	\item<3-> A reaction, \textcolor{saitMaroon}{$\bm{\mathrm{ R }_{B}}$}, from the roller at $B$, perpendicular to the surface the roller is resting on,\parm
-% 			      	\item<4-> Horizontal and vertical components, \textcolor{saitMaroon}{$\bm{\mathrm{ R }_{A_x}}$} and \textcolor{saitMaroon}{$\bm{\mathrm{ R }_{A_y}}$}, of the reaction from the pinned connection at $A$.
-% 			      \end{itemize}
-% 		\end{itemize}
-% 	\end{textblock*}
-% 	\uncover<1->{
-% 		\begin{textblock*}{9cm}(2.5cm, 5.375cm)
-% 			\def\scale{0.6}
-% 			\tcb{
-% 			%  \input{../../pikz/05Moments/moments2.tex}
-% 			}
-% 		\end{textblock*}
-% 	}
-% \end{frame}
+	\def\scale{0.65}
+	\begin{center}
+		\tcbox[colback=white,boxsep=0pt,top=15pt,bottom=15pt,left=5pt,right=5pt, enhanced, drop fuzzy shadow,colframe=structure]{
+			\input{../../pikz/05Moments/05Moments02.tex}
+		}
+	\end{center}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{itemize}
+		\item<2-> $\Sigma F_x=0$ and $\Sigma F_y=0$, but, clearly, this body is not in equilibrium; it will rotate in a counter-clockwise direction.
+		\item<3-> To consider equilibrium for non-concurrent forces, {\bfseries moments} must be taken in to account.
+	\end{itemize}
+\end{frame}
 
-\begin{frame}{Couple component}
-	\centering
-	\tikz{%color
-		\coordinate (C) at (0,0);
-		\Couple[0]{C}{statsMaroon}{1}{1}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Moments}
+	\def\scale{0.75}
+	\begin{center}
+		\tcb[left=5mm, right=5mm]{
+			\centering
+			\input{../../pikz/05Moments/05Moments03.tex}
+		}
+
+	\end{center}
+	\cmini[0.9]{
+		\small
+		Another lesson we learned as we were growing up was that is was easier to open a door by pushing or pulling on the handle that was further from the door hinges than it was to push close to the hinges.
 	}
 
 \end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\end{document}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Moments}
+
+	\cmini[0.8]{
+		\begin{statsbox}[title=Definition of a Moment]{}{%
+				The {\bfseries moment} $M_O$ of a force $F$ about a point $O$ is given by:
+				$$\bm{ M=Fd} $$
+				where $d$ is the {\bfseries perpendicular} distance from $O$ to the line of action of the force $F$. ($d$ is known as the {\bf moment-arm}.)}
+		\end{statsbox}
+		\parb
+		\mini[0.45]{
+			\tcbox[colback=white,boxsep=0pt,top=15pt,bottom=15pt,left=5pt,right=5pt, enhanced, drop fuzzy shadow,colframe=structure]{
+				\def\scale{0.3}
+				\centering
+				\input{../../pikz/05Moments/05Moments04.tex}
+			}
+		}
+		\hfill
+		\mini[0.5]{
+			Moments are a product of force and distance so units are $\mathsf{N\cdot mm}$, $\mathsf{N\cdot m}$, $\mathsf{kN\cdot m , \, ft\cdot lb,\, in\cdot lb, \ldots} $
+			\parb
+			{\bfseries Sign Convention}:\lb
+			If the tendency to rotate about $O$ is counter-clockwise, the moment is {\bfseries positive}. \par If clockwise, the moment is {\bfseries negative}.
+		}
+	}
+\end{frame}
+
+
+\begin{frame}
+
+	\begin{myexam}{}{}
+		\mini[0.45]{
+			\centering
+			\def\scale{0.6}
+			\input{../../pikz/05Moments/05Moments08.tex}
+		}
+		\hfill
+		\mini[0.5]{
+			Determine the moment, $M_A$, of the $3.5$ kN force applied at $B$, about the point $A$.			
+		}
+	\end{myexam}
+\end{frame}
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+
+	\begin{myexam}{}{}
+		\mini[0.5]{
+			\def\scale{0.65}
+			\parb
+			\input{../../pikz/05Moments/05Moments09.tex}
+		}
+		\hfill
+		\mini[0.4325]{
+			Determine the sum of the moments of the forces, acting at $B$ and $C$, about the point $A$. \parm  Also, sum the moments of the forces about the point $B$.
+
+		}
+	\end{myexam}
+\end{frame}
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{}
+
+	\begin{myexer}{}{}
+		\def\scale{0.65}
+		\input{../../pikz/05Moments/05Moments11.tex}
+		\cmini[0.9]{
+			Rigid beam $ABCD$ is supported at $A$ and at $D$, and is subjected to the two forces shown at $B$ and $C$.\parm
+			Determine the value of the reaction at $D$, $R_D$, if the sum of the moments about $A$, $\Sigma M_A$, is zero and the reaction at $D$ is vertically upwards.
+		}
+	\end{myexer}
+\end{frame}
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{The Principle of Moments}
+	The Principle of Moments,  often referred to as Varignon's Theorem, is stated~below:\parm
+	\begin{statsbox}[title=Varignon's Theorem, left=5mm, right=5mm]
+		\centering
+		The moment of a force about a point  is equal to the sum of the moments of the components of the force about the same point.
+	\end{statsbox}
+	\parb
+	In many cases, it is more convenient to sum the moments of a forces components than it is to use the formula directly.
+
+	There are two primary ways we use this result:
+	\begin{itemize}
+		\item Resolve the force into horizontal and vertical components
+		\item Resolve the force into orthogonal (perpendicular to each other) components, with the line of action of one component passing through the point about which we are taking moments -- so that its moment is zero ($d=0$).
+	\end{itemize}
+
+	% \cmini[0.8]{
+	% 	\footnotesize
+	% 	\textcolor{saitMaroon}{(Another Varignon's Theorem, attributed to the same French mathematician, is a delightful result for those interested in geometry: the midpoints of the sides of any quadrilateral (four-sided polygon) form the vertices of a parallelogram. Furthermore, the area of the parallelogram is half that of the quadrilateral! :)}
+	% }
+\end{frame}
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \begin{frame}{}
+% 	\begin{myexam}{}{}
+% 		\def\scale{0.75}
+% 		\input{../../pikz/05Moments/05Moments13.tex}
+% 		\cmini[0.9]{
+% 			The truss shown is supported by a pinned connection at $A$ and a roller (on a plane inclined at $25^\circ$ to the horizontal) at $D$. Determine the magnitude and direction of $R_D$, the reaction at $D$, if the sum of the moments about $A$ is zero.
+% 		}
+% 		% \begin{center}
+% 		% 	\footnotesize
+% 		% 	\rotatebox[origin=c]{180}{
+% 		% 		\textcolor{gray}{
+% 		% 			($R_D=1.98\,\mathsf{kN}$)
+% 		% 		}
+% 		% 	}
+% 		% \end{center}
+
+% 	\end{myexam}
+% \end{frame}
+
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+	\cmini{
+		\begin{myexam}{}{}
+			\centering\parb
+			\input{../../pikz/05Moments/05Moments05.tex}
+			\parb
+			Determine the moment about $A$ of the force applied to $B$ by resolving the force at $B$ into horizontal and vertical components.
+		\end{myexam}
+	}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+	\cmini[1]{
+		\begin{myexam}{}{}
+			\def\scale{0.6}
+			\centering
+			\input{../../pikz/05Moments/05Moments08.tex}
+			\parm
+			\raggedright
+			
+			\ccbox[0.8]{Cornsilk3}{Cornsilk3}{\small (Revisiting {\itshape\rmfamily Example 1}.) Notice that we cannot calculate the moment about $A$ of the force acting on $B$ using horizontal and vertical components because, without the angle at which $AB$ is inclined, we cannot determine $d$ for either the horizontal or the vertical component.} 
+			\parm\centering
+			Determine the moment about $A$ of the force at $B$ by resolving the force into components parallel to and perpendicular to $AB$.
+		\end{myexam}
+	}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+	\cmini[1]{
+		\begin{myexer}{}{}
+			\def\scale{0.8}
+			\centering\parb
+			\input{../../pikz/05Moments/05Moments06.tex}
+			\parm	
+			Determine the moment about $A$ of the force acting on $D$. \lb Then determine the moment about $B$ for the same force.
+		\end{myexer}
+	}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+	\cmini[1]{
+		\begin{myexer}{}{}
+			\def\scale{0.8}
+			\centering
+			\input{../../pikz/05Moments/05Moments07.tex}
+			\parm	
+			\cmini[0.7]{
+				\centering
+				Determine the sum of the moments about $A$, about $C$ and about $D$ of the forces shown.
+			}
+			
+		\end{myexer}
+	}
+\end{frame}
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Moments of Force Couples}
+	\cmini[0.9]{
+		\begin{itemize}
+			\item  In the previous exercise, we found that the moments were the same about any of the points used.
+			\item 	Also, the forces are different: there is an equal and opposite pair with magnitude $1690\,$N and an equal and opposite pair with magnitude $1020\,$N.
+			\item Such pairs of forces, with parallel lines of action, equal magnitude and opposite sense are called force {\bfseries couples}.
+			\item The resultant force of a couple is zero: $\Sigma F_x=0$ and $\Sigma F_y=0$.
+			\item The {\bfseries moment of a couple}, irrespective of any point, has magnitude
+			      \cmini[0.6]{
+			      	\begin{statsbox}{A Couple Defined:}
+			      		$$ M=F\cd d $$
+			      		\centering
+								\cmini{
+									\centering
+									where $d$ is the distance between the two lines of action.
+								}
+			      		
+			      	\end{statsbox}
+			      }
+			\item Clockwise couples are considered negative, counter-clockwise couples are considered positive.
+		\end{itemize}
+	}
+\end{frame}
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+		\begin{myexam}{}{}
+			\centering
+			\def\scale{0.8}
+			\parb
+			\input{../../pikz/05Moments/05Moments07.tex}
+			\parm
+			Determine $\Sigma M$, the sum of the moments, of the couples shown.
+		\end{myexam}
+\end{frame}
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+
+	\begin{myexam}{}{}
+		\def\scale{0.5}
+		\begin{center}
+			\input{../../pikz/05Moments/05Moments14.tex}
+		\end{center}
+		\cmini[0.7]{
+			\parb
+			Considering beam $AB$:
+			\begin{enumerate}
+				\item Determine the magnitude of $R_D$ if $\Sigma M_A=0$.
+				\item Determine the magnitude of $R_{Ay}$ if $\Sigma F_y=0$.
+				\item Determine the magnitude of $R_{Ax}$ if $\Sigma F_x=0$.
+			\end{enumerate}
+			
+		}
+	\end{myexam}
+\end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+
+	\begin{myexer}{}{}
+		\def\scale{0.5}
+		\begin{center}
+			\input{../../pikz/05Moments/05Moments15.tex}
+		\end{center}
+		\cmini[0.8]{
+			\parb
+			$ABCD$ has a negative couple applied at $B$ and is supported by a cable at $D$. 
+			\begin{enumerate}
+				\item Determine the magnitude of $T$ if $\Sigma M_A=0$.
+				\item Determine the reaction at $A$ if $\Sigma F_x = \Sigma F_y =0$.				
+			\end{enumerate}
+			
+		}
+	\end{myexer}
+\end{frame}
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{frame}{Distributed Loads}
+
+	\begin{textblock*}{1\textwidth}(1cm, 1.25cm)
+		\begin{tcolorbox}[colback=white,colframe=structure,top=0pt, bottom=5pt, enhanced, drop fuzzy shadow]
+			\input{../../pikz/05Moments/05dl01.tex}
+		\end{tcolorbox}
+
+		\begin{itemize}
+			\only<1>{
+				\item Consider a rigid beam $ABC$ with individual loads concentrated at separate locations. We have found the moments of forces like these.
+			}
+			\only<2>{
+				\item Suppose, instead, that three W150 X 13 beams are placed on $ABC$.
+				\item If all the beams are rigid (as we assume in statics), then the weight of the load is distributed uniformly to $ABC$ along the length of the three W150~X~13 beams
+				\item This kind of load is known as a {\bf uniformly distributed load} (UDL).
+				}\only<3-4>{
+				\item Now, assume the three beams are each $4.00\thinspace\text{m}$  in length. \lb
+				The total mass, $m$, and weight, $W$, of the three beams is given by:
+				\begin{align*}
+					m & = 3\;@\;4.00\text{ m} \times 13\thinspace\text{kg} = 156\thinspace\text{kg}   \\
+					W & = 156\thinspace\text{kg} \times 9.81\mathsf{\thinspace m/s^2} = 1530\text{ N}
+				\end{align*}
+				
+				}\only<4>{
+					\item This force is spread out uniformly over $4.00\thinspace\text{m}$ so the distributed load is $382.50\text{ N/m}$.
+					\item Note that distributed loads have units force/length: {\bfseries N/m}, {\bfseries lb/ft}.
+			}
+			\only<5>
+			{
+				\item Uniformly distributed loads are drawn as shown.
+			}
+			\only<6>{
+				\item Distributed loads need not be uniform. They can be {\bfseries uniformly varying loads} (UVL).
+				\item Note that uniformly varying loads vary at a constant rate so they have a triangular shape, with a constant slope.\parm\small
+				(Distributed loads may also defined as $f(x)$, a function of $x$ where $x$ is the distance along the load, and may follow fairly complex curves that require integration to solve: we shall not cover these in this course.)
+			}
+		\end{itemize}
+	\end{textblock*}
+
+\end{frame}
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Magnitude and Resultant of Distributed Loads}
+	In both cases, the magnitude of the resultant force is given by the area of the rectangle or triangle, and the resultant acts through the centroid of the area.\parb
+	\mini[0.47]{
+		\begin{statsbox}{Uniformly Distributed Load}
+			\begin{center}
+				\input{../../pikz/05Moments/05dl02.tex}
+			\end{center}
+		\end{statsbox}
+	}
+	\hfill
+	\mini[0.48]{
+		\begin{statsbox}{Uniformly Varying Load}
+			\begin{center}
+				\input{../../pikz/05Moments/05dl03.tex}
+			\end{center}
+		\end{statsbox}
+	}
+
+\end{frame}
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Distributed Loads}
+	\begin{myexam}{}{}
+		\centering
+		\input{../../pikz/05Moments/05dl04.tex}
+		\parm
+		Determine the moment of the distributed load about  $O$.
+		\parm
+		% answers, gray, centered, upside down
+		% \begin{center}
+		% 	\footnotesize
+		% 	\textcolor{gray}{
+		% 		\rotatebox[origin=c]{180}{
+		% 			($-50.0\,\mathsf{kN\!\cdot\! m}$)
+		% 		}
+		% 	}
+		% \end{center}
+	\end{myexam}
+	\centering
+	% For a more dynamic, conceptual view of these types of loadings, look \href{http://eduk8r.org/jsSims/statics/loads/index.html}{here}.
+
+\end{frame}
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Distributed Loads}
+
+	\begin{myexer}{}{}
+		\centering\def\scale{1.25}
+		\input{../../pikz/05Moments/05Moments16.tex}
+		\parm
+		Determine the moment of the distributed load about  $(0,0)$.
+		\parm
+		% answers, gray, centered, upside down
+		% \begin{center}
+		% 	\footnotesize
+		% 	\textcolor{gray}{
+		% 		\rotatebox[origin=c]{180}{
+		% 			( $13.9\,\mathsf{kN\!\cdot\!m}$ )
+		% 		}
+		% 	}
+		% \end{center}
+	\end{myexer}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
