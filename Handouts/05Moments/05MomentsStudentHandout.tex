@@ -1,0 +1,185 @@
+\documentclass[10pt,oneside]{article}
+
+\usepackage{amsmath}
+\usepackage{bm}
+\usepackage{mathpazo}
+\usepackage{graphicx}
+\usepackage{enumerate}
+\usepackage[x11names, svgnames]{xcolor} % for \definecolor
+
+\usepackage[letterpaper]{geometry}
+\geometry{verbose,tmargin=0.25in,bmargin=0.5in,lmargin=1in,rmargin=1.15in}
+
+\input{../../includes/definedColors.tex}
+\input{../../includes/macros.tex}
+\input{../../includes/Channel.tex}
+\input{../../includes/Member.tex}
+\input{../../includes/Meme.tex}
+\input{../../includes/PC.tex}
+\input{../../includes/EyeConnection.tex}
+\input{../../includes/EyeBolt.tex}
+\input{../../includes/Skywalker.tex}
+\input{../../includes/PulleyC.tex}
+\input{../../includes/Pulley.tex}
+\input{../../includes/Ring.tex}
+\input{../../includes/Rocker.tex}
+\input{../../includes/WBeam.tex}
+
+% https://tex.stackexchange.com/questions/731957/how-to-supress-missing-character-there-is-no-u003b-in-font-nullfont
+\tracinglostchars=1
+
+\hfuzz=150pt
+\setlength{\parindent}{0pt}
+\def\scale{1}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% page 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{textblock*}{7.25in}(1in, 0.4in)
+	\begin{tikzpicture}[line width=0.1mm]
+		\draw[color=gray!50, step=0.25in] (0,0) grid +(7.25in,10.25in);
+	\end{tikzpicture}
+\end{textblock*}
+
+
+\begin{textblock*}{6.775in}(1in, 0.225in)
+  \cbox{
+    \centering\huge
+    \textbf{Engineering Statics - 04 Centroids}
+  }
+\end{textblock*}
+
+\begin{textblock*}{3in}(1in, 1in)
+	\cbox{
+		Exercise 1: Determine the coordinates of the centroid of the triangle shown.
+	}
+\end{textblock*}
+\begin{textblock*}{3.25in}(4.525in, 1in)
+	\cbox{
+		\centering
+		\def\scale{1}
+		\input{../../pikz/04Centroids/04centroids08Handout}
+	}
+\end{textblock*}
+
+\begin{textblock*}{3in}(1in, 3.75in)
+	\cbox{
+		Exercise 2: Determine the coordinates of the centroid of the semi-circle shown.
+	}
+\end{textblock*}
+\begin{textblock*}{3.25in}(4.525in, 3.75in)
+	\cbox{
+		\centering
+		\def\scale{1}
+		\input{../../pikz/04Centroids/04centroids09Handout}
+	}
+\end{textblock*}
+
+\begin{textblock*}{3in}(1in, 7in)
+	\cbox{
+			Exercise 3: Determine the location of the centroid of the quarter-circle shown.
+	}
+\end{textblock*}
+\begin{textblock*}{3.25in}(4.525in, 7in)
+	\cbox{
+		\centering
+		\def\scale{1}
+		\input{../../pikz/04Centroids/04centroids10Handout}
+	}
+\end{textblock*}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% page 2 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+~\newpage
+\begin{textblock*}{1.0\textwidth}(1in, 0.25in)
+	\begin{tikzpicture}[line width= 0.3mm, scale=1.0525]
+		\draw[ color=gray!25, step=0.25in] (0,0) grid (7in,10in);
+	\end{tikzpicture}
+\end{textblock*}
+
+\begin{textblock*}{2.25in}(1in, 0.125in)
+	\cbox{
+		Exercise 4\parm
+		Find the location of the centroid, $C$, relative to the point~$O$.
+
+	}
+\end{textblock*}
+\begin{textblock*}{4.125in}(3.775in, 0.125in)
+	\cbox{
+	\centering
+	\def\scale{1}
+	\input{../../pikz/04Centroids/04centroids12Handout}
+	}
+\end{textblock*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% page 4 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+~\newpage
+\begin{textblock*}{1.0\textwidth}(1in, 0.25in)
+	\begin{tikzpicture}[line width= 0.3mm, scale=1.0525]
+		\draw[ color=gray!50, step=0.25in] (0,0) grid (7in,10in);
+	\end{tikzpicture}
+\end{textblock*}
+
+\begin{textblock*}{2.25in}(1in, 0.1in)
+	\cbox{
+		Exercise 5\parm
+		Find the location of the centroid, $C$, relative to the coordinate origin.
+
+	}
+\end{textblock*}
+\begin{textblock*}{4.125in}(3.775in, 0.1in)
+	\cbox{
+	\centering
+	\def\scale{1}
+	\input{../../pikz/04Centroids/04centroids13Handout}
+	}
+\end{textblock*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% page 5 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+~\newpage
+\begin{textblock*}{1.0\textwidth}(1in, 0.25in)
+	\begin{tikzpicture}[line width= 0.3mm, scale=1.0525]
+		\draw[ color=gray!50, step=0.25in] (0,0) grid (7in,10in);
+	\end{tikzpicture}
+\end{textblock*}
+
+\begin{textblock*}{3.25in}(1in, 0.125in)
+	\cbox{
+		Exercise 6\parm
+		Three C130X13 channels and a steel plate ($15\mathsf{mm}\x 174\mathsf{mm}$) are welded together. \parm
+		Determine the location of the centroid, relative to the bottom left hand corner of the composite area.
+		\ccbox[0.5]{white}{white}{
+		Properties for C130X13:\pars
+		Area $= 1700\,\mathsf{mm^2}$\lb
+		Depth $=127\,\mathsf{mm}$\lb
+		$\overline{x} =12\,\mathsf{mm}$\parb}
+	}
+\end{textblock*}
+\begin{textblock*}{3in}(4.875in, 0.125in)
+	\cbox{
+	\centering
+	\def\scale{0.75}
+	\input{../../pikz/04Centroids/04centroids18Handout}
+	}
+\end{textblock*}
+
+
+
+
+
+\end{document}

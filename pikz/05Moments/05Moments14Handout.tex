@@ -15,20 +15,20 @@
 	\coordinate (B) at ($ (A)!0.25!(D) $);
 	\coordinate (C) at ($ (A)!0.667!(D) $);
 
-	\fill[Cornsilk3] ($ (A)-(1.5,1.125) $) rectangle ($ (A)+(1.5,-1.5) $);
-	\fill[Cornsilk3] ($ (D)-(1.5,1.125) $) rectangle ($ (D)+(1.5,-1.5) $);
+	\fill[Gray!35] ($ (A)-(1.5,1.125) $) rectangle ($ (A)+(1.5,-1.5) $);
+	\fill[Gray!35] ($ (D)-(1.5,1.125) $) rectangle ($ (D)+(1.5,-1.5) $);
 
-	\Meme{A}{D}{Burlywood3}{Burlywood3}{black}{1}{0.1}{0.75}
+	\Meme{A}{D}{Gray!50}{Gray!50}{black}{1}{0.1}{0.75}
 
-	\fill[black] (A) circle (3pt) node[above, outer sep=2mm] {$A$};
+	\fill[black] (A) circle (3pt) node[above, outer sep=2mm] {\large $A$};
 	\fill[black] (B) circle (3pt) ;
 	\fill[black] (C) circle (3pt);
-	\fill[black] (D) circle (3pt) node[above, outer sep=2mm] {$B$};
+	\fill[black] (D) circle (3pt) node[above, outer sep=2mm] {\large $B$};
 
-	\PC{A}{Cornsilk3}{black}{1.125}{0.25}
-	\Rocker{D}{Cornsilk3}{black}{1.125}{0.25}
-	\Couple{B}{Blue3}{1}{0.75}
-	\Couple[0]{C}{Blue3}{1}{0.75}
+	\PC{A}{Gray!35}{black}{1.125}{0.25}
+	\Rocker{D}{Gray!35}{black}{1.125}{0.25}
+	\Couple{B}{black}{1}{0.75}
+	\Couple[0]{C}{black}{1}{0.75}
 
 	\node[yshift=0.75cm] at (B) {\small $18.0\mathsf{\;kN\cd m}$};
 	\node[yshift=0.75cm] at (C) {\small $23.0\mathsf{\;kN\cd m}$};
@@ -41,9 +41,9 @@
 
 	\draw[thick, <->, >=stealth] ([yshift=-1.875cm]A) -- node[fill=white, inner sep= 0.2mm]{\small $3.00\,$m}([yshift=-2.875cm]D);
 
-	\draw[latex-, statsRed, ultra thick] (D) -- +(0,-2.25) node[right] {$R_{B}$};
-	\draw[latex-, statsRed, ultra thick] (A) -- +(0,-2.5) node[left] {$R_{Ay}$};
-	\draw[latex-, statsRed, ultra thick] (A) -- +(-2.25,0) node[above] {$R_{Ax}$};
+	\draw[latex-,  ultra thick] (D) -- +(0,-2.25) node[right] {$R_{B}$};
+	\draw[latex-,  ultra thick] (A) -- +(0,-2.5) node[left] {$R_{Ay}$};
+	\draw[latex-,  ultra thick] (A) -- +(-2.25,0) node[above] {$R_{Ax}$};
 
 
 

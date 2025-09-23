@@ -9,11 +9,11 @@
 		\ifthenelse{\equal{\positive}{1}}
 			{
 				\draw[line width=\lwidth mm, \ldraw] ($ (\lpin)+(-150:\diam) $) arc (-150:140:\diam);
-				\draw[-latex, \ldraw, line width=\lwidth mm] ($ (\lpin)+(130:\diam) $) --+ (225:\lwidth);
+				\draw[-latex, \ldraw, line width=\lwidth mm] ($ (\lpin)+(130:\diam) $) --+ (225:\lwidth/1.25);
 			}
 			{
 				\draw[line width=\lwidth mm, \ldraw] ($ (\lpin)+(150:\diam) $) arc (150:-140:\diam);
-				\draw[-latex, \ldraw, line width=\lwidth mm] ($ (\lpin)+(-140:\diam) $) --+ (120:\lwidth);
+				\draw[-latex, \ldraw, line width=\lwidth mm] ($ (\lpin)+(-140:\diam) $) --+ (120:\lwidth/1.25);
 			}
 		
 	\end{scope}

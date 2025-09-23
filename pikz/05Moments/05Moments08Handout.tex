@@ -8,13 +8,13 @@
 	\coordinate (B) at (-2,5);
 
 	\draw[very thick]  ($ (A)-(4,0) $) -- ($ (A)+(2,0) $);
-	\Meme{A}{B}{Cornsilk3}{Cornsilk3}{black}{0.5}{0.125}{0.5}
-	\fill[Cornsilk3] ($ (A)-(4,0) $) rectangle ($ (A)+(2,-1) $);
+	\Meme{A}{B}{Gray!50}{Gray!50}{black}{0.5}{0.125}{0.5}
+	\fill[Gray!50] ($ (A)-(4,0) $) rectangle ($ (A)+(2,-1) $);
 
 	\fill[black] (B) circle (2pt) node[left, outer sep=1.5mm, black] {$\bm B$};
 	\fill[black] (A) circle (2pt) node[below, black] {$\bm A$};
 
-	\draw[ultra thick, -latex, saitMaroon] (B) -- +(-120:3) node[below]{$3.50\,$kN};
+	\draw[ultra thick, -latex] (B) -- +(-120:3) node[above left]{$3.50\,$kN};
 	\draw ($ (A)+(21.8:0.5) $) -- +(21.8:1);
 	\draw ($ (B)+(21.8:0.5) $) -- +(21.8:1);
 	\draw[latex-latex] ($ (A)+(21.8:1) $) -- node[sloped, fill=white]{$2.30\,$m} ($ (B)+(21.8:1) $);
@@ -22,7 +22,10 @@
 	\draw[latex-latex] ($ (B)+(-68.2:2.2)  $) arc (-68.2:-120:2.2);
 	\node[fill=white, inner sep = 0.2mm] at ($ (B)+(-95:2.15) $){\small $51.8^\circ$};
 
-
-
+  % \path[name path=AC] (A)--(150:4.75);
+  % \path[draw, name path=BC] (B) -- +(-120:3.75) ;
+  % \path[name intersections={of=AC and BC, by={C}}] ;
+  % \draw (A)--(C) node[midway, fill=white] {$ d $};
+  % \draw ($ (C)+(60:0.325) $) --++(-30:0.325) --+(-120:0.325);
 
 }

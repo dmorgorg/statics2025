@@ -8,8 +8,8 @@
 	\coordinate (C) at (10, 0);
 	\coordinate (D) at ($(C)+(0,1.25)$);
 	\coordinate (B) at ($ (A)!0.75!(C) $);
-  \filldraw[fill=Ivory3, draw=black, thick, rounded corners] ($ (C)+(0.25,0) $) rectangle ($ (C)+(-0.25,1.5) $);
-	\Meme{A}{C}{Ivory3}{Ivory3}{black}{0.875}{0.1}{0.75}  
+  \filldraw[fill=Gray!35, draw=black, thick, rounded corners] ($ (C)+(0.25,0) $) rectangle ($ (C)+(-0.25,1.5) $);
+	\Meme{A}{C}{Gray!35}{Gray!35}{black}{0.875}{0.1}{0.75}  
 
 	\fill[black] (A) circle (3pt) node[right, xshift=1mm] {$A$};
 	\fill[black] (C) circle (3pt)node[left] {$C$};
@@ -19,11 +19,11 @@
   \fill[Ivory4] ($ (A)+(-0.875,2.5) $) to [out=180, in=180] ($ (A)+(-0.875,-2.5) $);
   \draw[thick] ($ (A)+(-0.875,2.5) $) -- ($ (A)+(-0.875,-2.5) $);
 
-	\PC[270]{A}{Ivory4}{black}{0.875}{0.25}
-	\Couple[0]{B}{statsMaroon}{1}{0.75}
+	\PC[270]{A}{Gray!50}{black}{0.875}{0.25}
+	\Couple[0]{B}{black}{1}{0.75}
 	\node[yshift=0.75cm, xshift=-0.5cm] at (B) {\small $1450\mathsf{\;N\cd m}$};
 
-  \draw[ultra thick, statsMaroon, -latex] (D) --+ (68:3) node[left, black] {$ T $};
+  \draw[ultra thick, -latex] (D) --+ (68:3) node[left, black] {$ T $};
 
 	\draw ($ (C)+(0.75,0) $) -- +(2.25,0);
 	\draw ($ (D)+(0.5,0) $) --  +(2.5,0);

@@ -12,15 +12,15 @@
 	\coordinate (C) at (8.5, 0);
 	\coordinate (D) at (11, 0);
 
-	\fill[LemonChiffon4!85] ($ (A)+(-1.125,0.5) $) rectangle ($ (D)+(1.125,-0.5) $);
+	\fill[Gray!50] ($ (A)+(-1.125,0.5) $) rectangle ($ (D)+(1.125,-0.5) $);
 
-	\fill[LemonChiffon3] ($ (A)-(1.5,0.875) $) rectangle ($ (A)+(1.5,-1.5) $);
-	\fill[LemonChiffon3] ($ (D)-(1.5,0.875) $) rectangle ($ (D)+(1.5,-1.5) $);
+	\fill[Gray!25] ($ (A)-(1.5,0.875) $) rectangle ($ (A)+(1.5,-1.5) $);
+	\fill[Gray!25] ($ (D)-(1.5,0.875) $) rectangle ($ (D)+(1.5,-1.5) $);
 	\draw[thick] ($ (A)-(1.5,0.875) $) -- ($ (A)+(1.5,-0.875) $);
 	\draw[thick] ($ (D)-(1.5,0.875) $) -- ($ (D)+(1.5,-0.875) $);
 
-	\draw[ultra thick, LemonChiffon4!50!black] ($ (A)+(-\nuext, \nuhi) $) -- ($ (D)+(\nuext, \nuhi) $);
-	\draw[ultra thick, LemonChiffon4!50!black] ($ (A)+(-\nuext, -\nuhi) $) -- ($ (D)+(\nuext, -\nuhi) $);
+	\draw[ultra thick, Gray!50!black] ($ (A)+(-\nuext, \nuhi) $) -- ($ (D)+(\nuext, \nuhi) $);
+	\draw[ultra thick, Gray!50!black] ($ (A)+(-\nuext, -\nuhi) $) -- ($ (D)+(\nuext, -\nuhi) $);
 	
 
 	\fill[black] (A) circle (3pt) node[xshift=1mm, right, outer sep=1mm] {\large $A$};
@@ -28,8 +28,8 @@
 	\fill[black] (C) circle (3pt) node[right] {\large $C$};
 	\fill[black] (D) circle (3pt) node[xshift=1mm,right, outer sep=1mm] {\large $D$};
 
-	\PC{A}{LemonChiffon3}{black}{0.875}{0.2}
-	\Rocker{D}{LemonChiffon3}{black}{0.875}{0.2}
+	\PC{A}{Gray!25}{black}{0.875}{0.2}
+	\Rocker{D}{Gray!25}{black}{0.875}{0.2}
 
 
 	\draw ($ (B)+(0,-0.75) $) -- +(0,-1.752);
@@ -43,10 +43,13 @@
 
 	\draw ($ (B)-(1.25,0) $) -- +(-1,0);
 
-	\draw[line width=0.75mm, saitRed, latex-] (C) -- +(0,2.5) node[right] { $15.0\,$kN};
-	\draw[line width=0.75mm, saitRed, latex-] (B) -- ($ (B) + (120:2.5) $) node[right] {$18.0\,$kN};
+	\draw[line width=0.75mm,  latex-] (C) -- +(0,2.5) node[right] { $15.0\,$kN};
+	\draw[line width=0.75mm,  latex-] (B) -- ($ (B) + (120:3) $) node[right] {$18.0\,$kN};
 
 	\draw[latex-latex] ($ (B)+(180:1.75)  $)  arc (180:120:1.75);
 	\path ($ (B)+(145:1.75) $) node[fill=white, inner sep=0.5mm] {\small $60\deg$};
+
+  
+  
 
 \end{tikzpicture}

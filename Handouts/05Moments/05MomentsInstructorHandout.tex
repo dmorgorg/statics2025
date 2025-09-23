@@ -1,0 +1,642 @@
+\documentclass[10pt,oneside]{article}
+
+\usepackage{amsmath}
+\usepackage{bm}
+\usepackage{mathpazo}
+\usepackage{graphicx}
+\usepackage{enumerate}
+\usepackage[x11names, svgnames]{xcolor} % for \definecolor
+
+\usepackage[letterpaper]{geometry}
+\geometry{verbose,tmargin=0.25in,bmargin=0.5in,lmargin=1in,rmargin=1.15in}
+
+\input{../../includes/definedColors.tex}
+\input{../../includes/macros.tex}
+\input{../../includes/Channel.tex}
+\input{../../includes/Couple.tex}
+\input{../../includes/DL.tex}
+\input{../../includes/Member.tex}
+\input{../../includes/Meme.tex}
+\input{../../includes/PC.tex}
+\input{../../includes/EyeConnection.tex}
+\input{../../includes/EyeBolt.tex}
+\input{../../includes/Skywalker.tex}
+\input{../../includes/PulleyC.tex}
+\input{../../includes/Pulley.tex}
+\input{../../includes/Ring.tex}
+\input{../../includes/Rocker.tex}
+\input{../../includes/WBeam.tex}
+
+% https://tex.stackexchange.com/questions/731957/how-to-supress-missing-character-there-is-no-u003b-in-font-nullfont
+\tracinglostchars=1
+
+\hfuzz=150pt
+\setlength{\parindent}{0pt}
+\def\scale{1}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% page 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{textblock*}{6.775in}(1in, 0.225in)
+  \cbox{
+    \centering\huge
+    \textbf{Engineering Statics - 05 Moments - Instructor Copy}
+  }
+\end{textblock*}
+
+\begin{textblock*}{3in}(1in, 1in)
+	\cbox{
+		\underbar{\bf Example 1:} Determine the moment, $M_A$, of the $3.5$ kN force applied at $B$, about the point $A$.
+	}
+\end{textblock*}
+\begin{textblock*}{3.25in}(4.525in, 1in)
+	\cbox{
+		\centering
+			\def\scale{0.8}
+			\input{../../pikz/05Moments/05Moments08Handout.tex}
+	}
+\end{textblock*}
+\begin{textblock*}{3in}(1in, 2in)
+  \centering
+  
+  \tikz[scale=0.75]{%color
+    \coordinate (A) at (0,0);
+	  \coordinate (B) at (-2,5);
+    \Meme{A}{B}{Gray!50}{Gray!50}{black}{0.5}{0.125}{0.5}
+    \draw[ultra thick, -latex] (B) -- +(-120:3) node[above left]{$3.5\,$kN};
+    \draw ($ (A)+(21.8:0.5) $) -- +(21.8:1);
+    \draw ($ (B)+(21.8:0.5) $) -- +(21.8:1);
+    \draw[latex-latex] ($ (A)+(21.8:1) $) -- node[sloped, fill=white]{$2.30\,$m} ($ (B)+(21.8:1) $);
+    \draw ($ (B)+(-68.2:1.75)  $) -- ($ (B)+(-68.2:2.75)  $);
+    \draw[latex-latex] ($ (B)+(-68.2:2.2)  $) arc (-68.2:-120:2.2);
+    \node[fill=white, inner sep = 0.2mm] at ($ (B)+(-95:2.15) $){\small $51.8^\circ$};    
+    \fill[black] (B) circle (2pt) node[left, outer sep=2mm, black] {$\bm B$};
+    \fill[black] (A) circle (2pt) node[below,outer sep=2mm,] {$\bm A$};
+    \path[name path=AC] (A)--(150:4.75);
+    \path[draw, name path=BC] (B) -- +(-120:3.75) ;
+    \path[name intersections={of=AC and BC, by={C}}] ;
+    \draw (A)--(C) node[midway, fill=white] {$ d $};
+    \draw ($ (C)+(60:0.325) $) --++(-30:0.325) --+(-120:0.325);
+  }
+  \large
+  \begin{align*}
+    M_A &= F\cd d \\[0.25em]
+    &= (3.5\,\text{kN})\cd(2.30\,\text{m})(\sin 51.8\deg) \\[0.25em]
+    &= 6.3261\,\mathsf{kN\cd m} \\\\
+    &\approx 6.33 \,\mathsf{kN\cd m}
+  \end{align*}
+\end{textblock*}
+
+
+
+
+
+
+
+\begin{textblock*}{3.5in}(1in, 5.5in)
+	\cbox{
+		\underbar{\bf Example 2:} Determine the sum of the moments of the forces, acting at $B$ and $C$, about the point $A$. \parm  Also, sum the moments of the forces about the point $B$.
+	}
+\end{textblock*}
+\begin{textblock*}{2.75in}(5.025in, 5.5in)
+	\cbox{
+		\centering
+		\def\scale{0.8}
+		\input{../../pikz/05Moments/05Moments09Handout.tex}
+	}
+\end{textblock*}
+\begin{textblock*}{3.5in}(1in, 7in)
+  \centering
+  \tikz[scale=0.875]{%color
+    \coordinate (A) at (0,0);
+    \coordinate (B) at (4,0);
+    \coordinate (C) at (4,2);
+    \draw[gray!50, line width=5mm, line cap=round] (A)--(B)--(C);
+    \draw[ultra thick, -latex, name path=BD] (B) -- +(131:3.75) node[above] {$2.30\,$kN};
+    \draw[ultra thick, -latex, line cap=round] (C) -- +(90:1.5) node[above, black] {$2.05\,$kN};
+    \draw[ultra thick, -latex, line cap=round] (C) -- +(0:1.75) node[above, black] {$2.84\,$kN};
+    \draw ($ (B)-(1.5,0) $) -- ($ (B)-(2.5,0) $);
+    \draw ($ (C)+(1,0) $) -- +(1:0);
+	  \draw[latex-latex] ($ (B)+(131:2)  $) arc (131:180:2);
+    \fill[black] (A) circle (2pt) node[left, xshift=-0.25cm] {$\bm A$};
+    \fill[black] (B) circle (2pt) node[below right, outer sep=2mm] {$\bm B$};
+    \fill[black] (C) circle (2pt) node[xshift=0.25mm, above right, outer sep=2mm] {$\bm C$};
+    \node[fill=white] at ($ (B)+(155:2) $){$49^\circ$};
+    \draw ($ (B)+(0.5,0) $) -- +(1,0);
+    \draw ($ (B)+(0,-0.5) $) -- +(0,-1);
+    \draw ($ (A)+(0,-0.5) $) -- +(0,-1);
+    \draw[latex-latex] ($ (A)-(0,1) $) -- node[fill=white] {$4.00\,$m} ($ (B)-(0,1) $);
+    \draw[latex-latex] ($ (C)+(1,0) $) -- node[fill=white, xshift=0.25cm] {$2.00\,$m} ($ (B)+(1,0) $);
+      \path[name path=AD] (A)--+(41:4);
+  \path[name intersections={of=AD and BD, by={D}}] ;
+  \draw (A)--(D)node[midway, fill=white] {$ d $};
+  \draw ($ (D)+(131:0.325) $) --++(221:0.325)--+(-49:0.325);
+  }
+  \large
+  \begin{align*}
+    \Sigma M_A &= \Sigma F\cd d \\[0.25em]
+    &= (2.30\,\text{kN})\cd(4.00\,\text{m})(\sin 49\deg) \\
+    &\qquad +(2.05\,\text{kN})\cd(4.00\,\text{m}) \bm - (2.84\,\text{kN})\cd(2.00\,\text{m})\\[0.25em]
+    &= 9.4633\,\mathsf{kN\cd m} 
+    \approx 9.46 \,\mathsf{kN\cd m} \\\\
+    \Sigma M_B &= 0+0-(2.84\,\text{kN})\cd(2.00\,\text{m})=-5.6800\,\mathsf{kN\cd m}
+    = -5.68\,\mathsf{kN\cd m}
+  \end{align*}
+\end{textblock*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% page 2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+~\newpage
+
+\begin{textblock*}{2.5in}(1in, 0.25in)
+	\cbox{
+			\underbar{\bf Exercise 1:} Rigid beam $ABCD$ is supported at $A$ and at $D$, and is subjected to the two forces shown at $B$ and $C$.\parm
+			Determine the value of the reaction at $D$, $R_D$, if the sum of the moments about $A$, $\Sigma M_A$, is zero and the reaction at $D$ is vertically upwards.
+	}
+\end{textblock*}
+\begin{textblock*}{3.75in}(4.025in, 0.25in)
+	\cbox{
+		\centering
+		\def\scale{0.65}
+		\input{../../pikz/05Moments/05Moments11Handout.tex}
+	}
+\end{textblock*}
+
+\begin{textblock*}{6.75in}(1in, 2.5in)
+  \centering
+  \tikz{%color}
+  \def\scale{0.6}
+    \coordinate (A) at (0, 0);
+    \coordinate (B) at (5, 0);
+    \coordinate (C) at (8.5, 0);
+    \coordinate (D) at (11, 0);
+
+    \fill[Gray!50] ($ (A)+(-1.125,0.5) $) rectangle ($ (D)+(1.125,-0.5) $);
+
+    \fill[black] (A) circle (3pt) node[xshift=1mm, right, outer sep=1mm] {\large $A$};
+    \fill[black] (B) circle (3pt) node[right] {\large $B$};
+    \fill[black] (C) circle (3pt) node[right] {\large $C$};
+    \fill[black] (D) circle (3pt) node[xshift=1mm,right, outer sep=1mm] {\large $D$};
+
+    \draw ($ (B)+(0,-0.75) $) -- +(0,-1.752);
+    \draw ($ (A)+(0,-0.75) $) -- +(0,-1.752);
+    \draw ($ (C)+(0,-0.75) $) -- +(0,-1.752);
+    \draw ($ (D)+(0,-0.75) $) -- +(0,-1.752);
+    \draw[thick, latex-latex] ([yshift=-1.875cm]A) -- node[fill=white, inner sep= 0.2mm]{$5.00\,$m}([yshift=-1.875cm]B);
+    \draw[thick, latex-latex] ([yshift=-1.875cm]B) -- node[fill=white, inner sep= 0.2mm]{$3.50\,$m}([yshift=-1.875cm]C);
+    \draw[thick, latex-latex] ([yshift=-1.875cm]C) -- node[fill=white, inner sep= 0.2mm]{$2.50\,$m}([yshift=-1.875cm]D);
+    \draw[line width=0.75mm,  latex-] (C) -- +(0,2.5) node[right] { $15.0\,$kN};
+    \draw[line width=0.75mm,  latex-] (D) -- +(0,-2.5) node[right] { $R_D$};
+    \draw[line width=0.75mm,  latex-,  name path=BE] (B) -- ($ (B) + (120:3) $) node[right] {$18.0\,$kN};
+    \draw ($ (B)-(1.25,0) $) -- +(-1,0);
+    \draw[latex-latex] ($ (B)+(180:1.75)  $)  arc (180:120:1.75);
+    \path ($ (B)+(145:1.75) $) node[fill=white, inner sep=0.5mm] {\small $60\deg$};
+    \path[name path=AE]  (A)--(30:5);
+    \path[name intersections={of=AE and BE, by={E}}] ;
+    \draw (A)--(E)node[midway, fill=white] {$ d $};
+    \draw ($ (E)+(-60:0.35) $) --++ (210:0.35) --+ (120:0.35);
+  }
+  \large
+  \begin{align*}    
+    \sum M_A &= -(18.0\,\text{kN})(5.00\,\text{m})(\sin 60\deg)-(15.0\,\text{kN})(8.50\,\text{m})+R_D(11.00\,\text{m})=0\\[0.25em]
+    \Ra R_D &= \frac{(18.0\,\text{kN})(5.00\,\text{m})(\sin 60\deg)+(15.0\,\text{kN})(8.50\,\text{m})}{11.00\,\text{m}} \\[0.25em]
+    &= 18.677\,\text{kN}
+    \approx 18.7 \,\text{kN}
+  \end{align*}
+\end{textblock*}
+
+\begin{textblock*}{3.25in}(1in, 7in)
+	\cbox{
+		\underbar{\bf Example 3:}\parm
+		Determine the moment about $A$ of the force applied to $B$ by resolving the force at $B$ into horizontal and vertical components.
+	}
+\end{textblock*}
+\begin{textblock*}{3.125in}(4.775in, 7in)
+	\cbox{
+	\centering
+	\input{../../pikz/05Moments/05Moments05Handout.tex}
+	}
+\end{textblock*}
+
+\begin{textblock*}{3.25in}(1in, 8.5in)
+	\centering
+  \tikz{%color
+    \coordinate (A) at (0,0);
+    \coordinate (B) at (5,0);
+
+    \draw[semithick] ($ (A)+(0,1) $) -- ($ (A)+(0,.5) $);
+    \Meme{A}{B}{gray!50}{gray!30}{black}{0.5}{0}{0.1}
+    \draw[ultra thick, -latex, opacity=0.25] (B) -- +(-63:2) node[below] {$3.00\,$kN};
+    \fill (A) circle (2pt) node[right] {$A$};
+    \fill (B) circle (2pt) node[left] {$B$};
+
+    \draw ($ (B)+(0,0.5) $) -- +(0,0.5);
+    \draw[latex-latex] ($ (A)+(0,0.75) $) -- node[midway, fill=white] {$3.00\,$m} ($ (B)+(0,0.75) $);
+    \draw ($ (B)+(0.5,0) $) -- +(1,0);
+    \draw[latex-latex] ($ (B)+(1,0) $)  arc(0:-63:1) node[midway, fill=white, inner sep=0.3mm] {$63\deg$};
+    \draw[ultra thick, -latex] (B) -- +(0:2) node[above] {$(3.00\,\text{kN})\cd\cos 63\deg $};
+    \draw[ultra thick, -latex] (B) -- +(270:2) node[left] {$(3.00\,\text{kN})\cd\sin 63\deg $};
+  }
+  \begin{align*}
+    \Sigma M_A &= (3.00\,\text{kN})\cd\cos 63\deg\cd 0+(3.00\,\text{kN})\cd\sin 63\deg\cd 3.00\,\text{m} = 8.0191\,\mathsf{kN\cd m} \approx 8.02\,\mathsf{kN\cd m}
+  \end{align*}
+
+\end{textblock*}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% page 3 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+~\newpage
+
+
+\begin{textblock*}{4.25in}(1in, 0.125in)
+	\cbox{
+		\underbar{\bf Example 4:}\parm
+		Determine the moment about $A$ of the force at $B$ by resolving the force into components parallel to and perpendicular to $AB$.
+	}
+\end{textblock*}
+\begin{textblock*}{2.125in}(5.775in, 0.125in)
+	\cbox{
+	\centering
+	\def\scale{0.7}
+	\input{../../pikz/05Moments/05Moments08Handout.tex}
+	}
+\end{textblock*}
+
+\begin{textblock*}{3.25in}(1in, 1.5in)
+  \centering
+	\tikz{%color
+    \coordinate (A) at (0,0);
+    \coordinate (B) at (-2,5);  
+    \Meme{A}{B}{Gray!50}{Gray!50}{black}{0.5}{0.125}{0.5}
+    \fill[black] (B) circle (2pt) node[above left, outer sep=2mm, black] {$\bm B$};
+    \fill[black] (A) circle (2pt) node[below right, outer sep=2mm] {$\bm A$};
+    \draw[ultra thick, -latex,opacity=0.25] (B) -- +(-120:3) node[above left]{$3.50\,$kN};
+    \draw ($ (A)+(21.8:0.5) $) -- +(21.8:1);
+    \draw ($ (B)+(21.8:0.5) $) -- +(21.8:1);
+    \draw[latex-latex] ($ (A)+(21.8:1) $) -- node[sloped, fill=white]{$2.30\,$m} ($ (B)+(21.8:1) $);
+    \draw ($ (B)+(-68.2:1.75)  $) -- ($ (B)+(-68.2:2.75)  $);
+    \draw[latex-latex] ($ (B)+(-68.2:2.2)  $) arc (-68.2:-120:2.2);
+    \node[fill=white, inner sep = 0.2mm] at ($ (B)+(-95:2.15) $){\small $51.8^\circ$};
+    \draw[ultra thick, -latex, xshift=-1cm] (B) -- +(-68.2:3) node[below, fill=white, xshift=-1cm]{$(3.50\,\text{kN})\cd\cos 51.8\deg$};
+    \draw[ultra thick, -latex, xshift=-1cm] (B) -- +(201.8:3) node[below, fill=white]{$(3.50\,\text{kN})\cd\sin 51.8\deg$};
+  }
+\end{textblock*}
+\begin{textblock*}{3.25in}(4.625in, 2.75in)
+  \large
+	\begin{align*}
+    \Sigma M_A &= (3.50\,\text{kN})\cd\cos 51.8\deg\cd 0 \\
+    &\qquad +(3.50\,\text{kN})\cd\sin 51.8\deg\cd 2.30\,\text{m}\\[0.25em]
+    &= 6.3261\,\text{kN} \approx 6.33\,\text{kN}
+  \end{align*}
+\end{textblock*}
+
+\begin{textblock*}{2.75in}(1in, 5.5in)
+	\cbox{
+		\underbar{\bf Exercise 2:}\parm
+		Determine the moment about $A$ of the force acting on $D$. Then determine the moment about $B$ for the same force.
+	}
+\end{textblock*}
+\begin{textblock*}{3.625in}(4.25in, 5.5in)
+	\cbox{
+	\centering
+	\def\scale{0.85}
+	\input{../../pikz/05Moments/05Moments06Handout.tex}
+	}
+\end{textblock*}
+
+\begin{textblock*}{6.75in}(1in, 7.75in)
+  \centering
+	\tikz[scale=0.875]{%color
+    \coordinate (A) at (0,0);
+    \coordinate (B) at (-6,0);
+    \coordinate (Ddown) at (-5.625,-0.625);
+    \EyeBolt[180]{Ddown}{gray!50}{black}{0.5}{0.5}
+    \Meme{A}{B}{gray!50}{gray!50}{gray!50}{0.5}{0}{0.1}    
+    \draw[ultra thick, black, -latex, opacity=0.25] (Ddown) -- +(222:2.25) node[below] {$960\,$N};
+    \fill (A) circle (2pt) node[left] {$A$};
+    \fill ($  (Ddown)+(0,0.625)  $) circle (2pt) node[left] {$B$};
+    \node[below right] at (Ddown) {$C$};
+    \draw ($ (Ddown)+(0,1.125) $) -- +(0,0.5);
+    \draw ($ (A)+(0,0.5) $) -- +(0,0.5);
+    \draw[latex-latex] ($ (A)+(0,0.75) $) -- node[midway, fill=white] {\small $2.15\,$m} ($ (Ddown)+(0,1.375) $);
+    \draw[latex-latex] ($ (Ddown)+(-1.5,0) $)  arc(180:222:1.5) node[midway, fill=white, inner sep=0.3mm] {\small $42\deg$};
+    \draw ($ (B)-(0.5,0) $) -- +(-1,0);
+    \draw ($ (Ddown)-(0.25,0) $) -- +(-1.625,0);
+    \draw[latex-latex] ($ (Ddown)+(-1.5,0) $) -- node[midway, fill=white, inner sep=0mm]{\footnotesize $140\,$mm} +(0,0.625);
+    \draw[ultra thick, black, -latex] (Ddown) -- +(180:2.25) node[left] {$960\,\text{N}\cd\cos 42\deg$};
+    \draw[ultra thick, black, -latex] (Ddown) -- +(270:1.25) node[right] {$960\,\text{N}\cd\sin 42\deg$};
+  }
+  \begin{align*}
+    \Sigma M_A &= 960\,\text{N}\cd\sin 42\deg\cd (2.15\,\text{m}) - 960\,\text{N}\cd\cos 42\deg\cd (0.14\,\text{m}) = 1281.2\,\mathsf{N\cd m} \approx 1280\,\mathsf{N\cd m}\\\\
+    \Sigma M_B &= - 960\,\text{N}\cd\cos 42\deg\cd (0.14\,\text{m}) = 99.879\,\mathsf{N\cd m} \approx 99.9\,\mathsf{N\cd m} 
+  \end{align*}
+\end{textblock*}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% page 4 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+~\newpage
+
+
+\begin{textblock*}{2.25in}(1in, 0.1in)
+	\cbox{
+		\underline{\bf Exercise 3:}\parm
+		Determine the sum of the moments about $A$, about $C$ and about $F$ of the forces shown.
+
+	}
+\end{textblock*}
+\begin{textblock*}{4.125in}(3.775in, 0.1in)
+	\cbox{
+	\centering
+	\def\scale{0.9}
+	\input{../../pikz/05Moments/05Moments07Handout.tex}
+	}
+\end{textblock*}
+
+\begin{textblock*}{6.75in}(1in, 2.75in)
+  \centering
+  \tikz{
+    \coordinate (A) at (0,0);
+    \coordinate (B) at (2.5,0);
+    \coordinate (C) at (5,0);
+    \coordinate (D) at (7,0);
+    \coordinate (Dd) at (7,-0.75);
+    \coordinate (Du) at (7,1);
+
+    \draw[line width=0.5cm, line cap=round, Gray!50] (A)--(D);
+    \draw[line width=0.35cm, line cap=round, Gray!50] (Du)--(Dd);
+
+    \fill (A) circle (2pt) node[left, outer sep = 2mm] {$A$};
+    \fill (B) circle (2pt) node[left] {$B$};
+    \fill (C) circle (2pt) node[right] {$C$};
+    \fill (D) circle (2pt) node[right,outer sep=2mm] {$D$};
+    \fill (Du) circle (2pt) node[above, outer sep= 1mm] {$E$};
+    \fill (Dd) circle (2pt) node[left, outer sep=1mm] {$F$};
+
+    \draw[very thick,  -latex, opacity=0.25] (B) -- +(65:1.5) node[above] {$1020\,$N};
+    \draw[very thick,  -latex, opacity=0.25] (C) -- +(245:1.5) node[left] {$1020\,$N};
+    \draw[very thick,  -latex] (Du) -- +(180:2.5) node[above] {$1690\,$N};
+    \draw[very thick,  -latex] (Dd) -- +(0:2.5) node[below] {$1690\,$N};
+
+    % \draw ($ (B)+(0.25,0) $) -- ($ (C)+(-0.25,0) $);
+    % \draw[latex-latex] ($ (B)+(1,0) $)  arc(0:65:1) node[midway, fill=white, inner sep=0.3mm] {\small $65\deg$};
+    % \draw[latex-latex] ($ (C)+(-1,0) $)  arc(180:245:1) node[midway, fill=white, inner sep=0.3mm] {\small $65\deg$};
+    
+    \draw ($ (Du)+(0.5,0) $) --+ (1.55,0);
+    \draw ($ (D)+(0.875,0) $) --+ (1.15,0);
+    \draw[latex-latex] ($ (Du)+(1.25,0) $) -- ($ (D)+(1.25,0) $) node[midway, fill=white, xshift=0.25cm] {\small $250\,$mm};
+    \draw[latex-latex] ($ (Dd)+(1.25,0) $) -- ($ (D)+(1.25,0) $) node[midway, fill=white, xshift=0.25cm, inner sep=0.5mm] {\small $150\,$mm};
+    % \draw[latex-latex] ($ (Du)+(1.25,0) $) -- ($ (Dd)+(1.25,0) $) node[midway, fill=white, xshift=0.25cm] {\small $600\,$mm};
+
+    \draw ($ (D)+(0,-1.25) $) -- ($ (D)+(0,-2.5) $);
+    \draw ($ (C)+(0,-.5) $) -- ($ (C)+(0,-2.5) $);
+    \draw ($ (B)+(0,-.5) $) -- ($ (B)+(0,-2.5) $);
+    \draw ($ (A)+(0,-.5) $) -- ($ (A)+(0,-2.5) $);
+
+    \draw[latex-latex] ($ (A)+(0, -2) $) -- ($ (B)+(0, -2) $) node[midway, fill=white] {\small $750\,$mm};
+    \draw[latex-latex] ($ (B)+(0, -2) $) -- ($ (C)+(0, -2) $) node[midway, fill=white] {\small $750\,$mm};
+    \draw[latex-latex] ($ (C)+(0, -2) $) -- ($ (D)+(0, -2) $) node[midway, fill=white] {\small $600\,$mm};
+
+    \draw[very thick,  -latex] (B) -- +(90:1.5) node[left] {$1020\,\text{N}\cd \sin 65\deg $};
+    \draw[very thick,  -latex] (C) -- +(270:1.5) node[right, fill=white, inner sep=0.125mm, yshift=0.25cm, xshift=0.0625cm] {$1020\,\text{N}\cd \sin 65\deg $};
+    \draw[very thick,  -latex] (B) -- +(0:1) node[below, xshift=-1cm, yshift=-0.125cm] {$1020\,\text{N}\cd \cos 65\deg $};
+    \draw[very thick,  -latex] (C) -- +(180:1) node[above,xshift=1cm,  yshift=0.125cm] {$1020\,\text{N}\cd \cos 65\deg $};
+    % \draw[very thick,  -latex] (C) -- +(270:1.5) node[right, fill=white, inner sep=0.25mm] {$1020\,\text{N}\cd \sin 65\deg $};
+  }
+  \large
+  \begin{align*}
+    \Sigma M_A &= (1020\,\text{N}\cd\sin 65\deg)(750\,\text{mm})-(1020\,\text{N}\cd\sin 65\deg)(1500\,\text{mm}) \\ &\qquad\qquad\qquad\qquad + (1690\,\text{N})(250\,\text{mm})+(1690\,\text{N})(150\,\text{mm}) \\[0.25em]
+    &=  -(1020\,\text{N}\cd\sin 65\deg)(750\,\text{mm}) + (1690\,\text{N})(400\,\text{mm}) \\[0.25em] 
+    &= -17325\,\mathsf{N\cd mm} \approx -17.3\,\mathsf{N\cd m} \\\\
+    \Sigma M_C &= -(1020\,\text{N}\cd\sin 65\deg)(750\,\text{mm}) +  (1690\,\text{N})(250\,\text{mm})+(1690\,\text{N})(150\,\text{mm}) \\[0.25em]
+    &= -17325\,\mathsf{N\cd mm}\approx -17.3\,\mathsf{N\cd m} \\\\
+    \Sigma M_F &= (1020\,\text{N}\cd\sin 65\deg)(600\,\text{mm})-(1020\,\text{N}\cd\sin 65\deg)(1350\,\text{mm})+(1690\,\text{N})(400\,\text{mm}) \\[0.25em]
+    &= -17325\,\mathsf{N\cd mm}\approx -17.3\,\mathsf{N\cd m}
+  \end{align*}
+\end{textblock*}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% page 5 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+~\newpage
+
+\begin{textblock*}{2.25in}(1in, 0.1in)
+	\cbox{
+		\underbar{\bf Example 5:}\parm
+		Determine $\Sigma M$, the sum of the moments, of the couples shown.
+	}
+\end{textblock*}
+\begin{textblock*}{4.125in}(3.775in, 0.1in)
+  \cbox{
+    \def\scale{0.9}
+    \input{../../pikz/05Moments/05Moments07Handout.tex}
+  }
+\end{textblock*}
+\begin{textblock*}{6.75in}(1in, 2.5in)
+  \large
+  \begin{align*}
+    \Sigma M &= (-1020\,\text{N})(750\,\text{mm})+(1690\,\text{N})(400\,\text{mm})=-17325\,\mathsf{N\cd mm}\approx -17.3\,\mathsf{N\cd m}
+  \end{align*}
+\end{textblock*}
+
+\begin{textblock*}{3.125in}(1in, 4.5in)
+	\cbox{
+		\underbar{\bf Example 6:}	Considering beam $AB$:
+			\begin{enumerate}
+				\item Determine the magnitude of $R_D$ if $\Sigma M_A=0$.
+				\item Determine the magnitude of $R_{Ay}$ if $\Sigma F_y=0$.
+				\item Determine the magnitude of $R_{Ax}$ if $\Sigma F_x=0$.
+			\end{enumerate}
+	}
+\end{textblock*}
+\begin{textblock*}{3.25in}(4.65in, 4.5in)
+  \cbox{
+    \def\scale{0.5}
+    \input{../../pikz/05Moments/05Moments14Handout.tex}
+  }
+\end{textblock*}
+\begin{textblock*}{6.75in}(1in, 6.5in)
+  \centering
+  \begin{tikzpicture}[scale=0.6]   
+    \coordinate (A) at (0, 0);
+    \coordinate (D) at (11, 1);
+    \coordinate (B) at ($ (A)!0.25!(D) $);
+    \coordinate (C) at ($ (A)!0.667!(D) $);
+    \Meme{A}{D}{Gray!50}{Gray!50}{Gray!50}{1}{0.1}{0.75}
+    \fill[black] (A) circle (3pt) node[above, outer sep=3mm] {\large $A$};
+    \fill[black] (B) circle (3pt) ;
+    \fill[black] (C) circle (3pt);
+    \fill[black] (D) circle (3pt) node[above, outer sep=3mm] {\large $B$};    
+    \Couple{B}{black}{1}{0.75}
+    \Couple[0]{C}{black}{1}{0.75}
+    \node[yshift=0.875cm] at (B) {\small $18.0\mathsf{\;kN\cd m}$};
+    \node[yshift=0.875cm] at (C) {\small $23.0\mathsf{\;kN\cd m}$};
+    \draw ($ (A)+(0,-0.75) $) -- +(0,-1.752);
+    \draw ($ (D)+(0,-0.75) $) --  +(0,-2.752);
+    \draw[thick, <->, >=stealth] ([yshift=-1.875cm]A) -- node[fill=white, inner sep= 0.2mm]{\small $3.00\,$m}([yshift=-2.875cm]D);
+    \draw[latex-,  ultra thick] (D) -- +(0,-2.25) node[right] {$R_{B}$};
+    \draw[latex-,  ultra thick] (A) -- +(0,-2.5) node[left] {$R_{Ay}$};
+    \draw[latex-,  ultra thick] (A) -- +(-2.25,0) node[above] {$R_{Ax}$};
+  \end{tikzpicture}
+  \large
+  \begin{enumerate}
+    \item $$ \Sigma M_A = 18.0\,\mathsf{kN\cd m}-23.0\,\mathsf{kN\cd m}+R_B(3.00\,\text{m})=0 \Ra R_B = 1.6667\,\text{kN} \Ra R_B \approx 1.67\,\text{kN}$$
+    \item $$ \Sigma F_y = R_{Ay} + R_B =0 \Ra R_{Ay} = -1.6667\,\text{kN} \Ra R_{Ay} \approx -1.67\,\text{kN} $$
+    \item $$ \Sigma F_x = R_{Ax} =0$$
+  \end{enumerate}
+\end{textblock*}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% page 6 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+~\newpage
+
+\begin{textblock*}{3.255in}(1in, 0.1in)
+	\cbox{
+		\underbar{\bf Exercise 4:}\parm
+		$ABCD$ has a negative couple applied at $B$ and is supported by a cable at $D$. 
+			\begin{enumerate}
+				\item Determine the magnitude of $T$ if $\Sigma M_A=0$.
+				\item Determine the reaction at $A$ if $\Sigma F_x = \Sigma F_y =0$.				
+			\end{enumerate}
+	}
+\end{textblock*}
+\begin{textblock*}{3.125in}(4.775in, 0.1in)
+  \cbox{
+    \centering
+    \def\scale{0.5}
+    \input{../../pikz/05Moments/05Moments15Handout.tex}
+  }
+\end{textblock*}
+\begin{textblock*}{3.255in}(1in, 2in)
+  \centering
+  \begin{tikzpicture}[scale=0.5]
+
+    \coordinate (A) at (0, 0);
+    \coordinate (C) at (10, 0);
+    \coordinate (D) at ($(C)+(0,1.25)$);
+    \coordinate (B) at ($ (A)!0.75!(C) $);
+    \fill[fill=Gray!35, thick, rounded corners] ($ (C)+(0.25,0) $) rectangle ($ (C)+(-0.25,1.5) $);
+    \Meme{A}{C}{Gray!35}{Gray!35}{Gray!35}{0.875}{0.1}{0.75}  
+
+    \fill[black] (A) circle (3pt) node[right, xshift=1mm] {$A$};
+    \fill[black] (C) circle (3pt)node[left] {$C$};
+    \fill[black] (B) circle (3pt) node[left] {$B$};
+    \fill[black] (D) circle (3pt) node[left, xshift=-0.5mm] {$D$};
+    \Couple[0]{B}{black}{1}{0.75}
+    \node[yshift=0.75cm, xshift=-0.5cm] at (B) {\small $1450\mathsf{\;N\cd m}$};
+    \draw[ultra thick, -latex] (D) --+ (68:3) node[left, black] {$ T $};
+
+    \draw ($ (C)+(0.75,0) $) -- +(2.25,0);
+    \draw ($ (D)+(0.5,0) $) --  +(2.5,0);
+
+    \draw[latex-latex] ($ (D)+(2,0) $)  arc(0:68:2)  node[midway, fill=white, inner sep=0.5mm] {\small $68\deg$};
+    \draw[latex-latex] ($ (D)+(2,0) $)  --  node[midway, fill=white, inner sep=0mm] {\small $200\,$mm} ($ (C)+(2,0) $); 
+
+    \draw ($ (A)+(0,-0.75) $) -- +(0, -1.5);
+    \draw ($ (C)+(0,-0.75) $) --  +(0, -1.5);
+
+    \draw[latex-latex] ($ (A)+(0,-1.75) $)  --  node[midway, fill=white, inner sep=1mm] {\small $1200\,$mm} ($ (C)+(0,-1.75) $); 
+  \end{tikzpicture}
+\end{textblock*}
+\begin{textblock*}{3.125in}(4.275in, 2.25in)
+  \large
+  \begin{enumerate}
+    \item 
+          \begin{align*}
+            \Sigma M_A &= -1450\,\mathsf{N\cd m}-(T\cos 68\deg)(200\,\text{mm})\\
+            & \qquad\qquad +(T\sin 68\deg)(1200\,\text{mm}) = 0 \\[0.25em]
+            \Ra T &= \frac{1450\,\mathsf{N\cd m}}{(1.200\,\text{m})\sin 68\deg-(0.200\,\text{m})\cos 68\deg}\\[0.25em]
+            &= 1397.3\,\text{N} = 1400\,\text{N}
+          \end{align*}
+    \item $R_A = 1400\,\text{N at }248\deg $ measured ccw from the positive $x$-axis. Why?
+   
+  \end{enumerate}
+\end{textblock*}
+
+
+
+\begin{textblock*}{2in}(1in, 5in)
+	\cbox{
+		\underbar{\bf Example 7:}\parm
+		Determine the moment of the distributed load about  $O$.
+	}
+\end{textblock*}
+\begin{textblock*}{4.35in}(3.55in, 5in)
+  \cbox{
+    \centering
+    \def\scale{0.9}
+    \input{../../pikz/05Moments/05dl04Handout.tex}
+  }
+\end{textblock*}
+\begin{textblock*}{3.255in}(1in, 7in)
+  \centering
+  \tikz[scale=\scale]{
+    \coordinate (A) at (-1,0);
+    \coordinate (B) at (6,0);
+
+    \coordinate (D) at (0,0.24);
+    \coordinate (E) at (2,2.2);
+    \coordinate (F) at (6,1.2);
+    \coordinate (Aone) at (1.33,.867);
+    \coordinate (Atwo) at (3.33,1.53);
+    \coordinate (Athree) at (4,0.7);
+
+    \gettikzxy{(A)}{\ax}{\ay};
+    \gettikzxy{(D)}{\ddx}{\ddy};
+    \gettikzxy{(E)}{\eex}{\eey};
+    \gettikzxy{(B)}{\bbx}{\bby};
+    \gettikzxy{(F)}{\ffx}{\ffy};    
+
+    \Meme{A}{B}{Gray!50}{Gray!30}{black}{0.45}{0.1}{0.5}	
+
+    % \DL{D}{E}{D}{gray!20}{black}{5}{0.35}{7}
+    % \DL{E}{F}{D}{gray!20}{black}{10}{0.35}{7}    
+    \filldraw[fill=gray!40, thick] (E)--(F)--(\bbx,\ffy)--(\eex,\ffy) ;
+    \filldraw[fill=gray!60, thick] (\eex,\ffy)--(F)--(\bbx,\ddy)--(\eex,\ddy) ;
+    \filldraw[fill=gray!20, thick] (D)--(E)--(\eex,\ddy)--cycle ;
+
+    \fill (Aone) circle (2pt);
+    \fill (Atwo) circle (2pt);
+    \fill (Athree) circle (2pt);
+    \draw[very thick, -latex] (Aone)--+(0,-2) node[below] {\small $3.00\,\text{kN}$};
+    \draw[very thick, -latex] (Atwo)--+(0,-2.75) node[left] {\small $2.25\,\text{kN}$};
+    \draw[very thick, -latex] (Athree)--+(0,-2.25) node[right] {\small $6.00\,\text{kN}$};
+
+    \node[above] at (E) {\small $3.00\thinspace\text{kN/m}$};
+    \node[above, outer sep=1mm] at (F) {\small $1.50\thinspace\text{kN/m}$};
+
+    \draw (\ax,-0.325)--(\ax,-2.5);
+    \draw (\ddx,-0.325)--(\ddx,-2.5);
+    \draw (\eex,-0.325)--(\eex,-2.5);
+    \draw (\bbx,-0.325)--(\bbx,-2.5);
+
+    \node[yshift=0.42cm] at (A){$O$};
+    \fill (A) circle (2pt);
+
+
+\footnotesize
+	\draw[latex-latex] (\ax,-2) -- node[fill=white, inner sep=0]{$1.00\,\text{m}$}(\ddx,-2);
+	\draw[latex-latex] (\ddx,-2) -- node[fill=white, inner sep=0.5mm]{$2.00\,\text{m}$}(\eex,-2);
+	\draw[latex-latex] (\eex,-2) -- node[fill=white, inner sep=0.5mm]{$4.00\,\text{m}$}(\bbx,-2);
+
+
+}
+\end{textblock*}
+
+
+\end{document}
