@@ -1,0 +1,31 @@
+% !TEX root = ../all/statikz.tex
+
+\tikz[scale=\scale]{
+  \coordinate (O) at (0,0);
+  \coordinate (A) at (0,1);
+  \coordinate (B) at (1.5,2.5);
+  \coordinate (C) at (3,1.75);
+  \coordinate (D) at (4.5,0);
+
+  \DL{A}{B}{D}{Gray!20}{black}{5}{0.4}{6}
+  \DL{B}{C}{D}{Gray!20}{black}{5}{0.4}{6}
+  \DL{C}{D}{D}{Gray!20}{black}{5}{0.4}{6}
+
+  \fill[Gray!50] (-1,-0.75) rectangle (5.5,0);
+  \draw (-1,0) -- (5.5, 0);
+
+  \node[black, above left] at (O) {\small $(0,0)$};
+  \fill[black] (A) circle (1pt) node[black, above left] {\small $1.00\thinspace\text{kN/m}$};
+  \fill[black] (B) circle (1pt) node[black, above right] {\small $2.50\thinspace\text{kN/m}$};
+  \fill[black] (C) circle (1pt) node[black, above right] {\small $1.75\thinspace\text{kN/m}$};
+  % \fill[Cornsilk3!50!black] (D) circle (1pt);
+
+  \draw ($ (O)+(0,-0.125) $) -- +(0,-.5);
+  \draw ($ (B)+(0,-2.625) $) -- +(0,-.5);
+  \draw ($ (C)+(0,-1.875) $) -- +(0,-.5);
+  \draw ($ (D)+(0,-0.125) $) -- +(0,-.5);
+
+  \draw[latex-latex] ($ (O)+(0,-0.375) $) -- node[fill=Gray!50] {\small $1.50\thinspace\text{m}$}($ (B)+(0,-2.875) $);
+  \draw[latex-latex] ($ (B)+(0,-2.875) $) --  node[fill=Gray!50] {\small $1.50\thinspace\text{m}$}($ (C)+(0,-2.125) $);
+  \draw[latex-latex] ($ (C)+(0,-2.125) $) --  node[fill=Gray!50] {\small $1.50\thinspace\text{m}$}($ (D)+(0,-0.375) $);
+}

@@ -13,6 +13,8 @@
 \input{../../includes/definedColors.tex}
 \input{../../includes/macros.tex}
 \input{../../includes/Channel.tex}
+\input{../../includes/Couple.tex}
+\input{../../includes/DL.tex}
 \input{../../includes/Member.tex}
 \input{../../includes/Meme.tex}
 \input{../../includes/PC.tex}
@@ -37,57 +39,85 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % page 1
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{textblock*}{7.25in}(1in, 0.4in)
-	\begin{tikzpicture}[line width=0.1mm]
-		\draw[color=gray!50, step=0.25in] (0,0) grid +(7.25in,10.25in);
+\begin{textblock*}{1.0\textwidth}(1in, 0.25in)
+	\begin{tikzpicture}[line width= 0.3mm, scale=1.0525]
+		\draw[ color=gray!50, step=0.25in] (0,0) grid (7in,10in);
 	\end{tikzpicture}
 \end{textblock*}
 
 
-\begin{textblock*}{6.775in}(1in, 0.225in)
+\begin{textblock*}{6.88in}(1in, 0.1in)
   \cbox{
     \centering\huge
-    \textbf{Engineering Statics - 04 Centroids}
+    \textbf{Engineering Statics - 05 Moments}
   }
 \end{textblock*}
 
 \begin{textblock*}{3in}(1in, 1in)
 	\cbox{
-		Exercise 1: Determine the coordinates of the centroid of the triangle shown.
+		\underbar{\bf Example 1:} Determine the moment, $M_A$, of the $3.5$ kN force applied at $B$, about the point $A$.
 	}
 \end{textblock*}
-\begin{textblock*}{3.25in}(4.525in, 1in)
+\begin{textblock*}{3.35in}(4.525in, 1in)
 	\cbox{
 		\centering
-		\def\scale{1}
-		\input{../../pikz/04Centroids/04centroids08Handout}
+			\def\scale{0.8}
+			\input{../../pikz/05Moments/05Moments08Handout.tex}
 	}
 \end{textblock*}
 
-\begin{textblock*}{3in}(1in, 3.75in)
+
+\begin{textblock*}{3.5in}(1in, 5.5in)
 	\cbox{
-		Exercise 2: Determine the coordinates of the centroid of the semi-circle shown.
+		\underbar{\bf Example 2:} Determine the sum of the moments of the forces, acting at $B$ and $C$, about the point $A$. \parm  Also, sum the moments of the forces about the point $B$.
 	}
 \end{textblock*}
-\begin{textblock*}{3.25in}(4.525in, 3.75in)
+\begin{textblock*}{2.85in}(5.025in, 5.5in)
 	\cbox{
 		\centering
-		\def\scale{1}
-		\input{../../pikz/04Centroids/04centroids09Handout}
+		\def\scale{0.8}
+		\input{../../pikz/05Moments/05Moments09Handout.tex}
 	}
 \end{textblock*}
 
-\begin{textblock*}{3in}(1in, 7in)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% page 2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+~\newpage
+\begin{textblock*}{1.0\textwidth}(1in, 0.25in)
+	\begin{tikzpicture}[line width= 0.3mm, scale=1.0525]
+		\draw[ color=gray!50, step=0.25in] (0,0) grid (7in,10in);
+	\end{tikzpicture}
+\end{textblock*}
+
+
+\begin{textblock*}{2.5in}(1in, 0.1in)
 	\cbox{
-			Exercise 3: Determine the location of the centroid of the quarter-circle shown.
+			\underbar{\bf Exercise 1:} Rigid beam $ABCD$ is supported at $A$ and at $D$, and is subjected to the two forces shown at $B$ and $C$.\parm
+			Determine the value of the reaction at $D$, $R_D$, if the sum of the moments about $A$, $\Sigma M_A$, is zero and the reaction at $D$ is vertically upwards.
 	}
 \end{textblock*}
-\begin{textblock*}{3.25in}(4.525in, 7in)
+\begin{textblock*}{3.85in}(4.025in, 0.1in)
 	\cbox{
 		\centering
-		\def\scale{1}
-		\input{../../pikz/04Centroids/04centroids10Handout}
+		\def\scale{0.65}
+		\input{../../pikz/05Moments/05Moments11Handout.tex}
+	}
+\end{textblock*}
+
+
+
+\begin{textblock*}{3.25in}(1in, 7in)
+	\cbox{
+		\underbar{\bf Example 3:}\parm
+		Determine the moment about $A$ of the force applied to $B$ by resolving the force at $B$ into horizontal and vertical components.
+	}
+\end{textblock*}
+\begin{textblock*}{3.125in}(4.775in, 7in)
+	\cbox{
+	\centering
+	\input{../../pikz/05Moments/05Moments05Handout.tex}
 	}
 \end{textblock*}
 
@@ -95,29 +125,44 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% page 2 
+% page 3 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 ~\newpage
 \begin{textblock*}{1.0\textwidth}(1in, 0.25in)
 	\begin{tikzpicture}[line width= 0.3mm, scale=1.0525]
-		\draw[ color=gray!25, step=0.25in] (0,0) grid (7in,10in);
+		\draw[ color=gray!50, step=0.25in] (0,0) grid (7in,10in);
 	\end{tikzpicture}
 \end{textblock*}
 
-\begin{textblock*}{2.25in}(1in, 0.125in)
-	\cbox{
-		Exercise 4\parm
-		Find the location of the centroid, $C$, relative to the point~$O$.
 
+\begin{textblock*}{4.25in}(1in, 0.125in)
+	\cbox{
+		\underbar{\bf Example 4:}\parm
+		Determine the moment about $A$ of the force at $B$ by resolving the force into components parallel to and perpendicular to $AB$.
 	}
 \end{textblock*}
-\begin{textblock*}{4.125in}(3.775in, 0.125in)
+\begin{textblock*}{2.125in}(5.775in, 0.125in)
 	\cbox{
 	\centering
-	\def\scale{1}
-	\input{../../pikz/04Centroids/04centroids12Handout}
+	\def\scale{0.7}
+	\input{../../pikz/05Moments/05Moments08Handout.tex}
+	}
+\end{textblock*}
+
+
+\begin{textblock*}{2.75in}(1in, 5.5in)
+	\cbox{
+		\underbar{\bf Exercise 2:}\parm
+		Determine the moment about $A$ of the force acting on $D$. Then determine the moment about $B$ for the same force.
+	}
+\end{textblock*}
+\begin{textblock*}{3.625in}(4.25in, 5.5in)
+	\cbox{
+	\centering
+	\def\scale{0.85}
+	\input{../../pikz/05Moments/05Moments06Handout.tex}
 	}
 \end{textblock*}
 
@@ -131,26 +176,24 @@
 	\end{tikzpicture}
 \end{textblock*}
 
+
 \begin{textblock*}{2.25in}(1in, 0.1in)
 	\cbox{
-		Exercise 5\parm
-		Find the location of the centroid, $C$, relative to the coordinate origin.
-
+		\underline{\bf Exercise 3:}\parm
+		Determine the sum of the moments about $A$, about $C$ and about $F$ of the forces shown.
 	}
 \end{textblock*}
 \begin{textblock*}{4.125in}(3.775in, 0.1in)
 	\cbox{
 	\centering
-	\def\scale{1}
-	\input{../../pikz/04Centroids/04centroids13Handout}
+	\def\scale{0.9}
+	\input{../../pikz/05Moments/05Moments07Handout.tex}
 	}
 \end{textblock*}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % page 5 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
 ~\newpage
 \begin{textblock*}{1.0\textwidth}(1in, 0.25in)
 	\begin{tikzpicture}[line width= 0.3mm, scale=1.0525]
@@ -158,28 +201,107 @@
 	\end{tikzpicture}
 \end{textblock*}
 
-\begin{textblock*}{3.25in}(1in, 0.125in)
+\begin{textblock*}{2.25in}(1in, 0.1in)
 	\cbox{
-		Exercise 6\parm
-		Three C130X13 channels and a steel plate ($15\mathsf{mm}\x 174\mathsf{mm}$) are welded together. \parm
-		Determine the location of the centroid, relative to the bottom left hand corner of the composite area.
-		\ccbox[0.5]{white}{white}{
-		Properties for C130X13:\pars
-		Area $= 1700\,\mathsf{mm^2}$\lb
-		Depth $=127\,\mathsf{mm}$\lb
-		$\overline{x} =12\,\mathsf{mm}$\parb}
+		\underbar{\bf Example 5:}\parm
+		Determine $\Sigma M$, the sum of the moments, of the couples shown.
 	}
 \end{textblock*}
-\begin{textblock*}{3in}(4.875in, 0.125in)
-	\cbox{
-	\centering
-	\def\scale{0.75}
-	\input{../../pikz/04Centroids/04centroids18Handout}
-	}
+\begin{textblock*}{4.125in}(3.775in, 0.1in)
+  \cbox{
+    \def\scale{0.9}
+    \input{../../pikz/05Moments/05Moments07Handout.tex}
+  }
 \end{textblock*}
 
 
+\begin{textblock*}{3.125in}(1in, 4.5in)
+	\cbox{
+		\underbar{\bf Example 6:}	Considering beam $AB$:
+			\begin{enumerate}
+				\item Determine the magnitude of $R_D$ if $\Sigma M_A=0$.
+				\item Determine the magnitude of $R_{Ay}$ if $\Sigma F_y=0$.
+				\item Determine the magnitude of $R_{Ax}$ if $\Sigma F_x=0$.
+			\end{enumerate}
+	}
+\end{textblock*}
+\begin{textblock*}{3.25in}(4.65in, 4.5in)
+  \cbox{
+    \def\scale{0.5}
+    \input{../../pikz/05Moments/05Moments14Handout.tex}
+  }
+\end{textblock*}
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% page 6 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+~\newpage
+\begin{textblock*}{1.0\textwidth}(1in, 0.25in)
+	\begin{tikzpicture}[line width= 0.3mm, scale=1.0525]
+		\draw[ color=gray!50, step=0.25in] (0,0) grid (7in,10in);
+	\end{tikzpicture}
+\end{textblock*}
+
+\begin{textblock*}{3.255in}(1in, 0.1in)
+	\cbox{
+		\underbar{\bf Exercise 4:}\parm
+		$ABCD$ has a negative couple applied at $B$ and is supported by a cable at $D$. 
+			\begin{enumerate}
+				\item Determine the magnitude of $T$ if $\Sigma M_A=0$.
+				\item Determine the reaction at $A$ if $\Sigma F_x = \Sigma F_y =0$.				
+			\end{enumerate}
+	}
+\end{textblock*}
+\begin{textblock*}{3.125in}(4.775in, 0.1in)
+  \cbox{
+    \centering
+    \def\scale{0.5}
+    \input{../../pikz/05Moments/05Moments15Handout.tex}
+  }
+\end{textblock*}
+
+
+
+\begin{textblock*}{2in}(1in, 5in)
+	\cbox{
+		\underbar{\bf Example 7:}\parm
+		Determine the moment of the distributed load about  $O$.
+	}
+\end{textblock*}
+\begin{textblock*}{4.35in}(3.55in, 5in)
+  \cbox{
+    \centering
+    \def\scale{0.9}
+    \input{../../pikz/05Moments/05dl04Handout.tex}
+  }
+\end{textblock*}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% page 7
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+~\newpage
+\begin{textblock*}{1.0\textwidth}(1in, 0.25in)
+	\begin{tikzpicture}[line width= 0.3mm, scale=1.0525]
+		\draw[ color=gray!50, step=0.25in] (0,0) grid (7in,10in);
+	\end{tikzpicture}
+\end{textblock*}
+
+\begin{textblock*}{2in}(1in, 0.1in)
+	\cbox{
+		\underbar{\bf Exercise 5:}\parm
+		Determine the moment of the distributed load about  $(0,0)$.
+	}
+\end{textblock*}
+\begin{textblock*}{4.35in}(3.55in, 0.1in)
+  \cbox{
+    \centering
+    \def\scale{1.25}
+    \input{../../pikz/05Moments/05Moments16Handout.tex}
+  }
+\end{textblock*}
 
 
 \end{document}
