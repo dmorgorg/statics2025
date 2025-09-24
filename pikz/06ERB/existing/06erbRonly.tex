@@ -1,0 +1,18 @@
+% !TEX root = ../../07EquilRigidBodies/07ERB.tex
+
+
+
+\tikz[scale=\scale]{
+	\coordinate (pin) at (0,0);
+	\coordinate (B) at (-0.5,-0.5);
+	\coordinate (C) at (0.5,-0.5);
+	\coordinate (D) at (1,0);
+	\draw[thick] (B) -- (C);
+
+	\def\hi{0.25}
+	\def\radii{0.5*\hi}
+	\def\extend{\hi}
+	\Ronly{A}{lHeaderGrey}{black}{0.5}{0.5}
+	\pgfoonew \member =new rr(pin, D,llHeaderGrey,black, 0.25)
+	\filldraw (pin) circle (0.4 mm);
+}

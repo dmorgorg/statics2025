@@ -1,0 +1,100 @@
+% !TEX root = ../../00temp/downOne/prospectives.tex
+
+\tikz[scale=\scale]{
+	\def\thickness{thin}
+	\def\stroke{black}
+	\def\hi{.3}
+	\def\radii{0}
+	\def\extend{0.15}
+
+	\scriptsize
+
+	\coordinate (O) at (2.75,-2);
+	\coordinate (F) at ($(O)+(140:6)$);
+	\coordinate (A) at ($(O)+(-6.8223,-1)$);
+	\coordinate (B) at ($(A)+(5.375,0)$);
+
+	\gettikzxy{(A)}{\Ax}{\Ay}
+	\gettikzxy{(F)}{\Fx}{\Fy}
+
+
+	\def\Ay{0}
+	\def\Fx{3}
+	\def\Fy{3}
+
+	% hydraulic
+	\begin{scope}[transform canvas={rotate around={65.5:(A)}}]
+		\draw (A)-- (B);
+		\shadedraw[top color=Azure4,bottom color=Azure4, middle color=white] ($(A)+(0,0.075)$) rectangle ($(B)+(0,-0.075)$);
+		\shadedraw[top color=Azure4,bottom color=Azure4, middle color=white] ($(A)+(0,0.125)$) rectangle ($(A)!.6!(B)+(0,-0.125)$);
+		\shadedraw[top color=Azure4,bottom color=Azure4, middle color=white] ($(A)+(0,0.1875)$) rectangle ($(A)!.4!(B)+(0,-0.1875)$);
+		\shadedraw[top color=Honeydew4!75!black,bottom color=Honeydew4!50!black, middle color=Honeydew3] ($(A)+(-.1875,0.25)$) rectangle ($(A)!.15!(B)+(0,-0.25)$);
+		\shadedraw[top color=Honeydew4!75!black,bottom color=Honeydew4!50!black, middle color=Honeydew3] ($(A)!.875!(B)+(0,0.125)$) rectangle ($(B)+(0,-0.125)$);
+	\end{scope}
+
+	\begin{scope}[xshift=-1.95 cm,yshift=-0.6 cm, rotate around={-40:(O)}]
+		\coordinate (G) at (1.5,0.675);
+		%draw truck silhouette
+		\begin{scope}
+			\filldraw[fill=LightBlue3, draw=LightBlue4!75!black] (5.325,2) circle (0.75mm);
+			\filldraw[draw=LightBlue4,fill=LightBlue3, rotate around={40:(5.325,2)}] (5.24,2) rectangle +(-0.0625,-1.875);
+			\filldraw[draw=LightBlue4,fill=LightBlue3] (0,0)-- +(0,2)arc(180:90:0.25)-- ++(5,0)-- +(0,-2.25)--cycle;
+			\filldraw[draw=LightBlue4,fill=LightBlue3] (-0.0625,-0.0625)-- ++(5,0)-- ++(0,-0.55)-- ++(-0.5,0)arc(0:180:0.55)-- +(-4.5,0)arc(0:180:0.55)-- ++(-0.0625,0)-- ++(0,0.55)-- ++(0.0625,0.0625)-- ++(0.0625,0.325)arc(160:99:0.125)-- ++(8:0.9)-- ++(65:0.6)arc(155:90:0.125)-- ++(0.65,0)arc(90:0:0.125)-- cycle;
+			\filldraw[fill=LightBlue3,draw=LightBlue4] (3.89,-0.6) circle (0.475cm);
+			\filldraw[fill=white,draw=LightBlue4] (3.89,-0.6) circle (0.3cm);
+			\filldraw[fill=LightBlue3,draw=LightBlue4] (3.89,-0.6) circle (0.225cm);
+			\filldraw[fill=LightBlue3,draw=LightBlue4] (-1.7125,-0.6)  circle (0.475cm);
+			\filldraw[fill=white,draw=LightBlue4] (-1.7125,-0.6) circle (0.3cm);
+			\filldraw[fill=LightBlue3,draw=LightBlue4] (-1.7125,-0.6) circle (0.225cm);
+			\draw[LightBlue4](-.2,1)-- ++(0,-1.175)arc(0:-90:0.0625)-- ++(-0.6,0)arc(270:225:0.0625)-- ++(135:0.25)arc(225:180:0.0625)-- ++(0,0.5)arc(180:165:0.125)-- ++(69:0.5)arc(161:90:0.0625)-- +(0.595,0)arc(90:0:0.0625);
+			\filldraw[fill=white, draw=LightBlue4](-.26,0.95)-- ++(0,-0.5)-- ++(-0.725,0)arc(270:161:0.0625)-- ++(69:0.45)arc(161:90:0.0625)-- ++(0.5125,0)arc(90:5:0.05);
+			\fill (G) circle (2pt)node[left]{\normalsize $G$};
+		\end{scope}
+		\begin{scope}
+			\filldraw[fill=Honeydew3, draw=Honeydew4!50!black] (-4.1,-1.12) -- ++(8,0)arc(270:350:0.52)-- ++(0.625,0)-- ++(0,-1)-- ++(-8,0)-- cycle;
+		\end{scope}
+		\draw ($(O)+(0,0.5)$) -- ++(0,4.5);
+		\draw ($(F)+(0,0.1875)$) -- +(0,4.825);
+		\draw ($(G)+(0,0.35)$) -- +(0,2.6);
+		\draw[latex-latex] ($(F)+(0,4.5)$) -- node[fill=white,rotate=-40]{$3.55\,$m}( $(G)+(0,2.45)$);
+		\draw[latex-latex] ($(G)+(0,2.45)$) -- node[fill=white,rotate=-40]{$5.35\,$m}( $(O)+(0,4.5)$);
+		\draw ($(G)+(0.375,0)$)-- +(1.5,0);
+		\draw[latex-latex] ($(G)+(1.195,0)$) -- node[fill=LightBlue3,rotate=-40,yshift=0.3mm,inner sep=0.5mm]{$3.25\,$m}($(G)+(1.195,-2.09)$);
+
+	\end{scope}
+
+	\def\r{0.35};
+	% for 10deg
+	\def\sin{0.17365}
+	\def\cos{0.98481}
+	\def\hyp{1.5}
+	% major pin
+	\filldraw[fill=Honeydew4] ($(O)+(\cos*\r,\sin*\r)$)arc(10:170:\r)-- ++(-\sin*\hyp,-\cos*\hyp)-- ++(2*\sin*\hyp+2*\r, 0)-- cycle;
+
+	\draw ($(O)+(-0.75,0)$) -- +(-1.5,0);
+	\draw[latex-latex] ($(O)+(140:2)$)arc(140:180:2)node[midway, fill=white,inner sep=0.5mm]{$38\degree$};
+	\draw ($(A)+(0.5,0)$) -- +(1.5,0);
+	\draw ($(A)+(65.5:0.5)$) -- +(65.5:1.5);
+	\draw[latex-latex] ($(A)+(65.5:1.75)$)arc(65:0:1.75)node[midway, fill=white,inner sep=0.5mm]{$65.5\degree$};
+
+
+	% lower hydraulic connection
+	\begin{scope}[scale=0.5,rotate=-25]
+		\filldraw[fill=Honeydew4] ($(A)+(\cos*\r,\sin*\r)$)arc(10:170:\r)-- ++(-\sin*\hyp,-\cos*\hyp)-- ++(2*\sin*\hyp+2*\r, 0)-- cycle;
+	\end{scope}
+	% base
+	\fill[top color=Honeydew4,bottom color=Honeydew2] ($(O)+(-1,-0.5)$)-- ++(2,0)-- ++(0,-1.5)-- ++(-11.5,0)-- ++(0,2.275)-- ++(1.55,0)-- ++(1.25,-0.6255)-- ++(0,-1)--++(6.25,0);
+	\draw[black] ($(O)+(1,-0.5)$) -- ++(-2,0)-- ++(241:0.975)-- ++(-6.25,0)-- ++(0,1)--++(-1.25,0.625)--++(-1.55,0);
+
+	\shadedraw[ball color=Honeydew3, draw=Honeydew4!25!black] (F) circle (1mm);
+	\shadedraw[ball color=Honeydew3, draw=Honeydew4!25!black] (A) circle (1mm);
+	\shadedraw[ball color=Honeydew3, draw=Honeydew4!25!black] (O) circle (2mm);
+	\draw ($(O)+(140:0.55)$)-- ($(F)+(-40:0.25)$);
+
+\small
+	\node[xshift=-0.4cm] at (A) {$A$};
+	\node[xshift=-0.4cm,yshift=-0.2cm] at (F) {$B$};
+	\node[xshift=0.5cm,yshift=-0.1cm] at (O) {$C$};
+
+
+}

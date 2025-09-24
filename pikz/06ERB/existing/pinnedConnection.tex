@@ -1,0 +1,57 @@
+% !TEX root = ../../Beamer/06EquilibriumOfRigidBodies/06ERB.tex
+
+\tikz[scale=\scale]{
+	\def\xshift{10}
+	\def\yshift{4}
+	\def\xxshift{4}
+	\def\rrotate{25}
+	\def\rrrotate{-35}
+	\coordinate (O) at (0,0);
+	\coordinate (A) at ($(O)+({90+\rrrotate}: -3cm)+(-\rrrotate:2.5cm)$);
+	\coordinate (OO) at ($(O)+(\xshift,0)$);
+	\coordinate (AA) at ($(A)+(\xshift,0)$);
+
+	\coordinate (AAA) at ($(AA)+(\xxshift,-\yshift)$);
+
+	\def\thickness{thick}
+	\def\stroke{black}
+	\def\hi{.3}
+	\def\radii{\hi}
+	\def\extend{\hi}
+
+
+
+
+	\begin{scope}[transform canvas={rotate=\rrrotate}]
+		\fill[top color=mucus, bottom color=mucus!25] ($(O)+(-3,-1.55)$) rectangle +(6,-1);
+		\draw[thick] ($(O)+(-3,-1.55)$)-- +(6,0);
+	\end{scope}
+	\PinnedConnection[\rrrotate]{O}{gray!75!white}{black}{1.55}{0.25}
+	\begin{scope}[transform canvas={rotate=\rrotate}]
+		\filldraw [top color=gray, bottom color=gray, middle color=gray!50, thick]($(O)+(5,0.5)$)  -- +(-5,0)arc(90:270:0.5)-- +(4.5,0);
+		\filldraw[ball color=gray] (O) circle (2mm);
+	\end{scope}
+
+	\uncover<2->{
+		\begin{scope}[xshift=\xshift cm]
+			\filldraw [fill=gray!50, draw=gray, thick, rotate around = {\rrotate:(\xshift, 0 )}]($(OO)+(5,0.5)$)  -- +(-5,0)arc(90:270:0.5)-- +(4.5,0);
+			\fill[gray] (OO) circle (2mm);
+
+			\draw[thin] ($(OO)+(0,-1)$)-- +(0,-2);
+			\draw[thin] ($(OO)+(-1,0)$)-- +(-2,0);
+		\end{scope}
+	}
+
+	\uncover<2>{
+		\draw[-latex, saitMaroon, ultra thick] (OO)-- +(4,0)node[below] {$\bm R_x$};
+		\draw[-latex, saitMaroon, ultra thick] (OO)-- +(0,4)node[right] {$\bm R_y$};
+	}
+
+	\uncover<3>{
+		\draw[-latex, saitMaroon, ultra thick] (OO)-- +(111:4.5)node[left] {$\bm R$};
+		\draw[latex-latex] ($(OO)+(3,0)$)arc(0:111:3)node[midway, fill=bgcolor]{$\theta$};
+		\draw[thin] ($(OO)+(0,1)$)-- +(0,3);
+		\draw[thin] ($(OO)+(2,0)$)-- +(2,0);
+	}
+
+}

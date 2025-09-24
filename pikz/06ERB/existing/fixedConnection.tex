@@ -1,0 +1,17 @@
+% !TEX root = ../../Beamer/06EquilibriumOfRigidBodies/06ERB.tex
+
+\tikz[scale=\scale]{
+	\coordinate (O) at (0,0);
+	\fill[left color=mucus!50, right color=mucus] ($(O)+(0,4)$) rectangle (-1.5,-4);
+	\fill[top color=mucus, bottom color = mucus, middle color=mucus!50] ($(O)+(0,0.5)$) rectangle (6,-0.5);
+	\draw($(O)+(0,4)$) -- ($(O)+(0,0.5)$)--($(O)+(6,0.5)$)--($(O)+(6,-0.5)$)--($(O)+(0,-0.5)$)-- ($(O)+(0,-4)$);
+
+	\uncover<2->{
+		\draw[saitMaroon, -latex, ultra thick] ($(O)$)-- +(0,3)node[right]{$\bm{R_y}$};
+		\draw[saitMaroon, -latex, ultra thick] ($(O)$)-- +(3,0)node[right]{$\bm{R_x}$};
+	}
+	\uncover<3->{
+		\draw[saitMaroon, -latex, ultra thick] ($(O)+(-0.25,2)$)arc(97.12:262.87:2)node[midway, right]{$\bm{M}$};
+	}
+	\fill[black](O) circle (1mm);
+}

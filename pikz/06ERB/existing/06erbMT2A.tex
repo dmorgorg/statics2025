@@ -1,0 +1,60 @@
+% !TEX root = ../../Exams/MT2/STCS242MT2A2016.tex
+
+
+% \input{../../Includes/Ronly.tex}
+% \input{../../Includes/DLOne}
+
+\tikz[scale=\scale]{
+
+	\def\hi{0.25}
+
+	\coordinate (A) at (0,0);
+	\coordinate (Aup) at (0,\hi);
+		\coordinate (AA) at (0,3);
+
+	\coordinate (P) at (3,0);
+
+	\coordinate (B) at (10,0);
+	\coordinate (C) at (10,3);
+	\coordinate (D) at (3,3);
+	\coordinate (DD) at (7.5,\hi);
+\coordinate (E) at (7.5,0);
+
+	\Ronly{C}{gray}{black}{0.5}{0.5}
+
+	% \draw[gridLight, step=0.25cm] (0,0) grid (12,6);
+	\DLOne{AA}{D}{Aup}{white}{black}{6}{0.25}
+	\DLOne{D}{DD}{Aup}{white}{black}{9}{0.25}
+	\filldraw[rounded corners=4pt, fill=llHeaderGrey, draw=black, thick] ($ (A)+(-\hi,\hi) $) -- ($ (B)+(-\hi,\hi) $) -- ($ (C)+(-\hi,\hi) $) -- ++(2*\hi, 0) -- ($ (B)+(\hi,-\hi) $) -- ($ (A)+(-\hi,-\hi) $) -- cycle;
+	\PinnedConnection{P}{gray}{black}{0.75}{0.5}
+\coordinate (T) at ($ (C)+(30:0.5)+(120:2) $);
+\draw ($ (T)+(0.5,0) $) -- +(1.5,0);
+	% \draw[saitDeepBlue, ultra thick, -Stealth] ($ (B)+(225:0.65) $)arc(225:-35: 0.65) -- +(-115:0.1) node[below right, outer sep=-0.5mm] {$4.00\;\mathsf{kN\cdot m} $};
+	\shade[ball color=gray, draw=black] (C) circle (3pt) node[below, black,outer sep = .2mm] {\Large $B$};
+	\shade[ball color=gray, draw=black] (P) circle (3pt) node[right, black,outer sep = 2mm] {\Large $A$};
+\filldraw[fill=gray!50, draw=black] (T) -- ++(2,0) -- +(0,-3.4641);
+	\draw[ultra thick, black] ($ (C)+(30:0.5)+(120:2) $) -- +(-60:4);
+
+
+	\draw[Stealth-Stealth] ($ (T)+(1.5,0) $)arc(0:-60:1.5);
+	\node[fill=gray!50] at ($ (T)+(-35:1.5) $) {$ 60^\circ$};
+
+	\node[above] at (D) {$ 3.00\text{ kN/m}$};
+		\draw[black, ultra thick, -Stealth] ($ (B)+(-35:0.5)+(0,1.5) $)arc(-35:210: 0.5)-- +(-65:0.2) node[below left, outer sep=-0.5mm] {$4.00\;\mathsf{kN\cdot m} $};
+	\draw ($ (A)+(0,-0.5)$) -- +(0,-1);
+	\draw ($ (P)+(0,-1)$) -- +(0,-0.5);
+	\draw ($ (E)+(0,-0.5)$) -- +(0,-1);
+	\draw ($ (B)+(0,-0.5)$) -- +(0,-1);
+
+
+
+	\draw[Stealth-Stealth] ([yshift=-1.25cm]A) -- node[fill=white] {$ 3.00\text{ m}$}([yshift=-1.25cm]P);
+	\draw[Stealth-Stealth] ([yshift=-1.25cm]P) -- node[fill=white] {$ 4.50\text{ m}$}([yshift=-1.25cm]E);
+	\draw[Stealth-Stealth] ([yshift=-1.25cm]E) -- node[fill=white] {$ 2.50\text{ m}$}([yshift=-1.25cm]B);
+
+	\draw ($ (B)+(0.5,0)$) -- +(3,0);
+	\draw ($ (C)+(1,0)$) -- +(2.5,0);
+		\draw[Stealth-Stealth] ([xshift=2.75cm]B) -- node[fill=white] {$ 3.00\text{ m}$}([xshift=2.75cm]C);
+
+
+}

@@ -1,0 +1,24 @@
+% !TEX root = ../../07EquilRigidBodies/07ERB.tex
+
+\tikz[scale=\scale]{
+
+
+  \coordinate (A) at (0,0);
+
+  \fill[fill=white] (-6,-1.5) rectangle (4,5.5);
+
+  \only<1>{
+    \draw[saitRed, ultra thick, -Stealth] (A) -- node[right, outer sep=1mm] {$5.2203\;\text{kN}$} +(90:4.6) ;
+    \draw[saitRed, ultra thick, -Stealth] (A) -- +(180:2.13) node[below, outer sep=1mm] {$2.4343\;\text{kN}$};
+  }
+
+
+  \only<2->{
+    \draw[gray, ultra thick, -Stealth] (A) -- node[right, outer sep=1mm] {$5.2203\;\text{kN}$} +(90:4.6) ;
+    \draw[gray, ultra thick, -Stealth] (A) -- +(180:2.13) node[below, outer sep=1mm] {$2.4343\;\text{kN}$};
+    \draw[saitRed, ultra thick, -Stealth] (A) -- +(115:5.04) node[below left, outer sep=1mm] {$R_A$};
+    \node at (-0.35,1.75) {$\theta$};
+  }
+
+
+}

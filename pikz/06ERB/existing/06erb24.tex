@@ -1,0 +1,50 @@
+% !TEX root = ../../Exams/MT2/Fall2017SampleMT2.tex
+
+\tikz[scale=\scale]{
+	\coordinate (A) at (0,0);
+	\coordinate (B) at (2,2);
+	\coordinate (C) at (8,0);
+	\coordinate (D) at (6,0);
+	\coordinate (P) at (-2,-2.125);
+	\def\hi{0.2}
+	\Large
+
+	\gettikzxy{(A)}{\Ax}{\Ay}
+	\gettikzxy{(B)}{\Bx}{\By}
+	\gettikzxy{(C)}{\Cx}{\Cy}
+	\gettikzxy{(P))}{\Px}{\Py}
+
+\shade[top color=Cornsilk4,bottom color=Cornsilk2] (\Ax-3cm,\Ay-0.75cm)rectangle(\Cx+1.5cm,\Cy-1.75cm);
+
+	\PinnedConnection{A}{Cornsilk3}{black}{0.75}{0.125}
+	\PinnedConnection{C}{Cornsilk3}{black}{0.75}{0.125}
+
+
+
+
+	\pgfoonew \BC=new rrect(B,C,LightBlue3,LightBlue3,black,0.4,0.4,0.4,0.125)
+
+	\filldraw[fill=LightBlue3,draw=black] (\Ax-\hi cm,\Ay)arc(180:360:\hi)--+(0,1)arc(180:90:1-\hi)--+(1,0)arc(-90:90:\hi)--+(-1,0)arc(90:180:1+\hi)--cycle;
+
+\begin{scope}[xshift=1.95cm,yshift=1.2cm]
+	\DLOne[-18.435]{(0,1)}{(6.32456,1.75)}{(0,0)}{Khaki3}{black}{10}{1}{0.5}
+\end{scope}
+
+	\filldraw[ball color=gray] (B) circle (1mm)node[xshift=-0.25cm,yshift=-0.375cm]{$B$};
+	\filldraw[ball color=gray] (A) circle (1mm)node[xshift=-0.35cm,yshift=0.25cm]{$A$};
+	\filldraw[ball color=gray] (C) circle (1mm)node[xshift=0.4cm]{$C$};
+
+	\draw (\Ax-0.5cm,\Ay) -- (\Px-0.5cm,\Ay);
+	\draw (\Bx-0.5cm,\By) -- (\Px-0.5cm,\By);
+	\draw (\Ax+0.5cm,\Ay) -- (\Cx-1cm,\Cy);
+	\draw (\Ax,\Ay-0.375cm) -- (\Ax,\Py-0.5cm);
+	\draw (\Bx,\By-0.375cm) -- (\Bx,\Py-0.5cm);
+	\draw (\Cx,\Cy-0.375cm) -- (\Cx,\Py-0.5cm);
+\small
+	\draw[latex-latex] (\Ax,\Py)--node[fill=white,inner sep=0.5mm]{$1.00\,$m}(\Bx,\Py);
+	\draw[latex-latex] (\Bx,\Py)--node[fill=white,inner sep=0.5mm]{$3.00\,$m}(\Cx,\Py);
+	\draw[latex-latex] (\Px,\Ay)--node[fill=white,inner sep=0.5mm]{$1.00\,$m}(\Px,\By);
+	\normalsize
+	\node at (2.25,3.45){$1.20\,$kN/m};
+	\node at (9,2.25){$1.80\,$kN/m};
+}

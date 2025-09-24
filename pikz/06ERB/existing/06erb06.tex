@@ -1,0 +1,71 @@
+% !TEX root = ../../Beamer/06EquilibriumOfRigidBodies/06ERBforDT.tex
+
+\makeatletter
+\providecommand{\gettikzxy}[3]{%
+	\tikz@scan@one@point\pgfutil@firstofone#1\relax
+	\edef#2{\the\pgf@x}%
+	\edef#3{\the\pgf@y}%
+}
+\makeatother
+
+\begin{tikzpicture}[scale=\scale,xscale=-1]
+	\def\thickness{thick}
+	\def\stroke{black}
+	\def\hi{.25}
+	\def\radii{\hi}
+	\def\extend{\hi}
+	\def\ldraw{RosyBrown4!50!black}
+	\def\lfill{saitBlue}
+
+	\coordinate (A) at (0, 0);
+	\coordinate (B) at (4, 0);
+	\coordinate (C) at (6, 0);
+	% \coordinate (D) at (6, 3);
+	\coordinate (E) at (0,-3);
+
+	\fill[mucus!75!white] ($ (A)+(-0.75,4) $) rectangle ($ (E)+(-1.75,-2) $);
+	\draw[mucus!75!black, thick] ($ (A)+(-0.75,4) $) -- +(0, -9);
+
+	\coordinate (AA) at ($(A)+(1.5,2)$);
+	\coordinate (base) at ($(A)+(0,1.7*\hi)$);
+	\coordinate (D) at (4,3.5);
+	\coordinate (CC) at ($(C)+(0,1.55*\hi)$);
+	\def\scale{1}
+	% \DLOne[0]{L}{K}{L}{pink}{saitMaroon}{12}{1}{1}
+
+
+	\def\ldraw{RosyBrown4!75!black}
+	\fill[RosyBrown3] ($ (A)+(-\hi,-1.5*\hi) $) rectangle ($ (C)+(0,1.5*\hi) $);
+	\draw[\ldraw, ultra thick] ($ (A)+(-\hi,-1.5*\hi) $) -- ++(3.5+\hi,0);
+	\draw[\ldraw, ultra thick] ($ (A)+(4.5,-1.5*\hi) $) -- ++(1.5,0);
+	\draw[\ldraw, ultra thick] ($ (A)+(-\hi,1.5*\hi) $) -- ++(6+\hi,0);
+
+
+	\DLOne{base}{D}{base}{LightGoldenrod2}{DarkGoldenrod4}{8}{1}{0.5}
+	\DLOne{CC}{D}{base}{LightGoldenrod2}{DarkGoldenrod4}{4}{1}{0.5}
+
+	%
+	\filldraw [fill=RosyBrown3, draw=RosyBrown4!50!black, semithick] (0,-2.75) arc [start angle=-90, end angle=0, x radius=3.75cm, y radius=2.75cm]arc(180:0:\hi) arc[start angle=0, end angle=-90, x radius=4.25cm, y radius=3.25cm] -- cycle;
+
+	\PinnedConnection[-90]{A}{mucus!50}{ddHeaderGrey}{0.75}{0.25}
+	\PinnedConnection[-90]{E}{mucus!50}{ddHeaderGrey}{0.75}{0.25}
+
+	\shadedraw[ball color=mucus, \ldraw, line width = \lwidth mm] (B) circle (3pt);
+\normalsize
+	\node at (A) [xshift=-3mm] {$C$};
+	\node at (B) [right, outer sep=1mm] {$B$};
+	\node at (C) [xshift=1.5mm] {$A$};
+
+	\node at ($ (D)+(0,0.25) $) {\small $16.00$ kN/m};
+	\node at (E) [below, outer sep=1.5mm] {$D$};
+
+	\draw ($ (A)+(-1,0) $) -- +(-2,0);
+	\draw ($ (E)+(-1,0) $) -- +(-2,0);
+	\draw ($ (A)+(0,-0.625) $) -- +(0,-1.875);
+	\draw ($ (B)+(0,-0.625) $) -- +(0,-1.875);
+	\draw ($ (C)+(0,-0.625) $) -- +(0,-1.875);
+	\draw[Stealth-Stealth] ([yshift=-1.5cm]A) -- node[fill=white, inner sep=0.5mm] {\small $3.75$ m} ([yshift=-1.5cm]B);
+	\draw[Stealth-Stealth] ([yshift=-1.5cm]B) -- node[fill=white, inner sep=0.mm] {\small $2.10\thinspace$m} ([yshift=-1.5cm]C);
+	\draw[Stealth-Stealth] ([xshift=-2.5cm]A) -- node[fill=white, inner sep=0.5mm] {\small $2.75$ m} ([xshift=-2.5cm]E);
+
+\end{tikzpicture}

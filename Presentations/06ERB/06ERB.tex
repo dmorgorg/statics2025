@@ -1,0 +1,144 @@
+
+%!TEX option = --shell-escape
+
+\documentclass[9pt, xcolor={svgnames, x11names},professionalfonts]{beamer}
+
+
+\input{../../includes/macros}
+\input{../../includes/definedColors}
+\input{../../includes/Channel.tex}
+\input{../../includes/Couple.tex}
+\input{../../includes/DL.tex}
+\input{../../includes/EyeBolt.tex}
+\input{../../includes/EyeConnection.tex}
+\input{../../includes/Member}
+\input{../../includes/Mem}
+\input{../../includes/Meme}
+\input{../../includes/PC}
+\input{../../includes/Ring}
+\input{../../includes/Rocker}
+\input{../../includes/Roller}
+\input{../../includes/Pulley}
+\input{../../includes/PulleyB}
+\input{../../includes/PulleyC}
+\input{../../includes/Luke.tex}
+\input{../../includes/Skywalker.tex}
+\input{../../includes/WBeam.tex}
+% \input{../../includes/includesExisting/tikzObjects.tex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{\medskipamount}
+\def\bgcolor{Gainsboro!50}
+
+
+\tcbset{fonttitle=\itshape\rmfamily}
+\usepackage{mathpazo}
+ 
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usefonttheme[onlymath]{serif} % this needs to be before structureitalicserif?
+\usefonttheme{structureitalicserif} %make titles fancy ;-)
+
+
+\usecolortheme[named=statsMaroon]{structure}
+\setbeamertemplate{navigation symbols}{} % remove navigation symbols
+\setbeamertemplate{headline}{\vspace{0.125cm}}
+\setbeamertemplate{footline}{ \hfill \insertshorttitle\qquad \insertsection \qquad \insertframenumber/\inserttotalframenumber\quad{ }\vspace{0.125cm}}
+\setbeamertemplate{items}[default]
+\setbeamertemplate{blocks}[shadow=true]
+
+\setbeamercolor{title}{bg=statsMaroon, fg=Azure}
+\setbeamercolor{frametitle}{fg=white, bg=statsMaroon}
+\setbeamercolor{background canvas}{bg=Gainsboro!50}
+\setbeamercolor{block title}{bg=statsMaroon, fg=white}
+\setbeamercolor{block body}{bg=white, fg=black}
+
+\setlength{\parskip}{\medskipamount}
+\setlength{\parindent}{0pt}
+
+% https://tex.stackexchange.com/questions/731957/how-to-supress-missing-character-there-is-no-u003b-in-font-nullfont
+\tracinglostchars=1
+\hfuzz 120pt
+
+\def\scale{1}
+\newcounter{examnumber}
+\newcounter{exernumber}
+%test
+\resetcounteronoverlays{tcb@cnt@myexam}
+\resetcounteronoverlays{tcb@cnt@myexer}
+% \newcounter{myexercisecounter}
+
+% Title page details: 
+\title[Equilibrium of Rigid Bodies]{\Huge 06 Equilibrium of Rigid Bodies}
+\subtitle[Engineering Statics]{\Large\textcolor{white}{Engineering Statics}}
+\author{}
+\date{\small Updated on: \today}
+
+% \raggedright
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[plain]    %don't need footer on titlepage
+	\titlepage
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Overview}
+	\cmini[0.8]{
+		\raggedright
+		\begin{itemize}
+			\item Much of the study of statics involves the calculations of reaction forces generated between a structural body and its supports when loads are applied.
+			\item[]\item There are various connection types used between a structural body and its supports. These connections influence the direction and the sense of the reaction. We shall examine some of these connections now.
+		\end{itemize}
+	}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Types of Connections: Cable}
+	\def\scale{0.5}
+	\begin{textblock*}{\textwidth}(1cm, 1.5cm)
+		\centering
+		\input{../../pikz/06ERB/cableConnection}
+	\end{textblock*}
+
+	\begin{textblock*}{\textwidth}(1cm, 5.5cm)
+		\cmini[0.9]{
+			When a structural member or body is supported by a cable (or rope or chain), the cable is assumed to be weightless (and consequently straight) and the cable exerts a reaction on the structural member {\bf in the same direction} as the cable. \parm
+			A cable is in tension and can only {\bf pull}; it cannot push. \parm
+			There is only one unknown: the magnitude of the force. The direction and sense of the force are known.
+		}
+	\end{textblock*}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Types of Connections: Strut}
+	\def\scale{0.4}
+	\begin{textblock*}{\textwidth}(1cm, 1.5cm)
+		\centering
+		\input{../../pikz/06ERB/strutConnection}
+	\end{textblock*}
+
+	\begin{textblock*}{\textwidth}(1cm, 4.75cm)
+		\cmini[0.95]{
+			Like a cable, a straight strut (or link) exerts a reaction on a structural member in the direction of the strut. Unlike a cable, a strut can pull  or push.
+			\parm
+			If we don't know whether a strut is pushing or pulling, we generally assume that the reaction is directed away from the structural member (pulling, in tension). If our calculations then determine that $F$ is negative, the direction is opposite to our assumption (i.e., pushing) (b).
+			\parm
+			As with the cable, there is only one unknown. The sign of $F$ determines the  sense of $F$.
+		}
+	\end{textblock*}
+
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}

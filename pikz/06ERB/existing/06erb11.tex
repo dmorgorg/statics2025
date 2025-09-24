@@ -1,0 +1,44 @@
+% !TEX root = ../../07EquilRigidBodies/07ERB.tex
+
+\makeatletter
+\providecommand{\gettikzxy}[3]{%
+	\tikz@scan@one@point\pgfutil@firstofone#1\relax
+	\edef#2{\the\pgf@x}%
+	\edef#3{\the\pgf@y}%
+}
+\makeatother
+
+\tikz[scale=\scale]{
+	\coordinate (A) at (0,0);
+	\coordinate (E) at (4,0);
+	\coordinate (B) at (10,0);
+	\coordinate (C) at (10,3);
+
+	\def\hi{0.25}
+
+	\filldraw[rounded corners=2pt, fill=saitBlue!50, draw=saitDeepBlue, thick] ($ (A)+(-\hi,\hi) $) -- ($ (B)+(-\hi,\hi) $) -- ($ (C)+(-\hi,\hi) $) -- ++(2*\hi, 0) -- ($ (B)+(\hi,-\hi) $) -- ($ (A)+(-\hi,-\hi) $) -- cycle;
+
+	\draw[saitDeepBlue, ultra thick, -Stealth] ($ (B)+(225:0.65) $)arc(225:-35: 0.65) -- +(-115:0.1) node[below right, outer sep=-0.5mm] {$4.00\;\mathsf{kN\cdot m} $};
+	\shade[ball color=saitBlue!50, draw=saitDeepBlue] (A) circle (3pt) node[above , black,outer sep = 2mm] {\large $A$};
+	\shade[ball color=saitBlue!50, draw=saitDeepBlue] (C) circle (3pt) node[above , black,outer sep = 2mm] {\large $C$};
+
+	\Rocker{B}{llHeaderGrey}{ddHeaderGrey}{0.65}{0.5}
+	\shade[ball color=saitBlue!50, draw=saitDeepBlue] (B) circle (3pt) node[above left, black,outer sep = 2mm] {\large $B$};
+
+	\draw[Stealth-, ultra thick, saitDeepBlue] (E) -- +(1.5,0) node[right] {\small $2.50\cos 60^\circ \text{ kN}$};
+	\draw[Stealth-, ultra thick, saitDeepBlue] (E) -- +(0,2) node[above] {\small $2.50\sin 60^\circ \text{ kN}$};
+
+	\draw [Stealth-, saitRed, very thick] (A) -- +(-1.5,0) node[above] {$ R_A\cos 45^\circ$};
+	\draw [Stealth-, saitRed, very thick] (A) -- +(0, -1.5) node[below] {$ R_A\cos 45^\circ$};
+	\draw [Stealth-, saitRed, very thick] (B) -- +(0,-1.5) node[below] {$ R_B$};
+	\draw [-Stealth, saitRed, very thick] (C) -- +(2,0) node[above right] {$ R_{CD}$};
+
+
+	% \draw ($ (A)+(0,-.4) $) -- +(0,-1.1);
+	\draw ($ (E)+(0,-.5) $) -- +(0,-1);
+	\draw ($ (B)+(1,0) $) -- +(0.5,0);
+	\draw [Stealth-Stealth] ([yshift=-1cm]A) --  node[fill=white]{$4.00\;\text{m}$}([yshift=-1cm]E);
+	\draw [Stealth-Stealth] ([yshift=-1cm]E) --  node[fill=white]{$6.00\;\text{m}$}([yshift=-1cm]B);
+	\draw [Stealth-Stealth] ([xshift=1.25cm]B) --  node[fill=white]{$3.00\;\text{m}$}([xshift=1.25cm]C);
+
+}

@@ -1,0 +1,59 @@
+% !TEX root = ../../Beamer/06EquilibriumOfRigidBodies/06ERBforDT.tex
+
+\tikz[scale=\scale]{
+	\small
+	\coordinate (A) at (0,0);
+	\coordinate (B) at (8,0);
+	\coordinate (C) at (8,4);
+	\coordinate (D) at (11,4);
+	\coordinate (E) at (5,0);
+	\coordinate (F) at (8,2);
+
+	\draw (B) circle (2pt);
+	\draw (C) circle (2pt);
+
+	\fill[fill=white] (-3,-2.5) rectangle (13,5.25);
+	\def\hi{0.375}
+	\def\twohi{2*\hi}
+	\def\threehi{3*\hi}
+	\def\innerr{\hi}
+	% \def\outerr{3*\hi}
+	\def\inneroffset{2*\hi}
+	\def\outeroffset{\hi}
+
+	\Ronly{D}{mucus!50!white}{black}{0.6}{0.25}
+
+	\draw[fill=Burlywood3, draw=Burlywood4!70!black, thick] ($ (A)+(0,\hi) $) -- ($ (B)+(-\twohi,\hi) $) arc(-90:0:\hi) -- ($ (C)+(-\hi,-\twohi) $) arc(180:90:\threehi) -- ($ (D)+(0,\hi) $) arc(90:-90:\hi) -- ($ (C)+(\twohi,-\hi) $)arc(90:180:\hi) -- ($ (B)+(\hi,\twohi) $)arc(0:-90:\threehi) -- ($ (A)+(0,-\hi) $)arc (270:90:\hi);
+	\shadedraw[outer color=ddHeaderGrey, inner color=llHeaderGrey, black, thick] (D) circle (2mm);
+	\PinnedConnection{A}{mucus!50!white}{black}{1}{0.25}
+
+	\fill[mucus] ($ (A)+(-2,-1) $) rectangle ($ (A)+(2,-1.65) $);
+	\fill[mucus] ($ (D)+(-1.5,-.6) $) rectangle ($ (D)+(2,-1.25) $);
+	\fill[mucus] ($ (D)+(-1.5,.6) $) rectangle ($ (D)+(2,1.25) $);
+	\draw[thick, mucus!50!black] ($ (A)+(-2,-1) $) -- ($ (A)+(2,-1) $);
+	\draw[thick, mucus!50!black] ($ (D)+(-1.5,.6) $) -- ($ (D)+(2,0.6) $);
+	\draw[thick, mucus!50!black] ($ (D)+(-1.5,-.6) $) -- ($ (D)+(2,-0.6) $);
+
+	\draw ($ (D)+(0,-1) $) -- +(0, -5.5);
+	\draw ($ (B)+(0,-0.5) $) -- +(0, -2);
+	\draw ($ (E)+(0,-0.5) $) -- +(0, -2);
+	\draw ($ (A)+(0,-0.5) $) -- +(0, -2);
+	\draw ($ (D)+(-2,0) $) -- +(-3.25, 0);
+	\draw ($ (B)+(-0.5,0) $) -- +(-2, 0);
+	\draw ($ (E)+(-2.75,0) $) -- ($ (E)+(-1.75,0) $);
+	\draw[Stealth-Stealth] ($ (E)+(125:2.25) $)arc(125:180:2.25);
+	\node at ($ (E)+(153:2.25) $) [fill=white]{$55^\circ$};
+
+	\draw[Stealth-Stealth] ($ (A)+(0,-2) $) -- node[fill=white] {$2.50\;\text{m}$}($ (E)+(0,-2) $);
+	\draw[Stealth-Stealth] ($ (E)+(0,-2) $) -- node[fill=white] {$1.500\;\text{m}$}($ (B)+(0,-2) $);
+	\draw[Stealth-Stealth] ($ (B)+(0,-2) $) -- node[fill=white] {$1.500\;\text{m}$}($ (D)+(0,-6) $);
+	\draw[Stealth-Stealth] ($ (C)+(-1.75,0) $) -- node[fill=white] {$2.00\;\text{m}$}($ (B)+(-1.75,0) $);
+
+	\draw[Stealth-, ultra thick, saitBlue] (E) -- +(125:2.75) node[above] {$\bm{1.024}\;\text{\bfseries kN}$};
+
+  \draw[-Straight Barb, ultra thick, saitBlue] ($ (F)+(-70:0.875) $)arc(-70:289:0.875) node[below right, fill=white, inner sep=1mm, outer sep=1mm] {$\bm{ 3.75}\;\text{\bfseries{kN}}\bm\cdot\text{\bfseries m}$};
+
+	\node[above left, outer sep = 1mm] at (A) {\large $O$};
+	\node[right, outer sep = 3mm] at (D) {\large $A$};
+
+}

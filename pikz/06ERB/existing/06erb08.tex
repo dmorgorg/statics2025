@@ -1,0 +1,43 @@
+% !TEX root = ../../Beamer/06EquilibriumOfRigidBodies/06ERB.tex
+
+% \makeatletter
+% \providecommand{\gettikzxy}[3]{%
+% 	\tikz@scan@one@point\pgfutil@firstofone#1\relax
+% 	\edef#2{\the\pgf@x}%
+% 	\edef#3{\the\pgf@y}%
+% }
+% \makeatother
+
+\tikz[scale=\scale]{
+	\coordinate (A) at (0,-0.25);
+	\coordinate (B) at (7,-0.25);
+	\coordinate (C) at (0,2.5);
+	\coordinate (D) at (3,1);
+	\coordinate (E) at (7,1);
+	\coordinate (base) at (0,0.025);
+	\coordinate (Aleft) at ($(A)+(-0.5,0)$);
+
+
+	\def\hi{.25}
+	\def\radii{0}
+	\def\extend{0}
+
+	\fill[mucus!75!white] ($ (A)+(0,3.5) $) rectangle ($ (A)+(-1,-1.5) $);
+	\draw[mucus!75!black, very thick] ($ (A)+(0,3.5) $) -- +(0, -5);
+
+	\DLOne{C}{D}{base}{LightSkyBlue}{DarkBlue}{6}{1}{0.5}
+	\DLOne{D}{E}{base}{LightSkyBlue}{DarkBlue}{8}{1}{0.5}
+	\pgfoonew \AB=new beam(Aleft,B,AntiqueWhite2,AntiqueWhite4,\hi,0, 0.25)
+
+	\fill (A) circle (1.5pt) node [left] {\Large $A$};
+	\node at (B) [right] {\Large $B$};
+	\node at ($ (C) + (1,0.1)  $) {$4.00\text{ kN/m}$};
+	\node at ($ (D) + (1.5,0.2)  $) {$1.50\text{ kN/m}$};
+
+	\draw ($ (D)+(0,-1.75) $) -- +(0,-0.5);
+	\draw ($ (E)+(0,-1.75) $) -- +(0,-0.5);
+
+	\draw[Latex-Latex] ([yshift=-0.75cm]A) -- node[fill=white, inner sep=0.5mm] {$3.00$ m} ([yshift=-2cm]D);
+	\draw[Latex-Latex] ([yshift=-2cm]D) -- node[fill=white, inner sep=0.5mm] {$4.00$ m} ([yshift=-0.75cm]B);
+
+}

@@ -1,0 +1,106 @@
+% !TEX root = ../../Exams/MT2/Fall2017MT2C.tex
+
+\tikz[scale=\scale]{
+	\def\thickness{thin}
+	\def\stroke{black}
+	\def\hi{.3}
+	\def\radii{0}
+	\def\extend{0.15}
+
+	\footnotesize
+
+	\coordinate (A) at (0,0);
+	\coordinate (B) at (2,0);
+	\coordinate (C) at (2,-3);
+	\coordinate (D) at (2,-7);
+	\coordinate (E) at (10,-7);
+	\coordinate (F) at (4,-7);
+	\coordinate (G) at (7,-7);
+	\coordinate (P) at (-5,-10);
+	\coordinate (Q) at (-4.5,-9.5);
+
+
+	\gettikzxy{(A)}{\Ax}{\Ay}
+	\gettikzxy{(B)}{\Bx}{\By}
+	\gettikzxy{(C)}{\Cx}{\Cy}
+	\gettikzxy{(D)}{\Dx}{\Dy}
+	\gettikzxy{(E)}{\Ex}{\Ey}
+	\gettikzxy{(F)}{\Fx}{\Fy}
+	\gettikzxy{(G)}{\Gx}{\Gy}
+	\gettikzxy{(P)}{\Px}{\Py}
+	\gettikzxy{(Q)}{\Qx}{\Qy}
+
+	\def\hi{0.5}
+	\def\hi2{\hi*2}
+
+
+	\filldraw[Bisque3] ($(E)+(125:0.525)$) -- ++(35:2)--++(125:0.75)--++(215:4)--++(-55:0.75)--cycle;
+	\filldraw[Bisque3] ($(E)+(305:1.29)$) -- ++(35:2)--++(125:0.75)--++(215:4)--++(-55:0.75)--cycle;
+	\filldraw[Bisque3] ($(A)+(125:0.75)$) -- ++(35:2)--++(125:0.75)--++(215:4)--++(-55:0.75)--cycle;
+	\filldraw[Bisque3] ($(D)+(1.5,-0.75)$) rectangle +(-3,-0.75);
+
+	\Ronly{E}{Bisque3}{black}{0.5}{0.125}
+	\Rone{D}{Bisque3}{black}{0.75}{0.125}
+	\PinnedConnection[215]{A}{Bisque3}{black}{0.75}{0.125}
+
+	\begin{scope}[yshift=-6.5cm,xshift=1.25cm]
+		\DLOne[90]{(0,2)}{(1,2)}{0,0}{CadetBlue3}{Black}{2}{1}{0.5};
+	\end{scope}
+	\begin{scope}[yshift=-5cm,xshift=-.25cm]
+		\DLOne[90]{(1,2.5)}{(3,1.75)}{0,0}{CadetBlue3}{Black}{4}{1}{0.5};
+	\end{scope}
+
+	\draw[fill=DarkSeaGreen3, draw=black] (\Ax, \Ay-0.25cm)arc(270:90:0.25)--(\Bx+0.25cm,\By+0.25cm)--(\Cx+0.25cm,\Cy)arc(0:-180:0.25)--(\Bx-0.25cm, \By-0.25cm)--cycle;
+
+	\draw[fill=DarkSeaGreen3, draw=black] (\Cx-0.25cm, \Cy)arc(180:0:0.25)--(\Dx+0.25cm,\Dy+0.25cm)--(\Ex,\Ey+0.25cm)arc(90:-90:0.25)--(\Dx-0.25cm,\Dy-0.25cm)--cycle;
+
+	\shadedraw[ball color=Bisque4] (C) circle (3pt)node[yshift=0.35cm]{\normalsize$B$};
+	\shadedraw[ball color=Bisque4] (D) circle (3pt)node[xshift=0.35cm]{\normalsize$C$};
+	\shadedraw[ball color=Bisque4] (E) circle (3pt)node[xshift=-0.35cm]{\normalsize$D$};
+	\shadedraw[ball color=Bisque4] (A) circle (3pt)node[xshift=0.35cm]{\normalsize$A$};
+	\filldraw (F) circle (2pt);
+	\filldraw (G) circle (2pt);
+	% \filldraw (H) circle (2pt);
+	%
+	\draw[-latex, ultra thick, saitMaroon] ($(F)+(45:0.5)$)arc(45:310:0.5)--+(35:0.1);
+	\draw[-latex, ultra thick, saitMaroon] ($(G)+(45:0.5)$)arc(45:310:0.5)--+(35:0.1);
+	% \draw[-latex, ultra thick, saitMaroon] ($(H)+(45:0.5)$)arc(45:310:0.5)--+(35:0.1);
+
+	\draw (\Ax-0.5cm, \Ay) -- (\Px,\Ay);
+	\draw (\Bx-0.5cm, \Cy) -- (\Px,\Cy);
+	\draw (\Bx-2.25cm, \Cy-1cm) -- (\Px,\Cy-1cm);
+	\draw (\Bx-3cm, \Cy-3cm) -- (\Px,\Cy-3cm);
+	\draw (\Bx-2.5cm, \Cy-4cm) -- (\Px,\Cy-4cm);
+
+	\draw[latex-latex] (\Qx, \Ay)-- node[fill=white, inner sep=0.5mm]{$1.50\,$m}(\Qx, \Cy);
+	\draw[latex-latex] (\Qx, \Cy)-- node[fill=white, inner sep=0.5mm]{$0.500\,$m}(\Qx, \Cy-1cm);
+	\draw[latex-latex] (\Qx, \Cy-1cm)-- node[fill=white, inner sep=0.5mm]{$1.00\,$m}(\Qx, \Cy-3cm);
+	\draw[latex-latex] (\Qx, \Cy-3cm)-- node[fill=white, inner sep=0.5mm]{$0.500\,$m}(\Qx, \Dy);
+
+	\draw (\Ax, \Ay-0.5cm) -- (\Ax,\Cy-0.75cm);
+	\draw (\Ax, \Dy-0.25cm) -- (\Ax,\Py);
+	\draw (\Dx, \Dy-1cm) -- (\Cx,\Py);
+	\draw (\Ex, \Ey-0.375cm) -- (\Ex,\Py);
+	\draw (\Fx, \Fy-0.75cm) -- (\Fx,\Py);
+	\draw (\Gx, \Gy-0.75cm) -- (\Gx,\Py);
+
+	\draw[latex-latex] (\Ax, \Qy)-- node[fill=white, inner sep=0.5mm]{$1.00\,$m}(\Cx, \Qy);
+	\draw[latex-latex] (\Cx, \Qy)-- node[fill=white, inner sep=0.5mm]{$1.00\,$m}(\Fx, \Qy);
+	\draw[latex-latex] (\Gx, \Qy)-- node[fill=white, inner sep=0.5mm]{$1.50\,$m}(\Fx, \Qy);
+	\draw[latex-latex] (\Gx, \Qy)-- node[fill=white, inner sep=0.5mm]{$1.50\,$m}(\Ex, \Qy);
+
+	\coordinate (DD) at ($(E)+(-55:1.5)$);
+	\draw ($(DD)+(35:2)$)--++(215:2)--+(0:2);
+	\draw[latex-latex] ($(DD)+(35:1.75)$)arc(35:0:1.75)node[midway, fill=white, inner sep=0.25mm]{$34\degree$};
+
+	\coordinate (AA) at ($(A)+(125:1.75)+(35:1)$);
+	\draw ($(AA)+(215:2)$)--++(35:2)--+(180:2);
+	\draw[latex-latex] ($(AA)+(215:1.75)$)arc(215:180:1.75)node[midway, fill=white, inner sep=0.25mm]{$38\degree$};
+
+	\node at (-1,-3.75) {$1.75\,$kN/m};
+	\node at (-1.7,-5.75) {$2.50\,$kN/m};
+	\node at (-1.3,-6.75) {$2.00\,$kN/m};
+	\node at ($(F)+(0,0.75)$) {$2.00\,\mathsf{kN\!\cdot\!m}$};
+	\node at ($(G)+(0,0.75)$) {$2.50\,\mathsf{kN\!\cdot\!m}$};
+
+}

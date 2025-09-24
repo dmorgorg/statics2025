@@ -1,0 +1,81 @@
+% !TEX root = ../../Beamer/09ComplexFrames/09ComplexFrames.tex
+\makeatletter
+\providecommand{\gettikzxy}[3]{%
+	\tikz@scan@one@point\pgfutil@firstofone#1\relax
+	\edef#2{\the\pgf@x}%
+	\edef#3{\the\pgf@y}%
+}
+\makeatother
+
+\begin{tikzpicture}[scale=\scale, transform canvas={scale=0.5}]
+	\def\thickness{thick}
+	\def\stroke{black}
+	\def\hi{.25}
+	\def\radii{\hi}
+	\def\extend{\hi}
+	\def\ldraw{RosyBrown4!50!black}
+	\def\lfill{saitBlue}
+
+	\coordinate (A) at (0, 0);
+	\coordinate (B) at (4, 0);
+	\coordinate (C) at (6, 0);
+	% \coordinate (D) at (6, 3);
+	\coordinate (E) at (0,-3);
+
+	% \draw(-2, -6) grid (8,5);
+\filldraw[draw=saitMaroon, fill=white, ultra thick] (-4,-6) rectangle (7.5,5);
+	\fill[mucus!75!white] ($ (A)+(-0.75,4) $) rectangle ($ (E)+(-1.75,-2) $);
+	\draw[mucus!75!black, thick] ($ (A)+(-0.75,4) $) -- +(0, -9);
+
+	\coordinate (AA) at ($(A)+(1.5,2)$);
+	\coordinate (base) at ($(A)+(0,1.55*\hi)$);
+	\coordinate (D) at (4,3.5);
+	\coordinate (CC) at ($(C)+(0,1.55*\hi)$);
+	\def\scale{1}
+	\DLOne{base}{D}{base}{LightGoldenrod2}{DarkGoldenrod4}{8}{1}{0.25}
+	\DLOne{CC}{D}{base}{LightGoldenrod2}{DarkGoldenrod4}{4}{1}{0.25}
+
+
+	\def\ldraw{RosyBrown4!75!black}
+	\fill[RosyBrown3] ($ (A)+(-\hi,-1.5*\hi) $) rectangle ($ (C)+(0,1.5*\hi) $);
+	\draw[\ldraw, ultra thick] ($ (A)+(-\hi,-1.5*\hi) $) -- ++(3.5+\hi,0);
+	\draw[\ldraw, ultra thick] ($ (A)+(4.5,-1.5*\hi) $) -- ++(1.5,0);
+	\draw[\ldraw, ultra thick] ($ (A)+(-\hi,1.5*\hi) $) -- ++(6+\hi,0);
+
+
+
+	\filldraw [fill=RosyBrown3, draw=RosyBrown4!50!black, thick] (0,-2.75) arc [start angle=-90, end angle=0, x radius=3.75cm, y radius=2.75cm]arc(180:0:\hi) arc[start angle=0, end angle=-90, x radius=4.25cm, y radius=3.25cm] -- cycle;
+
+	\PinnedConnection[-90]{A}{llHeaderGrey}{ddHeaderGrey}{0.75}{0.125}
+	\PinnedConnection[-90]{E}{llHeaderGrey}{ddHeaderGrey}{0.75}{0.125}
+
+	\shadedraw[outer color=\ldraw!50!\lfill, inner color=\ldraw!25!white, \ldraw, line width = \lwidth pt] (B) circle (3pt);
+
+
+	\node at (A) [right] {$A$};
+	\node at (B) [right, outer sep=1mm] { $B$};
+	\node at (C) [right] {$C$};
+
+	\node at ($ (D)+(0,0.25) $) {\small $16.00$ kN/m};
+	\node at (E) [below, outer sep=3mm] {\Large $E$};
+
+
+	\draw ($ (A)+(-1,0) $) -- +(-2,0);
+	\draw ($ (E)+(-1,0) $) -- +(-2,0);
+	\draw ($ (A)+(0,-0.625) $) -- +(0,-1.875);
+	\draw ($ (B)+(0,-0.625) $) -- +(0,-1.875);
+	\draw ($ (C)+(0,-0.625) $) -- +(0,-1.875);
+\draw[Stealth-Stealth] ([yshift=-1.5cm]A) -- node[fill=white, inner sep=0.5mm] {\small $3.75$ m} ([yshift=-1.5cm]B);
+\draw[Stealth-Stealth] ([yshift=-1.5cm]B) -- node[fill=white, inner sep=0.mm] {\small $2.10\thinspace$m} ([yshift=-1.5cm]C);
+\draw[Stealth-Stealth] ([xshift=-2.5cm]A) -- node[fill=white, inner sep=0.5mm,xshift=-0.125cm] {\small $2.75$ m} ([xshift=-2.5cm]E);
+	%
+	% \draw[line width=0.75mm, black, ->, >=stealth, saitRed] (A) -- +(0,-2.5) node[below, saitMaroon] {\Large {$ 30$ kN}};
+	% % \draw[line width=1mm, black, <-, >=stealth] (D) -- +(-65:1.5) node[right, align=left] {$\bm{\mathrm{ R }_{D}}$=22.068 kN,\\(at 115\degree{} counter-clockwise\\from the positive $x$ axis)};
+	%
+	% \draw[thick, <->, >=stealth] ([yshift=2.5cm]A) -- node[fill=white]{\small $2.50\text{ m}$}([yshift=2.5cm]B);
+	% \draw[thick, <->, >=stealth] ([yshift=2.5cm]B) -- node[fill=white]{\small $2.50\text{ m}$}([yshift=2.5cm]C);
+	% \draw[thick, <->, >=stealth] ([yshift=2.5cm]C) -- node[fill=white]{\small $2.50\text{ m}$}([yshift=1.25cm]D);
+	% \draw[thick, <->, >=stealth] (12.5, \Dy) -- node[fill=white, inner sep=0.5mm]{\small $1.25\text{ m}$}(12.5, \Cy);
+	% \draw[thick, <->, >=stealth] (12.5, \Cy) -- node[fill=white, inner sep=0.5mm]{\small $4.00\text{ m}$}(12.5, \Ey);
+
+\end{tikzpicture}

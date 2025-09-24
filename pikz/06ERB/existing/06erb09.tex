@@ -1,0 +1,50 @@
+% !TEX root = ../../Beamer/06EquilibriumOfRigidBodies/06ERB.tex
+
+
+\tikz[scale=\scale]{
+	\coordinate (A) at (0,-0.25);
+	\coordinate (B) at (7,-0.25);
+	\coordinate (C) at (0,2.5);
+	\coordinate (D) at (3,1);
+	\coordinate (E) at (7,1);
+	\coordinate (base) at (0,0.025);
+	\coordinate (Aleft) at ($(A)+(-0.5,0)$);
+
+	% \def\scale{1}
+	\def\hi{.25}
+	\def\radii{0}
+	\def\extend{0}
+
+
+
+	\def\scale{1}
+	\fill[LightSkyBlue!50!] (C) -- (D) -- (E) -- ($ (B)+(0,0.25)$) -- (base) -- cycle;
+	% \DLOne{C}{D}{base}{LightSkyBlue}{DarkBlue}{6}{0.25}
+	% \DLOne{D}{E}{base}{LightSkyBlue}{DarkBlue}{8}{0.25}
+	\pgfoonew \AB=new beam(Aleft,B,AntiqueWhite2,AntiqueWhite4, 0.25, 0,0.5)
+
+
+
+	\draw (0,-0.75) -- +(0,-0.5);
+	\draw (1,-0.75) -- +(0,-0.5);
+	\draw (3.5,-0.75) -- +(0,-0.5);
+
+	\draw[Latex-Latex] (0,-1) -- node[ yshift=-.25cm] {\small $1.00$ m} (1,-1);
+	\draw[Latex-Latex] (1,-1) -- node[fill=white, outer sep=0.5mm] {\small $2.50$ m} (3.5,-1);
+
+
+	% \fill[mucus!75!white] ($ (A)+(0,3.5) $) rectangle ($ (A)+(-1,-1.5) $);
+	% \draw[mucus!75!black, very thick] ($ (A)+(0,3.5) $) -- +(0, -5);
+
+	\draw[Latex-, ultra thick, saitBlue] (3.5,0)  -- +(0,2.5) node[above, black] {$ 10.50\text{ kN}$};
+	\draw[Latex-, ultra thick, saitBlue] (1,0)  -- +(0,1) node[above, black] {$ 3.75\text{ kN}$};
+
+
+	\node at (B) [right] {\Large $B$};
+
+	\draw[ultra thick, -Latex, saitRed] ($ (A)+(-60:0.5) $)arc(-60:60:0.5)-- +(140:0.1)node[right, yshift=0.1cm] {$\bm M_a$};
+	\draw[ultra thick, -Latex, saitRed] (A)-- +(1,0)node[right] {$\bm R_{A_x}$};
+	\draw[ultra thick, -Latex, saitRed] (A)-- +(0,1)node[right] {$\bm R_{A_y}$};
+
+	\fill (A) circle (1.5pt) node [left] {\Large $A$};
+}

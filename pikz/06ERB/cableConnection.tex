@@ -1,0 +1,35 @@
+% !TEX root = ../../Beamer/06EquilibriumOfRigidBodies/06ERB.tex
+
+\tikz[scale=\scale]{
+	\def\xshift{10}
+	\def\rot{-30}
+	\coordinate (O) at (0,0);
+	\coordinate (A) at ($(O)+(-105:6)$);
+	\coordinate (OO) at ($(O)+(\xshift,0)$);
+	\coordinate (AA) at ($(A)+(\xshift,0)$);
+
+	\PC{A}{gray!75!white}{black}{1}{0.25}
+	\begin{scope}[transform canvas={rotate=\rot}]
+		\filldraw [top color=gray, bottom color=gray, middle color=gray!50, thick]($(O)+(5,0.5)$)  -- +(-5,0)arc(90:270:0.5)-- +(4.5,0);
+	\end{scope}
+
+	\draw[line width=1mm, saitDeepBlue](O)-- (A);
+	\filldraw[ball color=gray, thick] (O) circle (2mm);
+	\draw[thin] ($(O)+(-1,0)$)-- +(-2,0);
+	\draw[latex-latex] ($(O)+(-2.5,0)$)arc(-180:-105:2.5)node[fill=bgcolor, midway, inner sep=0.25mm]{$\theta$};
+	\fill[gray!75!white] ($(A)+(-3,-0.5)$) rectangle +(6,-1);
+	\draw[thick] ($(A)+(-3,-0.50)$)-- +(6,0);
+
+	\begin{scope}[xshift=\xshift cm]
+		\begin{scope}
+			\filldraw [fill=gray!50, draw=gray, thick, rotate around = {\rot:(\xshift, 0 )}]($(OO)+(5,0.5)$)  -- +(-5,0)arc(90:270:0.5)-- +(4.5,0);
+		\end{scope}
+		\fill[gray] (OO) circle (1.5mm);
+		\draw[ultra thick, -latex, saitMaroon](OO) -- ($(OO)!0.75!(AA) $)node[below]{$\bm R$};
+		% 	\filldraw[ball color=gray, thick] (O) circle (2mm);
+		\draw[thin] ($(OO)+(-1,0)$)-- +(-2,0);
+		\draw[latex-latex] ($(OO)+(-2.5,0)$)arc(-180:-105:2.5)node[fill=bgcolor, midway, inner sep=0.25mm]{$\theta$};
+	\end{scope}
+
+
+}

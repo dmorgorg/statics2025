@@ -1,0 +1,68 @@
+% !TEX root = ../../Quizzes/06ERB/06ERBQuizAFall2017.tex
+
+% \makeatletter
+% \providecommand{\gettikzxy}[3]{%
+% 	\tikz@scan@one@point\pgfutil@firstofone#1\relax
+% 	\edef#2{\the\pgf@x}%
+% 	\edef#3{\the\pgf@y}%
+% }
+% \makeatother
+
+\tikz[scale=\scale]{
+	\coordinate (A) at (0,-2);
+	\coordinate (B) at (0,0);
+	\coordinate (C) at (3.5,0);
+	\coordinate (D) at (5,0);
+	\coordinate (E) at (1,0);
+	\coordinate (y) at (0,-3.5);
+	\coordinate (x) at (-2,0);
+
+
+	\gettikzxy{(A)}{\Ax}{\Ay}
+	\gettikzxy{(B)}{\Bx}{\By}
+	\gettikzxy{(C)}{\Cx}{\Cy}
+	\gettikzxy{(D)}{\Dx}{\Dy}
+	\gettikzxy{(E)}{\Ex}{\Ey}
+	\gettikzxy{(y)}{\yx}{\yy}
+	\gettikzxy{(x)}{\xx}{\xy}
+
+
+	\def\hi{.2}
+
+
+	\fill[right color=Honeydew4, left color=Honeydew2] ($(A)+(-0.5,-2.5)$) rectangle ($(B)+(-1.25,3)$);
+	\draw ($(A)+(-0.5,-2.5)$)--($(B)+(-0.5,3)$);
+
+	\filldraw[fill=DarkSeaGreen3, draw=black, rounded corners=1.5mm] (\Bx-\hi cm,\By-\hi cm)rectangle(\Dx+\hi cm,\By+\hi cm);
+
+	\filldraw[fill=DarkSeaGreen3, draw=black, rounded corners=1.5mm] (\Ax-\hi cm,\Ay-\hi cm)--(\Cx+\hi cm,\Ay-\hi cm)--(\Cx+\hi cm,\Cy+\hi cm)--(\Cx-\hi cm, \Cy+\hi cm)--(\Cx-\hi cm,\Ay+\hi cm +1 cm)--+(-1,-1)--(\Ax-\hi cm, \Ay+\hi cm)--cycle;
+
+	\PinnedConnection[-90]{A}{Honeydew3}{black}{0.5}{0.125}
+	\PinnedConnection[-90]{B}{Honeydew3}{black}{0.5}{0.125}
+
+	\begin{scope}[xshift=1 cm,yshift=\hi cm]
+		\DLOne{(0,1)}{(4,2)}{(0,0)}{CadetBlue3}{black}{10}{1}{0.5}
+	\end{scope}
+
+	\shadedraw[ball color=Honeydew3] (C) circle (0.1cm);
+	\shadedraw[ball color=Honeydew3] (A) circle (0.1cm)node[yshift=-0.5cm]{\large $A$};
+	\shadedraw[ball color=Honeydew3] (B) circle (0.1cm)node[yshift=0.5cm]{\large $B$};
+
+	\draw ($(D)+(0,-0.5)$)--(\Dx,\yy-0.5cm);
+	\draw ($(C)+(0,-0.5)$)--(\Cx,\yy-0.5cm);
+	\draw ($(E)+(0,-0.5)$)--(\Ex,\yy-0.5cm);
+	\draw ($(B)+(0,-0.5)$)--($(A)+(0,0.5)$);
+	\draw ($(A)+(0,-0.75)$)--(\Ax,\yy-0.5cm);
+
+	\draw ($(B)+(-0.25,0)$)--(\xx-0.5cm,\By);
+	\draw ($(A)+(-0.25,0)$)--(\xx-0.5cm,\Ay);
+
+	\draw[latex-latex] (\xx,\Ay)--node[fill=white]{$1.50\,$m}(\xx,\By);
+	\draw[latex-latex] (\Ax,\yy)--node[fill=white,rotate=65]{$750\,$mm}(\Ex,\yy);
+	\draw[latex-latex] (\Ex,\yy)--node[fill=white]{$2.20\,$m}(\Cx,\yy);
+	\draw[latex-latex] (\Cx,\yy)--node[fill=white,rotate=65]{$750\,$mm}(\Dx,\yy);
+	%
+	\node at (0.75,1.5){$1.05\,$kN/m};
+	\node at (4.875,2.375){$2.10\,$kN/m};
+
+}

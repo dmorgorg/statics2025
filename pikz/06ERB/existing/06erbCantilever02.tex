@@ -1,0 +1,43 @@
+% !TEX root = ../../Exams/MT2/Fall2017MT2C.tex
+
+\tikz[scale=\scale]{
+	\coordinate (A) at (0,0);
+	\coordinate (B) at (2,0);
+	\coordinate (C) at (4,0);
+	\coordinate (D) at (6,0);
+	\coordinate (E) at ($(C)+(0,1)$);
+
+	\def\hi{.25}
+	\def\radii{0}
+	\def\extend{0.5}
+  \def\y{-1.25}
+
+	\gettikzxy{(A)}{\Ax}{\Ay}
+	\gettikzxy{(B)}{\Bx}{\By}
+	\gettikzxy{(C)}{\Cx}{\Cy}
+	\gettikzxy{(D)}{\Dx}{\Dy}
+	\gettikzxy{(E)}{\Ex}{\Ey}
+	\footnotesize
+	\fill[right color=AntiqueWhite3, left color=AntiqueWhite4] ($(A)+(0,3.5)$) rectangle ($(A)+(-1,-3.5)$);
+	\pgfoonew \AB=new beam(A,D,AntiqueWhite2,black,0.25,0.5,0.25)
+	\EyeBolt {E}{AntiqueWhite3}{black}{0.5}{0.5}
+	\draw[ultra thick, -Latex, saitDeepBlue] (E)-- +(140:2) node[above left] {\large$P$};
+	\draw[ultra thick, -Latex] (D)-- +(-60:2.5) node[below] {$5.00\,$kN};
+	\draw[thin, gray] ($(A)+(0.25,0)$) -- ($(D)+(2.25,0)$)node[right]{$x$};
+	\draw[thin, gray] ($(E)+(-0.25,0)$) -- +(-1.5,0);
+	\draw[thin, gray] ($(D)+(0,-0.35)$) -- (\Dx, \Ay-1.5 cm);
+	\draw[thin, gray] ($(C)+(0,0.75)$) -- (\Cx,\Ay-1.5 cm);
+	\draw[thin, gray] ($(B)+(0,-0.35)$) -- (\Bx,\Ay-1.5 cm);
+	\draw[latex-latex] ($(E)+(140:1)$)arc(140:180:1)node[fill=white, inner sep=0.5mm, midway] {\footnotesize $40\degree$};
+	\draw[latex-latex] ($(E)+(180:1)$)--node[fill=white, inner sep=0.5mm] {$0.65\,$m} (\Ex-1 cm,\Ay);
+	\draw[-latex, ultra thick] ($(B)+(25:0.5)$)arc(25:330:0.5)-- +(60:0.2);
+	\node at ($(B)+(-0.5,0.7)$) {$5.00\,\mathsf{kN\!\cdot\!m}$};
+	\fill (A) circle (1.5pt) node[right] {$A$};
+	\fill (B) circle (1.5pt);
+	\fill (D) circle (1.5pt);
+  \draw[latex-latex] (\Ax,\y) -- node[fill=white, inner sep=0.5mm]{$1.25\,$m}(\Bx,\y);
+  \draw[latex-latex] (\Bx,\y) -- node[fill=white, inner sep=0.5mm]{$1.25\,$m}(\Cx,\y);
+  \draw[latex-latex] (\Cx,\y) -- node[fill=white, inner sep=0.5mm]{$1.25\,$m}(\Dx,\y);
+
+	\draw[latex-latex] ($(D)+(0:1.625)$)arc(0:-60:1.625)node[fill=white,midway]{$57\degree$};
+}

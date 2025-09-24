@@ -1,0 +1,68 @@
+% !TEX root = ../../Beamer/06EquilibriumOfRigidBodies/06ERBforDT.tex
+
+\begin{tikzpicture}[scale=\scale, xscale=-1, line cap=round,decoration={
+		markings,% switch on markings
+		mark=% actually add a mark
+		between positions 0 and 1 step 9pt
+		with
+		{
+			\begin{scope}[scale=0.75]
+				\draw[SaddleBrown, very thick] (0pt,-2pt) -- ++(4pt,0) arc(-90:90:2pt) -- ++(-4pt,0pt) arc(90:270:2pt) -- cycle;
+				\draw[SaddleBrown,very thick] (-8pt,0) -- (0pt,0);
+			\end{scope}
+		}
+	}]
+
+	\coordinate (A) at (0,0);
+	\coordinate (B) at ($ (A)+(0:10) $);
+	\coordinate (C) at ($ (A)!0.33!(B)  $);
+	\coordinate (D) at ($ (A)!0.67!(B)  $);
+	\coordinate (E) at ($(B)+(-1,4.5)$);
+
+
+
+	\begin{scope}
+		\def\hi{0.4}
+		\def\extend{0.25}
+
+		% \fill[white] (-2,-3) rectangle (12,6);
+
+
+		\pgfoonew \Beam =new beam(A,B,AntiqueWhite3,AntiqueWhite4, 0.4, 0.25, 0.25);
+		\PinnedConnection[180]{E}{mucus!75}{black}{0.75}{0.2}
+		\begin{scope}[scale=0.75]
+		\path[postaction={decorate}] ($ (B)+(102.5:.50) $) -- ($(E)+(-77.5:0.125)$);
+	\end{scope}
+
+		\fill[mucus] ($ (A)+(-.75,6) $) rectangle ++(-1,-9);
+		\fill[mucus] ($ (A)+(-.76,5) $) rectangle ++(12,);
+
+		\draw[black, thick] ($ (A)+(-0.75,-3)$) -- ++(0,8) -- +(12,0);
+
+		\PinnedConnection[270]{A}{mucus!75}{black}{0.75}{0.2}
+
+		\small
+		\draw[saitDeepBlue, ultra thick, latex-] ($(C)+(0,\hi)$)-- +(0,2.5)node[black, above]{$1.30$ kN};
+		\draw[saitDeepBlue, ultra thick, latex-] ($(D)+(0,\hi)$)-- +(0,2.5)node[black, above]{$2.40$ kN};
+
+		\normalsize
+		\draw ($ (A)+(-90:0.75) $) -- ($ (A)+(-90:2.5) $);
+		\draw ($ (B)+(-90:0.75) $) -- ($ (B)+(-90:2.5) $);
+		\draw ($ (C)+(-90:0.75) $) -- ($ (C)+(-90:2.5) $);
+		\draw ($ (D)+(-90:0.75) $) -- ($ (D)+(-90:2.5) $);
+		\draw[latex-latex] ($ (A)+(0,-2) $) -- node[fill=white, sloped] {\small $0.950$ m} ($ (C)+(0,-2) $);
+		\draw[latex-latex] ($ (C)+(0,-2) $) -- node[fill=white, sloped] {\small $0.950$ m} ($ (D)+(0,-2) $);
+		\draw[latex-latex] ($ (D)+(0,-2) $) -- node[fill=white, sloped] {\small $0.950$ m} ($ (B)+(0,-2) $);
+
+		\filldraw[ball color=mucus] (B) circle (1.25mm);
+		\filldraw[ball color=mucus] (E) circle (1.25mm);
+		\draw ($(B)+(-1.25,0)$)-- +(-1.5,0);
+
+
+		% \node[above, outer sep=3mm] at (A) {\large $A$};
+		% \node[above right, outer sep=3mm] at (B) {\large $B$};
+
+		\draw[latex-latex] ($(B)+(-2,0)$)arc(180:102.5:2) node[midway, fill=white] {\small $77.5\degree$};
+
+	\end{scope}
+\end{tikzpicture}

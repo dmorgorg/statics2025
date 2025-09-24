@@ -1,0 +1,82 @@
+% !TEX root = ../../00temp/downOne/prospectives.tex
+
+
+
+\tikz[scale=\scale]{
+  \coordinate (O) at (0,0);
+  \coordinate (B) at (0,5);
+  \coordinate (temp) at (11,6);
+  \coordinate (offset) at (5,4.25);
+  \coordinate (Muzz) at ($(B)+(11.93,0)$);
+  \coordinate (Winch) at ($(B)+(0,0.7)$);
+  \coordinate (hydB) at ($(O)!.45!(B)$);
+
+  \normalsize
+
+  \draw[white] (-3,-1.5) rectangle (13,13);
+
+  \filldraw[left color=CadetBlue4, right color=CadetBlue4, middle color=CadetBlue3] ($(O)+(0.75,0)$)-- ++(-.375,5)-- ++(-.7,0)-- ++(-0.375,-5);
+  \fill[top color=mucus, bottom color=mucus!25] ($(O)+(-1.5,0)$) rectangle +(8,-0.75);
+  \draw[semithick] ($(O)+(-1.5,0)$) -- +(8,0);
+  \filldraw[Azure4!75,draw=black,semithick] ($(O)+(-1,0)$) rectangle +(6.5,0.5);
+  \filldraw[left color=CadetBlue4, right color=CadetBlue4, middle color=CadetBlue3] ($(O)+(-0.75,0.5)$) rectangle (0.75,1);
+  \filldraw[left color=CadetBlue4, right color=CadetBlue4, middle color=CadetBlue3] ($(O)+(-0.85,1)$) rectangle (0.85,1.125);
+
+  \begin{scope}[transform canvas={rotate around ={40.75:(hydB)}}]
+    \filldraw[top color=Azure4, bottom color=Azure4, middle color=Azure3] ($(hydB)+(0,0.15)$) rectangle +(6.5,-0.3);
+    \filldraw[top color=Azure4, bottom color=Azure4, middle color=Azure3] ($(hydB)+(0,0.225)$) rectangle +(4,-0.45);
+    \filldraw[top color=CadetBlue4, bottom color=CadetBlue4, middle color=CadetBlue3] ($(hydB)+(0,0.275)$)arc(90:270:0.275)-- ++(1.25,0)-- ++(0,0.55)--cycle;
+    \filldraw[top color=CadetBlue4, bottom color=CadetBlue4, middle color=CadetBlue2] ($(hydB)+(1.25,0.35)$)rectangle +(0.25,-0.7);
+
+    \draw ($(hydB)+(0.25,0)$) -- +(2,0);
+    \draw ($(hydB)+(-40.75:0.25)$) -- +(-40.75:2);
+    \draw[latex-latex] ($(hydB)+(2,0)$)arc(0:-40.75:2)node[midway, fill=white,inner sep=0.2mm,rotate=-40.75]{\footnotesize $41$\degree};
+
+  \end{scope}
+
+  \begin{scope}[transform canvas={rotate around ={25:(B)}}]
+
+    \filldraw[left color=CadetBlue4, right color=CadetBlue4, middle color=CadetBlue3,draw=black] ($(offset)+(-0.35,0)$)arc(180:360:0.35)-- ++(0,0.65)-- ++(-0.7,0)--cycle;
+    \filldraw[fill=gray!50,draw=black] ($(B)+(-0.36,0)$)-- ++(0,0.7)arc(180:30:0.375)-- +(-60:0.75);
+
+    %cable
+    \draw[line width=.75mm, saitMaroon,-Latex] ($(Winch)+(0,0.25)$)-- +(-3.7:11.96)arc(80:-25:2mm)-- +(245:5)node[below, black,rotate=-25]{\large $4.75\,$kN};
+    \draw[line width=.75mm, saitMaroon] (Winch) circle (0.25cm);
+    \filldraw[fill=Snow4,draw=black,semithick] (Winch) circle (.1875cm);
+    \filldraw[ball color = gray] (Winch) circle (1.5pt);
+
+    \filldraw[outer color=Snow4, inner color=Snow3] (Muzz) circle (0.15cm) ;
+    \filldraw[top color=CadetBlue4,bottom color=CadetBlue4!50!black, middle color=CadetBlue3,] ($(B)+(0,0.375)$)-- ++(-1.591:9.14)-- ++(0,-.25)-- ++(181.59:9.14)arc(271.6:88.41:0.377);
+    \filldraw[rounded corners=1.5pt, top color=Snow4, bottom color=Snow4, middle color=Snow2!25] ($(B)+(9,0.1)$) rectangle +(3.03,-0.2);
+    \filldraw[top color=CadetBlue4, bottom color=CadetBlue4, middle color=CadetBlue2] ($(B)+(8.9,0.175)$) -- ++(0.25,-0.025)-- ++(0,-0.3)-- ++(-0.25,-0.025)-- cycle;
+    \filldraw[outer color=Snow4!50!black, inner color=Snow3] (Muzz) circle (1.5pt) ;
+    \filldraw[ball color=gray] (offset) circle (3pt);
+
+    \draw ($(offset)+(0.5,0)$) -- +(1.5,0);
+    \draw ($(offset)+(0.5,0.75)$) -- +(1.5,0);
+    \draw[latex-latex] ($(offset)+(1.25,0)$)--node[fill=white,inner sep=0.1mm,yshift=-0.25mm]{\footnotesize $200$ mm}($(offset)+(1.25,0.75)$);
+
+    \draw ($(B)+(0,.25)$)-- +(0,1.75);
+    \draw ($(Muzz)+(0,.35)$)-- +(0,1.65);
+    \draw ($(offset)+(0,0.25)$)-- +(0,2.5);
+
+    \draw[latex-latex,yshift=1.5cm] (0,5)-- node[fill=white]{\footnotesize $1.35\,$m}+(5,0);
+    \draw[latex-latex,yshift=1.5cm] (5,5)-- node[fill=white]{\footnotesize $1.85\,$m}+(6.93,0);
+
+    \draw ($(B)+(0.5,0)$) -- +(2,0);
+    \draw ($(B)+(-25:0.5)$) -- +(-25:2);
+    \draw[latex-latex] ($(B)+(2.25,0)$)arc(0:-25:2.25)node[midway, fill=white,inner sep=0.3mm,rotate=-12.5,xshift=0.5mm,yshift=-0.6mm]{\footnotesize $25\degree$};
+
+    \node[xshift=0.3cm,yshift=-0.25cm, rotate=-25] at (offset) {$C$};
+    \node[xshift=0.3cm,yshift=-0.15cm, rotate=-25] at (Muzz) {$D$};
+
+  \end{scope}
+
+  \filldraw[ball color=gray] (hydB) circle (3pt);
+  % \draw (O)--(B);
+  \fill (O) circle (2pt) node[below] {$O$};
+  \filldraw[ball color=Snow4] (B) circle (5pt) node[xshift=-0.5cm] {$B$};
+  \node[xshift=-0.625cm] at (hydB) {$A$};
+
+
+}

@@ -1,0 +1,171 @@
+\documentclass[10pt,oneside, professionalfonts, mathserif, noindent]{amsart}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{mathpazo}
+\usepackage[usenames,svgnames, x11names]{xcolor}
+\usepackage[letterpaper]{geometry}
+\geometry{verbose,tmargin=0.5in,bmargin=0.5in,lmargin=1in,rmargin=1in}
+\setlength{\parskip}{\medskipamount}
+\setlength{\parindent}{0pt}
+\usepackage{booktabs}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{amssymb}
+\usepackage{textcomp}
+\usepackage[many]{tcolorbox}
+\usepackage{bm}
+\usepackage{array}
+\usepackage{makebox}
+\usepackage{verbatim}
+\usepackage{tikz}
+\usepackage{gensymb}
+\usetikzlibrary{calc,3d,arrows,decorations.shapes,positioning}
+\usetikzlibrary{shapes,shadows,calc}
+\usetikzlibrary{shapes.callouts}
+\usetikzlibrary{decorations.shapes, decorations.text, decorations.pathmorphing, decorations.markings}
+\usetikzlibrary{shapes.callouts,shapes.multipart}
+\usetikzlibrary{positioning,arrows.meta}
+\usepackage{enumitem}
+% \usepackage{pgfplots}
+\usepackage{xifthen}
+\usepgfmodule{oo}
+\usepackage{graphicx}
+\usepackage[absolute,overlay]{textpos}
+\setlength{\TPHorizModule}{1.0cm}
+\setlength{\TPVertModule}{\TPHorizModule}
+\textblockorigin{0.0cm}{0.0cm}  %start all at upper left corner
+
+\pagestyle{plain}
+\thispagestyle{empty}
+\everymath{\displaystyle}
+% suppress paragraph indent in lists. needs enumitem.
+\setlist{listparindent=\parindent, leftmargin=10pt}
+
+\input{../../Includes/all}
+
+
+\begin{document}
+\LARGE
+\begin{center}
+\underline{Solution for Example 7, Equilibrium of Rigid Bodies}
+
+\normalsize
+\parb\vspace{0.5cm}
+\def\scale{1.25}
+
+	\begin{tikzpicture}[scale=\scale]
+		% \small
+		\coordinate (O) at (0,0);
+		% \coordinate (OO) at (0,0.175);
+		\coordinate (A) at ($(O)+(4,2)$);
+		\coordinate (B) at ($(O)+(0,-4.472)$);
+		\coordinate (C) at ($(O)+(0:4.472)$);
+		\coordinate (D) at ($(O)+(-40:4.472)$);
+		\coordinate (E) at ($(O)+(145:3)$);
+		\coordinate (tl) at ($(O)+(-2,4)$);
+
+		\def\radius{4.472}
+		\def\hi{0.25}
+		\def\outer{\radius+\hi}
+		\def\inner{\radius-\hi}
+
+		\gettikzxy{(A)}{\Ax}{\Ay};
+		\gettikzxy{(B)}{\Bx}{\By};
+		\gettikzxy{(C)}{\Cx}{\Cy};
+		\gettikzxy{(D)}{\Dx}{\Dy};
+		\gettikzxy{(E)}{\Ex}{\Ey};
+		\gettikzxy{(tl)}{\tx}{\ty};
+
+
+		\fill[gray!50] ($(A)+(26.6:\hi)$)arc(26.6:-90:\outer)arc(270:90:\hi)arc(-90:26.6:\inner)arc(206.6:26.6:\hi);
+
+
+		\draw[ultra thick,red, -Latex] (A)-- +(207:2)node[left, black]{ $F_{AC}$};
+		\node[xshift=0.5cm, yshift=0.5cm] at (A) {$C$};
+		\draw[thin] ($(A)-(0.35,0)$) -- (\tx,\Ay);
+		\draw[latex-latex] ($(A)-(1.5,0)$)arc(180:207:1.5)node[midway,fill=white,inner sep=0.5mm]{$27\degree $};
+
+
+
+
+		\draw[ultra thick, red, -Latex] (C)-- +(0:2)node[right, black]{ $8.00\,$kN};
+		\draw[thin] ($(C)-(0.35,0)$) -- (\tx,\Cy);
+
+
+
+
+		\draw[ultra thick, red, -Latex] (D)-- +(-42:2)node[right, black]{ $8.00\,$kN };
+		\draw[thin,gray] ($(D)-(0.65,0)$) -- (\tx,\Dy);
+		\draw[thin,gray] ($(D)+(0.5,0)$) -- +(2,0);
+		\draw[latex-latex] ($(D)+(1.5,0)$)arc(0:-42:1.5)node[midway,fill=white,inner sep=0.5mm]{$42\degree$};
+
+		\draw[thin,gray] ($(B)+(-0.5,0)$) -- (\tx,\By);
+		\draw[thin,gray] ($(B)+(0,1.25)$) -- (\Bx,\ty);
+		\draw[thin,gray] ($(D)+(0,0.65)$) -- (\Dx,\Dy+1.75 cm);
+		\draw[thin,gray] ($(A)+(0,0.35)$) -- (\Ax,\ty);
+
+		\draw[latex-latex,thick] (\Dx,\Dy+1.25 cm)--node[fill=white]{
+			\begin{tabular}{c}
+				\textcolor{red}{$0.92893$} \\$(1.125\cos 42\degree)$
+			\end{tabular}}(\Bx,\Dy+1.25 cm);
+		% \draw[latex-latex,thick] (\Dx,\Dy+1.25 cm)--node[fill=white]{$1.25\cos 42\degree$}(\Bx,\Dy+1.25 cm);
+		\draw[latex-latex,thick] (\Bx,\ty-.5 cm)--node[fill=white]{
+			\begin{tabular}{c}
+				\textcolor{red}{$1.1138$} \\$	(1.25\cos 27\degree) $
+			\end{tabular}}(\Ax,\ty-0.5 cm);
+		\draw[latex-latex,thick] (\Bx-1.5 cm,\By )--node[fill=white]{
+			\begin{tabular}{c}
+				\textcolor{red}{$0.41359$} \\$(1.25-1.25\sin 42\degree)$
+			\end{tabular}}(\Bx-1.5cm,\Dy);
+		\draw[latex-latex,thick] (\Bx-1.5cm,\Dy )--node[fill=white]{
+			\begin{tabular}{c}
+				\textcolor{red}{$0.83641$} \\$(1.25\sin 42\degree)$
+			\end{tabular}}(\Bx-1.5cm,\Cy);
+		\draw[latex-latex,thick] (\Bx-1.5 cm,\Ay )--node[fill=white]{
+			\begin{tabular}{c}
+				\textcolor{red}{$0.56749$} \\$(1.25\sin 27\degree)$
+			\end{tabular}}(\Bx-1.5cm,\Cy);
+
+
+
+		\draw[ultra thick, red, -Latex] (B)-- +(0:1)node[right, black]{\Large $R_{B_x}$};
+		\draw[ultra thick, red, -Latex] (B)-- +(0,1)node[right, black]{\Large $R_{B_y}$};
+
+		\fill (A) circle (1mm);
+		\fill (B) circle (1mm)node[xshift=-0.5cm, yshift=-0.5cm]{\Large $B$};
+		\fill (O) circle (1mm)node[xshift=3mm, yshift=3mm]{\Large $A$};
+		\fill (C) circle (1mm);
+		\fill (D) circle (1mm);
+
+
+
+	\end{tikzpicture}
+\end{center}
+
+\large
+\begin{align*}
+	\Sigma M_B         & = F_{AC}\cos 27\degree(1.8175)-F_{AC}\sin 27\degree(1.1138)-8(1.25)                                                  \\
+	                   & \qquad\qquad\qquad -8\sin 42\degree(0.92893)-8\cos 42\degree(0.41359)                                                \\
+	                   & = 0                                                                                                                  \\
+	\Rightarrow F_{AC} & = \frac{8\left(1.25+0.92893\sin 42\degree + 0.41359\cos 42\degree\right)}{1.8175\cos 27\degree-1.1138\sin 27\degree} \\
+	&=15.651\\
+	                   & = \underline{\bm{15.7\,\text{\bfseries  kN, at }117\degree }}                                                                                                  \\\\
+	\Sigma F_y         & =R_y-8\sin 42\degree-15.651\sin 27\degree = 0                                                                        \\
+	\Rightarrow R_y    & = 12.458\,\text{kN}                                                                                                  \\\\
+	\Sigma F_x         & = R_x+8\cos 42\degree + 8 -15.651\cos 27\degree=0                                                                     \\
+	\Rightarrow R_x    & \approx 0\\\\
+	R_B &= \underline{\bm{ 12.5\,\text{\bf kN, at }90\degree}}
+\end{align*}
+
+\parb
+\underline{\bf Notes}:
+\begin{enumerate}
+	\item Three terms can be removed from the calculation of $F_{AC}$ by moving the force along its line of action to start at $A$. I don't think it's worth explaining this to the students because it will freak them out\ldots\parm
+	\item Ask them why it makes sense that $R_x=0$ ($\Sigma M_A=0 $ and all forces but $R_x$ pass through $A$.)
+\end{enumerate}
+
+
+
+
+
+\end{document}

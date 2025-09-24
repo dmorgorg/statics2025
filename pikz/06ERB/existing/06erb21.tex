@@ -1,0 +1,27 @@
+% !TEX root = ../../00temp/downOne/prospectives.tex
+
+\tikz[scale=\scale]{
+	\definecolor{sportsGreen}{RGB}{0,150,0}
+	\coordinate (O) at (0,0) node {\includegraphics[scale=0.6,angle=-25]{../../images/greenSportsCar.png}};
+	\coordinate (A) at ($(O)+(5.65,-4)$);
+	\coordinate (F) at ($(O)+(-3.25,0.13)$);
+	\coordinate (R) at ($(O)+(1.55,-2.1)$);
+	\coordinate (G) at ($(O)+(-1,0.45)$);
+	\scriptsize
+	\fill (G) circle (1.5pt) node[above left] {\normalsize $G$};
+
+	\fill[gray!50] ($(A)+(155:13)$) -- (A) -- +(-11.8,0);
+	\draw ($(G)+(-25:0.25)$) -- +(-25:1);
+	\draw[latex-latex] ($(G)+(-25:0.75)$) -- node[fill=sportsGreen,yshift=0.125cm,xshift=0.2cm, rotate=-25,inner sep=0.25mm]{ $600\,$mm}+(245:1.225);
+	\draw ($(G)+(65:0.125)$) -- +(65:2.32);
+	\draw ($(F)+(65:0.125)$) -- ++(65:3.5);
+	\draw ($(R)+(65:0.125)$) -- +(65:3.5);
+	\draw[latex-latex] ($(F)+(65:3.125)$)-- node[fill=white,sloped]{$890\,$m}($(G)+(65:1.875)$);
+	\draw[latex-latex] ($(G)+(65:1.875)$)-- node[fill=white,sloped]{$1340\,$m}($(R)+(65:3.125)$);
+
+	\draw[latex-latex] ($(A)+(155:3)$)arc(155:180:3)node[midway, fill=gray!50]{$26\degree$};
+
+	% \fill[red] (F) circle (2pt);
+	% \fill[red] (R) circle (2pt);
+
+}

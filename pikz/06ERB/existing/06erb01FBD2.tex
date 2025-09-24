@@ -1,0 +1,33 @@
+% !TEX root = ../../07EquilRigidBodies/07ERB.tex
+
+\tikz[scale=\scale]{
+  \begin{scope}[scale=0.78]
+    \def\hi{0.35}
+    \def\extend{0.75}
+
+    \fill[white] (-2,-3) rectangle (12,6);
+    \coordinate (A) at (0,0);
+    \coordinate (B) at ($ (A)+(25:8) $);
+    \coordinate (C) at ($ (A)!0.7!(B)  $);
+    \begin{scope}[opacity=0.5]
+      \pgfoonew \Beam =new beam(A,B,llHeaderGrey,headerGrey, 0.5);
+    \end{scope}
+
+    \draw[saitBlue, ultra thick, Stealth-] (C) -- +(115:3) node[saitDeepBlue,above right, outer sep=0] { $19.200\thinspace\mathrm{kN}$};
+    \draw[saitRed, ultra thick, Stealth-] (B) -- +(-65:3) node[below right, outer sep=0] {\large $R_B$};
+    \draw[saitRed, ultra thick, -Stealth] (A) -- +(115:3) node[below right, outer sep=1mm] {\large $R_{A_y}$};
+    \draw[saitRed, ultra thick, -Stealth] (A) -- +(25:3) node[above right, outer sep=-1mm] {\large $R_{A_x}$};
+
+    \draw ($ (A)+(-65:0.75) $) -- ($ (A)+(-65:2.5) $);
+    % \draw ($ (B)+(-65:0.5) $) -- ($ (B)+(-65:2.5) $);
+    \draw ($ (C)+(-65:0.75) $) -- ($ (C)+(-65:2.5) $);
+    \draw[Stealth-Stealth] ($ (A)+(-65:2.25) $) -- node[fill=white, sloped, inner sep=1mm] {\small $5.60$ m} ($ (C)+(-65:2.25) $);
+    \draw[Stealth-Stealth] ($ (C)+(-65:2.25) $) -- node[fill=white, sloped, inner sep=0] {\small $2.40\thinspace$m} ($ (B)+(-65:2.25) $);
+    \draw[black] ($ (B)+(1,0)$) -- +(25:2.5);
+    \draw[black] ($ (B)+(1,0)$) -- +(0:2.5);
+
+    \node at ($ (B)+(3,0.4)$) {\small $25^\circ$};
+    \node at ($ (A)+(-4mm, -1mm) $) {\large $\bm A$};
+    \node at ($ (B)+(-4mm, -2mm) $) {\large $\bm B$};
+  \end{scope}
+}
