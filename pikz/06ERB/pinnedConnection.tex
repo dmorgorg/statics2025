@@ -23,10 +23,10 @@
 
 
 	\begin{scope}[transform canvas={rotate=\rrrotate}]
-		\fill[top color=mucus, bottom color=mucus!25] ($(O)+(-3,-1.55)$) rectangle +(6,-1);
+		\fill[gray!75] ($(O)+(-3,-1.55)$) rectangle +(6,-1);
 		\draw[thick] ($(O)+(-3,-1.55)$)-- +(6,0);
 	\end{scope}
-	\PinnedConnection[\rrrotate]{O}{gray!75!white}{black}{1.55}{0.25}
+	\PC[\rrrotate]{O}{gray!75!white}{black}{1.55}{0.25}
 	\begin{scope}[transform canvas={rotate=\rrotate}]
 		\filldraw [top color=gray, bottom color=gray, middle color=gray!50, thick]($(O)+(5,0.5)$)  -- +(-5,0)arc(90:270:0.5)-- +(4.5,0);
 		\filldraw[ball color=gray] (O) circle (2mm);

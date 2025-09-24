@@ -2,8 +2,8 @@
 
 \tikz[scale=\scale]{
 	\coordinate (O) at (0,0);
-	\fill[left color=mucus!50, right color=mucus] ($(O)+(0,4)$) rectangle (-1.5,-4);
-	\fill[top color=mucus, bottom color = mucus, middle color=mucus!50] ($(O)+(0,0.5)$) rectangle (6,-0.5);
+	\fill[gray!75] ($(O)+(0,4)$) rectangle (-1.5,-4);
+	\fill[top color=gray!75, bottom color = gray!75, middle color=gray!25] ($(O)+(-0.5,0.5)$) rectangle (6,-0.5);
 	\draw($(O)+(0,4)$) -- ($(O)+(0,0.5)$)--($(O)+(6,0.5)$)--($(O)+(6,-0.5)$)--($(O)+(0,-0.5)$)-- ($(O)+(0,-4)$);
 
 	\uncover<2->{

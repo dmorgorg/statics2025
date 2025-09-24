@@ -18,6 +18,8 @@
 \input{../../includes/Ring}
 \input{../../includes/Rocker}
 \input{../../includes/Roller}
+\input{../../includes/Rone}
+\input{../../includes/Ronly}
 \input{../../includes/Pulley}
 \input{../../includes/PulleyB}
 \input{../../includes/PulleyC}
@@ -126,13 +128,386 @@
 		\cmini[0.95]{
 			Like a cable, a straight strut (or link) exerts a reaction on a structural member in the direction of the strut. Unlike a cable, a strut can pull  or push.
 			\parm
-			If we don't know whether a strut is pushing or pulling, we generally assume that the reaction is directed away from the structural member (pulling, in tension). If our calculations then determine that $F$ is negative, the direction is opposite to our assumption (i.e., pushing) (b).
+			If we don't know whether a strut is pushing or pulling, we generally assume that the reaction is directed away from the structural member (pulling, in tension), as shown in (a). If our calculations then determine that $F$ is negative, the direction is opposite to our assumption (i.e., pushing) (b).
 			\parm
 			As with the cable, there is only one unknown. The sign of $F$ determines the  sense of $F$.
 		}
 	\end{textblock*}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Types of Connections: Roller}
+	% \begin{textblock*}{\textwidth}(1cm, 1.5cm)
+	% 	\centering
+	% 	(A table of connection types is shown on page 202 of your text.)\parm
+	% \end{textblock*}
+	\def\scale{0.45}
+	\begin{textblock*}{\textwidth}(1cm, 1.75cm)
+		\centering
+		\input{../../pikz/06ERB/rollerConnection}
+	\end{textblock*}
+
+	\begin{textblock*}{\textwidth}(1cm, 5cm)
+		\cmini[0.95]{
+			A roller (assumed weightless and frictionless) can provide no resistance {\bfseries along} the slope on which it is resting.
+			\uncover<2>{ The only reaction a roller can provide is {\bfseries perpendicular} to the slope.
+				\parm
+				A roller can only push. It is not fixed to the sloped surface and would lift off the surface if pulled.
+				\parm
+				As with the cable, there is only one unknown. If your math is correct, the sign of $F$ should always be positive.
+			}
+		}
+	\end{textblock*}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Types of Connections: More Rollers}
+	\def\scale{0.35}
+	\begin{textblock*}{\textwidth}(1cm, 2cm)
+		\input{../../pikz/06ERB/rollerConnectionMore}
+	\end{textblock*}
+
+	\begin{textblock*}{\textwidth}(1cm, 6cm)
+		\cmini[0.95]{
+			Rollers come in different shapes. But they all react in the same way.
+			\parb
+			\uncover<2>{ The reaction force is perpendicular to the surface that the roller bears on.	}
+		}
+	\end{textblock*}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Types of Connections: Rockers and Smooth Surfaces}
+	\def\scale{0.35}
+	\begin{textblock*}{\textwidth}(1cm, 2cm)
+		\input{../../pikz/06ERB/rockerConnection}
+	\end{textblock*}
+
+	\begin{textblock*}{\textwidth}(1cm, 5cm)
+		\cmini[0.95]{
+			Two more connection types that react in the same way as rollers:
+			\parb
+			\uncover<2>{
+				The {\bfseries rocker}: the reaction force is perpendicular to the surface that the rocker bears on.	\parm
+				The {\bfseries smooth surface} has no friction along the surface: the reaction force is perpendicular to the smooth surface that the structural member bears on.
+			}
+		}
+	\end{textblock*}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Types of Connections: Roller in Smooth Slot}
+	% \begin{textblock*}{\textwidth}(1cm, 1.5cm)
+	% 	\centering
+	% 	(A table of connection types is shown on page 202 of your text.)\parm
+	% \end{textblock*}
+	\def\scale{0.45}
+	\begin{textblock*}{\textwidth}(1cm, 1.5cm)
+		\centering
+		\input{../../pikz/06ERB/slotConnection}
+	\end{textblock*}
+
+	\begin{textblock*}{\textwidth}(1cm, 5.5cm)
+		\cmini[0.9]{
+			With a roller in a smooth slot, we don't necessarily know whether the roller is:
+			\begin{itemize}
+				\item<2-> Bearing on the lower smooth surface; in this case it is the lower surface that provides the reaction.
+				\item<3-> Bearing on the upper smooth surface; in this case it is the upper surface that provides the reaction.
+				\item<4-> In each case, the reaction is perpendicular to the bearing surface of the slot.
+			\end{itemize}
+
+		}
+	\end{textblock*}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Types of Connections: Pinned Connection}
+	% \begin{textblock*}{\textwidth}(1cm, 1.5cm)
+	% 	\centering
+	% 	(A table of connection types is shown on page 202 of your text.)\parm
+	% \end{textblock*}
+	\def\scale{0.45}
+	\begin{textblock*}{\textwidth}(1cm, 1.5cm)
+		\centering
+		\input{../../pikz/06ERB/pinnedConnection}
+	\end{textblock*}
+
+	\begin{textblock*}{\textwidth}(1cm, 5.5cm)
+		\cmini[0.9]{
+			With the pinned connection (also known as a hinged connection), movement is restricted in all directions. The reaction can be in any direction.
+			\begin{itemize}
+				\item<2->This gives us {\bfseries two} unknowns: one generally an $x$-component and one generally a $y$-component.
+				\item<3-> Alternatively (and equivalently), the reaction can be specified by a magnitude and a direction. This is the form that we use to describe the reaction.
+			\end{itemize}
+
+		}
+	\end{textblock*}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Types of Connections: Fixed Connection}
+	\def\scale{0.45}
+	\begin{textblock*}{\textwidth}(1cm, 1.5cm)
+		\centering
+		\input{../../pikz/06ERB/fixedConnection}
+	\end{textblock*}
+
+	\begin{textblock*}{\textwidth}(1cm, 5.5cm)
+		\cmini[0.9]{
+			The fixed connection has {\bfseries three} unknowns.
+			\begin{itemize}
+				\item<2-> Components in the $x$ and $y$ directions (like the pinned connection).
+				\item<3-> A reacting moment, $M$, since (unlike the pinned connection) there can be no rotation about the connection.
+			\end{itemize}
+
+		}
+	\end{textblock*}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Equilibrium: The Rules}
+
+	\cmini[0.95]{
+		\begin{itemize}
+			\item Here we add another major part of the puzzle: the third and final equation that, combined with our results from the equilibrium of concentric forces, allows us analyze the equilibrium of rigid bodies.\par
+			\item In our discussion of force couples, we noted that although $\Sigma F_x=0$ and $\Sigma F_y=0$ there was still some tendency for the force couple to cause rotation.\par
+			\item For a system to be in equilibrium, there must be no net moment: the sum of the moments of the forces acting upon a rigid body must be zero. There must be no tendency to rotate.
+		\end{itemize}
+		\cmini[0.55]{
+			\begin{tcolorbox}[colback=white,colframe=structure,left=3pt, top=5pt, bottom=5pt, right=0pt, enhanced, drop fuzzy shadow,center title, title=General Conditions for Equilibrium \lb of Rigid Bodies]
+				\vspace{-0.3cm}
+				\begin{align*}
+					\Sigma F_x & = 0 \\
+					\Sigma F_y & = 0 \\
+					\Sigma M   & = 0
+				\end{align*}
+
+			\end{tcolorbox}
+		}
+	}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{In Practice:}
+	\cmini[0.9]{
+		\begin{itemize}
+			\item In general, we use these equations to find the reactions at connections between a rigid body (not just a particle) and a support.\parm
+			\item Often, these support reactions will have three unknowns: a pinned connection with two unknown components; and a connection with a known direction (roller, cable, two-force member, etc.) but an unknown magnitude (and, possibly, unknown sense).\parm
+			\item Usually, our first step  after drawing the FBD {\bfseries (!)} is to take moments about the pinned connection to solve directly for the third unknown (the magnitude of the connection with the known direction).\parm
+			\item Then we sum the $x$-components of all the forces involved to solve for the $x$-component of the reaction at the pinned connection. We do the same for the $y$-component. \parm
+			\item From the components of the reaction at the pinned connection, $R_x$ and $R_y$, we use the Pythagorean Theorem and the inverse tangent function to find the magnitude $R$ and direction $\theta$ of the reaction.
+		\end{itemize}
+	}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+	\begin{textblock*}{1\textwidth}(1cm, 0.25cm)
+
+		\begin{myexam}{}{}
+			\centering
+			\def\scale{0.55}
+			\input{../../pikz/06ERB/06erb14.tex}
+			\parb
+			Determine the tension in the chain and the reaction at $A$.
+			% \begin{center}
+			% 	\footnotesize
+			% 	\rotatebox[origin=c]{180}{
+			% 		\textcolor{gray}{
+			% 			($T=2.08\,\text{kN,}R_A=5.75\,\text{kN at} 85.5\deg$.)
+			% 		}
+			% 	}
+			% \end{center}
+		\end{myexam}
+	\end{textblock*}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+	\begin{textblock*}{1\textwidth}(1cm, 0.25cm)
+
+		\begin{myexam}{}{}
+			\centering
+			\def\scale{0.55}
+			\input{../../pikz/06ERB/06erb01.tex}
+			\parb
+			Determine the reactions at $A$ and at $B$.
+			% \begin{center}
+			% 	\footnotesize
+			% 	\rotatebox[origin=c]{180}{
+			% 		\textcolor{gray}{
+			% 			($R_B=1.71\,\text{kN at}117\deg,\,R_A=1.93\,\text{kN at }66.7\deg$)
+			% 		}
+			% 	}
+			% \end{center}
+			% \addtocounter{\tcbcounter}{-1}
+		\end{myexam}
+	\end{textblock*}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}
+% 	\begin{textblock*}{1\textwidth}(1cm, 0.25cm)
+
+% 		\begin{myexam}{Solution}{}
+% 			\footnotesize
+% 			First, as always, the free body diagram:
+% 			\begin{center}
+% 				\def\scale{0.55}
+% 				\input{../../pikz/06ERB/06erb01SolnA.tex}
+% 			\end{center}
+% 			\parm
+% 			\raggedright
+% 			We have three unknowns: $R_{Ax}$, $R_{Ay}$ and $R_B$. Start by taking moments about $A$:
+% 			\begin{align*}
+% 				\Sigma M_A      & = (R_B \cos 26.6\deg\,\text{kN}) (8.00\,\text{m})-(3.30\,\text{kN})(3.20\,\text{m})                        \\
+% 				                & \qquad -(R_B \sin 26.6\deg\,\text{kN}) (2.15\,\text{m})                                                    \\
+% 				                & = 0                                                                                                           \\
+% 				\Rightarrow R_B & = \frac{(3.30\,\text{kN})(3.20\,\text{m})}{(8.00\cos 26.6\deg\,\text{m})-(2.15\sin 26.6\deg\,\text{m})} \\
+% 				                & = 1.7058\,\text{kN}
+% 			\end{align*}
+% 			$$ \bm{R_B=1.71\,\text{\bfseries kN at }117\deg}$$
+% 			\addtocounter{\tcbcounter}{-1}
+% 		\end{myexam}
+% 	\end{textblock*}
+
+% \end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}
+% 	\begin{textblock*}{1\textwidth}(1cm, 0.25cm)
+% 		\footnotesize
+% 		\begin{myexam}{Solution (cont'd)}{}
+% 			Now, sum the $y$ components to find $R_y$:
+% 			\begin{align*}
+% 				\Sigma F_y         & = R_{Ay}-3.3\,\text{kN}+1.7058\cos 26.6\degree\,\text{kN} = 0 \\
+% 				\Rightarrow R_{Ay} & = 1.7748\,\text{kN}                                           \\\\
+% 				\Sigma F_x         & = R_{Ax}-1.7058\sin 26.6\degree\,\text{kN} = 0                \\
+% 				\Rightarrow R_{Ax} & = 0.76379\,\text{kN}
+% 			\end{align*}
+% 			At this point, there is an opportunity to check our work so far. If we take moments about anywhere (except about $A$ which we've already set to zero), they should sum to zero. Taking moments about $B$ is the most convenient:
+% 			\begin{align*}
+% 				\Sigma M_B & = (3.30\,\text{kN})(4.80\,\text{m})-(1.7748\,\text{m})(8.00\,\text{m}) \\
+% 				           & \qquad\qquad-(0.76379\,\text{m})(2.15\,\text{m})                       \\
+% 				           & = -0.000549                                                            \\
+% 				           & \approx 0 \qquad\text{\textcolor{mucus}{\checkmark}}
+% 			\end{align*}
 
 
+
+
+% 			\addtocounter{\tcbcounter}{-1}
+
+% 		\end{myexam}
+% 	\end{textblock*}
+
+% \end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}
+% 	\begin{textblock*}{1\textwidth}(1cm, 0.25cm)
+
+% 		\begin{myexam}{Solution (cont'd)}{}
+% 			\footnotesize
+% 			Find the resultant of the reaction at $A$ from its two components. (We have done this before when studying the resultant of force vectors.)\parb
+% 			\centering
+% 			\tikz[scale=0.75]{
+% 				\draw[-latex, thick] (0,0) -- node[fill=white, above, sloped]{$1.7748\,\text{kN}$}+(0,3.4);
+% 				\draw[-latex, thick] (0,0) -- node[fill=white, below, outer sep=0.65mm]{$0.76379\,\text{kN}$}+(1.6,0);
+% 				\draw[-latex, thick, saitMaroon] (0,0) -- +(1.6,3.4);
+% 				\node at (0.35,0.25) {$\theta$};
+% 			}
+% 			\begin{align*}
+% 				R_A    & = \sqrt{(1.7748\,\text{kN})^2+(0.76379\,\text{kN})^2} \\
+% 				       & = 1.9322\,\text{kN}                                   \\\\
+% 				\theta & = \tan^{-1}\left[\frac{1.7748}{0.76379}\right]        \\
+% 				       & = 66.715\degree
+% 			\end{align*}
+
+% 			$$ \bm{R_A=1.93\,\text{\bfseries kN at }66.7\degree}$$
+% 		\end{myexam}
+% 	\end{textblock*}
+
+% \end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+	\begin{textblock*}{1\textwidth}(1cm, 0.25cm)
+
+		\begin{myexer}{}{}
+			\def\scale{0.475}
+			\centering
+			\input{../../pikz/06ERB/06erb03.tex}
+			\cmini[0.8]{
+				\centering
+				Determine the reactions at the pinned connection and the tension in the cable.
+			}
+			% answers, gray, centered, upside down
+			% \begin{center}
+			% 	\footnotesize
+			% 	\textcolor{gray}{
+			% 		\rotatebox[origin=c]{180}{
+			% 			$\left( R_D=12.9\text{ kN},\;R_A=6.75\text{ kN at } 197^\circ \text{, ccw from +ve $x$-axis.} \right)$
+			% 		}
+			% 	}
+			% \end{center}
+
+
+		\end{myexer}
+	\end{textblock*}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+	\begin{textblock*}{1\textwidth}(1cm, 0.25cm)
+
+		\begin{myexam}{}{}
+			\def\scale{1}
+			\centering
+			\input{../../pikz/06ERB/06erb16.tex}
+			\cmini[0.8]{
+
+				The roller and the pinned connection are on slopes inclined at $21\deg$ to the horizontal; they are both at the same elevation.\parm
+				Determine the reaction at each connection. Indicate direction by measuring counter-clockwise from the positive $x$-axis.
+			}
+			% answers, gray, centered, upside down
+			% \begin{center}
+			% 	\footnotesize
+			% 	\textcolor{gray}{
+			% 		\rotatebox[origin=c]{180}{
+			% 			$\left(  \right)$
+			% 		}
+			% 	}
+			% \end{center}
+		\end{myexam}
+	\end{textblock*}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{}
+	\begin{myexam}{}{}
+		\def\scale{0.55}
+		\input{../../pikz/06ERB/06erb02.tex}
+		\parb\centering
+		The roller at $B$ is in a smooth slot.
+		\parb
+		Determine the reactions at $A$ and $B$.
+		% answers, gray, centered, upside down
+		% \begin{center}
+		% 	\footnotesize
+		% 	\textcolor{gray}{
+		% 		\rotatebox[origin=c]{180}{
+		% 			$\left(R_B=301\thinspace\text{N at } \mathsf{270^\circ}, R_A=1280\thinspace\text{N at }\mathsf{117^\circ}\text{, both ccw from +ve }x\text{-axis}\right) $
+		% 		}
+		% 	}
+		% \end{center}
+	\end{myexam}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

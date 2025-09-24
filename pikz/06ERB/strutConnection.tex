@@ -24,16 +24,15 @@
 	\begin{scope}[transform canvas={rotate=\rotate}]
 		\filldraw [top color=gray, bottom color=gray, middle color=gray!50, thick]($(O)+(5,0.5)$)  -- +(-5,0)arc(90:270:0.5)-- +(4.5,0);
 	\end{scope}
-\Meme{O}{A}{gray!50}{gray!50}{black}{0.75}{0.2}{.5}
-% \pgfoonew \AF=new rr(O,A,gray!50,black, 0.25)
+\Meme{O}{A}{gray!50}{gray!50}{black}{0.75}{0.15}{.75}
 
-	\draw[line width=1.875mm, black]($(O)+(-105:0.5)$)-- ($(A)+(75:0.5)$);
-	\draw[line width=1.5mm, gray!70!saitDeepBlue]($(O)+(-105:0.5)$)-- ($(A)+(75:0.5)$);
+	\draw[line width=1.875mm, black, line cap = round]($(O)+(-105:0.5)$)-- ($(A)+(75:0.5)$);
+	\draw[line width=1.5mm, gray!70!saitDeepBlue, line cap = round]($(O)+(-105:0.5)$)-- ($(A)+(75:0.5)$);
 	\filldraw[ball color=gray] (O) circle (2mm);
 	\filldraw[ball color=gray] (A) circle (2mm);
 	\draw[thin] ($(O)+(-1,0)$)-- +(-2,0);
 	\draw[Latex-Latex] ($(O)+(-2.5,0)$)arc(-180:-105:2.5)node[fill=bgcolor, midway, inner sep=0.25mm]{$\theta$};
-	\fill[top color=mucus, bottom color=mucus!25] ($(A)+(-3,-0.5)$) rectangle +(6,-1);
+	\fill[gray!75] ($(A)+(-3,-0.5)$) rectangle +(6,-1);
 	\draw[thick] ($(A)+(-3,-0.50)$)-- +(6,0);
 \begin{scope}[scale=0.75]
 	\node[xshift=1cm, yshift=.1cm] at (OO) {(a)};

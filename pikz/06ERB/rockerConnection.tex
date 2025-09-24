@@ -13,16 +13,12 @@
 	\coordinate (OOO) at ($(OO)+(\xxshift,0)$);
 	\coordinate (AAA) at ($(AA)+(\xxshift,0)$);
 
-	\def\thickness{thick}
-	\def\stroke{black}
-	\def\hi{.3}
-	\def\radii{\hi}
-	\def\extend{\hi}
-
-
-	%\Rone[rotate=0]{coordinate}{draw}{fill}{scale}{line width}
+	% \def\thickness{thick}
+	% \def\stroke{black}
+	% \def\hi{.3}
+	% \def\radii{\hi}
+	% \def\extend{\hi}
 	\Rocker[\rrrotate]{O}{gray}{black}{1.5}{0.25}
-	% \Ronly[\rrrotate]{OOO}{gray}{black}{1.5}{0.25}
 
 	\begin{scope}[transform canvas={rotate=\rrotate}]
 		\filldraw [top color=gray, bottom color=gray, middle color=gray!50, thick]($(O)+(5,0.5)$)  -- +(-5,0)arc(90:270:0.5)-- +(4.5,0);
@@ -33,22 +29,20 @@
 		% \filldraw[ball color=gray] (OOO) circle (2mm);
 	\end{scope}
 	\begin{scope}[transform canvas={rotate=\rrrotate}]
-		\fill[top color=mucus, bottom color=mucus!25] ($(O)+(-3,-1.5)$) rectangle +(6,-1);
+		\fill[gray!75] ($(O)+(-3,-1.5)$) rectangle +(6,-1);
 		\draw[thick] ($(O)+(-3,-1.50)$)-- +(6,0);
 	\end{scope}
 	\coordinate (apex) at ($(O)+({90+\rrrotate}: -3)+(\rrrotate:2.5)$);
 	\begin{scope}[transform canvas={rotate around =\rrrotate:(OOO)}]
-		\fill[top color=mucus, bottom color=mucus!25] ($(OOO)+(-3,-0.5)$) rectangle +(6,-1);
+		\fill[gray!75] ($(OOO)+(-3,-0.5)$) rectangle +(6,-1);
 		\draw[thick] ($(OOO)+(-3,-0.50)$)-- +(6,0);
 	\end{scope}
 
 
 	\uncover<2>{
 		\coordinate (apexO) at ($(OOO)+({90+\rrrotate}: -2)+(\rrrotate:2.5)$);
-		\fill[white] ($(O)+({90+\rrrotate}: -3)+(\rrrotate:0.75)$) -- ++(90+\rrrotate:0.75) -- ++(180+\rrrotate:0.75)-- ++(-90+\rrrotate:0.75);
-		\draw[black] ($(O)+({90+\rrrotate}: -3)+(\rrrotate:0.75)$) -- ++(90+\rrrotate:0.75) -- ++(180+\rrrotate:0.75);
-		\fill[white] ($(OOO)+({90+\rrrotate}: -2)+(\rrrotate:0.75)$) -- ++(90+\rrrotate:0.75) -- ++(180+\rrrotate:0.75)-- ++(-90+\rrrotate:0.75);
-		\draw[black] ($(OOO)+({90+\rrrotate}: -2)+(\rrrotate:0.75)$) -- ++(90+\rrrotate:0.75) -- ++(180+\rrrotate:0.75);
+		\filldraw[thick, fill=white] ($ (O)+({90+\rrrotate}: -1.5)+(\rrrotate:0.5) $) --++(-90+\rrrotate:0.5)-- ++(180+\rrrotate:0.5)--($ (O)+({90+\rrrotate}: -1.5) $);
+		\filldraw[thick, fill=white] ($ (OOO)+({90+\rrrotate}: -0.5)+(\rrrotate:0.5) $) --++(-90+\rrrotate:0.5)-- ++(180+\rrrotate:0.5)--($ (OOO)+({90+\rrrotate}: -0.5) $);
 	}
 	\node[xshift=0.6cm, yshift=-0.45cm, rotate=\rrrotate] at (OOO) {\small smooth};
 	\draw[black]($(O)+({90+\rrrotate}: -3)+(180+\rrrotate:2.5)$) -- ++(\rrrotate: 5)-- +(-5,0);
@@ -68,7 +62,7 @@
 			\fill[gray] (OO) circle (2mm);
 			\draw[ultra thick, latex-, saitMaroon](OO) -- +({-90+\rrrotate}:5)node[below left]{$\bm F$};
 			\draw[thin] ($(OO)+(-1,0)$)-- +(-3,0);
-			\draw[latex-latex] ($(OO)+(-3.5,0)$)arc(-180:-90+\rrrotate:3.5)node[fill=bgcolor, midway, inner sep=0.25mm]{\small $90\degree\!-\!\theta$};
+			\draw[latex-latex] ($(OO)+(-3.5,0)$)arc(-180:-90+\rrrotate:3.5)node[fill=bgcolor, midway, inner sep=0.25mm]{\small $90\deg\!-\!\theta$};
 			\draw[thin] ($(OO)+(0,-1)$)-- +(0,-3);
 			\draw[latex-latex] ($(OO)+(0,-3.5)$)arc(-90:-90+\rrrotate:3.5)node[fill=bgcolor, midway, inner sep=0.25mm]{\small $\theta$};
 

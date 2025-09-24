@@ -1,0 +1,64 @@
+\begin{center}
+	\tikz[scale=\scale]{
+		\small
+		\coordinate (A) at (0,0);
+		\coordinate (B) at (4,0);
+		\coordinate (C) at (7,0);
+		\coordinate (D) at (8,0);
+		\coordinate (E) at (8,6);
+		\coordinate (F) at (9,0);
+
+		\draw (A) circle (2pt);
+		\draw (B) circle (2pt);
+		\draw (C) circle (2pt);
+		\draw (D) circle (2pt);
+		\draw (E) circle (2pt);
+
+		\fill[fill=white] (-2,-4) rectangle (10,8.5);
+		\def\hi{0.375}
+		\def\twohi{2*\hi}
+		\def\threehi{3*\hi}
+		\def\innerr{\hi}
+		\def\outerr{3*\hi}
+		\def\inneroffset{2*\hi}
+		\def\outeroffset{\hi}
+
+
+		\Meme{A}{F}{Tan4}{Tan2}{black}{1}{0.25}{0.5}
+		% \pgfoonew \beam =new beam(A, F,Tan3,Tan4, 0.5, 0.5, 0.5)
+		\fill[mucus] ($ (A)+(-1,-2) $) rectangle ($ (A)+(-2,2) $);
+		\draw[thick, mucus!50!black] ($ (A)+(-1,-2) $) -- ($ (A)+(-1,2) $);
+		\PC[-90]{A}{mucus!50}{black}{1}{0.125};
+
+		\draw[saitMaroon, line width=1mm] ($ (D)+(0.5, 0)$) -- ++(0,6)arc(0:150:0.5) -- (B);
+
+		\fill[mucus] ($ (E)+(-2,1) $) rectangle ($ (E)+(2,2) $);
+		\draw[thick, mucus!50!black] ($ (E)+(-2,1) $) -- +(4,0);
+		 \Pulley[180]{E}{mucus!50}{black}{1}{0.125}
+
+		\draw[-latex, line width=0.75 mm, saitBlue] (C) -- +(0, -3.5) node[left,saitDeepBlue] {\large $22.0\text{ kN}$};
+
+		\shadedraw[ball color=mucus] (A) circle (1.5mm);
+		\shadedraw[ball color=mucus] (B) circle (1.5mm);
+		\shadedraw[ball color=mucus] (C) circle (1.5mm);
+		\shadedraw[ball color=mucus] ($(D)+(0.5,0)$) circle (1.5mm);
+		\shadedraw[ball color=mucus] ($(E)$) circle (1.5mm);
+
+		\draw ($ (D)+(0.5,-.75) $) -- +(0, -1.5);
+		\draw ($ (B)+(0,-.75) $) -- +(0, -1.5);
+		\draw ($ (A)+(0,-.75) $) -- +(0, -1.5);
+		%
+		\draw[latex-latex] ($ (A)+(0,-1.5) $) -- node[fill=white] {$4.00\;\text{m}$}($ (B)+(0,-1.5) $);
+		\draw[latex-latex] ($ (B)+(0,-1.5) $) -- node[fill=white] {$3.00\;\text{m}$}($ (C)+(0,-1.5) $);
+		\draw[latex-latex] ($ (C)+(0,-1.5) $) -- ($ (D)+(0.5,-1.5) $);
+
+		\node[right, fill=white,outer sep= 1mm, inner sep=1mm] at ($ (C)+(0, -2) $) {$ 1.50\text{ m}$};
+
+		\draw[latex-latex] ($ (B)+(2,0) $)arc(0:60:2);
+		\draw ($ (B)+(1.5,0) $)-- +(1,0);
+		\node[fill=white, inner sep=0.5mm] at ($ (B)+(30:2.125) $) {$60\deg$};
+
+
+
+	}
+\end{center}

@@ -1,12 +1,3 @@
-% !TEX root = ../../Beamer/06EquilibriumOfRigidBodies/06ERB.tex
-
-\makeatletter
-\providecommand{\gettikzxy}[3]{%
-	\tikz@scan@one@point\pgfutil@firstofone#1\relax
-	\edef#2{\the\pgf@x}%
-	\edef#3{\the\pgf@y}%
-}
-\makeatother
 
 \tikz[scale=\scale]{
 	\begin{scope}
@@ -18,20 +9,20 @@
 		\coordinate (B) at ($ (A)+(8,-2) $);
 		\coordinate (C) at ($ (A)!0.4!(B)  $);
 		\coordinate (X) at  ($ (B)+(-3.25,-0.75)$);
-		\pgfoonew \Beam =new beam(A,B,gray!25,gray!25, 0.2, 0, 0.25);
+		
 		\gettikzxy{(A)}{\ax}{\ay};
 		\gettikzxy{(B)}{\bx}{\by};
 		\gettikzxy{(C)}{\cx}{\cy};
 
 
 		\def\scale{1}
-
+		\Meme{A}{B}{gray!50}{gray!50}{gray!50}{0.5}{0.2}{0}
 		\draw[black, thick, latex-] ($(C)+(0,\hi)$)-- +(0,2)node[black, above]{$3.3$ kN};
 		\draw[black, thick, -latex] (A)-- +(0,2)node[black, above]{$R_{Ax}$ };
 		\draw[black, thick, -latex] (A)-- +(2,0)node[black, above]{$R_{Ay}$ };
 		\draw[gray!50, thick, -latex] (B)-- +(117:2)node[above]{$R_B$ };
-		\draw[black, thick, -latex] (B)-- +(0,2)node[above right]{$R_B\cos 26.6\degree$ };
-		\draw[black, thick, -latex] (B)-- +(-2,0)node[above]{$R_B\sin 26.6\degree$ };
+		\draw[black, thick, -latex] (B)-- +(0,2)node[above right]{$R_B\cos 26.6\deg$ };
+		\draw[black, thick, -latex] (B)-- +(-2,0)node[above]{$R_B\sin 26.6\deg$ };
 		\draw ($ (A)+(0,-0.75) $) -- (\ax, -4);
 		\draw ($ (B)+(0, -0.75) $) -- (\bx, -4);
 		\draw ($ (C)+(0,-0.75) $) -- (\cx, -4);
@@ -41,9 +32,6 @@
 		\draw[latex-latex] (\ax,-3.5) -- node[fill=white, sloped] {\small $3.20$ m} (\cx,-3.5);
 		\draw[latex-latex] (\cx,-3.5) -- node[fill=white, sloped] {\small $4.80$ m} (\bx,-3.5);
 		\draw[latex-latex] (-1.75,\ay) -- node[fill=white, inner sep=0.5mm] {\small $2.15$ m} (-1.75,\by);
-		% \node[above, rotate=26, inner sep=0.375mm] at ($(X)!.5!(Z)$){\footnotesize $\sqrt{5}$};
-		% \node[below, inner sep=0.375mm] at ($(X)!.5!(Y)$){\footnotesize $2$};
-		% \node[right, inner sep=0.375mm] at ($(Y)!.5!(Z)$){\footnotesize $1$};
 
 		\begin{scope}[xshift=-1, yshift=-0.5]
 			\draw[rotate=25,black] ($ (X)+(1.75,-1)$) -- +(2.5,0);
