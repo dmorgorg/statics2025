@@ -1,0 +1,78 @@
+% !TEX root = ../../Beamer/06EquilibriumOfRigidBodies/06ERB.tex
+
+\makeatletter
+\providecommand{\gettikzxy}[3]{%
+	\tikz@scan@one@point\pgfutil@firstofone#1\relax
+	\edef#2{\the\pgf@x}%
+	\edef#3{\the\pgf@y}%
+}
+\makeatother
+
+\begin{tikzpicture}[scale=\scale]
+	\def\thickness{thick}
+	% \def\stroke{black}
+	\def\hi{.15}
+	\def\radii{\hi}
+	\def\extend{\hi}
+	\small
+
+	\coordinate (A) at (0, 0);
+	\coordinate (B) at (3, 0);
+	\coordinate (C) at (6, 0);
+	\coordinate (D) at (9, 0);
+	\coordinate (E) at (6, 2);
+	\coordinate (F) at (3, 2);
+	\coordinate (AA) at ($ (A)+(0,-0.5) $);
+
+	% \gettikzxy{(AA)}{\aax}{\aay}	
+
+	\Meme{A}{B}{OliveDrab4}{OliveDrab2}{black}{0.3}{0.135}{0.5}
+	\Meme{B}{C}{OliveDrab4}{OliveDrab2}{black}{0.3}{0.135}{0.5}
+	\Meme{C}{D}{OliveDrab4}{OliveDrab2}{black}{0.3}{0.135}{0.5}
+	\Meme{E}{D}{OliveDrab4}{OliveDrab2}{black}{0.3}{0.135}{0.5}
+	\Meme{E}{F}{OliveDrab4}{OliveDrab2}{black}{0.3}{0.135}{0.5}
+	\Meme{A}{F}{OliveDrab4}{OliveDrab2}{black}{0.3}{0.135}{0.5}
+	\Meme{C}{F}{OliveDrab4}{OliveDrab2}{black}{0.3}{0.135}{0.5}
+	\Meme{B}{F}{OliveDrab4}{OliveDrab2}{black}{0.3}{0.135}{0.5}
+	\Meme{C}{E}{OliveDrab4}{OliveDrab2}{black}{0.3}{0.135}{0.5}
+	
+	\fill[Cornsilk3] ($ (A)-(1,0.525) $) rectangle ($ (A)+(1,-1) $);
+	\draw[thick] ($ (A)-(1,0.525) $) rectangle ($ (A)+(1,-0.525) $);
+	\fill[Cornsilk3] ($ (D)+(-0.875,-1) $) -- ++(25:2) -- +(-90:0.854) -- cycle;
+	\draw[thick] ($ (D)+(-0.875,-1) $) -- ++(25:2);
+
+	\PC{A}{Cornsilk3}{black}{0.525}{0.2}
+	\Rocker[25]{D}{Cornsilk3}{black}{0.525}{0.2}
+	
+
+	\draw ($ (A)+(0,-0.25) $) -- +(0,-1.5);
+	\draw ($ (B)+(0,-0.25) $) -- +(0,-1.5);
+	\draw ($ (C)+(0,-0.25) $) -- +(0,-1.5);
+	\draw ($ (D)+(0,-0.25) $) -- +(0,-1.5);
+
+	\draw[line width=0.75mm, statsMaroon, latex-] (E) -- +(125:2.25) node[above] {$3.71$ kN};
+	\draw ($ (E)+(-1.25,0) $)  -- ($ (E)+(-2.25,0) $);
+	\draw[latex-latex] ($ (E)+(-1.75,0) $)  arc (180:125:1.75);
+	\path  ($ (E)+(150:1.75) $) node[fill=white, inner sep=0.5mm] {\small $55^\circ$};
+
+	\draw ($ (A)-(0.5, 0) $) -- ($ (A)-(1.5, 0) $);
+	\draw ($ (F)-(0.5, 0) $) -- ($ (F)-(4.5, 0) $);
+	\draw[ latex-latex] ($ (A)-(1, 0) $) -- node[fill=white]{$3.00\text{ m}$}($ (F)-(4, 0) $);
+
+	\draw[ latex-latex] ([yshift=-1.5cm]A) -- node[fill=white]{$4.25\text{ m}$}([yshift=-1.5cm]B);
+	\draw[ latex-latex] ([yshift=-1.5cm]B) -- node[fill=white]{$4.25\text{ m}$}([yshift=-1.5cm]C);
+	\draw[ latex-latex] ([yshift=-1.5cm]C) -- node[fill=white]{$4.25\text{ m}$}([yshift=-1.5cm]D);
+
+	 \draw ($ (D)+(-0.875,-1)+(25:2.25) $) -- +(25:0.5);
+	\draw ($ (D)+(-0.875,-1)+(0:2.05) $) -- +(0:0.6);
+	 \draw[latex-latex] ($ (D)+(-0.875,-1)+(0:2.5) $)  arc (0:25:2.5);
+	 \path  ($ (D)+(-0.875,-1)+(12:2.5) $) node[fill=white, inner sep=0.5mm] {\small $25^\circ$};
+
+	\shade[ball color=Green4] (A) circle (2pt) node[above left, outer sep=0.5mm] {$A$};
+	\shade[ball color=Green4] (B) circle (2pt) node[below right, yshift=-1mm] {$B$};
+	\shade[ball color=Green4] (C) circle (2pt) node[below right, yshift=-1mm] {$C$};
+	\shade[ball color=Green4] (D) circle (2pt) node[above right, outer sep=0.5mm] {$D$};
+	\shade[ball color=Green4] (E) circle (2pt) node[above right, outer sep=0.5mm] {$E$};
+	\shade[ball color=Green4] (F) circle (2pt) node[above, outer sep=0.75mm] {$F$};
+
+\end{tikzpicture}

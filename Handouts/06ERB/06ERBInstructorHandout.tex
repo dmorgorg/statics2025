@@ -1,0 +1,380 @@
+\documentclass[10pt,oneside]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb} % for \checkmark
+\usepackage{bm}
+\usepackage{mathpazo}
+\usepackage{graphicx}
+\usepackage{enumerate}
+\usepackage[x11names, svgnames]{xcolor} % for \definecolor
+
+\usepackage[letterpaper]{geometry}
+\geometry{verbose,tmargin=0.25in,bmargin=0.5in,lmargin=1in,rmargin=1.15in}
+
+\input{../../includes/definedColors.tex}
+\input{../../includes/macros.tex}
+\input{../../includes/Channel.tex}
+\input{../../includes/Couple.tex}
+\input{../../includes/DL.tex}
+\input{../../includes/Member.tex}
+\input{../../includes/Meme.tex}
+\input{../../includes/PC.tex}
+\input{../../includes/EyeConnection.tex}
+\input{../../includes/EyeBolt.tex}
+\input{../../includes/Skywalker.tex}
+\input{../../includes/PulleyC.tex}
+\input{../../includes/Pulley.tex}
+\input{../../includes/Ring.tex}
+\input{../../includes/Rocker.tex}
+\input{../../includes/WBeam.tex}
+
+% https://tex.stackexchange.com/questions/731957/how-to-supress-missing-character-there-is-no-u003b-in-font-nullfont
+\tracinglostchars=1
+
+\hfuzz=250pt
+\setlength{\parindent}{0pt}
+\def\scale{1}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% page 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{textblock*}{6.775in}(1in, 0.225in)
+  \cbox{
+    \centering\huge
+    \textbf{Engineering Statics - 06 Equilibrium of Rigid Bodies - Instructor Copy}
+  }
+\end{textblock*}
+
+\begin{textblock*}{4in}(1in, 1.5in)
+	\cbox{
+		\underbar{\bf Example 5:} Pipe racks ($AB$, and two hidden behind it) support two smooth Schedule 40 pipes, with an outside diameter of $508\,\text{mm}$, as shown. The pipes are $10\,\text{m}$ in length with a mass of $78.5\,\text{kg/m}$. Each rack supports one-third of the weight of each pipe.\parm 
+		Determine the reaction at the fixed connection $A$.
+	}
+\end{textblock*}
+\begin{textblock*}{2.25in}(5.525in, 1.5in)
+	\cbox{
+    \centering
+    
+    \input{../../pikz/06ERB/06erb06Handout.tex}
+  }
+\end{textblock*}
+
+
+\begin{textblock*}{4in}(1in, 3.25in)
+  \centering
+  \large
+    The weight of each pipe bearing on $AB$:
+    $$ W=78.5\,\text{kg/m}\x 9.81\,\mathsf{m/s^2}\x 10\,\text{m}/3=2.5670\,\text{kN} $$    
+\end{textblock*}
+
+\begin{textblock*}{6.75in}(1in, 4in)
+  \centering
+  \large
+  Add some labels, find some distances:\parm
+  \mini[0.35]{
+    \tikz{%color
+      \coordinate (A) at (0,0);
+      \coordinate (B) at ($ (A)+(20:4) $);
+      \coordinate (D) at ($ (A)+(0, 0.1067)+ (55:1.25) $);
+      \coordinate (C) at ($ (D)+(20:1.42) $);
+      \coordinate (E) at ($ (D)!0.5!(C)+(110:.625) $);
+      \coordinate (F) at ($ (C)+(-70:.64) $);
+      \coordinate (G) at ($ (D)+(-70:.64) $);
+      \coordinate (H) at ($ (D)+(180:.64) $);
+      \draw[thick] ($ (A)+(0,2.5) $) --($ (A)+(0,-0.5) $);
+      \draw[line width=0.2cm, gray!50, line cap=round] ($ (A)+(200:0.15) $) -- (B);
+      \draw[line width= 0.15cm] (C) circle (0.64cm);
+      \draw[line width= 0.15cm,gray!50] (C) circle (0.6125cm);
+      \draw[line width= 0.15cm] (D) circle (0.64cm);
+      \draw[line width= 0.15cm,gray!50] (D) circle (0.6125cm);
+      \node[above, xshift=-2mm] at (A) {$ A $};
+      \node[right] at (B) {$ B $};
+      \node at (C) {$ C $};
+      \node at (D) {$ D $};
+      \node at (E) {$ E $};
+      \node at ($ (F)+(-70:0.325) $) {$ F $};
+      \node at ($ (G)+(-70:0.325) $) {$ G $};
+      \node at ($ (H)+(-180:0.325) $) {$ H $};
+    }
+  }
+  \mini[0.3]{
+    \tikz{%color
+      \coordinate (A) at (0,0);
+      \coordinate (B) at ($ (A)+(20:8) $);
+      \coordinate (D) at ($ (A)+(55:2.5) $);
+      \coordinate (G) at ($ (D)+(-70:1.425) $);
+      \coordinate (H) at ($ (D)+(180:1.425) $);
+
+      \draw (A)--(D);
+      \draw[thick] (D) circle (1.4cm);
+      \draw (A)--($ (A)+(20:4 )$);
+      \draw (A)--($ (A)!1.5!(H) $);
+      \draw (D)--(G);
+      \draw (D)--(H);
+      \node[above] at (D) {$ D $};
+      \node[left] at (H) {$ H $};
+      \node[below] at (G) {$ G $};
+      \node[below] at (A) {$ A $};
+      \draw ($ (G)+(110:0.5) $)--++(20:0.5)--+(-70:0.5);
+    }
+  }
+  \mini[0.3]{ 
+    \begin{align*}
+      \angle HAD &= \angle GAD = 35\deg \\
+      \angle GAD &= 55\deg \\
+      \frac{AG}{GD} &= \tan 55\deg \\
+      AG &= \frac{508\,\text{mm}}{2}\tan 55\deg \\
+       &=362.75\,\text{mm} \\
+      GF &= CD = 508\,\text{mm}
+    \end{align*}
+  }
+  \parb\centering
+  {\bf Forces acting upon the upper (rightmost) pipe, $\bm C$}:\parb
+  \mini[0.35]{    
+      \centering
+      \tikz{%color
+        \coordinate (O) at (0,0);
+        \coordinate (B) at ($ (A)+(20:4) $);
+        % \coordinate (D) at ($ (A)+(0, 0.1067)+ (55:1.25) $);
+        \coordinate (C) at ($ (D)+(20:1.42) $);
+        \node[above] at (C) {$ C $};
+        \draw[line width= 0.15cm] (C) circle (0.64cm);
+        \draw[line width= 0.15cm,gray!50] (C) circle (0.6125cm);
+        \draw[very thick, -latex] (C)--+(0,-1.5)node[below left]{$ 2.5670\,\text{kN} $};
+        \draw[very thick, latex-] ($ (C)+(210:0.64) $) --+(210:1.5)node[left]{$ R_E $};
+        \draw[very thick, latex-] ($ (C)+(-70:0.64) $) --+(-70:1.5)node[right]{$ R_F $};
+      } \parb
+      \tikz{%color
+        \coordinate (C) at (0,0);
+        \draw[very thick, -latex] (C)--+(0,-1.75)node[below]{$ 2.5670\,\text{kN} $};
+        \draw[very thick, -latex] (C)--+(110:1.75)node[left]{$ R_F $};
+        \draw[very thick, -latex] (C)--+(20:1.75)node[below right]{$ R_E $};
+        \draw[latex-latex] ($ (C)+(0,-1.25) $)arc(-90:20:1.25) node[midway, fill=white] {$ 110\deg $};
+        \draw[latex-latex] ($ (C)+(110:1.25) $)arc(110:270:1.25) node[midway, fill=white] {$ 160\deg $};
+        \node[above,xshift=1mm] at (C) {$ C $};
+      }
+     
+  }
+  \hfill
+   \mini[0.55]{      
+        This is now a simple concurrent forces problem, solved with simultaneous equations. Notice, however, that the direction of $R_F$ is perpendicular to the direction of $R_E$. \parb 
+        If we choose axes $x'$ and $y'$, rotated $20\deg$ in the counter clockwise direction around $C$, then the direction of $R_E$ is the $x'$-axis and the direction of $R_F$ is the $y'$-axis. Now we can solve without simultaneous equations.\parb
+        (Why bother complicating things? This will become a useful technique towards the end of the module and it's easy to introduce here.)
+        \begin{align*}
+          \Sigma F_{x'} &= R_E-2.5670\,\text{kN}\cd\cos 70\deg =0 \\
+          \Ra R_E &= 0.87800\,\text{kN}\\\\
+          \Sigma F_{y'} &= R_F-2.5670\,\text{kN}\cd\cos 20\deg =0 \\
+          \Ra R_F &= 2.4122\,\text{kN}\\
+        \end{align*}
+        \vspace{-1cm}
+      
+    }
+    \end{textblock*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% page 2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+~\newpage
+
+\begin{textblock*}{6.75in}(1in, 0.5in)
+  \large\centering      
+    {\bf Forces acting upon the lower (leftmost) pipe, $\bm D$:}
+    \parb ~\parb
+    \mini[0.35]{
+      \centering
+      \tikz{%color
+        \coordinate (D) at (0,0);
+        \node[above] at (D) {$ D $};
+        \draw[line width= 0.15cm] (D) circle (0.64cm);
+        \draw[line width= 0.15cm,gray!50] (D) circle (0.6125cm);
+        \draw[very thick, -latex] (C)--+(0,-1.5)node[below left]{$ 2.5670\,\text{kN} $};
+        \draw[very thick, latex-] ($ (C)+(20:0.64) $) --+(20:1.5)node[above]{$ 0.87800\,\text{kN} $};
+        \draw[very thick, latex-] ($ (C)+(180:0.64) $) --+(180:1.5)node[left]{$ R_H $};
+        \draw[very thick, latex-] ($ (C)+(-70:0.64) $) --+(-70:1.5)node[right]{$ R_G $};
+      }
+      \parb
+       \tikz{%color
+        \coordinate (D) at (0,0);
+        \draw[very thick, -latex] (D)--+(0,-1.75)node[below]{$ 2.5670\,\text{kN} $};
+        \draw[very thick, -latex] (D)--+(110:1.75)node[left]{$ R_G $};
+        \draw[very thick, -latex] (D)--+(200:1.75)node[left]{$ 0.87800\,\text{kN} $};
+        \draw[very thick, -latex] (D)--+(0:1.75)node[right]{$ R_H $};
+        \draw[latex-latex] ($ (D)+(270:1.25) $)arc(270:200:1.25) node[midway, fill=white, inner sep=1mm] {$ 70\deg $};
+        \draw[latex-latex] ($ (D)+(0:1.25) $)arc(0:110:1.25) node[midway, fill=white] {$ 110\deg $};
+        \node[xshift=-4mm, yshift=2mm] at (D) {$ D $};
+        \draw ($ (D)+(0.325,0) $)--++(0,-0.325)--+(-0.325,0);
+      }
+    }    
+    \hfill
+    \mini[0.55]{      
+        \large
+        \begin{align*}          
+          \Sigma F_{y} &= R_G\cd\cos 20\deg -2.5670\,\text{kN}-0.87800\,\text{kN}\cd\cos 70\deg\\ &=0 \\
+          \Ra R_G &= \frac{2.5670\,\text{kN}+0.87800\,\text{kN}\cd\cos 70\deg}{\cos 20\deg} \\
+          \Ra R_G &= 3.0513\,\text{kN}\\
+        \end{align*}
+        \vspace{-1cm}      
+    }
+    \parb 
+    % A quick check for calculations so far using the vertical components on the two pipes.\parm $ \Sigma F_y = 2.4122\,\text{kN}\cd\cos 20\deg + 3.0513\,\text{kN}\cd\cos 20\deg - 2\x 2.5670\,\text{kN} = 0.000010634\,\text{kN}\qquad  \text{\LARGE\checkmark} $
+    % \parb\vspace{1cm}
+    \def\scale{1.75}
+    \tikz[scale=\scale]{%color
+      \coordinate (A) at (0,0);
+      \coordinate (B) at ($ (A)+(20:4) $);
+      \coordinate (D) at ($ (A)+(0, 0.1067)+ (55:1.25) $);
+      % \coordinate (C) at ($ (D)+(20:1.42) $);
+      % \coordinate (E) at ($ (D)!0.5!(C)+(110:.625) $);
+      \coordinate (F) at ($ (A)+(20:1) $);
+      \coordinate (G) at ($ (A)+(20:2.5) $);
+     
+      \draw[line width=0.35cm, gray!50, line cap=round] ($ (A)+(200:0.15) $) -- (B);
+     
+      % \node[above, xshift=-2mm] at (A) {$ A $};
+      \node[above right] at (B) {$ B $};      
+      \node at ($ (F)+(-70:0.125) $) {$ F $};
+      \node at ($ (G)+(-70:0.125) $) {$ G $};
+      \node[xshift=0.25cm, yshift=-0.8cm] at (A) {$ M $};
+
+      \fill (A) circle (1.5pt) node[xshift=-3mm]{$A $};
+      \Couple{A}{black}{0.325}{0.625}
+      \draw[ultra thick, -latex] (A)--+(0.75,0)node[below]{$ R_{Ax}$};
+      \draw[ultra thick, -latex] (A)--+(0,0.75)node[left]{$ R_{Ay}$};
+      \draw[ultra thick, latex-] (G)--+(110:1)node[left]{$3.0513\,\text{kN}$};
+      \draw[ultra thick, latex-] (F)--+(110:1)node[left]{$2.4122\,\text{kN}$};
+
+      \coordinate (AA) at ($ (A)+(-70:0.75) $);
+      \coordinate (FF) at ($ (F)+(-70:0.75) $);
+      \coordinate (GG) at ($ (G)+(-70:0.75) $);
+      \draw[thin, gray] (AA)--+(-70:0.5);
+      \draw[thin, gray] (FF)--+(-70:0.5);
+      \draw[thin, gray] (GG)--+(-70:0.5);
+      \draw[thin, gray] ($ (A)+(0:0.875) $)--+(0:1.25);
+      \draw[thin] ($ (A)+(20:0.5) $)--+(20:2.5);
+
+      \draw[latex-latex]  ($ (AA)+(-70:0.25) $) -- ($ (FF)+(-70:0.25) $) node[fill=white, midway, rotate=-45] {$ 362.75\,\text{mm}$};
+      \draw[latex-latex]  ($ (FF)+(-70:0.25) $) -- ($ (GG)+(-70:0.25) $) node[fill=white, midway,sloped] {$ 508\,\text{mm}$};
+      \draw[latex-latex]  ($ (A)+(-0:1.75) $) arc(0:20:1.75) node[midway, fill=white, inner sep=1mm] {$ 20\deg $};
+
+      \draw (F)--++(110:0.2)--++(20:0.2)--+(-70:0.2);
+      \draw (G)--++(110:0.2)--++(20:0.2)--+(-70:0.2);
+    }
+
+    \begin{align*}
+      \Sigma M_A &= M-2.4122\,\text{kN}\cd 362.75\,\text{mm} -3.0513\,\text{kN}\cd 870.75\,\text{mm}=0 \Ra M = 3531.9\,\mathsf{kN\cd mm} = 3.5319\,\mathsf{kN\cd m} \\[0.25em]
+      \Sigma F_x &= R_{Ax}+2.4122\,\text{kN}\cd\sin 20\deg +3.0513\,\text{kN}\cd\sin 20\deg=0 \Ra R_{Ax} = -1.8686\,\text{kN} \\[0.25em]
+      \Sigma F_x &= R_{Ay}-2.4122\,\text{kN}\cd\cos 20\deg -3.0513\,\text{kN}\cd\cos 20\deg=0 \Ra R_{Ay} = 5.1340\,\text{kN}
+    \end{align*}
+    \mini[0.2]{
+      \tikz[scale=0.75]{%color
+        \coordinate (O) at (0,0);
+        \draw[-latex, thick] (O) -- +(-1.86,0)node[below]{1.8686\,\text{kN}};
+        \draw[-latex, thick] (O) -- +(0,5)node[above]{5.1340\,\text{kN}};
+        \draw[-latex, ultra thick] (O) -- +(-1.86,5)node[left]{$ R_A $};
+        \node at (-0.5,0.35){$ \theta $};
+      }
+    }
+    \hfill
+    \mini[0.75]{
+      \begin{align*}
+        R_A &= \sqrt{(1.8686\,\text{kN})^2+(5.1340\,\text{kN})^2} = 5.4635\,\text{kN}\\[0.25em]
+        \theta &= \tan^{-1}\left[\frac{5.1340\,\text{kN}}{1.8686\,\text{kN}}\right] = 70\deg
+      \end{align*}
+      \parb
+      The reaction at $A$ is $5.46\,\text{kN}$ at $110\deg$ counter-clockwise from the positive $x$-axis. The reacting moment at $A$ is $3.53\,\mathsf{kN\cd m}$
+    }
+
+\end{textblock*}
+     
+      
+  
+ 
+     
+  
+
+
+  %  \cbox{
+  %   \centering 
+  %   Forces acting upon the upper (rightmost) pipe, $C$:\parm 
+  %   \mini[0.4]{
+  %   \tikz{%color
+  %     \coordinate (O) at (0,0);
+  %     \coordinate (B) at ($ (A)+(20:4) $);
+  %     % \coordinate (D) at ($ (A)+(0, 0.1067)+ (55:1.25) $);
+	%     \coordinate (C) at ($ (D)+(20:1.42) $);
+  %     \node[above] at (C) {$ C $};
+  %     \draw[line width= 0.15cm] (C) circle (0.64cm);
+	%     \draw[line width= 0.15cm,gray!50] (C) circle (0.6125cm);
+  %     \draw[very thick, -latex] (C)--+(0,-1.5)node[below left]{$ 2.5670\,\text{kN} $};
+  %     \draw[very thick, latex-] ($ (C)+(210:0.64) $) --+(210:1.5)node[left]{$ R_E $};
+  %     \draw[very thick, latex-] ($ (C)+(-70:0.64) $) --+(-70:1.5)node[right]{$ R_F $};
+  %   } 
+  %   }
+  %  }
+  % }
+
+
+
+
+~\newpage
+
+\begin{textblock*}{3.5in}(1in, 5.5in)
+	\cbox{
+		\underbar{\bf Example 2:} Determine the sum of the moments of the forces, acting at $B$ and $C$, about the point $A$. \parm  Also, sum the moments of the forces about the point $B$.
+	}
+\end{textblock*}
+\begin{textblock*}{2.75in}(5.025in, 5.5in)
+	\cbox{
+		\centering
+		\def\scale{0.8}
+		\input{../../pikz/05Moments/05Moments09Handout.tex}
+	}
+\end{textblock*}
+\begin{textblock*}{3.5in}(1in, 7in)
+  \centering
+  \tikz[scale=0.875]{%color
+    \coordinate (A) at (0,0);
+    \coordinate (B) at (4,0);
+    \coordinate (C) at (4,2);
+    \draw[gray!50, line width=5mm, line cap=round] (A)--(B)--(C);
+    \draw[ultra thick, -latex, name path=BD] (B) -- +(131:3.75) node[above] {$2.30\,$kN};
+    \draw[ultra thick, -latex, line cap=round] (C) -- +(90:1.5) node[above, black] {$2.05\,$kN};
+    \draw[ultra thick, -latex, line cap=round] (C) -- +(0:1.75) node[above, black] {$2.84\,$kN};
+    \draw ($ (B)-(1.5,0) $) -- ($ (B)-(2.5,0) $);
+    \draw ($ (C)+(1,0) $) -- +(1:0);
+	  \draw[latex-latex] ($ (B)+(131:2)  $) arc (131:180:2);
+    \fill[black] (A) circle (2pt) node[left, xshift=-0.25cm] {$\bm A$};
+    \fill[black] (B) circle (2pt) node[below right, outer sep=2mm] {$\bm B$};
+    \fill[black] (C) circle (2pt) node[xshift=0.25mm, above right, outer sep=2mm] {$\bm C$};
+    \node[fill=white] at ($ (B)+(155:2) $){$49^\circ$};
+    \draw ($ (B)+(0.5,0) $) -- +(1,0);
+    \draw ($ (B)+(0,-0.5) $) -- +(0,-1);
+    \draw ($ (A)+(0,-0.5) $) -- +(0,-1);
+    \draw[latex-latex] ($ (A)-(0,1) $) -- node[fill=white] {$4.00\,$m} ($ (B)-(0,1) $);
+    \draw[latex-latex] ($ (C)+(1,0) $) -- node[fill=white, xshift=0.25cm] {$2.00\,$m} ($ (B)+(1,0) $);
+      \path[name path=AD] (A)--+(41:4);
+  \path[name intersections={of=AD and BD, by={D}}] ;
+  \draw (A)--(D)node[midway, fill=white] {$ d $};
+  \draw ($ (D)+(131:0.325) $) --++(221:0.325)--+(-49:0.325);
+  }
+  \large
+  \begin{align*}
+    \Sigma M_A &= \Sigma F\cd d \\[0.25em]
+    &= (2.30\,\text{kN})\cd(4.00\,\text{m})(\sin 49\deg) \\
+    &\qquad +(2.05\,\text{kN})\cd(4.00\,\text{m}) \bm - (2.84\,\text{kN})\cd(2.00\,\text{m})\\[0.25em]
+    &= 9.4633\,\mathsf{kN\cd m} 
+    \approx 9.46 \,\mathsf{kN\cd m} \\\\
+    \Sigma M_B &= 0+0-(2.84\,\text{kN})\cd(2.00\,\text{m})=-5.6800\,\mathsf{kN\cd m}
+    = -5.68\,\mathsf{kN\cd m}
+  \end{align*}
+\end{textblock*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% page 2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+~\newpage
+
+
+\end{document}

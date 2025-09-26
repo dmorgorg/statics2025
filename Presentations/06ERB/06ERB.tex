@@ -35,6 +35,7 @@
 
 \tcbset{fonttitle=\itshape\rmfamily}
 \usepackage{mathpazo}
+\usepackage{amssymb} % for /checkmark
  
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.18}
@@ -349,6 +350,32 @@
 
 \end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+	\begin{textblock*}{1\textwidth}(1cm, 0.25cm)
+
+		\begin{myexer}{}{}
+			\def\scale{0.8}
+			\centering
+			\input{../../pikz/06ERB/06erb04.tex}
+			\cmini[0.8]{
+				\centering
+				Determine the reactions at $A$ and $D$.
+			}
+			% answers, gray, centered, upside down
+			% \begin{center}
+			% 	\footnotesize
+			% 	\textcolor{gray}{
+			% 		\rotatebox[origin=c]{180}{
+			% 			$\left( R_D=2.79\text{ kN at } 115^\circ,\;R_A=1.08\text{ kN at } 152^\circ \text{, ccw from +ve $x$-axis.} \right)$
+			% 		}
+			% 	}
+			% \end{center}
+		\end{myexer}
+	\end{textblock*}
+
+\end{frame}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % \begin{frame}
 % 	\begin{textblock*}{1\textwidth}(1cm, 0.25cm)
@@ -495,8 +522,7 @@
 		\def\scale{0.55}
 		\input{../../pikz/06ERB/06erb02.tex}
 		\parb\centering
-		The roller at $B$ is in a smooth slot.
-		\parb
+		The roller at $B$ is in a smooth slot.\par
 		Determine the reactions at $A$ and $B$.
 		% answers, gray, centered, upside down
 		% \begin{center}
@@ -508,6 +534,43 @@
 		% 	}
 		% \end{center}
 	\end{myexam}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{}
+	\begin{myexer}{}{}
+		\centering
+		\def\scale{1}
+		\input{../../pikz/06ERB/06erb06.tex}
+		\parb
+		Pipe racks ($AB$, and two hidden behind it) support two smooth Schedule 40 pipes, with an outside diameter of $508\,\text{mm}$, as shown. The pipes are $10\,\text{m}$ in length with a mass of $78.5\,\text{kg/m}$, Each rack supports one-third of the weight of each pipe.\parm 
+		Determine the reaction at the fixed connection $A$.
+		
+	\end{myexer}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{}
+	\begin{myexam}{}{}
+		\centering
+		\def\scale{1}
+		\input{../../pikz/06ERB/06erb07.tex}
+		\parb
+		Pipe racks ($AB$, and two hidden behind it) support two smooth Schedule 40 pipes, with an outside diameter of $508\,\text{mm}$, as shown. The pipes are $10\,\text{m}$ in length with a mass of $78.5\,\text{kg/m}$, Each rack supports one-third of the weight of each pipe.\parm 
+		Determine the reaction at the fixed connection $A$.
+		
+	\end{myexam}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Notes:}
+	\cmini[0.9]{
+		\begin{enumerate}
+			\item  For a body in equilibrium, $\Sigma M=0$ for moments summed about {\bfseries any} point in the plane containing the body.\parm
+			\item We used all the three equations of statics to solve for the three unknowns. It would also have been possible to solve using $\Sigma M=0$ three times by choosing appropriate points about which to take moments. There are occasions when it is more convenient to sum moments two or three times, rather than summing components. (We will see this when using the Method of Sections to analyze forces in truss members.)\parm
+			\item Since there are only three equations for statics, we can only solve a system for three unknowns. Typically, two unknowns come from a pinned connection and the third from a cable, roller or some other connection whose reaction direction is known.\parm
+			\item We start the solution by taking moments about the pinned connection - this is so that we don't need to consider the moments of the pinned connection unknowns (e.g., $R_x$ and $R_y$) and the moment equation will immediately give a solution for the third unknown.
+		\end{enumerate}
+
+	}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
