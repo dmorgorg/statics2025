@@ -16,11 +16,18 @@
 
 	\filldraw[fill=green] (-3,-2) -- (1.732,-2) -- ++(0,1) -- ++ (3,0) -- ++ (0,-2) --(-3,-3) -- cycle;
 
-	\draw[ultra thick, saitRed, -Stealth] (0,2) -- +(4,0)node[right]{$\bm{\mathrm{ F }}$};
+	\draw[ultra thick, saitRed, -Latex] (0,2) -- +(4,0)node[right]{$\bm F $};
 	\fill (S) circle (2pt) node[below right, inner sep=0.2mm] {$\bm A$ };
-	\fill (O) circle (2pt) node[above] {\footnotesize $(0,0)$};
+	\fill (O) circle (2pt) node[above right] {\footnotesize $(0,0)$};
+
+	\only<1>{
+		\draw[dashed] ($ (O)+(0,2) $)--+(0,-3);
+		\draw[dashed] ($ (O)+(-2,0) $)--+(3,0);
+	}
+
+
 	\only<2-3>{
-		\draw[ultra thick, saitRed, -Stealth] (G) -- +(0,-2.5)node[right, black]{\footnotesize $412.02\text{ N}$};
+		\draw[ultra thick, saitRed, -Latex] (G) -- +(0,-2.5)node[right, black]{\footnotesize $412.02\text{ N}$};
 		\fill (G) circle (2pt) node[right] {\small $G$};
 	}
 	\only<3>{
@@ -37,7 +44,7 @@
 		\node[left, inner sep=0.3mm] at (0,-1) {$ B$};
 	}
 	\only<5->{
-		\draw[ultra thick, saitRed, -Stealth] (G) -- +(0,-2.5)node[right, black]{\footnotesize $412.02\text{ N}$};
+		\draw[ultra thick, saitRed, -Latex] (G) -- +(0,-2.5)node[right, black]{\footnotesize $412.02\text{ N}$};
 		\fill (G) circle (2pt) node[right] {\small $G$};
 		\draw[Latex-Latex] (S) -- node[fill=saitPurple!50,rotate=60, inner sep=0.1mm]{\footnotesize $377.51$ mm}(0.222, -1);
 		\draw[Latex-Latex] ([xshift=1.25cm]S) -- node[fill=white]{\footnotesize $750$ mm}+(0,3);

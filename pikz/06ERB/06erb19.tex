@@ -1,5 +1,3 @@
-% !TEX root = ../../00temp/downOne/prospectives.tex
-
 \tikz[scale=\scale]{
 	\def\thickness{thin}
 	\def\stroke{black}
@@ -12,6 +10,7 @@
 	\coordinate (O) at (2.75,-2);
 	\coordinate (F) at ($(O)+(140:6)$);
 	\coordinate (A) at ($(O)+(-6.8223,-1)$);
+	\coordinate (AA) at ($(A)+(245.5:1)$);
 	\coordinate (B) at ($(A)+(5.375,0)$);
 
 	\gettikzxy{(A)}{\Ax}{\Ay}
@@ -24,11 +23,10 @@
 
 	% hydraulic
 	\begin{scope}[transform canvas={rotate around={65.5:(A)}}]
-		\draw (A)-- (B);
 		\shadedraw[top color=Azure4,bottom color=Azure4, middle color=white] ($(A)+(0,0.075)$) rectangle ($(B)+(0,-0.075)$);
 		\shadedraw[top color=Azure4,bottom color=Azure4, middle color=white] ($(A)+(0,0.125)$) rectangle ($(A)!.6!(B)+(0,-0.125)$);
-		\shadedraw[top color=Azure4,bottom color=Azure4, middle color=white] ($(A)+(0,0.1875)$) rectangle ($(A)!.4!(B)+(0,-0.1875)$);
-		\shadedraw[top color=Honeydew4!75!black,bottom color=Honeydew4!50!black, middle color=Honeydew3] ($(A)+(-.1875,0.25)$) rectangle ($(A)!.15!(B)+(0,-0.25)$);
+		\shadedraw[top color=Azure4,bottom color=Azure4, middle color=white] ($(A)+(0,0.1875)$) rectangle ($(A)!.275!(B)+(0,-0.1875)$);
+		\shadedraw[top color=Honeydew4!75!black,bottom color=Honeydew4!50!black, middle color=Honeydew3] ($(A)+(-1.1875,0.25)$) rectangle ($(A)!.15!(B)+(-0.75,-0.25)$);
 		\shadedraw[top color=Honeydew4!75!black,bottom color=Honeydew4!50!black, middle color=Honeydew3] ($(A)!.875!(B)+(0,0.125)$) rectangle ($(B)+(0,-0.125)$);
 	\end{scope}
 
@@ -70,31 +68,27 @@
 	\def\hyp{1.5}
 	% major pin
 	\filldraw[fill=Honeydew4] ($(O)+(\cos*\r,\sin*\r)$)arc(10:170:\r)-- ++(-\sin*\hyp,-\cos*\hyp)-- ++(2*\sin*\hyp+2*\r, 0)-- cycle;
-
 	\draw ($(O)+(-0.75,0)$) -- +(-1.5,0);
-	\draw[latex-latex] ($(O)+(140:2)$)arc(140:180:2)node[midway, fill=white,inner sep=0.5mm]{$38\degree$};
-	\draw ($(A)+(0.5,0)$) -- +(1.5,0);
-	\draw ($(A)+(65.5:0.5)$) -- +(65.5:1.5);
-	\draw[latex-latex] ($(A)+(65.5:1.75)$)arc(65:0:1.75)node[midway, fill=white,inner sep=0.5mm]{$65.5\degree$};
-
-
-	% lower hydraulic connection
-	\begin{scope}[scale=0.5,rotate=-25]
-		\filldraw[fill=Honeydew4] ($(A)+(\cos*\r,\sin*\r)$)arc(10:170:\r)-- ++(-\sin*\hyp,-\cos*\hyp)-- ++(2*\sin*\hyp+2*\r, 0)-- cycle;
-	\end{scope}
+	\draw[latex-latex] ($(O)+(140:2)$)arc(140:180:2)node[midway, fill=white,inner sep=0.2mm]{$38\deg$};
+	\draw ($(AA)+(0.875,0)$) -- +(1.125,0);
+	\draw ($(AA)+(65.5:0.5)$) -- +(65.5:1.5);
+	\draw[latex-latex] ($(AA)+(65.5:1.5)$)arc(65:0:1.5)node[midway, fill=white,inner sep=0.3mm]{$65.5\deg$};
+	% lower hydraulic to base connection
+	\PC{AA}{Honeydew4}{black}{0.75}{0.2}
+	
 	% base
-	\fill[top color=Honeydew4,bottom color=Honeydew2] ($(O)+(-1,-0.5)$)-- ++(2,0)-- ++(0,-1.5)-- ++(-11.5,0)-- ++(0,2.275)-- ++(1.55,0)-- ++(1.25,-0.6255)-- ++(0,-1)--++(6.25,0);
-	\draw[black] ($(O)+(1,-0.5)$) -- ++(-2,0)-- ++(241:0.975)-- ++(-6.25,0)-- ++(0,1)--++(-1.25,0.625)--++(-1.55,0);
+	\fill[top color=Honeydew4!75!black,bottom color=Honeydew2] ($(O)+(1,-0.5)$) -- ++(-2,0)-- ++(270:1.875)-- ++(-7,0)-- ++(0,1.875)--++(-1.25,0.625)--++(-1.55,0)--+(0,-3.5)--($ (O)+(1,-3.5) $);
+	\draw[black] ($(O)+(1,-0.5)$) -- ++(-2,0)-- ++(270:1.875)-- ++(-7,0)-- ++(0,1.875)--++(-1.25,0.625)--++(-1.55,0);
 
 	\shadedraw[ball color=Honeydew3, draw=Honeydew4!25!black] (F) circle (1mm);
-	\shadedraw[ball color=Honeydew3, draw=Honeydew4!25!black] (A) circle (1mm);
+	% \shadedraw[ball color=Honeydew3, draw=Honeydew4!25!black] (AA) circle (1mm);
 	\shadedraw[ball color=Honeydew3, draw=Honeydew4!25!black] (O) circle (2mm);
 	\draw ($(O)+(140:0.55)$)-- ($(F)+(-40:0.25)$);
 
 \small
-	\node[xshift=-0.4cm] at (A) {$A$};
-	\node[xshift=-0.4cm,yshift=-0.2cm] at (F) {$B$};
-	\node[xshift=0.5cm,yshift=-0.1cm] at (O) {$C$};
+	\node[xshift=0.3cm] at (AA) {$A$};
+	\node[xshift=-0.3cm,yshift=-0.175cm] at (F) {$B$};
+	\node[xshift=0.35cm,yshift=-0.075cm] at (O) {$C$};
 
 
 }

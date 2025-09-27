@@ -21,12 +21,14 @@
 	\small
 
 	\fill[top color = LightSteelBlue4, bottom color=LightSteelBlue2] ($(A)+(-1,-0.5)$) rectangle +(2,-0.5);
-	\pgfoonew \AB=new rr(A,B,LightGoldenrod3,black, 0.125)
+	\Meme{A}{B}{LightGoldenrod3}{LightGoldenrod3}{black}{0.5}{0.2}{.5}
+	% \pgfoonew \AB=new rr(A,B,LightGoldenrod3,black, 0.125)
 	\def\hi{0.125}
 	\def\extend{\hi}
 	\def\radii{\hi}
-	\pgfoonew \DE=new rr(D,E,white,black, 0.125)
-	\PinnedConnection{A}{LightSteelBlue3}{black}{0.5}{0.125}
+	\Meme{D}{E}{white}{white}{black}{0.25}{0.1}{.5}
+	% \pgfoonew \DE=new rr(D,E,white,black, 0.125)
+	\PC{A}{LightSteelBlue3}{black}{0.5}{0.125}
 
 	\node[yshift=1.25mm, xshift=-3.5mm , inner sep=2mm] at (A) {$O$};
 	\filldraw (G) circle (1.5pt) node[yshift=-2mm, xshift=2.5mm , inner sep=2mm] {$G$};
@@ -41,15 +43,15 @@
 
 	\draw ($(A)+(0:0.75)$) -- +(0:1.5);
 	\draw ($(A)+(36:0.75)$) -- +(36:1.5);
-	\draw[latex-latex] ($(A)+(-0:1.875)$)arc[start angle=0, end angle=36, radius=1.875]node[midway, fill=white, inner sep=.1mm]{$36\degree$};
+	\draw[latex-latex] ($(A)+(-0:1.875)$)arc[start angle=0, end angle=36, radius=1.875]node[midway, fill=white, inner sep=.3mm]{\small $36\deg$};
 
 	\draw ($(A)+(126:0.5)$) -- +(126:0.75);
 	\draw ($(G)+(126:0.5)$) -- +(126:0.75);
 	\draw ($(B)+(126:0.5)$) -- +(126:0.75);
 	\draw ($(C)+(126:0.5)$) -- +(126:0.75);
 	\footnotesize
-	\draw[latex-latex]($(A)+(126:1)$) -- node[fill=white, inner sep=0.25mm]{$1.00\,$m}($(G)+(126:1)$);
-	\draw[latex-latex]($(G)+(126:1)$) -- node[fill=white, inner sep=0.25mm]{$0.300\,$m}($(C)+(126:1)$);
-	\draw[latex-latex]($(C)+(126:1)$) -- node[fill=white, inner sep=0.125mm]{$0.350\,$m}($(B)+(126:1)$);
+	\draw[latex-latex]($(A)+(126:1)$) -- node[fill=white, inner sep=0.25mm, sloped]{$1.00\,$m}($(G)+(126:1)$);
+	\draw[latex-latex]($(G)+(126:1)$) -- node[fill=white, inner sep=0.5mm, rotate=-30]{$0.300\,$m}($(C)+(126:1)$);
+	\draw[latex-latex]($(C)+(126:1)$) -- node[fill=white, inner sep=0.5mm, rotate=-30]{$0.350\,$m}($(B)+(126:1)$);
 
 \end{tikzpicture}

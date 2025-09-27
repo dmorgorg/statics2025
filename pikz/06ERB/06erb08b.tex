@@ -1,0 +1,41 @@
+\tikz[scale=\scale]{
+	\coordinate (A) at (0,-0.25);
+	\coordinate (AA) at (0,0);
+	\coordinate (B) at (7,-0.25);
+	\coordinate (C) at (0,2.5);
+	\coordinate (D) at (3,1);
+	\coordinate (E) at (7,1);
+	\coordinate (F) at (3.5,0);
+	\coordinate (G) at (1,0);
+
+	\coordinate (base) at (0,0.025);
+	\coordinate (Aleft) at ($(A)+(-0.5,0)$);
+
+	\DL{C}{D}{base}{DarkOliveGreen2}{DarkOliveGreen2}{6}{0.35}{5}
+	\DL{D}{E}{base}{DarkOliveGreen2}{DarkOliveGreen2}{8}{0.35}{0.01}	
+
+	\fill[white] ($ (A)+(0,3.5) $) rectangle ($ (A)+(-1,-1.5) $);
+	% \draw[thick] ($ (A)+(0,3.5) $) -- +(0, -5);
+	\Meme{A}{B}{AntiqueWhite4}{AntiqueWhite2}{black}{0.5}{0}{.75}	
+
+	\fill (A) circle (1.5pt) node [left, xshift=-1mm] {\Large $A$};
+	\node at (B) [right,xshift=1mm] {\Large $B$};
+	
+
+	\draw ($ (F)+(0,-.75) $) -- +(0,-1);
+	\draw ($ (G)+(0,-.75) $) -- +(0,-1);
+	\draw ($ (AA)+(0,-.75) $) -- +(0,-1);
+
+	\draw[Latex-Latex] ([yshift=-1.25cm]AA) -- node[fill=white, inner sep=0.5mm, rotate=67] {\small $1.00$ m} ([yshift=-1.25cm]G);
+	\draw[Latex-Latex] ([yshift=-1.25cm]G) -- node[fill=white, inner sep=0.5mm] {\small $2.50$ m} ([yshift=-1.25cm]F);
+	
+
+	\draw[very thick, -Latex, statsMaroon] (A)--+(0,1.5)node[left]{$ R_{Ay}$};
+	\draw[very thick, -Latex, statsMaroon] (A)--+(1.5,0)node[below]{$ R_{Ax}$};
+	\Couple{A}{statsMaroon}{0.625}{0.5}
+	\node[statsMaroon] at ($ (A)+(0.675,0.675) $) {$\bm M $};
+
+	\draw[very thick, latex-, DarkOliveGreen4!75!black] (F) -- +(0,1.5) node[above]{$ 10.500\,\text{kN} $};
+	\draw[very thick, latex-, DarkOliveGreen4!75!black] (G) -- +(0,1.5) node[above]{$ 3.7500\,\text{kN} $};
+
+}
