@@ -1,0 +1,61 @@
+% !TEX root = ../../Beamer/09ComplexFrames/09ComplexFrames.tex
+
+
+\tikz[scale=\scale]{
+  \coordinate (A) at (-3,0);
+  \coordinate (O) at (0,0);
+  \coordinate (B) at (6,0);
+  \coordinate (C) at (0,5);
+  \coordinate (D) at ($ (B)!.5!(C) $);
+
+  \gettikzxy{(A)}{\ax}{\ay}
+  \gettikzxy{(B)}{\bx}{\by}
+  \gettikzxy{(C)}{\cx}{\cy}
+  \gettikzxy{(D)}{\ddx}{\ddy}
+  \def\hi{0.25}
+  \def\radii{0.249}
+  \def\extend{0.249}
+
+  \small
+
+  % \filldraw[draw=saitMaroon, fill=white, very thick] (-6,-4) rectangle (11,7);
+  \fill[mucus!50] ($ (A)+(-1.5,-0.75)$) rectangle ($ (B)+(3.5,-1.75)$);
+  \draw[black] ($ (A)+(-1.5,-0.75)$) rectangle ($ (B)+(3.5,-0.75)$);
+  \PC{A}{mucus!50}{black}{0.75}{0.125}
+  \PC{B}{mucus!50}{black}{0.75}{0.125}
+  \Meme{A}{C}{DarkSeaGreen4}{DarkSeaGreen2}{0.5}{0.1}{0.125}
+  \Meme{B}{C}{DarkSeaGreen4}{DarkSeaGreen2}{0.5}{0.1}{0.125}
+
+  \shadedraw[ball color=gray] (A) circle (4pt);
+  \shadedraw[ball color=gray] (B) circle (4pt);
+  \shadedraw[ball color=gray] (C) circle (4pt);
+  \shadedraw[ball color=gray] (D) circle (2pt);
+  \draw[Latex-, ultra thick, saitDeepBlue] (D) -- ++(0,2) node[right] {\footnotesize $4.00$ kN};
+
+  \draw (\ax, \ay-1 cm) -- (\ax, -3);
+  \draw (\cx, \cy-1 cm) -- (\cx, -3);
+  \draw (\bx, \by-1 cm) -- (\bx, -3);
+  \draw (\ddx, \ddy-1 cm) -- (\ddx, -3);
+
+  \draw[latex-latex] (\ax,-2.5) -- node[fill=white, inner sep=0.5mm]{\footnotesize $ 2.00$ m}(\cx,-2.5);
+  \draw[latex-latex] (\cx,-2.5) -- node[fill=white, inner sep=0.5mm]{\footnotesize $ 2.00$ m}(\ddx,-2.5);
+  \draw[latex-latex] (\ddx,-2.5) -- node[fill=white, inner sep=0.5mm]{\footnotesize $ 2.00$ m}(\bx,-2.5);
+
+  \draw (\cx + 1 cm, \cy) -- (\bx+3 cm, \cy );
+  \draw (\bx + 1 cm, \by) -- (\bx+3 cm, \by );
+  \draw (\ddx + 1 cm, \ddy) -- (\bx+3 cm, \ddy );
+  \draw[latex-latex] (\bx+2cm,\by) -- node[fill=white]{\footnotesize $ 1.75$ m}(\bx+2cm,\ddy);
+  \draw[latex-latex] (\bx+2cm,\ddy) -- node[fill=white]{\footnotesize $ 1.75$ m}(\bx+2cm,\cy);
+
+  \node[left=0.5mm] at (A) {$A$};
+  \node[right=0.5mm] at (B) {$B$};
+  \node[above=0.5mm] at (C) {$C$};
+
+  \only<2->{
+    \coordinate (E) at ($ (A)!.5!(C) $);
+    \gettikzxy{(E)}{\ex}{\ey}
+    \shadedraw[ball color=gray] (E) circle (2pt);
+    \draw[Latex-, ultra thick, saitDeepBlue] (E) -- ++(-2,0) node[above] {\footnotesize $3.00$ kN};
+    \draw (\ex+0.5cm,\ey) -- (\ddx-0.75cm, \ddy);
+  }
+}

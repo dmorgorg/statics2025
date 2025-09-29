@@ -1,12 +1,4 @@
-% !TEX root = ../../Quizzes/06ERB/06ERBQuizBFall2017.tex
 
-% \makeatletter
-% \providecommand{\gettikzxy}[3]{%
-% 	\tikz@scan@one@point\pgfutil@firstofone#1\relax
-% 	\edef#2{\the\pgf@x}%
-% 	\edef#3{\the\pgf@y}%
-% }
-% \makeatother
 
 \tikz[scale=\scale]{
 	\coordinate (A) at (-3,0);
@@ -16,6 +8,9 @@
 	\coordinate (E) at (0,1);
 	\coordinate (y) at (3.5,0);
 	\coordinate (x) at (0,-1.25);
+	\coordinate (TL) at (0,1.25);
+	\coordinate (TR) at (5,2.25);
+	\coordinate (base) at (0,0);
 
 
 	\gettikzxy{(A)}{\Ax}{\Ay}
@@ -38,12 +33,14 @@
 
 	\filldraw[fill=DarkSeaGreen3, draw=black, rounded corners=1.5mm] (\Ax-\hi cm,\Ay-\hi cm)--(\Ax+\hi cm,\Ay-\hi cm)--(\Ax+\hi cm,\Cy-\hi cm-1cm)--+(1,1)--(\Cx+\hi cm, \Cy-\hi cm)--(\Cx+\hi cm, \Cy+\hi cm)--(\Ax-\hi cm,\Cy+\hi cm)--cycle;
 
-	\PinnedConnection{A}{Honeydew3}{black}{0.5}{0.125}
-	\PinnedConnection{B}{Honeydew3}{black}{0.5}{0.125}
+	\PC{A}{Honeydew3}{black}{0.5}{0.125}
+	\PC{B}{Honeydew3}{black}{0.5}{0.125}
 
-\begin{scope}[xshift=-1.775 cm,yshift=3 cm]
-	\DLOne[-90]{(0,1)}{(4,2)}{(0,0)}{CadetBlue3}{black}{10}{1}{0.5}
-\end{scope}
+	\begin{scope}[yshift=-2cm,xshift=2cm]
+	% \DLup[-90]{TL}{TR}{base}{CadetBlue3}{black}{10}{0.25}{5}
+	\DLOne[-90]{TL}{TR}{base}{CadetBlue3}{black}{10}{1}{1}
+	\end{scope}
+
 
 \shadedraw[ball color=Honeydew3] (C) circle (0.1cm);
 % \shadedraw[ball color=Honeydew3] (D) circle (0.1cm);

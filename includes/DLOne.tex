@@ -1,0 +1,79 @@
+% !TEX root = ../Beamer/statikz/statikz.tex
+
+%\DLOne[rotate]{tl}{tr}{b}{fill}{draw}{spaces}{scale}{lineWidth}
+\newcommand{\DLOne}[9][0]{
+	\def\rotate{#1}
+	\def\tl{#2}
+	\def\tr{#3}
+	\def\b{#4}
+	\def\lfill{#5}
+	\def\ldraw{#6}
+	\def\spaces{#7}
+	\def\lscale{#8}
+	\def\llinewidth{#9}
+
+	\def\tocm{0.0351459804}
+	\providecommand\tiplength{2.5pt}
+
+	\gettikzxy{(\tl)}{\tlx}{\tly};
+	\gettikzxy{(\tr)}{\trx}{\try};
+	\gettikzxy{(\b)}{\bx}{\by};
+
+	\pgfmathparse{\trx-\tlx} \let\dx\pgfmathresult
+	\pgfmathparse{\try-\tly} \let\dy\pgfmathresult
+	\pgfmathparse{round(\tocm*\dx*100)/100} \let\dxcm\pgfmathresult
+	\pgfmathparse{round(\tocm*\dy*100)/100} \let\dycm\pgfmathresult
+
+	\coordinate (midBase) at (\tlx/2+\trx/2, \by);
+
+	\gettikzxy{(midBase)}{\mx}{\my}
+	\pgfmathparse{round(\tocm*\mx*100)/100} \let\mxcm\pgfmathresult
+	\pgfmathparse{round(\tocm*\my*100)/100} \let\mycm\pgfmathresult
+
+
+	\pgfmathparse{\dxcm/\spaces} \let\xspacing\pgfmathresult
+	\pgfmathparse{\dycm/\spaces} \let\yspacing\pgfmathresult
+	\pgfmathparse{\spaces-1} \let\numarrows\pgfmathresult
+
+	\begin{scope}[scale=\lscale, rotate around ={\rotate:(midBase)}, line cap = round, line join = round, line width = \llinewidth mm]
+		\fill[\lfill] (\tlx, \tly) -- (\trx, \try) -- (\trx, \by) -- (\tlx, \by);
+		\draw[\ldraw!50, thin] (\tlx, \by) -- (\trx, \by);
+		% \draw (\mxcm,\mycm) circle (2pt) node[below] {\mxcm, \mx};
+		% \draw (midBase) circle (2pt)node[above] {\my};
+		% \draw (\bx, \by) circle (2pt) node[above] {\by};
+
+		\pgfmathparse{abs(\try - \by)} \let\ryy\pgfmathresult
+		\pgfmathparse{abs(\tly - \by)} \let\lyy\pgfmathresult
+
+		\pgfmathparse{\lyy>\tiplength && \ryy>\tiplength}
+		\ifnum\pgfmathresult=1
+			\draw[\ldraw, {Straight Barb[length=\tiplength]}-{Straight Barb[length=\tiplength]},line width=\llinewidth] (\tlx,\by) -- (\tlx, \tly) -- (\trx,\try) -- (\trx,\by);
+		\fi
+		\pgfmathparse{\lyy<\tiplength && \lyy>\tiplength/4 && \ryy>\tiplength}
+		\ifnum\pgfmathresult=1
+			\draw[\ldraw, {Straight Barb[length=\lyy]}-{Straight Barb[length=\tiplength]},line width=\llinewidth] (\tlx,\by) -- (\tlx, \tly) -- (\trx,\try) -- (\trx,\by);
+		\fi
+		\pgfmathparse{\lyy<=\tiplength/4 && \ryy>\tiplength}
+		\ifnum\pgfmathresult=1
+			\draw[\ldraw, -{Straight Barb[length=\tiplength]},line width=\llinewidth] (\tlx,\by) -- (\tlx, \tly) -- (\trx,\try) -- (\trx,\by);
+		\fi
+		\pgfmathparse{\ryy<\tiplength && \ryy>\tiplength/4 && \lyy>\tiplength}
+		\ifnum\pgfmathresult=1
+			\draw[\ldraw, {Straight Barb[length=\tiplength]}-{Straight Barb[length=\ryy]},line width=\llinewidth] (\tlx,\by) -- (\tlx, \tly) -- (\trx,\try) -- (\trx,\by);
+		\fi
+		\pgfmathparse{\ryy<=\tiplength/4 && \lyy>\tiplength}
+		\ifnum\pgfmathresult=1
+			\draw[\ldraw, {Straight Barb[length=\tiplength]}-,line width=\llinewidth] (\tlx,\by) -- (\tlx, \tly) -- (\trx,\try) -- (\trx,\by);
+		\fi
+
+	%
+		\begin{scope}
+			\clip (\tlx,\tly) -- (\trx, \try) -- (\trx,\by) -- (\tlx,\by) ;
+			\foreach \i in {1,...,\numarrows}
+			\def\x{\i*\xspacing}
+			\def\y{\i*\yspacing}
+			\draw[\ldraw, -{Straight Barb[length=\tiplength]}, line width = \llinewidth pt] ($ (\tlx,\tly)+(\x,\y) $) -- ($ (\tlx,\by)+(\x,0) $);
+		\end{scope}
+	\end{scope}
+	% \draw (midBase) circle (3pt)node[below]{\yspacing};
+}
