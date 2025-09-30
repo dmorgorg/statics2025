@@ -1,0 +1,67 @@
+\tikz[scale=\scale, line cap = round]{
+  \only<1-2>{
+    \coordinate (A) at (-3,0);
+    \coordinate (O) at (0,0);
+    \coordinate (B) at (6,0);
+    \coordinate (C) at (0,5);
+    \coordinate (D) at ($ (B)!.5!(C) $);
+
+    \gettikzxy{(A)}{\ax}{\ay}
+    \gettikzxy{(B)}{\bx}{\by}
+    \gettikzxy{(C)}{\cx}{\cy}
+    \gettikzxy{(D)}{\ddx}{\ddy}
+  }
+  % \only<3->{
+  %   \coordinate (A) at (0,0);
+	%   \coordinate (B) at (8,0);
+  %   \coordinate (C) at (2,2.5);
+  %   \coordinate (BCmid) at ($(B)!0.5!(C)$);
+  %   \coordinate (ACmid) at ($(A)!0.5!(C)$);
+  %   \gettikzxy{(A)}{\ax}{\ay}
+  %   \gettikzxy{(B)}{\bx}{\by}
+  %   \gettikzxy{(C)}{\cx}{\cy}
+  %   \gettikzxy{(BCmid)}{\bcmidx}{\bcmidy}
+  % }
+
+  
+
+  \fill[Cornsilk3] ($ (A)+(-1.5,-0.75)$) rectangle ($ (B)+(3.5,-1.75)$);
+  \draw[black] ($ (A)+(-1.5,-0.75)$) -- ($ (B)+(3.5,-0.75)$);
+  \PC{A}{Cornsilk3}{black}{0.75}{0.125}
+  \PC{B}{Cornsilk3}{black}{0.75}{0.125}
+  \Meme{A}{C}{DarkSeaGreen4}{DarkSeaGreen3}{black}{0.5}{0.15}{0.125}
+  \Meme{B}{C}{DarkSeaGreen4}{DarkSeaGreen3}{black}{0.5}{0.15}{0.125}
+
+  \shadedraw[ball color=Cornsilk3] (A) circle (4pt);
+  \shadedraw[ball color=Cornsilk3] (B) circle (4pt);
+  \shadedraw[ball color=Cornsilk3] (C) circle (4pt);
+  \shadedraw[ball color=Cornsilk3] (D) circle (2pt);
+  \draw[Latex-, ultra thick, Blue3] (D) -- ++(0,2) node[right] {\footnotesize $4.00$ kN};
+
+  \draw (\ax, \ay-1 cm) -- (\ax, -3);
+  \draw (\cx, \cy-1 cm) -- (\cx, -3);
+  \draw (\bx, \by-1 cm) -- (\bx, -3);
+  \draw (\ddx, \ddy-1 cm) -- (\ddx, -3);
+
+  \draw[latex-latex] (\ax,-2.5) -- node[fill=white, inner sep=0.5mm]{\footnotesize $ 2.00$ m}(\cx,-2.5);
+  \draw[latex-latex] (\cx,-2.5) -- node[fill=white, inner sep=0.5mm]{\footnotesize $ 2.00$ m}(\ddx,-2.5);
+  \draw[latex-latex] (\ddx,-2.5) -- node[fill=white, inner sep=0.5mm]{\footnotesize $ 2.00$ m}(\bx,-2.5);
+  \draw (\cx + 1 cm, \cy) -- (\bx+3 cm, \cy );
+  \draw (\bx + 1 cm, \by) -- (\bx+3 cm, \by );
+  \draw (\ddx + 1 cm, \ddy) -- (\bx+3 cm, \ddy );
+  \draw[latex-latex] (\bx+2cm,\by) -- node[fill=white]{\footnotesize $ 1.75$ m}(\bx+2cm,\ddy);
+  \draw[latex-latex] (\bx+2cm,\ddy) -- node[fill=white]{\footnotesize $ 1.75$ m}(\bx+2cm,\cy);  
+  \node[left=0.5mm] at (A) {$A$};
+  \node[right=0.6mm] at (B) {$B$};
+  \node[above=0.7mm] at (C) {$C$};
+
+  \only<2->{
+    \coordinate (E) at ($ (A)!.5!(C) $);
+    \gettikzxy{(E)}{\ex}{\ey}
+    \shadedraw[ball color=Cornsilk3] (E) circle (2pt);
+    \draw[Latex-, ultra thick, Blue3] (E) -- ++(-2,0) node[above] {\footnotesize $3.00$ kN};
+    \draw (\ex+0.5cm,\ey) -- (\ddx-0.75cm, \ddy);
+  }
+
+
+}
