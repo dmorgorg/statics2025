@@ -37,11 +37,11 @@
 
 	\filldraw[fill=DarkSeaGreen3, draw=black, rounded corners=1.5mm] (\Ax-\hi cm,\Ay-\hi cm)--(\Cx+\hi cm,\Ay-\hi cm)--(\Cx+\hi cm,\Cy+\hi cm)--(\Cx-\hi cm, \Cy+\hi cm)--(\Cx-\hi cm,\Ay+\hi cm +1 cm)--+(-1,-1)--(\Ax-\hi cm, \Ay+\hi cm)--cycle;
 
-	\PinnedConnection[-90]{A}{Honeydew3}{black}{0.5}{0.125}
-	\PinnedConnection[-90]{B}{Honeydew3}{black}{0.5}{0.125}
+	\PC[-90]{A}{Honeydew3}{black}{0.5}{0.125}
+	\PC[-90]{B}{Honeydew3}{black}{0.5}{0.125}
 
 	\begin{scope}[xshift=1 cm,yshift=\hi cm]
-		\DLOne{(0,1)}{(4,2)}{(0,0)}{CadetBlue3}{black}{10}{1}{0.5}
+		\DLdown{(0,1)}{(4,2)}{(0,0)}{Honeydew3}{black}{10}{0.3}{5}
 	\end{scope}
 
 	\shadedraw[ball color=Honeydew3] (C) circle (0.1cm);
@@ -56,6 +56,8 @@
 
 	\draw ($(B)+(-0.25,0)$)--(\xx-0.5cm,\By);
 	\draw ($(A)+(-0.25,0)$)--(\xx-0.5cm,\Ay);
+
+	\footnotesize
 
 	\draw[latex-latex] (\xx,\Ay)--node[fill=white]{$1.50\,$m}(\xx,\By);
 	\draw[latex-latex] (\Ax,\yy)--node[fill=white,rotate=65]{$750\,$mm}(\Ex,\yy);

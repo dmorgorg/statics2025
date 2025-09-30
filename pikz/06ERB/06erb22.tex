@@ -8,9 +8,7 @@
 	\coordinate (E) at (0,1);
 	\coordinate (y) at (3.5,0);
 	\coordinate (x) at (0,-1.25);
-	\coordinate (TL) at (0,1.25);
-	\coordinate (TR) at (5,2.25);
-	\coordinate (base) at (0,0);
+	
 
 
 	\gettikzxy{(A)}{\Ax}{\Ay}
@@ -20,6 +18,13 @@
 	\gettikzxy{(E)}{\Ex}{\Ey}
 	\gettikzxy{(y)}{\yx}{\yy}
 	\gettikzxy{(x)}{\xx}{\xy}
+
+	\begin{scope}[xshift=-1.7875cm, yshift=3cm]
+		\coordinate (TL) at (0,1.25);
+		\coordinate (TR) at (4,2.25);
+		\coordinate (base) at (0,0);
+		\DLdown[-90]{TL}{TR}{base}{Honeydew2}{black}{8}{0.3}{5}
+	\end{scope}
 
 
 	% \def\scale{1}
@@ -33,33 +38,27 @@
 
 	\filldraw[fill=DarkSeaGreen3, draw=black, rounded corners=1.5mm] (\Ax-\hi cm,\Ay-\hi cm)--(\Ax+\hi cm,\Ay-\hi cm)--(\Ax+\hi cm,\Cy-\hi cm-1cm)--+(1,1)--(\Cx+\hi cm, \Cy-\hi cm)--(\Cx+\hi cm, \Cy+\hi cm)--(\Ax-\hi cm,\Cy+\hi cm)--cycle;
 
-	\PC{A}{Honeydew3}{black}{0.5}{0.125}
-	\PC{B}{Honeydew3}{black}{0.5}{0.125}
+	\PC{A}{Honeydew2}{black}{0.5}{0.125}
+	\PC{B}{Honeydew2}{black}{0.5}{0.125}
 
-	\begin{scope}[yshift=-2cm,xshift=2cm]
-	% \DLup[-90]{TL}{TR}{base}{CadetBlue3}{black}{10}{0.25}{5}
-	\DLOne[-90]{TL}{TR}{base}{CadetBlue3}{black}{10}{1}{1}
-	\end{scope}
+	\shadedraw[ball color=Honeydew3] (C) circle (0.1cm);
+	\shadedraw[ball color=Honeydew3] (A) circle (0.1cm)node[xshift=-0.375cm]{\large $A$};
+	\shadedraw[ball color=Honeydew3] (B) circle (0.1cm)node[xshift=-0.375cm]{\large $B$};
 
+	\draw ($(D)+(1.75,0)$)--($(D)+(4,0)$);
+	\draw ($(C)+(2.5,0)$)--($(C)+(4,0)$);
+	\draw ($(E)+(2.75,0)$)--($(E)+(4,0)$);
+	\draw ($(B)+(.4,0)$)--($(B)+(4,0)$);
+	\draw ($(B)+(0,-0.25)$)--+(0,-1.25);
+	\draw ($(A)+(0,-0.25)$)--+(0,-1.25);
 
-\shadedraw[ball color=Honeydew3] (C) circle (0.1cm);
-% \shadedraw[ball color=Honeydew3] (D) circle (0.1cm);
-\shadedraw[ball color=Honeydew3] (A) circle (0.1cm)node[xshift=-0.375cm]{\large $A$};
-\shadedraw[ball color=Honeydew3] (B) circle (0.1cm)node[xshift=-0.375cm]{\large $B$};
+	\footnotesize
+	\draw[latex-latex] (\yx,\Dy)--node[fill=white, inner sep=0.5mm]{$1.50\,$m}(\yx,\Cy);
+	\draw[latex-latex] (\yx,\Cy)--node[fill=white, inner sep=0.5mm]{$500\,$mm}(\yx,\Ey);
+	\draw[latex-latex] (\yx,\Ey)--node[fill=white, inner sep=0.5mm]{$500\,$mm}(\yx,\By);
+	\draw[latex-latex] (\Ax,\xy)--node[fill=white, inner sep=0.5mm]{$1.50\,$m}(\Bx,\xy);
 
-\draw ($(D)+(1.5,0)$)--($(D)+(4,0)$);
-\draw ($(C)+(2.25,0)$)--($(C)+(4,0)$);
-\draw ($(E)+(2.5,0)$)--($(E)+(4,0)$);
-\draw ($(B)+(.4,0)$)--($(B)+(4,0)$);
-\draw ($(B)+(0,-0.25)$)--+(0,-1.25);
-\draw ($(A)+(0,-0.25)$)--+(0,-1.25);
-
-\draw[latex-latex] (\yx,\Dy)--node[fill=white]{$1.50\,$m}(\yx,\Cy);
-\draw[latex-latex] (\yx,\Cy)--node[fill=white]{$500\,$mm}(\yx,\Ey);
-\draw[latex-latex] (\yx,\Ey)--node[fill=white]{$500\,$mm}(\yx,\By);
-\draw[latex-latex] (\Ax,\xy)--node[fill=white]{$1.50\,$m}(\Bx,\xy);
-
-\node at (1.25,5.25){$1.25\,$kN/m};
-\node at (1.75,0.75){$2.25\,$kN/m};
+	\node at (1.25,5.25){$1.25\,$kN/m};
+	\node at (1.75,0.75){$2.25\,$kN/m};
 
 }
