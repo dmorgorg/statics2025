@@ -1,6 +1,6 @@
 % !TEX root = ../../Beamer/06EquilibriumOfRigidBodies/06ERB.tex
 
-\tikz[scale=\scale]{
+\tikz[scale=\scale, line cap = round]{
 	\def\xshift{8}
 	\def\yshift{4}
 	\def\xxshift{4}
@@ -12,37 +12,37 @@
 	\coordinate (OOO) at ($(OO)+(\xxshift,-\yshift)$);
 	\coordinate (AAA) at ($(AA)+(\xxshift,-\yshift)$);
 
-	\def\thickness{thick}
-	\def\stroke{black}
-	\def\hi{.3}
-	\def\radii{\hi}
-	\def\extend{\hi}
+	% \def\thickness{thick}
+	% \def\stroke{black}
+	% \def\hi{.3}
+	% \def\radii{\hi}
+	% \def\extend{\hi}
 
-	\PinnedConnection{A}{gray!75!white}{black}{1}{0.125}
+	\PC{A}{gray!75!white}{black}{1}{0.125}
 	\begin{scope}[transform canvas={rotate=\rotate}]
 		\filldraw [top color=gray, bottom color=gray, middle color=gray!50, thick]($(O)+(5,0.5)$)  -- +(-5,0)arc(90:270:0.5)-- +(4.5,0);
 	\end{scope}
 	\node[xshift=-0.375cm, yshift=0.375cm] at (O) {\large $A$};
 	\node[xshift=-0.375cm, yshift=0.125cm] at (A) {\large $B$};
 	\node[xshift=3cm, yshift=2.25cm] at (A) {\large $C$};
+	
+	\Meme{O}{A}{gray!50}{gray!50}{black}{0.75}{0.2}{.25}
 
-	\pgfoonew \AF=new rr(O,A,gray!50,black, 0.25)
+	\draw[line width=1.875mm, black, line cap = round]($(O)+(-105:0.5)$)-- ($(A)+(75:0.5)$);
+	\draw[line width=1.5mm, saitDeepBlue!70, line cap = round]($(O)+(-105:0.5)$)-- ($(A)+(75:0.5)$);
 
-
-
-	\draw[line width=1.875mm, black]($(O)+(-105:0.5)$)-- ($(A)+(75:0.5)$);
-	\draw[line width=1.5mm, gray!30]($(O)+(-105:0.5)$)-- ($(A)+(75:0.5)$);
-
-	\only<1>{
-	\draw[ultra thick, -latex, saitMaroon](O) -- ($(O)!0.5!(A) $)node[right]{$\bm R$};
-	}
-	\only<2>{
-	\draw[ultra thick, latex-, saitMaroon](O) -- ($(O)!0.5!(A) $)node[right]{$\bm R$};
-	}
+	
 	\filldraw[ball color=gray] (O) circle (2mm);
 	\filldraw[ball color=gray] (A) circle (2mm);
 	\fill[top color=mucus, bottom color=mucus!25] ($(A)+(-3,-0.5)$) rectangle +(6,-1);
 	\draw[thick] ($(A)+(-3,-0.50)$)-- +(6,0);
+
+	\only<1>{
+	\draw[ultra thick, -latex, statsMaroon](O) -- ($(O)!0.5!(A) $)node[right,xshift=1mm]{$\bm R$};
+	}
+	\only<2>{
+	\draw[ultra thick, latex-, statsMaroon](O) -- ($(O)!0.5!(A) $)node[right,xshift=1mm]{$\bm R$};
+	}
 
 
 	\begin{scope}[scale=0.75]

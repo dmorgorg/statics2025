@@ -61,7 +61,7 @@
 
 % https://tex.stackexchange.com/questions/731957/how-to-supress-missing-character-there-is-no-u003b-in-font-nullfont
 \tracinglostchars=1
-\hfuzz 120pt
+% \hfuzz 120pt
 
 \def\scale{1}
 \newcounter{examnumber}
@@ -72,7 +72,7 @@
 % \newcounter{myexercisecounter}
 
 % Title page details: 
-\title[Equilibrium of Rigid Bodies]{\Huge 06 Equilibrium of Rigid Bodies}
+\title[06 Equilibrium of Rigid Bodies]{\Huge 06 Equilibrium of Rigid Bodies}
 \subtitle[Engineering Statics]{\Large\textcolor{white}{Engineering Statics}}
 \author{}
 \date{\small Updated on: \today}
@@ -535,9 +535,58 @@
 		% \end{center}
 	\end{myexam}
 \end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+	\begin{textblock*}{1\textwidth}(1cm, 0.25cm)
+
+		\begin{myexam}{}{}
+			\def\scale{0.75}
+			\centering
+			\input{../../pikz/06ERB/06erb15.tex}
+			\parm
+			
+			$55$-kg bar $AB$ has its centre of gravity at $G$. It is supported by a pinned connection at $A$ and a smooth peg at $C$. A cable is attached at $B$ and has a tensile force of $1.70\,$kN. The direction of the cable varies between $\theta=60\deg$ and $\theta=135\deg$. \parm
+
+			What are the maximum reactions at $A$ and $C$?\parb
+			
+		\end{myexam}
+	\end{textblock*}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{}
+	\begin{myexam}{}{}
+		\cmini[0.95]{
+			\def\scale{0.8}
+			\centering
+			\input{../../pikz/06ERB/06erb08.tex}
+			
+			Beam $AB$ has a fixed support at $A$. (Fixed supports offer resistance to rotation in the form of a reacting couple at $A$; clearly, without this, equilibrium would not be possible.)\parm
+
+			Determine the reaction and the reacting couple at $A$.		
+		}	
+	\end{myexam}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Fixed Supports}
+	\begin{myexer}{}{}
+		\centering\def\scale{0.75}
+		\input{../../pikz/06ERB/06erb10.tex}
+		\parb
+		Determine the reactions at $A$.
+		
+	\end{myexer}
+\end{frame}
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{}
-	\begin{myexer}{}{}
+	\begin{myexam}{}{}
 		\centering
 		\def\scale{1}
 		\input{../../pikz/06ERB/06erb06.tex}
@@ -545,37 +594,209 @@
 		Pipe racks ($AB$, and two hidden behind it) support two smooth Schedule 40 pipes, with an outside diameter of $508\,\text{mm}$, as shown. The pipes are $10\,\text{m}$ in length with a mass of $78.5\,\text{kg/m}$, Each rack supports one-third of the weight of each pipe.\parm 
 		Determine the reaction at the fixed connection $A$.
 		
+	\end{myexam}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{}
+	\begin{myexer}{}{}
+		\centering
+		\def\scale{0.65}
+		\input{../../pikz/06ERB/06erb09.tex}
+		\parb
+		A section of smooth pipe, centred at $O$, has a diameter of $457\,\text{mm}$ and a mass of $186\,\text{kg}$. It is secured by vertical structural member $AB$, hinged with a pinned connection at $A$ and held in place by chain $BC$. \parm Determine the tension in the chain, and the reaction at $A$.		
+		
 	\end{myexer}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{}
-	\begin{myexam}{}{}
-		\centering
-		\def\scale{1}
-		\input{../../pikz/06ERB/06erb07.tex}
-		\parb
-		Pipe racks ($AB$, and two hidden behind it) support two smooth Schedule 40 pipes, with an outside diameter of $508\,\text{mm}$, as shown. The pipes are $10\,\text{m}$ in length with a mass of $78.5\,\text{kg/m}$, Each rack supports one-third of the weight of each pipe.\parm 
-		Determine the reaction at the fixed connection $A$.
-		
-	\end{myexam}
-\end{frame}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Notes:}
 	\cmini[0.9]{
 		\begin{enumerate}
-			\item  For a body in equilibrium, $\Sigma M=0$ for moments summed about {\bfseries any} point in the plane containing the body.\parm
-			\item We used all the three equations of statics to solve for the three unknowns. It would also have been possible to solve using $\Sigma M=0$ three times by choosing appropriate points about which to take moments. There are occasions when it is more convenient to sum moments two or three times, rather than summing components. (We will see this when using the Method of Sections to analyze forces in truss members.)\parm
-			\item Since there are only three equations for statics, we can only solve a system for three unknowns. Typically, two unknowns come from a pinned connection and the third from a cable, roller or some other connection whose reaction direction is known.\parm
-			\item We start the solution by taking moments about the pinned connection - this is so that we don't need to consider the moments of the pinned connection unknowns (e.g., $R_x$ and $R_y$) and the moment equation will immediately give a solution for the third unknown.
+			\item  For a body in equilibrium, $\Sigma M=0$ for moments summed about {\bfseries any} point in the plane containing the body.\pars
+			\item We have used all the three equations of statics to solve for three unknowns. It would also have been possible to solve using $\Sigma M=0$ three times by choosing appropriate points about which to take moments. There are occasions when it is more convenient to sum moments two or three times, rather than summing components. (We will see this when using the Method of Sections to analyze forces in truss members.)\pars
+			\item Since there are only three equations for statics, we can only solve a system for three unknowns. Frequently, two unknowns come from a pinned connection and the third from a cable, roller or some other connection whose reaction direction is known. (Alternatively, we can solve for a fixed connection, which has three unknowns.)\pars
+			\item Generally, we start by taking moments about the pinned connection - so that we don't need to consider the moments of the pinned connection unknowns. Then, the moment equation will immediately give a solution for the third unknown, e.g., for a connection with a known force direction.
 		\end{enumerate}
 
 	}
 \end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Two-Force Members}
+
+	\mini[0.4]{
+		For a member with only two external forces acting upon it to be in equilibrium:\parm
+		\begin{itemize}
+			\item Both forces must share the same line of action
+			\item Both forces must have the same magnitude
+			\item The forces must have opposite directions
+		\end{itemize}
+		\parm
+		Then, $\Sigma F_x=0 $, $\Sigma F_y=0 $ {\bfseries and} there is no tendency for the member to rotate.
+		\parm
+		Strut connections and cables are two-force members!
+
+	}
+	\hfill
+	\mini[0.5]{
+		\def\scale{0.75}
+		\tcb{
+			\input{../../pikz/06ERB/tenscomp1.tex}
+		}
+	}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Straight Two-Force Members}
+	\def\scale{0.75}
+	In straight two-force members, the lines of action of the forces are along the member.\lb The forces shown here are {\bfseries external} forces applied to the member.
+	\begin{center}
+		\tcb{
+			\input{../../pikz/06ERB/tenscomp2.tex}
+		}
+	\end{center}
+
+	\uncover<2->{
+		These external forces generate corresponding {\bfseries internal} forces which can be examined by `cutting' a section through the member:
+		\begin{center}
+			\tcb{
+				\input{../../pikz/06ERB/tenscomp3.tex}
+			}
+		\end{center}
+	}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{External and Internal Forces}
+	\def\scale{0.65}
+	\cmini[1]{
+		It is important to distinguish between external and internal forces.
+
+		When a two-force member is in tension, external forces pull {\bfseries away} from the member (attempting to make the member longer). The opposite is true for compression.
+		\parb\centering
+		
+		\begin{statsbox}[width=0.65\linewidth]{External Forces}
+			\centering
+			\input{../../pikz/06ERB/tenscomp4.tex}
+		\end{statsbox}
+
+		\parb
+	
+		\begin{statsbox}[width=0.65\linewidth]{Internal Forces} 
+			\centering
+			\input{../../pikz/06ERB/tenscomp5.tex}
+		\end{statsbox}
+	
+	}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{External and Internal Forces}
+	\def\scale{0.65}
+	\cmini[1]{
+		Initially, the direction of internal forces may seem counter-intuitive.
+
+		% In order to maintain equilibrium,
+		% the internal force in the member is in the \textbf{opposite} direction. In tension, the {\bfseries internal} force in the member pulls \textbf{away} from the joint. In compression, the {\bfseries internal} force in the member pushes  \textbf{towards} the joint\lb
+
+		\begin{center}
+			\begin{statsbox}[width=0.65\linewidth]{Internal Forces}
+				\centering
+				\input{../../pikz/06ERB/tenscomp5.tex}
+			\end{statsbox}
+		\end{center}
+	}
+	 Why do internal forces pull towards each other when the member is in tension? It is because external forces are trying to `stretch' the member and the internal forces are opposing this stretch, maintaining the length of the member.\parm
+
+	 Similarly, when a straight two-force member is in compression, internal forces in the member `push back' against the external compression.\parm
+
+	 Furthermore, at the ends of the two-force members, external and internal forces must be equal and opposite to each other to maintain equilibrium.
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+	\begin{frame}{A Second Look at Strut/Link Connections}
+
+		\def\scale{0.5}
+		\begin{textblock*}{1\textwidth}(1.5 cm, 1.5 cm)
+					\input{../../pikz/06ERB/strutConnectionB.tex}
+		\end{textblock*}
+
+		\begin{textblock*}{0.8\textwidth}(2cm, 7cm)
+			\only<1>{
+			When strut $AB$ is in {\bfseries tension} (due to forces in $AC$), it `pulls' back against $AC$ to maintain equilibrium.
+			}
+			\only<2>{
+			When strut $AB$ is in {\bfseries compression} (due to forces in $AC$), it `pushes' against $AC$ to maintain equilibrium.
+			}
+			\uncover<3>{
+			Frequently, we don't know in advance whether $AB$ is in tension or in compression. In that case, we draw the force acting on $AC$ in tension (i.e., arrow directed {\bfseries away} from $AC$). If our calculations determine that $R$ is negative, then $AB$ is in compression.
+			}
+		\end{textblock*}
+
+	\end{frame}
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+	% \begin{textblock*}{1\textwidth}(1cm, 0.25cm)
+
+		\begin{myexam}{}{}
+			\def\scale{0.65}
+			\centering
+			\input{../../pikz/06ERB/06erb05.tex}
+			\cmini[0.85]{
+				\centering
+				Determine the reactions at $D$ and $E$.\parb
+				\textcolor{saitMaroon}{Note}: There are two pinned connections, but there is a single link between $C$ and $D$ so $CD$ is a {\bfseries two-force member}, so the direction of the reaction at $D$ is in the direction of $CD$ and has only one unknown - its magnitude.
+			}
+			
+		\end{myexam}
+	% \end{textblock*}
+
+\end{frame}
+
+		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+
+		\begin{myexer}{}{}
+			\def\scale{0.65}
+			\centering
+			\input{../../pikz/06ERB/06erb07.tex}
+			\cmini[0.8]{
+				\centering
+				Determine the reactions at $A$ and $E$.
+			}
+			
+		\end{myexer}
+\end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
+		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+	
+%
+		\begin{myexer}{}{}
+			\def\scale{0.65}
+			\centering
+			\input{../../pikz/06ERB/06erb17.tex}
+			\cmini[0.8]{
+				\centering
+				Determine the reactions at $A$ and $B$.
+			}
+		
+		\end{myexer}
+	
+\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

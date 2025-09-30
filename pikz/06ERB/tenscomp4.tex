@@ -7,32 +7,24 @@
 
 %%%%%%%%%%%%%%%%%%%%%%% TRUSS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{tikzpicture}[scale=\scale]
-	\def\thickness{thick}
-	\def\stroke{Khaki4}
-	\def\hi{.2}
-	\def\radii{\hi}
-	\def\extend{\hi}
-
-	% \fill[white] (0,0) rectangle (5.5,1);
-
+	
 	\coordinate (T1) at (1.5, 0);
 	\coordinate (T2) at (6.5, 0);
 	\coordinate (C1) at (1.5,-1);
 	\coordinate (C2) at (6.5, -1);
 
-
-	\pgfoonew \T=new rr(T1,T2,LightGray,black, 0.25)
-	\pgfoonew \C=new rr(C1,C2,LightGray,black, 0.25)
-
+	\Meme{T1}{T2}{LightGray}{LightGray}{black}{0.5}{0.15}{0.2}
+	\Meme{C1}{C2}{LightGray}{LightGray}{black}{0.5}{0.15}{0.2}
+	
 	\fill[black] (T1) circle (3pt);
 	\fill[black] (T2) circle (3pt);
 	\fill[black] (C1) circle (3pt);
 	\fill[black] (C2) circle (3pt);
 
 
-	\draw[ultra thick, saitMaroon, ->, >=stealth] (T1) -- +(-1, 0) node[left] {T};
-	\draw[ultra thick, saitMaroon, ->, >=stealth] (T2) -- +(1, 0) node[right] {T};
-	\draw[ultra thick, saitMaroon, <-, >=stealth] (C1) -- +(-1, 0) node[left] {C};
-	\draw[ultra thick, saitMaroon, <-, >=stealth] (C2) -- +(1, 0) node[right] {C};
+	\draw[ultra thick, saitMaroon, -latex] (T1) -- +(-1, 0) node[left] {T};
+	\draw[ultra thick, saitMaroon, -latex] (T2) -- +(1, 0) node[right] {T};
+	\draw[ultra thick, saitMaroon, latex-] (C1) -- +(-1, 0) node[left] {C};
+	\draw[ultra thick, saitMaroon, latex-] (C2) -- +(1, 0) node[right] {C};
 %
 \end{tikzpicture}
