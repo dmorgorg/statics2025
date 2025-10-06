@@ -1817,15 +1817,123 @@
       %  \draw[latex-latex] ($(C)+(-53:1.325)$)--($(B)+(-53:1.325)$)node[midway, fill=white];
       \draw[latex-latex] ($(BB)+(90:1.75)$)arc(90:140:1.75)node[midway, fill=white, inner sep = 0.4mm,yshift=3mm]{$ 50\deg $};
       \draw[latex-latex] ($(O)+(180:1.75)$)arc(180:217:1.75)node[midway, fill=white, inner sep = 0.4mm,xshift=-3.5mm, inner sep = 0]{$ 37\deg $};
-      \node[rotate=37,xshift=1cm,yshift=0.35cm] at (B) {$ 0.525\,\text{m} $};
+      \draw[latex-latex] ($(C)+(-53:1.5)$)--($(B)+(-53:1.5)$)node[midway, fill=white, sloped]{$ 1.80\,\textsf{m} $};
+      \draw[latex-latex] ($(B)+(-53:1.5)$)--($(O)+(-53:1.5)$)node[midway, fill=white, sloped]{$ 2.75\,\textsf{m} $};
+      \node[rotate=37,xshift=1cm,yshift=0.35cm] at (B) {$ 0.525\,\textsf{m} $};
 
       \draw[very thick, -latex] (O)--+(0:1.5)node[right]{$ R_{Ox} $};
       \draw[very thick, -latex] (O)--+(90:1.5)node[right]{$ R_{Oy} $};
       \draw[very thick, -latex] (BB)--+(140:2.5)node[left]{$ T $};
-      \draw[very thick, -latex] (C)--+(270:2)node[left]{$ 27.8\,\textsf{kN} $};
+      \draw[very thick, -latex] (C)--+(270:2)node[left]{$ 7.8\,\textsf{kN} $};
 
+      \fill (C) circle (3pt);
+      \fill (B) circle (3pt);
+      \fill (BB) circle (3pt);
+      \fill (O) circle (3pt) node[above right] {$O$};
     }
+    \begin{align*}
+      \Sigma M_O &= (7.8\,\textsf{kN})\cd(4.55\,\textsf{m}\cd\cos 37\deg) - (T\cos 50\deg)\cd(2.75\,\textsf{m}\cd\cos 37\deg+0.525\,\textsf{m}\cd\sin 37\deg) \\[0.25em]
+      & \qquad\qquad -(T\sin 50\deg)\cd(2.75\,\textsf{m}\cd\sin 37\deg-0.525\,\textsf{m}\cd\cos 37\deg) \\[0.25em]
+      &= 28.344\,\mathsf{kN\cd m}-T(1.6148\,\textsf{m}+ 0.94661\,\textsf{m})=0 \\[0.25em]
+      \Ra T &= 11.066\,\textsf{kN} \\\\
+      \Sigma F_x &= R_{Ox}-11.066\,\textsf{kN}\cd\sin 50\deg = 0 \\[0.25em]
+      \Ra R_{Ox} &= 8.4770\,\textsf{kN} \\\\
+      \Sigma F_y &= R_{Oy}+11.066\,\textsf{kN}\cd\cos 50\deg - 7.8\,\textsf{kN} = 0 \\[0.25em]
+      \Ra R_{Oy} &= 0.68691\,\textsf{kN} \\\\
+      R_O &= \sqrt{(8.4770\,\textsf{kN})^2+(0.68691\,\textsf{kN})^2} = 8.5048\,\textsf{kN} \\[0.25em]
+      \theta &= \tan^{-1}\left[\frac{0.68691}{8.4779}\right] = 4.6322\deg
+    \end{align*}
 
+    \parm\large\centering
+      The tension in the chain $T$ is $\underline{\bm{11.1\,\mathsf{kN}}}$.      
+      \parm      
+      The reaction at $O$ is $\underline{\bm{8.50\,\mathsf{kN}}}$ at  $\underline{\bm{4.63\deg}}$, measured counter-clockwise from the positive $x$-axis.
+
+\end{textblock*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% page 21
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+~\newpage
+\begin{textblock*}{6.5in}(1in, 1in)
+	
+  \underbar{\bf Method 2:} Rotation of axes by $37\deg$ ccw.
+  \parb\centering 
+  \tikz[scale=0.6]{%color
+      \coordinate (O) at (0,0);
+      \coordinate (C) at ($(O)+(217:10)$);
+      \coordinate (B) at ($(O)+(217:6)$);
+      \coordinate (BB) at ($(B)+(127:1)$);
+
+      \draw[line width=0.5cm, line cap = round, myGray4] (O)--(C);
+      \draw[line width=0.5cm, line cap = round, myGray4] (B)--(BB);
+
+      \draw[thin, gray] ($(BB)+(90:0.5)$)--($(BB)+(90:2.25)$);
+      \draw[thin, gray] ($(BB)+(90:0.5)$)--($(BB)+(90:2.25)$);
+      \draw[thin, gray] ($(BB)+(37:0.5)$)--($(BB)+(37:2.25)$);
+      \draw[thin, gray] ($(B)+(37:0.5)$)--($(B)+(37:2.25)$);
+      \draw[thin, gray] ($(O)+(180:0.5)$)--($(O)+(180:2.25)$);
+      \draw[thin, gray] ($(O)+(217:0.5)$)--($(O)+(217:2.25)$);
+      \draw[thin, gray] ($(C)+(-53:0.75)$)--($(C)+(-53:2)$);
+      \draw[thin, gray] ($(O)+(-53:0.75)$)--($(O)+(-53:2)$);
+      \draw[thin, gray] ($(B)+(-53:-0.75)$)--($(B)+(-53:2)$);
+
+     
+      % \draw[latex-latex] ($(BB)+(90:1.75)$)arc(90:140:1.75)node[midway, fill=white, inner sep = 0.4mm,yshift=3mm]{$ 50\deg $};
+      \draw[latex-latex] ($(O)+(180:1.75)$)arc(180:217:1.75)node[midway, fill=white, inner sep = 0.4mm,xshift=-3.5mm, inner sep = 0]{\small $ 37\deg $};
+      \draw[latex-latex] ($(C)+(-53:1.5)$)arc(-53:-90:1.5);
+      \draw[latex-latex] ($(C)+(-53:1.5)$)--($(B)+(-53:1.5)$)node[midway, fill=white, sloped]{$ 1.80\,\textsf{m} $};
+      \draw[latex-latex] ($(B)+(-53:1.5)$)--($(O)+(-53:1.5)$)node[midway, fill=white, sloped]{$ 2.75\,\textsf{m} $};
+      \node[rotate=37,xshift=1cm,yshift=0.35cm] at (B) {$ 0.525\,\textsf{m} $};
+
+      \draw[very thick, -latex] (O)--+(37:1.5)node[right]{$ R_{Ox'} $};
+      \draw[very thick, -latex] (O)--+(127:1.5)node[above]{$ R_{Oy'} $}; 
+      \draw[very thick, -latex, myGray3] (BB)--+(140:2)node[left,xshift=0.1cm]{$ T $};     
+      \draw[very thick, -latex] (BB)--+(217:2)node[left,xshift=0.1cm]{$ T \sin 13\deg $};
+      \draw[very thick, -latex] (BB)--+(127:2)node[above,xshift=-0.4cm]{$ T \cos 13\deg $};      
+      \draw[very thick, -latex, myGray2] (C)--+(270:2.5);
+      \draw[very thick, -latex] (C)--+(-53:2.5)node[right]{$ 7.8\,\textsf{kN}\cd\cos 37\deg $};
+      \draw[very thick, -latex] (C)--+(217:2.5)node[below]{$ 7.8\,\textsf{kN}\cd\sin 37\deg $};
+
+      \node[xshift=-2mm, yshift=7mm] at (BB) {\scriptsize $ 37\deg $};
+      \node[xshift=4mm, yshift=-10.5mm] at (C) {\footnotesize $ 37\deg $};
+
+      \fill (C) circle (3pt);
+      \fill (B) circle (3pt);
+      \fill (BB) circle (3pt);
+      \fill (O) circle (3pt) node[yshift=0.35cm] {$O$};
+    }
+    \parb
+    \begin{align*}
+      \Sigma M_O &=( 7.8\,\textsf{kN}\cd\cos 37\deg)\cd (4.55\,\textsf{m})+(T\sin 13\deg)\cd(0.525\,\textsf{m})-(T\cos 13\deg)\cd(2.75\,\textsf{m}) \\[0.25em]
+      &= 28.344\,\mathsf{kN\cd m}+T(0.11810\,\textsf{m}-2.6795\,\textsf{m}) = 0 \\[0.25em]
+      \Ra T &= 11.066\,\textsf{kN} \\\\
+      \Sigma F_{x'} &= R_{Ox'} - 11.066\,\textsf{kN}\cd\sin 13\deg - 7.8\,\textsf{kN}\cd\sin 37\deg=0 \\[0.25em]
+      \Ra R_{Ox'} &= 7.1835\,\textsf{kN} \\\\
+       \Sigma F_{y'} &= R_{Oy'} + 11.066\,\textsf{kN}\cd\cos 13\deg - 7.8\,\textsf{kN}\cd\cos 37\deg=0 \\[0.25em]
+       \Ra  R_{Oy'} &= -4.5530\,\textsf{kN}\\\\
+       R_O &= \sqrt{(7.1835\,\textsf{kN})^2+(4.5530\,\textsf{kN})^2} = 8.5049\,\textsf{kN} \\[0.25em]
+       \theta ' &= \tan^{-1}\left[\frac{4.5530}{7.1835}\right] = 32.367\deg \\[0.25em]
+       \theta &= 37\deg - \theta ' = 4.6330\deg       
+    \end{align*}
+    \parb\large\centering
+      The tension in the chain $T$ is $\underline{\bm{11.1\,\mathsf{kN}}}$.      
+      \parm      
+      The reaction at $O$ is $\underline{\bm{8.50\,\mathsf{kN}}}$ at  $\underline{\bm{4.63\deg}}$, measured counter-clockwise from the positive $x$-axis.
+\end{textblock*}
+
+\begin{textblock*}{3in}(5.25in, 5.25in)
+  \centering
+  \tikz[scale=0.75]{%color
+    \draw[thick, -latex] (0,0) --+ (37:3.6)node[above right]{$ 7.1835\,\textsf{kN} $};
+    \draw[thick, -latex] (0,0) --+ (-53:2.25)node[below]{$ 4.5530\,\textsf{kN} $};
+    \draw[very thick, -latex, gray] (0,0) --+ (4.6:4.25)node[above left]{$ R_O $};
+    \draw[thin, gray] (0,0)--(4.4,0)node[right]{$ x\!-\!\textsf{axis} $};
+    \draw[latex-latex] ($(0,0)+(0:3)$) arc (0:37:3)node[midway, fill=white] {$ 37\deg $};
+    \draw[latex-latex] ($(0,0)+(4.6:2.25)$) arc (4.6:37:2.25)node[midway, fill=white, inner sep = 0.5mm] {$ \theta ' $};
+    \draw[latex-]($ (0,0)+(2.3:3.5)$) -- +(-45:2)node[below] {$ \theta=37\deg-\theta ' $};    
+  }
 \end{textblock*}
 
 \end{document}
