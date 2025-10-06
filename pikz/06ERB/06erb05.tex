@@ -19,11 +19,11 @@
 	\coordinate (F) at (7, -3.5);
 	\coordinate (G) at (3, -3.5);
 
-	\fill[left color=mucus, right color=mucus!50] ($ (E)+(0.75,-1.25) $) rectangle ($ (D)+(1.5,2) $);
+	\fill[LightCyan4] ($ (E)+(0.75,-1.25) $) rectangle ($ (D)+(1.5,2) $);
 	\draw[black, line width=0.2mm] ($ (E)+(0.75,-1.25) $) -- ($ (D)+(0.75,2) $);
 
-	\PC[90]{D}{mucus!50}{black}{0.75}{0.2}
-	\PC[90]{E}{mucus!50}{black}{0.75}{0.2}
+	\PC[90]{D}{LightCyan4}{black}{0.75}{0.2}
+	\PC[90]{E}{LightCyan4}{black}{0.75}{0.2}
 
 	\gettikzxy{(A)}{\Ax}{\Ay};
 	\gettikzxy{(B)}{\Bx}{\By};
@@ -43,21 +43,21 @@
 	\gettikzxy{(E)}{\Ex}{\Ey};
 	\gettikzxy{(D)}{\Dx}{\Dy};
 
-	\draw ($ (A)+(0,0.5) $) -- +(0,2.75);
-	\draw ($ (B)+(0,0.5) $) -- +(0,2.75);
-	\draw ($ (C)+(0,0.5) $) -- +(0,2.75);
-	\draw ($ (D)+(0,0.5) $) -- +(0,1.5);
-	\draw ($ (E)+(1,0) $) -- (13, \Ey);
-	\draw ($ (C)+(0.75,0) $) -- (13, \Cy);
-	\draw ($ (D)+(1,0) $) -- (13, \Dy);
+	\draw[thin] ($ (A)+(0,0.5) $) -- +(0,2.75);
+	\draw[thin] ($ (B)+(0,0.5) $) -- +(0,2.75);
+	\draw[thin] ($ (C)+(0,0.5) $) -- +(0,2.75);
+	\draw[thin] ($ (D)+(0,0.5) $) -- +(0,1.5);
+	\draw[thin] ($ (E)+(1,0) $) -- (13, \Ey);
+	\draw[thin] ($ (C)+(0.75,0) $) -- (13, \Cy);
+	\draw[thin] ($ (D)+(1,0) $) -- (13, \Dy);
 
 	\draw[line width=0.75mm, black, -latex, saitMaroon] (A) -- +(0,-2.5) node[below, saitMaroon] {\large {$ 30$ kN}};
 
-	\draw[thick, <->, >=stealth] ([yshift=2.5cm]A) -- node[fill=white]{\small $3.00\text{ m}$}([yshift=2.5cm]B);
-	\draw[thick, <->, >=stealth] ([yshift=2.5cm]B) -- node[fill=white]{\small $4.00\text{ m}$}([yshift=2.5cm]C);
-	\draw[thick, <->, >=stealth] ([yshift=2.5cm]C) -- node[fill=white]{\small $3.00\text{ m}$}([yshift=1.25cm]D);
-	\draw[thick, <->, >=stealth] (12.5, \Dy) -- node[fill=white, inner sep=0.5mm]{\small $1.25\text{ m}$}(12.5, \Cy);
-	\draw[thick, <->, >=stealth] (12.5, \Cy) -- node[fill=white, inner sep=0.5mm]{\small $3.50\text{ m}$}(12.5, \Ey);
+	\draw[ latex-latex] ([yshift=2.5cm]A) -- node[fill=white]{\small $3.00\text{ m}$}([yshift=2.5cm]B);
+	\draw[ latex-latex] ([yshift=2.5cm]B) -- node[fill=white]{\small $4.00\text{ m}$}([yshift=2.5cm]C);
+	\draw[ latex-latex] ([yshift=2.5cm]C) -- node[fill=white]{\small $3.00\text{ m}$}([yshift=1.25cm]D);
+	\draw[ latex-latex] (12.5, \Dy) -- node[fill=white, inner sep=0.5mm]{\small $1.25\text{ m}$}(12.5, \Cy);
+	\draw[ latex-latex] (12.5, \Cy) -- node[fill=white, inner sep=0.5mm]{\small $3.50\text{ m}$}(12.5, \Ey);
 
 	\filldraw[ball color=LightCyan4, thin] (A) circle (2.5pt) node[above left, inner sep=2mm] {\large $A$};
 	\filldraw[ball color=LightCyan4, thin] (B) circle (2.5pt) node[above left, inner sep=2mm] {\large $B$};

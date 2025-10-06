@@ -1,0 +1,70 @@
+% !TEX root = ../../Beamer/06EquilibriumOfRigidBodies/06ERB.tex
+
+\makeatletter
+\providecommand{\gettikzxy}[3]{%
+	\tikz@scan@one@point\pgfutil@firstofone#1\relax
+	\edef#2{\the\pgf@x}%
+	\edef#3{\the\pgf@y}%
+}
+\makeatother
+
+\begin{tikzpicture}[scale=\scale]
+	
+
+	\coordinate (A) at (0, 0);
+	\coordinate (B) at (3, 0);
+	\coordinate (C) at (7, 0);
+	\coordinate (D) at (10, 1.25);
+	\coordinate (E) at (10, -3.5);
+	\coordinate (F) at (7, -3.5);
+	\coordinate (G) at (3, -3.5);
+
+	\fill[myGray] ($ (E)+(0.75,-1.25) $) rectangle ($ (D)+(1.5,2) $);
+	\draw[black, line width=0.2mm] ($ (E)+(0.75,-1.25) $) -- ($ (D)+(0.75,2) $);
+
+	\PC[90]{D}{myGray}{black}{0.75}{0.2}
+	\PC[90]{E}{myGray}{black}{0.75}{0.2}
+
+	\gettikzxy{(A)}{\Ax}{\Ay};
+	\gettikzxy{(B)}{\Bx}{\By};
+
+	\Meme{A}{B}{myGray3}{myGray3}{black}{0.35}{0.125}{0.2}
+	\Meme{C}{D}{myGray3}{myGray3}{black}{0.35}{0.125}{0.2}
+	\Meme{A}{G}{myGray3}{myGray3}{black}{0.35}{0.125}{0.2}
+	\Meme{F}{G}{myGray3}{myGray3}{black}{0.35}{0.125}{0.2}
+	\Meme{F}{E}{myGray3}{myGray3}{black}{0.35}{0.125}{0.2}
+	\Meme{C}{G}{myGray3}{myGray3}{black}{0.35}{0.125}{0.2}
+	\Meme{C}{E}{myGray3}{myGray3}{black}{0.35}{0.125}{0.2}
+	\Meme{C}{B}{myGray3}{myGray3}{black}{0.35}{0.125}{0.2}
+	\Meme{C}{F}{myGray3}{myGray3}{black}{0.35}{0.125}{0.2}
+	\Meme{B}{G}{myGray3}{myGray3}{black}{0.35}{0.125}{0.2}
+
+	\gettikzxy{(C)}{\Cx}{\Cy};
+	\gettikzxy{(E)}{\Ex}{\Ey};
+	\gettikzxy{(D)}{\Dx}{\Dy};
+
+	\draw[thin] ($ (A)+(0,0.5) $) -- +(0,2.75);
+	\draw[thin] ($ (B)+(0,0.5) $) -- +(0,2.75);
+	\draw[thin] ($ (C)+(0,0.5) $) -- +(0,2.75);
+	\draw[thin] ($ (D)+(0,0.5) $) -- +(0,1.5);
+	\draw[thin] ($ (E)+(1,0) $) -- (13, \Ey);
+	\draw[thin] ($ (C)+(0.75,0) $) -- (13, \Cy);
+	\draw[thin] ($ (D)+(1,0) $) -- (13, \Dy);
+
+	\draw[line width=0.75mm, black, -latex] (A) -- +(0,-2.5) node[below] {\large {$ 30$ kN}};
+
+	\draw[ latex-latex] ([yshift=2.5cm]A) -- node[fill=white]{\small $3.00\textsf{ m}$}([yshift=2.5cm]B);
+	\draw[ latex-latex] ([yshift=2.5cm]B) -- node[fill=white]{\small $4.00\textsf{ m}$}([yshift=2.5cm]C);
+	\draw[ latex-latex] ([yshift=2.5cm]C) -- node[fill=white]{\small $3.00\textsf{ m}$}([yshift=1.25cm]D);
+	\draw[ latex-latex] (12.5, \Dy) -- node[fill=white, inner sep=0.5mm]{\small $1.25\textsf{ m}$}(12.5, \Cy);
+	\draw[ latex-latex] (12.5, \Cy) -- node[fill=white, inner sep=0.5mm]{\small $3.50\textsf{ m}$}(12.5, \Ey);
+
+	\fill (A) circle (2.5pt) node[above left, inner sep=2mm] {\large $A$};
+	\fill (B) circle (2.5pt) node[above left, inner sep=2mm] {\large $B$};
+	\fill (C) circle (2.5pt) node[above left, inner sep=2mm] {\large $C$};
+	\fill (D) circle (2.5pt) node[above left, inner sep=2mm] {\large $D$};
+	\fill (E) circle (2.5pt) node[below, inner sep=2mm] {\large $E$};
+	\fill (F) circle (2.5pt) node[below, inner sep=2mm] {\large $F$};
+	\fill (G) circle (2.5pt) node[below , inner sep=2mm] {\large $G$};
+
+\end{tikzpicture}

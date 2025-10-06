@@ -1,0 +1,39 @@
+\tikz[scale=\scale]{
+	\coordinate (A) at (0,-0.25);
+	\coordinate (Aleft) at (-0.5,-0.25);
+	\coordinate (B) at (6,-0.25);
+	\coordinate (C) at (0,2.75);
+	\coordinate (D) at (6,1);
+	\coordinate (E) at (3.5,-0.25);
+	\coordinate (base) at (0,0.025);
+	\coordinate (couple) at (2.75,-0.25);
+
+
+	% \def\scale{1}
+	\def\hi{.25}
+	\small
+
+	\DL{C}{D}{base}{Gray!20}{Black}{9}{0.25}{5}
+	\fill[gray!60] ($ (A)+(0,4) $) rectangle ($ (A)+(-1,-2) $);
+	\draw[thick] ($ (A)+(0,4) $) -- +(0, -6);
+	\Meme{A}{B}{gray!60}{gray!60}{black}{0.5}{0}{0.2}	
+
+	\node[above right] at (C) {$ 2.50\textsf{ kN/m}$};
+	\node[above] at ($ (D)+(0,0.25) $) {$ 1.00\textsf{ kN/m}$};
+
+	\draw (6,-0.75) -- +(0,-1.5);
+	\draw[latex-latex] (0,-1.625) -- node[fill=white] {\small $1.00$ m} (6,-1.625);
+
+	\draw ($ (B)+(.5,0) $) -- +(1.25,0);
+	\node at ($ (B)+(15:1.25) $) {\small $35\deg$};
+
+	\Couple[0]{couple}{black}{0.5}{0.5}
+	\node[xshift=0.75cm, yshift=-0.75cm, black] at (couple) {$ 5.25\,\mathsf{kN\cd m}$};
+
+	\draw[-latex, ultra thick, black] (B)  -- +(35:2.25) node[right] {$ 4.25\textsf{ kN}$};
+
+
+\fill (A) circle (1.5pt) node [left,outer sep=1mm] {\large $A$};
+\node at (B) [below right,outer sep=0.5mm] {\large $B$};
+
+}

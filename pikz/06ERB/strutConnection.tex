@@ -31,7 +31,7 @@
 	\filldraw[ball color=gray] (O) circle (2mm);
 	\filldraw[ball color=gray] (A) circle (2mm);
 	\draw[thin] ($(O)+(-1,0)$)-- +(-2,0);
-	\draw[Latex-Latex] ($(O)+(-2.5,0)$)arc(-180:-105:2.5)node[fill=white, midway, inner sep=0.25mm]{$\theta$};
+	\draw[Latex-Latex] ($(O)+(-2.5,0)$)arc(-180:-105:2.5)node[fill=bgcolor, midway, inner sep=0.25mm]{$\theta$};
 	\fill[gray!75] ($(A)+(-3,-0.5)$) rectangle +(6,-1);
 	\draw[thick] ($(A)+(-3,-0.50)$)-- +(6,0);
 \begin{scope}[scale=0.75]
@@ -44,7 +44,7 @@
 		\fill[gray] (OO) circle (2mm);
 		\draw[ultra thick, -latex, saitMaroon](OO) -- ($(OO)!0.5!(AA) $)node[below]{$\bm R$};
 		\draw[thin] ($(OO)+(-1,0)$)-- +(-2,0);
-		\draw[latex-latex] ($(OO)+(-2.5,0)$)arc(-180:-105:2.5)node[fill=white, midway, inner sep=0.25mm]{$\theta$};
+		\draw[latex-latex] ($(OO)+(-2.5,0)$)arc(-180:-105:2.5)node[fill=bgcolor, midway, inner sep=0.25mm]{$\theta$};
 
 		\begin{scope}[xshift=\xxshift, yshift=-\yshift]
 			\begin{scope}
@@ -53,7 +53,7 @@
 			\fill[gray] (OOO) circle (2mm);
 			\draw[ultra thick, latex-, saitMaroon](OOO) -- ($(OOO)!0.5!(AAA) $)node[below]{$\bm R$};
 			\draw[thin] ($(OOO)+(-1,0)$)-- +(-2,0);
-			\draw[latex-latex] ($(OOO)+(-2.5,0)$)arc(-180:-105:2.5)node[fill=white, midway, inner sep=0.5mm]{$\theta$};
+			\draw[latex-latex] ($(OOO)+(-2.5,0)$)arc(-180:-105:2.5)node[fill=bgcolor, midway, inner sep=0.5mm]{$\theta$};
 		\end{scope}
 
 	\end{scope}

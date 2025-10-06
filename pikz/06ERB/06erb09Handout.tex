@@ -5,8 +5,8 @@
 		with
 		{
 			\begin{scope}[scale=0.75]
-				\draw[SaddleBrown, very thick] (0pt,-2pt) -- ++(4pt,0) arc(-90:90:2pt) -- ++(-4pt,0pt) arc(90:270:2pt) -- cycle;
-				\draw[SaddleBrown,very thick] (-8pt,0) -- (0pt,0);
+				\draw[black, very thick] (0pt,-2pt) -- ++(4pt,0) arc(-90:90:2pt) -- ++(-4pt,0pt) arc(90:270:2pt) -- cycle;
+				\draw[black,very thick] (-8pt,0) -- (0pt,0);
 			\end{scope}
 		}
 	}]{
@@ -15,34 +15,36 @@
 	\coordinate (BB) at (0,6);
 	\coordinate (C) at (8,5);
 	\coordinate (Cleft) at (7.5,5);
+
 	\coordinate (AA) at ($ (A)+(212:1.5)$);
-	\coordinate (AAA) at ($ (A)+(32:0.175)$);
-	\coordinate (CC) at ($ (C)+(32:1) $);
-	\coordinate (O) at ($ (AAA)+(61:3)$);
-
-	% \Meme{AA}{CC}{NavajoWhite3}{NavajoWhite4}{NavajoWhite4}{1}{0}{1}
-	\draw[very thick] (A)--(C);
-	\path[postaction={decorate}] ($ (B)+(0.5,0) $) -- (Cleft);
-	\PC[32]{Cleft}{Honeydew3}{black}{0.5}{0.25};
-	\draw[ultra thick] (AA)--(CC);
-	\fill[fill=Goldenrod3](AA)--(CC)--++(-58:1) to [out=-115, in=45]++(212:11.934)--cycle;
-	\PC{A}{Honeydew3}{black}{0.5}{0.25};
 	
-	\filldraw[fill=Honeydew3] ($ (B)+(0,0.25) $) --++(-30:0.5)--+(210:0.5);
-	\Meme{A}{BB}{Honeydew4}{Honeydew2}{black}{0.325}{0.1}{0.2}
+	\coordinate (AAA) at ($ (A)+(32:0.175)$);
+	\coordinate (CC) at ($ (C)+(32:1)$);
+	\coordinate (O) at ($ (AAA)+(61:3)$);
+	
+	
+	\path[postaction={decorate}] ($ (B)+(0.5,0) $) -- (Cleft);
+	\PC[32]{Cleft}{gray!30}{black}{0.5}{0.25};
+	\draw[ultra thick] (AA)--(CC);
+	\fill[fill=gray!60](AA)--(CC)--++(-58:1) to [out=-115, in=45]++(212:11.934)--cycle;
+	\PC{A}{gray!30}{black}{0.5}{0.25};
+	
+	\filldraw[fill=gray!30] ($ (B)+(0,0.25) $) --++(-30:0.5)--+(210:0.5);
+	\Meme{A}{BB}{gray!30}{gray!30}{black}{0.325}{0.1}{0.2}
 
+	
+	\draw[line width=2mm, gray] (O) circle (1.3cm);
 	\draw[thick] (O) circle (1.4cm);
-	\draw[line width=1mm, SaddleBrown!75] (O) circle (1.3cm);
 	
 	\node[xshift=-1cm, yshift=-0.3cm] at (C) { $ 32\deg $};
-	\node[xshift=0.4cm, yshift=0.5cm] at (A) { $ 58\deg $};
+	\node[xshift=0.5cm, yshift=0.6cm] at (A) { $ 58\deg $};
 	
 	\draw ($ (A)-(1,0) $)--+(-1,0);
 	\draw ($ (B)-(1,0) $)--+(-1,0);
 
-	\fill (A) circle (1.5pt) node [left,yshift=0.125cm,xshift=-0.125cm] {\Large $A$};
+	\fill (A) circle (1.5pt) node [xshift=-0.325cm,yshift=0.25cm] {\Large $A$};
 	\fill (O) circle (1.5pt)node[above] {$ O $};
-	\node[above,outer sep=1mm] at (Cleft)   {\Large $C$};
+	\node[above,outer sep=1mm] at (C)   {\Large $C$};
 	\fill (B) circle (1.5pt) node [left,outer sep=1mm] {\Large $B$};
 
 	\draw[latex-latex]($ (A)-(1.5,0) $) -- ($ (B)-(1.5,0) $)node[midway, fill=white]{$ 625\,\text{mm}$};

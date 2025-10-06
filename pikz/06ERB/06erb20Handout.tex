@@ -9,10 +9,8 @@
 
 	\scriptsize
 
-	\fill [top color=Honeydew4,bottom color=Honeydew2] (-3,-1.075) rectangle (7,-2);
+	\fill [myGray] (-3,-1.075) rectangle (7,-2);
 	\draw (-3,-1.075) -- (7,-1.075);
-
-	
 
 	\coordinate (O) at (1,0);
 	\coordinate (R) at (4.975,0.125);
@@ -21,20 +19,20 @@
 
 	% hydraulic
 	\begin{scope}[transform canvas={rotate around={-36:(O)}}]
-		\shadedraw[top color=Azure4,bottom color=Azure4, middle color=white] ($ (O)+(0.125,-0.05) $) rectangle +(2.5,0.1);
-		\shadedraw[top color=Azure4,bottom color=Azure4, middle color=white] ($ (O)+(-0.125,-0.075) $) rectangle +(1.125,0.15);		
+		\shadedraw[top color=myGray4,bottom color=myGray, middle color=myGray3] ($ (O)+(0.125,-0.05) $) rectangle +(2.5,0.1);
+		\shadedraw[top color=myGray,bottom color=myGray, middle color=myGray3] ($ (O)+(-0.125,-0.075) $) rectangle +(1.125,0.15);		
 	\end{scope}
 
 	\begin{scope}
 		%draw back gate
 		\begin{scope}[rotate around={-30:(R)}]
-			\filldraw[fill=Honeydew3, draw=black] (5.325,2) circle (0.75mm);
-			\filldraw[draw=black,fill=Honeydew3, rotate around={30:(5.325,2)}] (5.24,2) rectangle +(-0.0625,-1.875);
+			\filldraw[fill=myGray, draw=black] (5.325,2) circle (0.75mm);
+			\filldraw[draw=black,fill=myGray, rotate around={30:(5.325,2)}] (5.24,2) rectangle +(-0.0625,-1.875);
 		\end{scope}
 		% truck cargo
 		\begin{scope}[rotate around={-30:(R)}]
 			\coordinate (G) at (2.5,1);
-			\filldraw[draw=black,fill=Honeydew3] (0,0)-- ++(0,2.25)-- ++(5.25,0)-- +(0,-2.25)--cycle;
+			\filldraw[draw=black,fill=myGray] (0,0)-- ++(0,2.25)-- ++(5.25,0)-- +(0,-2.25)--cycle;
 			\fill (G) circle (1.25pt)node[xshift=2.5mm]{\normalsize $G$};
 			% \draw ($ (G)+(-90:0.25) $) -- +(-90:1);
 			% dimensions
@@ -46,20 +44,20 @@
 			\draw[latex-latex] ($(G)+(0,1.575)$) -- node[fill=white,rotate=30]{$2.50\,$m}($(R)+(0,2.45)$);
 			\draw ($(F)+(0.125,0)$) -- ($(R)+(-0.25,0)$);
 			\draw ($(G)+(0.125,0)$) -- +(1,0);
-			\draw[latex-latex] ($(G)+(0.75,0)$) -- node[fill=Honeydew3, rotate=30]{$1.15\,$m}($(G)+(0.75,-0.875)$);
+			\draw[latex-latex] ($(G)+(0.75,0)$) -- node[fill=myGray, rotate=30]{$1.15\,$m}($(G)+(0.75,-0.875)$);
 		\end{scope}
 		% \draw (O)--($(O)+(76.5:2.25)$);
 	\end{scope}
 	% rear pinned connection
 	\begin{scope}[scale=.25]
-		\filldraw[fill=Honeydew4,draw=black] ($(R)+(\cos*\r,\sin*\r)$)arc(10:170:\r)-- ++(-\sin*\hyp,-\cos*\hyp)-- ++(2*\sin*\hyp+2*\r, 0)-- cycle;		
+		\filldraw[fill=myGray,draw=black] ($(R)+(\cos*\r,\sin*\r)$)arc(10:170:\r)-- ++(-\sin*\hyp,-\cos*\hyp)-- ++(2*\sin*\hyp+2*\r, 0)-- cycle;		
 	\end{scope}
 	% hydraulic lower connection
 	\begin{scope}[scale=.25]
-		\PC{O}{Honeydew4}{black}{1.25}{0.125}
+		\PC{O}{myGray}{black}{1.25}{0.125}
 	\end{scope}
 	% truck body
-	\filldraw[draw=black,fill=Gold3] (-0.0625,-0.0625)-- ++(0.65,0)-- ++(0,-0.15)-- ++(0.7,0)-- ++(0,0.15)-- ++(3.45,0)-- ++(0,-0.15)-- ++(0.5,0)-- ++(0,-0.4)-- ++(-0.8,0)arc(0:180:0.55)-- +(-4.5,0)arc(0:180:0.55)-- ++(-0.0625,0)-- ++(0,0.55)-- ++(0.0625,0.0625)-- ++(0.0625,0.325)arc(160:99:0.125)-- ++(8:0.9)-- ++(65:0.6)arc(155:90:0.125)-- ++(0.65,0)arc(90:0:0.125)-- cycle;
+	\filldraw[draw=black,fill=myGray3] (-0.0625,-0.0625)-- ++(0.65,0)-- ++(0,-0.15)-- ++(0.7,0)-- ++(0,0.15)-- ++(3.45,0)-- ++(0,-0.15)-- ++(0.5,0)-- ++(0,-0.4)-- ++(-0.8,0)arc(0:180:0.55)-- +(-4.5,0)arc(0:180:0.55)-- ++(-0.0625,0)-- ++(0,0.55)-- ++(0.0625,0.0625)-- ++(0.0625,0.325)arc(160:99:0.125)-- ++(8:0.9)-- ++(65:0.6)arc(155:90:0.125)-- ++(0.65,0)arc(90:0:0.125)-- cycle;
 
 	\draw ($(O)+(0.4,0.06)+(35.5:1.375)$) -- ++(216:1.375)-- +(1.375,0);
 	\draw[latex-latex] ($(O)+(0.4,0.06)+(0:1.125)$)arc(0:36:1.125)node[midway,fill=white,inner sep=0.25mm]{$36.5\deg$};
@@ -67,18 +65,18 @@
 	\draw[latex-latex] ($(R)+(-0.375,-0.075)+(150:1.25)$)arc(150:180:1.25)node[midway,fill=white,inner sep=0.125mm]{$31.5\deg$};
 
 
-	\filldraw[fill=Honeydew4,draw=black] (3.89,-0.6) circle (0.475cm);
+	\filldraw[fill=myGray,draw=black] (3.89,-0.6) circle (0.475cm);
 	\filldraw[fill=white,draw=black] (3.89,-0.6) circle (0.3cm);
-	\filldraw[fill=Gold3,draw=black] (3.89,-0.6) circle (0.225cm);
-	\filldraw[fill=Honeydew4,draw=black] (-1.7125,-0.6)  circle (0.475cm);
+	\filldraw[fill=myGray3,draw=black] (3.89,-0.6) circle (0.225cm);
+	\filldraw[fill=myGray,draw=black] (-1.7125,-0.6)  circle (0.475cm);
 	\filldraw[fill=white,draw=black] (-1.7125,-0.6) circle (0.3cm);
-	\filldraw[fill=Gold3,draw=black] (-1.7125,-0.6) circle (0.225cm);
+	\filldraw[fill=myGray3,draw=black] (-1.7125,-0.6) circle (0.225cm);
 	\draw[black](-.2,1)-- ++(0,-1.175)arc(0:-90:0.0625)-- ++(-0.6,0)arc(270:225:0.0625)-- ++(135:0.25)arc(225:180:0.0625)-- ++(0,0.5)arc(180:165:0.125)-- ++(69:0.5)arc(161:90:0.0625)-- +(0.595,0)arc(90:0:0.0625);
 	\filldraw[fill=white, draw=black](-.26,0.95)-- ++(0,-0.5)-- ++(-0.725,0)arc(270:161:0.0625)-- ++(69:0.45)arc(161:90:0.0625)-- ++(0.5125,0)arc(90:5:0.05);
 
-	\shadedraw[ball color=LightBlue4,draw=black] (R) circle (0.5mm);
-	\shadedraw[ball color=LightBlue4,draw=black] (F) circle (0.5mm);
-	\shadedraw[ball color=LightBlue4,draw=LightBlue4!50!black] (O) circle (0.5mm);
+	\fill (R) circle (0.5mm);
+	\fill (F) circle (0.5mm);
+	\fill (O) circle (0.5mm);
 
 	\small
 	\node[xshift=0.175cm,yshift=0.175cm] at (O) {\bm $A$};

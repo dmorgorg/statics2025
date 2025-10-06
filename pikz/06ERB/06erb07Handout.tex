@@ -11,33 +11,33 @@
 	\coordinate (E) at (0,-3);
 	\coordinate (base) at ($(A)+(0,0.3875)$);
 
-	\fill[AntiqueWhite4] ($ (A)+(-0.75,4) $) rectangle ($ (E)+(-1.75,-2) $);
+	\fill[gray] ($ (A)+(-0.75,4) $) rectangle ($ (E)+(-1.75,-2) $);
 	\draw[black, thick] ($ (A)+(-0.75,4) $) -- +(0, -9);
 
-	\DL{base}{D}{base}{DarkOliveGreen3}{black}{8}{0.25}{5}
-	\DL{CC}{D}{base}{DarkOliveGreen3}{black}{4}{0.25}{5}
+	\DL{base}{D}{base}{myGray4}{black}{8}{0.25}{5}
+	\DL{CC}{D}{base}{myGray4}{black}{4}{0.25}{5}
 
 
-	\fill[AntiqueWhite3] ($ (A)+(-0.25,-0.3875) $) rectangle ($ (C)+(0,0.3875) $);
+	\fill[gray!60] ($ (A)+(-0.25,-0.3875) $) rectangle ($ (C)+(0,0.3875) $);
 	\draw[ultra thick] ($ (A)+(-0.25,-0.3875) $) -- ++(6.25,0);
 	\draw[ultra thick] ($ (A)+(-0.25,0.3875) $) -- ++(6.25,0);
 
 
 
-	\filldraw [fill=AntiqueWhite3, draw=black, line width=0.35mm] (0,-2.75) arc [start angle=-90, end angle=0, x radius=3.75cm, y radius=2.75cm]arc(180:0:0.25) arc[start angle=0, end angle=-90, x radius=4.25cm, y radius=3.25cm] -- cycle;
+	\filldraw [fill=gray!60, draw=black, line width=0.35mm] (0,-2.75) arc [start angle=-90, end angle=0, x radius=3.75cm, y radius=2.75cm]arc(180:0:0.25) arc[start angle=0, end angle=-90, x radius=4.25cm, y radius=3.25cm] -- cycle;
 
-	\PC[-90]{A}{AntiqueWhite4}{black}{0.75}{0.25}
-	\PC[-90]{E}{AntiqueWhite4}{black}{0.75}{0.25}
+	\PC[-90]{A}{gray}{black}{0.75}{0.25}
+	\PC[-90]{E}{gray}{black}{0.75}{0.25}
 
 	\shadedraw[outer color=\ldraw!50!\lfill, inner color=\ldraw!25!white, \ldraw, line width = \lwidth pt] (B) circle (3pt);
 
 
-	\node at (A) [right,xshift=0.4mm] {\large $A$};
+	\node at (A) [right] {\large $A$};
 	\node at (B) [right, outer sep=1mm] {\large $B$};
-	\node at (C) [right,xshift=-.4mm] {\large $C$};
+	\node at (C) [right] {\large $C$};
 
 	\node at ($ (D)+(0,0.25) $) {\small $16.00$ kN/m};
-	\node at (E) [below, outer sep=1.5mm] {\large $D$};
+	\node at (E) [below, outer sep=1mm] {\Large $D$};
 
 
 	\draw ($ (A)+(-1,0) $) -- +(-2,0);

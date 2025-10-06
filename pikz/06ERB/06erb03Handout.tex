@@ -24,25 +24,25 @@
 		\def\outeroffset{\hi}
 
 
-		\Meme{A}{F}{Tan4}{Tan2}{black}{1}{0.25}{0.25}
-		% \pgfoonew \beam =new beam(A, F,Tan3,Tan4, 0.5, 0.5, 0.5)
-		\fill[mucus] ($ (A)+(-1,-2) $) rectangle ($ (A)+(-2,2) $);
-		\draw[thick, mucus!50!black] ($ (A)+(-1,-2) $) -- ($ (A)+(-1,2) $);
-		\PC[-90]{A}{mucus!50}{black}{1}{0.25};
+		\Meme{A}{F}{Gray!50}{Gray!50}{black}{1}{0.25}{0.25}
+		% \pgfoonew \beam =new beam(A, F,Tan3,Gray!50, 0.5, 0.5, 0.5)
+		\fill[gray!50] ($ (A)+(-1,-2) $) rectangle ($ (A)+(-2,2) $);
+		\draw[thick, gray!50] ($ (A)+(-1,-2) $) -- ($ (A)+(-1,2) $);
+		\PC[-90]{A}{gray!50}{black}{1}{0.25};
 
-		\draw[saitMaroon, line width=1mm] ($ (D)+(0.5, 0)$) -- ++(0,6)arc(0:150:0.5) -- (B);
+		\draw[line width=1mm] ($ (D)+(0.5, 0)$) -- ++(0,6)arc(0:150:0.5) -- (B);
 
-		\fill[mucus] ($ (E)+(-2,1) $) rectangle ($ (E)+(2,2) $);
-		\draw[thick, mucus!50!black] ($ (E)+(-2,1) $) -- +(4,0);
-		 \Pulley[180]{E}{mucus!50}{black}{1}{0.25}
+		\fill[gray!50] ($ (E)+(-2,1) $) rectangle ($ (E)+(2,2) $);
+		% \draw[thick, gray] ($ (E)+(-2,1) $) -- +(4,0);
+		 \Pulley[180]{E}{gray!50}{black}{1}{0.25}
 
-		\draw[-latex, line width=0.75 mm, saitBlue] (C) -- +(0, -3.5) node[left,saitDeepBlue] {\large $2.20\text{ kN}$};
+		\draw[-latex, line width=0.75 mm] (C) -- +(0, -3.5) node[left] {\large $2.20\text{ kN}$};
 
-		\shadedraw[ball color=mucus] (A) circle (1.5mm);
-		\shadedraw[ball color=mucus] (B) circle (1.5mm);
-		\shadedraw[ball color=mucus] (C) circle (1.5mm);
-		\shadedraw[ball color=mucus] ($(D)+(0.5,0)$) circle (1.5mm);
-		\shadedraw[ball color=mucus] ($(E)$) circle (1.5mm);
+		\fill (A) circle (1.5mm);
+		\fill (B) circle (1.5mm);
+		\fill (C) circle (1.5mm);
+		\fill ($(D)+(0.5,0)$) circle (1.5mm);
+		\fill ($(E)$) circle (1.5mm);
 
 		\draw ($ (D)+(0.5,-.75) $) -- +(0, -1.5);
 		\draw ($ (B)+(0,-.75) $) -- +(0, -1.5);

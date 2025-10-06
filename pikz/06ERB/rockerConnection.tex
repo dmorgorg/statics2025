@@ -46,9 +46,9 @@
 	}
 	\node[xshift=0.6cm, yshift=-0.45cm, rotate=\rrrotate] at (OOO) {\small smooth};
 	\draw[black]($(O)+({90+\rrrotate}: -3)+(180+\rrrotate:2.5)$) -- ++(\rrrotate: 5)-- +(-5,0);
-	\draw[Latex-Latex] ($(apex)+(180+\rrrotate:4)$)arc(180+\rrrotate:180:4)node[fill=white, midway, inner sep=0.5mm]{$\theta$};
+	\draw[Latex-Latex] ($(apex)+(180+\rrrotate:4)$)arc(180+\rrrotate:180:4)node[fill=bgcolor, midway, inner sep=0.5mm]{$\theta$};
 	\draw[black]($(OOO)+({90+\rrrotate}: -2)+(180+\rrrotate:2.5)$) -- ++(\rrrotate: 5)-- +(-5,0);
-	\draw[Latex-Latex] ($(apexO)+(180+\rrrotate:4)$)arc(180+\rrrotate:180:4)node[fill=white, midway, inner sep=0.5mm]{$\theta$};
+	\draw[Latex-Latex] ($(apexO)+(180+\rrrotate:4)$)arc(180+\rrrotate:180:4)node[fill=bgcolor, midway, inner sep=0.5mm]{$\theta$};
 
 
 	\uncover<2>{
@@ -62,9 +62,9 @@
 			\fill[gray] (OO) circle (2mm);
 			\draw[ultra thick, latex-, saitMaroon](OO) -- +({-90+\rrrotate}:5)node[below left]{$\bm F$};
 			\draw[thin] ($(OO)+(-1,0)$)-- +(-3,0);
-			\draw[latex-latex] ($(OO)+(-3.5,0)$)arc(-180:-90+\rrrotate:3.5)node[fill=white, midway, inner sep=0.25mm]{\small $90\deg\!-\!\theta$};
+			\draw[latex-latex] ($(OO)+(-3.5,0)$)arc(-180:-90+\rrrotate:3.5)node[fill=bgcolor, midway, inner sep=0.25mm]{\small $90\deg\!-\!\theta$};
 			\draw[thin] ($(OO)+(0,-1)$)-- +(0,-3);
-			\draw[latex-latex] ($(OO)+(0,-3.5)$)arc(-90:-90+\rrrotate:3.5)node[fill=white, midway, inner sep=0.25mm]{\small $\theta$};
+			\draw[latex-latex] ($(OO)+(0,-3.5)$)arc(-90:-90+\rrrotate:3.5)node[fill=bgcolor, midway, inner sep=0.25mm]{\small $\theta$};
 
 		\end{scope}
 

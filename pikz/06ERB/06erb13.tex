@@ -1,0 +1,48 @@
+\tikz[scale=\scale]{
+  \coordinate (A) at (0,0);
+  \coordinate (C) at (1,0);
+  \coordinate (D) at (2.2,0);
+  \coordinate (E) at (5.6,0);
+  \coordinate (B) at (8,0);
+
+  \fill[DarkOliveGreen4] ($(A)+(-2,0)$) rectangle ($ (B)+(2,-3.75) $);
+  
+  \node[below left, Cornsilk2] at (A) {$ A $};
+  \node[below right, Cornsilk2] at (B) {$ B $};
+
+  \fill[SlateGray3] ($ (C)-(0.25,0) $) rectangle ($ (C)+(0.25,4) $);
+  \draw[SlateGray4, very thick] ($ (C)+(-0.25,0) $) rectangle ($ (C)+(-0.25,4) $);
+  \draw[SlateGray4, very thick] ($ (C)+(0.25,0) $) rectangle ($ (C)+(0.25,4) $);
+  \fill[SlateGray3] ($ (D)-(0.25,0) $) rectangle ($ (D)+(0.25,4) $);
+  \draw[SlateGray4, very thick] ($ (D)+(-0.25,0) $) rectangle ($ (D)+(-0.25,4) $);
+  \draw[SlateGray4, very thick] ($ (D)+(0.25,0) $) rectangle ($ (D)+(0.25,4) $);
+  \fill[SlateGray3] ($ (E)-(0.25,0) $) rectangle ($ (E)+(0.25,4) $);
+  \draw[SlateGray4, very thick] ($ (E)+(-0.25,0) $) rectangle ($ (E)+(-0.25,4) $);
+  \draw[SlateGray4, very thick] ($ (E)+(0.25,0) $) rectangle ($ (E)+(0.25,4) $);
+
+  \draw[very thick, latex-] ($ (C)+(0,4) $) --+ (0,2)node[above]{\small$ 200\,\textsf{kN} $};
+  \draw[very thick, latex-] ($ (D)+(0,4) $) --+ (0,1.4)node[above]{\small$ 140\,\textsf{kN} $};
+  \draw[very thick, latex-] ($ (E)+(0,4) $) --+ (0,1.6)node[above]{\small$ 160\,\textsf{kN} $};
+
+  \draw[thin, gray] ($ (A)+(0,0.5) $) -- ($ (A)+(0,5.5) $);
+  \draw[thin, gray] ($ (B)+(0,0.5) $) -- ($ (B)+(0,5.5) $);
+
+  \draw[latex-latex] ($ (A)+(0,4.75) $) -- ($ (C)+(0,4.75) $) node[midway, fill=white, yshift=0.157cm,inner sep=0mm] {\scriptsize $ 1\,\textsf{m}$};
+  \draw[latex-latex] ($ (C)+(0,4.75) $) -- ($ (D)+(0,4.75) $) node[midway, fill=white, yshift=0.157cm,inner sep=0mm] {\scriptsize $ 1.2\,\textsf{m}$};
+  \draw[latex-latex] ($ (D)+(0,4.75) $) -- ($ (E)+(0,4.75) $) node[midway, fill=white, yshift=0.157cm,inner sep=0mm] {\scriptsize $ 3.4\,\textsf{m}$};
+  \draw[latex-latex] ($ (E)+(0,4.75) $) -- ($ (B)+(0,4.75) $) node[midway, fill=white, yshift=0.157cm,inner sep=0mm] {\scriptsize $ 2.4\,\textsf{m}$};
+
+  \begin{scope}[yshift=-0.75cm]
+    \coordinate (TL) at (0,1);
+    \coordinate (TR) at (8,2);
+    \coordinate (base) at (0,0);
+    \DLdown[180]{TL}{TR}{base}{DarkOliveGreen4}{Cornsilk2}{10}{0.4}{5};
+  \end{scope}
+
+  \filldraw[fill=Cornsilk2] (A) rectangle ($ (B)+(0,-0.75) $);
+  \draw [thick] ($ (A)+(-2,0) $) -- ($ (B)+(2,0) $);
+  \node[Cornsilk2] at (-0.5,-3) {$ \omega_1 $};
+  \node[Cornsilk2] at (8.5,-2) {$ \omega_2 $};
+
+
+}

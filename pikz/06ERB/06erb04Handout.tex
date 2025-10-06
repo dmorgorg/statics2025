@@ -26,23 +26,23 @@
 
 	% \gettikzxy{(AA)}{\aax}{\aay}	
 
-	\Meme{A}{B}{OliveDrab4}{OliveDrab2}{black}{0.3}{0.135}{0.2}
-	\Meme{B}{C}{OliveDrab4}{OliveDrab2}{black}{0.3}{0.135}{0.2}
-	\Meme{C}{D}{OliveDrab4}{OliveDrab2}{black}{0.3}{0.135}{0.2}
-	\Meme{E}{D}{OliveDrab4}{OliveDrab2}{black}{0.3}{0.135}{0.2}
-	\Meme{E}{F}{OliveDrab4}{OliveDrab2}{black}{0.3}{0.135}{0.2}
-	\Meme{A}{F}{OliveDrab4}{OliveDrab2}{black}{0.3}{0.135}{0.2}
-	\Meme{C}{F}{OliveDrab4}{OliveDrab2}{black}{0.3}{0.135}{0.2}
-	\Meme{B}{F}{OliveDrab4}{OliveDrab2}{black}{0.3}{0.135}{0.2}
-	\Meme{C}{E}{OliveDrab4}{OliveDrab2}{black}{0.3}{0.135}{0.2}
+	\Meme{A}{B}{gray!50}{gray!50}{black}{0.3}{0.135}{0.2}
+	\Meme{B}{C}{gray!50}{gray!50}{black}{0.3}{0.135}{0.2}
+	\Meme{C}{D}{gray!50}{gray!50}{black}{0.3}{0.135}{0.2}
+	\Meme{E}{D}{gray!50}{gray!50}{black}{0.3}{0.135}{0.2}
+	\Meme{E}{F}{gray!50}{gray!50}{black}{0.3}{0.135}{0.2}
+	\Meme{A}{F}{gray!50}{gray!50}{black}{0.3}{0.135}{0.2}
+	\Meme{C}{F}{gray!50}{gray!50}{black}{0.3}{0.135}{0.2}
+	\Meme{B}{F}{gray!50}{gray!50}{black}{0.3}{0.135}{0.2}
+	\Meme{C}{E}{gray!50}{gray!50}{black}{0.3}{0.135}{0.2}
 	
-	\fill[Cornsilk3] ($ (A)-(1,0.525) $) rectangle ($ (A)+(1,-1) $);
+	\fill[gray!25] ($ (A)-(1,0.525) $) rectangle ($ (A)+(1,-1) $);
 	\draw[thick] ($ (A)-(1,0.525) $) rectangle ($ (A)+(1,-0.525) $);
-	\fill[Cornsilk3] ($ (D)+(-0.875,-1) $) -- ++(25:2) -- +(-90:0.854) -- cycle;
+	\fill[gray!25] ($ (D)+(-0.875,-1) $) -- ++(25:2) -- +(-90:0.854) -- cycle;
 	\draw[thick] ($ (D)+(-0.875,-1) $) -- ++(25:2);
 
-	\PC{A}{Cornsilk3}{black}{0.525}{0.2}
-	\Rocker[25]{D}{Cornsilk3}{black}{0.525}{0.2}
+	\PC{A}{gray!25}{black}{0.525}{0.2}
+	\Rocker[25]{D}{gray!25}{black}{0.525}{0.2}
 	
 
 	\draw ($ (A)+(0,-0.25) $) -- +(0,-1.5);
@@ -50,7 +50,7 @@
 	\draw ($ (C)+(0,-0.25) $) -- +(0,-1.5);
 	\draw ($ (D)+(0,-0.25) $) -- +(0,-1.5);
 
-	\draw[line width=0.75mm, statsMaroon, latex-] (E) -- +(125:2.25) node[above] {$3.70$ kN};
+	\draw[line width=0.75mm, latex-] (E) -- +(125:2.25) node[above] {$3.70$ kN};
 	\draw ($ (E)+(-1.25,0) $)  -- ($ (E)+(-2.25,0) $);
 	\draw[latex-latex] ($ (E)+(-1.75,0) $)  arc (180:125:1.75);
 	\path  ($ (E)+(150:1.75) $) node[fill=white, inner sep=0.5mm] {\small $55^\circ$};
@@ -68,11 +68,11 @@
 	 \draw[latex-latex] ($ (D)+(-0.875,-1)+(0:2.5) $)  arc (0:25:2.5);
 	 \path  ($ (D)+(-0.875,-1)+(12:2.5) $) node[fill=white, inner sep=0.5mm] {\small $25^\circ$};
 
-	\shadedraw[ball color=OliveDrab3] (A) circle (2pt) node[above left, outer sep=0.5mm] {$A$};
-	\shadedraw[ball color=OliveDrab3] (B) circle (2pt) node[below right, yshift=-1mm] {$B$};
-	\shadedraw[ball color=OliveDrab3] (C) circle (2pt) node[below right, yshift=-1mm] {$C$};
-	\shadedraw[ball color=OliveDrab3] (D) circle (2pt) node[above right, outer sep=0.5mm] {$D$};
-	\shadedraw[ball color=OliveDrab3] (E) circle (2pt) node[above right, outer sep=0.5mm] {$E$};
-	\shadedraw[ball color=OliveDrab3] (F) circle (2pt) node[above, outer sep=0.75mm] {$F$};
+	\fill[black] (A) circle (2pt) node[above left, outer sep=0.5mm] {$A$};
+	\fill[black] (B) circle (2pt) node[below right, yshift=-1mm] {$B$};
+	\fill[black] (C) circle (2pt) node[below right, yshift=-1mm] {$C$};
+	\fill[black] (D) circle (2pt) node[above right, outer sep=0.5mm] {$D$};
+	\fill[black] (E) circle (2pt) node[above right, outer sep=0.5mm] {$E$};
+	\fill[black] (F) circle (2pt) node[above, outer sep=0.75mm] {$F$};
 
 \end{tikzpicture}

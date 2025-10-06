@@ -9,6 +9,7 @@
 \input{../../includes/Channel.tex}
 \input{../../includes/Couple.tex}
 \input{../../includes/DL.tex}
+\input{../../includes/DLdown.tex}
 \input{../../includes/EyeBolt.tex}
 \input{../../includes/EyeConnection.tex}
 \input{../../includes/Member}
@@ -313,14 +314,6 @@
 			\input{../../pikz/06ERB/06erb14.tex}
 			\parb
 			Determine the tension in the chain and the reaction at $A$.
-			% \begin{center}
-			% 	\footnotesize
-			% 	\rotatebox[origin=c]{180}{
-			% 		\textcolor{gray}{
-			% 			($T=2.08\,\text{kN,}R_A=5.75\,\text{kN at} 85.5\deg$.)
-			% 		}
-			% 	}
-			% \end{center}
 		\end{myexam}
 	\end{textblock*}
 
@@ -336,15 +329,6 @@
 			\input{../../pikz/06ERB/06erb01.tex}
 			\parb
 			Determine the reactions at $A$ and at $B$.
-			% \begin{center}
-			% 	\footnotesize
-			% 	\rotatebox[origin=c]{180}{
-			% 		\textcolor{gray}{
-			% 			($R_B=1.71\,\text{kN at}117\deg,\,R_A=1.93\,\text{kN at }66.7\deg$)
-			% 		}
-			% 	}
-			% \end{center}
-			% \addtocounter{\tcbcounter}{-1}
 		\end{myexam}
 	\end{textblock*}
 
@@ -362,104 +346,11 @@
 				\centering
 				Determine the reactions at $A$ and $D$.
 			}
-			% answers, gray, centered, upside down
-			% \begin{center}
-			% 	\footnotesize
-			% 	\textcolor{gray}{
-			% 		\rotatebox[origin=c]{180}{
-			% 			$\left( R_D=2.79\text{ kN at } 115^\circ,\;R_A=1.08\text{ kN at } 152^\circ \text{, ccw from +ve $x$-axis.} \right)$
-			% 		}
-			% 	}
-			% \end{center}
 		\end{myexer}
 	\end{textblock*}
 
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \begin{frame}
-% 	\begin{textblock*}{1\textwidth}(1cm, 0.25cm)
-
-% 		\begin{myexam}{Solution}{}
-% 			\footnotesize
-% 			First, as always, the free body diagram:
-% 			\begin{center}
-% 				\def\scale{0.55}
-% 				\input{../../pikz/06ERB/06erb01SolnA.tex}
-% 			\end{center}
-% 			\parm
-% 			\raggedright
-% 			We have three unknowns: $R_{Ax}$, $R_{Ay}$ and $R_B$. Start by taking moments about $A$:
-% 			\begin{align*}
-% 				\Sigma M_A      & = (R_B \cos 26.6\deg\,\text{kN}) (8.00\,\text{m})-(3.30\,\text{kN})(3.20\,\text{m})                        \\
-% 				                & \qquad -(R_B \sin 26.6\deg\,\text{kN}) (2.15\,\text{m})                                                    \\
-% 				                & = 0                                                                                                           \\
-% 				\Rightarrow R_B & = \frac{(3.30\,\text{kN})(3.20\,\text{m})}{(8.00\cos 26.6\deg\,\text{m})-(2.15\sin 26.6\deg\,\text{m})} \\
-% 				                & = 1.7058\,\text{kN}
-% 			\end{align*}
-% 			$$ \bm{R_B=1.71\,\text{\bfseries kN at }117\deg}$$
-% 			\addtocounter{\tcbcounter}{-1}
-% 		\end{myexam}
-% 	\end{textblock*}
-
-% \end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \begin{frame}
-% 	\begin{textblock*}{1\textwidth}(1cm, 0.25cm)
-% 		\footnotesize
-% 		\begin{myexam}{Solution (cont'd)}{}
-% 			Now, sum the $y$ components to find $R_y$:
-% 			\begin{align*}
-% 				\Sigma F_y         & = R_{Ay}-3.3\,\text{kN}+1.7058\cos 26.6\degree\,\text{kN} = 0 \\
-% 				\Rightarrow R_{Ay} & = 1.7748\,\text{kN}                                           \\\\
-% 				\Sigma F_x         & = R_{Ax}-1.7058\sin 26.6\degree\,\text{kN} = 0                \\
-% 				\Rightarrow R_{Ax} & = 0.76379\,\text{kN}
-% 			\end{align*}
-% 			At this point, there is an opportunity to check our work so far. If we take moments about anywhere (except about $A$ which we've already set to zero), they should sum to zero. Taking moments about $B$ is the most convenient:
-% 			\begin{align*}
-% 				\Sigma M_B & = (3.30\,\text{kN})(4.80\,\text{m})-(1.7748\,\text{m})(8.00\,\text{m}) \\
-% 				           & \qquad\qquad-(0.76379\,\text{m})(2.15\,\text{m})                       \\
-% 				           & = -0.000549                                                            \\
-% 				           & \approx 0 \qquad\text{\textcolor{mucus}{\checkmark}}
-% 			\end{align*}
-
-
-
-
-% 			\addtocounter{\tcbcounter}{-1}
-
-% 		\end{myexam}
-% 	\end{textblock*}
-
-% \end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \begin{frame}
-% 	\begin{textblock*}{1\textwidth}(1cm, 0.25cm)
-
-% 		\begin{myexam}{Solution (cont'd)}{}
-% 			\footnotesize
-% 			Find the resultant of the reaction at $A$ from its two components. (We have done this before when studying the resultant of force vectors.)\parb
-% 			\centering
-% 			\tikz[scale=0.75]{
-% 				\draw[-latex, thick] (0,0) -- node[fill=white, above, sloped]{$1.7748\,\text{kN}$}+(0,3.4);
-% 				\draw[-latex, thick] (0,0) -- node[fill=white, below, outer sep=0.65mm]{$0.76379\,\text{kN}$}+(1.6,0);
-% 				\draw[-latex, thick, saitMaroon] (0,0) -- +(1.6,3.4);
-% 				\node at (0.35,0.25) {$\theta$};
-% 			}
-% 			\begin{align*}
-% 				R_A    & = \sqrt{(1.7748\,\text{kN})^2+(0.76379\,\text{kN})^2} \\
-% 				       & = 1.9322\,\text{kN}                                   \\\\
-% 				\theta & = \tan^{-1}\left[\frac{1.7748}{0.76379}\right]        \\
-% 				       & = 66.715\degree
-% 			\end{align*}
-
-% 			$$ \bm{R_A=1.93\,\text{\bfseries kN at }66.7\degree}$$
-% 		\end{myexam}
-% 	\end{textblock*}
-
-% \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
@@ -473,17 +364,6 @@
 				\centering
 				Determine the reactions at the pinned connection and the tension in the cable.
 			}
-			% answers, gray, centered, upside down
-			% \begin{center}
-			% 	\footnotesize
-			% 	\textcolor{gray}{
-			% 		\rotatebox[origin=c]{180}{
-			% 			$\left( R_D=12.9\text{ kN},\;R_A=6.75\text{ kN at } 197^\circ \text{, ccw from +ve $x$-axis.} \right)$
-			% 		}
-			% 	}
-			% \end{center}
-
-
 		\end{myexer}
 	\end{textblock*}
 
@@ -502,15 +382,6 @@
 				The roller and the pinned connection are on slopes inclined at $21\deg$ to the horizontal; they are both at the same elevation.\parm
 				Determine the reaction at each connection. Indicate direction by measuring counter-clockwise from the positive $x$-axis.
 			}
-			% answers, gray, centered, upside down
-			% \begin{center}
-			% 	\footnotesize
-			% 	\textcolor{gray}{
-			% 		\rotatebox[origin=c]{180}{
-			% 			$\left(  \right)$
-			% 		}
-			% 	}
-			% \end{center}
 		\end{myexam}
 	\end{textblock*}
 
@@ -524,15 +395,7 @@
 		\parb\centering
 		The roller at $B$ is in a smooth slot.\par
 		Determine the reactions at $A$ and $B$.
-		% answers, gray, centered, upside down
-		% \begin{center}
-		% 	\footnotesize
-		% 	\textcolor{gray}{
-		% 		\rotatebox[origin=c]{180}{
-		% 			$\left(R_B=301\thinspace\text{N at } \mathsf{270^\circ}, R_A=1280\thinspace\text{N at }\mathsf{117^\circ}\text{, both ccw from +ve }x\text{-axis}\right) $
-		% 		}
-		% 	}
-		% \end{center}
+		
 	\end{myexam}
 \end{frame}
 
@@ -548,7 +411,7 @@
 			
 			$55$-kg bar $AB$ has its centre of gravity at $G$. It is supported by a pinned connection at $A$ and a smooth peg at $C$. A cable is attached at $B$ and has a tensile force of $1.70\,$kN. The direction of the cable varies between $\theta=60\deg$ and $\theta=135\deg$. \parm
 
-			What are the maximum reactions at $A$ and $C$?\parb
+			What is the maximum reaction at $P$? \par Determine the reaction at $A$ for this maximum reaction at $P$.
 			
 		\end{myexam}
 	\end{textblock*}
@@ -565,7 +428,7 @@
 			
 			Beam $AB$ has a fixed support at $A$. (Fixed supports offer resistance to rotation in the form of a reacting couple at $A$; clearly, without this, equilibrium would not be possible.)\parm
 
-			Determine the reaction and the reacting couple at $A$.		
+			Determine the reaction and the reacting moment at $A$.		
 		}	
 	\end{myexam}
 \end{frame}
@@ -578,7 +441,7 @@
 		\centering\def\scale{0.75}
 		\input{../../pikz/06ERB/06erb10.tex}
 		\parb
-		Determine the reactions at $A$.
+		Determine the reaction and reacting moment at $A$.
 		
 	\end{myexer}
 \end{frame}
@@ -607,6 +470,20 @@
 		A section of smooth pipe, centred at $O$, has a diameter of $457\,\text{mm}$ and a mass of $186\,\text{kg}$. It is secured by vertical structural member $AB$, hinged with a pinned connection at $A$ and held in place by chain $BC$. \parm Determine the tension in the chain, and the reaction at $A$.		
 		
 	\end{myexer}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{}
+	\begin{myexam}{}{}
+		\centering
+		\def\scale{0.5}
+		\input{../../pikz/06ERB/06erb13.tex}
+		\pars
+		\cmini[0.7]{
+			\centering
+			Soil exerts a trapezoidal distributed load on the bottom of the footing $AB$. \parm Determine the values of $\omega_1$ and $\omega_2$ that support the column loadings in static equilibrium.		
+		}
+	\end{myexam}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -703,11 +580,7 @@
 	\def\scale{0.65}
 	\cmini[1]{
 		Initially, the direction of internal forces may seem counter-intuitive.
-
-		% In order to maintain equilibrium,
-		% the internal force in the member is in the \textbf{opposite} direction. In tension, the {\bfseries internal} force in the member pulls \textbf{away} from the joint. In compression, the {\bfseries internal} force in the member pushes  \textbf{towards} the joint\lb
-
-		\begin{center}
+\begin{center}
 			\begin{statsbox}[width=0.65\linewidth]{Internal Forces}
 				\centering
 				\input{../../pikz/06ERB/tenscomp5.tex}
@@ -748,7 +621,6 @@
 
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
-	% \begin{textblock*}{1\textwidth}(1cm, 0.25cm)
 
 		\begin{myexam}{}{}
 			\def\scale{0.65}
@@ -757,11 +629,10 @@
 			\cmini[0.85]{
 				\centering
 				Determine the reactions at $D$ and $E$.\parb
-				\textcolor{saitMaroon}{Note}: There are two pinned connections, but there is a single link between $C$ and $D$ so $CD$ is a {\bfseries two-force member}, so the direction of the reaction at $D$ is in the direction of $CD$ and has only one unknown - its magnitude.
+				% \textcolor{saitMaroon}{Note}: There are two pinned connections, but there is a single link between $C$ and $D$ so $CD$ is a {\bfseries two-force member}, so the direction of the reaction at $D$ is in the direction of $CD$ and has only one unknown - its magnitude.
 			}
 			
 		\end{myexam}
-	% \end{textblock*}
 
 \end{frame}
 
@@ -774,14 +645,14 @@
 			\input{../../pikz/06ERB/06erb07.tex}
 			\cmini[0.8]{
 				\centering
-				Determine the reactions at $A$ and $E$.
+				Determine the reactions at $A$ and $D$.
 			}
 			
 		\end{myexer}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 	
 %
@@ -791,7 +662,42 @@
 			\input{../../pikz/06ERB/06erb17.tex}
 			\cmini[0.8]{
 				\centering
+				Member $CD$ is a circular arc with centre at $A$.\pars
 				Determine the reactions at $A$ and $B$.
+			}
+		
+		\end{myexer}
+	
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+	
+%
+		\begin{myexam}{}{}
+			\def\scale{0.825}
+			\centering
+			\input{../../pikz/06ERB/06erb20.tex}
+			\cmini[0.775]{
+				\centering
+				The bin of a dump-truck is being tipped by hydraulic lift $AB$. ($AB$ can be considered a two-force member.) The bin rotates about a pin at $C$. Determine the force in the lift $AB$ and find the reaction at $C$ if the bin has a mass of $880\,\textsf{kg}$ and $G$ marks its centre of mass.
+			}
+		
+		\end{myexam}
+	
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+	
+%
+		\begin{myexer}{}{}
+			\def\scale{0.6}
+			\centering
+			\input{../../pikz/06ERB/06erb18.tex}
+			\cmini[0.775]{
+				\centering
+				The pulley is frictionless. Determine the tension $T$ and the reaction at the pinned connection $O$.
 			}
 		
 		\end{myexer}

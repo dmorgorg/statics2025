@@ -17,15 +17,15 @@
   \gettikzxy{(E)}{\Ex}{\Ey};
   \gettikzxy{(top)}{\tx}{\ty};
 
-	\filldraw[rounded corners=4pt, fill=Cornsilk3, line width=0.25mm] (OO)-- ++(158:4)-- ++(0,-2)-- ++(7.4175,0)-- +(0,2) -- cycle;
-	\filldraw[fill=Cornsilk3, line width=0.25mm]($(A)+(35:0.25)$)arc(35:145:3.25)arc(145:325:0.25)arc(145:35:2.75)arc(215:395:0.25);
-	\Roller[-22]{E}{DarkOliveGreen4}{black}{0.5}{0.25};
-	\PC[22]{A}{DarkOliveGreen4}{black}{0.51}{0.25};
+	\filldraw[rounded corners=4pt, fill=Gray!50] (OO)-- ++(158:4)-- ++(0,-2)-- ++(7.4175,0)-- +(0,2) -- cycle;
+	\filldraw[fill=Gray!50]($(A)+(35:0.25)$)arc(35:145:3.25)arc(145:325:0.25)arc(145:35:2.75)arc(215:395:0.25);
+	\Roller[-22]{E}{myGray4}{black}{0.5}{0.125};
+	\PC[22]{A}{myGray4}{black}{0.51}{0.125};
   \footnotesize
-  \draw[very thick, statsMaroon, -Latex] (B)-- +(0,-1.2)node[below, black]{\scriptsize $8.00\,$kN};
-  \draw[very thick, statsMaroon, -Latex] (C)-- +(0,-1.475)node[below, black]{\scriptsize $10.0\,$kN};
-  \draw[very thick, statsMaroon, -Latex] (D)-- +(0,-1.2)node[below, black]{\scriptsize $12.0\,$kN};
-  \draw[very thick, statsMaroon, -Latex] (D)-- +(-1, 0)node[yshift=0.25cm,xshift=0.375cm, black]{\scriptsize$5.00\,$kN};
+  \draw[very thick,  -Latex] (B)-- +(0,-1.2)node[below, black]{\scriptsize $8.00\,$kN};
+  \draw[very thick,  -Latex] (C)-- +(0,-1.475)node[below, black]{\scriptsize $10.0\,$kN};
+  \draw[very thick,  -Latex] (D)-- +(0,-1.2)node[below, black]{\scriptsize $12.0\,$kN};
+  \draw[very thick,  -Latex] (D)-- +(-1, 0)node[yshift=0.25cm,xshift=0.375cm, black]{\scriptsize$5.00\,$kN};
 
   \filldraw[ball color=DarkOliveGreen4, thin] (B) circle (0.875mm);
   \filldraw[ball color=DarkOliveGreen4, thin] (C) circle (0.875mm);

@@ -22,27 +22,27 @@
   \gettikzxy{(E)}{\Ex}{\Ey};
   \gettikzxy{(top)}{\tx}{\ty};
 
-  \fill[left color=Cornsilk2, right color=Cornsilk4] ($(O)+(-0.75,3)$) rectangle ($(B)+(-2,-2)$);
+  \fill[gray!80] ($(O)+(-0.75,3)$) rectangle ($(B)+(-2,-2)$);
   \draw[thick] ($(O)+(-0.75,3)$) -- ($(B)+(-0.75,-2)$);
 
-  \filldraw[fill=SlateGray4!50!SlateGray3, thick] ($(A)+(26.6:\hi)$)arc(26.6:-90:\outer)arc(270:90:\hi)arc(-90:26.6:\inner)arc(206.6:26.6:\hi);
-  \filldraw[rounded corners=1.5mm, fill=SlateGray4!50!SlateGray3,thick] ($(O)+(-\hi,-\hi)$)-- (-\hi,\Ay+\hi cm)-- (\Ax+\hi cm,\Ay+\hi cm)--(\Ax+\hi cm,\Ay-\hi cm)--(\hi+1,\Ay-\hi cm)--(\hi,\Ay-\hi cm-1cm)--(\hi,-\hi)--cycle;
-  \PC[-90]{O}{Cornsilk3}{black}{0.75}{0.25};
-	\PC[-90]{B}{Cornsilk3}{black}{0.75}{0.25};
+  \filldraw[fill=gray!50, draw=black] ($(A)+(26.6:\hi)$)arc(26.6:-90:\outer)arc(270:90:\hi)arc(-90:26.6:\inner)arc(206.6:26.6:\hi);
+  \filldraw[rounded corners=1.5mm, fill=gray!50] ($(O)+(-\hi,-\hi)$)-- (-\hi,\Ay+\hi cm)-- (\Ax+\hi cm,\Ay+\hi cm)--(\Ax+\hi cm,\Ay-\hi cm)--(\hi+1,\Ay-\hi cm)--(\hi,\Ay-\hi cm-1cm)--(\hi,-\hi)--cycle;
+  \PC[-90]{O}{gray!80}{black}{0.75}{0.125};
+	\PC[-90]{B}{gray!80}{black}{0.75}{0.125};
   \footnotesize
-  \draw[ultra thick, saitMaroon, -Latex] (C)-- +(0:2)node[right, black]{ $8.00\,$kN};
-  \draw[ultra thick, saitMaroon, -Latex] (D)-- +(-40:2)node[right, black]{ $8.00\,$kN};
+  \draw[ultra thick, -Latex] (C)-- +(0:2)node[right, black]{ $8.00\,$kN};
+  \draw[ultra thick, -Latex] (D)-- +(-40:2)node[right, black]{ $8.00\,$kN};
 \draw[dashed] ($(O)+(26.6:0.25)$)--($(A)+(206.6:0.25)$);
 \draw[dashed] ($(O)+(0:0.25)$)--($(C)+(0:0.25)$);
-\draw[dashed] ($(O)+(-40:0.25)$)--($(D)+(1400:0.25)$);
+\draw[dashed] ($(O)+(-40:0.25)$)--+(-40:5);
 
 \draw ($(O)+(-80:4.472)$)arc(-80:-50:4.472);
 \normalsize
-  \filldraw[ball color=Cornsilk, thin] (A) circle (1.25mm) node[xshift=3mm, yshift=3mm]{$C$};
-  \filldraw[ball color=Cornsilk, thin] (B) circle (1.25mm)node[yshift=4mm]{$B$};
-  \filldraw[ball color=Cornsilk, thin] (O) circle (1.25mm)node[yshift=-4mm]{$A$};
-  \filldraw[ball color=Cornsilk, thin] (C) circle (1.25mm);
-  \filldraw[ball color=Cornsilk, thin] (D) circle (1.25mm);
+  \fill (A) circle (1.25mm) node[xshift=3mm, yshift=3mm]{$C$};
+  \fill (B) circle (1.25mm)node[yshift=4mm]{$B$};
+  \fill (O) circle (1.25mm)node[yshift=-4mm]{$A$};
+  \fill (C) circle (1.25mm);
+  \fill (D) circle (1.25mm);
 \draw[semithick,-Latex] (O)-- node[fill=white,inner sep=0.4mm]{\footnotesize $R=1.25\,$m}+(-65:4.472);
 
 \draw[latex-latex] ($(O)+(0:2.25)$)arc(0:26.6:2.25)node[midway,fill=white, inner sep=0.2mm]{\footnotesize $27.0\deg$};

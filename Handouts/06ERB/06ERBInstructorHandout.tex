@@ -16,6 +16,7 @@
 \input{../../includes/Channel.tex}
 \input{../../includes/Couple.tex}
 \input{../../includes/DL.tex}
+\input{../../includes/DLdown.tex}
 \input{../../includes/Member.tex}
 \input{../../includes/Meme.tex}
 \input{../../includes/PC.tex}
@@ -25,7 +26,10 @@
 \input{../../includes/PulleyC.tex}
 \input{../../includes/Pulley.tex}
 \input{../../includes/Ring.tex}
+\input{../../includes/Rone.tex}
+\input{../../includes/Ronly.tex}
 \input{../../includes/Rocker.tex}
+\input{../../includes/Roller.tex}
 \input{../../includes/WBeam.tex}
 
 % https://tex.stackexchange.com/questions/731957/how-to-supress-missing-character-there-is-no-u003b-in-font-nullfont
@@ -47,13 +51,803 @@
   }
 \end{textblock*}
 
-\begin{textblock*}{4in}(1in, 1.5in)
+\begin{textblock*}{3in}(1in, 1.5in)
+	\cbox{
+		\underbar{\bf Example 1:} Determine the tension in the chain and the reaction at $A$.
+	}
+\end{textblock*}
+\begin{textblock*}{3.25in}(4.525in, 1.5in)
+	\cbox{
+    \centering
+    \def\scale{0.5}
+    \input{../../pikz/06ERB/06erb14Handout.tex}
+  }
+\end{textblock*}
+\begin{textblock*}{3.5in}(1in, 2.5in)
+  \centering
+  \tikz[scale=0.5, line cap = round]{
+    \coordinate (B) at (0,0);
+    \coordinate (A) at ($ (B)+(0:10) $);
+    \coordinate (C) at ($ (B)!0.33!(A)  $);
+    \coordinate (D) at ($ (B)!0.67!(A)  $);
+    \coordinate (E) at ($(A)+(-1,4.5)$);
+    \draw[gray!50, line width=5mm, ] (B)--(A) node[xshift=0.35cm, yshift=-0.35cm, black] {$A$};
+    \draw[very thick, -latex] (A)--+(0,2) node[above] {$R_{Ay}$};
+    \draw[very thick, -latex] (A)--+(2,0) node[right] {$R_{Ax}$};
+    \draw[very thick, -latex] (B)--+(77.5:3) node[above] {$T$};
+    \draw[very thick, latex-] (C)--+(0, 3) node[above] {$2.40\,\mathsf{kN}$};
+    \draw[very thick, latex-] (D)--+(0, 3) node[above] {$1.30\,\mathsf{kN}$};
+    \draw ($ (A)+(-90:0.75) $) -- ($ (A)+(-90:2.5) $);
+		\draw ($ (B)+(-90:0.75) $) -- ($ (B)+(-90:2.5) $);
+		\draw ($ (C)+(-90:0.75) $) -- ($ (C)+(-90:2.5) $);
+		\draw ($ (D)+(-90:0.75) $) -- ($ (D)+(-90:2.5) $);
+    \draw[latex-latex] ($ (B)+(0,-2) $) -- node[fill=white, inner sep = 0.2mm] {\small $0.950$ m} ($ (C)+(0,-2) $);
+		\draw[latex-latex] ($ (C)+(0,-2) $) -- node[fill=white, inner sep = 0.2mm] {\small $0.950$ m} ($ (D)+(0,-2) $);
+		\draw[latex-latex] ($ (D)+(0,-2) $) -- node[fill=white, inner sep = 0.2mm] {\small $0.950$ m} ($ (A)+(0,-2) $);
+    \draw[latex-latex] ($(B)+(2,0)$)arc(0:77.5:2) node[midway, fill=white] {\small $77.5\deg$};
+  }
+  \end{textblock*}
+  \begin{textblock*}{\textwidth}(1in, 4in)
+    \begin{align*}
+      \Sigma M_A &= (1.30\,\mathsf{kN})\cd (0.950\,\mathsf{m}) + (2.40\,\mathsf{kN})\cd (1.90\,\mathsf{m}) - (T\sin 77.5\deg)\cd (2.85\,\mathsf{m}) = 0 \\[0.25em]
+      \Ra T &= \frac{(1.30\,\mathsf{kN})\cd (0.950\,\mathsf{m}) + (2.40\,\mathsf{kN})\cd (1.90\,\mathsf{m})}{\sin 77.5\deg \x 2.85\,\mathsf{m}} \\[0.25em]
+      &= 2.0827\,\mathsf{kN} \\\\
+      \Sigma F_x &= R_{Ax}+T\cos 77.5\deg = 0  \\[0.25em]
+      \Ra R_{Ax} &= -(2.0827\,\mathsf{kN})\cd\cos 77.5\deg = -0.45078\,\mathsf{kN} \\\\
+      \Sigma F_y &= R_{Ay} + T\sin 77.5\deg - 2.40\,\mathsf{kN} - 1.30\,\mathsf{kN} = 0 \\[0.25em]
+      \Ra R_{Ay} &= 2.40\,\mathsf{kN} +1.30\,\mathsf{kN} - (2.0827\,\mathsf{kN})\cd\sin 77.5\deg \\[0.25em]
+      &= 5.7333\,\mathsf{kN} \\\\
+      R_A &= \sqrt{(-0.45078\,\mathsf{kN})^2+(5.7333\,\mathsf{kN})^2} = 5.75103\,\mathsf{kN} \\[0.25em]
+      \theta &= \tan ^{-1}\left[\frac{5.7333}{0.45078}\right] = 85.504\deg
+    \end{align*}
+    \parb\large
+    \mini{
+      \centering
+      The tension in the chain is $\underline{\bm{2.08\,\mathsf{\bf kN}}}$ and the reaction at $A$ is $\underline{\bm{5.75\,\mathsf{\bf kN}}}$ at $\underline{\bm{94.5\deg}}$ measured counter-clockwise from the positive $x$-axis.
+    }
+     
+  \end{textblock*}
+
+  \begin{textblock*}{2in}(6.5in, 5.5in)
+    \tikz{%color
+      \node[xshift=2mm] at (0,0) {$ A $};
+      \draw[very thick, -latex] (0,0)--+(0,4)node[above]{$ 5.7333$};
+      \draw[very thick, -latex] (0,0)--+(-0.75,0)node[below]{$ 0.45078$};
+      \draw[very thick, -latex, gray] (0,0)--+(-0.75,4)node[left]{$ R_A $};
+      \node[xshift=-3mm, yshift=3mm] at (0,0) {$ \theta $};
+    }
+
+   
+  \end{textblock*}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ % page 2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+~\newpage
+\begin{textblock*}{3in}(1in, 0.1in)
+	\cbox{
+		\underbar{\bf Example 2:} Determine the reactions at $A$ and $B$.
+	}
+\end{textblock*}
+\begin{textblock*}{3.25in}(4.525in, 0.1in)
+	\cbox{
+    \centering
+    \def\scale{0.5}
+    \input{../../pikz/06ERB/06erb01Handout.tex}
+  }
+\end{textblock*}
+\begin{textblock*}{3.5in}(1in, 1in)
+  \tikz[scale=0.625]{%color
+    \def\hi{0.2}
+
+    \coordinate (A) at (0,0);
+		\coordinate (B) at ($ (A)+(8,-2) $);
+		\coordinate (C) at ($ (A)!0.4!(B)  $);
+		\coordinate (X) at  ($ (B)+(-3.25,-0.75)$);
+		
+		\gettikzxy{(A)}{\ax}{\ay};
+		\gettikzxy{(B)}{\bx}{\by};
+		\gettikzxy{(C)}{\cx}{\cy};
+
+    \Meme{A}{B}{gray!25}{gray!25}{black}{0.5}{.125}{0.125}
+
+    \draw[black, thick, latex-] ($(C)+(0,\hi)$)-- +(0,2)node[black, above]{$3.30$ kN};
+		\draw[black, thick, -latex] (A)-- +(0,2)node[black, above]{$R_{Ax}$ };
+		\draw[black, thick, -latex] (A)-- +(2,0)node[black, above]{$R_{Ay}$ };
+		\draw[gray, thick, -latex] (B)-- +(117:2)node[above]{$R_B$ };
+		\draw[black, thick, -latex] (B)-- +(0,2)node[above right]{$R_B\cos 26.6\deg$ };
+		\draw[black, thick, -latex] (B)-- +(-2,0)node[above]{$R_B\sin 26.6\deg$ };
+		\draw ($ (A)+(0,-0.75) $) -- (\ax, -4);
+		\draw ($ (B)+(0, -0.75) $) -- (\bx, -4);
+		\draw ($ (C)+(0,-0.75) $) -- (\cx, -4);
+		\draw ($ (B)+(-2.5,0) $) -- (-2.5, \by);
+		\draw ($ (A)+(-0.25,0) $) -- (-2.5, \ay);
+    \draw[latex-latex] (\ax,-3.5) -- node[fill=white, sloped] {\small $3.20$ m} (\cx,-3.5);
+		\draw[latex-latex] (\cx,-3.5) -- node[fill=white, sloped] {\small $4.80$ m} (\bx,-3.5);
+		\draw[latex-latex] (-1.75,\ay) -- node[fill=white, inner sep=0.5mm] {\small $2.15$ m} (-1.75,\by);
+
+    
+    \draw[rotate=25,black] ($ (X)+(1.75,-1.25)$) -- +(2.5,0);
+    \draw[rotate=25,black] ($ (X)+(1.75,-1.25)$) -- +(-25:2.5);
+    \node at ($ (X)+(4,0)$) {\footnotesize $26.6^\circ$};
+
+    \fill[black]  (A) circle (1mm)node[above left] {\large $A$};
+		\fill[black]  (B) circle (1mm)node[above right] {\large $B$};
+		
+  }
+
+  \begin{align*}
+				\Sigma M_A & = (R_B \cos 26.6\deg\,\mathsf{kN}) (8.00\,\mathsf{m})-(3.30\,\mathsf{kN})(3.20\,\mathsf{m})                        \\
+				          & \qquad -(R_B \sin 26.6\deg\,\mathsf{kN}) (2.15\,\mathsf{m}) \\
+				          & = 0 \\
+				\Ra R_B & = \frac{(3.30\,\mathsf{kN})(3.20\,\mathsf{m})}{(8.00\cos 26.6\deg\,\mathsf{m})-(2.15\sin 26.6\deg\,\mathsf{m})} \\
+				                & = 1.7058\,\mathsf{kN}
+			\end{align*}\Large
+      $$\underline{ \bm{R_B=1.71\,\mathsf{\bf kN at }117\deg}}$$
+      \normalsize
+      \begin{align*}
+        \Sigma F_y & = R_{Ay}-3.30\,\mathsf{kN}+1.7058\cos 26.6\deg\,\mathsf{kN} = 0 \\
+				\Ra R_{Ay} & = 1.7748\,\mathsf{kN}  \\\\
+				\Sigma F_x & = R_{Ax}-1.7058\sin 26.6\deg\,\mathsf{kN} = 0 \\
+				\Ra R_{Ax} & = 0.76379\,\mathsf{kN}
+      \end{align*}
+      At this point, there is an opportunity to check our work so far. If we take moments about anywhere (except about $A$ which we've already set to zero), they should sum to zero. Taking moments about $B$ is the most convenient:
+      \begin{align*}
+				\Sigma M_B & = (3.30\,\mathsf{kN})(4.80\,\mathsf{m})-(1.7748\,\mathsf{m})(8.00\,\mathsf{m}) \\
+				           & \qquad\qquad-(0.76379\,\mathsf{m})(2.15\,\mathsf{m})                       \\
+				           & = -0.000549                                                            \\
+				           & \approx 0 \qquad\mathsf{\Large \checkmark}
+			\end{align*}
+
+      \begin{align*}
+				R_A    & = \sqrt{(1.7748\,\mathsf{kN})^2+(0.76379\,\mathsf{kN})^2} \\
+				       & = 1.9322\,\mathsf{kN}                                   \\\\
+				\theta & = \tan^{-1}\left[\frac{1.7748}{0.76379}\right]        \\
+				       & = 66.715\deg
+			\end{align*}
+      \Large
+      $$ \underline{\bm{R_A=1.93\,\mathsf{\bf kN at }66.7\deg}}$$
+
+\end{textblock*}
+
+\begin{textblock*}{3in}(6in, 8in)
+   \tikz{
+				\draw[-latex, thick] (0,0) -- +(0,3.4)node[above]{$1.7748\,\mathsf{kN}$};
+				\draw[-latex, thick] (0,0) -- node[fill=white, below, outer sep=0.65mm]{$0.76379\,\mathsf{kN}$}+(1.6,0);
+				\draw[-latex, thick, gray] (0,0) -- +(1.6,3.4);
+				\node at (0.35,0.25) {$\theta$};
+			}
+\end{textblock*}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% page 3
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+~\newpage
+\begin{textblock*}{2in}(1in, 0.1in)
+	\cbox{
+		\underbar{\bf Exercise 1:} Determine the reactions at $A$ and $D$.
+	}
+\end{textblock*}
+\begin{textblock*}{4.25in}(3.525in, 0.1in)
+	\cbox{
+    \centering
+    \def\scale{0.75}
+    \input{../../pikz/06ERB/06erb04Handout.tex}
+  }
+\end{textblock*}
+\begin{textblock*}{\textwidth}(1in, 2.75in)
+  \centering 
+	\tikz{%color
+  	\coordinate (A) at (0, 0);
+    \coordinate (B) at (3, 0);
+    \coordinate (C) at (6, 0);
+    \coordinate (D) at (9, 0);
+    \coordinate (E) at (6, 2);
+    \coordinate (F) at (3, 2);
+
+    \filldraw[draw=black, fill=gray!25] (A)--(F)--(E)--(D)--cycle;
+
+    \draw ($ (A)+(0,-0.25) $) -- +(0,-1.5);
+    \draw ($ (C)+(0,-0.25) $) -- +(0,-1.5);
+    \draw ($ (D)+(0,-0.25) $) -- +(0,-1.5);
+    \draw[ latex-latex] ([yshift=-1.5cm]A) -- node[fill=white]{$8.50\mathsf{ m}$}([yshift=-1.5cm]C);
+	  \draw[ latex-latex] ([yshift=-1.5cm]C) -- node[fill=white]{$4.25\mathsf{ m}$}([yshift=-1.5cm]D);
+
+    \fill[black] (A) circle (2pt) node[above left, outer sep=0.5mm] {$A$};
+    \fill[black] (D) circle (2pt) node[above right, outer sep=0.5mm] {$D$};
+    \fill[black] (E) circle (2pt) node[above right, outer sep=0.5mm] {$E$};
+
+    \draw ($ (A)-(0.5, 0) $) -- ($ (A)-(1.5, 0) $);
+    \draw ($ (F)-(0.5, 0) $) -- ($ (F)-(4.5, 0) $);
+    \draw[ latex-latex] ($ (A)-(1, 0) $) -- node[fill=white]{$3.00\mathsf{ m}$}($ (F)-(4, 0) $);
+
+    \draw[ultra thick, -latex] (A)--+(0,1.5) node[right] {$ R_{Ay} $};
+    \draw[ultra thick, -latex] (A)--+(1.5,0) node[above] {$ R_{Ax} $};
+
+    \draw[ultra thick, -latex] (D)--+(115:2) node[above] {$ R_D $};
+    \draw[latex-latex] ($ (D)+(115:1.5) $) arc (115:180:1.5) node[midway, fill=white] {$ 65\deg $} ; 
+
+    \draw[ultra thick, latex-] (E) -- +(125:2.25) node[left] {$3.70$ kN};
+	  % \draw ($ (E)+(-1.25,0) $)  -- ($ (E)+(-2.25,0) $);
+	  \draw[latex-latex] ($ (E)+(-1.5,0) $)  arc (180:125:1.5) node[midway, fill=white, inner sep=0.5mm] {\small $55^\circ$};
+  }
+  \begin{align*}
+    \Sigma M_A &= (R_D\sin 65\deg)\cd(12.75\,\mathsf{m})-(3.70\,\mathsf{kN}\cd \sin 55\deg)\cd(8.50\,\mathsf{m})-(3.70\,\mathsf{kN}\cd \cos 55\deg)\cd(3.00\,\mathsf{m}) \\[0.25em]
+    &= R_D\cd 11.555\,\mathsf{m} - 32.129\,\mathsf{kN\cd m} = 0 \\[0.25em]
+    \Ra R_D &= \frac{32.129\,\mathsf{kN\cd m}}{11.555\,\mathsf{m}} = 2.7805\,\mathsf{kN}
+  \end{align*}
+ 
+  \large\pars
+  \cmini{
+    \centering
+  The reaction at $D$ is \underline{$\bm{2.78\,}${\bf kN}} at \underline{$\bm{115\deg}$} measured counter-clockwise from the positive $x$-axis.
+  }
+  \normalsize
+
+\end{textblock*}
+\begin{textblock*}{0.7\textwidth}(1in, 6.875in)
+
+  \begin{align*}
+    \Sigma F_x &= R_{Ax}+(3.70\,\mathsf{kN})\cd\cos 55\deg-R_D\cos 65\deg = 0 \\[0.25em]
+    \Ra R_{Ax} &= 2.7805\,\mathsf{kN}\cd\cos 65\deg-(3.70\,\mathsf{kN})\cd\cos 55\deg \\[0.25em]
+    &= -0.94714\,\mathsf{kN} \\\\
+    \Sigma F_y &= R_{Ay}+R_D\sin 65\deg-  (3.70\,\mathsf{kN})\cd\sin 55\deg = 0 \\[0.25em]
+    \Ra R_{Ay} &= (3.70\,\mathsf{kN})\cd\sin 55\deg -2.7805\,\mathsf{kN}\cd\sin 65\deg\\[0.25em]
+    &= 0.51087\,\mathsf{kN} \\\\
+    R_A &= \sqrt{(-0.94714\,\mathsf{kN})^2+(-0.51087\,\mathsf{kN})^2} = 1.0761\,\mathsf{kN} \\[0.25em]
+    \theta & = \tan^{-1}\left[\frac{0.51087}{0.94714}\right] = 28.342\deg       \\
+  \end{align*}
+
+  
+\end{textblock*}
+
+\begin{textblock*}{0.25\textwidth}(6in, 8.325in)
+   \tikz{
+				\draw[-latex, thick] (0,0) -- +(0,2)node[above]{$0.51087\,\text{kN}$};
+				\draw[-latex, thick] (0,0) -- node[fill=white, below, outer sep=0.65mm]{$0.94714\,\text{kN}$}+(-4,0);
+				\draw[-latex, thick, gray] (0,0) -- +(-4,2);
+				\node at (-0.875,0.225) {$\theta$};
+			}
+\end{textblock*}
+
+\begin{textblock*}{0.8\textwidth}(0.3\textwidth, 10.125in)
+  \large\centering
+  The reaction at $A$ is \underline{$\bm{1.08\,}${\bf kN}} at \underline{$\bm{152\deg}$} measured counter-clockwise from the positive $x$-axis.
+\end{textblock*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% page 4
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+~\newpage
+\begin{textblock*}{3in}(1in, 0.1in)
+	\cbox{
+		\underbar{\bf Exercise 2:} Determine the reactions at the pinned connection and the tension in the cable.
+	}
+\end{textblock*}
+\begin{textblock*}{3.25in}(4.525in, 0.1in)
+	\cbox{
+    \centering
+    \def\scale{0.5}
+    \input{../../pikz/06ERB/06erb03Handout.tex}
+  }
+\end{textblock*}
+\begin{textblock*}{3.5in}(1in, 1.25in)
+  \centering 
+	\tikz[scale=0.75]{%color
+  	\coordinate (A) at (0,0);
+		\coordinate (B) at (4,0);
+		\coordinate (C) at (7,0);
+		\coordinate (D) at (8,0);
+		\coordinate (E) at (8,6);
+		\coordinate (F) at (9,0);
+
+    \draw[gray!40, line width=0.5cm, line cap = round] (A)--(D);
+    \draw[ultra thick, -latex] (D)--+(0,2)node[above]{$ T $};
+    \draw[ultra thick, -latex] (B)--+(60:2.5)node[above]{$ T $};
+    \draw[ultra thick, -latex] (C)--+(270:2.5)node[below]{$ 2.20\,\mathsf{kN} $};
+    \draw[ultra thick, -latex] (A)--+(0,2)node[right]{$ R_{Ay} $};
+    \draw[ultra thick, -latex] (A)--+(2,0)node[above]{$ R_{Ax} $};
+
+    \draw[latex-latex] ($ (B)+(1.5,0) $)arc(0:60:1.5)node[midway, fill=white]{$ 60\deg $};
+
+    \draw[latex-latex] ($ (A)+(0,-1.5) $) -- node[fill=white] {$4.00\;\mathsf{m}$}($ (B)+(0,-1.5) $);
+		\draw[latex-latex] ($ (B)+(0,-1.5) $) -- node[fill=white] {$3.00\;\mathsf{m}$}($ (C)+(0,-1.5) $);
+		\draw[latex-latex] ($ (C)+(0,-1.5) $) -- node[fill=white,rotate=90] {$1.50\;\mathsf{m}$}($ (D)+(0,-1.5) $);
+
+    \draw ($ (D)+(0,-.75) $) -- +(0, -1.5);
+		\draw ($ (B)+(0,-.75) $) -- +(0, -1.5);
+		\draw ($ (A)+(0,-.75) $) -- +(0, -1.5);
+  }
+
+  \begin{align*}
+    \Sigma M_A &= (T\sin 60\deg)\cd(4.00\,\mathsf{m})+T\cd(8.50\,\mathsf{m})-(2.20\,\mathsf{kN})\cd(7.00\,\mathsf{m}) = 0 \\[0.25em]
+    \Ra T &= \frac{(2.20\,\mathsf{kN})\cd(7.00\,\mathsf{m})}{(4.00\,\mathsf{m})\cd(\sin 60\deg)+(8.50\,\mathsf{m})} = 1.2872\,\mathsf{kN} \\\\
+    \Sigma F_x &= R_{Ax}+T\cos 60\deg = 0 \\[0.25em]
+    \Ra R_{Ax} &= -(1.2872\,\mathsf{kN})\cd\cos 60\deg = -0.64359\,\mathsf{kN} \\\\
+    \Sigma F_y &= R_{Ay} +T\sin 60\deg +T - 2.20\,\mathsf{kN} = 0 \\[0.25em]
+    \Ra R_{Ay} &= 2.20\,\mathsf{kN} -(1.2872\,\mathsf{kN})\cd(1+\sin 60\deg) = -0.20195\,\mathsf{kN} \\\\
+    R_A &= \sqrt{(-0.64359\,\mathsf{kN})^2+(-0.20195\,\mathsf{kN})^2} = 0.67453\,\mathsf{kN}\\[0.25em]
+    \theta &= \tan^{-1}\left[\frac{-0.20195}{-0.64359}\right] = 17.421\deg
+  \end{align*}
+  \large\centering\parb
+  The tension in the cable is \underline{$\bm{1.29}\,\mathsf{\bf kN}$} \parb
+  The reaction at $A$ is \underline{$\bm{0.675\,}${\bf kN}} at \underline{$\bm{197\deg}$} measured counter-clockwise from the positive $x$-axis.
+
+\end{textblock*}
+\begin{textblock*}{0.25\textwidth}(5.75in, 5.5in)
+   \tikz{
+				\draw[-latex, thick] (0,0) -- +(0,-2)node[below]{$0.20195\,\mathsf{kN}$};
+				\draw[-latex, thick] (0,0) -- +(-4,0)node[fill=white, above, outer sep=0.65mm]{$0.64359\,\mathsf{kN}$};
+				\draw[-latex, thick, gray] (0,0) -- +(-4,-2);
+				\node at (-0.875,-0.225) {$\theta$};
+			}
+\end{textblock*}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% page 5
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+~\newpage
+\begin{textblock*}{3in}(1in, 0.1in)
+	\cbox{
+		\underbar{\bf Example 3:} The roller and the pinned connection are on slopes
+    inclined at $21\deg$ to the horizontal; they are both at the same elevation. \parm Determine the reactions at the pinned connection and the tension in the cable.
+	}
+\end{textblock*}
+\begin{textblock*}{3.25in}(4.525in, 0.1in)
+	\cbox{
+    \centering
+    \def\scale{1}
+    \input{../../pikz/06ERB/06erb16Handout.tex}
+  }
+\end{textblock*}
+\begin{textblock*}{4in}(1in, 1.75in)
+  \centering
+	\tikz[scale=1.25]{%color
+    \coordinate (O) at (0,0);
+	\coordinate (OO) at (0,0.175);
+	\coordinate (A) at ($(O)+(35:3)$);
+	\coordinate (B) at ($(O)+(65:3)$);
+	\coordinate (C) at ($(O)+(90:3)$);
+	\coordinate (D) at ($(O)+(115:3)$);
+	\coordinate (E) at ($(O)+(145:3)$);
+	\coordinate (top) at ($(C)+(0,1)$);
+
+  \gettikzxy{(A)}{\Ax}{\Ay};
+  \gettikzxy{(B)}{\Bx}{\By};
+  \gettikzxy{(C)}{\Cx}{\Cy};
+  \gettikzxy{(D)}{\Dx}{\Dy};
+  \gettikzxy{(E)}{\Ex}{\Ey};
+  \gettikzxy{(top)}{\tx}{\ty};
+
+  \fill[fill=Gray!50]($(A)+(35:0.25)$)arc(35:145:3.25)arc(145:325:0.25)arc(145:35:2.75)arc(215:395:0.25);
+
+  \draw[very thick, -latex] (A)--+(1,0)node[below]{$ R_{Ax} $};
+  \draw[very thick, -latex] (A)--+(0,1)node[right]{$ R_{Ay} $};
+  \draw[very thick, -latex] (E)--+(69:0.875)node[right]{$ R_{B} $};
+  \draw[very thick, -latex] (B)--+(-90:1)node[below]{$ 8.00\,\mathsf{kN} $};
+  \draw[very thick, -latex] (C)--+(-90:0.75)node[below]{$ 10.0\,\mathsf{kN} $};
+  \draw[very thick, -latex] (D)--+(-90:1)node[below]{$ 12.0\,\mathsf{kN} $};
+  \draw[very thick, -latex] (D)--+(180:1)node[above]{$ 5.00\,\mathsf{kN} $};
+
+  \node[xshift=0.25cm, yshift=-0.25cm] at (A){$ A $};
+  \node[xshift=-0.325cm, yshift=-0.25cm] at (E){$ B $};
+
+   \draw[thin, gray] ($(A)+(0,0.7)$) -- (\Ax,\ty);
+  \draw[thin, gray] ($(B)+(0,0.5)$) -- (\Bx,\ty);
+  \draw[thin, gray] ($(C)+(0,0.45)$) -- (\Cx,\ty);
+  \draw[thin, gray] ($(D)+(0,0.5)$) -- (\Dx,\ty);
+  \draw[thin, gray] ($(E)+(0,0.6)$) -- (\Ex,\ty);
+  \draw[thin, gray] ($(D)+(-1.125,0)$) -- (\Ex-0.75cm,\Dy);
+  \draw[thin, gray] ($(E)+(-.375,0)$) -- (\Ex-0.75cm,\Ey);
+
+  \draw[latex-latex] ($(E)+(0.625,0)$) arc(0:69:0.625) node[midway, inner sep=0, fill=white]{$ 69\deg $};
+
+   \def\dimy{\ty-0.25cm}
+  \draw[latex-latex] (\Ex,\dimy)--node[fill=white,inner sep=0.15mm]{\footnotesize $2.50\,$m}(\Dx,\dimy);
+  \draw[latex-latex] (\Dx,\dimy)--node[fill=white,inner sep=0.15mm]{\footnotesize $2.50\,$m}(\Cx,\dimy);
+  \draw[latex-latex] (\Cx,\dimy)--node[fill=white,inner sep=0.15mm]{\footnotesize $2.50\,$m}(\Bx,\dimy);
+  \draw[latex-latex] (\Bx,\dimy)--node[fill=white,inner sep=0.15mm]{\footnotesize $2.50\,$m}(\Ax,\dimy);
+  \draw[latex-latex] (\Ex-0.5cm,\Dy)--node[fill=white,inner sep=0.15mm]{\footnotesize $2.10\,$m}(\Ex-0.5cm,\Ey);
+  }
+\end{textblock*}
+\begin{textblock*}{4.75in}(1in, 3.25in) 
+  \begin{align*}
+    \Sigma M_A &= (8.00\,\mathsf{kN})\cd(2.50\,\mathsf{m})+(10.0\,\mathsf{kN})\cd(5.00\,\mathsf{m})+(12.0\,\mathsf{kN})\cd(7.50\,\mathsf{m})\\
+    &\qquad\qquad +(5.00\,\mathsf{kN})\cd(2.10\,\mathsf{m})-(R_B\sin 69\deg)\cd(10.0\,\mathsf{m})\\[0.25em]
+    &= 170.5\,\mathsf{kN\cd m}-(9.3358\,\mathsf{m})\cd R_B = 0 \\[0.25em]
+    \Ra R_B &= \frac{170.5\,\mathsf{kN\cd m}}{9.3358\,\mathsf{m}} = 18.263\,\mathsf{kN} \\\\\\
+    \Sigma F_x &= R_B\cd\cos 69\deg + R_{Ax} - 5.00\,\mathsf{kN} = 0 \\[0.25em]
+    \Ra R_{Ax} &= 5.00\,\mathsf{kN} - (18.623\,\mathsf{kN})\cd\cos 69\deg = -1.6739\,\mathsf{kN}\\\\\\
+    \Sigma F_y &= R_{Ay}+R_B\sin 69\deg -(12.0\,\mathsf{kN}+10.0\,\mathsf{kN}+8.00\,\mathsf{kN}) = 0 \\[0.25em]
+    R_{Ay} &= 30.0\,\mathsf{kN}-(18.263\,\mathsf{kN})\cd\sin 69\deg = 12.950\,\mathsf{kN} \\\\\\
+    R_A &= \sqrt{(-1.6739\,\mathsf{kN})^2+(12.950\,\mathsf{kN})^2} = 13.058\,\mathsf{kN}\\[0.25em]
+    \theta &= \tan^{-1}\left[\frac{12.950}{1.6739}\right] = 82.635\deg
+  \end{align*}
+  \large\parb\centering
+  The reaction at the roller is  \underline{$\bm{18.3}\,\mathsf{\bf kN}$} at \underline{$\bm{69\deg}$} measured counter-clockwise from the positive $x$-axis.
+  \parb
+  The reaction at the pinned connection is \underline{$\bm{13.1\,}${\bf kN}} at \underline{$\bm{97.4\deg}$} measured counter-clockwise from the positive $x$-axis.
+\end{textblock*}
+\begin{textblock*}{2in}(7in, 5in) 
+  \tikz{%color
+    \draw[very thick, -latex] (0,0)--(-1,0)node[below]{$1.6739$};
+    \draw[very thick, -latex] (0,0)--(0,6)node[above]{$12.950$};
+    \draw[ultra thick, -latex, gray] (0,0)--(-1,6)node[left]{$R_A$};
+    \node at (-0.25,0.25) {$ \theta $};
+  }
+\end{textblock*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% page 6
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+~\newpage
+\begin{textblock*}{2.5in}(1in, 0.1in)
+	\cbox{
+		\underbar{\bf Example 4:} \parm The roller at $B$ is in a smooth slot. \parm Determine the reactions at $A$ and $B$.
+	}
+\end{textblock*}
+\begin{textblock*}{3.75in}(4.025in, 0.1in)
+	\cbox{
+    \centering
+    \def\scale{0.575}
+    \input{../../pikz/06ERB/06erb02Handout.tex}
+  }
+\end{textblock*}
+\begin{textblock*}{2.5in}(1in, 1.325in)
+	\centering
+  \tikz[scale=0.5]{%color
+
+    \def\hi{0.375}
+    \def\twohi{2*\hi}
+    \def\threehi{3*\hi}
+    \def\innerr{\hi}
+    % \def\outerr{3*\hi}
+    \def\inneroffset{2*\hi}
+    \def\outeroffset{\hi}
+
+    \coordinate (A) at (0,0);
+    \coordinate (B) at (8,0);
+    \coordinate (C) at (8,4);
+    \coordinate (D) at (11,4);
+    \coordinate (E) at (5,0);
+    \coordinate (F) at (8,2);
+
+    \fill[gray!50] ($ (A)+(0,\hi) $) -- ($ (B)+(-\twohi,\hi) $) arc(-90:0:\hi) -- ($ (C)+(-\hi,-\twohi) $) arc(180:90:\threehi) -- ($ (D)+(0,\hi) $) arc(90:-90:\hi) -- ($ (C)+(\twohi,-\hi) $)arc(90:180:\hi) -- ($ (B)+(\hi,\twohi) $)arc(0:-90:\threehi) -- ($ (A)+(0,-\hi) $)arc (270:90:\hi);
+
+    \fill (A) circle (2pt) node[left,xshift=-0.125cm] {$ A $};
+	  \fill (D) circle (2pt)node[right,xshift=0.125cm] {$ B $};
+
+    \draw[latex-latex] ($ (A)+(0,-2) $) -- node[fill=white,inner sep=0.5mm] {$2.50\;\mathsf{m}$}($ (E)+(0,-2) $);
+    \draw[latex-latex] ($ (E)+(0,-2) $) -- node[fill=white,inner sep=0.5mm] {$1.50\;\mathsf{m}$}($ (B)+(0,-2) $);
+    \draw[latex-latex] ($ (B)+(0,-2) $) -- node[fill=white,inner sep=0.5mm] {$1.50\;\mathsf{m}$}($ (D)+(0,-6) $);
+    \draw[latex-latex] ($ (C)+(-1.75,0) $) -- node[fill=white,inner sep=0.75mm] {$2.00\;\mathsf{m}$}($ (B)+(-1.75,0) $);
+
+    \draw[latex-, thick] (E) -- +(125:2.75) node[above,black] {$1.24\;\mathsf{kN}$};
+    \Couple{F}{black}{0.75}{.5}
+    \node[xshift=1.2cm, yshift=-0.5cm, fill=white, inner sep = 0.5mm] at (F) {$1.75\,\mathsf{kN\cd m} $};
+
+    \draw ($ (D)+(0,-1) $) -- +(0, -5.5);
+    \draw ($ (B)+(0,-0.5) $) -- +(0, -2);
+    \draw ($ (E)+(0,-0.5) $) -- +(0, -2);
+    \draw ($ (A)+(0,-0.5) $) -- +(0, -2);
+    \draw ($ (D)+(-2,0) $) -- +(-3.25, 0);
+    \draw ($ (B)+(-0.5,0) $) -- +(-2, 0);
+    \draw ($ (E)+(-2.75,0) $) -- ($ (E)+(-1.75,0) $);
+    \draw[latex-latex] ($ (E)+(125:2.25) $)arc(125:180:2.25);
+    \node at ($ (E)+(153:2.25) $) [fill=white]{$55^\circ$};
+
+    \draw[thick, -latex] (A)--+(1.5,0)node[below]{$ R_{Ax}$};
+    \draw[thick, -latex] (A)--+(0,1.5)node[left]{$ R_{Ay}$};
+    \draw[thick, -latex] (D)--+(0,1.5)node[left]{$ R_B$};
+  }
+\end{textblock*}
+\begin{textblock*}{4.75in}(1in,3.25in)
+  
+
+  \begin{align*}
+    \Sigma M_A &= R_B\cd (5.50\,\mathsf{m})+1.75\,\mathsf{kN\cd m}-(1.24\,\mathsf{kN})\cd (2.50\,\mathsf{m}) = 0 \\[0.25em]
+    \Ra R_B &= \frac{3.1\,\mathsf{kN\cd m}-1.75\,\mathsf{kN\cd m}}{5.50\,\textsf{m}} = 0.24545\,\textsf{kN}
+  \end{align*}
+  \cmini{
+  \underline{\bf Note}: We began by assuming a reaction $R_B$ in the positive direction (that is, that the roller at $B$ was pressing down on the slot). Our result for $R_B$ is positive, so that initial assumption is correct. If $R_B$ had evaluated to a negative value, then the roller would be pressing upward on the slot and the reaction would be downward.
+  }
+  \begin{align*}
+    \Sigma F_x &= R_{Ax}+(1.24\,\textsf{kN})\cd\cos 55\deg=0\\[0.25em]
+    \Ra R_{Ax} &= -0.71123\,\textsf{kN} \\\\
+    \Sigma F_y &= R_{Ay}+R_B -(1.24\,\textsf{kN})\cd\sin 55\deg=0\\[0.25em]
+    \Ra R_{Ay} &= (1.24\,\textsf{kN})\cd\sin 55\deg-0.24545\,\textsf{kN} = 0.77030\,\textsf{kN} \\\\
+    R_A &= \sqrt{(-0.71123\,\textsf{kN})^2+(0.77030\,\textsf{kN})^2} = 1.0484\,\textsf{kN}\\[0.25em]
+    \theta &= \tan^{-1}\left[\frac{0.77030}{0.71123}\right] = 47.283\deg
+  \end{align*}
+
+  \large\parb\centering 
+  The reaction at $A$ is \underline{$\bm{1.05\,\mathbf{\mathsf{kN}}}$} at \underline{$\bm{133\deg}$}, measured counter-clockwise from the positive $x$-axis. 
+  \parb
+  The reaction at $B$ is \underline{$\bm{0.245\,\mathbf{\mathsf{kN}}}$} at \underline{$\bm{90\deg}$}, measured counter-clockwise from the positive $x$-axis.
+\end{textblock*}
+
+\begin{textblock*}{2in}(6in, 5.25in) 
+  \tikz{%color
+    \draw[very thick, -latex] (0,0)--(-1.75,0)node[below]{$0.71123$};
+    \draw[very thick, -latex] (0,0)--(0,1.875)node[above]{$0.77030$};
+    \draw[ultra thick, -latex, gray] (0,0)--(-1.75,1.875)node[left]{$R_A$};
+    \node at (-0.5,0.25) {$ \theta $};
+  }
+\end{textblock*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% page 7
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+~\newpage
+\begin{textblock*}{3in}(1in, 0.1in)
+	\cbox{
+		\underbar{\bf Example 5:} \parm $55-\textsf{kg}$ bar $AB$ has its centre of gravity at $G$. It is supported by a pinned connection at $A$ and a smooth peg at $C$. A cable is attached at $B$ and has a tensile force of $1.70\,\textsf{kN}$. The direction of the cable varies between $\theta = 60\deg$ and $\theta = 135\deg$.\parb
+    What is the maximum reaction at $P$? Determine the reaction at $A$ for this reaction at $P$.
+	}
+\end{textblock*}
+\begin{textblock*}{3.25in}(4.525in, 0.1in)
+	\cbox{
+    \centering
+    \def\scale{0.875}
+    \input{../../pikz/06ERB/06erb15Handout.tex}
+  }
+\end{textblock*}
+
+\begin{textblock*}{3in}(1in, 2.25in)
+  
+	\tikz{%color
+    \coordinate (A) at (0, 0);
+    \coordinate (B) at ($(O)+(36:6)$);
+    \coordinate (G) at ($(O)!0.45!(B)$);
+    \coordinate (P) at ($(O)+(36:4.15)$);
+
+    \draw[line width = 0.5cm, line cap = round, gray!35] (A)--(B);
+    \draw[very thick, -latex] (G)--+(0,-2) node[below] {$ 0.53955\,\textsf{kN} $};
+    \draw[latex-latex] ($(G)+(0,-1.5)$) arc (-90:-144:1.5) node[fill=white, midway, inner sep=0.2mm] {\small $ 54.0\deg $};
+    \draw[very thick, -latex] (A)--+(1,0)node[below]{$ R_{Ax}$};
+    \draw[very thick, -latex] (A)--+(0,1)node[right]{$ R_{Ay}$};
+    \draw[very thick, -latex] (P)--+(126:2)node[above]{$ R_P$};
+    \draw[-latex, very thick] (B) -- +(-38:2)node[below]{$1.70\,\textsf{kN}$};
+    \draw[latex-latex] ($(B)+(-38:0.625)$)arc[start angle=322, end angle=217, radius=0.625]node[midway, fill=white, inner sep=0.35mm]{\large $\theta$};
+
+    \draw ($(A)+(126:0.5)$) -- +(126:0.75);
+    \draw ($(G)+(126:0.5)$) -- +(126:0.75);
+    \draw ($(B)+(126:0.5)$) -- +(126:0.75);
+    \draw[latex-latex]($(A)+(126:1)$) -- node[fill=white, inner sep=0.25mm, rotate=-30]{$550\,\textsf{mm}$}($(G)+(126:1)$);
+	\draw[latex-latex]($(G)+(126:1)$) -- node[fill=white, inner sep=0.5mm, rotate=-30]{$300\,\textsf{mm}$}($(P)+(126:1)$);
+	\draw[latex-latex]($(P)+(126:1)$) -- node[fill=white, inner sep=0.5mm, rotate=-30]{$350\,\textsf{mm}$}($(B)+(126:1)$);
+
+  \filldraw (A) circle (1.5pt) node [yshift=1.25mm, xshift=-4mm , inner sep=2mm] {$A$};
+	\filldraw (G) circle (1.5pt) node[yshift=-3mm, xshift=3mm , inner sep=2mm] {$G$};
+	\filldraw (B) circle (1.5pt) node[yshift=3mm, xshift=3mm , inner sep=2mm] {$B$};
+	\filldraw (P) circle (1.5pt) node[yshift=-3mm, xshift=3mm ] { $P$};
+
+  \draw [thin] (A)--(B);
+  }
+\end{textblock*}
+\begin{textblock*}{5in}(2.875in,3.5in)
+  \begin{align*}
+    \Sigma M_A &= R_P\cd (850\,\textsf{mm})-(1.70\,\textsf{kN}\cd\sin \theta)(1200\,\textsf{mm})-(0.53955\,\textsf{kN}\cd\sin 54\deg)\cd (550\,\textsf{mm}) \\[0.25em]
+    &= R_P\cd (0.850\,\textsf{m})-(2.0400\,\mathsf{kN\cd m})\cd\sin \theta - 0.23828\,\mathsf{kN\cd m} = 0 \\[0.25em]
+    \Ra R_P &= \frac{(2.0400\,\mathsf{kN\cd m})\cd\sin \theta +0.23828\,\mathsf{kN\cd m}}{0.850\,\textsf{m}} = 2.4000\,\textsf{kN}\cd \sin\theta + 0.28033\,\textsf{kN} \\[0.25em]
+    \Ra R_{P_{max}} &= 2.4000\,\textsf{kN}\cd \sin 90\deg + 0.28033\,\textsf{kN} = 2.6803\,\textsf{kN} 
+  \end{align*}
+\end{textblock*}
+\begin{textblock*}{3in}(1in, 5.25in)
+  \tikz{%color
+    \coordinate (A) at (0, 0);
+    \coordinate (B) at ($(O)+(36:6)$);
+    \coordinate (G) at ($(O)!0.45!(B)$);
+    \coordinate (P) at ($(O)+(36:4.15)$);
+
+    \draw[line width = 0.5cm, line cap = round, gray!35] (A)--(B);
+    \draw[very thick, -latex] (G)--+(0,-1) node[right] {$ 0.53955\,\textsf{kN} $};
+    \draw[very thick, -latex] (A)--+(1,0)node[below]{$ R_{Ax}$};
+    \draw[very thick, -latex] (A)--+(0,1)node[right]{$ R_{Ay}$};
+    \draw[very thick, -latex] (P)--+(126:1.5)node[above]{$ 2.6803\,\textsf{kN}$};
+    \draw[-latex, very thick] (B) -- +(-54:1.5)node[below]{$1.70\,\textsf{kN}$};
+   
+    \draw[latex-latex] ($ (P)+(126:1) $) arc (126:180:1) node[midway, fill=white] {\small $ 54\deg $};
+    \draw[latex-latex] ($ (B)+(306:1) $) arc (-54:0:1) node[midway, fill=white] {\small $ 54\deg $};
+    \draw (P)--+(-1.5,0);
+    \draw (B)--+(1.5,0);
+
+  \filldraw (A) circle (1.5pt) node [yshift=1.25mm, xshift=-4mm , inner sep=2mm] {$A$};
+	\filldraw (G) circle (1.5pt) node[yshift=-3mm, xshift=3mm , inner sep=2mm] {$G$};
+	\filldraw (B) circle (1.5pt) node[yshift=3mm, xshift=3mm , inner sep=2mm] {$B$};
+	\filldraw (P) circle (1.5pt) node[yshift=-3mm, xshift=3mm ] { $P$};
+
+  \draw [thin] (A)--(B);
+  }
+\end{textblock*}
+\begin{textblock*}{5in}(3in,6.625in)
+  \begin{align*}
+    \Sigma F_x &= R_{Ax}-(2.6803\,\textsf{kN})\cd\cos 54\deg + (1.70\,\textsf{kN})\cd\cos 54\deg = 0 \\[0.25em]
+    \Ra R_{Ax} &= 0.57621\,\text{kN} \\\\
+    \Sigma F_y &= R_{Ay}-0.53955\,\textsf{kN}+(2.6803\,\textsf{kN})\cd\sin 54\deg -(1.70\,\textsf{kN})\cd\sin 54\deg = 0 \\[0.25em]
+    \Ra R_{Ay} &= -0.25353\,\textsf{kN} \\\\
+    R_A &= \sqrt{(0.57621\,\textsf{kN})^2+(0.25353\,\textsf{kN})^2} = 0.62952\,\textsf{kN}\\[0.25em]
+    \theta &= \tan^{-1}\left[\frac{0.25353}{0.57621}\right] = 23.749\deg
+  \end{align*}
+\end{textblock*}
+\begin{textblock*}{5in}(1in, 9.5in)  
+  
+  \large\centering
+  The maximum reaction at $P$ is \underline{$\bm{2.68\,\mathbf{\mathsf{kN}}}$} at \underline{$\bm{126\deg}$}, measured counter-clockwise from the positive $x$-axis.\parb
+
+  The associated reaction at $A$ is \underline{$\bm{0.630\,\mathbf{\mathsf{kN}}}$} at \underline{$\bm{23.7\deg}$}, measured {\bf clockwise} from the positive $x$-axis.
+  
+  
+ \end{textblock*}
+
+\begin{textblock*}{2in}(6.5in, 9in) 
+  \tikz{%color
+    \draw[very thick, -latex] (0,0)--(2.3,0)node[above]{$0.57621$};
+    \draw[very thick, -latex] (0,0)--(0,-1)node[below]{$0.25353$};
+    \draw[ultra thick, -latex, gray] (0,0)--(2.3,-1)node[below]{$R_A$};
+    \node at (1.25,-0.25) {$ \theta $};
+  }
+\end{textblock*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% page 8
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+~\newpage
+\begin{textblock*}{3in}(1in, 0.1in)
+	\cbox{
+		\underbar{\bf Example 6:} 			Beam $AB$ has a fixed support at $A$. (Fixed supports offer resistance to rotation in the form of a reacting couple at $A$; clearly, without this, equilibrium would not be possible.)\parm
+
+			Determine the reaction and the reacting couple at $A$.		
+	}
+\end{textblock*}
+\begin{textblock*}{3.25in}(4.525in, 0.1in)
+	\cbox{
+    \centering
+    \def\scale{0.875}
+    \input{../../pikz/06ERB/06erb08Handout.tex}
+  }
+\end{textblock*}
+\begin{textblock*}{3in}(1in, 2in)
+  \centering
+	\tikz{%color
+    \coordinate (A) at (0,-0.25);
+    \coordinate (B) at (7,-0.25);
+    \coordinate (C) at (0,2.5);
+    \coordinate (D) at (3,1);
+    \coordinate (E) at (7,1);
+    \coordinate (Abase) at (0,0);
+    \coordinate (Aleft) at ($(A)+(-0.5,0)$);
+
+
+    \DL{C}{D}{base}{Gray!25}{Gray!25}{6}{0.35}{5}
+	  \DL{D}{E}{base}{Gray!25}{Gray!25}{8}{0.35}{5}	
+    \draw (0,0)--(7,0)--(E)--(0,1)--cycle;
+    \draw (0,1)--(0,2.5)--(D)--cycle;
+
+    \draw[thick, -latex] (3.5, 0.5)--+(0,-2) node[right]{10.500\,\textsf{kN}};
+    \draw[thick, -latex] (1, 1.5)--+(0,-1) node[right]{3.7500\,\textsf{kN}};
+
+    \draw[Latex-Latex] (0,-0.75) -- (1,-0.75) node[fill=white, midway, rotate=-90] {1.00\,\textsf{m}};
+    \draw[Latex-Latex] (1,-0.75) -- (3.5,-0.75) node[fill=white, midway, rotate=-90] {2.50\,\textsf{m}};
+    \draw[thin, gray] (0,-0.5)--+(0,-0.5);
+    \draw[thin, gray] (1,-0.5)--+(0,-0.5);
+
+    \Couple{Abase}{black}{0.325}{0.5}
+    \draw[very thick, -latex] (0,0)--+(0,0.75)node[left]{$ R_{Ay} $};
+    \draw[very thick, -latex] (0,0)--+(0.75,0)node[right, fill=white]{$ R_{Ax} $};
+    \node at (-0.4,-0.4) {$ R_a $};
+    \node at (0.45,0.45) {$ A $};
+    }
+\end{textblock*}
+\begin{textblock*}{6in}(1in, 3.75in)
+  \begin{align*}
+    \Sigma M_A &= R_a-(3.7500\,\textsf{kN})\cd (1.0000\,\textsf{m})-(10.500\,\textsf{kN})\cd (3.5000\,\textsf{m}) = 0 \\[0.25em]
+    \Ra R_a &= 40.500\,\mathsf{kN\cd m}\\\\
+    \Sigma F_x &= R_{Ax} = 0; \\\\
+    \Sigma F_y &= R_{Ay} - 3.7500\,\textsf{kN} - 10.500\,\textsf{kN} = 0 \\[0.25em]
+    \Ra R_{Ay} &= 14.250\,\textsf{kN}
+    \end{align*}
+  (Note that calculation for the magnitude and direction of the reaction at $A$ is 'trivial' and can be just written down, since $R_{Ax}$ is $0$.)
+  
+  \large\centering\parb ~ \parb
+
+  The reacting moment at $A$ is \underline{$\bm{40.5\,\mathbf{\mathsf{kN\cd m}}}$}.\parb
+
+  The reaction at $A$ is \underline{$\bm{14.3\,\mathbf{\mathsf{kN}}}$} at \underline{$\bm{90\deg}$}, measured counter-clockwise from the positive $x$-axis.
+\end{textblock*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% page 9
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+~\newpage
+\begin{textblock*}{2.5in}(1in, 0.1in)
+	\cbox{
+		\underbar{\bf Exercise 3:} 
+		Determine the reaction and the reacting moment at $A$.		
+	}
+\end{textblock*}
+\begin{textblock*}{3.75in}(4.025in, 0.1in)
+	\cbox{
+    \centering
+    \def\scale{0.875}
+    \input{../../pikz/06ERB/06erb10Handout.tex}
+  }
+\end{textblock*}
+\begin{textblock*}{5in}(1in, 2.5in)
+  \centering
+  \tikz[scale=1]{%color
+    \coordinate (A) at (0,-0.25);
+    \coordinate (Aleft) at (-0.5,-0.25);
+    \coordinate (B) at (6,-0.25);
+    \coordinate (C) at (0,2.75);
+    \coordinate (D) at (6,1);
+    \coordinate (E) at (3.5,-0.25);
+    \coordinate (base) at (0,0.025);
+    \coordinate (couple) at (2.75,-0.25);
+
+    \Meme{A}{B}{gray!60}{gray!60}{gray!60}{0.5}{0}{0.2}	
+    \filldraw[fill=gray!20] (0,0)--(6,0)--(6,1)--(0,1)--cycle;
+    \filldraw[fill=gray!20] (0,1)--(6,1)--(0,2.75)--cycle;
+    \Couple[0]{couple}{black}{0.35}{0.5}
+    \draw ($ (B)+(.5,0) $) -- +(1.25,0);
+    \draw[-latex, ultra thick, black] (B)  -- +(35:2.25) node[above] {\small $ 4.25\text{ kN}$};
+	  \node at ($ (B)+(15:1.25) $) {\small $35\deg$};
+    \fill (A) circle (1.5pt) node [xshift=0.325cm, yshift=0.5cm] { $A$};
+    \node at (B) [xshift=-0.2cm,yshift=0.4cm] { $B$};
+    \draw[very thick, -latex] (A)--+(0,0.75)node[left]{$ R_{Ay} $};
+    \draw[very thick, -latex] (A)--+(0.75,0)node[right]{\small $ R_{Ax} $};
+    \Couple{A}{black}{0.325}{0.5}
+    \draw[thick, latex-] (3,0.5) --+(0,1.5)node[right] {\small $ 1.0000\,\textsf{kN} $};
+    \draw[thick, latex-] (2,1.3833) --+(0,1.5)node[right] {\small $ 0.75000\,\textsf{kN} $};
+    \node[xshift=1cm, yshift=-0.375cm, black] at (couple) {\small $ 5.25\,\mathsf{kN\cd m}$};
+    \draw[thin, gray] (3,-1)--+(0,-0.75);
+    \draw[thin, gray] (0,-1)--+(0,-2);
+    \draw[thin, gray] (2,-2)--+(0,-1);
+    \draw[latex-latex] (0,-1.375)--(3,-1.375)node[midway, fill=white] {\small $ 0.500\,\textsf{m}$};
+    \draw[latex-latex] (0,-2.5)--(2,-2.5)node[midway, fill=white, rotate=-45] {\small $ 0.33333\,\textsf{m}$};
+    \node[below left, outer sep=0.75mm] at (A) {$ R_a $};
+  }
+  \begin{align*}
+    \Sigma M_A &= R_a -(0.75000\,\textsf{kN})\cd (0.33333\,\textsf{m})-(1.0000\,\textsf{kN})\cd (0.50000\,\textsf{m})\\[0.25cm]
+    &\qquad\qquad - 5.25\,\mathsf{kN\cd m}+(4.25\,\textsf{kN}\cd\sin 35\deg)\cd(1.00\,\textsf{m}) = 0 \\[0.25cm]
+    \Ra R_a &= 3.5623\,\mathsf{kN\cd m}\\\\
+    \Sigma F_x &= R_{Ax}+(4.25\,\textsf{kN})\cd\cos 35\deg \\[0.25em]
+    \Ra R_{Ax} &= -3.4814\,\textsf{kN} \\\\
+     \Sigma F_y &= R_{Ay}+(4.25\,\textsf{kN})\cd\sin 35\deg-0.75000\,\textsf{kN}-1.0000\,\textsf{kN}=0 \\[0.25em]
+     \Ra R_{Ay} &=-0.68770\,\textsf{kN} \\\\
+     R_A &= \sqrt{(-3.4814\,\textsf{kN})^2+(-0.68770\,\textsf{kN})^2} = 3.5487\,\textsf{kN} \\[0.25em]
+     \theta &= \tan^{-1}\left[\frac{0.68770}{3.4814}\right] = 11.174\deg
+  \end{align*}
+
+  \large\centering\parb ~ \parb
+
+  The reacting moment at $A$ is \underline{$\bm{3.56\,\mathbf{\mathsf{kN\cd m}}}$}.\parb
+
+  The reaction at $A$ is \underline{$\bm{3.55\,\mathbf{\mathsf{kN}}}$} at \underline{$\bm{191\deg}$}, measured counter-clockwise from the positive $x$-axis.
+
+\end{textblock*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+~\newpage
+\begin{textblock*}{4in}(1in, 0.1in)
 	\cbox{
 		\underbar{\bf Example 5:} Pipe racks ($AB$, and two hidden behind it) support two smooth Schedule 40 pipes, with an outside diameter of $508\,\text{mm}$, as shown. The pipes are $10\,\text{m}$ in length with a mass of $78.5\,\text{kg/m}$. Each rack supports one-third of the weight of each pipe.\parm 
 		Determine the reaction at the fixed connection $A$.
 	}
 \end{textblock*}
-\begin{textblock*}{2.25in}(5.525in, 1.5in)
+\begin{textblock*}{2.25in}(5.525in, 0.1in)
 	\cbox{
     \centering
     
@@ -62,14 +856,14 @@
 \end{textblock*}
 
 
-\begin{textblock*}{4in}(1in, 3.25in)
+\begin{textblock*}{4in}(1in, 2in)
   \centering
   \large
     The weight of each pipe bearing on $AB$:
-    $$ W=78.5\,\text{kg/m}\x 9.81\,\mathsf{m/s^2}\x 10\,\text{m}/3=2.5670\,\text{kN} $$    
+    $$ W=78.5\,\mathsf{kg/m}\x 9.81\,\mathsf{m/s^2}\x 10\,\mathsf{m}/3=2.5670\,\mathsf{kN} $$    
 \end{textblock*}
 
-\begin{textblock*}{6.75in}(1in, 4in)
+\begin{textblock*}{6.75in}(1in, 3in)
   \centering
   \large
   Add some labels, find some distances:\parm
@@ -126,8 +920,8 @@
       \angle GAD &= 55\deg \\
       \frac{AG}{GD} &= \tan 55\deg \\
       AG &= \frac{508\,\text{mm}}{2}\tan 55\deg \\
-       &=362.75\,\text{mm} \\
-      GF &= CD = 508\,\text{mm}
+       &=362.75\,\mathsf{mm} \\
+      GF &= CD = 508\,\mathsf{mm}
     \end{align*}
   }
   \parb\centering
@@ -142,13 +936,13 @@
         \node[above] at (C) {$ C $};
         \draw[line width= 0.15cm] (C) circle (0.64cm);
         \draw[line width= 0.15cm,gray!50] (C) circle (0.6125cm);
-        \draw[very thick, -latex] (C)--+(0,-1.5)node[below left]{$ 2.5670\,\text{kN} $};
+        \draw[very thick, -latex] (C)--+(0,-1.5)node[below left]{$ 2.5670\,\mathsf{kN} $};
         \draw[very thick, latex-] ($ (C)+(210:0.64) $) --+(210:1.5)node[left]{$ R_E $};
         \draw[very thick, latex-] ($ (C)+(-70:0.64) $) --+(-70:1.5)node[right]{$ R_F $};
       } \parb
       \tikz{%color
         \coordinate (C) at (0,0);
-        \draw[very thick, -latex] (C)--+(0,-1.75)node[below]{$ 2.5670\,\text{kN} $};
+        \draw[very thick, -latex] (C)--+(0,-1.75)node[below]{$ 2.5670\,\mathsf{kN} $};
         \draw[very thick, -latex] (C)--+(110:1.75)node[left]{$ R_F $};
         \draw[very thick, -latex] (C)--+(20:1.75)node[below right]{$ R_E $};
         \draw[latex-latex] ($ (C)+(0,-1.25) $)arc(-90:20:1.25) node[midway, fill=white] {$ 110\deg $};
@@ -157,16 +951,18 @@
       }
      
   }
+  \normalsize  
   \hfill
-   \mini[0.55]{      
+   \mini[0.55]{ 
+       
         This is now a simple concurrent forces problem, solved with simultaneous equations. Notice, however, that the direction of $R_F$ is perpendicular to the direction of $R_E$. \parb 
         If we choose axes $x'$ and $y'$, rotated $20\deg$ in the counter clockwise direction around $C$, then the direction of $R_E$ is the $x'$-axis and the direction of $R_F$ is the $y'$-axis. Now we can solve without simultaneous equations.\parb
         (Why bother complicating things? This will become a useful technique towards the end of the module and it's easy to introduce here.)
         \begin{align*}
-          \Sigma F_{x'} &= R_E-2.5670\,\text{kN}\cd\cos 70\deg =0 \\
-          \Ra R_E &= 0.87800\,\text{kN}\\\\
-          \Sigma F_{y'} &= R_F-2.5670\,\text{kN}\cd\cos 20\deg =0 \\
-          \Ra R_F &= 2.4122\,\text{kN}\\
+          \Sigma F_{x'} &= R_E-2.5670\,\mathsf{kN}\cd\cos 70\deg =0 \\
+          \Ra R_E &= 0.87800\,\mathsf{kN}\\\\
+          \Sigma F_{y'} &= R_F-2.5670\,\mathsf{kN}\cd\cos 20\deg =0 \\
+          \Ra R_F &= 2.4122\,\mathsf{kN}\\
         \end{align*}
         \vspace{-1cm}
       
@@ -174,7 +970,7 @@
     \end{textblock*}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% page 2
+% page 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 ~\newpage
 
@@ -182,24 +978,25 @@
   \large\centering      
     {\bf Forces acting upon the lower (leftmost) pipe, $\bm D$:}
     \parb ~\parb
-    \mini[0.35]{
+    \normalsize
+    \mini[0.3]{
       \centering
       \tikz{%color
         \coordinate (D) at (0,0);
         \node[above] at (D) {$ D $};
         \draw[line width= 0.15cm] (D) circle (0.64cm);
         \draw[line width= 0.15cm,gray!50] (D) circle (0.6125cm);
-        \draw[very thick, -latex] (C)--+(0,-1.5)node[below left]{$ 2.5670\,\text{kN} $};
-        \draw[very thick, latex-] ($ (C)+(20:0.64) $) --+(20:1.5)node[above]{$ 0.87800\,\text{kN} $};
+        \draw[very thick, -latex] (C)--+(0,-1.5)node[below left]{$ 2.5670\,\mathsf{kN} $};
+        \draw[very thick, latex-] ($ (C)+(20:0.64) $) --+(20:1.5)node[above]{$ 0.87800\,\mathsf{kN} $};
         \draw[very thick, latex-] ($ (C)+(180:0.64) $) --+(180:1.5)node[left]{$ R_H $};
         \draw[very thick, latex-] ($ (C)+(-70:0.64) $) --+(-70:1.5)node[right]{$ R_G $};
       }
       \parb
        \tikz{%color
         \coordinate (D) at (0,0);
-        \draw[very thick, -latex] (D)--+(0,-1.75)node[below]{$ 2.5670\,\text{kN} $};
+        \draw[very thick, -latex] (D)--+(0,-1.75)node[below]{$ 2.5670\,\mathsf{kN} $};
         \draw[very thick, -latex] (D)--+(110:1.75)node[left]{$ R_G $};
-        \draw[very thick, -latex] (D)--+(200:1.75)node[left]{$ 0.87800\,\text{kN} $};
+        \draw[very thick, -latex] (D)--+(200:1.75)node[left]{$ 0.87800\,\mathsf{kN} $};
         \draw[very thick, -latex] (D)--+(0:1.75)node[right]{$ R_H $};
         \draw[latex-latex] ($ (D)+(270:1.25) $)arc(270:200:1.25) node[midway, fill=white, inner sep=1mm] {$ 70\deg $};
         \draw[latex-latex] ($ (D)+(0:1.25) $)arc(0:110:1.25) node[midway, fill=white] {$ 110\deg $};
@@ -208,18 +1005,17 @@
       }
     }    
     \hfill
-    \mini[0.55]{      
-        \large
+    \mini[0.5]{      
+        \vspace{3cm}
         \begin{align*}          
-          \Sigma F_{y} &= R_G\cd\cos 20\deg -2.5670\,\text{kN}-0.87800\,\text{kN}\cd\cos 70\deg\\ &=0 \\
-          \Ra R_G &= \frac{2.5670\,\text{kN}+0.87800\,\text{kN}\cd\cos 70\deg}{\cos 20\deg} \\
-          \Ra R_G &= 3.0513\,\text{kN}\\
+          \Sigma F_{y} &= R_G\cd\cos 20\deg -2.5670\,\mathsf{kN}-0.87800\,\mathsf{kN}\cd\cos 70\deg\\ &=0 \\
+          \Ra R_G &= \frac{2.5670\,\mathsf{kN}+0.87800\,\mathsf{kN}\cd\cos 70\deg}{\cos 20\deg} \\
+          \Ra R_G &= 3.0513\,\mathsf{kN}\\
         \end{align*}
         \vspace{-1cm}      
     }
     \parb 
-    % A quick check for calculations so far using the vertical components on the two pipes.\parm $ \Sigma F_y = 2.4122\,\text{kN}\cd\cos 20\deg + 3.0513\,\text{kN}\cd\cos 20\deg - 2\x 2.5670\,\text{kN} = 0.000010634\,\text{kN}\qquad  \text{\LARGE\checkmark} $
-    % \parb\vspace{1cm}
+   
     \def\scale{1.75}
     \tikz[scale=\scale]{%color
       \coordinate (A) at (0,0);
@@ -236,14 +1032,14 @@
       \node[above right] at (B) {$ B $};      
       \node at ($ (F)+(-70:0.125) $) {$ F $};
       \node at ($ (G)+(-70:0.125) $) {$ G $};
-      \node[xshift=0.25cm, yshift=-0.8cm] at (A) {$ M $};
+      \node[xshift=0.25cm, yshift=-0.8cm] at (A) {$ R_a $};
 
       \fill (A) circle (1.5pt) node[xshift=-3mm]{$A $};
       \Couple{A}{black}{0.325}{0.625}
       \draw[ultra thick, -latex] (A)--+(0.75,0)node[below]{$ R_{Ax}$};
       \draw[ultra thick, -latex] (A)--+(0,0.75)node[left]{$ R_{Ay}$};
-      \draw[ultra thick, latex-] (G)--+(110:1)node[left]{$3.0513\,\text{kN}$};
-      \draw[ultra thick, latex-] (F)--+(110:1)node[left]{$2.4122\,\text{kN}$};
+      \draw[ultra thick, latex-] (G)--+(110:1)node[left]{$3.0513\,\mathsf{kN}$};
+      \draw[ultra thick, latex-] (F)--+(110:1)node[left]{$2.4122\,\mathsf{kN}$};
 
       \coordinate (AA) at ($ (A)+(-70:0.75) $);
       \coordinate (FF) at ($ (F)+(-70:0.75) $);
@@ -254,8 +1050,8 @@
       \draw[thin, gray] ($ (A)+(0:0.875) $)--+(0:1.25);
       \draw[thin] ($ (A)+(20:0.5) $)--+(20:2.5);
 
-      \draw[latex-latex]  ($ (AA)+(-70:0.25) $) -- ($ (FF)+(-70:0.25) $) node[fill=white, midway, rotate=-45] {$ 362.75\,\text{mm}$};
-      \draw[latex-latex]  ($ (FF)+(-70:0.25) $) -- ($ (GG)+(-70:0.25) $) node[fill=white, midway,sloped] {$ 508\,\text{mm}$};
+      \draw[latex-latex]  ($ (AA)+(-70:0.25) $) -- ($ (FF)+(-70:0.25) $) node[fill=white, midway, rotate=-45] {$ 362.75\,\mathsf{mm}$};
+      \draw[latex-latex]  ($ (FF)+(-70:0.25) $) -- ($ (GG)+(-70:0.25) $) node[fill=white, midway,sloped] {$ 508\,\mathsf{mm}$};
       \draw[latex-latex]  ($ (A)+(-0:1.75) $) arc(0:20:1.75) node[midway, fill=white, inner sep=1mm] {$ 20\deg $};
 
       \draw (F)--++(110:0.2)--++(20:0.2)--+(-70:0.2);
@@ -263,15 +1059,15 @@
     }
 
     \begin{align*}
-      \Sigma M_A &= M-2.4122\,\text{kN}\cd 362.75\,\text{mm} -3.0513\,\text{kN}\cd 870.75\,\text{mm}=0 \Ra M = 3531.9\,\mathsf{kN\cd mm} = 3.5319\,\mathsf{kN\cd m} \\[0.25em]
-      \Sigma F_x &= R_{Ax}+2.4122\,\text{kN}\cd\sin 20\deg +3.0513\,\text{kN}\cd\sin 20\deg=0 \Ra R_{Ax} = -1.8686\,\text{kN} \\[0.25em]
-      \Sigma F_x &= R_{Ay}-2.4122\,\text{kN}\cd\cos 20\deg -3.0513\,\text{kN}\cd\cos 20\deg=0 \Ra R_{Ay} = 5.1340\,\text{kN}
+      \Sigma M_A &= R_a-2.4122\,\mathsf{kN}\cd 362.75\,\mathsf{mm} -3.0513\,\mathsf{kN}\cd 870.75\,\mathsf{mm}=0 \Ra R_a = 3531.9\,\mathsf{kN\cd mm} = 3.5319\,\mathsf{kN\cd m} \\[0.25em]
+      \Sigma F_x &= R_{Ax}+2.4122\,\mathsf{kN}\cd\sin 20\deg +3.0513\,\mathsf{kN}\cd\sin 20\deg=0 \Ra R_{Ax} = -1.8686\,\mathsf{kN} \\[0.25em]
+      \Sigma F_x &= R_{Ay}-2.4122\,\mathsf{kN}\cd\cos 20\deg -3.0513\,\mathsf{kN}\cd\cos 20\deg=0 \Ra R_{Ay} = 5.1340\,\mathsf{kN}
     \end{align*}
     \mini[0.2]{
       \tikz[scale=0.75]{%color
         \coordinate (O) at (0,0);
-        \draw[-latex, thick] (O) -- +(-1.86,0)node[below]{1.8686\,\text{kN}};
-        \draw[-latex, thick] (O) -- +(0,5)node[above]{5.1340\,\text{kN}};
+        \draw[-latex, thick] (O) -- +(-1.86,0)node[below]{$1.8686\,$\textsf{kN}};
+        \draw[-latex, thick] (O) -- +(0,5)node[above]{5.1340\,\textsf{kN}};
         \draw[-latex, ultra thick] (O) -- +(-1.86,5)node[left]{$ R_A $};
         \node at (-0.5,0.35){$ \theta $};
       }
@@ -279,102 +1075,757 @@
     \hfill
     \mini[0.75]{
       \begin{align*}
-        R_A &= \sqrt{(1.8686\,\text{kN})^2+(5.1340\,\text{kN})^2} = 5.4635\,\text{kN}\\[0.25em]
-        \theta &= \tan^{-1}\left[\frac{5.1340\,\text{kN}}{1.8686\,\text{kN}}\right] = 70\deg
+        R_A &= \sqrt{(1.8686\,\textsf{kN})^2+(5.1340\,\textsf{kN})^2} = 5.4635\,\textsf{kN}\\[0.25em]
+        \theta &= \tan^{-1}\left[\frac{5.1340\,\textsf{kN}}{1.8686\,\textsf{kN}}\right] = 70\deg
       \end{align*}
-      \parb
-      The reaction at $A$ is $5.46\,\text{kN}$ at $110\deg$ counter-clockwise from the positive $x$-axis. The reacting moment at $A$ is $3.53\,\mathsf{kN\cd m}$
+      \parb\large
+      The reaction at $A$ is $\underline{\bm{5.46\,\mathsf{kN}}}$ at $\underline{\bm{110\deg}}$ counter-clockwise from the positive $x$-axis. The reacting moment at $A$ is $\underline{\bm{3.53\,\mathsf{kN\cd m}}}$
     }
 
 \end{textblock*}
      
-      
-  
- 
-     
-  
-
-
-  %  \cbox{
-  %   \centering 
-  %   Forces acting upon the upper (rightmost) pipe, $C$:\parm 
-  %   \mini[0.4]{
-  %   \tikz{%color
-  %     \coordinate (O) at (0,0);
-  %     \coordinate (B) at ($ (A)+(20:4) $);
-  %     % \coordinate (D) at ($ (A)+(0, 0.1067)+ (55:1.25) $);
-	%     \coordinate (C) at ($ (D)+(20:1.42) $);
-  %     \node[above] at (C) {$ C $};
-  %     \draw[line width= 0.15cm] (C) circle (0.64cm);
-	%     \draw[line width= 0.15cm,gray!50] (C) circle (0.6125cm);
-  %     \draw[very thick, -latex] (C)--+(0,-1.5)node[below left]{$ 2.5670\,\text{kN} $};
-  %     \draw[very thick, latex-] ($ (C)+(210:0.64) $) --+(210:1.5)node[left]{$ R_E $};
-  %     \draw[very thick, latex-] ($ (C)+(-70:0.64) $) --+(-70:1.5)node[right]{$ R_F $};
-  %   } 
-  %   }
-  %  }
-  % }
-
-
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% page 12
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 ~\newpage
-
-\begin{textblock*}{3.5in}(1in, 5.5in)
+\begin{textblock*}{2.5in}(1in, 0.1in)
 	\cbox{
-		\underbar{\bf Example 2:} Determine the sum of the moments of the forces, acting at $B$ and $C$, about the point $A$. \parm  Also, sum the moments of the forces about the point $B$.
+		\underbar{\bf Exercise 4:} 
+		A section of smooth pipe, centred at $O$, has a diameter of $457\,\textsf{mm} $ and a mass of $186\,\textsf{kg}$. It is secured by vertical structural member $AB$, hinged with a pinned connection at $A$ and held in place by chain $BC$.\parb
+    Determine the tension in the chain, and the reaction at $A$.	
 	}
 \end{textblock*}
-\begin{textblock*}{2.75in}(5.025in, 5.5in)
+\begin{textblock*}{3.75in}(4.025in, 0.1in)
 	\cbox{
-		\centering
-		\def\scale{0.8}
-		\input{../../pikz/05Moments/05Moments09Handout.tex}
-	}
-\end{textblock*}
-\begin{textblock*}{3.5in}(1in, 7in)
-  \centering
-  \tikz[scale=0.875]{%color
-    \coordinate (A) at (0,0);
-    \coordinate (B) at (4,0);
-    \coordinate (C) at (4,2);
-    \draw[gray!50, line width=5mm, line cap=round] (A)--(B)--(C);
-    \draw[ultra thick, -latex, name path=BD] (B) -- +(131:3.75) node[above] {$2.30\,$kN};
-    \draw[ultra thick, -latex, line cap=round] (C) -- +(90:1.5) node[above, black] {$2.05\,$kN};
-    \draw[ultra thick, -latex, line cap=round] (C) -- +(0:1.75) node[above, black] {$2.84\,$kN};
-    \draw ($ (B)-(1.5,0) $) -- ($ (B)-(2.5,0) $);
-    \draw ($ (C)+(1,0) $) -- +(1:0);
-	  \draw[latex-latex] ($ (B)+(131:2)  $) arc (131:180:2);
-    \fill[black] (A) circle (2pt) node[left, xshift=-0.25cm] {$\bm A$};
-    \fill[black] (B) circle (2pt) node[below right, outer sep=2mm] {$\bm B$};
-    \fill[black] (C) circle (2pt) node[xshift=0.25mm, above right, outer sep=2mm] {$\bm C$};
-    \node[fill=white] at ($ (B)+(155:2) $){$49^\circ$};
-    \draw ($ (B)+(0.5,0) $) -- +(1,0);
-    \draw ($ (B)+(0,-0.5) $) -- +(0,-1);
-    \draw ($ (A)+(0,-0.5) $) -- +(0,-1);
-    \draw[latex-latex] ($ (A)-(0,1) $) -- node[fill=white] {$4.00\,$m} ($ (B)-(0,1) $);
-    \draw[latex-latex] ($ (C)+(1,0) $) -- node[fill=white, xshift=0.25cm] {$2.00\,$m} ($ (B)+(1,0) $);
-      \path[name path=AD] (A)--+(41:4);
-  \path[name intersections={of=AD and BD, by={D}}] ;
-  \draw (A)--(D)node[midway, fill=white] {$ d $};
-  \draw ($ (D)+(131:0.325) $) --++(221:0.325)--+(-49:0.325);
+    \centering
+    \def\scale{0.75}
+    \input{../../pikz/06ERB/06erb09Handout.tex}
   }
-  \large
+\end{textblock*} 
+
+\begin{textblock*}{2.5in}(1in, 2.25in)
+  \centering
+  The weight of the pipe is:\pars
+  $ W = 186\x9.81\,\textsf{N} = 1824.7\,\textsf{N}$ 
+  \parb
+	Forces acting on the pipe:\parm
+  \tikz[scale=0.75]{%color
+    \draw[ultra thick] (0,0) circle (1.3cm);
+    \draw[very thick, -latex] (0,0)--+(0,-2)node[below]{$ 1.8247\,\textsf{kN} $};
+    \draw[very thick, latex-] (-1.3,0)--+(-1,0)node[below]{$ R_D $};
+    \draw[very thick, latex-] (-58:1.3)--+(-58:1)node[right]{$ R_E $};
+  }
+  \parm
+  Free body diagram:
+  \parm
+    \tikz[scale=0.75]{%color
+    \draw[very thick, -latex] (0,0)--+(0,-2)node[below]{$ 1.8247\,\textsf{kN} $};
+    \draw[very thick, -latex] (0,0)--+(1.5,0)node[below]{$ R_D $};
+    \draw[very thick, -latex] (0,0)--+(122:2)node[right]{$ R_E $};
+    \draw[thin, gray] (-0.75,0)--+(-1,0);
+    \draw[latex-latex] (-1.25,0)arc(180:122:1.25)node[midway, fill=white,inner sep=0.3mm]{\small$ 58\deg $};
+  }
+  \parm
+  Determine the length of the moment-arm, $AD$, where the pipe bears on the vertical member.
+  \parb
+  \tikz[scale=1.25]{%color
+    \coordinate (O) at (0,0);
+    \coordinate (D) at ($ (O)+(-1.371,0) $);
+    \coordinate (A) at ($ (D)+(0,-2.4733) $);
+    \coordinate (E) at ($ (O)+(-58:1.371) $);
+    \draw (A)--(D);
+    \draw (A)--(O);
+    \draw (A)--(E);
+    \draw (O)--(E)node[midway, above, sloped]{\footnotesize $ 228.5\,\textsf{mm} $};
+    \draw (O)--(D)node[midway, above]{\footnotesize $ 228.5\,\textsf{mm} $};;
+    \draw[very thick] (O) circle (1.371cm);
+    \node[below] at (A) {$ A $};
+    \node[right, xshift=0.125cm] at (E) {$ E $};
+    \node[above] at (O) {$ O $};
+    \node[above left] at (D) {$ D $};
+    \node at ($ (O)+(208:0.35) $) {\footnotesize $ 61\deg $};
+    \node at ($ (O)+(-88:0.45) $) {\footnotesize $ 61\deg $};
+    \node at ($ (A)+(73:0.75) $) {\footnotesize $ 29\deg $};
+    \node at ($ (A)+(45:0.75) $) {\footnotesize $ 29\deg $};
+    \node at ($ (A)+(16:0.75) $) {\footnotesize $ 32\deg $};
+    \draw[thin, gray]  ($ (A)+(0:0) $)--($ (A)+(0:0.95) $);
+  }
+\end{textblock*}
+
+\begin{textblock*}{3.5in}(3.5in, 4.5in)
   \begin{align*}
-    \Sigma M_A &= \Sigma F\cd d \\[0.25em]
-    &= (2.30\,\text{kN})\cd(4.00\,\text{m})(\sin 49\deg) \\
-    &\qquad +(2.05\,\text{kN})\cd(4.00\,\text{m}) \bm - (2.84\,\text{kN})\cd(2.00\,\text{m})\\[0.25em]
-    &= 9.4633\,\mathsf{kN\cd m} 
-    \approx 9.46 \,\mathsf{kN\cd m} \\\\
-    \Sigma M_B &= 0+0-(2.84\,\text{kN})\cd(2.00\,\text{m})=-5.6800\,\mathsf{kN\cd m}
-    = -5.68\,\mathsf{kN\cd m}
+    \Sigma F_y &= R_E\cd\sin 58\deg -1.8247\,\text{kN} = 0 \\[0.25em] 
+    \Ra R_E &= 2.1516\,\textsf{kN} \\\\
+    \Sigma F_x &= R_D-(2151.6\,\textsf{kN})\cd\cos 58\deg = 0 \\[0.25em] 
+    \Ra R_D &= 1.1402\,\textsf{kN}
   \end{align*}
 \end{textblock*}
-
+\begin{textblock*}{3.5in}(3.5in, 7.5in)
+  \begin{align*}
+    \frac{AD}{228.5\,\textsf{mm}} &= \tan 61\deg \Ra AD = 412.22\,\textsf{mm}
+   \end{align*}
+\end{textblock*}
+  
+ 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% page 2
+% page 13
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 ~\newpage
+\begin{textblock*}{2.5in}(1in, 1in)
+  \centering
+  \tikz[scale=1]{%color
+    \coordinate (A) at (0,0);
+	  \coordinate (B) at (0,5);
+	  \coordinate (D) at ($ (A)!0.66!(B) $);
+    \draw[line width = 0.5cm, gray!50, line cap = round] (A)--(B);
+    \draw[latex-, ultra thick] (D)--+(1.5,0)node[right]{$ 1.1402\,\textsf{kN} $};
+    \draw[ultra thick, -latex]  (A)--+(1.5,0)node[right]{$ R_{Ax} $};
+    \draw[ultra thick, -latex]  (A)--+(0, 1.5)node[left]{$ R_{Ay} $};
+    \draw[ultra thick, -latex]  (B)--+(1.5, 0)node[right]{$ T_{BC} $};
 
+    \node[xshift=-0.5cm] at (A) {$ A $};
+    \node[xshift=-0.5cm] at (D) {$ D $};
+    \node[xshift=-0.5cm] at (B) {$ B $};
+
+    \draw[latex-latex] ($ (A)+(0.75,0) $) --  ($ (D)+(0.75,0) $) node[midway, xshift=0.5cm, fill=white] {$ 412.22\,\textsf{mm} $};
+    \draw[latex-latex] ($ (A)+(-1.75,0) $) --  ($ (B)+(-1.75,0) $) node[midway,fill=white] {$ 625\,\textsf{mm} $};
+
+    \draw[thin, gray] ($ (A)-(1,0) $) -- ($ (A)-(3,0) $);
+    \draw[thin, gray] ($ (B)-(1,0) $) -- ($ (B)-(3,0) $);
+
+  }
+ 
+\end{textblock*}
+
+\begin{textblock*}{3.5in}(4in, 1in)
+  \begin{align*}
+    \Sigma M_A &= (1.1402\,\textsf{kN})\cd(412.22\,\textsf{mm})-(625\,\textsf{mm})T_{BC} = 0 \\[0.25em]
+    \Ra T_{BC} &= 0.75202\,\textsf{kN}\\\\
+    \Sigma F_x &= R_{Ax}-1.1402\,\textsf{kN}+0.75202\,\textsf{kN} = 0 \\[0.25em]
+    \Ra R_{Ax} &= 0.38818\,\textsf{kN} \\\\
+    \Sigma F_y &= R_{Ay} = 0 \\[0.25em]    
+  \end{align*}
+\end{textblock*}
+\begin{textblock*}{6in}(1.5in, 3.5in)
+   \parb\large\centering
+      The tension in the chain between $B$ and $C$  is $\underline{\bm{0.752\,\mathsf{kN}}}$. 
+      
+      \parb
+      
+      The reaction at $A$ is $\underline{\bm{0.388\,\mathsf{kN}}}$ in the direction of the positive $x$-axis
+\end{textblock*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% page 13
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+~\newpage
+\begin{textblock*}{2.5in}(1in, 0.1in)
+	\cbox{
+		\underbar{\bf Example 8:} 
+      \pars
+			Soil exerts a trapezoidal distributed load on the bottom of the footing $AB$. \pars Determine the values of $\omega_1$ and $\omega_2$ that support the column loadings in static equilibrium.			
+	}
+\end{textblock*}
+\begin{textblock*}{3.75in}(4.025in, 0.1in)
+	\cbox{
+    \centering
+    \def\scale{0.75}
+    \input{../../pikz/06ERB/06erb13Handout.tex}
+  }
+\end{textblock*} 
+
+\begin{textblock*}{\textwidth}(1in, 4in)
+	\centering
+  \tikz{%color
+    \coordinate (A) at (0,0);
+    \coordinate (C) at (1,0);
+    \coordinate (D) at (2.2,0);
+    \coordinate (E) at (5.6,0);
+    \coordinate (B) at (8,0);
+    \coordinate (O) at (8/3,0);
+
+
+    \draw[line width = 0.5cm, line cap = round, gray!20](A)--(B);
+    \draw[thin](A)--(B);
+    \fill (A) circle (1.5pt) node[left]{\large $ A $};
+    \fill (B) circle (1.5pt) node[right]{\large $ B $};
+    \fill (O) circle (1.5pt) node[above]{\large $ O $};
+
+    \draw[very thick, latex-] (C) --+ (0,2)node[above]{\small$ 200\,\textsf{kN} $};
+    \draw[very thick, latex-] (D) --+ (0,1.4)node[above]{\small$ 140\,\textsf{kN} $};
+    \draw[very thick, latex-] (E) --+ (0,1.6)node[above]{\small$ 160\,\textsf{kN} $};
+
+    \draw[thin, gray] ($ (A)+(0,0.325) $) -- ($ (A)+(0,1.125) $);
+    \draw[thin, gray] ($ (B)+(0,0.325) $) -- ($ (B)+(0,1.125) $);
+    \draw[thin, gray] ($ (A)+(0,-0.325) $) -- ($ (A)+(0,-1.125) $);
+    \draw[thin, gray] ($ (B)+(0,-0.325) $) -- ($ (B)+(0,-1.125) $);
+
+    \draw[latex-latex] ($ (A)+(0,.75) $) -- ($ (C)+(0,.75) $) node[midway, fill=white, yshift=0.157cm,inner sep=0mm] {\footnotesize $ 1\,\textsf{m}$};
+    \draw[latex-latex] ($ (C)+(0,.75) $) -- ($ (D)+(0,.75) $) node[midway, fill=white, yshift=0.157cm,inner sep=0mm] {\footnotesize $ 1.2\,\textsf{m}$};
+    \draw[latex-latex] ($ (D)+(0,.75) $) -- ($ (E)+(0,.75) $) node[midway, fill=white, yshift=0.157cm,inner sep=0mm] {\footnotesize $ 3.4\,\textsf{m}$};
+    \draw[latex-latex] ($ (E)+(0,.75) $) -- ($ (B)+(0,.75) $) node[midway, fill=white, yshift=0.157cm,inner sep=0mm] {\footnotesize $ 2.4\,\textsf{m}$};
+    \draw[latex-latex] ($ (A)+(0,-.75) $) -- ($ (O)+(0,-.75) $) node[midway, fill=white, yshift=0.157cm,inner sep=0mm] {\footnotesize $ 2.6667\,\textsf{m}$};
+    \draw[latex-latex] ($ (O)+(0,-.75) $) -- ($ (4,0)+(0,-.75) $) node[midway, fill=white, yshift=0.157cm,inner sep=0mm] {\footnotesize $ 1.3333\,\textsf{m}$};
+    \draw[latex-latex] ($ (4,0)+(0,-.75) $) -- ($ (B)+(0,-.75) $) node[midway, fill=white, yshift=0.157cm,inner sep=0mm] {\footnotesize $ 4.0\,\textsf{m}$};
+
+    \draw[very thick, latex-] (4,0)--+(0,-1.5) node[below]{$ 8\cd \omega_2 $};
+    \draw[very thick, latex-] (8/3,0)--+(0,-1) node[below]{$ 4\cd(\omega_1- \omega_2) $};
+  }
+  \parm\raggedright
+  \cmini{
+    We could start by taking moments about $A$ to get an expression with $\omega_1$ and $\omega_2$. Then do the same with moments about $B$. And get a system of two equations in two unknowns.\parb
+    Or we could take moments about $O$ and not have to deal with simultaneous equations!\parb
+    \underline{\bf Note:} The $8\cd\omega_2$ is in \textsf{kN} where the $8$ is in \textsf{m} and the $\omega_2$ is in \textsf{kN/m}. Similarly for $4(\omega_1-\omega_2)$.
+  }
+  
+  \begin{align*}
+    \Sigma M_O &= (8\,\textsf{m})\omega_2\cd(1.3333\,\text{m}) + (140\,\textsf{kN})(0.46670\,\text{m})+ (200\,\textsf{kN})(1.6667\,\text{m})- (160\,\textsf{kN})(2.9333\,\text{m}) \\[0.25em]
+    &= (10.644\,\mathsf{m^2})\omega_2  -70.650\,\mathsf{kN\cd m} = 0 \\[0.25em]
+    \Ra \omega_2 &= 6.6236\,\textsf{kN/m} \\\\
+    \Sigma F_y &= (8\,\textsf{m})\omega_2 +(4\,\textsf{m})(\omega_1-\omega_2) - 500\,\text{kN} \\[0.25em]
+    &= (4\,\textsf{m})\omega_1 +(4\,\textsf{m})\omega_2 -500\,\textsf{kN} = (4\,\textsf{m})\omega_1 +26.494\,\textsf{kN} -500\,\textsf{kN} =0 \\[0.25em]
+    \Ra \omega_1 &= \frac{473.51\,\textsf{kN}}{4\,\textsf{m}}  = 118.38\,\textsf{kN/m}
+  \end{align*}
+  \large\centering
+      \begin{align*}
+        \omega_1 &= \underline{118\,\textsf{kN/m}}\\
+        \omega_2 &= \underline{6.62\,\textsf{kN/m}}\\
+      \end{align*}
+\end{textblock*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% page 14
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+~\newpage
+\begin{textblock*}{2.5in}(1in, 0.1in)
+	\cbox{
+		\underbar{\bf Example 9:} 
+      \pars
+			Determine the reactions at $D$ and $E$.		
+	}
+\end{textblock*}
+\begin{textblock*}{3.75in}(4.025in, 0.1in)
+	\cbox{
+    \centering
+    \def\scale{0.65}
+    \input{../../pikz/06ERB/06erb05Handout.tex}
+  }
+\end{textblock*} 
+
+\begin{textblock*}{2.5in}(1in, 1.25in)
+	\underline{\bf{Note:}} We cannot usually solve a system with two pinned connections because there are two unknowns. In this case, though, $CD$ is a two-force member so we know its direction and the only unknown at $D$ is the magnitude of the direction. We can treat $CD$ as we would a cable or a strut.
+\end{textblock*}
+
+\begin{textblock*}{6.75in}(1in, 3in)
+  \center
+	\tikz[scale=0.625]{%color
+    \coordinate (A) at (0, 0);
+    \coordinate (B) at (3, 0);
+    \coordinate (C) at (7, 0);
+    \coordinate (D) at (10, 1.25);
+    \coordinate (E) at (10, -3.5);
+    \coordinate (F) at (7, -3.5);
+    \coordinate (G) at (3, -3.5);
+    \fill[myGray3] (A)--(C)--(D)--(E)--(G)--cycle;
+    \draw[ultra thick, -latex] (D)--+(22.62:1.75)node[above]{$ R_D $};
+    \draw[ultra thick, -latex] (E)--+(0:2)node[below]{$ R_{Ex} $};
+    \draw[ultra thick, -latex] (E)--+(90:1.5)node[left]{$ R_{Ey} $};
+    \draw[ultra thick, -latex] (A)--+(-90:1.5)node[left]{$ 30\,\textsf{kN} $};
+    \fill (A) circle (2.5pt) node[above left, inner sep=2mm] {\large $A$};
+    \fill (D) circle (2.5pt) node[above left, inner sep=2mm] {\large $D$};
+	  \fill (E) circle (2.5pt) node[below, inner sep=2mm] {\large $E$};
+    \draw[thin] ($ (A)+(0,0.5) $) -- +(0,2.75);
+    \draw[thin] ($ (D)+(0,0.5) $) -- +(0,1.5);
+    \draw[thin] ($ (D)+(0.5,0) $) -- +(1,0);
+    \draw[ latex-latex] ([yshift=2.5cm]A) -- node[fill=white]{\small $10.00\textsf{ m}$}([yshift=1.25cm]D);
+    \draw[ latex-latex] ([xshift=1cm]D) -- node[fill=white]{\small $4.75\textsf{ m}$}([xshift=1cm]E);
+    \draw[latex-latex] ($ (D)+(202.62:1.5) $) arc(202.62:270:1.5)node[midway, fill=myGray3, rotate=45] {\footnotesize $ 67.380\deg $};
+  }
+  \begin{align*}
+    \Sigma M_E &= (30\,\textsf{kN})\cd (10.00\,\textsf{m}) -R_D\cd (4.75\,\textsf{m}\cd \sin 67.380\deg) = 0 \\[0.25em]
+    \Ra R_D &= \frac{(30\,\textsf{kN})\cd (10.00\,\textsf{m})}{4.75\,\textsf{m}\cd \sin 67.380\deg}\\[0.25em]
+    &= 68.421\,\textsf{kN}\\\\
+    \Sigma F_x &= R_{Ex}+(68.421\,\textsf{kN})\cd \sin 67.380\deg = 0 \\[0.25em]
+    \Ra R_{Ex} &= -63.158\,\textsf{kN} \\\\
+    \Sigma F_y &= R_{Ey}+(68.421\,\textsf{kN})\cd \cos 67.380\deg - 30\,\textsf{kN}= 0 \\[0.25em]
+    \Ra R_{Ey} &= 3.6481\,\textsf{kN}
+  \end{align*}
+  \pars
+  \tikz{%color
+    \draw[very thick, -latex] (0,0)--+(0,1)node[above]{$ 3.6481\,\textsf{kN} $};
+    \draw[very thick, -latex] (0,0)--+(-5,0)node[below]{$ 63.158\,\textsf{kN} $};
+    \draw[very thick, -latex, gray] (0,0)--+(-5,1)node[below]{$ R_E $};
+    \node at (-2,0.2) {$ \theta $};
+  }
+  \pars
+  \begin{align*}
+    R_E &= \sqrt{(-63.158\,\textsf{kN})^2+(-3.6481\,\textsf{kN})^2} = 63.263\,\textsf{kN}\\[0.25em]
+    \theta &= \tan^{-1}\left[\frac{3.6481}{63.158}\right] = 3.3058\deg
+  \end{align*}
+
+  \parb\large\centering
+      The reaction at $E$ is $\underline{\bm{68.4\,\mathsf{kN}}}$ at  $\underline{\bm{22.6\deg}}$, measured counter-clockwise from the positive $x$-axis.
+      
+      \parm
+      
+      The reaction at $D$ is $\underline{\bm{63.3\,\mathsf{kN}}}$ at  $\underline{\bm{177\deg}}$, measured counter-clockwise from the positive $x$-axis.
+\end{textblock*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% page 15
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+~\newpage
+\begin{textblock*}{2.5in}(1in, 0.1in)
+	\cbox{
+		\underbar{\bf Exercise 5:} 
+      \pars
+			Determine the reactions at $A$ and $D$.		
+	}
+\end{textblock*}
+\begin{textblock*}{3.75in}(4.025in, 0.1in)
+	\cbox{
+    \centering
+    \def\scale{0.65}
+    \input{../../pikz/06ERB/06erb07Handout.tex}
+  }
+\end{textblock*}
+\begin{textblock*}{6.5in}(1in, 3.25in)
+  \centering
+	\tikz{%color
+    \coordinate (A) at (0, 0);
+    \coordinate (B) at (4, 0);
+    \coordinate (C) at (6, 0);
+    \coordinate (DLone) at ($ (A)!0.67!(B) $);
+    \coordinate (DLtwo) at ($ (B)!0.33!(C) $);
+
+
+    % \node at (C) [right] {\large $C$};
+
+
+    \draw[line width = 0.4cm, gray!30, line cap = round] (A)--(C);
+    \draw[very thick, -latex] (A)--+(0,1.5)node[left]{$ R_{Ay} $};
+    \draw[very thick, -latex] (A)--+(1,0)node[below]{$ R_{Ax} $};
+    \draw[very thick, -latex] (B)--+(216:1.5)node[left]{$ R_{B} $};
+    \draw[thick, latex-] (DLone)--+(0,1.5)node[left]{$ 30\,\textsf{kN} $};
+    \draw[thick, latex-] (DLtwo)--+(0,1.5)node[right]{$ 16.800\,\textsf{kN} $};
+    \draw[thin, gray] ([yshift=-0.5cm]A) -- ([yshift=-2cm]A);
+    \draw[thin, gray] ([yshift=-0.5cm]B) -- ([yshift=-2cm]B);
+    \draw[latex-latex] ([yshift=-1.5cm]A) -- ([yshift=-1.5cm]B)node[midway, fill=white] {$ 3.75\,\textsf{m} $};
+    \draw[latex-latex] ([yshift=0.75cm]A) -- ([yshift=0.75cm]DLone)node[midway, fill=white] {$ 2.50\,\textsf{m} $};
+    \draw[latex-latex] ([yshift=0.75cm]DLone) -- ([yshift=0.75cm]DLtwo)node[midway, fill=white] {$ 1.95\,\textsf{m} $};
+
+    \draw[thin] (A)--(C);
+    \node[xshift=-1cm, yshift=-0.225cm] at (B) {$ 36.254\deg $};
+    \node at (A) [xshift=-3mm] {$A$};
+    \node[fill=gray!30, inner sep= 0.25mm] at (B) [xshift=2mm] { $B$};
+  }
+  \begin{align*}
+    \Sigma M_A &= -(30\,\textsf{kN})\cd(2.50\,\textsf{m})-(16.800\,\textsf{kN})\cd(4.45\,\textsf{m})-R_B\cd\sin 36.254\deg\cd (3.75\,\textsf{m}) = 0 \\[0.25em]
+    \Ra R_B &= -67.532\,\text{kN}
+  \end{align*}
+  \cmini[0.75]{
+    $R_B$ is negative, so $BD$ is in compression. We know that $BD$ is a two-force member so the reaction at $D$ is equal and opposite to that of the reaction at $B$.
+  }
+  \begin{align*}
+    \Sigma F_x &= R_{Ax} - (-67.532\,\textsf{kN})\cd\cos 36.254\deg = 0 \\[0.25em]
+    \Ra R_{Ax} &=  -54.458\,\textsf{kN}\\\\
+    \Sigma F_y &= R_{Ay} -30\,\textsf{kN}-16.800\,\textsf{kN}-(-67.532\,\textsf{kN})\cd\sin 36.254\deg = 0 \\[0.25em]
+    \Ra R_{Ay} &=  6.6077\,\textsf{kN}\\\\
+    R_A &= \sqrt{(-54.458\,\textsf{kN})^2+(6.6077\,\textsf{kN})^2} = 54.857\,\textsf{kN}\\\\
+    \theta &= \tan^{-1}\left[\frac{6.6077}{54.458}\right] = 6.9182\deg
+  \end{align*}
+    \parb\large\centering
+      The reaction at $E$ is $\underline{\bm{54.9\,\mathsf{kN}}}$ at  $\underline{\bm{173\deg}}$, measured counter-clockwise from the positive $x$-axis.
+      
+      \parm
+      
+      The reaction at $D$ is $\underline{\bm{67.5\,\mathsf{kN}}}$ at  $\underline{\bm{36.3\deg}}$, measured counter-clockwise from the positive $x$-axis.
+\end{textblock*} 
+
+\begin{textblock*}{3in}(5.725in, 7.625in)
+  \centering
+  \tikz{%color
+    \draw[very thick, -latex] (0,0)--+(0,1)node[left]{$ 6.6077\,\textsf{kN} $};
+    \draw[very thick, -latex] (0,0)--+(-5,0)node[below]{$ 54.458\,\textsf{kN} $};
+    \draw[very thick, -latex, gray] (0,0)--+(-5,1)node[below]{$ R_A $};
+    \node at (-2.5,0.25) {$ \theta $};
+  }
+  
+\end{textblock*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% page 16
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+~\newpage
+\begin{textblock*}{3in}(1in, 0.1in)
+	\cbox{
+		\underbar{\bf Exercise 6:} 
+      \pars
+      Member $CD$ is a circular arc, centred at $A$\parm
+			Determine the reactions at $A$ and $B$.		
+	}
+\end{textblock*}
+\begin{textblock*}{3.25in}(4.525in, 0.1in)
+	\cbox{
+    \centering
+    \def\scale{0.65}
+    \input{../../pikz/06ERB/06erb17Handout.tex}
+  }
+\end{textblock*}
+
+\begin{textblock*}{3in}(1in, 1.5in)
+  \centering
+	% \tikz[scale=0.875]{%color
+  %   \coordinate (O) at (0,0);
+	% 	\coordinate (A) at ($(O)+(4,2)$);
+	% 	\coordinate (B) at ($(O)+(0,-4.472)$);
+	% 	\coordinate (C) at ($(O)+(0:4.472)$);
+	% 	\coordinate (D) at ($(O)+(-40:4.472)$);
+	% 	\coordinate (E) at ($(O)+(145:3)$);
+	% 	\coordinate (tl) at ($(O)+(-3.5,4)$);
+
+	% 	\def\radius{4.472}
+	% 	\def\hi{0.25}
+	% 	\def\outer{\radius+\hi}
+	% 	\def\inner{\radius-\hi}
+
+	% 	\gettikzxy{(A)}{\Ax}{\Ay};
+	% 	\gettikzxy{(B)}{\Bx}{\By};
+	% 	\gettikzxy{(C)}{\Cx}{\Cy};
+	% 	\gettikzxy{(D)}{\Dx}{\Dy};
+	% 	\gettikzxy{(E)}{\Ex}{\Ey};
+	% 	\gettikzxy{(tl)}{\tx}{\ty};
+
+	% 	\fill[gray!50] ($(A)+(26.6:\hi)$)arc(26.6:-90:\outer)arc(270:90:\hi)arc(-90:26.6:\inner)arc(206.6:26.6:\hi);
+
+  %   \draw[ultra thick,red, -Latex] (A)-- +(207:2.75)node[left, black]{ $F_{AC}$};
+	% 	\node[xshift=0.325cm, yshift=0.325cm] at (A) {$C$};
+	% 	\draw[thin] ($(A)-(0.35,0)$) -- (\tx,\Ay);
+	% 	\draw[latex-latex] ($(A)-(2,0)$)arc(180:207:2)node[midway,fill=white,inner sep=0.5mm]{\small $27.0\deg $};
+
+  %   \draw[ultra thick, red, -Latex] (C)-- +(0:2)node[right, black]{ $8.00\,$kN};
+	% 	\draw[thin] ($(C)-(0.35,0)$) -- (\tx,\Cy);
+
+  %   \draw[ultra thick, red, -Latex] (D)-- +(-42:2.25)node[right, black]{ $8.00\,$kN };
+	% 	\draw[thin] ($(D)-(0.65,0)$) -- (\tx,\Dy);
+	% 	\draw[thin] ($(D)+(0.5,0)$) -- +(2,0);
+	% 	\draw[latex-latex] ($(D)+(1.5,0)$)arc(0:-42:1.5)node[midway,fill=white,inner sep=0.5mm]{\small $42\deg$};
+
+  %   \draw[thin] ($(B)+(-0.5,0)$) -- (\tx,\By);
+	% 	\draw[thin] ($(B)+(0,1.25)$) -- (\Bx,\ty);
+	% 	\draw[thin] ($(D)+(0,0.65)$) -- (\Dx,\Dy+1.75 cm);
+	% 	\draw[thin] ($(A)+(0,0.35)$) -- (\Ax,\ty);
+
+  %   \footnotesize
+
+  %   \draw[latex-latex,thick] (\Dx,\Dy+1.25 cm)--node[fill=white, inner sep=0mm]{
+	% 		\begin{tabular}{c}
+	% 			\textcolor{red}{$0.92893\,\textsf{m}$} \\ $(1.25\,\textsf{m}\cd\cos 42\deg)$
+	% 		\end{tabular}}(\Bx,\Dy+1.25 cm);
+
+  %   \draw[latex-latex,thick] (\Bx,\ty-.5 cm)--node[fill=white]{
+	% 		\begin{tabular}{c}
+	% 			\textcolor{red}{$1.1138\,\textsf{m}$} \\ $	(1.25\,\textsf{m}\cd\cos 27.0\deg) $
+	% 		\end{tabular}}(\Ax,\ty-0.5 cm);
+
+  %   \draw[latex-latex,thick] (\Bx-2.25 cm,\By )--node[fill=white, inner sep=0.25mm]{
+	% 		\begin{tabular}{c}
+	% 			\textcolor{red}{$0.41359\,\textsf{m}$} \\ $(1.25\,\textsf{m}-1.25\,\textsf{m}\cd\sin 42.0\deg)$
+	% 		\end{tabular}}(\Bx-2.25cm,\Dy);
+
+  %   \draw[latex-latex,thick] (\Bx-2.25cm,\Dy )--node[fill=white]{
+	% 		\begin{tabular}{c}
+	% 			\textcolor{red}{$0.83641\,\textsf{m}$} \\$(1.25\,\textsf{m}\cd\sin 42.0\deg)$
+	% 		\end{tabular}}(\Bx-2.25cm,\Cy);
+
+  %   \draw[latex-latex,thick] (\Bx-2.25 cm,\Ay )--node[fill=white]{
+	% 		\begin{tabular}{c}
+	% 			\textcolor{red}{$0.56749\,\textsf{m}$} \\$(1.25\,\textsf{m}\cd\sin 27.0\deg)$
+	% 		\end{tabular}}(\Bx-2.25cm,\Cy);
+
+  %   \normalsize
+
+  %   \draw[ultra thick, red, -Latex] (B)-- +(0:1)node[right, black]{ $R_{Bx}$};
+	% 	\draw[ultra thick, red, -Latex] (B)-- +(0,1)node[right, black]{ $R_{By}$};
+
+  %   		\fill (A) circle (1mm);
+	% 	\fill (B) circle (1mm)node[xshift=-0.325cm, yshift=-0.325cm]{ $B$};
+	% 	\fill (O) circle (1mm)node[xshift=3mm, yshift=3mm]{ $A$};
+	% 	\fill (C) circle (1mm);
+	% 	\fill (D) circle (1mm);    
+  % }
+
+  \tikz{%color
+      \coordinate (A) at (0,0);
+      \coordinate (B) at (0,-3.75);
+      \coordinate (C) at ($ (A)+(27:3.75) $);
+      \coordinate (D) at ($ (A)+(0:3.75) $);
+      \coordinate (E) at ($ (A)+(-42:3.75) $);
+
+      \draw[dashed, gray] (A)--(D);
+      \draw[dashed, gray] (A)--(E);
+      \draw[dashed, gray] (A)--(27:2.5);
+
+      \draw[line width = 0.5cm, line cap = round, gray!40] (B) arc (-90:27:3.75);
+     
+      \draw[ultra thick, -Latex, red] (D)-- +(0:2)node[right, black]{ $8.00\,$kN};
+      \draw[ultra thick, -Latex, red] (E)-- +(-40:2)node[right, black]{ $8.00\,$kN};
+      \draw[ultra thick, -Latex, red] (C)-- +(207:1.25)node[above,yshift=1mm, black]{ $F_{AC}$};
+      % \draw[ultra thick, -Latex, red] (A)-- +(27:1.25)node[above, black]{ $F_{BC}$};
+      \draw[ultra thick, -Latex, red] (B)-- +(90:1.25)node[right, black]{ $R_{By}$};
+      \draw[ultra thick, -Latex, red] (B)-- +(0:1.25)node[above, black]{ $R_{Bx}$};
+
+      \fill (A) circle (1mm) node[yshift=0.35cm,left] {$ A\,(0,0) $};
+      \fill (B) circle (1mm) node[right, yshift=-0.35cm] {$ B\,(0,-1.25) $};
+      \fill (C) circle (1mm) node[xshift=1.5cm, yshift=0.35cm] {$ C\,(1.25\cos 27\deg,1.25\sin 27\deg) $};
+      \fill (D) circle (1mm) node[xshift=0.75cm, yshift=0.35cm] {$ D\,(1.25,0) $};
+      \fill (E) circle (1mm) node[right, yshift=0.25cm] {$ E\,(1.25\cos 42\deg,-1.25\sin 42\deg) $};
+
+      \node[xshift=1.25cm, yshift=0.25cm] at (A) {$ 27\deg $};
+      \node[xshift=1cm, yshift=-0.325cm] at (A) {$ 42\deg $};
+  }
+\end{textblock*}
+
+\begin{textblock*}{6in}(1.5in, 4.25in)
+  \begin{align*}
+    \Sigma M_B &= F_{AC}\cd\cos 27\deg\cd(1.25\,\textsf{m}+1.25\,\textsf{m}\cd\sin 27\deg)-F_{AC}\cd\sin 27\deg\cd(1.25\,\textsf{m}\cd\cos27\deg) \\[0.25em]
+    &\qquad - 8.00\,\textsf{kN}\cd(1.25\,\textsf{m})  \\[0.25em]
+    &\qquad\qquad - 8.00\,\textsf{kN}\cd\cos 42\deg\cd(1.25\,\textsf{m}-1.25\,\textsf{m}\cd\sin 42\deg)-8.00\,\textsf{kN}\cd\sin 42\deg\cd(1.25\,\textsf{m}\cd\cos 42\deg) \\\\
+   &= F_{AC}\cd\cos 27\deg\cd(1.8175\,\textsf{m})-F_{AC}\cd\sin 27\deg\cd(1.1138\,\textsf{m})-10.000\,\mathsf{kN\cd m} \\[0.25em]
+    &\qquad\qquad - 8.00\,\textsf{kN}\cd\cos 42\deg\cd(0.41359\,\textsf{m})-8.00\,\textsf{kN}\cd\sin 42\deg\cd(0.92893\,\textsf{m}) \\\\
+    &= F_{AC}\cd(1.1137\,\textsf{m})-17.431\,\mathsf{kN\cd m } = 0  \\\\
+    \Ra F_{AC} &= 15.651\,\textsf{kN}\\\\
+    \Sigma F_x &= R_{Bx}+8.00\,\textsf{m}\cd\cos 42\deg + 8.00\,\textsf{m}-15.651\,\textsf{kN}\cd\cos 27\deg = 0 \\[0.25em]
+    \Ra R_{Bx} &= 0\\\\
+    \Sigma F_y &= R_{By}-8.00\,\textsf{kN}\cd\sin 42\deg-15.651\,\textsf{kN}\cd\sin 27\deg = 0 \\[0.25em]
+    \Ra R_{By} &= 12.458\,\textsf{kN}
+  \end{align*}
+	\parb\large\centering
+      The reaction at $A$ is $\underline{\bm{15.7\,\mathsf{kN}}}$ at  $\underline{\bm{207\deg}}$, measured counter-clockwise from the positive $x$-axis.      
+      \parm      
+      The reaction at $B$ is $\underline{\bm{12.5\,\mathsf{kN}}}$ at  $\underline{\bm{90\deg}}$, measured counter-clockwise from the positive $x$-axis.
+
+    \normalsize\parb\raggedright
+    \underline{\bf{Questions:}}
+    \begin{enumerate}
+      \item Why is $R_{AC}$ away from $C$ instead of in the direction of $C$, cancelling out $F_{AC}$?
+      \item Can you see that $R_{Bx}=0$ directly from the free body diagram?
+    \end{enumerate}
+\end{textblock*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% page 18
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+~\newpage
+\begin{textblock*}{2.75in}(1in, 0.1in)
+	\cbox{
+		\underbar{\bf Example 10:} 
+      \pars
+      The bin of a dump-truck is being tipped by hydraulic lift $AB$. ($AB$ can be considered a two-force member.) The bin rotates about a pin at $C$. Determine the force in the lift $AB$ and find  the reaction at $C$. The bin has a mass of $880\,\textsf{kg}$ and $G$ marks its centre of mass.
+	}
+\end{textblock*}
+\begin{textblock*}{3.5in}(4.27in, 0.1in)
+	\cbox{
+    \centering
+    \def\scale{0.875}
+    \input{../../pikz/06ERB/06erb20Handout.tex}
+  }
+\end{textblock*}
+\begin{textblock*}{6.75in}(1in, 3in)
+    \raggedright
+		\underbar{\bf Method 1:}   Our usual approach.\parb
+    \centering
+    $$ M=880\,\textsf{kg}\Ra W=\frac{880\x 9.81}{1000}=8.6328\,\textsf{kN} $$
+    \tikz[scale=1.5]{%color
+      \coordinate (C) at (0,0);
+      \coordinate (B) at ($ (C)+(31.5:2.5) $);
+      \coordinate (G) at ($ (B)+(121.5:1.15) $);
+
+      \draw[line width = 0.325cm, line cap = round, myGray3] (C)--($ (C)!1.5!(B) $);
+
+      \fill (C) circle (1.5pt) node[left, outer sep = 1mm] {$ C $};
+      \fill (B) circle (1.5pt) node[above right] {$ B $};
+      \fill (G) circle (1.5pt) node[above right] {$ G $};
+
+      \draw[very thick, -latex] (B) -- + (-36.5:1.25) node[below] {$ F_{AB} $};
+      \draw[very thick, -latex] (G) -- + (-90:1) node[left] {\small $ 8.6328\,\textsf{kN} $};
+      \draw[very thick, -latex] (C) -- + (0:1.125) node[below] {$ R_{Cx} $};
+      \draw[very thick, -latex] (C) -- + (90:0.75) node[right] {$ R_{Cy} $};
+
+      \draw[thin] (C)--(B);
+      \draw[thin] (B)--($(B)+(121.5:2)$);
+      \draw[thin] (C)--($(C)+(121.5:2)$);
+      \draw[thin] ($ (B)+(0.125,0) $)--($ (B)+(1,0) $);
+      \draw[thin] ($ (B)+(31.5:0.5) $)--($ (B)+(31.5:1) $);
+      \draw[thin] ($ (G)+(31.5:0.5) $)--($ (G)+(31.5:1) $);
+
+      \node[xshift=1cm, yshift=-0.25cm] at (B) {\small $ 36.5\deg $};
+      \node[xshift=1.25cm, yshift=0.25cm] at (C) {\small $ 31.5\deg $};
+
+      \draw ($ (B)+(121.5:0.25) $) -- ++(211.5:0.25) -- +(301.5:0.25); % right angle box
+
+      \draw[latex-latex] ($(C)+(121.5:1.75)$) -- ($(B)+(121.5:1.75)$)node[midway, fill=white]{\small $ 2.50\,\textsf{m} $};
+      \draw[latex-latex]  ($ (B)+(31.5:0.75) $)-- ($ (G)+(31.5:0.75) $)node[midway, fill=white]{\small $ 1.15\,\textsf{m} $};
+    }
+    
+    \begin{align*}
+      \Sigma M_C &= -(8.6328\,\textsf{kN})\cd (2.50\,\textsf{m}\cd\cos 31.5\deg - 1.15\,\textsf{m}\cd\sin 31.5\deg) \\[0.25em]
+      & \qquad\qquad - F_{AB}\cd\cos 36.5\deg\cd(2.50\,\textsf{m}\cd\sin 31.5\deg) \\[0.25em]
+      & \qquad\qquad\qquad\qquad - F_{AB}\cd\sin 36.5\deg\cd(2.50\,\textsf{m}\cd\cos 31.5\deg) \\\\
+      &= -13.214\,\mathsf{kN\cd m} - 2.3180\,\textsf{m}\cd F_{AB} = 0 \\[0.25em]
+      \Ra F_{AB} &= - 5.7006\,\textsf{kN} \\\\
+      \Sigma F_x &= R_{Cx}+(-5.7006\,\textsf{kN})\cd\cos 36.5\deg = 0 \\[0.25em]
+      \Ra R_{Cx} &= 4.5825\,\textsf{kN} \\\\
+      \Sigma F_y &= R_{Cy}-8.6328\,\textsf{kN} -(-5.7006\,\textsf{kN})\cd\sin 36.5\deg = 0 \\[0.25em]
+      \Ra R_{Cy} &= 5.2420\,\textsf{kN} \\\\
+      R_C &= \sqrt{(4.5825\,\textsf{kN})^2+(5.2420\,\textsf{kN})^2} = 6.9626\,\textsf{kN} \\[0.25em]
+      \theta &= \tan^{-1}\left[\frac{5.2420}{4.5825}\right] = 48.840\deg      
+    \end{align*}
+
+    \pars\large\centering
+      The force in $AB$ is $\underline{\bm{5.70\,\mathsf{kN}}}$ in {\bf compression}.      
+      \parm      
+      The reaction at $C$ is $\underline{\bm{6.96\,\mathsf{kN}}}$ at  $\underline{\bm{48.8\deg}}$, measured counter-clockwise from the positive $x$-axis.
+
+\end{textblock*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% page 19
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+~\newpage
+\begin{textblock*}{5.75in}(1.5in, 0.5in)
+    \raggedright
+		\underbar{\bf Method 2:} By rotation of our axes of reference.\parb
+    Rotating the $xy$ axes coordinate system, by $31.5\deg$ to a new $x'y'$ axes system, makes for (possibly) clearer calculations.\parb
+    \centering
+    $$ M=880\,\textsf{kg}\Ra W=\frac{880\x 9.81}{1000}=8.6328\,\textsf{kN} $$
+    \tikz[scale=1.75]{%color
+      \coordinate (C) at (0,0);
+      \coordinate (B) at ($ (C)+(31.5:2.5) $);
+      \coordinate (G) at ($ (B)+(121.5:1.15) $);
+
+      \draw[line width = 0.325cm, line cap = round, myGray3] (C)--($ (C)!1.5!(B) $);
+
+      \fill (C) circle (1.5pt) node[left, outer sep = 1mm] {$ C $};
+      \fill (B) circle (1.5pt) node[above right] {$ B $};
+      \fill (G) circle (1.5pt) node[above right] {$ G $};
+
+      \draw[very thick, -latex] (B) -- + (-36.5:1.25) node[below] {$ F_{AB} $};
+      \draw[very thick, -latex] (G) -- + (-58.5:1) node[left] {\small $ 8.6328\,\textsf{kN}\cd\cos 31.5\deg $};
+      \draw[very thick, -latex] (G) -- + (211.5:0.75) node[below] {\small $ 8.6328\,\textsf{kN}\cd\sin 31.5\deg $};
+      \draw[very thick, -latex] (C) -- + (31.5:1.125) node[above left] {$ R_{Cx'} $};
+      \draw[very thick, -latex] (C) -- + (121.5:0.75) node[right] {$ R_{Cy'} $};
+
+      \draw[thin] (C)--(B);
+      \draw[thin] (B)--($(B)+(121.5:2)$);
+      \draw[thin] (C)--($(C)+(121.5:2)$);
+      \draw[thin] ($ (B)+(0.125,0) $)--($ (B)+(1,0) $);
+      \draw[thin] ($ (B)+(31.5:0.35) $)--($ (B)+(31.5:1) $);
+      \draw[thin] ($ (G)+(31.5:0.35) $)--($ (G)+(31.5:1) $);
+      \draw[thin] ($ (C)+(0:0.125) $)--($ (C)+(0:1) $);
+
+      \node[xshift=1cm, yshift=-0.25cm] at (B) {\small $ 36.5\deg $};
+      \node[xshift=1cm, yshift=0.25cm] at (B) {\small $ 31.5\deg $};
+      \node[xshift=1.25cm, yshift=0.25cm] at (C) {\small $ 31.5\deg $};
+
+      \draw ($ (B)+(121.5:0.125) $) -- ++(211.5:0.125) -- +(301.5:0.125); % right angle box
+
+      \draw[latex-latex] ($(C)+(121.5:1.75)$) -- ($(B)+(121.5:1.75)$)node[midway, fill=white]{\small $ 2.50\,\textsf{m} $};
+      \draw[latex-latex]  ($ (B)+(31.5:0.75) $)-- ($ (G)+(31.5:0.75) $)node[midway, fill=white]{\small $ 1.15\,\textsf{m} $};
+    }
+    \begin{align*}
+      \Sigma M_C &= (8.6328\,\textsf{kN}\cd\sin 31.5\deg)\cd(1.15\,\textsf{m})-(8.6328\,\textsf{kN}\cd\cos 31.5\deg)\cd(2.50\,\textsf{m}) - F_{AB}\cd\sin 68\deg\cd 2.50\,\textsf{m} \\[0.25em]
+      &= -13.214\,\mathsf{kN\cd m}-F_{AB}\cd 2.3180\,\textsf{m}=0 \\[0.25em]
+      \Ra F_{AB} &= -5.7006\,\textsf{kN} \\\\
+      \Sigma F_{x'} &= R_{Cx'}+(-5.7006\,\textsf{kN})\cd\cos 68\deg - 8.6328\,\textsf{kN}\cd\sin 31.5\deg = 0 \\[0.25em]
+      \Ra R_{Cx'} &= 6.6461\,\textsf{kN}\\\\
+      \Sigma F_{y'} &= R_{Cy'}-(-5.7006\,\textsf{kN})\cd\sin 68\deg - 8.6328\,\textsf{kN}\cd\cos 31.5\deg = 0 \\[0.25em] 
+      \Ra R_{Cy'} &= 2.0752\,\textsf{kN}\\\\
+      R_C &= \sqrt{(2.0752\,\textsf{kN})^2+(6.6461\,\textsf{kN})^2} = 6.9625\,\textsf{kN}\\[0.25em]
+      \theta ' &= \tan^{-1}\left[\frac{2.0752}{6.6461}\right] = 17.341\deg \\[0.25em]
+      \Ra \theta &= \theta ' + 31.5\deg = 48.841\deg
+    \end{align*}
+    	\parb\large\centering
+      The force in $AB$ is $\underline{\bm{5.70\,\mathsf{kN}}}$ in {\bf compression}.      
+      \parm      
+      The reaction at $C$ is $\underline{\bm{6.96\,\mathsf{kN}}}$ at  $\underline{\bm{48.8\deg}}$, measured counter-clockwise from the positive $x$-axis.
+
+\end{textblock*}
+
+\begin{textblock*}{3in}(5.25in, 6.25in)
+  \centering
+  \tikz[scale=0.75]{%color
+    \draw[thick, -latex] (0,0) --+ (31.5:3.3)node[above right]{$ 6.6461\,\textsf{kN} $};
+    \draw[thick, -latex] (0,0) --+ (121.5:1)node[above]{$ 2.0752\,\textsf{kN} $};
+    \draw[very thick, -latex, gray] (0,0) --+ (48.8:3.5)node[above left]{$ R_C $};
+    \draw[thin, gray] (0,0)--(2,0);
+    \node at (1.5,0.35cm) {$ 31.5\deg $};
+    \node at (1.25,1.05cm) {$ \theta ' $};
+  }
+\end{textblock*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% page 20
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+~\newpage
+\begin{textblock*}{2.25in}(1in, 0.1in)
+	\cbox{
+		\underbar{\bf Exercise 7:} 
+      \pars
+      The pulley is frictionless. Determine the tension $T$ and the reaction at the pinned connection $O$.
+	}
+\end{textblock*}
+\begin{textblock*}{4in}(3.77in, 0.1in)
+	\cbox{
+    \centering
+    \def\scale{0.6}
+    \input{../../pikz/06ERB/06erb18Handout.tex}
+  }
+\end{textblock*}
+
+\begin{textblock*}{6.5in}(1in, 3.5in)
+	
+		\underbar{\bf Method 1:}
+    \parb\centering 
+    \tikz[scale=0.6]{%color
+      \coordinate (O) at (0,0);
+      \coordinate (C) at ($(O)+(217:10)$);
+      \coordinate (B) at ($(O)+(217:6)$);
+      \coordinate (BB) at ($(B)+(127:1)$);
+
+      \draw[line width=0.5cm, line cap = round, myGray4] (O)--(C);
+      \draw[line width=0.5cm, line cap = round, myGray4] (B)--(BB);
+
+      \draw[thin, gray] ($(BB)+(90:0.5)$)--($(BB)+(90:2.25)$);
+      \draw[thin, gray] ($(BB)+(90:0.5)$)--($(BB)+(90:2.25)$);
+      \draw[thin, gray] ($(BB)+(37:0.5)$)--($(BB)+(37:2.25)$);
+      \draw[thin, gray] ($(B)+(37:0.5)$)--($(B)+(37:2.25)$);
+      \draw[thin, gray] ($(O)+(180:0.5)$)--($(O)+(180:2.25)$);
+      \draw[thin, gray] ($(O)+(217:0.5)$)--($(O)+(217:2.25)$);
+      \draw[thin, gray] ($(C)+(-53:0.75)$)--($(C)+(-53:2)$);
+      \draw[thin, gray] ($(O)+(-53:0.75)$)--($(O)+(-53:2)$);
+      \draw[thin, gray] ($(B)+(-53:-0.75)$)--($(B)+(-53:2)$);
+
+       \draw[latex-latex] ($(C)+(-53:1.325)$)--($(B)+(-53:1.325)$)node[midway, fill=white];
+      \draw[latex-latex] ($(BB)+(90:1.75)$)arc(90:140:1.75)node[midway, fill=white, inner sep = 0.4mm,yshift=3mm]{$ 50\deg $};
+      \draw[latex-latex] ($(O)+(180:1.75)$)arc(180:217:1.75)node[midway, fill=white, inner sep = 0.4mm,xshift=-3.5mm, inner sep = 0]{$ 37\deg $};
+      \node[rotate=37,xshift=1cm,yshift=0.35cm] at (B) {$ 0.525\,\text{m} $};
+
+      \draw[very thick, -latex] (O)--+(0:1.5)node[right]{$ R_{Ox} $};
+      \draw[very thick, -latex] (O)--+(90:1.5)node[right]{$ R_{Oy} $};
+      \draw[very thick, -latex] (BB)--+(140:2.5)node[left]{$ T $};
+      \draw[very thick, -latex] (C)--+(270:2)node[left]{$ 27.8\,\textsf{kN} $};
+
+    }
+
+\end{textblock*}
 
 \end{document}

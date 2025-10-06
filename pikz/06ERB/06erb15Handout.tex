@@ -3,11 +3,6 @@
 
 
 \begin{tikzpicture}[scale=\scale]
-	% \def\thickness{0.25}
-	% \def\stroke{black}
-	% \def\hi{.25}
-	% \def\radii{\hi*0.5}
-	% \def\extend{\hi}
 
 	\coordinate (O) at (0, 0);
 	\coordinate (B) at ($(O)+(36:6)$);
@@ -20,22 +15,19 @@
 
 	\small
 
-	\fill[top color = LightSteelBlue4, bottom color=LightSteelBlue2] ($(A)+(-1,-0.5)$) rectangle +(2,-0.5);
-	\Meme{A}{B}{LightGoldenrod3}{LightGoldenrod3}{black}{0.5}{0.2}{.2}
-	% \def\hi{0.125}
-	% \def\extend{\hi}
-	% \def\radii{\hi}
+	\fill[top color = gray!50, bottom color=gray!50] ($(A)+(-1,-0.5)$) rectangle +(2,-0.5);
+	\Meme{A}{B}{gray!25}{gray!25}{black}{0.5}{0.2}{.2}
 	\Meme{D}{E}{white}{white}{black}{0.25}{0.1}{.2}
-	\PC{A}{LightSteelBlue3}{black}{0.5}{0.2}
+	\PC{A}{gray!50}{black}{0.5}{0.2}
 
-	\node[yshift=1.25mm, xshift=-3.5mm , inner sep=2mm] at (A) {$A$};
-	\filldraw (G) circle (1.5pt) node[yshift=-2.5mm, xshift=2.5mm , inner sep=2mm] {$G$};
-	\filldraw (B) circle (1.5pt) node[yshift=3mm, xshift=2.5mm , inner sep=2mm] {$B$};
-	\filldraw[ball color=LightCyan4] (P) circle (2.75pt) node[yshift=-3mm, xshift=1.75mm ] { $P$};
-	\draw[-latex, very thick, saitDeepBlue] (B) -- +(-38:3)node[below]{$1.70\,$kN};
+	\node[yshift=1.25mm, xshift=-4mm , inner sep=2mm] at (A) {$A$};
+	\filldraw (G) circle (1.5pt) node[yshift=-3mm, xshift=3mm , inner sep=2mm] {$G$};
+	\filldraw (B) circle (1.5pt) node[yshift=3mm, xshift=3mm , inner sep=2mm] {$B$};
+	\filldraw[ball color=LightCyan4] (P) circle (2.75pt) node[yshift=-3mm, xshift=3mm ] { $P$};
+	\draw[-latex, very thick] (B) -- +(-38:3)node[below]{$1.70\,\textsf{kN}$};
 
 	\draw ($(B)+(216:0.25)$) -- +(216:0.75);
-	\draw[latex-latex] ($(B)+(-38:0.625)$)arc[start angle=322, end angle=217, radius=0.625]node[midway, fill=white, inner sep=0.125mm]{\large $\theta$};
+	\draw[latex-latex] ($(B)+(-38:0.625)$)arc[start angle=322, end angle=217, radius=0.625]node[midway, fill=white, inner sep=0.35mm]{\large $\theta$};
 
 
 
