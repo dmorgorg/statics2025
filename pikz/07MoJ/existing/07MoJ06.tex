@@ -1,0 +1,63 @@
+%%%%%%%%%%%%%%%%%%%%%%% TRUSS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% !TEX root = ../../Beamer/07MoJ/07MoJ.tex
+
+%http://tex.stackexchange.com/questions/33703/extract-x-y-coordinate-of-an-arbitrary-point-in-tikz
+\makeatletter
+\providecommand{\gettikzxy}[3]{%
+	\tikz@scan@one@point\pgfutil@firstofone#1\relax
+	\edef#2{\the\pgf@x}%
+	\edef#3{\the\pgf@y}%
+}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%% TRUSS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%% TRUSS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{tikzpicture}[scale=\scale]
+
+	\coordinate (A) at (0,0);
+	\coordinate (B)	at (3, 1.5);
+	\coordinate (C) at (7,1.5);
+	\coordinate (D) at (3,-3.5);
+	\footnotesize
+	\PinnedConnection[90]{C}{Honeydew3}{black}{0.5}{0.125}
+	\Rocker{D}{Honeydew3}{black}{0.5}{0.125}
+
+	\fill[left color=Honeydew4,right color=Honeydew2] ($(C)+(0.5,1)$)rectangle($(C)+(1,-1)$);
+	\fill[top color=Honeydew4,bottom color=Honeydew2] ($(D)+(-1,-0.5)$)rectangle($(D)+(1,-1)$);
+	\draw ($(D)+(-1,-0.5)$)--($(D)+(1,-0.5)$);
+	\draw ($(C)+(0.5,1)$)--($(C)+(0.5,-1)$);
+
+	\pgfoonew \AB=new rrect(B,A,LightSteelBlue4,LightSteelBlue3,black,0.3,0.3,0.3,0.125);
+	\pgfoonew \BC=new rrect(B,C,LightSteelBlue4,LightSteelBlue3,black,0.3,0.3,0.3,0.125);
+	\pgfoonew \CD=new rrect(C,D,LightSteelBlue4,LightSteelBlue3,black,0.3,0.3,0.3,0.125);
+	\pgfoonew \AD=new rrect(A,D,LightSteelBlue4,LightSteelBlue3,black,0.3,0.3,0.3,0.125);
+	\pgfoonew \BD=new rrect(D,B,LightSteelBlue4,LightSteelBlue3,black,0.3,0.3,0.3,0.125);
+
+
+
+	\draw[ultra thick, saitMaroon, -Latex] (A)--+(0,-2)node[below,black]{$4.25\,$kN};
+	% \draw[ultra thick, saitDeepBlue, -Latex] (A)--+(2,0)node[right,black]{$2.00\,$kN};
+	%
+	\shadedraw[ball color=Honeydew4, draw=black] (A) circle (2pt)node[xshift=-0.25cm, yshift=0.35cm]{\normalsize $A$};
+	\shadedraw[ball color=Honeydew4, draw=black] (B) circle (2pt)node[xshift=-0.3cm, yshift=0.3cm]{\normalsize $B$};
+	\shadedraw[ball color=Honeydew4, draw=black] (C) circle (2pt)node[xshift=0.05cm,yshift=-0.35cm]{\normalsize $C$};
+	\shadedraw[ball color=Honeydew4, draw=black] (D) circle (2pt)node[xshift=0.35cm]{\normalsize $D$};
+	%
+	\draw[thin] ($(C)+(0,0.25)$)--+(0,1);
+	\draw[thin] ($(B)+(0,0.25)$)--+(0,1);
+	\draw[thin] ($(A)+(0,0.25)$)--+(0,2.5);
+	\draw[thin] ($(B)+(-0.75,0)$)--+(-4.5,0);
+	\draw[thin] ($(A)+(-0.35,0)$)--+(-1.9,0);
+	\draw[thin] ($(D)+(-0.45,0)$)--+(-4.8,0);
+	\draw[latex-latex] ($(A)+(0,2.25)$)--node[fill=white]{$3.00\,$m}($(B)+(0,0.75)$);
+	\draw[latex-latex] ($(B)+(0,0.75)$)--node[fill=white]{$4.00\,$m}($(C)+(0,0.75)$);
+	\draw[latex-latex] ($(B)+(-4.75,0)$)--node[fill=white]{$1.50\,$m}($(A)+(-1.75,0)$);
+	\draw[latex-latex] ($(D)+(-4.75,0)$)--node[fill=white]{$3.50\,$m}($(A)+(-1.75,0)$);
+	% \draw[latex-latex] ($(A)+(0,-0.75)$)--node[fill=white]{$1210\,$mm}($(B)+(0,-0.75)$);
+	% \draw[latex-latex] ($(B)+(0,-0.75)$)--node[fill=white]{$1210\,$mm}($(C)+(0,-0.75)$);
+
+
+	%
+\end{tikzpicture}

@@ -1,0 +1,9 @@
+\begin{tikzpicture}[scale=\scale]
+  \scriptsize
+  \coordinate (G) at (0,0);
+  \draw[very thick, arrows={-Latex[scale=0.75]}] (G) -- (180:2cm) node[above] {$\bm{F_{FG}}$};
+  \draw[very thick, arrows={Latex[scale=0.75]-}, Green3] ($ (G)+(0.125cm, 0) $) -- node[above, black] {$41.999\text{ kN}$}(0:2cm) ;
+  \draw[ultra thick, gray] (G) -- ++ (90:1.25cm) node[above, black]  {$\bm 0$};
+
+  \shade [ball color = gray] (G) circle (0.15cm) node[below right] {$\bm G$};
+\end{tikzpicture}

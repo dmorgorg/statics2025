@@ -1,0 +1,31 @@
+%%%%%%%%%%%%%%%%%%%%%%% TRUSS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% !TEX root = ../../Beamer/07MoJ/07MoJ.tex
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%% TRUSS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%% TRUSS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\tikz[scale=\scale]{
+	\coordinate (A) at (0,0);
+	\coordinate (B) at (0,4);
+	\coordinate (C) at (4,0);
+	\footnotesize
+	\fill[top color=Cornsilk4, bottom color=Cornsilk3] ($(A)+(-1.5,-0.5)$) rectangle ($(C)+(1.5,-1.5)$);
+	\PinnedConnection{A}{Cornsilk3}{black}{0.5}{0.125};
+	\Rocker{C}{Cornsilk3}{black}{0.5}{0.125};
+
+	\pgfoonew \AB=new rrect(A,B,LightCyan4,LightCyan3,black,0.3,0.3,0.3,0.125)
+	\pgfoonew \AC=new rrect(A,C,LightCyan4,LightCyan3,black,0.3,0.3,0.3,0.125)
+	\pgfoonew \BC=new rrect(B,C,LightCyan4,LightCyan3,black,0.3,0.3,0.3,0.125)
+
+	\draw[-Latex,ultra thick, saitMaroon](B)-- +(1.5,0)node[black, right]{$500\,$N};
+
+	\shadedraw[ball color = LightCyan4] (A) circle (2pt)node[xshift=-0.3cm]{$A$};
+	\shadedraw[ball color = LightCyan4] (B) circle (2pt)node[xshift=-0.3cm]{$B$};
+	\shadedraw[ball color = LightCyan4] (C) circle (2pt)node[xshift=0.3cm]{$C$};
+
+	\draw[Latex-Latex] ($(C)+(135:1.75)$)arc(135:180:1.75)node[fill=bgcolor,midway]{$45\degree$};
+
+}

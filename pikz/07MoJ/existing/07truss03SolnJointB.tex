@@ -1,0 +1,18 @@
+\begin{tikzpicture}[scale=\scale]
+
+  \coordinate (B) at (0,0);
+  % \footnotesize
+  \draw[ultra thick, -latex, Tomato4] (B) -- (-39.806:2cm) node[xshift=-0.375cm, Tomato4, below] {$54.671\text{ kN}$};
+  \draw[ultra thick, -latex] (B) -- (153.5:2cm) node[above] {$F_{BC}$};
+  \draw[ultra thick, -latex] (B) -- (219.8:2cm) node[below] {$F_{BF}$};
+
+  \shade [ball color = gray] (B) circle (0.15cm) node[above right] {$\bm B$};
+  \draw ($ (B)+(0.25, 0) $) -- +(1.5, 0);
+  \draw ($ (B)-(0.25, 0) $) -- +(-1.5, 0);
+
+  \footnotesize
+  \draw[latex-latex] ($ (B)+(-1.5,0) $)  arc (180:219:1.5cm) node[fill=white, inner sep = 0.125mm] at ($ (B)+(200:1.5) $) {$39.806\degree$};
+  \draw[latex-latex] ($ (B)+(1.5,0) $)  arc (0:-39.8:1.5cm) node[fill=white, inner sep = 0.125mm] at ($ (B)+(-20:1.5) $) {$39.806\degree$};
+  \draw[latex-latex] ($ (B)+(-1.5,0) $)  arc (180:153.5:1.5cm) node[xshift=-0.5mm, fill=white, inner sep = 0.125mm] at ($ (B)+(167.5:1.5) $) {$26.565\degree$};
+
+\end{tikzpicture}

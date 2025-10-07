@@ -1,0 +1,18 @@
+% !TEX root = ../../Beamer/07MoJ/07MoJ.tex
+
+\begin{tikzpicture}[scale=\scale]
+
+  \coordinate (F) at (0,0);
+  % \footnotesize
+  \draw[ultra thick, latex-, Chartreuse4] ($ (F)+(39.8:0.125cm) $) -- node[xshift=0.5mm,Chartreuse4, above, sloped] {$13.668\text{ kN}$}(39.806:2cm) ;
+  \draw[ultra thick, latex-, Chartreuse4] ($ (F)+(0:0.125cm) $) -- node[Chartreuse4, below] {$41.999\text{ kN}$}(0:2cm) ;
+  \draw[ultra thick, -latex] (F) -- (90:2cm) node[above] {$F_{FC}$};
+  \draw[ultra thick, -latex] (F) -- (180:2cm) node[xshift=0.5mm, below] {$F_{FE}$};
+
+  \shade [ball color = gray] (F) circle (0.15cm) node[above left] {$\bm F$};
+
+
+  \footnotesize
+  \draw[latex-latex] ($ (F)+(1.5,0) $)  arc (0:39.8:1.5cm) node[xshift=0.25mm,fill=white, inner sep = 0.125mm] at ($ (F)+(20:1.5) $) {$39.806\degree$};
+
+\end{tikzpicture}

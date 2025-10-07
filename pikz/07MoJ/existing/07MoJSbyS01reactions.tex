@@ -1,0 +1,97 @@
+
+% !TEX root = ../../Beamer/04MoJ/04MoJSxS.tex
+
+\begin{tikzpicture}[scale=\scale]
+	\coordinate (A) at (9,0);
+	\coordinate (B) at (6,2.5);
+	\coordinate (C) at (3,4);
+	\coordinate (D) at (0,5.5);
+	\coordinate (E) at (0,0);
+	\coordinate (F) at (3,0);
+	\coordinate (G) at (6,0);
+
+	\fill[white] (-1.75,-2.25) rectangle (11,6.5);
+
+	\draw[ultra thick, saitMaroon,arrows={-Latex[scale=0.75]}] (A) -- ++ (0,-1.5) node[below]
+	{$\normalsize\bm{\mathrm{ 35 \text { kN} }_{}}$};
+
+	\only<1>{
+		\draw[ultra thick] (A) -- (B);
+		\draw[ultra thick] (B) -- (C);
+		\draw[ultra thick] (C) -- (D);
+		\draw[ultra thick] (E) -- (F);
+		\draw[ultra thick] (F) -- (G);
+		\draw[ultra thick] (G) -- (A);
+		\draw[ultra thick] (B) -- (G);
+		\draw[ultra thick] (C) -- (F);
+		\draw[ultra thick] (C) -- (E);
+		\draw[ultra thick] (B) -- (F);
+
+		\shade [draw=black, ball color = gray] (A) circle (0.15cm) node[below right] {$A$};
+		\shade [draw=black, ball color = gray] (B) circle (0.15cm) node[above right] {$B$};
+		\shade [draw=black, ball color = gray] (C) circle (0.15cm) node[above right] {$C$};
+		\shade [draw=black, ball color = gray](D) circle (0.25cm);
+		\shade [draw=black, ball color = gray] (E) circle (0.25cm);
+		\shade [draw=black, ball color = gray] (F) circle (0.15cm) node[below=0.5mm] {$F$};
+		\shade [draw=black, ball color = gray] (G) circle (0.15cm) node[below=0.5mm] {$G$};
+		\fill[gray] (-1,-2) rectangle (0, 6);
+		\draw[black](0,-2) -- (0,6);
+	}
+
+	\only<2->{
+		\draw[ultra thick, llHeaderGrey] (A) -- (B);
+		\draw[ultra thick, llHeaderGrey] (B) -- (C);
+		\draw[ultra thick, llHeaderGrey] (C) -- (D);
+		\draw[ultra thick, llHeaderGrey] (E) -- (F);
+		\draw[ultra thick, llHeaderGrey] (F) -- (G);
+		\draw[ultra thick, llHeaderGrey] (G) -- (A);
+		\draw[ultra thick, llHeaderGrey] (B) -- (G);
+		\draw[ultra thick, llHeaderGrey] (C) -- (F);
+		\draw[ultra thick, llHeaderGrey] (C) -- (E);
+		\draw[ultra thick, llHeaderGrey] (B) -- (F);
+
+		\fill [llHeaderGrey] (A) circle (0.15cm) node[below right] {$A$};
+		\fill [llHeaderGrey] (B) circle (0.15cm) node[above right] {$B$};
+		\fill [llHeaderGrey] (C) circle (0.15cm) node[above right] {$C$};
+		\fill [llHeaderGrey](D) circle (0.25cm);
+		\fill [llHeaderGrey] (E) circle (0.25cm);
+		\fill [llHeaderGrey] (F) circle (0.15cm) node[below=0.5mm] {$F$};
+		\fill [llHeaderGrey] (G) circle (0.15cm) node[below=0.5mm] {$G$};
+		\fill[llHeaderGrey] (-1,-2) rectangle (0, 6);
+		\draw[gray](0,-2) -- (0,6);
+	}
+
+
+
+
+
+	\node[below left, white] at (D) {\normalsize $\bm D$};
+	\node[left, white] at (E) {\normalsize $\bm E$};
+
+
+
+	\draw[arrows={Latex[scale=0.75]-Latex[scale=0.75]}] ($ (C)+(-1.85,0) $)  arc (180:153:1.85cm) node[fill=white, inner sep = 0.2mm, outer sep=0mm] at ($ (C)+(167:1.9) $) {$26.565\degree$};
+	\draw ($ (C)+(-0.25,0)  $) -- ++(-2.25, 0);
+
+	\draw ($ (F)+(0,-0.675)  $) -- ++ (0, -0.675);
+	\draw ($ (G)+(0,-0.675)  $) -- ++ (0, -0.675);
+	\draw ($ (A)+(0.25,0)  $) -- ++ (1, 0);
+	\draw ($ (B)+(0.25,0)  $) -- ++ (4, 0);
+	\draw ($ (C)+(0.25,0)  $) -- ++ (7, 0);
+	\draw ($ (D)+(0.375,0)  $) -- ++ (9.875, 0);
+	\footnotesize
+	\draw[arrows={Latex[scale=0.75]-Latex[scale=0.75]}] (9.75,0) -- node[fill=white] {$2.50\text{ m}$} (9.75, 2.5);
+	\draw[arrows={Latex[scale=0.75]-Latex[scale=0.75]}] (9.75,2.5) -- node[fill=white] {$1.500\text{ m}$} (9.75, 4);
+	\draw[arrows={Latex[scale=0.75]-Latex[scale=0.75]}] (9.75,4) -- node[fill=white] {$1.500\text{ m}$}(9.75, 5.5);
+	\draw[arrows={Latex[scale=0.75]-Latex[scale=0.75]}] (0,-1) -- node[fill=white] {$3.00\text{ m}$} (3, -1);
+	\draw[arrows={Latex[scale=0.75]-Latex[scale=0.75]}] (3,-1) -- node[fill=white] {$3.00\text{ m}$}  (6, -1);
+	\draw[arrows={Latex[scale=0.75]-Latex[scale=0.75]}] (6,-1) -- node[fill=white] {$3.00\text{ m}$}  (9, -1);
+
+	\only<2->{
+		\draw [ultra thick, saitMaroon, line cap = round, arrows={-Latex[scale=0.75]}] (E) -- (1.25,0) node[above]{$\bm{E_{x}}$};
+		\draw [ultra thick, saitMaroon, line cap = round, arrows={-Latex[scale=0.75]}] (E) -- (0,1.25) node[right]{$\bm{E_{y}}$};
+	}
+	\only<3->{
+		\draw [ultra thick, saitMaroon, line cap = round, arrows={-Latex[scale=0.75]}] (D) -- +(153.4:1.25) node[below]{$\bm{R_D}$};
+	}
+\end{tikzpicture}

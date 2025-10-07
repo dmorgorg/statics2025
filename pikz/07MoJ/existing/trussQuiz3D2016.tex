@@ -1,0 +1,77 @@
+% !TEX root = ../../pikz/all/statikz.tex
+
+\makeatletter
+\providecommand{\gettikzxy}[3]{%
+	\tikz@scan@one@point\pgfutil@firstofone#1\relax
+	\edef#2{\the\pgf@x}%
+	\edef#3{\the\pgf@y}%
+}
+\makeatother
+
+\begin{tikzpicture}[scale=\scale]
+	\def\thickness{thick}
+	\def\stroke{black}
+	\def\hi{.2}
+	\def\radii{\hi}
+	\def\extend{\hi}
+
+	% \fill[white] (0,0) rectangle (5.5,1);
+
+	\coordinate (A) at (0, 0);
+	\coordinate (F) at (3.5, 0);
+	\coordinate (E) at (7, 0);
+	\coordinate (D) at (10.5, 0);
+	\coordinate (C) at (7, 4);
+	\coordinate (B) at (3.5,4);
+
+	\fill[gray!40!white, rotate=-15] ($ (A)-(1.5,1.25) $) rectangle ($ (A)+(1.5,-0.75) $);
+	\fill[gray!40!white] ($ (D)-(1.5,1.25) $) rectangle ($ (D)+(1.5,-0.75) $);
+
+	\PinnedConnection{D}{gray!40!white}{gray!50!black}{0.75}{0.6}
+	\Roller[-15]{A}{gray!40!white}{gray!50!black}{0.75}{0.6}
+
+	\pgfoonew \AF=new rr(A,F,gray!50!white,black, 0.25)
+	\pgfoonew \FE=new rr(F,E,gray!50!white,black, 0.25)
+	\pgfoonew \ED=new rr(E,D,gray!50!white,black, 0.25)
+	\pgfoonew \DC=new rr(D,C,gray!50!white,black, 0.25)
+	\pgfoonew \CF=new rr(C,F,gray!50!white,black, 0.25)
+	\pgfoonew \CB=new rr(C,B,gray!50!white,black, 0.25)
+	\pgfoonew \BF=new rr(F,B,gray!50!white,black, 0.25)
+	\pgfoonew \AB=new rr(A,B,gray!50!white,black, 0.25)
+	\pgfoonew \BF=new rr(F,B,gray!50!white,black, 0.25)
+	\pgfoonew \CE=new rr(E,C,gray!50!white,black, 0.25)
+
+	\fill[black] (A) circle (3pt) node[above left, inner sep=1mm] {\Large $A$};
+	\fill[black] (F) circle (3pt) node[above left, inner sep=2mm] {\Large $F$};
+	\fill[black] (E) circle (3pt) node[above right, inner sep=2mm] {\Large $E$};
+	\fill[black] (D) circle (3pt) node[above right, inner sep=1mm] {\Large $D$};
+	\fill[black] (C) circle (3pt) node[above right, inner sep=1mm] {\Large $C$};
+	\fill[black] (B) circle (3pt) node[above left, inner sep=1mm] {\Large $B$};
+
+	\gettikzxy{(A)}{\Ax}{\Ay};
+	\gettikzxy{(B)}{\Bx}{\By};
+	\gettikzxy{(C)}{\Cx}{\Cy};
+
+	\draw ($ (A)+(0,-1) $) -- +(0,-1.5);
+	\draw ($ (F)+(0,-1.625) $) -- +(0,-0.875);
+	\draw ($ (E)+(0,-0.5) $) -- +(0,-2);
+	\draw ($ (D)+(0,-1) $) -- +(0,-1.5);
+	\draw ($ (A)-(0.75,0) $) -- (-2, \Ay);
+	\draw ($ (B)-(0.75,0) $) -- (-2, \By);
+
+	\draw[line width=0.75mm, black, ->, >=stealth] (F) -- +(0,-1.5) node[above right] { 22.5 kN};
+	\draw[line width=0.75mm, black, <-, >=stealth] (A) -- +(-105:1.5) node[below left, align=right] {$\bm{\mathrm{R}_{A}}$=15.529 kN,\\(at 75\degree{} counter-clockwise\\from the positive $x$ axis)};
+
+	\draw[thick, <->, >=stealth] ([yshift=-2cm]A) -- node[fill=white]{3.50 m}([yshift=-2cm]F);
+	\draw[thick, <->, >=stealth] ([yshift=-2cm]F) -- node[fill=white]{3.50 m}([yshift=-2cm]E);
+	\draw[thick, <->, >=stealth] ([yshift=-2cm]E) -- node[fill=white]{3.50 m}([yshift=-2cm]D);
+	\draw[thick, <->, >=stealth] (-1.25, \Ay) -- node[fill=white]{4.00 m}(-1.25, \By);
+
+
+
+
+
+
+
+
+\end{tikzpicture}

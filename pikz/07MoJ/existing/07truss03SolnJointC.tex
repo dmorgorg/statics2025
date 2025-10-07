@@ -1,0 +1,22 @@
+% !TEX root = ../../Beamer/07MoJ/07MoJ.tex
+
+\begin{tikzpicture}[scale=\scale]
+
+  \coordinate (C) at (0,0);
+  % \footnotesize
+  \draw[ultra thick, -latex, Tomato4] ($ (C)+(-26.6:0.125cm) $) -- (-26.6:2.65cm) node[xshift=-4mm, black, below] {$58.696\text{ kN}$};
+  \draw[ultra thick, -latex, Tomato4] ($ (C)+(270:0.125cm) $) -- (270:2.65cm) node[black, right] {$8.7501\text{ kN}$};
+  \draw[ultra thick, -latex] ($ (C)+(153.5:0.125cm) $) -- (153.5:2.65cm) node[xshift=2mm, black, above] {$F_{CD}$};
+  \draw[ultra thick, -latex] ($ (C)+(233.1:0.125cm) $) -- (233.1:2.65cm) node[black, below] {$F_{CE}$};
+
+  \draw ($ (C)+(0.25, 0) $) -- +(2,0);
+  \draw ($ (C)+(-0.25, 0) $) -- +(-2,0);
+
+  \shade [ball color = gray] (C) circle (0.15cm) node[above=.2cm] {$\bm C$};
+
+  \footnotesize
+  \draw[latex-latex] ($ (C)+(2,0) $)  arc (0:-26.565:2) node[fill=white, inner sep = 0.125mm, midway]  {$26.565\degree$};
+  \draw[latex-latex] ($ (C)-(2,0) $)  arc (180:153.5:2) node[xshift=-0.5mm,fill=white, inner sep = 0.125mm, midway] {$26.565\degree$};
+  \draw[latex-latex] ($ (C)-(2,0) $)  arc (180:233.1:2) node[xshift=-1mm,fill=white, inner sep = 0.125mm, midway]  {$53.130\degree$};
+
+\end{tikzpicture}

@@ -1,0 +1,50 @@
+% !TEX root = ../../Beamer/07MoJ/07MoJ.tex
+
+\begin{tikzpicture}[scale=\scale]
+  \coordinate (A) at (9,0);
+  \coordinate (B) at (6,2.5);
+  \coordinate (C) at (3,4);
+  \coordinate (D) at (0,5.5);
+  \coordinate (E) at (0,0);
+  \coordinate (F) at (3,0);
+  \coordinate (G) at (6,0);
+
+  \pgfoonew \AB=new rrect(A,B,Azure4,Azure2,black,0.3,0.3,0.3,0.125);
+	\pgfoonew \BC=new rrect(B,C,Azure4,Azure2,black,0.3,0.3,0.3,0.125);
+	\pgfoonew \CD=new rrect(C,D,Azure4,Azure2,black,0.3,0.3,0.3,0.125);
+	\pgfoonew \EF=new rrect(E,F,Azure4,Azure2,black,0.3,0.3,0.3,0.125);
+	\pgfoonew \FG=new rrect(F,G,Azure4,Azure2,black,0.3,0.3,0.3,0.125);
+	\pgfoonew \GA=new rrect(G,A,Azure4,Azure2,black,0.3,0.3,0.3,0.125);
+	\pgfoonew \BG=new rrect(B,G,Azure4,Azure2,black,0.3,0.3,0.3,0.125);
+	\pgfoonew \CF=new rrect(C,F,Azure4,Azure2,black,0.3,0.3,0.3,0.125);
+	\pgfoonew \CE=new rrect(C,E,Azure4,Azure2,black,0.3,0.3,0.3,0.125);
+	\pgfoonew \BF=new rrect(B,F,Azure4,Azure2,black,0.3,0.3,0.3,0.125);
+
+  \draw[ultra thick, saitMaroon, ->, >=stealth] (A) -- ++ (0,-1.5) node[right]
+  {$\bm{\mathrm{ 35 \text { kN} }_{}}$};
+
+  \shade [ball color = gray] (A) circle (0.1cm) node[below right] {$A$};
+  \shade [ball color = gray] (B) circle (0.1cm) node[above right] {$B$};
+  \shade [ball color = gray] (C) circle (0.1cm) node[above right] {$C$};
+  \shade [ball color = gray] (D) circle (0.25cm);
+  \shade [ball color = gray] (E) circle (0.25cm);
+  \shade [ball color = gray] (F) circle (0.1cm) node[yshift=-0.3mm, below right] {$F$};
+  \shade [ball color = gray] (G) circle (0.1cm) node[yshift=-0.3mm, below right] {$G$};
+  \fill[gray] (-1,-2) rectangle (0, 6);
+  \node[left, white] at (D) {\large$\bm D$};
+  \node[left, white] at (E) {\large$\bm E$};
+
+  \draw ($ (F)+(0,-0.375)  $) -- ++ (0, -1);
+  \draw ($ (G)+(0,-0.375)  $) -- ++ (0, -1);
+  \draw ($ (A)+(0.625,0)  $) -- ++ (1, 0);
+  \draw ($ (B)+(0.625,0)  $) -- ++ (4, 0);
+  \draw ($ (C)+(0.625,0)  $) -- ++ (7, 0);
+  \draw ($ (D)+(0.625,0)  $) -- ++ (9.875, 0);
+  \footnotesize
+  \draw[<->, >=stealth] (9.75,0) -- node[fill=white] {$2.50\text{ m}$} (9.75, 2.5);
+  \draw[<->, >=stealth] (9.75,2.5) -- node[fill=white] {$1.500\text{ m}$} (9.75, 4);
+  \draw[<->, >=stealth] (9.75,4) -- node[fill=white] {$1.500\text{ m}$}(9.75, 5.5);
+  \draw[<->, >=stealth] (0,-1) -- node[fill=white] {$3.00\text{ m}$} (3, -1);
+  \draw[<->, >=stealth] (3,-1) -- node[fill=white] {$3.00\text{ m}$}  (6, -1);
+  \draw[<->, >=stealth] (6,-1) -- node[fill=white] {$3.00\text{ m}$}  (9, -1);
+\end{tikzpicture}

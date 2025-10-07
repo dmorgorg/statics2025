@@ -1,0 +1,80 @@
+%%%%%%%%%%%%%%%%%%%%%%% TRUSS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% !TEX root = ../../Exams/MT2/Fall2017SampleMT2.tex
+
+
+%%%%%%%%%%%%%%%%%%%%%%% TRUSS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%% TRUSS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{tikzpicture}[scale=\scale]
+
+	\coordinate (A) at (0,0);
+	\coordinate (B)	at (3,0);
+	\coordinate (C) at (6,0);
+	\coordinate (D) at (9,0);
+	\coordinate (E) at (9,6);
+	\coordinate (F) at (6,5);
+	\coordinate (G) at (3,4);
+	\coordinate (P) at (-1,-1.25);
+
+	\gettikzxy{(A)}{\Ax}{\Ay}
+	\gettikzxy{(B)}{\Bx}{\By}
+	\gettikzxy{(C)}{\Cx}{\Cy}
+	\gettikzxy{(D)}{\Dx}{\Dy}
+	\gettikzxy{(E)}{\Ex}{\Ey}
+	\gettikzxy{(F)}{\Fx}{\Fy}
+	\gettikzxy{(G)}{\Gx}{\Gy}
+	\gettikzxy{(P)}{\Px}{\Py}
+
+
+
+	\fill[left color=Honeydew4,right color=Honeydew2] ($(D)+(0.675,-2.75)$)rectangle($(E)+(1.675,1.5)$);
+	\Rone[90]{D}{Honeydew3}{black}{0.675}{0.125}
+	\PinnedConnection[90]{E}{Honeydew3}{black}{0.675}{0.125}
+
+	\pgfoonew \CE=new rrect(C,E,DarkOliveGreen4,DarkOliveGreen3,black,0.3,0.3,0.3,0.125);
+	\pgfoonew \CG=new rrect(C,G,DarkOliveGreen4,DarkOliveGreen3,black,0.3,0.3,0.3,0.125);
+	\pgfoonew \AB=new rrect(A,B,DarkOliveGreen4,DarkOliveGreen3,black,0.3,0.3,0.3,0.125);
+	\pgfoonew \BC=new rrect(C,B,DarkOliveGreen4,DarkOliveGreen3,black,0.3,0.3,0.3,0.125);
+	\pgfoonew \CD=new rrect(C,D,DarkOliveGreen4,DarkOliveGreen3,black,0.3,0.3,0.3,0.125);
+	\pgfoonew \DE=new rrect(E,D,DarkOliveGreen4,DarkOliveGreen3,black,0.3,0.3,0.3,0.125);
+	\pgfoonew \EF=new rrect(E,F,DarkOliveGreen4,DarkOliveGreen3,black,0.3,0.3,0.3,0.125);
+	\pgfoonew \FG=new rrect(F,G,DarkOliveGreen4,DarkOliveGreen3,black,0.3,0.3,0.3,0.125);
+	\pgfoonew \AG=new rrect(A,G,DarkOliveGreen4,DarkOliveGreen3,black,0.3,0.3,0.3,0.125);
+	\pgfoonew \BG=new rrect(B,G,DarkOliveGreen4,DarkOliveGreen3,black,0.3,0.3,0.3,0.125);
+	\pgfoonew \CF=new rrect(C,F,DarkOliveGreen4,DarkOliveGreen3,black,0.3,0.3,0.3,0.125);
+
+	\Rone[90]{D}{Honeydew3}{black}{0.675}{0.125}
+	\PinnedConnection[90]{E}{Honeydew3}{black}{0.675}{0.125}
+
+	\normalsize
+
+	\draw[saitMaroon, line width=1mm, -latex] ($(A)$)--+(0,-2)node[below]{\Large $\bm{8.7}\,$\bf kN};
+	%
+	\draw (\Bx,\By-0.25cm )--(\Bx,\Py-0.5 cm);
+	\draw (\Cx,\Cy-0.25cm )--(\Cx,\Py-0.5 cm);
+	\draw (\Dx,\Dy-0.375cm )--(\Dx,\Py-0.5 cm);
+	\draw (\Ax-0.5cm,\Ay)--(\Px-0.75cm,\Ay);
+	\draw (\Gx-0.5cm,\Gy)--(\Px-0.75cm,\Gy);
+	\draw (\Fx-0.75cm,\Fy)--(\Px-0.75cm,\Fy);
+	\draw (\Ex-0.75cm,\Ey)--(\Px-0.75cm,\Ey);
+
+	%
+	\shadedraw[ball color=Honeydew3, draw=black] (A) circle (2.5pt)node[xshift=0.25cm, yshift=-0.5cm]{ $A$};
+	\shadedraw[ball color=Honeydew3, draw=black] (B) circle (2.5pt)node[xshift=0.25cm, yshift=-0.5cm]{ $B$};
+	\shadedraw[ball color=Honeydew3, draw=black] (C) circle (2.5pt)node[xshift=0.25cm, yshift=-0.5cm]{ $C$};
+	\shadedraw[ball color=Honeydew3, draw=black] (D) circle (2.5pt)node[xshift=0.25cm, yshift=-0.5cm]{ $D$};
+	\shadedraw[ball color=Honeydew3, draw=black] (E) circle (2.5pt)node[yshift=0.5cm]{ $E$};
+	\shadedraw[ball color=Honeydew3, draw=black] (F) circle (2.5pt)node[yshift=0.5cm]{ $F$};
+	\shadedraw[ball color=Honeydew3, draw=black] (G) circle (2.5pt)node[yshift=0.5cm]{ $G$};
+
+	%
+	%
+	\draw[latex-latex] (\Ax,\Py)--node[fill=white,inner sep=0.25mm]{$1.65\,$m}(\Bx,\Py);
+	\draw[latex-latex] (\Bx,\Py)--node[fill=white,inner sep=0.25mm]{$1.65\,$m}(\Cx,\Py);
+	\draw[latex-latex] (\Cx,\Py)--node[fill=white,inner sep=0.25mm]{$1.65\,$m}(\Dx,\Py);
+	\draw[latex-latex] (\Px,\Ey)--node[fill=white,inner sep=0.25mm]{$550\,$mm}(\Px,\Fy);
+	\draw[latex-latex] (\Px,\Fy)--node[fill=white,inner sep=0.25mm]{$550\,$mm}(\Px,\Gy);
+	\draw[latex-latex] (\Px,\Gy)--node[fill=white,inner sep=0.25mm]{$2.20\,$m}(\Px,\Ay);
+
+\end{tikzpicture}

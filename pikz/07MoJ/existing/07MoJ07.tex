@@ -1,0 +1,70 @@
+%%%%%%%%%%%%%%%%%%%%%%% TRUSS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% !TEX root = ../../Beamer/07MoJ/07MoJ.tex
+
+%http://tex.stackexchange.com/questions/33703/extract-x-y-coordinate-of-an-arbitrary-point-in-tikz
+\makeatletter
+\providecommand{\gettikzxy}[3]{%
+	\tikz@scan@one@point\pgfutil@firstofone#1\relax
+	\edef#2{\the\pgf@x}%
+	\edef#3{\the\pgf@y}%
+}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%% TRUSS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%% TRUSS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{tikzpicture}[scale=\scale]
+
+	\coordinate (A) at (0,0);
+	\coordinate (B)	at (4, 0);
+	\coordinate (C) at (8,0);
+	\coordinate (D) at (8,5);
+	\coordinate (E) at (4,2.5);
+	\footnotesize
+	\PinnedConnection{C}{Honeydew3}{black}{0.5}{0.125}
+	\Rocker{A}{Honeydew3}{black}{0.5}{0.125}
+
+	% \filldraw[fill=Cornsilk2] ($(DD)+(25:2.5)$)--++(205:2.5)--+(2.25,0);
+	% \draw[latex-latex] ($(DD)+(25:1.75)$)arc(25:0:1.75)node[fill=Cornsilk2, midway, inner sep=0.5mm]{$25\degree$};
+	\fill[top color=Wheat4,bottom color=Wheat3] ($(A)+(-1,-0.5)$)rectangle($(A)+(1,-1.25)$);
+	\fill[top color=Wheat4,bottom color=Wheat3] ($(C)+(-1,-0.5)$)rectangle($(C)+(1,-1.25)$);
+	\draw ($(A)+(-1,-0.5)$)--($(A)+(1,-0.5)$);
+	\draw ($(C)+(-1,-0.5)$)--($(C)+(1,-0.5)$);
+
+	\pgfoonew \AB=new rrect(B,A,NavajoWhite4,NavajoWhite3,black,0.3,0.3,0.3,0.125);
+	\pgfoonew \BC=new rrect(B,C,NavajoWhite4,NavajoWhite3,black,0.3,0.3,0.3,0.125);
+	\pgfoonew \CD=new rrect(C,D,NavajoWhite4,NavajoWhite3,black,0.3,0.3,0.3,0.125);
+	\pgfoonew \AE=new rrect(A,E,NavajoWhite4,NavajoWhite3,black,0.3,0.3,0.3,0.125);
+	\pgfoonew \DE=new rrect(D,E,NavajoWhite4,NavajoWhite3,black,0.3,0.3,0.3,0.125);
+	\pgfoonew \BD=new rrect(D,B,NavajoWhite4,NavajoWhite3,black,0.3,0.3,0.3,0.125);
+	\pgfoonew \BE=new rrect(B,E,NavajoWhite4,NavajoWhite3,black,0.3,0.3,0.3,0.125);
+
+
+
+	\draw[ultra thick, saitDeepBlue, -Latex] (D)--+(-2,0)node[yshift=0.5cm,black]{$3.75\,$kN};
+	% \draw[ultra thick, saitDeepBlue, -Latex] (A)--+(2,0)node[right,black]{$2.00\,$kN};
+	%
+	\shadedraw[ball color=Honeydew4, draw=black] (A) circle (2pt)node[xshift=-0.15cm, yshift=0.35cm]{\normalsize $A$};
+	\shadedraw[ball color=Honeydew4, draw=black] (B) circle (2pt)node[xshift=-0.3cm, yshift=0.3cm]{\normalsize $B$};
+	\shadedraw[ball color=Honeydew4, draw=black] (C) circle (2pt)node[xshift=0.35cm]{\normalsize $C$};
+	\shadedraw[ball color=Honeydew4, draw=black] (D) circle (2pt)node[yshift=0.35cm]{\normalsize $D$};
+	\shadedraw[ball color=Honeydew4, draw=black] (E) circle (2pt)node[yshift=0.35cm]{\normalsize $E$};
+	%
+	\draw[thin] ($(D)+(-2.25,0)$)--+(-7,0);
+	\draw[thin] ($(E)+(-0.5,0)$)--+(-4.75,0);
+	\draw[thin] ($(A)+(0,-0.25)$)--+(0,-0.75);
+	\draw[thin] ($(B)+(0,-0.25)$)--+(0,-0.75);
+	\draw[thin] ($(C)+(0,-0.25)$)--+(0,-0.75);
+	% \draw[thin] ($(B)+(-0.25,0)$)--+(-1,0);
+	\draw[thin] ($(A)+(-0.25,0)$)--+(-1,0);
+	\draw[latex-latex] ($(A)+(-0.75,0)$)--node[fill=white]{$950\,$mm}($(E)+(-4.75,0)$);
+	\draw[latex-latex] ($(E)+(-4.75,0)$)--node[fill=white]{$950\,$mm}($(D)+(-8.75,0)$);
+	\draw[latex-latex] ($(A)+(0,-0.75)$)--node[fill=white]{$1210\,$mm}($(B)+(0,-0.75)$);
+	\draw[latex-latex] ($(B)+(0,-0.75)$)--node[fill=white]{$1210\,$mm}($(C)+(0,-0.75)$);
+	% \draw[latex-latex] ($(C)+(0,-1.25)$)--node[fill=white]{$2.10\,$m}($(D)+(0,-1.25)$);
+	% \draw[latex-latex] ($(B)+(-0.75,0)$)--node[fill=white]{$1.65\,$m}($(A)+(-4.75,0)$);
+
+
+	%
+\end{tikzpicture}

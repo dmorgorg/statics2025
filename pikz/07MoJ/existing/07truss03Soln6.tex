@@ -1,0 +1,63 @@
+\begin{tikzpicture}[scale=0.65]
+
+  \coordinate (A) at (9,0);
+  \coordinate (B) at (6,2.5);
+  \coordinate (C) at (3,4);
+  \coordinate (D) at (0,5.5);
+  \coordinate (E) at (0,0);
+  \coordinate (F) at (3,0);
+  \coordinate (G) at (6,0);
+
+  % \draw[gray] (-1.5,-2.5) rectangle (10.75,6.6);
+  \scriptsize
+  \draw[ultra thick, orange, line width = 1.25mm] (A) -- node[black, above=-0.5mm, sloped] {$54.671\text{\,kN\,(T)}$}(B);
+  \draw[ultra thick, orange, line width = 1.25mm] (B) -- node[black, above=-0.5mm, sloped] {$58.696\text{\,kN\,(T)}$}(C);
+  \draw[ultra thick, orange, line width = 1.25mm] (C) --  node[black, above=-0.5mm, sloped] {$64.031\text{\,kN\,(T)}$}(D);
+  \draw[ultra thick, green, line width = 1.25mm] (E) -- node[black, below=-0.7mm] {$52.514\text{\,kN\,(C)}$}(F);
+  \draw[ultra thick, green, line width = 1.25mm] (F) -- node[black, below=-0.7mm] {$41.999\text{\,kN\,(C)}$}(G);
+  \draw[ultra thick, green, line width = 1.25mm] (G) -- node[black, below=-0.7mm] {$41.999\text{\,kN\,(C)}$}(A);
+  \draw[ultra thick, gray!50!white, line width = 1.25mm] (B) -- (G);
+  \draw[ultra thick, orange, line width=1.25mm] (C) -- node[black, above=-0.5mm, sloped] {$8.7629\text{\,kN\,(T)}$}(F);
+  \draw[ultra thick, green, line width = 1.25mm] (C) -- node[black, above=-0.5mm, sloped] {$7.9542\text{\,kN\,(C)}$}(E);
+  \draw[ultra thick, green, line width = 1.25mm] (B) -- node[black, above=-0.5mm, sloped] {$13.688\text{\,kN\,(C)}$}(F);
+  \small
+
+  \draw[ultra thick, saitMaroon, ->, >=stealth] (A) -- ++ (0,-1.5) node[below]
+  {$\bm{\mathrm{ 35 \text { kN} }_{}}$};
+
+  \shade [ball color = gray] (A) circle (0.15cm) node[below right] {$A$};
+  \shade [ball color = gray] (B) circle (0.15cm) node[above right] {$B$};
+  \shade [ball color = gray] (C) circle (0.15cm) node[above right] {$C$};
+  \shade [ball color = gray] (D) circle (0.25cm) node[left=1mm, white] {\large $\bm D$};
+  \shade [ball color = gray] (E) circle (0.25cm) node[left=1mm, white] {\large $\bm E$};
+  \shade [ball color = gray] (F) circle (0.15cm) node[below=0.25mm] {$F$};
+  \shade [ball color = gray] (G) circle (0.15cm) node[below=0.25mm] {$G$};
+  \fill[gray] (-1,-2) rectangle (0,7);
+  \node[left, white] at (D) {\large $\bm D$};
+  \node[left, white] at (E) {\large $\bm E$};
+
+  \scriptsize
+  % \draw ($ (D)+(.25, 0) $) -- +(2.5,0);
+  % \draw[<->] ($ (D)+(2,0) $)  arc (0:-26:2cm) node[fill=white, inner sep = 0.125em] at ($ (D)+(-11:2.25) $) {$26.565\degree$};
+  % \draw[<->] ($ (E)+(1.75,0) $)  arc (0:53.13:1.75cm) node[fill=white, inner sep = 0.125em] at ($ (E)+(20:2) $) {$53.130\degree$};
+
+  \draw[<-, >=stealth, thick] ($ (G)+(0.125cm,0) $) -- ++(0:0.75cm);
+  \draw[<-, >=stealth, thick] ($ (A)+(-0.125cm,0) $) -- ++(0:-0.75cm);
+  \draw[->, >=stealth, thick] ($ (B)+(-39.8:0.125cm) $) -- ++(-39.8:0.75cm);
+  \draw[->, >=stealth, thick] ($ (A)+(140:0.125cm) $) -- ++(140:0.75cm);
+  \draw[<-, >=stealth, thick] ($ (F)+(0:0.125cm) $) -- ++(0:0.75cm);
+  \draw[<-, >=stealth, thick] ($ (G)+(180:0.125cm) $) -- ++(180:0.75cm);
+  \draw[->, >=stealth, thick] ($ (B)+(153.5:0.125cm) $) -- ++(153.5:0.75cm);
+  \draw[->, >=stealth, thick] ($ (C)+(-26.565:0.125cm) $) -- ++(-26.565:0.75cm);
+  \draw[<-, >=stealth, thick] ($ (F)+(39.806:0.125cm) $) -- ++(39.806:0.75cm);
+  \draw[<-, >=stealth, thick] ($ (B)+(219.8:0.125cm) $) -- ++(219.8:0.75cm);
+  \draw[<-, >=stealth, thick] ($ (F)+(180:0.125cm) $) -- ++(180:0.75cm);
+  \draw[<-, >=stealth, thick] ($ (E)+(0:0.25cm) $) -- ++(0:0.75cm);
+  \draw[->, >=stealth, thick] ($ (F)+(90:0.125cm) $) -- ++(90:0.75cm);
+  \draw[->, >=stealth, thick] ($ (C)+(270:0.125cm) $) -- ++(270:0.75cm);
+  \draw[<-, >=stealth, thick] ($ (E)+(53.13:0.25cm) $) -- ++(53.130:0.75cm);
+  \draw[->, >=stealth, thick] ($ (D)+(-26.565:0.25cm) $) -- ++(-26.565:0.75cm);
+  \draw[->, >=stealth, thick] ($ (C)+(153.5:0.125cm)  $) -- +(153.5:0.75);
+  \draw[<-, >=stealth, thick] ($ (C)+(233.5:0.125cm)  $) -- +(233.5:0.75);
+
+\end{tikzpicture}

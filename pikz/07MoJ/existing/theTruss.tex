@@ -1,0 +1,60 @@
+%%%%%%%%%%%%%%%%%%%%%%% TRUSS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% !TEX root = ../../04MoJ/04MoJ.tex
+
+%http://tex.stackexchange.com/questions/33703/extract-x-y-coordinate-of-an-arbitrary-point-in-tikz
+\makeatletter
+\providecommand{\gettikzxy}[3]{%
+	\tikz@scan@one@point\pgfutil@firstofone#1\relax
+	\edef#2{\the\pgf@x}%
+	\edef#3{\the\pgf@y}%
+}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%% TRUSS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%% TRUSS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{tikzpicture}[scale=\scale]
+	\def\thickness{thin}
+	\def\stroke{black}
+	\def\hi{.3}
+	\def\radii{0.15}
+	\def\extend{0.15}
+
+	\pgfoonew \AHG=new rrect(-6,0,0,0,Red4,Red1);
+	\pgfoonew \GD=new rrect(0,0,3,1,Red4,Red1)
+	\pgfoonew \FE=new rrect(3,1,6,0,Red4,Red1)
+	\pgfoonew \BG=new rrect(-3,2,0,0,Green4,Green1)
+	\pgfoonew \GD=new rrect(0,0,3,2,Green4,Green1)
+	\pgfoonew \ABC=new rrect(-6,0,0,4,Green4,Green1)
+	\pgfoonew \CDE=new rrect(-0,4,6,0,Green4,Green1)
+	\pgfoonew \DF=new rrect(3,2,3,1,Red4,Red1)
+	\pgfoonew \CG=new rrect(0,4,0,0,Red4,Red1)
+	\pgfoonew \BH=new rrect(-3,2,-3,0,Ivory4,Ivory1)
+
+	\shadedraw[ball color=black] (-6,0) circle (2pt) node[black, above left, inner sep=5pt] {$\bm A$};
+	\shadedraw[ball color=black] (-3,2) circle (2pt) node[black, above left, inner sep=5pt] {$\bm B$};
+	\shadedraw[ball color=black] (-0,4) circle (2pt) node[black, above left, inner sep=5pt] {$\bm C$};
+	\shadedraw[ball color=black] (3,2) circle (2pt) node[black, above right, inner sep=5pt] {$\bm D$};
+	\shadedraw[ball color=black] (6,0) circle (2pt) node[black, above right, inner sep=5pt] {$\bm E$};
+	\shadedraw[ball color=black] (3,1) circle (2pt) node[black, above right, inner sep=5pt] {$\bm F$};
+	\shadedraw[ball color=black] (0,0) circle (2pt) node[black, below, inner sep=7pt] {$\bm G$};
+	\shadedraw[ball color=black] (-3,0) circle (2pt) node[black, below, inner sep=7pt] {$\bm H$};
+
+	\draw[<-, ultra thick, blue, line cap = round] (-6,0.2) -- (-6,1) node[above] {$\bm P$};
+	\draw[<-, ultra thick, blue, line cap = round] (-3,2.2) -- (-3,3) node[above] {$\bm {2P}$};
+	\draw[<-, ultra thick, blue, line cap = round] (0,4.2) -- (0,5) node[above] {$\bm {2P}$};
+	\draw[<-, ultra thick, blue, line cap = round] (3,2.2) -- (3,3) node[above] {$\bm {2P}$};
+	\draw[<-, ultra thick, blue, line cap = round] (6,0.2) -- (6,1) node[above] {$\bm P$};
+	\draw[->, ultra thick, Cyan4, line cap = round] (3,0.8) -- (3,0) node[below] {$\bm Q$};
+	\draw[<-, ultra thick, red, line cap = round] (-6,-0.2) -- (-6,-1) node[below] {$\bm {R_A}$};
+	\draw[<-, ultra thick, red, line cap = round] (6,-0.2) -- (6,-1) node[below] {$\bm {R_E}$};
+
+	\pgfoonew \comp=new rrect(-6,-2,-3,-2,Green4,Green1);
+	\pgfoonew \tens=new rrect(-1.5,-2,1.5,-2,Red4,Red1);
+	\pgfoonew \zero=new rrect(3,-2,6,-2,Ivory4,Ivory1);
+
+	\node at (-4.5,-2) [below,inner sep=8pt] {Compression Member};
+	\node at (0,-2) [below,inner sep=8pt] {Tension Member};
+	\node at (4.5,-2) [below,inner sep=8pt] {Zero-Force Member};
+\end{tikzpicture}

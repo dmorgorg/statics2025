@@ -1,0 +1,44 @@
+% !TEX root = ../../Beamer/07MoJ/07MoJd.tex
+
+\begin{tikzpicture}[scale=\scale]
+	\coordinate (A) at (0,0);
+	\coordinate (B) at (6,-4);
+	\coordinate (E) at (0,4);
+	\coordinate (D) at ($(E)+(-53.13:3.2)$);
+	\coordinate (C) at ($(D)!.45!(B)$);
+
+
+	\uncover<2->{
+		\pgfoonew \AD=new rrect(A,D,gray!50,gray!25,gray!50,0.3,0.3,0.3,0.125);
+	}
+	\uncover<3>{
+	\pgfoonew \AC=new rrect(A,C,gray!50,gray!25,gray!50,0.3,0.3,0.3,0.125);
+	}
+	\pgfoonew \AB=new rrect(A,B,LightCyan4,LightCyan3,black,0.3,0.3,0.3,0.125);
+	\pgfoonew \AE=new rrect(A,E,LightCyan4,LightCyan3,black,0.3,0.3,0.3,0.125);
+	\pgfoonew \CD=new rrect(C,D,LightCyan4,LightCyan3,black,0.3,0.3,0.3,0.125);
+	\pgfoonew \DE=new rrect(D,E,LightCyan4,LightCyan3,black,0.3,0.3,0.3,0.125);
+	\uncover<1>{
+	\pgfoonew \AD=new rrect(A,D,LightCyan4,LightCyan3,black,0.3,0.3,0.3,0.125);
+	}
+
+
+	\pgfoonew \BC=new rrect(B,C,LightCyan4,LightCyan3,black,0.3,0.3,0.3,0.125);
+	\uncover<1-2>{
+	\pgfoonew \AC=new rrect(A,C,LightCyan4,LightCyan3,black,0.3,0.3,0.3,0.125);
+	}
+
+	\fill[top color=Cornsilk4, bottom color=Cornsilk3]($(B)+(-1,-0.5)$)rectangle($(B)+(1,-1)$);
+	\fill[right color=Cornsilk4, left color=Cornsilk3]($(A)+(-0.5,-1)$)rectangle($(A)+(-1,1)$);
+	\PinnedConnection{B}{Cornsilk3}{black}{0.5}{0.125};
+	\Rocker[270]{A}{Cornsilk3}{black}{0.5}{0.125};
+
+	\draw[ultra thick, saitDeepBlue, -Latex] (E) -- ++ (-2.5,0) node[above]{$F$};
+
+	\shade [ball color = LightCyan4] (A) circle (0.1cm) node[xshift=-0.0625cm,yshift=-0.25cm] {$A$};
+	\shade [ball color = LightCyan4] (B) circle (0.1cm) node[xshift=0.25cm,yshift=0.25cm] {$B$};
+	\shade [ball color = LightCyan4] (C) circle (0.1cm) node[xshift=0.25cm,yshift=0.25cm] {$C$};
+	\shade [ball color = LightCyan4] (D) circle (0.1cm) node[xshift=0.25cm,yshift=0.25cm] {$D$};
+	\shade [ball color = LightCyan4] (E) circle (0.1cm) node[xshift=-0.25cm,yshift=0.25cm] {$E$};
+
+\end{tikzpicture}

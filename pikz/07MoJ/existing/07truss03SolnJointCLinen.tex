@@ -1,0 +1,22 @@
+% !TEX root = ../../Beamer/04MoJ/04MoJSxS.tex
+
+\begin{tikzpicture}[scale=\scale]
+
+  \coordinate (C) at (0,0);
+  % \footnotesize
+  \draw[ultra thick, {-Latex[scale=0.75]}, orange] ($ (C)+(-26.6:0.125cm) $) -- (-26.6:2.125cm) node[black, below] {$58.696\text{ kN}$};
+  \draw[ultra thick, {-Latex[scale=0.75]}, orange] ($ (C)+(270:0.125cm) $) -- (270:2.125cm) node[black, below] {$8.7501\text{ kN}$};
+  \draw[ultra thick, {-Latex[scale=0.75]}] ($ (C)+(153.5:0.125cm) $) -- (153.5:2.125cm) node[black, above] {$F_{CD}$};
+  \draw[ultra thick, {-Latex[scale=0.75]}] ($ (C)+(233.1:0.125cm) $) -- (233.1:2.125cm) node[black, below] {$F_{CE}$};
+
+  \draw ($ (C)+(0.25, 0) $) -- +(2,0);
+  \draw ($ (C)+(-0.25, 0) $) -- +(-2,0);
+
+  \shade [ball color = gray] (C) circle (0.15cm) node[above=.2cm] {$\bm C$};
+
+  \scriptsize
+  \draw[arrows={Latex[scale=0.75]-Latex[scale=0.75]}] ($ (C)+(1.5,0) $)  arc (0:-26.565:1.5cm) node[fill=Linen, inner sep = 0.125em] at ($ (C)+(-12:1.6) $) {$26.565\degree$};
+  \draw[arrows={Latex[scale=0.75]-Latex[scale=0.75]}] ($ (C)-(1.5,0) $)  arc (180:153.5:1.5cm) node[fill=Linen, inner sep = 0.125em] at ($ (C)+(168:1.6) $) {$26.565\degree$};
+  \draw[arrows={Latex[scale=0.75]-Latex[scale=0.75]}] ($ (C)-(1.5,0) $)  arc (180:233.1:1.5cm) node[fill=Linen, inner sep = 0.125em] at ($ (C)+(205:1.5) $) {$53.130\degree$};
+
+\end{tikzpicture}

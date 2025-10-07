@@ -1,0 +1,18 @@
+% !TEX root = ../../Beamer/04MoJ/04MoJSxS.tex
+
+\begin{tikzpicture}[scale=\scale]
+
+  \coordinate (E) at (0,0);
+  % \footnotesize
+  \draw[ultra thick, latex-, Chartreuse4] ($ (E)+(53.13:0.125cm) $) -- +(53.13:2.25cm) node[DarkGreen, right] {$7.9542\text{ kN}$} ;
+  \draw[ultra thick, latex-, Chartreuse4] ($ (E)+(-45:0.125cm) $) -- +(0:2.25cm)node[DarkGreen, below] {$52.499\text{ kN}$} ;
+  \draw[saitMaroon,ultra thick, -latex] (E) -- (90:2.25cm) node[ above] {$6.3636\text{ kN}$};
+  \draw[saitMaroon,ultra thick, -latex]  ($ (E)+(45:0.125cm) $) -- +(0:2.25cm) node[above] {$57.273\text{ kN}$};
+
+  \shade [ball color = gray] (E) circle (0.15cm) node[above left] {$\bm E$};
+
+
+  \footnotesize
+  \draw[arrows={Latex[scale=0.75]-Latex[scale=0.75]}] ($ (E)+(1.5,0) $)  arc (0:53.13:1.5cm) node[fill=white, inner sep = 0.125em] at ($ (E)+(26:1.5) $) {\scriptsize $53.130\degree$};
+
+\end{tikzpicture}

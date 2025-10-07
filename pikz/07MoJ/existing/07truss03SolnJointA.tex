@@ -1,0 +1,12 @@
+\begin{tikzpicture}[scale=\scale]
+  \scriptsize
+  \coordinate (A) at (0,0);
+  \draw[very thick, ->, >=stealth] (A) -- (140:2cm) node[above left] {$\bm{F_{AB}}$};
+  \draw[very thick, ->, >=stealth] (A) -- (180:2cm) node[left] {$\bm{F_{AG}}$};
+  \draw[very thick, saitMaroon, ->, >=stealth] (A) -- ++ (0,-1.5) node[below]
+  {$\bm{\mathrm{ 35 \text { kN} }_{}}$};
+
+  \draw[arrows={Latex[scale=0.75]-Latex[scale=0.75]}] ($ (A)+(-1.375,0) $)  arc (180:140.2:1.375cm) node[fill=white, inner sep = 0.125em] at ($ (A)+(162:1.5) $) {\scriptsize $39.806\degree$};
+  \normalsize
+  \shade [ball color = gray] (A) circle (0.15cm) node[below right] {$\bm A$};
+\end{tikzpicture}

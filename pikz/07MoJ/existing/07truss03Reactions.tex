@@ -1,0 +1,86 @@
+% !TEX root = ../../Beamer/07MoJ/07MoJa.tex
+
+\begin{tikzpicture}[scale=\scale]
+	\coordinate (A) at (9,0);
+	\coordinate (B) at (6,2.5);
+	\coordinate (C) at (3,4);
+	\coordinate (D) at (0,5.5);
+	\coordinate (E) at (0,0);
+	\coordinate (F) at (3,0);
+	\coordinate (G) at (6,0);
+
+
+	\only<1>{
+		\footnotesize
+		\draw (B)--node[yshift=0.25cm,sloped,Tomato4]{$\bm{54.671}\,$\bfseries kN}(A);
+		\draw (C)--node[yshift=0.25cm,sloped,Tomato4]{$\bm{58.696}\,$\bfseries kN}(B);
+		\draw (D)--node[yshift=0.25cm,sloped,Tomato4]{$\bm{64.031}\,$\bfseries kN}(C);
+		\draw (E)--node[yshift=-0.25cm,Chartreuse4]{$\bm{-52.499}\,$\bfseries kN}(F);
+		\draw (F)--node[yshift=-0.25cm,Chartreuse4]{$\bm{-41.999}\,$\bfseries kN}(G);
+		\draw (G)--node[yshift=-0.25cm,Chartreuse4]{$\bm{-41.999}\,$\bfseries kN}(A);
+		\node[xshift=-.25cm,yshift=-0.125cm] at ($(G)!.5!(B)$){$\bm 0$};
+		\draw (F)--node[xshift=-1.5mm,yshift=0.25cm,sloped,Tomato4]{$\bm{8.7501}\,$\bfseries kN}(C);
+		\draw (E)--node[yshift=0.25cm,Chartreuse4,sloped]{$\bm{7.9542}\,$\bfseries kN}(C);
+		\draw (F)--node[yshift=0.25cm,sloped,Chartreuse4]{$\bm{13.668}\,$\bfseries kN}(B);
+
+		\pgfoonew \AB=new rrect(A,B,Azure4,Azure2,black,0.3,0.3,0.3,0.125);
+		\pgfoonew \BC=new rrect(B,C,Azure4,Azure2,black,0.3,0.3,0.3,0.125);
+		\pgfoonew \CD=new rrect(C,D,Azure4,Azure2,black,0.3,0.3,0.3,0.125);
+		\pgfoonew \EF=new rrect(E,F,Azure4,Azure2,black,0.3,0.3,0.3,0.125);
+		\pgfoonew \FG=new rrect(F,G,Azure4,Azure2,black,0.3,0.3,0.3,0.125);
+		\pgfoonew \GA=new rrect(G,A,Azure4,Azure2,black,0.3,0.3,0.3,0.125);
+		\pgfoonew \BG=new rrect(B,G,Azure4,Azure2,black,0.3,0.3,0.3,0.125);
+		\pgfoonew \CF=new rrect(C,F,Azure4,Azure2,black,0.3,0.3,0.3,0.125);
+		\pgfoonew \CE=new rrect(C,E,Azure4,Azure2,black,0.3,0.3,0.3,0.125);
+		\pgfoonew \BF=new rrect(B,F,Azure4,Azure2,black,0.3,0.3,0.3,0.125);
+
+		\draw[ultra thick, saitMaroon, ->, >=stealth] (A) -- ++ (0,-1.5) node[right]
+		{$\bm{\mathrm{ 35 \text { kN} }_{}}$};
+
+		\small
+		\shade [ball color = gray] (A) circle (0.1cm) node[right] {$\bm A$};
+		\shade [ball color = gray] (B) circle (0.1cm) node[above right] {$\bm B$};
+		\shade [ball color = gray] (C) circle (0.1cm) node[xshift=0.125cm,yshift=.25cm] {$\bm C$};
+		\shade [ball color = gray] (D) circle (0.25cm);
+		\shade [ball color = gray] (E) circle (0.25cm);
+		\shade [ball color = gray] (F) circle (0.1cm) node[yshift=-0.45cm] {$\bm F$};
+		\shade [ball color = gray] (G) circle (0.1cm) node[yshift=-0.45cm] {$\bm G$};
+		\fill[gray] (-1,-2) rectangle (0, 6);
+		\node[left, white] at (D) {\large$\bm D$};
+		\node[left, white] at (E) {\large$\bm E$};
+	}
+	\only<2->{
+		\small
+		\fill[gray!50] (A)--(E)--(D)--(B)--cycle;
+		\draw[ultra thick, saitMaroon,-latex] (D)--+(153.44:1.5)node[left]{$R_D$};
+		\draw[ultra thick, saitMaroon,-latex] (E)--+(90:1.5)node[left]{$R_{Ey}$};
+		\draw[ultra thick, saitMaroon,-latex] (E)--+(0:1.5)node[below]{$R_{Ex}$};
+		\draw[ultra thick, saitMaroon,-latex] (A)--+(270:1.5)node[left]{$35\,$kN};
+		\shade [ball color = saitMaroon] (A) circle (0.15cm) node[above] {$ A$};
+		\shade [ball color = saitMaroon] (D) circle (0.15cm) node[above right]{$D$};
+		\shade [ball color = saitMaroon] (E) circle (0.15cm) node[above right]{$E$};
+		\draw ($(E)+(0,-.375)$) -- +(0,-0.75);
+    \draw ($(A)+(0.5,0)$) -- +(1,0);
+		\draw ($(D)+(0.5,0)$) -- +(10,0);
+		\draw[latex-latex] ($(E)+(0,-0.875)$)--node[fill=white]{$9.00\,$m}($(A)+(0,-0.875)$);
+		\draw[latex-latex] ($(A)+(1,0)$)--node[fill=white]{$5.50\,$m}($(D)+(10,0)$);
+		\draw[latex-latex] ($(D)+(3,0)$)arc(0:-26.565:3)node[fill=white,midway,inner sep=0.5mm]{\footnotesize $26.565\degree$};
+	}
+
+
+
+
+	% \draw ($ (F)+(0,-0.375)  $) -- ++ (0, -1);
+	% \draw ($ (G)+(0,-0.375)  $) -- ++ (0, -1);
+	% \draw ($ (A)+(0.625,0)  $) -- ++ (1, 0);
+	% \draw ($ (B)+(0.625,0)  $) -- ++ (4, 0);
+	% \draw ($ (C)+(0.625,0)  $) -- ++ (7, 0);
+	% \draw ($ (D)+(0.625,0)  $) -- ++ (9.875, 0);
+	% \footnotesize
+	% \draw[<->, >=stealth] (9.75,0) -- node[fill=white] {$2.50\text{ m}$} (9.75, 2.5);
+	% \draw[<->, >=stealth] (9.75,2.5) -- node[fill=white] {$1.500\text{ m}$} (9.75, 4);
+	% \draw[<->, >=stealth] (9.75,4) -- node[fill=white] {$1.500\text{ m}$}(9.75, 5.5);
+	% \draw[<->, >=stealth] (0,-1) -- node[fill=white] {$3.00\text{ m}$} (3, -1);
+	% \draw[<->, >=stealth] (3,-1) -- node[fill=white] {$3.00\text{ m}$}  (6, -1);
+	% \draw[<->, >=stealth] (6,-1) -- node[fill=white] {$3.00\text{ m}$}  (9, -1);
+\end{tikzpicture}

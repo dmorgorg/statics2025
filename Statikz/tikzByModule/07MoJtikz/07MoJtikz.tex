@@ -1,0 +1,320 @@
+
+%!TEX option = --shell-escape
+
+\documentclass[9pt, xcolor={svgnames, x11names},professionalfonts]{beamer}
+
+\input{../../../includes/macros}
+\input{../../../includes/definedColors}
+\input{../../../includes/Channel.tex}
+\input{../../../includes/Couple.tex}
+\input{../../../includes/DL.tex}
+\input{../../../includes/DLdown.tex}
+\input{../../../includes/DLOne.tex}
+\input{../../../includes/DLup.tex}
+\input{../../../includes/EyeBolt.tex}
+\input{../../../includes/EyeConnection.tex}
+\input{../../../includes/Member}
+\input{../../../includes/Mem}
+\input{../../../includes/Meme}
+\input{../../../includes/PC}
+\input{../../../includes/Ring}
+\input{../../../includes/Rocker}
+\input{../../../includes/Roller}
+\input{../../../includes/Rone}
+\input{../../../includes/Ronly}
+\input{../../../includes/Pulley}
+\input{../../../includes/PulleyB}
+\input{../../../includes/PulleyC}
+\input{../../../includes/Luke.tex}
+\input{../../../includes/Skywalker.tex}
+\input{../../../includes/WBeam.tex}
+% \input{../../../includes/includesExisting/tikzObjects.tex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{\medskipamount}
+\def\bgcolor{Gainsboro!50}
+
+
+\tcbset{fonttitle=\itshape\rmfamily}
+\usepackage{mathpazo}
+\usepackage{amssymb} % for /checkmark
+ 
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usefonttheme[onlymath]{serif} % this needs to be before structureitalicserif?
+% \usefonttheme{structureitalicserif} %make titles fancy ;-)
+
+
+\usecolortheme[named=statsMaroon]{structure}
+\setbeamertemplate{navigation symbols}{} % remove navigation symbols
+\setbeamertemplate{headline}{\vspace{0.125cm}}
+\setbeamertemplate{footline}{ \hfill \insertshorttitle\qquad \insertsection \qquad \insertframenumber/\inserttotalframenumber\quad{ }\vspace{0.125cm}}
+\setbeamertemplate{items}[default]
+\setbeamertemplate{blocks}[shadow=true]
+
+\setbeamercolor{title}{bg=statsMaroon, fg=Azure}
+\setbeamercolor{frametitle}{fg=white, bg=statsMaroon}
+% \setbeamercolor{background canvas}{bg=Gainsboro!50}
+\setbeamercolor{background canvas}{bg=white}
+\setbeamercolor{block title}{bg=statsMaroon, fg=white}
+\setbeamercolor{block body}{bg=white, fg=black}
+
+\setlength{\parskip}{\medskipamount}
+\setlength{\parindent}{0pt}
+
+% https://tex.stackexchange.com/questions/731957/how-to-supress-missing-character-there-is-no-u003b-in-font-nullfont
+\tracinglostchars=1
+\hfuzz 120pt
+
+\def\scale{1}
+\newcounter{examnumber}
+\newcounter{exernumber}
+%test
+\resetcounteronoverlays{tcb@cnt@myexam}
+\resetcounteronoverlays{tcb@cnt@myexer}
+% \newcounter{myexercisecounter}
+
+% Title page details: 
+\title[07 MoJ Tikz]{\Huge 07 Method of Joints (Tikz)}
+\subtitle[Engineering Statics]{\Large\textcolor{white}{Engineering Statics}}
+\author{}
+\date{\small Updated on: \today}
+
+\centering
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[plain]    %don't need footer on titlepage
+	\titlepage
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{06ERB/cableConnection.tex}
+	\def\scale{0.5}
+	\input{../../../pikz/06ERB/cableConnection}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{06ERB/strutConnection.tex}
+	\def\scale{0.5}
+	\input{../../../pikz/06ERB/strutConnection}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{06ERB/rollerConnection.tex}
+	\def\scale{0.45}
+	\input{../../../pikz/06ERB/rollerConnection}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{06ERB/rollerConnectionMore.tex}
+	\def\scale{0.35}	
+	\input{../../../pikz/06ERB/rollerConnectionMore}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{rockerConnection.tex}
+	\def\scale{0.35}
+	\input{../../../pikz/06ERB/rockerConnection}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{06ERB/slotConnection.tex}
+	\def\scale{0.45}
+	\input{../../../pikz/06ERB/slotConnection}	
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{06ERB/pinnedConnection.tex}
+	\def\scale{0.45}
+	\input{../../../pikz/06ERB/pinnedConnection}	
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{/6ERB/fixedConnection}
+	\def\scale{0.45}
+	\input{../../../pikz/06ERB/fixedConnection}	
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{06ERB/06erb01.tex}	
+	\def\scale{0.55}	
+		\input{../../../pikz/06ERB/06erb01.tex}	
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{06ERB/06erb02.tex}
+		\def\scale{0.55}		
+		\input{../../../pikz/06ERB/06erb02.tex}		
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{06ERB/06erb03.tex}	
+	\def\scale{0.55}	
+	\input{../../../pikz/06ERB/06erb03.tex}	
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{06ERB/06erb04.tex}
+	\def\scale{0.75}
+	\input{../../../pikz/06ERB/06erb04.tex}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{06ERB/06erb05.tex}
+	\def\scale{0.675}
+	\input{../../../pikz/06ERB/06erb05.tex}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{06ERB/06erb06.tex}	
+		\def\scale{1}
+		\input{../../../pikz/06ERB/06erb06.tex}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{06ERB/06erb07.tex}	
+		\def\scale{0.65}
+		\input{../../../pikz/06ERB/06erb07.tex}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{06ERB/06erb08.tex}	
+		\def\scale{0.75}
+		\input{../../../pikz/06ERB/06erb08.tex}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{06ERB/06erb08b.tex}	
+		\def\scale{0.75}
+		\input{../../../pikz/06ERB/06erb08b.tex}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{06ERB/06erb09.tex}	
+		\def\scale{0.625}
+		\tcb{
+			\input{../../../pikz/06ERB/06erb09.tex}
+		}		
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{06ERB/06erb10.tex}	
+		\def\scale{0.625}
+		\input{../../../pikz/06ERB/06erb10.tex}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{06ERB/06erb12.tex}	
+		\def\scale{0.625}
+		\input{../../../pikz/06ERB/06erb12.tex}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{06ERB/06erb14.tex}	
+	\def\scale{0.55}
+	\input{../../../pikz/06ERB/06erb14.tex}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{06ERB/06erb15.tex}	
+	\def\scale{0.75}
+	\input{../../../pikz/06ERB/06erb15.tex}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{06ERB/06erb16.tex}	
+	\def\scale{1}
+	\input{../../../pikz/06ERB/06erb16.tex}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{06ERB/06erb17.tex}	
+	\def\scale{0.625}
+	\input{../../../pikz/06ERB/06erb17.tex}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{06ERB/06erb18.tex}	
+	\def\scale{0.55}
+	\input{../../../pikz/06ERB/06erb18.tex}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{06ERB/06erb19.tex}	
+	\def\scale{0.55}
+	\input{../../../pikz/06ERB/06erb19.tex}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{06ERB/06erb20.tex}	
+	\def\scale{0.875}
+	\input{../../../pikz/06ERB/06erb20.tex}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{06ERB/06erb21.tex}	
+	\def\scale{0.75}
+	\input{../../../pikz/06ERB/06erb21.tex}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{06ERB/06erb22.tex}	
+	\def\scale{0.75}
+	\input{../../../pikz/06ERB/06erb22.tex}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{06ERB/06erb23.tex}	
+	\def\scale{0.75}
+	\input{../../../pikz/06ERB/06erb23.tex}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{06ERB/06erb24.tex}	
+	\def\scale{0.75}
+	\input{../../../pikz/06ERB/06erb24.tex}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{06ERB/06erb25.tex}	
+	\def\scale{0.5}
+	\input{../../../pikz/06ERB/06erb25.tex}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}

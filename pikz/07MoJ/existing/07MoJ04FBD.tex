@@ -1,0 +1,21 @@
+%%%%%%%%%%%%%%%%%%%%%%% TRUSS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% !TEX root = ../../Beamer/07MoJ/07MoJ.tex
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%% TRUSS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%% TRUSS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\tikz[scale=\scale]{
+	\coordinate (A) at (0,0);
+	\coordinate (B) at (0,4);
+	\coordinate (C) at (4,0);
+	\footnotesize
+
+	\draw[-latex,ultra thick, saitMaroon](B)-- +(2,0)node[black, right]{$500\,$N};
+	\draw[-latex,ultra thick](B)-- +(-45:2)node[black, right]{$F_{BC}$};
+	\draw[-latex,ultra thick](B)-- +(-90:2)node[black, below]{$F_{AB}$};
+	\shadedraw (B) circle (2pt)node[xshift=-0.3cm]{$B$};
+	\draw[Latex-Latex] ($(B)+(270:1.5)$)arc(270:315:1.5)node[fill=bgcolor,midway]{$45\degree$};
+}

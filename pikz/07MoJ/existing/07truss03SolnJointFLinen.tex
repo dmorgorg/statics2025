@@ -1,0 +1,13 @@
+\begin{tikzpicture}[scale=\scale]
+
+	\coordinate (F) at (0,0);
+	\scriptsize
+	\draw[ultra thick, {Latex[scale=0.75]-}, Green3] ($ (F)+(39.8:0.125cm) $) -- node[black, above, sloped] {$13.668\text{ kN}$}(39.806:2cm) ;
+	\draw[ultra thick, {Latex[scale=0.75]-}, Green3] ($ (F)+(0:0.125cm) $) -- node[black, below] {$41.999\text{ kN}$}(0:2cm) ;
+	\draw[ultra thick, {-Latex[scale=0.75]}] (F) -- (90:2cm) node[above] {$F_{FC}$};
+	\draw[ultra thick, {-Latex[scale=0.75]}] (F) -- (180:2cm) node[below] {$F_{FE}$};
+
+	\shade [ball color = gray] (F) circle (0.15cm) node[above left] {$\bm F$};
+	\draw[arrows={Latex[scale=0.75]-Latex[scale=0.75]}] ($ (F)+(1.5,0) $)  arc (0:39.8:1.5cm) node[fill=Linen, inner sep = 0.125em] at ($ (F)+(18:1.675) $) {$39.806\degree$};
+
+\end{tikzpicture}

@@ -1,0 +1,39 @@
+%%%%%%%%%%%%%%%%%%%%%%% TRUSS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% !TEX root = ../../Beamer/07MoJ/07MoJ.tex
+
+
+%%%%%%%%%%%%%%%%%%%%%%% TRUSS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%% TRUSS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{tikzpicture}[scale=\scale]
+	% \def\thickness{thick}
+	\def\stroke{Khaki4}
+	\def\hi{.15}
+	\def\radii{\hi}
+	\def\extend{\hi}
+
+	% \fill[white] (0,0) rectangle (5.5,1);
+	\coordinate (O) at (0,0);
+	\coordinate (A) at (-1.5, 0);
+	\coordinate (B) at (60:1.5);
+	\coordinate (C) at (-45:1.5);
+	\coordinate (D) at (-90:1.5);
+
+	\pgfoonew \OA=new rrect(O,A,LightGray,LightGray,black, 0.15,0.15,0.15,0.25)
+	\pgfoonew \OB=new rrect(O,B,LightGray,LightGray,black, 0.15,0.15,0.15,0.25)
+	\pgfoonew \OC=new rrect(O,C,LightGray,LightGray,black, 0.15,0.15,0.15,0.25)
+	\pgfoonew \OD=new rrect(O,D,LightGray,LightGray,black, 0.15,0.15,0.15,0.25)
+
+	\shade [ball color = gray] (O) circle (0.25cm) node[black, above left, outer sep=1.25mm] {$O$};
+
+	\fill[bgcolor] ($ (A)+(-.25,-.3) $) rectangle ($ (A)+(.25,.25) $);
+	\fill[fill=bgcolor,rotate=60] ($ (B)+(-.25,-.25) $) rectangle ($ (B)+(.25,.25) $);
+	\fill[fill=bgcolor,rotate=45] ($ (C)+(-.25,-.25) $) rectangle ($ (C)+(.25,.25) $);
+	\fill[bgcolor] ($ (D)+(-.25,-.25) $) rectangle ($ (D)+(.25,.25) $);
+
+	\draw[ultra thick, saitMaroon, ->, >=stealth] ($ (O)+(-.25,0) $)-- +(-1.5, 0) node[left] {\bf 1234 N};
+	\draw[ultra thick, saitMaroon, ->, >=stealth] ($ (O)+(0, -.25) $)-- +(0, -1.5) node[left] {$\bm{\mathrm{ T }_{OB}}$};
+	\draw[ultra thick, saitMaroon, ->, >=stealth] ($ (O)+(60:.25) $)-- +(60: 1.5) node[above] {$\bm{\mathrm{ T }_{OA}}$};
+	\draw[ultra thick, saitMaroon, <-, >=stealth] ($ (O)+(-45:.25) $)-- +(-45: 1.5) node[right] {\bf 2345 N};
+\end{tikzpicture}

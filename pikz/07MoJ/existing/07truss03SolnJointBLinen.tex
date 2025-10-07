@@ -1,0 +1,19 @@
+\begin{tikzpicture}[scale=\scale]
+
+  \coordinate (B) at (0,0);
+  % \footnotesize
+  \draw[ultra thick, arrows={-Latex[scale=0.75]}, orange] (B) -- (-39.806:2.5cm) node[black, below] {$54.671\text{ kN}$};
+  \draw[ultra thick, arrows={-Latex[scale=0.75]}] (B) -- (153.5:2.5cm) node[above] {$F_{BC}$};
+  \draw[ultra thick, arrows={-Latex[scale=0.75]}] (B) -- (219.8:2.5cm) node[below] {$F_{BF}$};
+
+  \draw[ultra thick, gray] (B) -- ++(-90:1.25cm) node[below, black]  {$\bm 0$};
+  \shade [ball color = gray] (B) circle (0.15cm) node[above right] {$\bm B$};
+  \draw ($ (B)+(0.25, 0) $) -- +(1.75, 0);
+  \draw ($ (B)-(0.25, 0) $) -- +(-1.75, 0);
+
+  % \footnotesize
+  \draw[arrows={Latex[scale=0.75]-Latex[scale=0.75]}] ($ (B)+(-1.75,0) $)  arc (180:219:1.75cm) node[fill=Linen, inner sep = 0.125em] at ($ (B)+(200:1.75) $) {$39.806\degree$};
+  \draw[arrows={Latex[scale=0.75]-Latex[scale=0.75]}] ($ (B)+(1.75,0) $)  arc (0:-39.8:1.75cm) node[fill=Linen, inner sep = 0.125em] at ($ (B)+(-20:1.75) $) {$39.806\degree$};
+  \draw[arrows={Latex[scale=0.75]-Latex[scale=0.75]}] ($ (B)+(-1.75,0) $)  arc (180:153.5:1.75cm) node[fill=Linen, inner sep = 0.125em] at ($ (B)+(167.5:1.825) $) {$26.565\degree$};
+
+\end{tikzpicture}
