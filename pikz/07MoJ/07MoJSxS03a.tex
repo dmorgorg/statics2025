@@ -1,0 +1,70 @@
+
+
+\tikz[scale=\scale]{
+  \coordinate (E) at (6,0);
+	\coordinate (D) at (4,1.667);
+	\coordinate (C) at (2,2.667);
+	\coordinate (B) at (0,3.667);
+	\coordinate (A) at (0,0);
+	\coordinate (G) at (2,0);
+	\coordinate (F) at (4,0);
+
+  \coordinate (X) at ($ (A)+(0, -0.75) $);
+  \coordinate (Z) at ($ (E)+(0.875, 0) $);
+  \coordinate (Y) at ($ (Z)+(-0.375, 0) $);
+  \gettikzxy{(A)}{\ax}{\ay}
+  \gettikzxy{(B)}{\bx}{\by}
+  \gettikzxy{(C)}{\cx}{\cy}
+  \gettikzxy{(D)}{\ddx}{\ddy} % \dx, \dy must mean something special to tikz?
+  \gettikzxy{(E)}{\eex}{\eey}
+  \gettikzxy{(F)}{\fx}{\fy}
+  \gettikzxy{(G)}{\gx}{\yy}
+
+  \gettikzxy{(X)}{\xx}{\xy}
+  \gettikzxy{(Y)}{\yx}{\yy}
+  \gettikzxy{(Z)}{\zx}{\zy}
+
+  \scriptsize
+
+  \path (-1.5,4.125)rectangle(7,-1.5);
+  \filldraw[fill=LemonChiffon3!50, rounded corners, draw=black, thin] ($ (B)-(0.5, 0.175) $) rectangle ($ (B)+(0.0625, 0.175) $);
+  \fill[fill=LemonChiffon3!50, rounded corners, draw=black, thin] ($ (A)-(0.5, 0.175) $) rectangle ($ (A)+(0.0625, 0.175) $);
+  \fill[LemonChiffon3!50] (-1.1,-0.5) rectangle (-0.2, 4.125);
+  \draw[black, thin] (-0.2,-0.5) -- (-0.2, 4.125); 
+
+  \Meme{E}{F}{LemonChiffon4}{LemonChiffon2}{black}{0.2125}{0.1}{0.125}   
+  \Meme{D}{E}{LemonChiffon4}{LemonChiffon2}{black}{0.2125}{0.1}{0.125}
+  \Meme{C}{D}{LemonChiffon4}{LemonChiffon2}{black}{0.2125}{0.1}{0.125} 
+  \Meme{B}{C}{LemonChiffon4}{LemonChiffon2}{black}{0.2125}{0.1}{0.125} 
+  \Meme{A}{G}{LemonChiffon4}{LemonChiffon2}{black}{0.2125}{0.1}{0.125} 
+  \Meme{G}{F}{LemonChiffon4}{LemonChiffon2}{black}{0.2125}{0.1}{0.125} 
+  \Meme{D}{G}{LemonChiffon4}{LemonChiffon2}{black}{0.2125}{0.1}{0.125} 
+  \Meme{A}{C}{LemonChiffon4}{LemonChiffon2}{black}{0.2125}{0.1}{0.125}
+  \Meme{C}{G}{LemonChiffon4}{LemonChiffon2}{black}{0.2125}{0.1}{0.125} 
+  \Meme{D}{F}{LemonChiffon4}{LemonChiffon2}{black}{0.2125}{0.1}{0.125}
+ 
+  \draw ($ (A)+(0,-0.5)  $) -- ++ (0, -0.5);
+  \draw ($ (G)+(0,-0.5)  $) -- ++ (0, -0.5);
+  \draw ($ (F)+(0,-0.5)  $) -- ++ (0, -0.5);
+  \draw ($ (E)+(0.25,0)  $) -- (\zx, \eey);
+  \draw ($ (D)+(0.375,0)  $) -- (\zx, \ddy);
+  \draw ($ (C)+(0.5,0)  $) -- (\zx, \cy);
+  \draw ($ (B)+(0.5,0)  $) -- (\zx, \by);
+  
+  \draw[latex-latex] (\yx, \eey) -- node[fill=white] {$2.50\text{ m}$} (\yx, \ddy);
+  \draw[latex-latex] (\yx, \ddy) -- node[fill=white] {$1.50\text{ m}$} (\yx, \cy);
+  \draw[latex-latex] (\yx, \cy) -- node[fill=white] {$1.50\text{ m}$} (\yx, \by);
+  \draw[latex-latex] (\ax, \xy) -- node[fill=white] {$3.00\text{ m}$} (\gx, \xy);
+  \draw[latex-latex] (\gx, \xy) -- node[fill=white] {$3.00\text{ m}$} (\fx, \xy);
+  \draw[latex-latex] (\fx, \xy) -- node[fill=white] {$3.00\text{ m}$} (\eex, \xy);
+
+  \draw[ultra thick, RoyalBlue3, -Latex] (E) -- ++ (0,-1.25) node[left]{\footnotesize $3.50\,\text{kN}$};
+  \shadedraw [draw=black, ball color = LemonChiffon4] (E) circle (0.05cm) node[below right] {$E$};
+  \shadedraw [draw=black, ball color = LemonChiffon4] (D) circle (0.05cm) node[above=2.5mm, right=0.25mm] {$D$};
+	\shadedraw [draw=black, ball color = LemonChiffon4] (C) circle (0.05cm) node[above=2.5mm, right=0.25mm] {$C$};
+	\shadedraw [draw=black, ball color = LemonChiffon4] (B) circle (0.05cm) node[above=2.5mm, right=0.25mm] {$B$};
+	\shadedraw [draw=black, ball color = LemonChiffon4] (A) circle (0.05cm) node[below=1.5mm] {$A$};
+	\shadedraw [draw=black, ball color = LemonChiffon4] (G) circle (0.05cm) node[below=1mm] {$G$};
+	\shadedraw [draw=black, ball color = LemonChiffon4] (F) circle (0.05cm) node[below=1mm] {$F$};
+
+}

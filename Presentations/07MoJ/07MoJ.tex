@@ -376,7 +376,7 @@
 		\centering
 		\begin{itemize}
 			\item<1-> A free-body diagram of each joint is drawn. Unknown forces are generally drawn in tension (i.e., with the arrowhead away from the joint); a negative result (from solving the system) then indicates compression. \parm
-			\item<2-> Use $\Sigma F_x = 0$ and $\Sigma F_y = 0$ to analyze a joint with at most two unknowns. \parm
+			\item<2-> Each joint is a concurrent force problem so moments do not help. Use $\Sigma F_x = 0$ and $\Sigma F_y = 0$ to analyze a joint with at most two unknowns. \parm
 			\item<3> At least one force must be known at a joint to determine unknown forces.
 		\end{itemize}
 	\end{textblock*}
@@ -418,13 +418,439 @@
 
 		}
 
-		{\scriptsize (A full solution to this example can be downloaded from \href{https://eduk8r.org/statics/sxs/07MoJSxS.pdf}{here}. Refer to Example 2.)}
+		{\scriptsize (A full solution to this example is provided for your reference and can be downloaded  \href{https://eduk8r.org/statics/sxs/07MoJSxS.pdf}{here}. \lb Refer to Example 2.)}
 
 	\end{myexam}
 
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}%{Method of Joints}
+
+	\begin{myexam}{}{}
+		\def\scale{0.75}
+		\centering
+		\input{../../pikz/07MoJ/07MoJ07}
+		\parb
+		Determine the force in each truss member.
+	\end{myexam}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{frame}{Zero-Force Members}
+	\begin{textblock*}{0.7\textwidth}(2.75cm, 1.25cm)
+		\begin{statsbox}{}{}
+			\centering
+			\small
+			\def\scale{0.55}
+			\input{../../pikz/07MoJ/07MoJZero01a}
+		\end{statsbox}
+	\end{textblock*}
+
+	\begin{textblock*}{0.9\textwidth}(1.75cm, 6.5cm)
+		There may be members in a truss that have no loading, as seen in the previous example.\par
+		\textbf{Zero-force} members may be used to increase the stability of the truss during construction or to add support
+		if the loading is changed.\par
+		Identifying zero-force members can greatly simplify the analysis of a truss.
+	\end{textblock*}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{frame}{Zero-Force Members}
+	\begin{textblock*}{0.65\textwidth}(0.875cm,2.25cm)
+		\begin{statsbox}{}{}
+			\centering
+			\vbox to 4cm{
+				\vfill
+				\small
+				\def\scale{0.55}
+				\input{../../pikz/07MoJ/07MoJZero01}
+				\vfill
+			}
+		\end{statsbox}
+	\end{textblock*}
+
+	\begin{textblock*}{0.35\textwidth}(8.25cm, 1.875cm)
+		\footnotesize
+		\only<1-2>{
+			\begin{statsbox}[adjusted title=Joint A]{}{}
+				\centering
+				\vbox to 4cm{
+					\vfill
+					\def\scale{0.75}
+					\tikz[scale=\scale]{
+						\coordinate (A) at (0,0);
+						\draw[-latex, ultra thick] (A)--+(1.5,0)node[right]{$F_{AB}$};
+						\draw[-latex, ultra thick] (A)--+(0,1.5)node[right]{$F_{AF}$};
+						\fill[ball color=gray!50] (A) circle (3pt);
+						\node[below left] (A){$A$};
+					}
+					\begin{align*}
+						\Sigma F_x & = F_{AB} = 0 \\
+						\Sigma F_y & = F_{AF} = 0 \\
+					\end{align*}
+					\uncover<2>{
+						$AB$ and $AF$ are zero-force members.
+					}
+					\vfill
+				}
+			\end{statsbox}
+		}
+		\only<3->{
+			\begin{statsbox}[adjusted title=Joint D]{}{}
+				\centering
+				\vbox to 4cm{
+					\vfill
+					\def\scale{0.75}
+					\tikz[scale=\scale]{
+						\coordinate (D) at (0,0);
+						\draw[-latex, ultra thick] (D)--+(0,-1.75)node[left]{$F_{CD}$};
+						\draw[-latex, ultra thick] (D)--+(206.565:1.75)node[above left]{$F_{DE}$};
+						\fill[ball color=gray!50] (D) circle (3pt);
+						\draw[latex-latex] ($(D)+(206.57:1.25)$)arc(206.57:270:1.25)node[midway,fill=white]{$\theta$};
+						\node[above right] (D){$D$};
+					}
+					\begin{align*}
+						\Sigma F_x         & = F_{DE}\sin\theta = 0 \\
+						\Rightarrow F_{DE} & = 0                    \\
+						\Sigma F_y         & = -F_{CD} = 0          \\
+					\end{align*}
+					\uncover<4>{
+						$CD$ and $DE$ are zero-force members.
+					}
+					\vfill
+				}
+			\end{statsbox}
+		}
+	\end{textblock*}
+
+	\begin{textblock*}{0.75\textwidth}(3cm, 7.75cm)
+		\uncover<5>{
+			\centering
+			We can disregard all zero-force members and solve the simpler truss $BCEF$.
+		}
+	\end{textblock*}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Zero-Force Members}
+
+	\begin{textblock*}{0.7\textwidth}(2.75cm, 1.375cm)
+		\begin{statsbox}{}{}
+			\centering
+			\small
+			\def\scale{0.55}
+			\input{../../pikz/07MoJ/07MoJZero02}
+		\end{statsbox}
+	\end{textblock*}
+
+	\begin{textblock*}{0.7\textwidth}(2.875cm, 8.0cm)
+		\centering
+		\uncover<1->{
+			Truss members $BC$, $CD$ and $DE$ are collinear.\lb
+			Are there any zero-force members?	\parm
+		}
+		\uncover<2->{
+			$AD$ is a zero-force member.\lb
+		}
+		\uncover<3>{
+			So is $AC$.
+		}
+	\end{textblock*}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Zero-Force Members}
+
+	\begin{textblock*}{0.45\textwidth}(1.25cm, 1.375cm)
+		\begin{statsbox}{}{}
+			\centering
+			\small
+			\def\scale{0.35}
+			\input{../../pikz/07MoJ/07MoJZero02a}
+		\end{statsbox}
+	\end{textblock*}
+
+	\begin{textblock*}{0.45\textwidth}(6.75cm, 1.375cm)
+		\begin{statsbox}{}{}
+			\centering
+			\small
+			\def\scale{0.35}
+			\input{../../pikz/07MoJ/07MoJZero02b}
+		\end{statsbox}
+	\end{textblock*}
+
+	\begin{textblock*}{1\textwidth}(1cm, 6.25cm)
+		\raggedright
+		% \footnotesize
+	If $AC$ and $D$ are zero-force members, why not just omit them altogether and have a single member from $B$ to $E$? \par
+		\uncover<2->{
+		Of course, all designs are different, but $BE$ is long and slender, and the force $F$ will put it in compression. If the load is too high, $BE$ will buckle. (You will learn about the buckling of columns in your strength of materials course.) \par 
+		}\uncover<3> {Braces at $C$ and $D$ can increase the load before buckling by up to nine times.		}
+	
+	\end{textblock*}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{}
+
+	\begin{textblock*}{0.85\textwidth}(2cm, 0.375cm)
+		\begin{statsbox}[title=Zero-Force Members]{}{}
+			\centering
+			\small
+			\def\scale{0.55}
+			\input{../../pikz/07MoJ/07MoJZero03}
+		\end{statsbox}
+	\end{textblock*}
+
+	\begin{textblock*}{0.7\textwidth}(2.875cm, 6.5cm)
+		\centering
+		\uncover<1->{
+			Truss members $BC$, $CD$ and $DE$ are collinear.\lb
+			Are there any zero-force members?	\parm
+		}
+		\uncover<2->{
+			$BH$, $CG$ and $DF$ are zero-force members.\lb
+		}
+		\uncover<3>{
+			So is $BG$ (because $BH$ is a zero-force member).
+		}
+	\end{textblock*}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{}
+
+	\begin{textblock*}{0.85\textwidth}(2cm, 0.375cm)
+		\begin{statsbox}[title=Zero-Force Members]{}{}
+			\centering
+			\small
+			\def\scale{0.65}
+			\input{../../pikz/07MoJ/07MoJZero04}
+		\end{statsbox}
+	\end{textblock*}
+
+	\begin{textblock*}{0.7\textwidth}(2.875cm, 5.75cm)
+		\centering
+		\uncover<1->{
+			Are there any zero-force members?	\parm
+		}
+		\uncover<2->{
+			$BC$ and $CD$ are zero-force members.\lb
+		}
+		\uncover<3->{
+			$DE$ is a zero-force member -- because $CD$ is.\lb
+			Are there any more? \lb
+		}
+		\uncover<4->{
+			$AE$ is a zero-force member.
+		}
+	\end{textblock*}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{}
+	\begin{myexam}{}{}
+		\def\scale{0.65}
+		\centering
+		\input{../../pikz/07MoJ/07MoJ08}
+		\cmini[0.65]{
+			\centering
+			Determine the force in each truss member.
+		}
+	\end{myexam}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Types of Forces}
+	\small\centering\vspace{0.25cm}
+	\def\scale{0.75}
+	\input{../../pikz/07MoJ/07MoJTrussForces}
+	\vspace{-0.5cm}
+	\begin{itemize}
+		\item [] There are usually three types of forces present in a truss problem:\pause
+		\item [] External forces which are \textcolor{blue}{\bfseries applied} to the truss, such as vehicles on a bridge, an air-conditioner on a roof, or forces such as snow load specified by the building code, etc.\pause
+		\item [] \textcolor{saitMaroon}{\bfseries Reactions} (which are also external forces) generated at the truss supports to maintain the truss in equlibrium\pause
+		\item [] \textcolor{Green4!65!black}{\bfseries Internal} forces within the truss which are a result of the applied
+		      forces and the reactions at the supports. These are the forces we determine using the method of joints.
+	\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Method of Joints -- The Process}
+	% \small
+	Some trusses are quite involved so it is necessary to have an organized approach:\pause
+	\begin{enumerate}
+		\item Draw a free-body diagram of the whole truss showing all external forces, both applied and reacting.\pause
+		\item Determine the magnitude of the support reactions.\pause
+		\item Identify zero-force members, if any.\pause
+		\item Check the truss for symmetry. Symmetrical trusses may only need half the number of calculations!\pause
+		\item Select the first joint to be analyzed and draw its free-body diagram.
+		      \begin{itemize}
+		      	\item The joint must have no more than two connecting members with unknown internal forces.
+		      	\item Often start at a support where the external reactions are known.
+		      \end{itemize}\pause
+		\item Use $\Sigma F_x=0$ and $\Sigma F_y=0$ to find the internal forces in the connecting members.\pause
+		\item Mark the calculated forces on the free body diagram of the whole truss so that the next joint may be selected
+		      for analysis.\pause
+
+		\item Repeat until all the joints have been analyzed and the internal forces in each of the truss members is
+		      known.\pause
+	\end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\begin{frame}{}
+	\def\scale{1}
+	\begin{myexam}{}{}
+		\centering
+		\input{../../pikz/07MoJ/07MoJSxS03a.tex}
+		\pars
+		Find the internal forces in each truss member. 
+		\cmini[0.9]{
+			\scriptsize\centering (A full solution to this example is provided for your reference and can be downloaded  \href{https://eduk8r.org/statics/sxs/07MoJSxS.pdf}{here}. Refer to Example 3.)
+		}
+	\end{myexam}
+\end{frame}
+
+% % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \begin{frame}%{Checking the result...}
+
+% 	\begin{textblock*}{0.75\linewidth}(2.45cm, .25cm)
+% 		\def\scale{0.55}
+% 		\begin{statsbox}
+% 			\vbox to 4.5cm{
+% 				\vfill
+% 				\centering
+% 				\input{../../pikz/07MoJ/07truss03Reactions.tex}
+% 				\vfill
+% 			}
+% 		\end{statsbox}
+% 	\end{textblock*}
+
+% 	\only<1>{
+% 		\begin{textblock*}{9cm}(2cm, 5.5cm)
+% 			\footnotesize
+% 			\begin{statsbox}[left=0.25cm, right=0.25cm, title=Checking the results...]
+% 				\vbox to 2.75cm{
+% 					\vfill
+% 					We have calculated all the internal forces in the truss. But, if we made a mistake anywhere, all subsequent results will be incorrect!
+% 					\parb
+% 					We can check our results by considering only the external forces acting on the truss. These external forces are the reactions at $D$ and $E$, and the applied load of $35\,$kN at $A$.
+% 					\vfill
+% 				}
+% 			\end{statsbox}
+% 		\end{textblock*}
+% 	}
+
+
+% 	\only<2>{
+% 		\begin{textblock*}{9cm}(2cm, 5.5cm)
+% 			\footnotesize
+% 			\begin{statsbox}[left=0.25cm, right=0.25cm, title=Determining the reactions...]
+% 				\vbox to 2.75cm{
+% 					\vfill
+% 					\begin{align*}
+% 						\Sigma M_E      & = (R_D\cos 26.565\degree)(5.50\,\text{m}) - (35.0\,\text{kN})(9.00\,\text{m})=0 \\
+% 						\Rightarrow R_D & = 64.033\,\text{kN}
+% 					\end{align*}
+% 					\parb
+% 					Apart from a minor rounding error in the last significant digit, $R_D$ is equal and opposite to the force calculated earlier, as it should be. Joint $D$ is in equilibrium with the calculated values.
+% 					\textcolor{green}{\Large\checkmark}
+% 					\vfill
+% 				}
+% 			\end{statsbox}
+% 		\end{textblock*}
+% 	}
+
+
+% 	\only<3>{
+% 		\begin{textblock*}{9cm}(2cm, 5.5cm)
+% 			\footnotesize
+% 			\begin{statsbox}[left=0.25cm, right=0.25cm, title=Determining the reactions...]
+% 				\vbox to 2.75cm{
+% 					\vfill
+% 					\begin{align*}
+% 						\Sigma F_x         & = R_{Ex}-64.033\cos 26.565\degree=0      \\
+% 						\Rightarrow R_{Ex} & = 57.273\,\text{kN}                      \\\\
+% 						\Sigma F_y         & = R_{Ey}+64.033\sin 26.565\degree-35.0=0 \\
+% 						\Rightarrow R_{Ex} & = 6.3636\,\text{kN}
+% 					\end{align*}
+% 					\vfill
+% 				}
+% 			\end{statsbox}
+% 		\end{textblock*}
+% 	}
+
+
+% 	\only<4>{
+% 		\begin{textblock*}{9cm}(2cm, 5.5cm)
+% 			\footnotesize
+% 			\begin{statsbox}[left=0.25cm, right=0.25cm, title=Determining the reactions...]
+% 				\vbox to 2.75cm{
+% 					\mini[0.4]{
+% 						Check the equilibrium at $E$:\par
+% 						\input{../../pikz/07MoJ/07truss03SolnJointEreactions}
+% 					}
+% 					\hfill
+% 					\mini[0.5]{
+% 						\begin{align*}
+% 							\Sigma F_x & = 57.273-52.499                               \\
+% 							           & \qquad-7.9542\cos 53.130\degree               \\
+% 							           & = 0.0014686                                   \\
+% 							           & \approx 0 \qquad\textcolor{green}{\checkmark} \\
+% 							\Sigma F_y & =6.3636-7.9542\sin 53.130\degree              \\
+% 							           & = 0.00024853\,\text{kN}                       \\
+% 							           & \approx 0\qquad\textcolor{green}{\checkmark}
+% 						\end{align*}
+% 					}
+% 					\vspace{-1cm}
+% 				}
+% 			\end{statsbox}
+% 		\end{textblock*}
+% 	}
+
+
+% \end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\begin{frame}{}
+	\begin{myexer}{}{}
+		\def\scale{0.65}
+		\centering
+		\input{../../pikz/07MoJ/07MoJ09}
+		\cmini[0.65]{
+			\centering
+			Determine the force in each truss member.
+		}
+	\end{myexer}
+\end{frame}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -16,12 +16,13 @@
 
 	\PC[-90]{E}{Snow3}{black}{0.5}{0.125};
 	\Roller[-90]{A}{Snow3}{black}{0.5}{0.125};
-	 \fill[right color=Snow4, left color=Snow3]($(A)+(-0.5,-1)$)rectangle($(E)+(-1.5,2)$);
+	\fill[right color=Snow4, left color=Snow3]($(A)+(-0.5,-1)$)rectangle($(E)+(-1.5,2)$);
 
 	\uncover<2->{
 		\Meme{B}{C}{gray!50}{gray!25}{gray}{0.3}{0.15}{0.125}
 		\Meme{D}{C}{gray!50}{gray!25}{gray}{0.3}{0.15}{0.125}
 		\shade [ball color = gray!20] (C) circle (0.1cm);
+		\shadedraw [ball color = gray, opacity = 0.5] (C) circle (0.1cm) node[xshift=0.25cm, yshift=0.25cm] {$C$};
 	}
 	\Meme{A}{B}{LightCyan4}{LightCyan3}{black}{0.3}{0.15}{0.125}
 	\uncover<1>{
@@ -42,7 +43,7 @@
 		\Meme{E}{A}{LightCyan4}{LightCyan3}{black}{0.3}{0.15}{0.125}
 	}
 
-	\draw[ultra thick, saitMaroon, latex-] (D) -- ++ (0,1.5) node[right]{$\mathrm{\bm F}$};
+	\draw[ultra thick, saitMaroon, latex-] (D) -- ++ (0,1.5) node[right]{$\bm F$};
 
 	\shadedraw [ball color = LightCyan4,thin] (A) circle (0.1cm) node[yshift=-0.325cm] {$A$};
 	\shadedraw [ball color = LightCyan4] (B) circle (0.1cm) node[yshift=-0.325cm] {$B$};

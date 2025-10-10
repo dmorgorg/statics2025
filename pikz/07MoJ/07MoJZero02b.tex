@@ -1,0 +1,28 @@
+% !TEX root = ../../Beamer/07MoJ/07MoJd.tex
+
+\begin{tikzpicture}[scale=\scale]
+	\coordinate (A) at (0,0);
+	\coordinate (B) at (6,-4);
+	\coordinate (E) at (0,4);
+	\coordinate (D) at ($(E)+(-53.13:3.2)$);
+	\coordinate (C) at ($(D)!.45!(B)$);
+
+
+	
+	
+	\Meme{B}{E}{LightCyan4}{LightCyan3}{black}{0.3}{0.15}{0.125}	
+	\Meme{A}{B}{LightCyan4}{LightCyan3}{black}{0.3}{0.15}{0.125}
+	\Meme{A}{E}{LightCyan4}{LightCyan3}{black}{0.3}{0.15}{0.125}	
+
+	\fill[top color=Snow4, bottom color=Snow3]($(B)+(-1,-0.5)$)rectangle($(B)+(1,-1)$);
+	\fill[right color=Snow4, left color=Snow3]($(A)+(-0.5,-1)$)rectangle($(A)+(-1,1)$);
+	\PC{B}{Snow3}{black}{0.5}{0.125};
+	\Rocker[270]{A}{Snow3}{black}{0.5}{0.125};
+
+	\draw[ultra thick, statsMaroon, -Latex] (E) -- ++ (2.5,0) node[above]{$F$};
+
+	\shadedraw [ball color = white] (A) circle (0.1cm) node[xshift=-0.0625cm,yshift=-0.325cm] {$A$};
+	\shadedraw [ball color = white] (B) circle (0.1cm) node[xshift=0.25cm,yshift=0.25cm] {$B$};
+	\shadedraw [ball color = white] (E) circle (0.1cm) node[xshift=-0.25cm,yshift=0.25cm] {$E$};
+
+\end{tikzpicture}
