@@ -1,0 +1,72 @@
+%%%%%%%%%%%%%%%%%%%%%%% TRUSS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% !TEX root = ../../Beamer/07MoJ/07MoJ.tex
+
+%http://tex.stackexchange.com/questions/33703/extract-x-y-coordinate-of-an-arbitrary-point-in-tikz
+\makeatletter
+\providecommand{\gettikzxy}[3]{%
+	\tikz@scan@one@point\pgfutil@firstofone#1\relax
+	\edef#2{\the\pgf@x}%
+	\edef#3{\the\pgf@y}%
+}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%% TRUSS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%% TRUSS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{tikzpicture}[scale=\scale]
+
+  \coordinate (A) at (0,0);
+  \coordinate (B) at (2,1.5);
+  \coordinate (C) at (4,1.5);
+  \coordinate (D) at (2,-2.5);
+  \coordinate (T) at (4,2.5);
+  \coordinate (TT) at (4,2.2);
+  \coordinate (L) at (-1.5,0);
+  \coordinate (LL) at (-1,0);
+
+
+	\gettikzxy{(A)}{\ax}{\ay}
+  \gettikzxy{(B)}{\bx}{\by}
+  \gettikzxy{(C)}{\cx}{\cy}
+  \gettikzxy{(D)}{\ddx}{\ddy} % \dx, \dy must mean something special to tikz?
+  \gettikzxy{(T)}{\tx}{\ty} % top guideline
+  \gettikzxy{(TT)}{\ttx}{\tty} % top guideline
+  \gettikzxy{(L)}{\lx}{\ly} % left guideline
+  \gettikzxy{(LL)}{\llx}{\lly} % left guideline
+	\footnotesize
+	\PC[90]{C}{Honeydew3}{black}{0.5}{0.125}
+	\Rocker{D}{Honeydew3}{black}{0.5}{0.125}
+
+	\fill[left color=Honeydew4,right color=Honeydew2] ($(C)+(0.5,1)$)rectangle($(C)+(1,-1)$);
+	\fill[top color=Honeydew4,bottom color=Honeydew2] ($(D)+(-1,-0.5)$)rectangle($(D)+(1,-1)$);
+	\draw ($(D)+(-1,-0.5)$)--($(D)+(1,-0.5)$);
+	\draw ($(C)+(0.5,1)$)--($(C)+(0.5,-1)$);
+
+	\Meme{B}{A}{LightSteelBlue4}{LightSteelBlue3}{black}{0.3}{0.15}{0.125}
+	\Meme{B}{C}{LightSteelBlue4}{LightSteelBlue3}{black}{0.3}{0.15}{0.125}
+	\Meme{D}{C}{LightSteelBlue4}{LightSteelBlue3}{black}{0.3}{0.15}{0.125}
+	\Meme{D}{A}{LightSteelBlue4}{LightSteelBlue3}{black}{0.3}{0.15}{0.125}
+	\Meme{D}{B}{LightSteelBlue4}{LightSteelBlue3}{black}{0.3}{0.15}{0.125}
+
+	\draw[ultra thick, saitMaroon, -Latex] (A)--+(0,-2)node[below,black]{$1650\,$N};
+	%
+	\shadedraw[ball color=Honeydew4, draw=black] (A) circle (2pt)node[xshift=-0.25cm, yshift=0.35cm]{\normalsize $A$};
+	\shadedraw[ball color=Honeydew4, draw=black] (B) circle (2pt)node[xshift=-0.3cm, yshift=0.3cm]{\normalsize $B$};
+	\shadedraw[ball color=Honeydew4, draw=black] (C) circle (2pt)node[xshift=0.1cm,yshift=-0.45cm]{\normalsize $C$};
+	\shadedraw[ball color=Honeydew4, draw=black] (D) circle (2pt)node[xshift=0.35cm]{\normalsize $D$};
+	%
+	  \draw[thin, LightSteelBlue4!50] ($ (C)+(0,0.15) $) -- (\cx, \ty);
+  \draw[thin, LightSteelBlue4!50] ($ (B)+(0,0.15) $) -- (\bx, \ty);
+  \draw[thin, LightSteelBlue4!50] ($ (A)+(0,0.15) $) -- (\ax, \ty);
+  \draw[thin, LightSteelBlue4!50] ($ (B)+(-0.3,0) $) -- (\lx, \by);
+  \draw[thin, LightSteelBlue4!50] ($ (A)+(-0.15,0) $) -- (\lx, \ay);
+  \draw[thin, LightSteelBlue4!70] ($ (D)+(-0.2,0) $) -- (\lx, \ddy);
+
+  \draw[latex-latex] (\ax,\tty) -- node[fill=white] { $3.00\text{ m}$}(\bx,\tty);
+  \draw[latex-latex] (\bx,\tty) -- node[fill=white] { $3.00\text{ m}$}(\cx,\tty);
+  \draw[latex-latex] (\llx,\by) -- node[fill=white] { $2.25\text{ m}$}(\llx,\lly);
+  \draw[latex-latex] (\llx,\ay) -- node[fill=white] { $3.75\text{ m}$}(\llx,\ddy);
+
+	%
+\end{tikzpicture}

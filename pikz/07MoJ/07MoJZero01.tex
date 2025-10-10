@@ -1,0 +1,64 @@
+
+
+\begin{tikzpicture}[scale=\scale]
+	\coordinate (A) at (0,0);
+	\coordinate (B) at (4,0);
+	\coordinate (C) at (8,0);
+	\coordinate (D) at (8,5);
+	\coordinate (E) at (4,3);
+	\coordinate (F) at (0,3);
+
+	\uncover<1>{
+		\draw ($(A)+(0.5,0)$)--++(0,0.5)--+(-0.5,0);
+		\Meme{A}{B}{LightCyan4}{LightCyan3}{black}{0.3}{0.15}{0.125}
+		\Meme{A}{F}{LightCyan4}{LightCyan3}{black}{0.3}{0.15}{0.125}
+	}
+	\uncover<2-3>{
+		\Meme{A}{B}{gray!50}{gray!25}{gray}{0.3}{0.15}{0.125}
+		\Meme{A}{F}{gray!50}{gray!25}{gray}{0.3}{0.15}{0.125}
+	}
+	\Meme{C}{B}{LightCyan4}{LightCyan3}{black}{0.3}{0.15}{0.125}
+	
+	\uncover<1-2>{
+		\Meme{C}{D}{LightCyan4}{LightCyan3}{black}{0.3}{0.15}{0.125}
+		\Meme{E}{D}{LightCyan4}{LightCyan3}{black}{0.3}{0.15}{0.125}
+		\draw[latex-latex]($(D)+(206.57:1.5)$)arc(206.56:270:1.5)node[midway, fill=white]{$\theta$};
+	}
+	\uncover<3>{
+		\Meme{C}{D}{gray!50}{gray!25}{gray}{0.3}{0.15}{0.125}
+		\Meme{E}{D}{gray!50}{gray!25}{gray}{0.3}{0.15}{0.125}
+	}
+	\Meme{E}{F}{LightCyan4}{LightCyan3}{black}{0.3}{0.15}{0.125}
+	\Meme{E}{B}{LightCyan4}{LightCyan3}{black}{0.3}{0.15}{0.125}
+	\Meme{E}{C}{LightCyan4}{LightCyan3}{black}{0.3}{0.15}{0.125}
+	\Meme{B}{F}{LightCyan4}{LightCyan3}{black}{0.3}{0.15}{0.125}
+
+
+	\fill[top color=Snow4, bottom color=Snow3]($(B)+(-1,-0.5)$)rectangle($(B)+(1,-1)$);
+	\fill[right color=Snow4, left color=Snow3]($(F)+(-0.5,-1)$)rectangle($(F)+(-1,1)$);
+	\draw($(B)+(-1,-0.5)$)--($(B)+(1,-0.5)$);
+	\draw($(F)+(-0.5,1)$)--($(F)+(-0.5,-1)$);
+	\PC[-90]{F}{Snow3}{black}{0.5}{0.125};
+	\Rocker{B}{Snow3}{black}{0.5}{0.125};
+
+	\draw[ultra thick, statsMaroon, -Latex] (C) -- ++ (0,-1.5) node[right]{$F$};
+
+	\shadedraw [ball color = white] (B) circle (0.1cm) node[xshift=0.25cm,yshift=0.325cm] {$B$};
+	\shadedraw [ball color = white] (C) circle (0.1cm) node[xshift=0.2cm,yshift=-0.2cm] {$C$};
+	\shadedraw [ball color = white] (E) circle (0.1cm) node[xshift=-0.25cm,yshift=0.325cm] {$E$};
+	\shadedraw [ball color = white] (F) circle (0.1cm) node[yshift=0.325cm] {$F$};
+
+	\uncover<1>{
+		\shadedraw [ball color = white] (A) circle (0.1cm) node[xshift=-0.25cm,yshift=-0.25cm] {$A$};
+	}
+	\uncover<2->{
+		\shadedraw [ball color = gray!25, opacity=0.25] (A) circle (0.1cm) node[xshift=-0.25cm,yshift=-0.25cm,gray!40] {$A$};
+	}
+	\uncover<1-2>{
+		\shadedraw [ball color = white] (D) circle (0.1cm) node[xshift=0.25cm,yshift=0.25cm] {$D$};
+	}
+	\uncover<3>{
+		\shade [ball color = gray!25, opacity=0.25] (D) circle (0.1cm);
+	}
+
+\end{tikzpicture}

@@ -8,7 +8,7 @@
   \edef\height{#6} % cm
   \edef\radius{#7} % cm, should be half \height or less
   \edef\linewidth{#8} % mm
-
+\
   
 
 
@@ -44,12 +44,13 @@
 					color(\colorstoptwo bp)=(\ofill);
 					color(100bp)=(\ofill)}
 
-  \begin{scope}[rotate around = {\rot:(start)}, rounded corners = \radius cm, shading angle=\rot]
+  \begin{scope}[rotate around = {\rot:(start)}, rounded corners = \radius*\scale cm, shading angle=\rot]
     \begin{scope} 
       \path[clip]($ (start)+(-0.5*\height, 0.5*\height cm) $) rectangle +(\length pt+\height cm, -\height);
       \shade[shading=myshade] ($ (start)+(-0.5*\height, 0.5*\length pt) $) rectangle +(\length pt+\height cm, -\length pt);
     \end{scope}
-  \draw[line width=\linewidth mm, \stroke] ($ (start)+(-0.5*\height, 0.5*\height cm) $) rectangle +(\length pt+\height cm, -\height);
+  \draw[\stroke, line width = \linewidth mm] ($ (start)+(-0.5*\height, 0.5*\height cm) $) rectangle +(\length pt+\height cm, -\height);
+  
 
   \end{scope}
 

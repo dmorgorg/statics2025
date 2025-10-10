@@ -1,0 +1,249 @@
+\tikz[scale=\scale, line cap = round]{%color
+  \coordinate (A) at (0,0);
+  \coordinate (B) at (3,2);
+  \coordinate (C) at (6,2);
+  \coordinate (D) at (9,0);
+  \coordinate (E) at (6,0);
+  \coordinate (F) at (3,0);
+
+  \coordinate (L) at ($ (A)+(-1, 0) $); % left edge
+  \coordinate (LL) at ($ (A)+(-0.75, 0) $); % left edge
+  \coordinate (T) at ($ (B)+(0,0.875) $); % top edge
+  \coordinate (TT) at ($ (B)+(0,0.625) $); % top edge
+
+  \gettikzxy{(A)}{\ax}{\ay}
+  \gettikzxy{(B)}{\bx}{\by}
+  \gettikzxy{(C)}{\cx}{\cy}
+  \gettikzxy{(D)}{\ddx}{\ddy}
+  \gettikzxy{(E)}{\ex}{\ey}
+  \gettikzxy{(F)}{\fx}{\fy}
+  \gettikzxy{(L)}{\lx}{\ly}
+  \gettikzxy{(LL)}{\llx}{\lly}
+  \gettikzxy{(T)}{\tx}{\ty}
+  \gettikzxy{(TT)}{\ttx}{\tty}
+
+  \footnotesize
+
+  \path (-1.3,-1.1) rectangle (9.875,3);
+
+  \only<1-27>{
+  \draw[LightYellow3] ($ (A)+(0,0.25) $) -- (\ax, \ty);
+  \draw[LightYellow3] ($ (B)+(0,0.25) $) -- (\bx, \ty);
+  \draw[LightYellow3] ($ (C)+(0,0.25) $) -- (\cx, \ty);
+  \draw[LightYellow3] ($ (D)+(0,0.25) $) -- (\ddx, \ty);
+  \draw[LightYellow3] ($ (A)+(-0.25,0) $) -- (\lx, \ay);
+  \draw[LightYellow3] ($ (B)+(-0.375,0) $) -- (\lx, \by);}
+  \only<28>{
+     \draw[white] ($ (D)+(0,0.25) $) -- (\ddx, \ty);
+     \draw[white] ($ (A)+(-0.25,0) $) -- (\lx, \ay);
+  }
+  
+  \fill[LightYellow3] ($ (A)-(0.5,0.375) $) rectangle ($ (A)+(0.5,-0.625) $);
+  \draw ($ (A)-(0.5,0.375) $) -- ($ (A)-(-0.5,0.375) $);
+  \PC{A}{LightYellow4}{black}{0.375}{0.15}
+  \fill[LightYellow3!55] ($ (D)+(-35:0.4)+(35:0.625) $) -- ++(215:1.5) -- +(0:1.23);
+  \only<1-27>{
+  \draw ($ (D)+(-35:0.4)+(35:0.625) $) -- +(215:1.5) node[xshift=0.65cm,yshift=0.175cm] { $35\deg$};}
+  \only<28>{
+  \draw ($ (D)+(-35:0.4)+(35:0.625) $) -- +(215:1.5);}
+  \Rone[35]{D}{LightYellow4}{black}{0.375}{0.15}
+ 
+
+  \only<1-27>{
+    \draw[latex-latex] (\ax, \tty) -- node[fill=white] { $4.00\text{ m}$} (\bx, \tty);
+    \draw[latex-latex] (\bx, \tty) -- node[fill=white] { $4.00\text{ m}$} (\cx, \tty);
+    \draw[latex-latex] (\cx, \tty) -- node[fill=white] { $4.00\text{ m}$} (\ddx, \tty);
+    \draw[latex-latex] (\llx, \ay) -- node[fill=white] { $2.65\text{ m}$} (\llx, \by);
+  }
+  \only<28>{
+    \draw[latex-latex, white] (\llx, \ay) -- node[fill=white] { $2.65\text{ m}$} (\llx, \by);
+  }
+  
+
+ 
+  % \draw (L) -- (T);
+  \only<1-28>{    
+   \Meme{B}{E}{LightYellow4}{LightYellow2}{black}{0.2125}{0.105}{0.125}
+  }
+  \only<16-27>{    
+   \Meme{B}{E}{PaleGreen4}{PaleGreen3}{black}{0.2125}{0.105}{0.125}
+  }
+  \only<1-28>{
+   \Meme{A}{B}{LightYellow4}{LightYellow2}{black}{0.2125}{0.105}{0.125}
+  } 
+  \only<22-27>{
+   \Meme{A}{B}{Tomato4}{Tomato3}{black}{0.2125}{0.105}{0.125}
+  }   
+  \only<1-28>{   
+   \Meme{B}{C}{LightYellow4}{LightYellow2}{black}{0.2125}{0.105}{0.125}
+  }
+  \only<14-27>{   
+   \Meme{B}{C}{Tomato4}{Tomato3}{black}{0.2125}{0.105}{0.125}
+  }  
+  \only<1-28>{   
+   \Meme{C}{D}{LightYellow4}{LightYellow2}{black}{0.2125}{0.105}{0.125} 
+  }
+  \only<10-27>{   
+   \Meme{C}{D}{Tomato4}{Tomato3}{black}{0.2125}{0.105}{0.125} 
+  }
+  \only<1-28>{   
+   \Meme{D}{E}{LightYellow4}{LightYellow2}{black}{0.2125}{0.105}{0.125}
+  }
+  \only<11-27>{   
+   \Meme{D}{E}{PaleGreen4}{PaleGreen3}{black}{0.2125}{0.105}{0.125}
+  }
+  \only<1-28>{    
+   \Meme{E}{F}{LightYellow4}{LightYellow2}{black}{0.2125}{0.105}{0.125}
+  }
+  \only<17-27>{    
+   \Meme{E}{F}{PaleGreen4}{PaleGreen3}{black}{0.2125}{0.105}{0.125}
+  }
+  \only<1-28>{    
+   \Meme{A}{F}{LightYellow4}{LightYellow2}{black}{0.2125}{0.105}{0.125}
+  }
+  \only<20-27>{    
+   \Meme{A}{F}{PaleGreen4}{PaleGreen3}{black}{0.2125}{0.105}{0.125}
+  }
+  \only<1-28>{    
+   \Meme{B}{F}{LightYellow4}{LightYellow2}{black}{0.2125}{0.105}{0.125}
+  }
+  \only<19-27>{    
+   \Meme{B}{F}{PaleGreen4}{PaleGreen3}{black}{0.2125}{0.105}{0.125}
+  }
+  \only<1-28>{    
+   \Meme{C}{E}{LightYellow4}{LightYellow2}{black}{0.2125}{0.105}{0.125}
+  }
+  \only<13-27>{    
+   \Meme{C}{E}{PaleGreen4}{PaleGreen3}{black}{0.2125}{0.105}{0.125}
+  }
+
+  \draw[RoyalBlue3, -latex, very thick] ($ (E)+(0,-0.0625) $) -- +(0,-0.875) node[right] {$4.00\,$kN};
+  \draw[RoyalBlue3, -latex, very thick] ($ (F)+(0,-0.0625) $) -- +(0,-0.5) node[right] {$2.00\,$kN};
+  
+  
+
+  
+
+  \only<3>{
+    \draw[very thick, RoyalBlue3, -latex] (D) -- +(125:1.5) node[above,xshift=0.0625cm] {$ R_D $};
+  }
+  \only<3-27>{
+    \draw[latex-latex] ($ (D)+(90:1) $) arc (90:125:1)node[midway,yshift=0.125cm] {$ 35\deg $};
+  }
+  \only<4-27>{
+    \draw[very thick, RoyalBlue3, -latex] (D) -- +(125:1.5) node[above,xshift=0.0625cm] {$ 4.0692\,\text{kN} $};
+  }  
+  \only<5>{
+    \draw[RoyalBlue3, very thick, latex-] ($ (A)+(-0.125,0) $) -- +(-0.875, 0)node[below, xshift=0.25cm]{$ R_{Ax} $};
+  }
+ \only<5-6>{    
+    \draw[RoyalBlue3, very thick, -latex] ($ (A)+(0,0.125) $) -- +(0,0.875)node[above, fill=white, yshift=-0.05cm]{$ R_{Ay} $};
+  }
+  \only<6-27>{
+    \draw[RoyalBlue3, very thick, latex-] ($ (A)+(-0.125,0) $) -- +(-0.875, 0)node[below, xshift=0.25cm]{$ 2.3340\,$kN};
+  }
+  \only<7-27>{
+    \draw[RoyalBlue3, very thick, -latex] ($ (A)+(0,0.125) $) -- +(0,0.875)node[above, fill=white, xshift=0.25cm]{$ 2.6667\,$kN};
+  }
+  \only<8-27>{
+    \draw[latex-latex] ($ (D)+(146.5:1.5) $)arc(146.5:180:1.5) node[midway, fill=white, inner sep=0.35mm]{ $ 33.524\deg $};
+  }
+
+  \only<10-27>{
+    \draw[latex-, thick] ($ (D)+(146.5:0.325) $)--+(146.5:0.625);
+    \draw[latex-, thick] ($ (C)+(-33.5:0.25) $)--+(-33.5:0.625);
+    \path (C) -- (D) node[midway, sloped, yshift=0.225cm] {\scriptsize$6.0354\,$kN (C)};
+  }
+  \only<28>{
+    {
+    \path (C) -- (D) node[midway, sloped, yshift=0.25cm] {$6.04\,$kN (C)};}
+  }
+  \only<11-27>{
+    \draw[-latex, thick] ($ (D)+(0:-0.25) $)--+(180:0.625);
+    \draw[-latex, thick] ($ (E)+(0:0.25) $)--+(0:0.625);
+    \path (D) -- (E) node[midway, sloped, yshift=-0.25cm] {\scriptsize $2.6974\,$kN (T)};
+  }
+  \only<28>{
+    {  
+    \path (D) -- (E) node[midway, sloped, yshift=-0.25cm] {$2.70\,$kN (T)}; }
+  }
+  \only<13-27>{
+    \draw[-latex, thick] ($ (C)+(-90:0.125) $)--+(-90:0.625);
+    \draw[-latex, thick] ($ (E)+(90:0.125) $)--+(90:0.625);
+    \path (C) -- (E) node[midway, sloped, yshift=0.25cm] {\scriptsize $3.3333\,$kN (T)};
+  }
+  \only<28>{
+   { 
+    \path (C) -- (E) node[midway, sloped, yshift=0.225cm] {$3.33\,$kN (T)};}
+  }
+  \only<14-27>{
+    \draw[latex-, thick] ($ (C)+(180:0.25) $)--+(180:0.625);
+    \draw[latex-, thick] ($ (B)+(0:0.25) $)--+(0:0.625);
+    \path (B) -- (C) node[midway, sloped, yshift=0.25cm] {\scriptsize $5.0314\,$kN (C)};
+  }
+  \only<28->{
+    {
+    \path (B) -- (C) node[midway, sloped, yshift=0.25cm] {$5.03\,$kN (C)};}
+  }
+  \only<16-27>{
+    \draw[-latex, thick] ($ (E)+(146.5:0.325) $)--+(146.5:0.625);
+    \draw[-latex, thick] ($ (B)+(-33.5:0.325) $)--+(-33.5:0.625);
+    \path (B) -- (E) node[midway, sloped, yshift=0.25cm] {\scriptsize $1.2072\,$kN (T)};
+  }
+  \only<28>{
+   { 
+    \path (B) -- (E) node[midway, sloped, yshift=0.25cm] {$1.21\,$kN (T)};}
+  }
+  \only<17-27>{
+    \draw[-latex, thick] ($ (E)+(180:.25) $)--+(180:0.625);
+    \draw[-latex, thick] ($ (F)+(0:0.25) $)--+(0:0.625);
+    \path (F) -- (E) node[midway, sloped, yshift=-0.25cm] {\scriptsize $1.6910\,$kN (T)};
+  }
+  \only<28>{
+    {
+    \path (F) -- (E) node[midway, sloped, yshift=-0.25cm] {$1.69\,$kN (T)};}
+  }
+  \only<19-27>{
+    \draw[-latex, thick] ($ (B)+(-90:0.125) $)--+(-90:0.625);
+    \draw[-latex, thick] ($ (F)+(90:0.125) $)--+(90:0.625);
+    \path (B) -- (F) node[midway, sloped, yshift=0.225cm] {$2.00\,$kN (T)};
+  }
+  \only<28->{
+    {
+    \path (B) -- (F) node[midway, sloped, yshift=0.25cm] {$2.00\,$kN (T)};}
+  }
+  \only<20-27>{
+    \draw[-latex, thick] ($ (A)+(0:0.125) $)--+(0:0.625);
+    \draw[-latex, thick] ($ (F)+(180:0.25) $)--+(180:0.625);
+    \path (A) -- (F) node[midway, sloped, yshift=-0.25cm] {\scriptsize $1.6910\,$kN (T)};
+  }
+  \only<28>{
+   { 
+    \path (A) -- (F) node[midway, sloped, yshift=-0.25cm] {$1.69\,$kN (T)};}
+  }
+  \only<22-27>{
+    \draw[latex-, thick] ($ (A)+(33.5:0.325) $)--+(33.5:0.625);
+    \draw[latex-, thick] ($ (B)+(213.5:0.25) $)--+(213.5:0.625);
+    \path (A) -- (B) node[midway, sloped, yshift=0.25cm] {\scriptsize $4.8282\,$kN (C)};
+  }
+  \only<28>{
+    {
+    \path (A) -- (B) node[midway, sloped, yshift=0.25cm] {$4.83\,$kN (C)};}
+  }
+  
+
+  \node[xshift=-0.25cm, yshift=0.185cm] at (A) {$A$ };
+  \node[xshift=-0.25cm, yshift=0.185cm] at (B) {$B$ };
+  \node[xshift=0.25cm, yshift=0.185cm] at (C) {$C$ };
+  \node[xshift=0.25cm, yshift=0.185cm] at (D) {$D$ };
+  \node[xshift=0.25cm, yshift=0.25cm] at (E) {$E$ };
+  \node[xshift=-0.25cm, yshift=0.25cm] at (F) {$F$ };
+
+  \shadedraw [draw=black, ball color = LightYellow4] (A) circle (0.0625cm) ;
+  \shadedraw [draw=black, ball color = LightYellow4] (B) circle (0.0625cm) ;
+  \shadedraw [draw=black, ball color = LightYellow4] (C) circle (0.0625cm) ;
+  \shadedraw [draw=black, ball color = LightYellow4] (D) circle (0.0625cm) ;
+  \shadedraw [draw=black, ball color = LightYellow4] (E) circle (0.0625cm) ;
+  \shadedraw [draw=black, ball color = LightYellow4] (F) circle (0.0625cm) ;
+
+}

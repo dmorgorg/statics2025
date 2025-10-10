@@ -1,0 +1,54 @@
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%% TRUSS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\tikz[scale=\scale, line cap = round]{
+  \coordinate (A) at (0,0);
+  \coordinate (B) at (0,4);
+  \coordinate (C) at (6,4);
+  \coordinate (D) at (6,0);
+  \coordinate (BB) at (4,0.3);
+  \coordinate (CC) at (10,0.3);
+
+  % \fill[white] ($(A)-(2,1.25)$) rectangle ($(C)+(2.5,1.25)$);
+
+  \fill[OliveDrab4] ($(A)+(-1.5,-0.5)$) rectangle ($(D)+(2,-1)$);
+  \PC {A}{OliveDrab4}{black}{0.5}{0.125}
+  \Rocker {D}{OliveDrab4}{black}{0.5}{0.125}
+
+  \uncover<4->{
+    \Meme{B}{D}{LemonChiffon3}{LemonChiffon2}{black}{0.3}{0.15}{0.125}
+    
+  }
+  \uncover<1-2,4->{
+    \Meme{B}{A}{LemonChiffon3}{LemonChiffon2}{black}{0.3}{0.15}{0.125}
+    \Meme{C}{D}{LemonChiffon3}{LemonChiffon2}{black}{0.3}{0.15}{0.125}
+    \Meme{C}{B}{LemonChiffon3}{LemonChiffon2}{black}{0.3}{0.15}{0.125}
+    \Meme{A}{D}{LemonChiffon3}{LemonChiffon2}{black}{0.3}{0.15}{0.125}
+
+    \shadedraw[ball color=Khaki4](B)circle(2pt)node[xshift=-0.25cm,yshift=0.325cm]{$B$};
+    \shadedraw[ball color=Khaki4](C)circle(2pt)node[xshift=0.25cm,yshift=0.325cm]{$C$};
+  }
+  \uncover<2>{
+    \draw[ultra thick, Latex-, saitMaroon] (B)-- +(-1.125,0)node[above]{$F$};
+  }
+  \uncover<3>{
+    \Meme{BB}{A}{LemonChiffon3}{LemonChiffon2}{black}{0.3}{0.15}{0.125}
+    \Meme{CC}{D}{LemonChiffon3}{LemonChiffon2}{black}{0.3}{0.15}{0.125}
+    \Meme{CC}{BB}{LemonChiffon3}{LemonChiffon2}{black}{0.3}{0.15}{0.125}
+    \Meme{A}{D}{LemonChiffon3}{LemonChiffon2}{black}{0.3}{0.15}{0.125}
+
+    \shadedraw[ball color=Khaki4](BB)circle(2pt)node[yshift=0.375cm]{$B$};
+    \shadedraw[ball color=Khaki4](CC)circle(2pt)node[yshift=0.375cm]{$C$};
+
+    \draw[ultra thick, Latex-, saitMaroon] (BB)-- +(-1.125,0)node[above]{$F$};
+  }
+  \uncover<5->{
+  \draw[ultra thick, Latex-, saitMaroon] (B)-- +(-1.125,0)node[above]{$F$};
+  \draw[ultra thick, Latex-, saitMaroon] (C)-- +(135:1.125)node[left]{$G$};
+  }
+
+  \shadedraw[ball color=Khaki4](A)circle(2pt)node[left,outer sep = 1mm]{$A$};
+  \shadedraw[ball color=Khaki4](D)circle(2pt)node[right,outer sep=1mm]{$D$};
+
+}

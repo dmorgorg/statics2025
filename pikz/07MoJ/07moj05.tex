@@ -1,0 +1,55 @@
+%%%%%%%%%%%%%%%%%%%%%%% TRUSS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% !TEX root = ../../Beamer/07MoJ/07MoJ.tex
+
+%http://tex.stackexchange.com/questions/33703/extract-x-y-coordinate-of-an-arbitrary-point-in-tikz
+\makeatletter
+\providecommand{\gettikzxy}[3]{%
+	\tikz@scan@one@point\pgfutil@firstofone#1\relax
+	\edef#2{\the\pgf@x}%
+	\edef#3{\the\pgf@y}%
+}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%% TRUSS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%% TRUSS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{tikzpicture}[scale=\scale]
+
+	\coordinate (A) at (0,3);
+	\coordinate (B)	at (-4, 0);
+	\coordinate (C) at (0,0);
+	\coordinate (D) at (4,0);
+	\coordinate (DD) at ($(D)+(-0.925,-1)$);
+	\footnotesize
+	\PC{B}{Cornsilk3}{black}{0.5}{0.125}
+	\Roller[25]{D}{Cornsilk3}{black}{0.5}{0.125}
+
+	\filldraw[fill=Cornsilk3] ($(DD)+(25:2.5)$)--++(205:2.5)--+(2.25,0);
+	\draw[latex-latex] ($(DD)+(25:1.75)$)arc(25:0:1.75)node[fill=Cornsilk3, midway, inner sep=0.5mm]{$25\deg$};
+	\fill[Cornsilk3] ($(B)+(-1.25,-0.5)$)rectangle($(B)+(1,-1)$);
+	\draw ($(B)+(-1.25,-0.5)$)--($(B)+(1,-0.5)$);
+
+	\Meme{A}{B}{DarkSeaGreen4}{DarkSeaGreen3}{black}{0.3}{0.15}{0.125}
+	\Meme{C}{B}{DarkSeaGreen4}{DarkSeaGreen3}{black}{0.3}{0.15}{0.125}
+	\Meme{A}{D}{DarkSeaGreen4}{DarkSeaGreen3}{black}{0.3}{0.15}{0.125}
+	\Meme{C}{D}{DarkSeaGreen4}{DarkSeaGreen3}{black}{0.3}{0.15}{0.125}
+	\Meme{A}{C}{DarkSeaGreen4}{DarkSeaGreen3}{black}{0.3}{0.15}{0.125}
+
+	\draw[ultra thick, SteelBlue4, -Latex] (C)--+(0,-2)node[below,black]{$3.75\,$kN};
+	\draw[ultra thick, SteelBlue4, -Latex] (A)--+(2,0)node[right,black]{$2.00\,$kN};
+
+	\shadedraw[ball color=Khaki4, draw=black] (A) circle (2pt)node[yshift=0.35cm]{\normalsize $A$};
+	\shadedraw[ball color=Khaki4, draw=black] (B) circle (2pt)node[yshift=0.4cm]{\normalsize $B$};
+	\shadedraw[ball color=Khaki4, draw=black] (C) circle (2pt)node[xshift=0.25cm, yshift=-0.35cm]{\normalsize $C$};
+	\shadedraw[ball color=Khaki4, draw=black] (D) circle (2pt)node[yshift=0.45cm]{\normalsize $D$};
+
+	\draw[thin] ($(D)+(0,-0.25)$)--+(0,-1.5);
+	\draw[thin] ($(B)+(0,-0.25)$)--+(0,-1.5);
+	\draw[thin] ($(B)+(-0.25,0)$)--+(-1,0);
+	\draw[thin] ($(A)+(-0.5,0)$)--+(-4.75,0);
+	\draw[latex-latex] ($(B)+(0,-1.25)$)--node[fill=white]{$2.10\,$m}($(C)+(0,-1.25)$);
+	\draw[latex-latex] ($(C)+(0,-1.25)$)--node[fill=white]{$2.10\,$m}($(D)+(0,-1.25)$);
+	\draw[latex-latex] ($(B)+(-0.75,0)$)--node[fill=white]{$1.65\,$m}($(A)+(-4.75,0)$);
+
+\end{tikzpicture}

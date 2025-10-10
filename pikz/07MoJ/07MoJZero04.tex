@@ -1,0 +1,52 @@
+% !TEX root = ../../Beamer/07MoJ/07MoJd.tex
+
+\begin{tikzpicture}[scale=\scale]
+
+	\coordinate (A) at (0,0);
+	\coordinate (B) at (4,0);
+	\coordinate (E) at (0,3.5);
+	\coordinate (D) at (4,3.5);
+	\coordinate (C) at (8,3.5);
+
+
+
+	\uncover<4>{
+		\Meme{A}{E}{gray!50}{gray!25}{gray}{0.3}{0.15}{0.125}
+	}
+
+	\PC[-90]{E}{Snow3}{black}{0.5}{0.125};
+	\Roller[-90]{A}{Snow3}{black}{0.5}{0.125};
+	 \fill[right color=Snow4, left color=Snow3]($(A)+(-0.5,-1)$)rectangle($(E)+(-1.5,2)$);
+
+	\uncover<2->{
+		\Meme{B}{C}{gray!50}{gray!25}{gray}{0.3}{0.15}{0.125}
+		\Meme{D}{C}{gray!50}{gray!25}{gray}{0.3}{0.15}{0.125}
+		\shade [ball color = gray!20] (C) circle (0.1cm);
+	}
+	\Meme{A}{B}{LightCyan4}{LightCyan3}{black}{0.3}{0.15}{0.125}
+	\uncover<1>{
+		\Meme{B}{C}{LightCyan4}{LightCyan3}{black}{0.3}{0.15}{0.125}
+		\Meme{D}{C}{LightCyan4}{LightCyan3}{black}{0.3}{0.15}{0.125}
+		\shadedraw [ball color = LightCyan4] (C) circle (0.1cm) node[xshift=0.25cm, yshift=0.25cm] {$C$};
+	}
+	\uncover<1-2>{
+		\Meme{E}{D}{LightCyan4}{LightCyan3}{black}{0.3}{0.15}{0.125}
+	}
+	\uncover<3->{
+		\Meme{E}{D}{gray!50}{gray!25}{gray}{0.3}{0.15}{0.125}
+	}
+	
+	\Meme{E}{B}{LightCyan4}{LightCyan3}{black}{0.3}{0.15}{0.125}
+	\Meme{D}{B}{LightCyan4}{LightCyan3}{black}{0.3}{0.15}{0.125}
+	\uncover<1-3>{
+		\Meme{E}{A}{LightCyan4}{LightCyan3}{black}{0.3}{0.15}{0.125}
+	}
+
+	\draw[ultra thick, saitMaroon, latex-] (D) -- ++ (0,1.5) node[right]{$\mathrm{\bm F}$};
+
+	\shadedraw [ball color = LightCyan4,thin] (A) circle (0.1cm) node[yshift=-0.325cm] {$A$};
+	\shadedraw [ball color = LightCyan4] (B) circle (0.1cm) node[yshift=-0.325cm] {$B$};
+	\shadedraw [ball color = LightCyan4] (D) circle (0.1cm) node[xshift=0.25cm, yshift=0.325cm] {$D$};
+	\shadedraw [ball color = LightCyan4] (E) circle (0.1cm) node[yshift=0.325cm] {$E$};
+
+\end{tikzpicture}

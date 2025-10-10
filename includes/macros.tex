@@ -3,6 +3,7 @@
 \usepackage{bm}
 \usepackage{graphicx}
 \usepackage{hyperref}
+\usepackage{adjustbox}
 \hypersetup{colorlinks, allcolors=.,urlcolor=structure}
 \usepackage{booktabs}  % for top and bottom spacing in table cells, \addlinespace
 \usepackage[x11names, svgnames]{xcolor} % for colors in handouts, auto loaded in Beamer?
@@ -16,6 +17,7 @@
 \usetikzlibrary{shadings}
 % \usetikzlibrary{decorations.shapes}
 \usepackage[many]{tcolorbox}
+\tcbuselibrary{skins} % for image boxes
 \usepackage[absolute,overlay,showboxes]{textpos}
 % \usepackage{textpos}
 % \textblockorigin{0.0cm}{0.0cm}  %start all at upper left corner
@@ -80,6 +82,8 @@
 \newtcolorbox{redbox}{colback=white, colframe=structure, enhanced, drop fuzzy shadow}
 \newtcolorbox{titledbox}[1]{colback=white,colframe=structure,title={#1}}
 \newtcbox{\tcb}[1][]{colback=white,boxsep=0pt,top=0.5cm,bottom=0.5cm,left=0.5cm,
+		right=0.5cm, colframe=structure,  enhanced, drop fuzzy shadow, #1}
+\newtcbox{\tcbfig}[1][1]{colback=white,boxsep=0pt,top=0.5cm,bottom=0.5cm,left=0.5cm,
 		right=0.5cm, colframe=structure,  enhanced, drop fuzzy shadow, #1}
 % tcb title
 \newtcbox{\tcbt}[2][]{colback=white,boxsep=0pt,top=5pt,bottom=5pt,left=5pt,
@@ -180,6 +184,7 @@
 	\end{center}
 	\setlength\fboxsep{0cm}
 }
+
 \newcommand{\ccbox}[4][1]{% framed centered color box
 	\setlength\fboxsep{5mm}
 	\setlength\fboxrule{.2 mm}
@@ -199,17 +204,20 @@
 
 \newcommand{\cfig}[2][1]{% centred, scaled graphic
 	\begin{center}
-		\includegraphics[scale=#1]{#2}
+		% \fcolorbox{structure}{white}{
+		\tcbincludegraphics{
+			\includegraphics[scale=#1]{#2}
+		}
 	\end{center}
 }
 
 % figure with tight border for photos
 % \cfigb[saitMaroon]{borderwidth with unit}{scale}{image}
-\newcommand{\cfigb}[4][structure]{
+\newcommand{\stcsfig}[2][1]{
 	% \usepackage{adjustbox}
-	\setlength{\fboxrule}{1pt}
+	% \setlength{\fboxrule}{1pt}
 	\begin{center}
-		\includegraphics[scale=#3, cframe= #1 #2]{#4}
+		\tcbincludegraphics[width=#1\textwidth, boxrule=2pt, top=-3pt, right=-3pt, left=-3pt, bottom=-3pt,colframe=structure, sharp corners, enhanced, drop fuzzy shadow]{#2}
 	\end{center}
 }
 

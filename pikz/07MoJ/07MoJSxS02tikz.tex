@@ -1,0 +1,174 @@
+\begin{tikzpicture}[scale=\scale]
+  \scriptsize
+  \coordinate (A) at (0,0);
+  \coordinate (B) at (2,1.5);
+  \coordinate (C) at (4,1.5);
+  \coordinate (D) at (2,-2.5);
+  \coordinate (T) at (4,2.5);
+  \coordinate (TT) at (4,2.2);
+  \coordinate (L) at (-1.5,0);
+  \coordinate (LL) at (-1,0);
+
+  \gettikzxy{(A)}{\ax}{\ay}
+  \gettikzxy{(B)}{\bx}{\by}
+  \gettikzxy{(C)}{\cx}{\cy}
+  \gettikzxy{(D)}{\ddx}{\ddy} % \dx, \dy must mean something special to tikz?
+  \gettikzxy{(T)}{\tx}{\ty} % top guideline
+  \gettikzxy{(TT)}{\ttx}{\tty} % top guideline
+  \gettikzxy{(L)}{\lx}{\ly} % left guideline
+  \gettikzxy{(LL)}{\llx}{\lly} % left guideline
+
+  \fill[left color=Honeydew4,right color=Honeydew2] ($ (C)+(0.25,-0.75) $) rectangle ($ (C)+(0.75,1) $);
+  \draw ($ (C)+(0.25,-0.75) $) -- ($ (C)+(0.25,1) $);
+  \PC[90]{C}{Honeydew3}{black}{0.25}{0.15}
+  \fill[top color=Honeydew4,bottom color=Honeydew2] ($ (D)+(-0.75, -0.25) $) rectangle ($ (D)+(0.75, -0.65) $);
+  \draw[black] ($ (D)+(-0.75, -0.25) $) -- ($ (D)+(0.75, -0.25) $);
+  \Rocker{D}{Honeydew3}{black}{0.25}{0.15}
+
+  
+\uncover<1-29>{
+  \draw[thin, LightSteelBlue4!50] ($ (C)+(0,0.15) $) -- (\cx, \ty);
+  \draw[thin, LightSteelBlue4!50] ($ (B)+(0,0.15) $) -- (\bx, \ty);
+  \draw[thin, LightSteelBlue4!50] ($ (A)+(0,0.15) $) -- (\ax, \ty);
+  \draw[thin, LightSteelBlue4!50] ($ (B)+(-0.3,0) $) -- (\lx, \by);
+  \draw[thin, LightSteelBlue4!50] ($ (A)+(-0.15,0) $) -- (\lx, \ay);
+  \draw[thin, LightSteelBlue4!70] ($ (D)+(-0.2,0) $) -- (\lx, \ddy);
+
+  \draw[latex-latex] (\ax,\tty) -- node[fill=white] { $3.00\text{ m}$}(\bx,\tty);
+  \draw[latex-latex] (\bx,\tty) -- node[fill=white] { $3.00\text{ m}$}(\cx,\tty);
+  \draw[latex-latex] (\llx,\by) -- node[fill=white] { $2.25\text{ m}$}(\llx,\lly);
+  \draw[latex-latex] (\llx,\ay) -- node[fill=white] { $3.75\text{ m}$}(\llx,\ddy);
+}
+  
+  
+  
+  \only<1-13>{
+    \Meme{A}{B}{LightSteelBlue4}{LightSteelBlue3}{black}{0.2}{0.1}{0.125}
+  }
+  \only<14-29>{
+    \Meme{A}{B}{PaleGreen4}{PaleGreen3}{black}{0.2}{0.1}{0.125}
+  }
+  \only<30>{
+    \Meme{A}{B}{LightSteelBlue4}{LightSteelBlue3}{black}{0.2}{0.1}{0.125}
+  }
+  \only<1-13>{
+    \Meme{A}{D}{LightSteelBlue4}{LightSteelBlue3}{black}{0.2}{0.1}{0.125}
+  }
+  \only<14-29>{
+    \Meme{A}{D}{Tomato4}{Tomato2}{black}{0.2}{0.1}{0.125}
+  }
+  \only<30>{
+    \Meme{A}{D}{LightSteelBlue4}{LightSteelBlue3}{black}{0.2}{0.1}{0.125}
+  }
+  \only<1-15>{
+    \Meme{B}{C}{LightSteelBlue4}{LightSteelBlue3}{black}{0.2}{0.1}{0.125}
+  }
+  \only<16-29>{
+    \Meme{B}{C}{PaleGreen4}{PaleGreen3}{black}{0.2}{0.1}{0.125}
+  }
+  \only<30>{
+    \Meme{B}{C}{LightSteelBlue4}{LightSteelBlue3}{black}{0.2}{0.1}{0.125}
+  }
+ 
+  \only<1-18>{
+    \Meme{C}{D}{LightSteelBlue4}{LightSteelBlue3}{black}{0.2}{0.1}{0.125}
+  }
+  \only<19-29>{
+    \Meme{C}{D}{Tomato4}{Tomato2}{black}{0.2}{0.1}{0.125}
+  }
+  \only<30>{
+    \Meme{C}{D}{LightSteelBlue4}{LightSteelBlue3}{black}{0.2}{0.1}{0.125}
+  }
+  \only<1-16>{
+    \Meme{B}{D}{LightSteelBlue4}{LightSteelBlue3}{black}{0.2}{0.1}{0.125}
+  }
+  \only<17-29>{
+    \Meme{B}{D}{Tomato4}{Tomato2}{black}{0.2}{0.1}{0.125}
+  }
+  \only<30>{
+    \Meme{B}{D}{LightSteelBlue4}{LightSteelBlue3}{black}{0.2}{0.1}{0.125}
+  }
+
+  \only<2-29>{
+    \draw[thin, LightSteelBlue4!50] ($ (A)+(0.3,0) $) -- +(1.125, 0) node[right, black] {$E$};
+  }
+  \only<2>{
+    \draw[latex-latex, Green4, thick] ($(A)+(1.25,0)$)arc(0:36.87:1.25);
+  }
+  \only<3-29>{
+    \draw[latex-latex] ($(A)+(1.25,0)$)arc(0:36.87:1.25)node[midway, fill=white, inner sep=0.175mm, xshift=0.1cm]{ $ 36.870\deg $};
+  }
+  \only<4>{
+    \draw[latex-latex, Green4, thick] ($(A)+(1.25,0)$)arc(0:-51.34:1.25);
+  }
+  \only<5-29>{
+    \draw[latex-latex] ($(A)+(1.25,0)$)arc(0:-51.34:1.25) node[midway, fill=white, inner sep=0.35mm, xshift=0.1cm]{ $ 51.340\deg $};
+  }
+  \only<6>{
+    \draw[latex-latex, Green4, thick] ($(C)+(-1,0)$)arc(180:243.44:1);
+  }
+  \only<7-29>{
+    \draw[latex-latex] ($(C)+(-1,0)$)arc(180:243.44:1)node[midway, fill=white, inner sep=0.35mm]{ $ 63.435\deg $};
+  }
+
+  \only<14-29>{
+    \draw[-latex, thick] ($(A)+(36.87:0.187)$)--+(36.87:0.5);
+    \draw[-latex, thick] ($(B)+(216.87:0.187)$)--+(216.87:0.5);
+    \draw[latex-, thick] ($(A)+(-51.34:0.125)$)--+(-51.34:0.5);
+    \draw[latex-, thick] ($ (D)+(128.66:0.185) $)--+(128.66:0.5);
+    \path (A) -- (B) node[midway, sloped, yshift=0.25cm] {$1031.3\,$N (T)};
+    \path (A) -- (D) node[midway, sloped, yshift=-0.25cm] {$1320.6\,$N (C)};
+  }
+  \only<30>{
+    \path (A) -- (B) node[midway, sloped, yshift=0.25cm] { $1030\,$N (T)};
+    \path (A) -- (D) node[midway, sloped, yshift=-0.25cm] { $1320\,$N (C)};
+  }
+  \only<16-29>{
+    \draw[-latex, thick]($ (B)+(0:0.187)$)--+(0:0.5);
+    \draw[-latex, thick] (C)--+(180:0.5);   
+    \path (B) -- (C) node[midway, sloped, yshift=0.25cm] {$825.04\,$N (T)};
+  }
+  \only<30>{
+    \path (B) -- (C) node[midway, sloped, yshift=0.25cm] { $825\,$N (T)};
+  }
+  \only<17-29>{
+    \draw[latex-, thick] ($(B)+(-90:0.125)$)--+(-90:0.5);
+    \draw[latex-, thick] ($(D)+(90:0.125)$)--+(90:0.5);   
+    \path (B) -- (D) node[midway, sloped, yshift=0.25cm] {$618.78\,$N (C)};
+  }
+  \only<30>{
+    \path (B) -- (D) node[midway, sloped, yshift=0.25cm] { $619\,$N (C)};
+  }
+  \only<19-29>{
+    \draw[latex-, thick] ($(D)+(63.435:0.25)$)--+(63.435:0.5);
+    \draw[latex-, thick] ($(C)+(243:0.125)$)--+(243.544:0.5);   
+    \path (D) -- (C) node[midway, sloped, yshift=-0.25cm] {$1844.7\,$N (C)};
+  }
+
+  \only<30>{
+    \path (D) -- (C) node[midway, sloped, yshift=-0.25cm] { $1840\,$N (C)};
+  }
+  % \only<30>{
+  %   \draw[latex-, very thick, statsMaroon] ($(D)+(-90:0.075)$)--+(-90:0.75) node[right] { $ R_{Dy} $};    
+  % }
+  \only<26-29>{
+    \draw[latex-, very thick, statsMaroon] ($(D)+(-90:0.075)$)--+(-90:0.75) node[right] { $ 3299.9 $N};    
+    \draw[-latex, very thick, statsMaroon] ($(C)+(90:0.05)$)--+(90:0.5) node[right] { $\bm{ R_{Cy}} $};    
+    \draw[-latex, very thick, statsMaroon] ($(C)+(0:0.05)$)--+(0:0.5) node[below] { $\bm{ R_{Cx}} $};    
+  }
+ 
+
+  \small
+
+  \node[xshift=-0.125cm, yshift=0.25cm] at (A) { $\bm A$ };
+  \node[xshift=0.125cm, yshift=0.25cm] at (B) { $\bm B$ };
+  \node[xshift=-0.125cm, yshift=0.25cm] at (C) { $\bm C$ };
+  \node[xshift=0.25cm] at (D) { $\bm D$ };
+  \draw[very thick, statsMaroon, -latex] (A) -- ++ (0,-1.25) node[below]{ $1650\,\textsf{N}$};
+  \shadedraw [draw=black, ball color = LightSteelBlue4] (A) circle (0.05cm) ;
+  \shadedraw [draw=black, ball color = LightSteelBlue4] (B) circle (0.05cm) ;
+  \shadedraw [draw=black, ball color = LightSteelBlue4] (C) circle (0.05cm) ;
+  \shadedraw [draw=black, ball color = LightSteelBlue4] (D) circle (0.05cm) ;
+
+
+\end{tikzpicture}

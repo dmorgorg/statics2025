@@ -1,0 +1,69 @@
+%%%%%%%%%%%%%%%%%%%%%%% TRUSS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% !TEX root = ../../Beamer/07MoJ/07MoJ.tex
+
+%http://tex.stackexchange.com/questions/33703/extract-x-y-coordinate-of-an-arbitrary-point-in-tikz
+\makeatletter
+\providecommand{\gettikzxy}[3]{%
+	\tikz@scan@one@point\pgfutil@firstofone#1\relax
+	\edef#2{\the\pgf@x}%
+	\edef#3{\the\pgf@y}%
+}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%% TRUSS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%% TRUSS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{tikzpicture}[scale=\scale, line cap = round]
+	
+	\coordinate (A) at (-6,0);
+	\coordinate (B)	at (-3, 2);
+	\coordinate (C) at (0,4);
+	\coordinate (D) at (3,2);
+	\coordinate (E) at (6,0);
+	\coordinate (F) at (3,0);
+	\coordinate (G) at (0,0);
+	\coordinate (H) at (-3,0);
+
+	\Meme{C}{G}{LemonChiffon3}{LemonChiffon2}{black}{0.3}{0.15}{0.125}
+	\Meme{B}{G}{LemonChiffon3}{LemonChiffon2}{black}{0.3}{0.15}{0.125}
+	\Meme{D}{G}{LemonChiffon3}{LemonChiffon2}{black}{0.3}{0.15}{0.125}
+	\Meme{B}{H}{LemonChiffon3}{LemonChiffon2}{black}{0.3}{0.15}{0.125}
+	\Meme{D}{F}{LemonChiffon3}{LemonChiffon2}{black}{0.3}{0.15}{0.125}
+	\Meme{D}{F}{LemonChiffon3}{LemonChiffon2}{black}{0.3}{0.15}{0.125}
+	\Meme{A}{E}{LemonChiffon3}{LemonChiffon2}{black}{0.3}{0.15}{0.125}
+	\Meme{B}{C}{LemonChiffon3}{LemonChiffon2}{black}{0.3}{0.15}{0.125}
+	\Meme{D}{C}{LemonChiffon3}{LemonChiffon2}{black}{0.3}{0.15}{0.125}
+	\Meme{A}{B}{LemonChiffon3}{LemonChiffon2}{black}{0.3}{0.15}{0.125}
+	\Meme{D}{E}{LemonChiffon3}{LemonChiffon2}{black}{0.3}{0.15}{0.125}
+	\Meme{A}{H}{LemonChiffon3}{LemonChiffon2}{black}{0.3}{0.15}{0.125}
+	\Meme{F}{E}{LemonChiffon3}{LemonChiffon2}{black}{0.3}{0.15}{0.125}
+	\Meme{G}{H}{LemonChiffon3}{LemonChiffon2}{black}{0.3}{0.15}{0.125}
+
+	\draw (A)  node[black, above left, inner sep=5pt] {$A$};
+	\draw (B)  node[black, above left, inner sep=5pt] {$B$};
+	\draw (C)  node[black, above, inner sep=5pt] {$C$};
+	\draw (D)  node[black, above right, inner sep=5pt] {$D$};
+	\draw (E)  node[black, right, inner sep=5pt] {$E$};
+	\draw (F)  node[black, below right, inner sep=7pt] {$F$};
+	\draw (G)  node[black, below, inner sep=7pt] {$G$};
+	\draw (H)  node[black, below, inner sep=7pt] {$H$};
+
+	\shadedraw[ball color=Khaki4, draw=black] (A) circle (2pt);
+	\shadedraw[ball color=Khaki4, draw=black] (B) circle (2pt);
+	\shadedraw[ball color=Khaki4, draw=black] (C) circle (2pt);
+	\shadedraw[ball color=Khaki4, draw=black] (D) circle (2pt);
+	\shadedraw[ball color=Khaki4, draw=black] (E) circle (2pt);
+	\shadedraw[ball color=Khaki4, draw=black] (F) circle (2pt);
+	\shadedraw[ball color=Khaki4, draw=black] (G) circle (2pt);
+	\shadedraw[ball color=Khaki4, draw=black] (H) circle (2pt);
+
+	\draw[saitMaroon, ultra thick, latex-] (A) -- +(0,-1)node[below]{$A_y$};
+	\draw[saitMaroon, ultra thick, latex-] (A) -- +(-1,0)node[below]{$A_x$};
+	\draw[saitMaroon, ultra thick, latex-] (E) -- +(0,-1)node[below]{$E_y$};
+	\draw[saitDeepBlue, ultra thick, latex-] (B) -- +(0,1.25)node[above]{$F_B$};
+	\draw[saitDeepBlue, ultra thick, latex-] (D) -- +(1.25,0)node[right]{$F_D$};
+	\draw[saitDeepBlue, ultra thick, latex-] (C) -- +(40:1.25)node[right]{$F_C$};
+	\draw[saitDeepBlue, ultra thick, -latex] (F) -- +(0,-1.25)node[below]{$F_F$};
+	
+\end{tikzpicture}

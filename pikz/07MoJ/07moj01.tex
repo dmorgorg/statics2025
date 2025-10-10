@@ -1,0 +1,60 @@
+%%%%%%%%%%%%%%%%%%%%%%% TRUSS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% !TEX root = ../../Beamer/07MoJ/07MoJ.tex
+
+%http://tex.stackexchange.com/questions/33703/extract-x-y-coordinate-of-an-arbitrary-point-in-tikz
+\makeatletter
+\providecommand{\gettikzxy}[3]{%
+	\tikz@scan@one@point\pgfutil@firstofone#1\relax
+	\edef#2{\the\pgf@x}%
+	\edef#3{\the\pgf@y}%
+}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%% TRUSS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%% TRUSS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{tikzpicture}[scale=\scale]
+	
+	\coordinate (A) at (-6,0);
+	\coordinate (B)	at (-3, 2);
+	\coordinate (C) at (0,4);
+	\coordinate (D) at (3,2);
+	\coordinate (E) at (6,0);
+	\coordinate (F) at (3,0);
+	\coordinate (G) at (0,0);
+	\coordinate (H) at (-3,0);	
+	
+	\Meme{B}{G}{LemonChiffon3}{LemonChiffon2}{black}{0.4}{0.2}{0.125}
+	\Meme{D}{G}{LemonChiffon3}{LemonChiffon2}{black}{0.4}{0.2}{0.125}
+	\Meme{B}{H}{LemonChiffon3}{LemonChiffon2}{black}{0.4}{0.2}{0.125}
+	\Meme{D}{F}{LemonChiffon3}{LemonChiffon2}{black}{0.4}{0.2}{0.125}
+	\Meme{G}{C}{LemonChiffon3}{LemonChiffon2}{black}{0.4}{0.2}{0.125}
+	\Meme{A}{C}{LemonChiffon3}{LemonChiffon2}{black}{0.4}{0.2}{0.125}
+	\Meme{E}{C}{LemonChiffon3}{LemonChiffon2}{black}{0.4}{0.2}{0.125}
+	\Meme{A}{E}{LemonChiffon3}{LemonChiffon2}{black}{0.4}{0.2}{0.125}	
+
+	\uncover<2>{
+		\path (A) -- node[above, sloped, inner sep=5pt] {\footnotesize Top Chord} (C);
+		\path (C) -- node[above, sloped, inner sep=5pt] {\footnotesize Top Chord} (E);
+		\path (A) -- node[below, sloped, inner sep=5pt] {\footnotesize Bottom Chord} (E);
+	}
+	% \uncover<3>{		
+	% 	\Meme{A}{B}{LemonChiffon3}{LemonChiffon2}{black}{0.4}{0.2}{0.125}
+	% 	\Meme{G}{H}{LemonChiffon3}{LemonChiffon2}{black}{0.4}{0.2}{0.125}
+	% 	\Meme{G}{F}{LemonChiffon3}{LemonChiffon2}{black}{0.4}{0.2}{0.125}
+	% 	\Meme{D}{E}{LemonChiffon3}{LemonChiffon2}{black}{0.4}{0.2}{0.125}
+	% 	\Meme{B}{C}{LemonChiffon3}{LemonChiffon2}{black}{0.4}{0.2}{0.125}
+	% 	\Meme{D}{C}{LemonChiffon3}{LemonChiffon2}{black}{0.4}{0.2}{0.125}
+	% }
+	\shadedraw[ball color=Seashell4, draw=black] (A) circle (2pt);
+	\shadedraw[ball color=Seashell4, draw=black] (B) circle (2pt);
+	\shadedraw[ball color=Seashell4, draw=black] (C) circle (2pt);
+	\shadedraw[ball color=Seashell4, draw=black] (D) circle (2pt);
+	\shadedraw[ball color=Seashell4, draw=black] (E) circle (2pt);
+	\shadedraw[ball color=Seashell4, draw=black] (F) circle (2pt);
+	\shadedraw[ball color=Seashell4, draw=black] (G) circle (2pt);
+	\shadedraw[ball color=Seashell4, draw=black] (H) circle (2pt);
+
+	%
+\end{tikzpicture}

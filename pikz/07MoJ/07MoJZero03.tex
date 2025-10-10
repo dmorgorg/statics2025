@@ -1,0 +1,59 @@
+% !TEX root = ../../Beamer/07MoJ/07MoJd.tex
+
+\begin{tikzpicture}[scale=\scale]
+	\coordinate (A) at (-6,0);
+	\coordinate (B) at (-2.3945,0);
+	\coordinate (C) at (0,0);
+	\coordinate (D) at (2.3945,0);
+	\coordinate (E) at (6,0);
+	\coordinate (G) at (0,4);
+	\coordinate (H) at ($(A)+(33.69:3)$);
+	\coordinate (F) at ($(E)+(146.31:3)$);
+
+	\uncover<2->{
+		\Meme{B}{H}{gray!50}{gray!25}{gray}{0.3}{0.15}{0.125}
+		\Meme{D}{F}{gray!50}{gray!25}{gray}{0.3}{0.15}{0.125}
+		\Meme{C}{G}{gray!50}{gray!25}{gray}{0.3}{0.15}{0.125}
+	}
+	\uncover<3->{
+		\Meme{B}{G}{gray!50}{gray!25}{gray}{0.3}{0.15}{0.125}
+	}
+
+	\Meme{A}{B}{LightCyan4}{LightCyan3}{black}{0.3}{0.15}{0.125}
+	\Meme{C}{B}{LightCyan4}{LightCyan3}{black}{0.3}{0.15}{0.125}
+	\Meme{C}{D}{LightCyan4}{LightCyan3}{black}{0.3}{0.15}{0.125}
+	\Meme{E}{D}{LightCyan4}{LightCyan3}{black}{0.3}{0.15}{0.125}
+	\Meme{G}{D}{LightCyan4}{LightCyan3}{black}{0.3}{0.15}{0.125}
+	\Meme{A}{H}{LightCyan4}{LightCyan3}{black}{0.3}{0.15}{0.125}
+	
+	\uncover<1-2>{
+		\Meme{G}{B}{LightCyan4}{LightCyan3}{black}{0.3}{0.15}{0.125}
+	}
+	\Meme{G}{H}{LightCyan4}{LightCyan3}{black}{0.3}{0.15}{0.125}
+	\Meme{E}{F}{LightCyan4}{LightCyan3}{black}{0.3}{0.15}{0.125}
+	\Meme{G}{F}{LightCyan4}{LightCyan3}{black}{0.3}{0.15}{0.125}
+
+	\uncover<1>{
+		\Meme{B}{H}{LightCyan4}{LightCyan3}{black}{0.3}{0.15}{0.125}
+		\Meme{D}{F}{LightCyan4}{LightCyan3}{black}{0.3}{0.15}{0.125}
+		\Meme{C}{G}{LightCyan4}{LightCyan3}{black}{0.3}{0.15}{0.125}
+	}
+
+	\fill[top color=Snow4, bottom color=Snow3]($(D)+(-1,-0.625)$)rectangle($(D)+(1,-1.375)$);
+	\fill[top color=Snow4, bottom color=Snow3]($(A)+(-1,-0.625)$)rectangle($(A)+(1,-1.375)$);
+	\PC{A}{Snow3}{black}{0.625}{0.125};
+	\Rone{D}{Snow3}{black}{0.625}{0.125};
+	%
+	\draw[ultra thick, saitMaroon, -latex] (E) -- ++ (0,-1.5) node[below]{$\mathrm{\bm F}$};
+	\draw[ultra thick, saitMaroon, latex-] (G) -- ++ (0,1.5) node[above]{$\mathrm{\bm F}$};
+	%
+	\shade [ball color = LightCyan4] (A) circle (0.1cm) node[xshift=-0.125cm, yshift=0.325cm] {$A$};
+	\shade [ball color = LightCyan4] (B) circle (0.1cm) node[yshift=-0.325cm] {$B$};
+	\shade [ball color = LightCyan4] (C) circle (0.1cm) node[yshift=-0.325cm] {$C$};
+	\shade [ball color = LightCyan4] (D) circle (0.1cm) node[xshift=0.375cm, yshift=-0.315cm] {$D$};
+	\shade [ball color = LightCyan4] (E) circle (0.1cm) node[xshift=0.125cm,yshift=0.325cm] {$E$};
+	\shade [ball color = LightCyan4] (F) circle (0.1cm) node[xshift=0.25cm, yshift=0.25cm] {$F$};
+	\shade [ball color = LightCyan4] (G) circle (0.1cm) node[xshift=0.25cm, yshift=0.25cm] {$G$};
+	\shade [ball color = LightCyan4] (H) circle (0.1cm) node[xshift=-0.25cm, yshift=0.25cm] {$H$};
+
+\end{tikzpicture}

@@ -4,10 +4,12 @@
 
 \input{../../includes/definedColors.tex}
 \input{../../includes/macros.tex}
-\input{../../includes/Member.tex}
+% \input{../../includes/Member.tex}
+\input{../../includes/Meme.tex}
 \input{../../includes/PC.tex}
 \input{../../includes/Rocker.tex}
 \input{../../includes/Roller.tex}
+\input{../../includes/Rone.tex}
 
 \usepackage{mathtools}
 \usefonttheme[onlymath]{serif} 
@@ -36,22 +38,7 @@
 % \usepgflibrary{shadings}
 
 \colorlet{boxBG}{Ivory3!50}
-\newtcolorbox{statsbox}[2][] {  
-  % colback=Ivory3!50,
-  colback=boxBG,
-  colbacktitle=structure,
-  colframe=structure,
-  coltitle=boxBG,  
-  top=0.25cm,
-	bottom=0.125cm,
-	left=0mm,
-	right=0mm,
-  fonttitle=\bfseries,
-  halign=flush left, 
-  enhanced,
-  drop fuzzy shadow,
-  attach boxed title to top left={xshift=3.5mm, yshift=-2mm},
-  title={#2}, #1}
+
 
 \usecolortheme[named=statsMaroon]{structure}
 \setbeamercolor{title}{bg=statsMaroon, fg=boxBG}
@@ -63,6 +50,11 @@
 \setlength{\parindent}{0pt}
 
 \renewcommand{\ttdefault}{pcr}
+
+\def\scale{1}
+
+% https://tex.stackexchange.com/questions/731957/how-to-supress-missing-character-there-is-no-u003b-in-font-nullfont
+\tracinglostchars=1
 
 \hfuzz=110pt % suppress Overfull \hbox warnings, up to specified size
 \vfuzz=100pt
@@ -86,13 +78,13 @@
 \begin{frame}
 
   \begin{textblock*}{0.9\paperwidth}(0.875cm, 0.5cm)
-    \input{../../pikz/07MoJ/SxS/07MoJSxS01tikz.tex}
+    \input{../../pikz/07MoJ/07MoJSxS01tikz.tex}
   \end{textblock*}
 
   \only<1>{  
     \begin{textblock*}{8cm}(2.5cm, 5.5cm)
       \normalsize
-      \begin{statsbox}[colback=Bisque3!50, coltitle=Bisque3!50]{Method of Joints: Example 1}
+      \begin{statsbox}[colback=LightYellow3!50, coltitle=LightYellow3!50]{Method of Joints: Example 1}
         \centering
         The truss is supported by a pinned connection at $A$ and a roller, inclined at $ 35\deg$ to the horizontal, at $D$. \pars
         Determine the internal force in each truss member due \\to the applied loads at $E$ and $F$. 
@@ -102,7 +94,7 @@
   \only<2-4>{
     \begin{textblock*}{7.5cm}(2.75cm, 5cm)
      
-      \begin{statsbox}[colback=Bisque3!50, coltitle=Bisque3!50]{Find the reaction at $\bm D$}
+      \begin{statsbox}[colback=LightYellow3!50, coltitle=LightYellow3!50]{Find the reaction at $\bm D$}
         \centering
         Take moments of the external forces acting on the truss, about $A$:
         
@@ -120,14 +112,14 @@
   }
   \only<5>{
     \begin{textblock*}{7.5cm}(2.75cm, 5cm)     
-      \begin{statsbox}[colback=Bisque3!50, coltitle=Bisque3!50, left=2.5mm,right=2mm]{Find the reaction at $\bm A$}        
+      \begin{statsbox}[colback=LightYellow3!50, coltitle=LightYellow3!50, left=2.5mm,right=2mm]{Find the reaction at $\bm A$}        
         \textcolor{statsMaroon}{\bf Note:} We could proceed to find all the forces in the truss members, working from $D$ back to $A$, {\bf without} finding the reaction at $A$. But the reaction at $A$ is useful for a check -- at the end of the problem -- to make sure that we haven't made any errors along the way.        
       \end{statsbox}
     \end{textblock*}
   }
   \only<6-7>{
     \begin{textblock*}{7.5cm}(2.75cm, 5cm)     
-      \begin{statsbox}[colback=Bisque3!50, coltitle=Bisque3!50, left=2.5mm,right=2mm]{Find the reaction at $\bm A$}
+      \begin{statsbox}[colback=LightYellow3!50, coltitle=LightYellow3!50, left=2.5mm,right=2mm]{Find the reaction at $\bm A$}
         \begin{align*}
           \uncover<6->{
             \sum F_x &= R_{Ax}-4.0692 \sin 35\deg\,\text{kN}=0\\
@@ -143,7 +135,7 @@
   }
   \only<8>{
     \begin{textblock*}{7.5cm}(2.75cm, 4.96cm)     
-      \begin{statsbox}[colback=Bisque3!50, coltitle=Bisque3!50, left=2.5mm,right=2mm]{Find the truss angle}
+      \begin{statsbox}[colback=LightYellow3!50, coltitle=LightYellow3!50, left=2.5mm,right=2mm]{Find the truss angle}
         \begin{align*}          
             \angle CDE &= \tan^{-1}\left[ \frac{CE}{DE} \right]\\
             &= \tan^{-1}\left[ \frac{2.65\,\text{m}}{4.00\,\text{m}} \right]\\
@@ -154,18 +146,18 @@
   }
   \only<9-11>{
     \begin{textblock*}{9.5cm}(1.75cm, 5cm)     
-      \begin{statsbox}[colback=Bisque3!50, coltitle=Bisque3!50, left=2.5mm,right=2mm]{Joint $\bm D$}
+      \begin{statsbox}[colback=LightYellow3!50, coltitle=LightYellow3!50, left=2.5mm,right=2mm]{Joint $\bm D$}
         \mini[0.3]{
           \raggedright
           First, the free body diagram:\pars
           \tikz{%color
             \coordinate (D) at (0,0);
-            \draw[statsMaroon, thick, -latex] (D) -- (125:1.75) node[above, black] {$ 4.0692\,$kN};
+            \draw[RoyalBlue3, thick, -latex] (D) -- (125:1.75) node[above, black] {$ 4.0692\,$kN};
             \draw[thick, -latex] (D) -- (146.5:1.75) node[left, black] {$ F_{CD} $};
             \draw[thick, -latex] (D) -- (180:1.75) node[left, black] {$ F_{DE} $};
             \draw[thin, gray] ($ (D)+(0, 0.25) $) -- +(0,1.25);
             \draw[latex-latex] ($ (D)+(90:1.25) $) arc (90:125:1.25)node[midway,yshift=0.125cm] {$ 35\deg $};
-            \draw[latex-latex] ($ (D)+(146.5:1.25) $)arc(146.5:180:1.25) node[midway, fill=Bisque3!50, inner sep=0.35mm]{ $ 33.524\deg $};
+            \draw[latex-latex] ($ (D)+(146.5:1.25) $)arc(146.5:180:1.25) node[midway, fill=LightYellow3!50, inner sep=0.35mm]{ $ 33.524\deg $};
             \fill (D) circle (0.075)node[below left]{$D$};
           }
         }        
@@ -188,7 +180,7 @@
   }
   \only<12-14>{
     \begin{textblock*}{9.5cm}(1.75cm, 5cm)     
-      \begin{statsbox}[colback=Bisque3!50, coltitle=Bisque3!50, left=2.5mm,right=2mm]{Joint $\bm C$}
+      \begin{statsbox}[colback=LightYellow3!50, coltitle=LightYellow3!50, left=2.5mm,right=2mm]{Joint $\bm C$}
         \mini[0.35]{
           \raggedright
           \tikz{%color
@@ -196,7 +188,7 @@
             \draw[thick, -latex] (C) -- (180:1.5) node[left] {$ F_{BC} $};
             \draw[thick, -latex] (C) -- (270:1) node[left] {$ F_{CE} $};
             \draw[thick, -latex] (C) -- (146.5:1.5) node[above] {$ 6.0354\,$kN};
-            \draw[latex-latex] ($ (C)+(146.5:1.125) $)arc(146.5:180:1.125) node[midway, fill=Bisque3!50, inner sep=0.35mm]{ $ 33.524\deg $};
+            \draw[latex-latex] ($ (C)+(146.5:1.125) $)arc(146.5:180:1.125) node[midway, fill=LightYellow3!50, inner sep=0.35mm]{ $ 33.524\deg $};
             \fill (C) circle (0.075) node[below left] {$C$};
           }
         }        
@@ -218,17 +210,17 @@
   }
   \only<15-17>{
     \begin{textblock*}{9.5cm}(1.75cm, 5cm)     
-      \begin{statsbox}[colback=Bisque3!50, coltitle=Bisque3!50, left=0mm,right=2mm]{Joint $\bm E$}
+      \begin{statsbox}[colback=LightYellow3!50, coltitle=LightYellow3!50, left=0mm,right=2mm]{Joint $\bm E$}
         \mini[0.35]{
           \raggedright
           \tikz{%color
             \coordinate (E) at (0,0);
             \draw[thick, -latex] (E) -- (180:1.25) node[below] {$ F_{EF} $};
-            \draw[statsMaroon, thick, -latex] (E) -- (270:0.75) node[left] {$ 4.00\,$kN};
+            \draw[RoyalBlue3, thick, -latex] (E) -- (270:0.75) node[left] {$ 4.00\,$kN};
             \draw[thick, -latex] (E) -- (146.5:1.25) node[above] {$ F_{BE}$};
             \draw[thick, -latex] (E) -- (90:0.75) node[above] {$ 3.3333\,$kN};
             \draw[thick, -latex] (E) -- (0:0.75) node[below] {$ 2.6974\,$kN};
-            \draw[latex-latex] ($ (E)+(146.5:1) $)arc(146.5:180:1) node[midway, fill=Bisque3!50, inner sep=0.15mm]{\scriptsize $ 33.524\deg $};
+            \draw[latex-latex] ($ (E)+(146.5:1) $)arc(146.5:180:1) node[midway, fill=LightYellow3!50, inner sep=0.15mm]{\scriptsize $ 33.524\deg $};
             \fill (E) circle (0.075) node[below left] {$E$};
           }
         }        
@@ -250,13 +242,13 @@
   }
   \only<18-20>{
     \begin{textblock*}{9.5cm}(1.75cm, 5cm)     
-      \begin{statsbox}[colback=Bisque3!50, coltitle=Bisque3!50, left=2.5mm,right=2mm]{Joint $\bm F$}
+      \begin{statsbox}[colback=LightYellow3!50, coltitle=LightYellow3!50, left=2.5mm,right=2mm]{Joint $\bm F$}
         \mini[0.45]{
           \raggedright
           \tikz{%color
             \coordinate (F) at (0,0);
             \draw[thick, -latex] (F) -- (180:0.75) node[left] {$ F_{AF} $};
-            \draw[statsMaroon, thick, -latex] (F) -- (270:0.75) node[left] {$ 2.00\,$kN};
+            \draw[RoyalBlue3, thick, -latex] (F) -- (270:0.75) node[left] {$ 2.00\,$kN};
             \draw[thick, -latex] (F) -- (0:.75) node[above] {$ 1.6910\,$kN};
             \draw[thick, -latex] (F) -- (90:0.75) node[above] {$ F_{BF}$};           
             \fill (F) circle (0.075) node[below left] {$F$};
@@ -280,7 +272,7 @@
   }
   \only<21-23>{
     \begin{textblock*}{9.5cm}(1.75cm, 5cm)     
-      \begin{statsbox}[colback=Bisque3!50, coltitle=Bisque3!50, left=2.5mm,right=2mm]{Joint $\bm B$}
+      \begin{statsbox}[colback=LightYellow3!50, coltitle=LightYellow3!50, left=2.5mm,right=2mm]{Joint $\bm B$}
         \mini[0.4]{
           \raggedright
           \tikz{
@@ -290,8 +282,8 @@
             \draw[thick, -latex] (B) -- (-90:1) node[below] {$ 2.00\,$kN};
             \draw[thick, -latex] (B) -- (213.5:1.5) node[below] {$ F_{AB}$};
             \draw[thin, gray] ($ (B)+(-0.25,0) $) -- +(180:1); 
-            \draw[latex-latex] ($ (B)+(213.5:1.125) $)arc(213.5:180:1.125) node[midway, fill=Bisque3!50, inner sep=0.35mm]{ $ 33.524\deg $};
-            \draw[latex-latex] ($ (B)+(-33.5:1.125) $)arc(-33.5:0:1.125) node[midway, fill=Bisque3!50, inner sep=0.35mm]{ $ 33.524\deg $};
+            \draw[latex-latex] ($ (B)+(213.5:1.125) $)arc(213.5:180:1.125) node[midway, fill=LightYellow3!50, inner sep=0.35mm]{ $ 33.524\deg $};
+            \draw[latex-latex] ($ (B)+(-33.5:1.125) $)arc(-33.5:0:1.125) node[midway, fill=LightYellow3!50, inner sep=0.35mm]{ $ 33.524\deg $};
            
             \fill (B) circle (0.075) node[above left] {$B$};
           }
@@ -317,7 +309,7 @@
   }
   \only<24-27>{
     \begin{textblock*}{10cm}(1.5cm, 5cm)     
-      \begin{statsbox}[colback=Bisque3!50, coltitle=Bisque3!50, left=1.5mm,right=2mm]{Check for equilibrium at  $\bm A$}
+      \begin{statsbox}[colback=LightYellow3!50, coltitle=LightYellow3!50, left=1.5mm,right=2mm]{Check for equilibrium at  $\bm A$}
         \begin{center}
           This is to verify that we haven't made an error in our member force calculations. 
         \end{center}
@@ -326,11 +318,11 @@
           \tikz{
             \coordinate (A) at (0,0);
             \draw[thick, -latex] ($ (A)+(0:0.0625) $) -- (0:1.5) node[below] {$ 1.6910\,$kN};
-            \draw[thick, latex-, statsMaroon] ($ (A)-(0:0.0625) $) -- (180:1) node[below] {$ 2.3340\,$kN};
-            \draw[thick, -latex, statsMaroon] ($ (A)-(90:0.0625) $) -- (90:1) node[above] {$ 2.6667\,$kN};
+            \draw[thick, latex-, RoyalBlue3] ($ (A)-(0:0.0625) $) -- (180:1) node[below] {$ 2.3340\,$kN};
+            \draw[thick, -latex, RoyalBlue3] ($ (A)-(90:0.0625) $) -- (90:1) node[above] {$ 2.6667\,$kN};
             \draw[thick, latex-] ($ (A)+(33.5:0.0625) $) -- (33.5:1.5) node[above] {$4.8282\,$kN};
            
-            \draw[latex-latex] ($ (A)+(0:1.125) $)arc(0:33.5:1.125) node[midway, fill=Bisque3!50, inner sep=0.35mm]{ $ 33.524\deg $};
+            \draw[latex-latex] ($ (A)+(0:1.125) $)arc(0:33.5:1.125) node[midway, fill=LightYellow3!50, inner sep=0.35mm]{ $ 33.524\deg $};
             \fill (A) circle (0.075) node[below left] {$A$};
           }
         }        
@@ -360,7 +352,7 @@
   \only<28->{
     % \begin{textblock*}{10cm}(1.5cm, 5.045cm)     
     \begin{textblock*}{6cm}(3.5cm, 4.5cm)     
-      \begin{statsbox}[colback=Bisque3!50, coltitle=Bisque3!50, left=1.5mm,right=2mm]{The Results}
+      \begin{statsbox}[colback=LightYellow3!50, coltitle=LightYellow3!50, left=1.5mm,right=2mm]{The Results}
         \centering
         \begin{align*}
           AB &= 4.83\,\text{kN}\quad\text{(Compression)} \\
@@ -386,13 +378,13 @@
 \begin{frame}
 
   \begin{textblock*}{6.25cm}(6.25cm, 0.25cm)
-    \input{../../pikz/07MoJ/SxS/07MoJSxS02tikz.tex}
+    \input{../../pikz/07MoJ/07MoJSxS02tikz.tex}
   \end{textblock*}
 
   \only<1>{  
     \begin{textblock*}{6cm}(0.5cm, 6.5cm)
       \normalsize
-      \begin{statsbox}{Method of Joints: Example 2}
+      \begin{statsbox}[colback=Honeydew3!50, coltitle=Honeydew3!50]{Method of Joints: Example 2}
         Solve for the internal forces in each of the truss members. Specify whether they are in tension or in compression. Then use the reactions at $C$ and $D$ to verify your results.
       \end{statsbox}
     \end{textblock*}
@@ -402,7 +394,7 @@
   \only<2-7>{
     \begin{textblock*}{4.5cm}(0.75cm,3.5cm)
       \footnotesize
-      \begin{statsbox}[colback=Seashell3!50, coltitle=Seashell3!50]{Find the angles}        
+      \begin{statsbox}[colback=Honeydew3!50, coltitle=Honeydew3!50]{Find the angles}        
           \begin{align*}
             \uncover<2->{ \angle BAE & = \tan^{-1} \left[\frac{2.25}{3.00}\right]  \\}
             \uncover<3->{ & = 36.870\deg \\\\}          
@@ -417,19 +409,19 @@
 
   \only<8-14>{
     \begin{textblock*}{5.75cm}(0.25cm,0.25cm)
-      \begin{statsbox}[colback=Seashell3!50, coltitle=Seashell3!50]{Joint $\bm A$} 
+      \begin{statsbox}[colback=Honeydew3!50, coltitle=Honeydew3!50]{Joint $\bm A$} 
         \centering
-        Draw the unknown forces in tension, pointing away from the joint they are acting upon. Then a positive result means the member is in tension and a negative result implies compression.\parm
+        Draw the unknown forces in tension, pointing away from the joint they are acting upon. Then a positive result means the member is in tension and a ndegative result implies compression.\parm
         \uncover<9->{       
           \tikz[scale=1]{
             \coordinate (A) at (0,0);
             \draw[thick, -latex] (A) -- (36.87:1.75cm) node[above] {$F_{AB}$};
-            \draw[very thick,-latex, statsMaroon] (A) -- (-90:1.25cm) node[below] {$\bm{1650}$\,\bf N};
+            \draw[very thick,-latex, statsMaroon] (A) -- (-90:1.25cm) node[below] {\footnotesize ${1650\,\textsf{kN}}$};
             \draw[thick,-latex] (A) -- (-51.34:1.75cm) node[right] {$F_{AD}$};
             \shade [ball color = Ivory4] (A) circle (0.0875cm) node[xshift=-0.25cm] {$A$};
             \draw[thin, gray] ($ (A)+(0.25,0) $) -- +(1.5,0);
-            \draw[latex-latex] ($ (A)+(1.25,0) $)  arc (0:36.87:1.25) node[fill=Seashell3!50, inner sep = 0.125em] at ($ (A)+(18:1.25) $) {\scriptsize $36.870\deg$};
-            \draw[latex-latex] ($ (A)+(1.25,0) $)  arc (0:-51.340:1.25) node[fill=Seashell3!50, inner sep = 0.125em] at ($ (A)+(-26:1.25) $) {\scriptsize $51.340\deg$};
+            \draw[latex-latex] ($ (A)+(1.25,0) $)  arc (0:36.87:1.25) node[fill=Honeydew3!50, inner sep = 0.125em] at ($ (A)+(18:1.25) $) {\scriptsize $36.870\deg$};
+            \draw[latex-latex] ($ (A)+(1.25,0) $)  arc (0:-51.340:1.25) node[fill=Honeydew3!50, inner sep = 0.125em] at ($ (A)+(-26:1.25) $) {\scriptsize $51.340\deg$};
           } % end tikz
         }
         \parm
@@ -457,7 +449,7 @@
   }
   \only<15-17>{
     \begin{textblock*}{5.75cm}(0.25cm,2.25cm)
-      \begin{statsbox}[colback=Seashell3!50, coltitle=Seashell3!50]{Joint $\bm B$} 
+      \begin{statsbox}[colback=Honeydew3!50, coltitle=Honeydew3!50]{Joint $\bm B$} 
         \centering             
         \tikz[scale=1]{
           \coordinate (B) at (0,0);
@@ -466,7 +458,7 @@
           \draw[thick,-latex] (B) -- (0:1.25cm) node[right] {$F_{BC}$};
           \shade [ball color = Ivory4] (B) circle (0.0875cm) node[yshift=0.25cm] {$B$};
           \draw[thin, gray] ($ (B)-(0.25,0) $) -- +(-1.25,0);
-          \draw[latex-latex] ($ (B)+(-1.25,0) $)  arc (180:216.87:1.25) node[fill=Seashell3!50, inner sep = 0.125em] at ($ (B)+(198:1.25) $) {\scriptsize $36.870\deg $};
+          \draw[latex-latex] ($ (B)+(-1.25,0) $)  arc (180:216.87:1.25) node[fill=Honeydew3!50, inner sep = 0.125em] at ($ (B)+(198:1.25) $) {\scriptsize $36.870\deg $};
          
         } % end tikz
      
@@ -488,7 +480,7 @@
 
   \only<18-20>{
     \begin{textblock*}{5.75cm}(0.25cm,1.75cm)
-      \begin{statsbox}[colback=Seashell3!50, coltitle=Seashell3!50]{Joint $\bm D$} 
+      \begin{statsbox}[colback=Honeydew3!50, coltitle=Honeydew3!50]{Joint $\bm D$} 
         \centering
         Note that we have to include the reaction from the\\ rocker at $D$ in the free body diagram since \\it also acts on the joint.\parb
 
@@ -502,8 +494,8 @@
           \draw[thin, gray] ($ (D)-(-0.25,0) $) -- +(1,0);        
           \draw[thin, gray] ($ (D)-(0.25,0) $) -- +(-1,0);        
           
-          \draw[latex-latex] ($ (D)+(-1,0) $)  arc (180:128.66:1) node[fill=Seashell3!50, inner sep = 0.25em] at ($ (D)+(155:1) $) { $51.340\deg$};
-          \draw[latex-latex] ($ (D)+(0.875,0) $)  arc (0:63.435:0.875) node[fill=Seashell3!50, inner sep = 0.25em] at ($ (D)+(25:1) $) { $63.435\deg$};
+          \draw[latex-latex] ($ (D)+(-1,0) $)  arc (180:128.66:1) node[fill=Honeydew3!50, inner sep = 0.25em] at ($ (D)+(155:1) $) { $51.340\deg$};
+          \draw[latex-latex] ($ (D)+(0.875,0) $)  arc (0:63.435:0.875) node[fill=Honeydew3!50, inner sep = 0.25em] at ($ (D)+(25:1) $) { $63.435\deg$};
          
         } % end tikz
      
@@ -524,7 +516,7 @@
   }
   \only<21-24>{
     \begin{textblock*}{5.75cm}(0.25cm,.25cm)
-      \begin{statsbox}[colback=Seashell3!50, coltitle=Seashell3!50]{Do a calculation check!} 
+      \begin{statsbox}[colback=Honeydew3!50, coltitle=Honeydew3!50]{Do a calculation check!} 
         \centering
         There are some checks we can make to ensure there are no errors in our calculations. We use moments and the summing of the reactions. \parm
         First, determine $R_{Dy}$, the $y$-component of the reaction at $D$ ($D$ is supported by a rocker and has no $x$-component):\parm
@@ -539,8 +531,8 @@
             \draw[thin, gray] ($ (D)-(-0.25,0) $) -- +(1,0);        
             \draw[thin, gray] ($ (D)-(0.25,0) $) -- +(-1,0);        
             
-            \draw[latex-latex] ($ (D)+(-1,0) $)  arc (180:128.66:1) node[fill=Seashell3!50, inner sep = 0.25em] at ($ (D)+(155:1) $) { $ 51.340\deg $};
-            \draw[latex-latex] ($ (D)+(0.875,0) $)  arc (0:63.435:0.875) node[fill=Seashell3!50, inner sep = 0.25em] at ($ (D)+(25:1) $) { $63.435\deg$};         
+            \draw[latex-latex] ($ (D)+(-1,0) $)  arc (180:128.66:1) node[fill=Honeydew3!50, inner sep = 0.25em] at ($ (D)+(155:1) $) { $ 51.340\deg $};
+            \draw[latex-latex] ($ (D)+(0.875,0) $)  arc (0:63.435:0.875) node[fill=Honeydew3!50, inner sep = 0.25em] at ($ (D)+(25:1) $) { $63.435\deg$};         
           } % end tikz
        
      
@@ -571,7 +563,7 @@
 
   \only<25-29>{
     \begin{textblock*}{5.75cm}(0.25cm,.25cm)
-      \begin{statsbox}[colback=Seashell3!50, coltitle=Seashell3!50]{Check cont'd} 
+      \begin{statsbox}[colback=Honeydew3!50, coltitle=Honeydew3!50]{Check cont'd} 
         \centering
         
         Notice that results from members $AC$, $AB$, $BD$ and $CD$ were incorporated into this check (since $AB$ was used in the calculation of $BD$) so it is safe to assume that these results are correct. 
@@ -592,7 +584,7 @@
             \draw[-latex, very thick, statsMaroon] (C)--+(-90:1) node[right] {\footnotesize $1649.9\,\text{N} $}; 
             \draw[-latex, thick] (C)--+(180:1.25) node[left] {\footnotesize $825.04\,\text{N} $}; 
             \draw[latex-, thick] ($ (C)+(243.33:0.05) $)--+(243.44:1.125) node[below] {\footnotesize $1844.7\,\text{N} $}; 
-            \draw[latex-latex] ($ (C)+(-1,0) $)  arc (180:243.44:1) node[fill=Seashell3!50, inner sep = 0.25em] at ($ (C)+(210:1) $) { $63.435\deg$};      
+            \draw[latex-latex] ($ (C)+(-1,0) $)  arc (180:243.44:1) node[fill=Honeydew3!50, inner sep = 0.25em] at ($ (C)+(210:1) $) { $63.435\deg$};      
             \shade [ball color = Ivory4] (C) circle (0.0875cm) node[yshift=-0.125cm, xshift=0.125cm] {$C$};
           } 
           \begin{align*}
@@ -612,7 +604,7 @@
 
   \only<30->{
     \begin{textblock*}{5.75cm}(0.25cm,5.5cm)
-      \begin{statsbox}[colback=Seashell3!50, coltitle=Seashell3!50]{The Results} 
+      \begin{statsbox}[colback=Honeydew3!50, coltitle=Honeydew3!50]{The Results} 
         \centering
         \begin{align*}
           AB &= 1030\text{ N}\quad\text{(Tension)} \\
@@ -633,30 +625,32 @@
 \begin{frame}
 
   \begin{textblock*}{0.65\linewidth}(0.5cm, 0.25cm)
-    \input{../../pikz/07MoJ/SxS/07MoJSxS03tikz.tex}
+    \def\scale{0.975}
+    \input{../../pikz/07MoJ/07MoJSxS03tikz.tex}
   \end{textblock*}
 
 \only<1>{  
   \begin{textblock*}{6cm}(5cm, 7.25cm)
-    \begin{statsbox}{Method of Joints: Example 3}
+    \begin{statsbox}[colback=LemonChiffon3!50, coltitle=LemonChiffon3!50]{Method of Joints: Example 3}
       Analyze the truss above to determine the internal forces in each truss member. All connections are pinned.
     \end{statsbox}
   \end{textblock*}
 }
 
+\footnotesize
+
 \only<2-11>{
-  \begin{textblock*}{3.75cm}(8.75cm,0.25cm)
+  \begin{textblock*}{3.25cm}(9.25cm,0.25cm)
     \footnotesize
-    \begin{statsbox}{Find the angles}
-      
-        \begin{align*}
-          \uncover<2-11>{ \angle DEF & = \tan^{-1} \left[\frac{2.50}{3.00}\right]  \\}
-          \uncover<3-11>{ & = 39.806\deg                            \\\\}          
-          \uncover<4-11>{ \theta & = \tan^{-1} \left[\frac{1.50}{3.00}\right] \\}
-          \uncover<5-11>{ & = 26.565\deg \\\\ }
-          \uncover<6-11>{ \angle CAG & = \tan^{-1} \left[\frac{4.00}{3.00}\right] \\}
-          \uncover<7-11>{ & = 53.130\deg }
-        \end{align*}
+    \begin{statsbox}[colback=LemonChiffon3!50, coltitle=LemonChiffon3!50]{Find the angles}
+      \begin{align*}
+        \uncover<2-11>{ \angle DEF & = \tan^{-1} \left[\frac{2.50}{3.00}\right]  \\}
+        \uncover<3-11>{ & = 39.806\deg                            \\\\}          
+        \uncover<4-11>{ \theta & = \tan^{-1} \left[\frac{1.50}{3.00}\right] \\}
+        \uncover<5-11>{ & = 26.565\deg \\\\ }
+        \uncover<6-11>{ \angle CAG & = \tan^{-1} \left[\frac{4.00}{3.00}\right] \\}
+        \uncover<7-11>{ & = 53.130\deg }
+      \end{align*}
     \end{statsbox}
   \end{textblock*}
  }
@@ -664,7 +658,7 @@
 \begin{textblock*}{10.5cm}(2cm, 5.75cm)  
   \uncover<8-11>{
     \footnotesize
-    \begin{statsbox}{Notice:}
+    \begin{statsbox}[colback=LemonChiffon3!50, coltitle=LemonChiffon3!50]{Notice:}
       
       \begin{enumerate}
         \item<8-11> By inspection, truss member $DF$ is a \textcolor{statsMaroon}{\bfseries zero-force} member. (Consider the $y$-components acting at $F$.)\par
@@ -676,16 +670,16 @@
 \end{textblock*}
 
 
-  \begin{textblock*}{4.25cm}(8.25cm,0.17cm)
+  \begin{textblock*}{4cm}(8.5cm,0.17cm)
     \uncover<12-15>{
       \footnotesize
-      \begin{statsbox}{Joint $\bm E$}
+      \begin{statsbox}[colback=LemonChiffon3!50, coltitle=LemonChiffon3!50]{Joint $\bm E$}
         \centering
         \tikz[scale=1]{
           \coordinate (E) at (0,0);
           \draw[thick, arrows={-latex}] (E) -- (140:1.25cm) node[left] {$F_{DE}$};
           \draw[thick,arrows={-latex}] (E) -- (180:1.25cm) node[left] {$F_{EF}$};
-          \draw[very thick, statsMaroon,arrows={-Latex}] (E) -- + (0,-1) node[left]
+          \draw[very thick, RoyalBlue3,arrows={-Latex}] (E) -- + (0,-1) node[left]
           {$ 3.50\,\text {kN }$};
           \draw[arrows={latex-latex}] ($ (E)+(-0.875,0) $)  arc (180:140.2:0.875cm) node[fill=boxBG, inner sep = 0.125em] at ($ (E)+(160:0.875) $) {\scriptsize $39.806\deg$};
           \shade [ball color = Ivory4] (E) circle (0.0875cm) node[right] {$E$};
@@ -707,7 +701,7 @@
   \begin{textblock*}{10cm}(1.5cm, 6cm)  
     \uncover<12-15>{
       \footnotesize
-      \begin{statsbox}{Considerations:}
+      \begin{statsbox}[colback=LemonChiffon3!50, coltitle=LemonChiffon3!50]{Considerations:}
         
         \begin{enumerate}
           \item<12->Draw a free body diagram (FBD) \textcolor{structure}{--- for each joint!}
@@ -722,7 +716,7 @@
   \begin{textblock*}{4.25cm}(8.25cm,0.17cm)
     \uncover<16-17>{
       \footnotesize
-      \begin{statsbox}{Joint $\bm F$}
+      \begin{statsbox}[colback=LemonChiffon3!50, coltitle=LemonChiffon3!50]{Joint $\bm F$}
         \centering
         This one is easy!\pars
         \tikz[scale=1]{
@@ -744,10 +738,10 @@
     }
   \end{textblock*}
 
-  \begin{textblock*}{4.25cm}(8.25cm,0.17cm)
+  \begin{textblock*}{4cm}(8.5cm,0.17cm)
     \uncover<18-23>{
       \footnotesize
-      \begin{statsbox}{Joint $\bm D$}
+      \begin{statsbox}[colback=LemonChiffon3!50, coltitle=LemonChiffon3!50]{Joint $\bm D$}
         \centering
         % This one is not quite so easy!\pars
         \tikz[scale=1]{
@@ -798,11 +792,11 @@
     }
   \end{textblock*}
 
-  \begin{textblock*}{4.25cm}(8.25cm,0.17cm)
+  \begin{textblock*}{4cm}(8.5cm,0.17cm)
     \uncover<24-27>{
       \footnotesize
       % \scriptsize
-      \begin{statsbox}{Joint $\bm G$}
+      \begin{statsbox}[colback=LemonChiffon3!50, coltitle=LemonChiffon3!50]{Joint $\bm G$}
         \centering
         \tikz[scale=1]{
           \coordinate (G) at (0,0);
@@ -837,7 +831,7 @@
   \begin{textblock*}{4.25cm}(8.25cm,0.17cm)
     \uncover<28-33>{
       \footnotesize
-      \begin{statsbox}{Joint $\bm C$}
+      \begin{statsbox}[colback=LemonChiffon3!50, coltitle=LemonChiffon3!50]{Joint $\bm C$}
         \centering
         % This one is not quite so easy!\pars
         \tikz[scale=1]{
@@ -892,7 +886,7 @@
   \only<34-45>{
     \begin{textblock*}{4.25cm}(8.25cm,0.17cm)    
       \footnotesize
-      \begin{statsbox}{Finished \ldots almost}
+      \begin{statsbox}[colback=LemonChiffon3!50, coltitle=LemonChiffon3!50]{Finished \ldots almost}
         Inputs (lengths and the load at $E$) were accurate to $3$ significant digits so our results can be no more accurate than this:
         \uncover<35->{
           \begin{align*}
@@ -916,7 +910,7 @@
   \only<36-37>{
     \begin{textblock*}{4.25cm}(8.25cm,5.875cm)
       \footnotesize
-      \begin{statsbox}{But are these correct?}
+      \begin{statsbox}[colback=LemonChiffon3!50, coltitle=LemonChiffon3!50]{But are these correct?}
         \only<36-38>{
           We could easily have made an error in a truss member calculation, causing most or all subsequent results to be incorrect. \parm               
           \textbf{Let's do a check}. We can calculate the reactions at $A$ and $B$, then check that all external forces acting on the truss do actually sum to zero in the $x$ and $y$ directions.
@@ -928,7 +922,7 @@
   \only<38-41>{
     \begin{textblock*}{5.75cm}(0.5cm,6cm)   
       \footnotesize
-      \begin{statsbox}{Reaction at $\bm A$}       
+      \begin{statsbox}[colback=LemonChiffon3!50, coltitle=LemonChiffon3!50]{Reaction at $\bm A$}       
           \begin{align*}
             % \uncover<38->{
               \sum F_x &= R_{Ax}-0.79546 \cos 53.130\deg\,\text{kN} -5.2499\,\text{kN}= 0 \\
@@ -948,7 +942,7 @@
   \only<40-41>{
     \begin{textblock*}{5.75cm}(6.75cm,6cm)
       \footnotesize
-      \begin{statsbox}{Reaction at $\bm B$}       
+      \begin{statsbox}[colback=LemonChiffon3!50, coltitle=LemonChiffon3!50]{Reaction at $\bm B$}       
           \begin{align*}
             % \uncover<38->{
               \sum F_x &= R_{Bx}+6.4032 \cos 26.565\deg\,\text{kN}= 0 \\
@@ -969,7 +963,7 @@
   \only<42-45>{
     \begin{textblock*}{9cm}(2.25cm,6cm)
       \footnotesize
-      \begin{statsbox}{The final check!}
+      \begin{statsbox}[colback=LemonChiffon3!50, coltitle=LemonChiffon3!50]{The final check!}
         \vspace{-0.125cm}
         \uncover<42->{         
           $$\sum F_x = R_{Ax}+R_{Bx} = 5.7272\,\text{kN} - 5.7272\,\text{kN} = 0 \quad \text{\color{Green4}{\huge\checkmark}} $$
@@ -988,7 +982,7 @@
 
   \only<46>{
     \begin{textblock*}{4.25cm}(8.25cm,4cm)      
-      \begin{statsbox}{The Results}
+      \begin{statsbox}[colback=LemonChiffon3!50, coltitle=LemonChiffon3!50]{The Results}
         \footnotesize        
         \begin{align*}
           AB &= 0.795\text{\,kN (Compression)} \\

@@ -73,7 +73,7 @@
 % \newcounter{myexercisecounter}
 
 % Title page details: 
-\title[06 Equilibrium of Rigid Bodies]{\Huge 07 Method of Joints}
+\title[07 Method of Joints]{\Huge 07 Method of Joints}
 \subtitle[Engineering Statics]{\Large\textcolor{white}{Engineering Statics}}
 \author{}
 \date{\small Updated on: \today}
@@ -90,619 +90,342 @@
 	\titlepage
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Overview}
-	\cmini[0.8]{
-		\raggedright
-		\begin{itemize}
-			\item Much of the study of statics involves the calculations of reaction forces generated between a structural body and its supports when loads are applied.
-			\item[]\item There are various connection types used between a structural body and its supports. These connections influence the direction and the sense of the reaction. We shall examine some of these connections now.
-		\end{itemize}
-	}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Types of Connections: Cable}
-	\def\scale{0.5}
-	\begin{textblock*}{\textwidth}(1cm, 1.5cm)
-		\centering
-		\input{../../pikz/06ERB/cableConnection}
-	\end{textblock*}
-
-	\begin{textblock*}{\textwidth}(1cm, 5.5cm)
-		\cmini[0.9]{
-			When a structural member or body is supported by a cable (or rope or chain), the cable is assumed to be weightless (and consequently straight) and the cable exerts a reaction on the structural member {\bf in the same direction} as the cable. \parm
-			A cable is in tension and can only {\bf pull}; it cannot push. \parm
-			There is only one unknown: the magnitude of the force. The direction and sense of the force are known.
-		}
-	\end{textblock*}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Types of Connections: Strut}
-	\def\scale{0.4}
-	\begin{textblock*}{\textwidth}(1cm, 1.5cm)
-		\centering
-		\input{../../pikz/06ERB/strutConnection}
-	\end{textblock*}
-
-	\begin{textblock*}{\textwidth}(1cm, 4.75cm)
-		\cmini[0.95]{
-			Like a cable, a straight strut (or link) exerts a reaction on a structural member in the direction of the strut. Unlike a cable, a strut can pull  or push.
-			\parm
-			If we don't know whether a strut is pushing or pulling, we generally assume that the reaction is directed away from the structural member (pulling, in tension), as shown in (a). If our calculations then determine that $F$ is negative, the direction is opposite to our assumption (i.e., pushing) (b).
-			\parm
-			As with the cable, there is only one unknown. The sign of $F$ determines the  sense of $F$.
-		}
-	\end{textblock*}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Types of Connections: Roller}
-	% \begin{textblock*}{\textwidth}(1cm, 1.5cm)
-	% 	\centering
-	% 	(A table of connection types is shown on page 202 of your text.)\parm
-	% \end{textblock*}
-	\def\scale{0.45}
-	\begin{textblock*}{\textwidth}(1cm, 1.75cm)
-		\centering
-		\input{../../pikz/06ERB/rollerConnection}
-	\end{textblock*}
-
-	\begin{textblock*}{\textwidth}(1cm, 5cm)
-		\cmini[0.95]{
-			A roller (assumed weightless and frictionless) can provide no resistance {\bfseries along} the slope on which it is resting.
-			\uncover<2>{ The only reaction a roller can provide is {\bfseries perpendicular} to the slope.
-				\parm
-				A roller can only push. It is not fixed to the sloped surface and would lift off the surface if pulled.
-				\parm
-				As with the cable, there is only one unknown. If your math is correct, the sign of $F$ should always be positive.
-			}
-		}
-	\end{textblock*}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Types of Connections: More Rollers}
-	\def\scale{0.35}
-	\begin{textblock*}{\textwidth}(1cm, 2cm)
-		\input{../../pikz/06ERB/rollerConnectionMore}
-	\end{textblock*}
-
-	\begin{textblock*}{\textwidth}(1cm, 6cm)
-		\cmini[0.95]{
-			Rollers come in different shapes. But they all react in the same way.
-			\parb
-			\uncover<2>{ The reaction force is perpendicular to the surface that the roller bears on.	}
-		}
-	\end{textblock*}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Types of Connections: Rockers and Smooth Surfaces}
-	\def\scale{0.35}
-	\begin{textblock*}{\textwidth}(1cm, 2cm)
-		\input{../../pikz/06ERB/rockerConnection}
-	\end{textblock*}
-
-	\begin{textblock*}{\textwidth}(1cm, 5cm)
-		\cmini[0.95]{
-			Two more connection types that react in the same way as rollers:
-			\parb
-			\uncover<2>{
-				The {\bfseries rocker}: the reaction force is perpendicular to the surface that the rocker bears on.	\parm
-				The {\bfseries smooth surface} has no friction along the surface: the reaction force is perpendicular to the smooth surface that the structural member bears on.
-			}
-		}
-	\end{textblock*}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Types of Connections: Roller in Smooth Slot}
-	% \begin{textblock*}{\textwidth}(1cm, 1.5cm)
-	% 	\centering
-	% 	(A table of connection types is shown on page 202 of your text.)\parm
-	% \end{textblock*}
-	\def\scale{0.45}
-	\begin{textblock*}{\textwidth}(1cm, 1.5cm)
-		\centering
-		\input{../../pikz/06ERB/slotConnection}
-	\end{textblock*}
-
-	\begin{textblock*}{\textwidth}(1cm, 5.5cm)
-		\cmini[0.9]{
-			With a roller in a smooth slot, we don't necessarily know whether the roller is:
-			\begin{itemize}
-				\item<2-> Bearing on the lower smooth surface; in this case it is the lower surface that provides the reaction.
-				\item<3-> Bearing on the upper smooth surface; in this case it is the upper surface that provides the reaction.
-				\item<4-> In each case, the reaction is perpendicular to the bearing surface of the slot.
-			\end{itemize}
-
-		}
-	\end{textblock*}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Types of Connections: Pinned Connection}
-	% \begin{textblock*}{\textwidth}(1cm, 1.5cm)
-	% 	\centering
-	% 	(A table of connection types is shown on page 202 of your text.)\parm
-	% \end{textblock*}
-	\def\scale{0.45}
-	\begin{textblock*}{\textwidth}(1cm, 1.5cm)
-		\centering
-		\input{../../pikz/06ERB/pinnedConnection}
-	\end{textblock*}
-
-	\begin{textblock*}{\textwidth}(1cm, 5.5cm)
-		\cmini[0.9]{
-			With the pinned connection (also known as a hinged connection), movement is restricted in all directions. The reaction can be in any direction.
-			\begin{itemize}
-				\item<2->This gives us {\bfseries two} unknowns: one generally an $x$-component and one generally a $y$-component.
-				\item<3-> Alternatively (and equivalently), the reaction can be specified by a magnitude and a direction. This is the form that we use to describe the reaction.
-			\end{itemize}
-
-		}
-	\end{textblock*}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Types of Connections: Fixed Connection}
-	\def\scale{0.45}
-	\begin{textblock*}{\textwidth}(1cm, 1.5cm)
-		\centering
-		\input{../../pikz/06ERB/fixedConnection}
-	\end{textblock*}
-
-	\begin{textblock*}{\textwidth}(1cm, 5.5cm)
-		\cmini[0.9]{
-			The fixed connection has {\bfseries three} unknowns.
-			\begin{itemize}
-				\item<2-> Components in the $x$ and $y$ directions (like the pinned connection).
-				\item<3-> A reacting moment, $M$, since (unlike the pinned connection) there can be no rotation about the connection.
-			\end{itemize}
-
-		}
-	\end{textblock*}
-\end{frame}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}{Equilibrium: The Rules}
+\begin{frame}{Trusses}
+	\centering
+	Trusses are the most common method to support residential roof systems
+	
+\stcsfig[0.75]{../../images/071103_houseTruss.jpg}
+		
 
-	\cmini[0.95]{
-		\begin{itemize}
-			\item Here we add another major part of the puzzle: the third and final equation that, combined with our results from the equilibrium of concentric forces, allows us analyze the equilibrium of rigid bodies.\par
-			\item In our discussion of force couples, we noted that although $\Sigma F_x=0$ and $\Sigma F_y=0$ there was still some tendency for the force couple to cause rotation.\par
-			\item For a system to be in equilibrium, there must be no net moment: the sum of the moments of the forces acting upon a rigid body must be zero. There must be no tendency to rotate.
-		\end{itemize}
-		\cmini[0.55]{
-			\begin{tcolorbox}[colback=white,colframe=structure,left=3pt, top=5pt, bottom=5pt, right=0pt, enhanced, drop fuzzy shadow,center title, title=General Conditions for Equilibrium \lb of Rigid Bodies]
-				\vspace{-0.3cm}
-				\begin{align*}
-					\Sigma F_x & = 0 \\
-					\Sigma F_y & = 0 \\
-					\Sigma M   & = 0
-				\end{align*}
 
-			\end{tcolorbox}
-		}
-	}
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}{In Practice:}
+\begin{frame}{Trusses}
+
+	\cmini[.9]{
+		\begin{itemize}
+			\item Truss members are cut to length and laid out on a flat surface.
+			\item Truss connectors are pressed in at the joints of the truss members.
+		\end{itemize}
+
+		\stcsfig[0.7]{../../images/SAIT_071103_37resized}
+
+		\begin{itemize}
+			\item The truss connectors must be applied under proper pressure provided by a roller press in a factory.
+			\item Damaged connectors \textbf{must not} be reinstalled with a hammer!
+		\end{itemize}
+	}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Trusses}
+
+	\cmini[.9]{
+		\begin{itemize}
+			\item Trusses are delivered to site, often banded together.
+		\end{itemize}
+
+		\stcsfig[0.8]{../../images/SAIT_071103_31resized}
+
+		\begin{itemize}
+			\item Careful storage is required before installation.
+		\end{itemize}
+	}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Trusses}
+
+	\stcsfig[0.65]{../../images/2005-08-24-282resized.jpg}
+
 	\cmini[0.9]{
 		\begin{itemize}
-			\item In general, we use these equations to find the reactions at connections between a rigid body (not just a particle) and a support.\parm
-			\item Often, these support reactions will have three unknowns: a pinned connection with two unknown components; and a connection with a known direction (roller, cable, two-force member, etc.) but an unknown magnitude (and, possibly, unknown sense).\parm
-			\item Usually, our first step  after drawing the FBD {\bfseries (!)} is to take moments about the pinned connection to solve directly for the third unknown (the magnitude of the connection with the known direction).\parm
-			\item Then we sum the $x$-components of all the forces involved to solve for the $x$-component of the reaction at the pinned connection. We do the same for the $y$-component. \parm
-			\item From the components of the reaction at the pinned connection, $R_x$ and $R_y$, we use the Pythagorean Theorem and the inverse tangent function to find the magnitude $R$ and direction $\theta$ of the reaction.
+			\item These trusses are built from heavy timbers and will be left exposed as an architectural feature.
+			\item These may be fitted on site or manufactured off-site using computer numerically controlled (CNC) machinery
 		\end{itemize}
-	}
-\end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-	\begin{textblock*}{1\textwidth}(1cm, 0.25cm)
-
-		\begin{myexam}{}{}
-			\centering
-			\def\scale{0.55}
-			\input{../../pikz/06ERB/06erb14.tex}
-			\parb
-			Determine the tension in the chain and the reaction at $A$.
-		\end{myexam}
-	\end{textblock*}
-
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-	\begin{textblock*}{1\textwidth}(1cm, 0.25cm)
-
-		\begin{myexam}{}{}
-			\centering
-			\def\scale{0.55}
-			\input{../../pikz/06ERB/06erb01.tex}
-			\parb
-			Determine the reactions at $A$ and at $B$.
-		\end{myexam}
-	\end{textblock*}
-
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-	\begin{textblock*}{1\textwidth}(1cm, 0.25cm)
-
-		\begin{myexer}{}{}
-			\def\scale{0.8}
-			\centering
-			\input{../../pikz/06ERB/06erb04.tex}
-			\cmini[0.8]{
-				\centering
-				Determine the reactions at $A$ and $D$.
-			}
-		\end{myexer}
-	\end{textblock*}
-
-\end{frame}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-	\begin{textblock*}{1\textwidth}(1cm, 0.25cm)
-
-		\begin{myexer}{}{}
-			\def\scale{0.475}
-			\centering
-			\input{../../pikz/06ERB/06erb03.tex}
-			\cmini[0.8]{
-				\centering
-				Determine the reactions at the pinned connection and the tension in the cable.
-			}
-		\end{myexer}
-	\end{textblock*}
-
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-	\begin{textblock*}{1\textwidth}(1cm, 0.25cm)
-
-		\begin{myexam}{}{}
-			\def\scale{1}
-			\centering
-			\input{../../pikz/06ERB/06erb16.tex}
-			\cmini[0.8]{
-
-				The roller and the pinned connection are on slopes inclined at $21\deg$ to the horizontal; they are both at the same elevation.\parm
-				Determine the reaction at each connection. Indicate direction by measuring counter-clockwise from the positive $x$-axis.
-			}
-		\end{myexam}
-	\end{textblock*}
-
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{}
-	\begin{myexam}{}{}
-		\def\scale{0.55}
-		\input{../../pikz/06ERB/06erb02.tex}
-		\parb\centering
-		The roller at $B$ is in a smooth slot.\par
-		Determine the reactions at $A$ and $B$.
-		
-	\end{myexam}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-	\begin{textblock*}{1\textwidth}(1cm, 0.25cm)
-
-		\begin{myexam}{}{}
-			\def\scale{0.75}
-			\centering
-			\input{../../pikz/06ERB/06erb15.tex}
-			\parm
-			
-			$55$-kg bar $AB$ has its centre of gravity at $G$. It is supported by a pinned connection at $A$ and a smooth peg at $C$. A cable is attached at $B$ and has a tensile force of $1.70\,$kN. The direction of the cable varies between $\theta=60\deg$ and $\theta=135\deg$. \parm
-
-			What is the maximum reaction at $P$? \par Determine the reaction at $A$ for this maximum reaction at $P$.
-			
-		\end{myexam}
-	\end{textblock*}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}{}
-	\begin{myexam}{}{}
-		\cmini[0.95]{
-			\def\scale{0.8}
-			\centering
-			\input{../../pikz/06ERB/06erb08.tex}
-			
-			Beam $AB$ has a fixed support at $A$. (Fixed supports offer resistance to rotation in the form of a reacting couple at $A$; clearly, without this, equilibrium would not be possible.)\parm
-
-			Determine the reaction and the reacting moment at $A$.		
-		}	
-	\end{myexam}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}{Fixed Supports}
-	\begin{myexer}{}{}
-		\centering\def\scale{0.75}
-		\input{../../pikz/06ERB/06erb10.tex}
-		\parb
-		Determine the reaction and reacting moment at $A$.
-		
-	\end{myexer}
-\end{frame}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{}
-	\begin{myexam}{}{}
-		\centering
-		\def\scale{1}
-		\input{../../pikz/06ERB/06erb06.tex}
-		\parb
-		Pipe racks ($AB$, and two hidden behind it) support two smooth Schedule 40 pipes, with an outside diameter of $508\,\text{mm}$, as shown. The pipes are $10\,\text{m}$ in length with a mass of $78.5\,\text{kg/m}$, Each rack supports one-third of the weight of each pipe.\parm 
-		Determine the reaction at the fixed connection $A$.
-		
-	\end{myexam}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{}
-	\begin{myexer}{}{}
-		\centering
-		\def\scale{0.65}
-		\input{../../pikz/06ERB/06erb09.tex}
-		\parb
-		A section of smooth pipe, centred at $O$, has a diameter of $457\,\text{mm}$ and a mass of $186\,\text{kg}$. It is secured by vertical structural member $AB$, hinged with a pinned connection at $A$ and held in place by chain $BC$. \parm Determine the tension in the chain, and the reaction at $A$.		
-		
-	\end{myexer}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{}
-	\begin{myexam}{}{}
-		\centering
-		\def\scale{0.5}
-		\input{../../pikz/06ERB/06erb13.tex}
-		\pars
-		\cmini[0.7]{
-			\centering
-			Soil exerts a trapezoidal distributed load on the bottom of the footing $AB$. \parm Determine the values of $\omega_1$ and $\omega_2$ that support the column loadings in static equilibrium.		
-		}
-	\end{myexam}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Notes:}
-	\cmini[0.9]{
-		\begin{enumerate}
-			\item  For a body in equilibrium, $\Sigma M=0$ for moments summed about {\bfseries any} point in the plane containing the body.\pars
-			\item We have used all the three equations of statics to solve for three unknowns. It would also have been possible to solve using $\Sigma M=0$ three times by choosing appropriate points about which to take moments. There are occasions when it is more convenient to sum moments two or three times, rather than summing components. (We will see this when using the Method of Sections to analyze forces in truss members.)\pars
-			\item Since there are only three equations for statics, we can only solve a system for three unknowns. Frequently, two unknowns come from a pinned connection and the third from a cable, roller or some other connection whose reaction direction is known. (Alternatively, we can solve for a fixed connection, which has three unknowns.)\pars
-			\item Generally, we start by taking moments about the pinned connection - so that we don't need to consider the moments of the pinned connection unknowns. Then, the moment equation will immediately give a solution for the third unknown, e.g., for a connection with a known force direction.
-		\end{enumerate}
-
-	}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}{Two-Force Members}
-
-	\mini[0.4]{
-		For a member with only two external forces acting upon it to be in equilibrium:\parm
-		\begin{itemize}
-			\item Both forces must share the same line of action
-			\item Both forces must have the same magnitude
-			\item The forces must have opposite directions
-		\end{itemize}
-		\parm
-		Then, $\Sigma F_x=0 $, $\Sigma F_y=0 $ {\bfseries and} there is no tendency for the member to rotate.
-		\parm
-		Strut connections and cables are two-force members!
-
-	}
-	\hfill
-	\mini[0.5]{
-		\def\scale{0.75}
-		\tcb{
-			\input{../../pikz/06ERB/tenscomp1.tex}
-		}
-	}
-
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Straight Two-Force Members}
-	\def\scale{0.75}
-	In straight two-force members, the lines of action of the forces are along the member.\lb The forces shown here are {\bfseries external} forces applied to the member.
-	\begin{center}
-		\tcb{
-			\input{../../pikz/06ERB/tenscomp2.tex}
-		}
-	\end{center}
-
-	\uncover<2->{
-		These external forces generate corresponding {\bfseries internal} forces which can be examined by `cutting' a section through the member:
-		\begin{center}
-			\tcb{
-				\input{../../pikz/06ERB/tenscomp3.tex}
-			}
-		\end{center}
 	}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}{External and Internal Forces}
-	\def\scale{0.65}
-	\cmini[1]{
-		It is important to distinguish between external and internal forces.
+\begin{frame}{Trusses}
 
-		When a two-force member is in tension, external forces pull {\bfseries away} from the member (attempting to make the member longer). The opposite is true for compression.
-		\parb\centering
-		
-		\begin{statsbox}[width=0.65\linewidth]{External Forces}
-			\centering
-			\input{../../pikz/06ERB/tenscomp4.tex}
-		\end{statsbox}
+	\stcsfig[0.75]{../../images/2007-07-24-596resized}
 
-		\parb
-	
-		\begin{statsbox}[width=0.65\linewidth]{Internal Forces} 
-			\centering
-			\input{../../pikz/06ERB/tenscomp5.tex}
-		\end{statsbox}
-	
+	\cmini{
+		\begin{itemize}
+			\item This beautiful truss holds up the roof of an octagonal tower in an old church in the small village of Stoney Middleton, Derbyshire, England.
+		\end{itemize}
 	}
 
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}{External and Internal Forces}
+\begin{frame}{Trusses}
 	\def\scale{0.65}
-	\cmini[1]{
-		Initially, the direction of internal forces may seem counter-intuitive.
-\begin{center}
-			\begin{statsbox}[width=0.65\linewidth]{Internal Forces}
-				\centering
-				\input{../../pikz/06ERB/tenscomp5.tex}
-			\end{statsbox}
-		\end{center}
-	}
-	 Why do internal forces pull towards each other when the member is in tension? It is because external forces are trying to `stretch' the member and the internal forces are opposing this stretch, maintaining the length of the member.\parm
 
-	 Similarly, when a straight two-force member is in compression, internal forces in the member `push back' against the external compression.\parm
-
-	 Furthermore, at the ends of the two-force members, external and internal forces must be equal and opposite to each other to maintain equilibrium.
+	\begin{itemize}
+		\item<1-> A truss is a structure of slender two-force members with pinned connections at their end points.
+		\item<2-> Although the top and bottom chords may be continuous in roof trusses, they are not designed to support heavy transverse loads so for our analysis we consider the top and bottom {\bfseries chords} to be be comprised of separate two-force members connected at each joint.	\end{itemize}
+	\centering
+	\input{../../pikz/07MoJ/07MoJ01.tex}
 
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-	\begin{frame}{A Second Look at Strut/Link Connections}
-
-		\def\scale{0.5}
-		\begin{textblock*}{1\textwidth}(1.5 cm, 1.5 cm)
-					\input{../../pikz/06ERB/strutConnectionB.tex}
-		\end{textblock*}
-
-		\begin{textblock*}{0.8\textwidth}(2cm, 7cm)
-			\only<1>{
-			When strut $AB$ is in {\bfseries tension} (due to forces in $AC$), it `pulls' back against $AC$ to maintain equilibrium.
-			}
-			\only<2>{
-			When strut $AB$ is in {\bfseries compression} (due to forces in $AC$), it `pushes' against $AC$ to maintain equilibrium.
-			}
-			\uncover<3>{
-			Frequently, we don't know in advance whether $AB$ is in tension or in compression. In that case, we draw the force acting on $AC$ in tension (i.e., arrow directed {\bfseries away} from $AC$). If our calculations determine that $R$ is negative, then $AB$ is in compression.
-			}
-		\end{textblock*}
-
-	\end{frame}
-
-	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-
-		\begin{myexam}{}{}
-			\def\scale{0.65}
-			\centering
-			\input{../../pikz/06ERB/06erb05.tex}
-			\cmini[0.85]{
-				\centering
-				Determine the reactions at $D$ and $E$.\parb
-				% \textcolor{saitMaroon}{Note}: There are two pinned connections, but there is a single link between $C$ and $D$ so $CD$ is a {\bfseries two-force member}, so the direction of the reaction at $D$ is in the direction of $CD$ and has only one unknown - its magnitude.
-			}
-			
-		\end{myexam}
-
-\end{frame}
-
-		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-
-		\begin{myexer}{}{}
-			\def\scale{0.65}
-			\centering
-			\input{../../pikz/06ERB/06erb07.tex}
-			\cmini[0.8]{
-				\centering
-				Determine the reactions at $A$ and $D$.
-			}
-			
-		\end{myexer}
-\end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
+
+\begin{frame}{Internal Forces in Truss Members at a Joint}
+	\def\scale{0.85}
+	\centering
+	\input{../../pikz/07MoJ/tenscomp6.tex}
 	
-%
-		\begin{myexer}{}{}
-			\def\scale{0.65}
-			\centering
-			\input{../../pikz/06ERB/06erb17.tex}
-			\cmini[0.8]{
-				\centering
-				Member $CD$ is a circular arc with centre at $A$.\pars
-				Determine the reactions at $A$ and $B$.
-			}
-		
-		\end{myexer}
+
+	\cmini[0.8]{
+		These are internal forces, exposed by `cutting' the members to analyze the forces at a joint.\parm
+
+		Arrowhead towards the joint indicates compression of 2345N\parm
+
+		Arrowhead away from the joint indicates tension (1234N, $\bm{\mathrm{T}_{OA}}$ and $ \bm{\mathrm{T}_{OB}}$).\parm
+
+		If tension or compression is unknown, assume the member is in tension. Then, if the result is negative, the assumption of tension was incorrect and the member is actually in compression.
+
+	}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Trusses}
+	\def\scale{0.65}
+
+	\begin{center}
+		\input{../../pikz/07MoJ/07MoJ03.tex}
+	\end{center}
+
+	\begin{itemize}
+		\item Forces are applied only at member end connections, so the members are \textbf{two-force members}\parm
+		\item The forces in two-force members are directed along a line from where the forces are applied. In this case, since the members are straight, the forces (tension or compression) are directed along the truss member itself.\parm
+		\item Trusses are often used to support roofs and bridges
+	\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Truss Bridges}
+	\stcsfig[0.875]{../../images/2007-05-04-054res}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Truss Bridges}
+	\stcsfig[0.8]{../../images/2007-05-04-063res}
+	\centering
+	A Camelback Pratt Truss bridge design, Montana, U.S.
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Truss Bridges}
+
+	\stcsfig[0.8]{../../images/2010-07-15-359res}	
+	\centering
+	Subway Bridge, Chicago, Illinois
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Pinned Connections}
+
+
+	\begin{textblock*}{5cm}(1cm,1cm)
+		\stcsfig[1.15]{../../images/SAIT_071103_49res.jpg}
+
+	\end{textblock*}
+
+	\begin{textblock*}{5cm}(6.125cm,4cm)
+		\stcsfig[1.15]{../../images/2008-03-01-019res.jpg}
+
+	\end{textblock*}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Pinned Connections }
+
+
+	\begin{textblock*}{6.5cm}(1cm,2.25cm)
+		\stcsfig[1]{../../images/2012-07-27-0429-1200}
+
+	\end{textblock*}
+
+	\begin{textblock*}{6cm}(6cm,0.75cm)
+		\stcsfig[1]{../../images/2011-07-10-215res}
+
+	\end{textblock*}
+
+	\begin{textblock*}{4.75cm}(7cm,4.75cm)
+		\stcsfig[1]{../../images/2009-05-05-069res}
+
+	\end{textblock*}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Pinned Connections}
+	\vspace{.25cm}
+	\def\scale{0.75}
+	\centering
+
+		\input{../../pikz/07MoJ/07MoJ02}
+	
+	
+	\cmini[0.8]{
+		\raggedright
+		\begin{itemize}
+			\item<1-> Pinned connections offer no resistance to rotation.
+			\item<2-> A force applied at $B$...\uncover<3->{meets no resistance.}
+			\item<4->The addition of a diagonal member will create two triangles which are stable shapes; \uncover<5->{now the frame can support horizontal and vertical loads.}
+			\item<6> Trusses are made up of (strong) triangles.
+		\end{itemize}
+	}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Pinned Connections}
+
+	\stcsfig[0.75]{../../images/house2}
+	\centering
+	Diagonal bracing could have prevented this.
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Truss and Bridge Supports - Pinned Connection}
+	\begin{textblock*}{3in}(0.5in, 0.325in)
+		\stcsfig[1]{../../images/2009-05-05-083426}
+	\end{textblock*}
+
+	\begin{textblock*}{3in}(2in, 1.5in)
+	\stcsfig[0.8]{../../images/2009-05-05-083709}
+	\end{textblock*}
 	
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-	
-%
-		\begin{myexam}{}{}
-			\def\scale{0.825}
-			\centering
-			\input{../../pikz/06ERB/06erb20.tex}
-			\cmini[0.775]{
-				\centering
-				The bin of a dump-truck is being tipped by hydraulic lift $AB$. ($AB$ can be considered a two-force member.) The bin rotates about a pin at $C$. Determine the force in the lift $AB$ and find the reaction at $C$ if the bin has a mass of $880\,\textsf{kg}$ and $G$ marks its centre of mass.
-			}
-		
-		\end{myexam}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Truss and Bridge Supports - Rollers}
+	\begin{textblock*}{3in}(0.5in, 0.5in)
+		\stcsfig[1]{../../images/roller-wikimedia1}
+	\end{textblock*}
+
+	\begin{textblock*}{3in}(2in, 1.125in)
+	\stcsfig[0.8]{../../images/roller-wikimedia2}
+	\end{textblock*}
 	
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-	
-%
-		\begin{myexer}{}{}
-			\def\scale{0.6}
-			\centering
-			\input{../../pikz/06ERB/06erb18.tex}
-			\cmini[0.775]{
-				\centering
-				The pulley is frictionless. Determine the tension $T$ and the reaction at the pinned connection $O$.
-			}
-		
-		\end{myexer}
-	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{The Method of Joints}
+
+	\mini[0.4]{
+		\begin{itemize}
+			\item<1-> To analyze or design a truss, we need to determine the force in each truss member. \parm
+			\item<2-> The method we shall use here is the \textbf{Method of Joints}. \parm
+			\item<3> If the entire truss is in equilibrium, then each of its joints is also in equilibrium (otherwise the joint would be in motion and the truss could not be in equilibrium).
+		\end{itemize}
+	}
+	\hfill
+	\mini[0.5]{
+		\def\scale{0.75}
+		\input{../../pikz/07MoJ/07MoJ04}
+	}
+
 \end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{The Method of Joints}
+
+	\begin{textblock*}{0.4\textwidth}(2cm, 1.5cm)
+		\def\scale{0.65}
+		\input{../../pikz/07MoJ/07MoJ04}
+	\end{textblock*}
+	\begin{textblock*}{0.4\textwidth}(8cm, 2.25cm)
+		\input{../../pikz/07MoJ/07MoJ04FBD}
+	\end{textblock*}
+
+	\begin{textblock*}{1\textwidth}(1cm, 5.5cm)
+		\centering
+		\begin{itemize}
+			\item<1-> A free-body diagram of each joint is drawn. Unknown forces are generally drawn in tension (i.e., with the arrowhead away from the joint); a negative result (from solving the system) then indicates compression. \parm
+			\item<2-> Use $\Sigma F_x = 0$ and $\Sigma F_y = 0$ to analyze a joint with at most two unknowns. \parm
+			\item<3> At least one force must be known at a joint to determine unknown forces.
+		\end{itemize}
+	\end{textblock*}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}%{Method of Joints}
+
+	\begin{myexam}{}{}
+		\def\scale{0.9}
+		\centering
+		\input{../../pikz/07MoJ/07MoJ05}
+
+		\cmini[0.65]{
+
+			\centering
+			Determine the force in each truss member.
+
+		}
+	\end{myexam}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{frame}%{Method of Joints}
+
+	\begin{myexam}{}{}
+		\def\scale{1}
+		\centering
+		\input{../../pikz/07MoJ/07MoJ06}
+
+		\cmini[0.65]{
+
+			\centering
+			Determine the force in each truss member.
+
+		}
+
+		{\scriptsize (A full solution to this example can be downloaded from \href{https://eduk8r.org/statics/sxs/07MoJSxS.pdf}{here}. Refer to Example 2.)}
+
+	\end{myexam}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

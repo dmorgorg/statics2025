@@ -1,0 +1,87 @@
+
+%%%%%%%%%%%%%%%%%%%%%%% TRUSS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{tikzpicture}[scale=\scale]
+
+	\coordinate (A) at (0,0);
+	\coordinate (B)	at (2,0);
+	\coordinate (C) at (4,0);
+	\coordinate (D) at (6,0);
+	\coordinate (E) at (8,0);
+	\coordinate (F) at (10,0);
+	\coordinate (G) at (12,0);
+	\coordinate (H) at (10,1.5);
+	\coordinate (I) at (8,3);
+	\coordinate (J) at (6,4.5);
+	\coordinate (K) at (4,3);
+	\coordinate (L) at (2,1.5);
+	\footnotesize
+	\PC{A}{RosyBrown}{black}{0.5}{0.125}
+	\Rocker{G}{RosyBrown}{black}{0.5}{0.125}
+
+	% \filldraw[fill=Cornsilk2] ($(DD)+(25:2.5)$)--++(205:2.5)--+(2.25,0);
+	% \draw[latex-latex] ($(DD)+(25:1.75)$)arc(25:0:1.75)node[fill=Cornsilk2, midway, inner sep=0.5mm]{$25\degree$};
+	\fill[RosyBrown] ($(A)+(-1,-0.5)$)rectangle($(A)+(1,-1)$);
+	\fill[RosyBrown] ($(G)+(-1,-0.5)$)rectangle($(G)+(1,-1)$);
+	\draw ($(A)+(-1,-0.5)$)--($(A)+(1,-0.5)$);
+	\draw ($(G)+(-1,-0.5)$)--($(G)+(1,-0.5)$);
+
+	\Meme{B}{L}{DarkOrchid4}{DarkOrchid1}{black}{0.3}{0.15}{0.125}
+	\Meme{C}{K}{DarkOrchid4}{DarkOrchid1}{black}{0.3}{0.15}{0.125}
+	\Meme{D}{J}{DarkOrchid4}{DarkOrchid1}{black}{0.3}{0.15}{0.125}
+	\Meme{E}{I}{DarkOrchid4}{DarkOrchid1}{black}{0.3}{0.15}{0.125}
+	\Meme{F}{H}{DarkOrchid4}{DarkOrchid1}{black}{0.3}{0.15}{0.125}
+	\Meme{C}{L}{DarkOrchid4}{DarkOrchid1}{black}{0.3}{0.15}{0.125}
+	\Meme{D}{K}{DarkOrchid4}{DarkOrchid1}{black}{0.3}{0.15}{0.125}
+	\Meme{D}{I}{DarkOrchid4}{DarkOrchid1}{black}{0.3}{0.15}{0.125}
+	\Meme{E}{H}{DarkOrchid4}{DarkOrchid1}{black}{0.3}{0.15}{0.125}
+	\Meme{A}{B}{DarkOrchid4}{DarkOrchid1}{black}{0.3}{0.15}{0.125}
+	\Meme{C}{B}{DarkOrchid4}{DarkOrchid1}{black}{0.3}{0.15}{0.125}
+	\Meme{C}{D}{DarkOrchid4}{DarkOrchid1}{black}{0.3}{0.15}{0.125}
+	\Meme{E}{D}{DarkOrchid4}{DarkOrchid1}{black}{0.3}{0.15}{0.125}
+	\Meme{E}{F}{DarkOrchid4}{DarkOrchid1}{black}{0.3}{0.15}{0.125}
+	\Meme{G}{F}{DarkOrchid4}{DarkOrchid1}{black}{0.3}{0.15}{0.125}
+	\Meme{A}{L}{DarkOrchid4}{DarkOrchid1}{black}{0.3}{0.15}{0.125}
+	\Meme{K}{L}{DarkOrchid4}{DarkOrchid1}{black}{0.3}{0.15}{0.125}
+	\Meme{K}{J}{DarkOrchid4}{DarkOrchid1}{black}{0.3}{0.15}{0.125}
+	\Meme{G}{H}{DarkOrchid4}{DarkOrchid1}{black}{0.3}{0.15}{0.125}
+	\Meme{I}{H}{DarkOrchid4}{DarkOrchid1}{black}{0.3}{0.15}{0.125}
+	\Meme{I}{J}{DarkOrchid4}{DarkOrchid1}{black}{0.3}{0.15}{0.125}
+	
+	\draw[ultra thick, saitRed, -Latex] (D)--+(0,-2.75)node[below,black]{$12.0\,$kN};
+	\draw[ultra thick, saitRed, -Latex] (C)--+(0,-2.25)node[below,black]{$10.0\,$kN};
+	\draw[ultra thick, saitRed, -Latex] (E)--+(0,-2.25)node[below,black]{$10.0\,$kN};
+	%
+	\shadedraw[ball color=Bisque, draw=black] (A) circle (2.5pt)node[xshift=-0.125cm, yshift=0.25cm]{\normalsize $A$};
+	\shadedraw[ball color=Bisque, draw=black] (B) circle (2.5pt)node[xshift=0.2cm, yshift=-0.3cm]{\normalsize $B$};
+	\shadedraw[ball color=Bisque, draw=black] (C) circle (2.5pt)node[xshift=0.2cm, yshift=-0.3cm]{\normalsize $C$};
+	\shadedraw[ball color=Bisque, draw=black] (D) circle (2.5pt)node[xshift=0.2cm, yshift=-0.3cm]{\normalsize $D$};
+	\shadedraw[ball color=Bisque, draw=black] (E) circle (2.5pt)node[xshift=0.2cm, yshift=-0.3cm]{\normalsize $E$};
+	\shadedraw[ball color=Bisque, draw=black] (F) circle (2.5pt)node[xshift=0.2cm, yshift=-0.3cm]{\normalsize $F$};
+	\shadedraw[ball color=Bisque, draw=black] (G) circle (2.5pt)node[yshift=0.35cm]{\normalsize $G$};
+	\shadedraw[ball color=Bisque, draw=black] (H) circle (2.5pt)node[yshift=0.35cm]{\normalsize $H$};
+	\shadedraw[ball color=Bisque, draw=black] (H) circle (2.5pt)node[yshift=0.35cm]{\normalsize $H$};
+	\shadedraw[ball color=Bisque, draw=black] (I) circle (2.5pt)node[yshift=0.35cm]{\normalsize $I$};
+	\shadedraw[ball color=Bisque, draw=black] (J) circle (2.5pt)node[yshift=0.35cm]{\normalsize $J$};
+	\shadedraw[ball color=Bisque, draw=black] (K) circle (2.5pt)node[yshift=0.35cm]{\normalsize $K$};
+	\shadedraw[ball color=Bisque, draw=black] (L) circle (2.5pt)node[yshift=0.35cm]{\normalsize $L$};
+	%
+	\draw[thin] ($(A)+(-0.5,0)$)--+(-1,0);
+	\draw[thin] ($(L)+(-0.5,0)$)--+(-3,0);
+	\draw[thin] ($(K)+(-0.5,0)$)--+(-5,0);
+	\draw[thin] ($(J)+(-0.5,0)$)--+(-7,0);
+	\draw[thin] ($(A)+(0,-0.25)$)--+(0,-1.25);
+	\draw[thin] ($(B)+(0,-0.25)$)--+(0,-1.25);
+	\draw[thin] ($(F)+(0,-0.25)$)--+(0,-1.25);
+	\draw[thin] ($(G)+(0,-0.25)$)--+(0,-1.25);
+
+	\draw[latex-latex] ($(A)+(0,-1.25)$)--node[fill=white,inner sep=0.25mm]{$1.50\,$m}($(B)+(0,-1.25)$);
+	\draw[latex-latex] ($(B)+(0,-1.25)$)--node[fill=white,inner sep=0.25mm]{$1.50\,$m}($(C)+(0,-1.25)$);
+	\draw[latex-latex] ($(C)+(0,-1.25)$)--node[fill=white,inner sep=0.25mm]{$1.50\,$m}($(D)+(0,-1.25)$);
+	\draw[latex-latex] ($(D)+(0,-1.25)$)--node[fill=white,inner sep=0.25mm]{$1.50\,$m}($(E)+(0,-1.25)$);
+	\draw[latex-latex] ($(E)+(0,-1.25)$)--node[fill=white,inner sep=0.25mm]{$1.50\,$m}($(F)+(0,-1.25)$);
+	\draw[latex-latex] ($(F)+(0,-1.25)$)--node[fill=white,inner sep=0.25mm]{$1.50\,$m}($(G)+(0,-1.25)$);
+	\draw[latex-latex] ($(A)+(-1,0)$)--node[fill=white]{$1.15\,$m}($(L)+(-3,0)$);
+	\draw[latex-latex] ($(L)+(-3,0)$)--node[fill=white]{$1.15\,$m}($(K)+(-5,0)$);
+	\draw[latex-latex] ($(K)+(-5,0)$)--node[fill=white]{$1.15\,$m}($(J)+(-7,0)$);
+	
+\end{tikzpicture}

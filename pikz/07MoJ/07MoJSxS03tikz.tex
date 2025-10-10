@@ -1,0 +1,260 @@
+
+
+\tikz[scale=\scale]{
+  \coordinate (E) at (6,0);
+	\coordinate (D) at (4,1.667);
+	\coordinate (C) at (2,2.667);
+	\coordinate (B) at (0,3.667);
+	\coordinate (A) at (0,0);
+	\coordinate (G) at (2,0);
+	\coordinate (F) at (4,0);
+
+  \coordinate (X) at ($ (A)+(0, -0.75) $);
+  \coordinate (Z) at ($ (E)+(0.875, 0) $);
+  \coordinate (Y) at ($ (Z)+(-0.375, 0) $);
+  \gettikzxy{(A)}{\ax}{\ay}
+  \gettikzxy{(B)}{\bx}{\by}
+  \gettikzxy{(C)}{\cx}{\cy}
+  \gettikzxy{(D)}{\ddx}{\ddy} % \dx, \dy must mean something special to tikz?
+  \gettikzxy{(E)}{\eex}{\eey}
+  \gettikzxy{(F)}{\fx}{\fy}
+  \gettikzxy{(G)}{\gx}{\yy}
+
+  \gettikzxy{(X)}{\xx}{\xy}
+  \gettikzxy{(Y)}{\yx}{\yy}
+  \gettikzxy{(Z)}{\zx}{\zy}
+
+  \scriptsize
+
+  \path (-1.5,4.125)rectangle(7,-1.5);
+  \filldraw[fill=LemonChiffon3!50, rounded corners, draw=black, thin] ($ (B)-(0.5, 0.175) $) rectangle ($ (B)+(0.0625, 0.175) $);
+  \fill[fill=LemonChiffon3!50, rounded corners, draw=black, thin] ($ (A)-(0.5, 0.175) $) rectangle ($ (A)+(0.0625, 0.175) $);
+  \fill[LemonChiffon3!50] (-1.1,-0.5) rectangle (-0.2, 4.125);
+  \draw[black, thin] (-0.2,-0.5) -- (-0.2, 4.125);
+
+
+  \only<9-45>{
+    \begin{scope}[opacity=0.5]
+      \Meme{D}{F}{LemonChiffon3}{White}{black}{0.2125}{0.1}{0.125}
+    \end{scope}
+  }
+  \only<1-14>{
+    \Meme{E}{F}{LemonChiffon4}{LemonChiffon2}{black}{0.2125}{0.1}{0.125}    
+  }
+  \only<15-45>{
+    \Meme{E}{F}{Tomato4}{Tomato2}{black}{0.2125}{0.1}{0.125}    
+  }
+  \only<46>{
+    \Meme{E}{F}{LemonChiffon4}{LemonChiffon2}{black}{0.2125}{0.1}{0.125}    
+  }
+  \only<1-14>{
+    \Meme{D}{E}{LemonChiffon4}{LemonChiffon2}{black}{0.2125}{0.1}{0.125}
+  }
+  \only<15-45>{
+    \Meme{D}{E}{PaleGreen4}{PaleGreen3}{black}{0.2125}{0.1}{0.125}
+  }
+  \only<46>{
+    \Meme{D}{E}{LemonChiffon4}{LemonChiffon2}{black}{0.2125}{0.1}{0.125}
+  }
+  \only<1-22>{
+    \Meme{C}{D}{LemonChiffon4}{LemonChiffon2}{black}{0.2125}{0.1}{0.125}
+  }
+  \only<23-45>{
+    \Meme{C}{D}{PaleGreen4}{PaleGreen3}{black}{0.2125}{0.1}{0.125}
+  }
+  \only<46>{
+    \Meme{C}{D}{LemonChiffon4}{LemonChiffon2}{black}{0.2125}{0.1}{0.125}
+  }
+  \only<1-32>{
+    \Meme{B}{C}{LemonChiffon4}{LemonChiffon2}{black}{0.2125}{0.1}{0.125}
+  } 
+  \only<33-45>{
+    \Meme{B}{C}{PaleGreen4}{PaleGreen3}{black}{0.2125}{0.1}{0.125}
+  } 
+  \only<46>{
+    \Meme{B}{C}{LemonChiffon4}{LemonChiffon2}{black}{0.2125}{0.1}{0.125}
+  } 
+  \only<1-26>{
+    \Meme{A}{G}{LemonChiffon4}{LemonChiffon2}{black}{0.2125}{0.1}{0.125}
+  }
+  \only<27-45>{
+    \Meme{A}{G}{Tomato4}{Tomato2}{black}{0.2125}{0.1}{0.125}
+  }
+  \only<46>{
+    \Meme{A}{G}{LemonChiffon4}{LemonChiffon2}{black}{0.2125}{0.1}{0.125}
+  }
+  \only<1-16>{
+    \Meme{G}{F}{LemonChiffon4}{LemonChiffon2}{black}{0.2125}{0.1}{0.125}
+  } 
+  \only<17-45>{
+    \Meme{G}{F}{Tomato4}{Tomato2}{black}{0.2125}{0.1}{0.125}
+  }   
+  \only<46>{
+    \Meme{G}{F}{LemonChiffon4}{LemonChiffon2}{black}{0.2125}{0.1}{0.125}
+  }   
+  \only<1-22>{
+    \Meme{D}{G}{LemonChiffon4}{LemonChiffon2}{black}{0.2125}{0.1}{0.125}
+  }
+  \only<23-45>{
+    \Meme{D}{G}{Tomato4}{Tomato2}{black}{0.2125}{0.1}{0.125}
+  }
+  \only<46>{
+    \Meme{D}{G}{LemonChiffon4}{LemonChiffon2}{black}{0.2125}{0.1}{0.125}
+  }
+  \only<1-32>{
+    \Meme{A}{C}{LemonChiffon4}{LemonChiffon2}{black}{0.2125}{0.1}{0.125}
+  }
+  \only<33-45>{
+    \Meme{A}{C}{Tomato4}{Tomato2}{black}{0.2125}{0.1}{0.125}
+  }
+  \only<46>{
+    \Meme{A}{C}{LemonChiffon4}{LemonChiffon2}{black}{0.2125}{0.1}{0.125}
+  }
+  \only<1-26>{
+    \Meme{C}{G}{LemonChiffon4}{LemonChiffon2}{black}{0.2125}{0.1}{0.125}
+  }
+  \only<27-45>{
+    \Meme{C}{G}{PaleGreen4}{PaleGreen3}{black}{0.2125}{0.1}{0.125}
+  }
+  \only<46>{
+    \Meme{C}{G}{LemonChiffon4}{LemonChiffon2}{black}{0.2125}{0.1}{0.125}
+  }
+  \only<1-8>{
+    \Meme{D}{F}{LemonChiffon4}{LemonChiffon2}{black}{0.2125}{0.1}{0.125}
+  }
+  
+  \only<46>{
+    \Meme{D}{F}{LemonChiffon4}{LemonChiffon2}{black}{0.2125}{0.1}{0.125}
+  }
+  \only<15-45>{
+    \draw[-latex, thick] ($ (E)+(140:0.125) $)--+(140.2:0.625);
+    \draw[-latex, thick] ($ (D)+(-39.8: 0.186) $)--+(-39.8:0.625);
+    \draw[latex-, thick] ($ (E)+(180:0.25) $)--+(180:0.625);
+    \draw[latex-, thick] ($ (F)+(0:0.187) $)--+(0:0.625);
+    \path (D) -- (E) node[midway, sloped, yshift=0.25cm] {$5.4671\,$kN (T)};
+    \path (F) -- (E) node[midway, yshift=-0.25cm] {$4.1999\,$kN (C)};
+  }
+   \only<17-45>{
+    \draw[latex-, thick] ($ (F)+(180:0.125) $)--+(180:0.625);
+    \draw[latex-, thick] ($ (G)+(0:0.25) $)--+(0:0.625);
+    \path (G) -- (F) node[midway, yshift=-0.25cm] {$4.1999\,$kN (C)};
+  }
+    \only<23-45>{
+    \draw[latex-, thick] ($ (D)+(220: 0.125) $)--+(220:0.625);
+    \draw[latex-, thick] ($ (G)+(39.8: 0.25) $)--+(39.8:0.625);
+    \draw[-latex, thick] ($ (D)+(153.44: 0.187) $)--+(153.44:0.625);
+    \draw[-latex, thick] ($ (C)+(-26.565: 0.187) $)--+(-26.565:0.625);
+    \path (D) -- (G) node[midway, sloped, yshift=0.25cm] {$1.3668\,$kN (C)};
+    \path (C) -- (D) node[midway, sloped, yshift=0.25cm] {$5.8696\,$kN (T)};
+  }
+  \only<27-45>{
+    \draw[latex-, thick] ($ (A)+(0: 0.187) $)--+(0:0.5);
+    \draw[latex-, thick] ($ (G)+(180: 0.187) $)--+(180:0.5);
+    \draw[-latex, thick] ($ (G)+(90: 0.125) $)--+(90:0.5);
+    \draw[-latex, thick] ($ (C)+(-90: 0.125) $)--+(-90:0.5);
+    \path (A) -- (G) node[midway, yshift=-0.25cm] {$5.2499\,$kN (C)};
+    \path (G) -- (C) node[midway, sloped, yshift=0.25cm, xshift=-0.125cm] {$0.87501\,$kN (T)};
+  }
+  \only<33-45>{
+    \draw[latex-, thick] ($ (A)+(53.13: 0.125) $)--+(53.13:0.5);
+    \draw[latex-, thick] ($ (C)+(233.13: 0.25) $)--+(233.13:0.5);
+    \draw[-latex, thick] ($ (B)+(-26.565: 0.125) $)--+(-26.565:0.5);
+    \draw[-latex, thick] ($ (C)+(153.33: 0.25) $)--+(153.33:0.625);
+    \path (B) -- (C) node[midway, sloped, yshift=0.25cm] {$6.4032\,$kN (T)};
+    \path (A) -- (C) node[midway, sloped, yshift=0.25cm, xshift=-0.125cm] {$0.79546\,$kN (C)};
+  }
+  \only<46>{
+    \path (D) -- (E) node[midway, sloped, yshift=0.25cm] {\footnotesize $5.47\,$kN (T)};
+    \path (F) -- (E) node[midway, yshift=-0.325cm] {\footnotesize $4.20\,$kN (C)};
+    \path (G) -- (F) node[midway, yshift=-0.325cm] {\footnotesize $4.20\,$kN (C)};
+    % \path (D) -- (F) node[midway, xshift=0.275cm] {\footnotesize $0$};
+    \path (D) -- (G) node[midway, sloped, yshift=0.25cm] {\footnotesize $1.37\,$kN (C)};
+    \path (C) -- (D) node[midway, sloped, yshift=0.25cm] {\footnotesize $5.87\,$kN (T)};
+    \path (A) -- (G) node[midway, yshift=-0.325cm] {\footnotesize $5.25\,$kN (C)};
+    \path (G) -- (C) node[midway, sloped, yshift=0.25cm, xshift=-0.125cm] {\footnotesize $0.875\,$kN (T)};
+    \path (B) -- (C) node[midway, sloped, yshift=0.25cm] {\footnotesize $6.40\,$kN (T)};
+    \path (A) -- (C) node[midway, sloped, yshift=0.25cm, xshift=-0.125cm] {\footnotesize $0.795\,$kN (C)};
+  }
+  \footnotesize
+  \only<37>{
+    \draw[latex-, very thick, RoyalBlue3] (A)--+(180:0.75) node[below] {$\bm {R_{Ax}} $};
+  } 
+  \only<37-38>{ 
+    \draw[-latex, very thick, RoyalBlue3] (A)--+(90:0.75) node[above, yshift=-0.125cm] {$\bm{R_{Ay}} $}; 
+  }
+  \only<37-39>{  
+    \draw[latex-, very thick, RoyalBlue3] (B)--+(180:0.75) node[above] {$\bm{R_{ Bx}} $};
+  }
+  \only<37-40>{   
+    \draw[latex-, very thick, RoyalBlue3] (B)--+(-90:0.75) node[below, yshift=0.125cm] {$\bm {R_{By}} $};   
+  }
+  \only<38-45>{
+    \draw[latex-, very thick, RoyalBlue3] (A)--+(180:0.75);
+    \node at ($ (A)+(180:0.75) $)[RoyalBlue3, below] { $5.7272\,\textsf{kN}$};
+  }
+  \only<39-45>{
+    \draw[-latex, very thick, RoyalBlue3] (A)--+(90:0.75);
+    \node at ($ (A)+(90:0.75) $)[RoyalBlue3, below left] { $0.63637\,\textsf{kN}$ };
+  }
+  \only<40-45>{
+    \draw[-latex, very thick, RoyalBlue3] (B)--+(180:0.75) node[above] {$5.7272\,\textsf{kN}$};
+  }
+  \only<41-45>{
+    \draw[latex-, very thick, RoyalBlue3] (B)--+(-90:0.75) node[above left] {$2.8636\,\textsf{kN}$};
+  }
+
+  \only<1-7>{
+    \draw ($ (A)+(0,-0.5)  $) -- ++ (0, -0.5);
+		\draw ($ (G)+(0,-0.5)  $) -- ++ (0, -0.5);
+		\draw ($ (F)+(0,-0.5)  $) -- ++ (0, -0.5);
+		\draw ($ (E)+(0.25,0)  $) -- (\zx, \eey);
+		\draw ($ (D)+(0.375,0)  $) -- (\zx, \ddy);
+		\draw ($ (C)+(0.5,0)  $) -- (\zx, \cy);
+		\draw ($ (B)+(0.5,0)  $) -- (\zx, \by);
+    
+    \draw[latex-latex] (\yx, \eey) -- node[fill=white] {$2.50\text{ m}$} (\yx, \ddy);
+    \draw[latex-latex] (\yx, \ddy) -- node[fill=white] {$1.50\text{ m}$} (\yx, \cy);
+    \draw[latex-latex] (\yx, \cy) -- node[fill=white] {$1.50\text{ m}$} (\yx, \by);
+    \draw[latex-latex] (\ax, \xy) -- node[fill=white] {$3.00\text{ m}$} (\gx, \xy);
+    \draw[latex-latex] (\gx, \xy) -- node[fill=white] {$3.00\text{ m}$} (\fx, \xy);
+    \draw[latex-latex] (\fx, \xy) -- node[fill=white] {$3.00\text{ m}$} (\eex, \xy);
+	
+  }
+
+  \only<2-45>{
+		\draw ($ (C)+(-0.5,0)  $) -- ++(-1.125, 0);
+	}
+	\only<2>{
+    \draw[latex-latex, thick, Green4] ($(E)+(-1.25,0)$)arc(180:140.2:1.25);
+  }
+  \only<3-45>{
+		\draw[latex-latex] ($(E)+(-1.25,0)$)arc(180:140.2:1.25)node[midway, fill=white, inner sep=0.25mm]{\footnotesize $ 39.806\deg $};
+	}
+  \only<2-3>{
+		\draw[latex-latex] ($(C)+(-1.375,0)$)arc(180:153.4:1.375)node[midway, fill=white, inner sep=0.375mm]{\small $ \theta $};
+	}
+  \only<4>{
+		\draw[latex-latex, thick, Green4] ($(C)+(-1.375,0)$)arc(180:153.4:1.375);
+	}
+  \only<5-45>{
+		\draw[latex-latex] ($(C)+(-1.375,0)$)arc(180:153.4:1.375)node[midway, fill=white, inner sep=0.175mm, xshift=-0.1cm]{\footnotesize $ 26.565\deg $};
+	}
+  \only<6>{
+		\draw[latex-latex, thick, Green4] ($(A)+(1.125,0)$)arc(0:53.1:1.125);
+	}
+  \only<7-45>{
+		\draw[latex-latex] ($(A)+(1.125,0)$)arc(0:53.1:1.125)node[midway, fill=white, inner sep=0.255mm]{\footnotesize $ 53.130\deg $};
+	}
+  \only<9->{ \node[xshift=0.225cm] at (\fx, \ddy/2) {\footnotesize $ 0 $};}
+
+  \small
+  \draw[ultra thick, RoyalBlue3, -Latex] (E) -- ++ (0,-1.25) node[left]{\small $3.50\,\text{kN}$};
+  \shadedraw [draw=black, ball color = LemonChiffon4] (E) circle (0.05cm) node[below right] {$E$};
+  \shadedraw [draw=black, ball color = LemonChiffon4] (D) circle (0.05cm) node[above=2.5mm, right=0.25mm] {$D$};
+	\shadedraw [draw=black, ball color = LemonChiffon4] (C) circle (0.05cm) node[above=2.5mm, right=0.25mm] {$C$};
+	\shadedraw [draw=black, ball color = LemonChiffon4] (B) circle (0.05cm) node[above=2.5mm, right=0.25mm] {$B$};
+	\shadedraw [draw=black, ball color = LemonChiffon4] (A) circle (0.05cm) node[below=1.5mm] {$A$};
+	\shadedraw [draw=black, ball color = LemonChiffon4] (G) circle (0.05cm) node[below=1mm] {$G$};
+	\shadedraw [draw=black, ball color = LemonChiffon4] (F) circle (0.05cm) node[below=1mm] {$F$};
+
+}

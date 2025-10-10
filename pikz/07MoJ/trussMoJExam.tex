@@ -1,0 +1,55 @@
+\begin{tikzpicture}[scale=\scale]
+	
+	\small
+
+	\coordinate (A) at (0, 0);
+	\coordinate (B) at (3, 0);
+	\coordinate (C) at (6, 0);
+	\coordinate (D) at (9, 0);
+	\coordinate (E) at (6, 2);
+	\coordinate (F) at (3, 2);
+	\coordinate (AA) at ($ (A)+(0,-0.5) $);
+
+	\gettikzxy{(AA)}{\aax}{\aay}
+
+	\fill[Cornsilk3] ($ (A)-(1,0.55) $) rectangle ($ (C)+(1,-1) $);
+	\draw ($ (A)-(1,0.55) $) -- ($ (C)+(1,-0.55) $);
+
+	\Meme{A}{B}{Burlywood4}{Burlywood3}{black}{0.3}{0.15}{0.125}
+	\Meme{C}{B}{Burlywood4}{Burlywood3}{black}{0.3}{0.15}{0.125}
+	\Meme{C}{D}{Burlywood4}{Burlywood3}{black}{0.3}{0.15}{0.125}
+	\Meme{E}{D}{Burlywood4}{Burlywood3}{black}{0.3}{0.15}{0.125}
+	\Meme{E}{F}{Burlywood4}{Burlywood3}{black}{0.3}{0.15}{0.125}
+	\Meme{A}{F}{Burlywood4}{Burlywood3}{black}{0.3}{0.15}{0.125}
+	\Meme{C}{F}{Burlywood4}{Burlywood3}{black}{0.3}{0.15}{0.125}
+	\Meme{B}{F}{Burlywood4}{Burlywood3}{black}{0.3}{0.15}{0.125}
+	\Meme{C}{E}{Burlywood4}{Burlywood3}{black}{0.3}{0.15}{0.125}
+
+	\PC{A}{Cornsilk3}{black}{0.55}{0.125}
+	\Rone{C}{Cornsilk3}{black}{0.55}{0.125}
+
+	\draw ($ (A)+(0,-0.25) $) -- +(0,-1.5);
+	\draw ($ (B)+(0,-0.25) $) -- +(0,-1.5);
+	\draw ($ (C)+(0,-0.25) $) -- +(0,-1.5);
+	\draw ($ (D)+(0,-0.25) $) -- +(0,-1.5);
+
+	\draw ($ (A)-(0.5, 0) $) -- ($ (A)-(1.5, 0) $);
+	\draw ($ (F)-(0.5, 0) $) -- ($ (F)-(4.5, 0) $);
+	\draw[ <->, >=latex] ($ (A)-(1, 0) $) -- node[fill=white]{$2.50$ m}($ (F)-(4, 0) $);
+
+	\draw[-latex, ultra thick, statsMaroon] (D) -- +(0,-3)node[right]{$ 5.00\>\text{kN}$};
+
+	\draw[ <->, >=latex] ([yshift=-1.5cm]A) -- node[fill=white, inner sep= 0.2mm]{$3.75$ m}([yshift=-1.5cm]B);
+	\draw[ <->, >=latex] ([yshift=-1.5cm]B) -- node[fill=white, inner sep= 0.2mm]{$3.75$ m}([yshift=-1.5cm]C);
+	\draw[ <->, >=latex] ([yshift=-1.5cm]C) -- node[fill=white, inner sep= 0.2mm]{$3.75$ m}([yshift=-1.5cm]D);
+
+	
+
+	\shade[ball color=Burlywood4] (A) circle (2pt) node[above left, outer sep=0.5mm] {$A$};
+	\shade[ball color=Burlywood4] (B) circle (2pt) node[xshift=0.375cm, yshift=0.375cm] {$B$};
+	\shade[ball color=Burlywood4] (C) circle (2pt) node[xshift=0.375cm, yshift=0.375cm] {$C$};
+	\shade[ball color=Burlywood4] (D) circle (2pt) node[above right, outer sep=0.6mm] {$D$};
+	\shade[ball color=Burlywood4] (E) circle (2pt) node[above=0.125cm, outer sep=0.5mm] {$E$};
+	\shade[ball color=Burlywood4] (F) circle (2pt) node[above=0.125cm, outer sep=0.5mm] {$F$};
+
+\end{tikzpicture}

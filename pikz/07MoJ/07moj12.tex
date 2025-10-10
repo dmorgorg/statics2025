@@ -1,0 +1,71 @@
+
+\begin{tikzpicture}[scale=\scale]
+
+	\coordinate (A) at (0,0);
+	\coordinate (B)	at (3,0);
+	\coordinate (C) at (6,0);
+	\coordinate (D) at (9,0);
+	\coordinate (E) at (12,0);
+	\coordinate (F) at (9,3.5);
+	\coordinate (G) at (6,3.5);
+	\coordinate (H) at (3,3.5);
+	\coordinate (P) at (-1,-1.75);
+
+	\gettikzxy{(A)}{\Ax}{\Ay}
+	\gettikzxy{(B)}{\Bx}{\By}
+	\gettikzxy{(C)}{\Cx}{\Cy}
+	\gettikzxy{(D)}{\Dx}{\Dy}
+	\gettikzxy{(E)}{\Ex}{\Ey}
+	\gettikzxy{(F)}{\Fx}{\Fy}
+	\gettikzxy{(G)}{\Gx}{\Gy}
+	\gettikzxy{(H)}{\Hx}{\Hy}sd
+	\gettikzxy{(P)}{\Px}{\Py}
+
+	\fill[fill=AntiqueWhite3] ($(A)+(-90:0.675)+(0:1.5)$)rectangle +(-3,-0.75);
+	\draw ($(A)+(-90:0.675)+(0:1.5)$)-- +(-3,0);
+	\filldraw[fill=AntiqueWhite3, draw=black] ($(E)+(-53:0.675)+(37:1)$)--++(217:2)--+(0:2);
+	\draw[latex-latex] ($(E)+(-53:0.675)+(37:0.5)$)arc(37:0:1.5)node[fill=AntiqueWhite3, midway, inner sep=0.25mm]{$37\deg$};
+
+	\Rone[37]{E}{AntiqueWhite3}{black}{0.675}{0.125}
+	\PC{A}{AntiqueWhite3}{black}{0.675}{0.125}
+
+	\Meme{C}{F}{DarkOliveGreen4}{DarkOliveGreen3}{black}{0.3}{0.15}{0.125}
+	\Meme{C}{H}{DarkOliveGreen4}{DarkOliveGreen3}{black}{0.3}{0.15}{0.125}	
+	\Meme{A}{B}{DarkOliveGreen4}{DarkOliveGreen3}{black}{0.3}{0.15}{0.125}
+	\Meme{C}{B}{DarkOliveGreen4}{DarkOliveGreen3}{black}{0.3}{0.15}{0.125}
+	\Meme{C}{D}{DarkOliveGreen4}{DarkOliveGreen3}{black}{0.3}{0.15}{0.125}
+	\Meme{E}{D}{DarkOliveGreen4}{DarkOliveGreen3}{black}{0.3}{0.15}{0.125}
+	\Meme{E}{F}{DarkOliveGreen4}{DarkOliveGreen3}{black}{0.3}{0.15}{0.125}
+	\Meme{G}{F}{DarkOliveGreen4}{DarkOliveGreen3}{black}{0.3}{0.15}{0.125}
+	\Meme{G}{H}{DarkOliveGreen4}{DarkOliveGreen3}{black}{0.3}{0.15}{0.125}	
+	\Meme{A}{H}{DarkOliveGreen4}{DarkOliveGreen3}{black}{0.3}{0.15}{0.125}
+	\Meme{D}{F}{DarkOliveGreen4}{DarkOliveGreen3}{black}{0.3}{0.15}{0.125}
+	\Meme{D}{F}{DarkOliveGreen4}{DarkOliveGreen3}{black}{0.3}{0.15}{0.125}
+	\Meme{C}{G}{DarkOliveGreen4}{DarkOliveGreen3}{black}{0.3}{0.15}{0.125}
+	\Meme{B}{H}{DarkOliveGreen4}{DarkOliveGreen3}{black}{0.3}{0.15}{0.125}
+
+	\draw[DodgerBlue4, ultra thick, -latex] ($(B)$)--+(0,-2.5)node[below]{\Large$10\, $kN};
+	\draw[DodgerBlue4, ultra thick, -latex] ($(C)$)--+(0,-2.5)node[below]{\Large$12\, $kN};
+	% %
+	\draw (\Ax,\Ay-0.25cm )--(\Ax,\Py-0.5 cm);
+	\draw (\Dx,\Dy-0.25cm )--(\Dx,\Py-0.5 cm);
+	\draw (\Ex,\Ey-0.25cm )--(\Ex,\Py-0.5 cm);
+	\draw (\Ax-0.5cm,\Ay)--(\Px-0.75cm,\Ay);
+	\draw (\Hx-0.5cm,\Hy)--(\Px-0.75cm,\Hy);
+
+	\shadedraw[ball color=Honeydew3, draw=black] (A) circle (2.5pt)node[xshift=-0.25cm, yshift=0.25cm]{ $A$};
+	\shadedraw[ball color=Honeydew3, draw=black] (B) circle (2.5pt)node[xshift=0.25cm, yshift=-0.35cm]{ $B$};
+	\shadedraw[ball color=Honeydew3, draw=black] (C) circle (2.5pt)node[xshift=0.25cm, yshift=-0.35cm]{ $C$};
+	\shadedraw[ball color=Honeydew3, draw=black] (D) circle (2.5pt)node[xshift=0.25cm, yshift=-0.35cm]{ $D$};
+	\shadedraw[ball color=Honeydew3, draw=black] (E) circle (2.5pt)node[xshift=0.25cm, yshift=0.25cm]{ $E$};
+	\shadedraw[ball color=Honeydew3, draw=black] (F) circle (2.5pt)node[yshift=0.5cm]{ $F$};
+	\shadedraw[ball color=Honeydew3, draw=black] (G) circle (2.5pt)node[yshift=0.5cm]{ $G$};
+	\shadedraw[ball color=Honeydew3, draw=black] (H) circle (2.5pt)node[yshift=0.5cm]{ $H$};
+
+	\draw[latex-latex] (\Ax,\Py)--node[fill=white,inner sep=0.25mm]{$2.75\,$m}(\Bx,\Py);
+	\draw[latex-latex] (\Bx,\Py)--node[fill=white,inner sep=0.25mm]{$2.75\,$m}(\Cx,\Py);
+	\draw[latex-latex] (\Cx,\Py)--node[fill=white,inner sep=0.25mm]{$2.75\,$m}(\Dx,\Py);
+	\draw[latex-latex] (\Dx,\Py)--node[fill=white,inner sep=0.25mm]{$2.75\,$m}(\Ex,\Py);
+	\draw[latex-latex] (\Px,\Ey)--node[fill=white,inner sep=0.25mm]{$3.20\,$m}(\Px,\Fy);
+
+\end{tikzpicture}
