@@ -1,0 +1,443 @@
+\documentclass[10pt,oneside]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb} % for \checkmark
+\usepackage{bm}
+\usepackage{mathpazo}
+\usepackage{graphicx}
+\usepackage{enumerate}
+\usepackage[x11names, svgnames]{xcolor} % for \definecolor
+
+\usepackage[letterpaper]{geometry}
+\geometry{verbose,tmargin=0.25in,bmargin=0.5in,lmargin=1in,rmargin=1.15in}
+
+\input{../../includes/definedColors.tex}
+\input{../../includes/macros.tex}
+\input{../../includes/Channel.tex}
+\input{../../includes/Couple.tex}
+\input{../../includes/DL.tex}
+\input{../../includes/DLdown.tex}
+\input{../../includes/Member.tex}
+\input{../../includes/Meme.tex}
+\input{../../includes/PC.tex}
+\input{../../includes/EyeConnection.tex}
+\input{../../includes/EyeBolt.tex}
+\input{../../includes/Skywalker.tex}
+\input{../../includes/PulleyC.tex}
+\input{../../includes/Pulley.tex}
+\input{../../includes/Ring.tex}
+\input{../../includes/Rone.tex}
+\input{../../includes/Ronly.tex}
+\input{../../includes/Rocker.tex}
+\input{../../includes/Roller.tex}
+\input{../../includes/WBeam.tex}
+
+% https://tex.stackexchange.com/questions/731957/how-to-supress-missing-character-there-is-no-u003b-in-font-nullfont
+\tracinglostchars=1
+
+\hfuzz=250pt
+\setlength{\parindent}{0pt}
+\def\scale{1}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% page 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{textblock*}{6.775in}(1in, 0.225in)
+  \cbox{
+    \centering\huge
+    \textbf{Engineering Statics - 07 Method of Joints - Instructor Copy}
+  }
+\end{textblock*}
+
+\begin{textblock*}{2in}(1in, 1.5in)
+	\cbox{
+		\underbar{\bf Example 1:} Determine the force in each truss member.
+	}
+\end{textblock*}
+\begin{textblock*}{4.25in}(3.525in, 1.5in)
+	\cbox{
+    \centering
+    \def\scale{0.75}
+    \input{../../pikz/07MoJ/07moj05Handout.tex}
+  }
+\end{textblock*}
+\begin{textblock*}{2in}(1in, 2.5in)
+  \centering 
+  \tikz[scale=0.625]{%color
+    \coordinate (A) at (0,3);
+    \coordinate (B)	at (-4, 0);
+    \coordinate (C) at (0,0);
+    \coordinate (D) at (4,0);
+
+    \fill[gray!50] (A)--(B)--(D)--cycle;
+    \footnotesize
+    \draw[-latex, thick] (B)--+(1,0)node[below]{$ R_{Bx} $};
+    \draw[-latex, thick] (B)--+(0,1)node[above]{$ R_{By} $};
+    \draw[-latex, thick] (D)--+(115:2)node[above]{$ R_{D} $};
+    \draw[-latex, thick] (A)--+(0:1)node[above]{$ 2.00\,\textsf{kN} $};
+    \draw[-latex, thick] (C)--+(270:1.75)node[below]{$ 3.75\,\textsf{kN} $};
+    \draw[gray,thin] ($(B)+(0,-0.5)$)--+(0,-1);
+    \draw[gray,thin] ($(D)+(0,-0.5)$)--+(0,-1);
+    \draw[gray,thin] ($(A)+(-0.5,0)$)--+(-1,0);
+
+    \draw[latex-latex] ($(D)+(115:1.5)$)arc(115:180:1.5)node[midway, fill=white,inner sep=0.1mm]{$ 65\deg $};
+    \draw[latex-latex] ($(B)+(0,-1)$)--($(C)+(0,-1)$)node[midway, fill=white,inner sep=0.1mm]{$ 2.10\,\textsf{m} $};
+    \draw[latex-latex] ($(D)+(0,-1)$)--($(C)+(0,-1)$)node[midway, fill=white,inner sep=0.1mm]{$ 2.10\,\textsf{m} $};
+    \draw[latex-latex] ($(A)+(-1,0)$)--($(C)+(-1,0)$)node[midway, fill=white,inner sep=0.1mm]{$ 1.65\,\textsf{m} $};
+
+    \shadedraw[draw=black] (A) circle (2pt)node[yshift=0.35cm]{\normalsize $A$};
+    \shadedraw[draw=black] (B) circle (2pt)node[left]{\normalsize $B$};
+    \shadedraw[draw=black] (C) circle (2pt)node[xshift=0.25cm, yshift=-0.35cm]{\normalsize $C$};
+    \shadedraw[draw=black] (D) circle (2pt)node[right]{\normalsize $D$};
+  }
+ 
+  
+  \end{textblock*}
+  \begin{textblock*}{0.45\textwidth}(1in, 4in)
+    \cbox{
+      \underline{Reactions}
+      \begin{align*}
+        \Sigma M_B &= R_D\sin 65\deg\cd 4.20\,\textsf{m} - 2.00\,\textsf{kN}\cd 1.65\,\textsf{m}\\[0.25em]
+        &\qquad\qquad -3.75\,\textsf{kN}\cd 2.10\,\textsf{m}=0 \\[0.25em]
+        \Ra R_D &= \frac{2.00\,\textsf{kN}\cd 1.65\,\textsf{m}+3.75\,\textsf{kN}\cd 2.10\,\textsf{m}}{\sin 65\deg\cd 4.20\,\textsf{m}} \\[0.25em]
+        &= 2.9358 \,\textsf{kN} \\\\
+        \Sigma F_x &= R_{Bx} + 2.00\,\textsf{kN}-2.9358\,\textsf{kN}\cd\cos 65\deg = 0 \\[0.25em]
+        \Ra R_{Bx} &= -0.75928\,\textsf{kN} \\\\
+        \Sigma F_y &= R_{By} - 3.75\,\textsf{kN}+2.9358\,\textsf{kN}\cd\sin 65\deg = 0 \\[0.25em]
+        \Ra R_{By} &= 1.0893\,\textsf{kN}     
+      \end{align*} 
+    }    
+  \end{textblock*}
+
+  \begin{textblock*}{0.45\textwidth}(0.75\textwidth, 4in)  
+    \cbox{  
+    \underline{Joint D}\pars\small
+    \centering
+    \tikz{%color
+      \fill[draw=black] (0,0) circle (2pt)node[right]{\normalsize $D$};
+      \draw[-latex, thick] (0,0)--+(115:2)node[above right]{$ 2.9358\,\textsf{kN} $};
+      \draw[-latex, thick] (0,0)--+(180:2)node[below]{$ F_{CD} $};
+      \draw[-latex, thick] (0,0)--+(141.84:2)node[above left]{$ F_{AD} $};
+      \draw[gray,thin] ($(0,0)+(0.5,0)$)--+(1.5,0);
+      \draw[latex-latex] ($(0,0)+(1.25,0)$)arc(0:115:1.25)node[midway, fill=white, inner sep=0.2mm] {$ 115\deg $};
+      \draw[latex-latex] ($(0,0)+(141.84:1.25)$)arc(141.84:180:1.25)node[midway, fill=white, inner sep=0.2mm, xshift=-1mm] {$ 38.157\deg $};
+    }
+    \normalsize
+    \begin{align*}
+      \Sigma F_y &= 2.9358\,\textsf{kN}\cd\cos 25\deg+F_{AD}\sin 38.157\deg=0 \\[0.25em]
+      \Ra F_{AD} &= -4.3067\,\textsf{kN} \\\\
+      \Sigma F_x &= -F_{CD}-(-4.3067\,\textsf{kN})\cd\cos 38.157\deg \\[0.25em]
+      &\qquad\qquad -2.9358\,\textsf{kN}\cos 65\deg   =0  \\[0.25em]
+      \Ra F_{CD} &= 2.1457\,\textsf{kN}
+    \end{align*}
+    }
+  \end{textblock*}
+
+  \begin{textblock*}{2in}(1in, 2.5in)
+  \centering 
+  \tikz[scale=0.625]{%color
+    \coordinate (A) at (0,3);
+    \coordinate (B)	at (-4, 0);
+    \coordinate (C) at (0,0);
+    \coordinate (D) at (4,0);
+
+    \fill[gray!50] (A)--(B)--(D)--cycle;
+    \footnotesize
+    \draw[-latex, thick] (B)--+(1,0)node[below]{$ R_{Bx} $};
+    \draw[-latex, thick] (B)--+(0,1)node[above]{$ R_{By} $};
+    \draw[-latex, thick] (D)--+(115:2)node[above]{$ R_{D} $};
+    \draw[-latex, thick] (A)--+(0:1)node[above]{$ 2.00\,\textsf{kN} $};
+    \draw[-latex, thick] (C)--+(270:1.75)node[below]{$ 3.75\,\textsf{kN} $};
+    \draw[gray,thin] ($(B)+(0,-0.5)$)--+(0,-1);
+    \draw[gray,thin] ($(D)+(0,-0.5)$)--+(0,-1);
+    \draw[gray,thin] ($(A)+(-0.5,0)$)--+(-1,0);
+
+    \draw[latex-latex] ($(D)+(115:1.5)$)arc(115:180:1.5)node[midway, fill=white,inner sep=0.1mm]{$ 65\deg $};
+    \draw[latex-latex] ($(B)+(0,-1)$)--($(C)+(0,-1)$)node[midway, fill=white,inner sep=0.1mm]{$ 2.10\,\textsf{m} $};
+    \draw[latex-latex] ($(D)+(0,-1)$)--($(C)+(0,-1)$)node[midway, fill=white,inner sep=0.1mm]{$ 2.10\,\textsf{m} $};
+    \draw[latex-latex] ($(A)+(-1,0)$)--($(C)+(-1,0)$)node[midway, fill=white,inner sep=0.1mm]{$ 1.65\,\textsf{m} $};
+
+    \shadedraw[draw=black] (A) circle (2pt)node[yshift=0.35cm]{\normalsize $A$};
+    \shadedraw[draw=black] (B) circle (2pt)node[left]{\normalsize $B$};
+    \shadedraw[draw=black] (C) circle (2pt)node[xshift=0.25cm, yshift=-0.35cm]{\normalsize $C$};
+    \shadedraw[draw=black] (D) circle (2pt)node[right]{\normalsize $D$};
+  }
+ 
+  
+  \end{textblock*}
+  \begin{textblock*}{0.45\textwidth}(1in, 7.25in)
+    \cbox{
+      \underline{Joint C}\pars\centering
+      \tikz{%color
+        \fill[draw=black] (0,0) circle (2pt)node[above right]{\normalsize $C$};
+        \draw[-latex, thick] (0,0)--+(270:1.5)node[below]{$ 3.75\,\textsf{kN} $};
+        \draw[-latex, thick] (0,0)--+(0:1.5)node[below]{$ 2.1457\,\textsf{kN} $};
+        \draw[-latex, thick] (0,0)--+(90:1.5)node[above]{$ F_{AC} $};
+        \draw[-latex, thick] (0,0)--+(180:1.5)node[above left]{$ F_{BC} $};
+      }
+      \begin{align*}
+        F_{BC} &= 2.1457\,\textsf{kN} \\
+        F_{AC} &= 3.75\,\textsf{kN}
+      \end{align*}
+    }    
+  \end{textblock*}
+
+   \begin{textblock*}{0.45\textwidth}(0.75\textwidth, 7.35in)  
+    \cbox{  
+    \underline{Joint A}\pars\small
+    \centering
+    \tikz{%color
+      \fill[draw=black] (0,0) circle (2pt)node[above]{\normalsize $A$};
+      \draw[Latex-, thick] (0,0)--+(-38:2)node[right]{$ 4.3067\,\textsf{kN} $};
+      \draw[-latex, thick] (0,0)--+(0:2)node[above right]{$ 2.00\,\textsf{kN} $};
+      \draw[-latex, thick] (0,0)--+(270:2)node[above right]{$ 3.75\,\textsf{kN} $};
+      \draw[-latex, thick] (0,0)--+(218:2)node[left]{$ F_{AB} $};
+      \draw[thin, gray] ($(0,0)+(-0.75,0)$)--+(180:1);
+      \draw[latex-latex] ($(0,0)+(-1.5,0)$)arc(180:218:1.5)node[midway, fill=white,inner sep=0.2mm]{$ 38.157\deg $};
+      \draw[latex-latex] ($(0,0)+(1.5,0)$)arc(0:-38:1.5)node[midway, fill=white,inner sep=0.2mm]{$ 38.157\deg $};
+
+    }
+    \begin{align*}      
+      \Sigma F_x &= 2.00\,\textsf{kN}-4.3067\,\textsf{kN}\cd\cos 38.157\deg \\[0.25em]
+      &\qquad\qquad - F_{AB}\cd\cos 38.157\deg = 0\\[0.25em]
+      \Ra  F_{AB} &= \frac{2.00\,\textsf{kN}-4.3067\,\textsf{kN}\cd\cos 38.157\deg}{\cos 38.157\deg}\\[0.25em]
+       &= -1.7632\,\textsf{kN}
+    \end{align*}
+    }
+  \end{textblock*}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ % page 2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+~\newpage
+
+  \begin{textblock*}{0.45\textwidth}(1in, 0.1in)
+   
+    \cbox{
+      \underline{Check at $B$} \parb\centering
+        \tikz{%color
+          \fill[draw=black] (0,0) circle (2pt)node[below]{\normalsize $B$};
+          \draw[-latex, thick] (0,0)--+(90:1.5)node[right]{$ R_{By} $};
+          \draw[latex-, thick] (0,0)--+(180:1.5)node[left]{$ R_{Bx} $};
+          \draw[-latex, thick] (0,0)--+(0:2)node[right]{$ F_{BC} $};
+          \draw[-latex, thick] (0,0)--+(38:2)node[right]{$ F_{AB} $};
+          \draw[latex-latex] ($(0,0)+(1.5,0)$)arc(0:38:1.5)node[midway, fill=white, xshift=3mm]{$ 38.157\deg $};
+        }
+      \begin{align*}
+        \Sigma F_y &= R_{By} + F_{AB}\cd\sin 38.517\deg \\[0.25em]
+        &=   1.0893\,\textsf{kN} + (-1.7632\,\textsf{kN})\cd\sin 38.517\deg \\[0.25em]
+        &= -0.0087272\,\textsf{kN} \approx 0 \qquad\textsf{\Large \checkmark} \\\\
+        \Sigma F_y &= R_{Bx} + F_{AB}\cd\cos 38.517\deg + F_{BC} \\[0.25em]
+        &= (-0.75928\,\textsf{kN}) + (-1.7632\,\textsf{kN})\cd\cos 38.517\deg + 2.1457\,\textsf{kN}\\[0.25em]
+        &= -0.000020803\,\textsf{kN} \approx 0 \qquad\textsf{\Large \checkmark}
+      \end{align*} 
+    }    
+  \end{textblock*}
+  \begin{textblock*}{0.45\textwidth}(1in, 4.5in)
+   
+    \cbox{
+      \underline{Answers}        
+      \begin{align*}
+        AB &= 1.76\,\textsf{kN}\qquad\text{(Compression)} \\[0.25em]       
+        BC &= 2.15\,\textsf{kN}\qquad\text{(Tension)} \\[0.25em]       
+        CD &= 2.15\,\textsf{kN}\qquad\text{(Tension)} \\[0.25em]       
+        AC &= 3.75\,\textsf{kN}\qquad\text{(Tension)} \\[0.25em]       
+        AD &= 4.13\,\textsf{kN}\qquad\text{(Compression)} \\[0.25em]       
+      \end{align*} 
+    }    
+  \end{textblock*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% page 3
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+~\newpage
+\begin{textblock*}{3in}(1in, 0.2in)
+	\cbox{
+		\underbar{\bf Example 1:} Determine the force in each truss member.
+	}
+\end{textblock*}
+\begin{textblock*}{3.25in}(4.625in, 0.2in)
+	\cbox{
+    \centering
+    \def\scale{0.75}
+    \input{../../pikz/07MoJ/07moj07Handout.tex}
+  }
+\end{textblock*}
+\begin{textblock*}{3in}(1in, 1in)
+	\cbox{
+    \underline{FBD and external forces}\parb
+    \centering\small
+		\tikz[scale=0.625]{%color
+      \coordinate (A) at (0,0);
+      \coordinate (B)	at (4, 0);
+      \coordinate (C) at (8,0);
+      \coordinate (D) at (8,5);
+      \coordinate (E) at (4,2.5);
+
+      \fill[gray!50] (A)--(C)--(D)--cycle;
+      \draw[thin] ($(D)+(-2.25,0)$)--+(-7,0);
+      \draw[thin] ($(A)+(0,-0.25)$)--+(0,-0.75);
+      \draw[thin] ($(C)+(0,-0.25)$)--+(0,-0.75);
+      \draw[thin] ($(A)+(-0.25,0)$)--+(-1,0);
+      \draw[latex-latex] ($(A)+(-0.75,0)$)--node[fill=white]{$1900\,$mm}($(D)+(-8.75,0)$);
+      \draw[latex-latex] ($(A)+(0,-0.75)$)--node[fill=white]{$2420\,$mm}($(C)+(0,-0.75)$);
+      
+      \draw[ultra thick,-Latex] (D)--+(-2,0)node[yshift=0.325cm,black]{$3.75\,$kN};
+
+      \fill (A) circle (2pt)node[xshift=-0.25cm, yshift=0.25cm]{ $A$};
+      \fill (C) circle (2pt)node[xshift=-0.25cm, yshift=0.25cm]{ $C$};
+      \fill (D) circle (2pt)node[yshift=0.325cm]{ $D$};
+
+      \draw[very thick, -latex] (C)--+(90:1.5)node[left]{$ R_{Cy} $};
+      \draw[very thick, -latex] (C)--+(0:1.5)node[above]{$ R_{Cx} $};
+      \draw[very thick, -latex] (A)--+(90:1.5)node[right]{$ R_{Ay} $};
+    }
+    \begin{align*}
+      \Sigma M_C &= (3.75\,\textsf{kN})\cd(1.900\,\textsf{m})-R_{Ay}\cd (2.420\,\textsf{m})=0\\[0.25em]
+      \Ra R_{Ay} &= 2.9442\,\mathsf{kN\cd m} \\\\
+      \Sigma F_x &= R_{Cx}-3.75\,\textsf{kN} = 0 \\[0.25em]
+      \Ra R_{Cx} &= 3.75\,\textsf{kN}\\\\
+      \Sigma F_y &= R_{Cy}+2.9442\,\textsf{kN} = 0 \\[0.25em]
+      \Ra R_{Cy} &= -2.9442\,\textsf{kN}
+    \end{align*}
+	}
+  \cbox{
+    \underline{Note:}
+    \begin{enumerate}
+      \item $BE$ is a zero-force member
+      \item Since, $BE$ is a zero force member, so is $BD$
+      \item Thus, $F_{AE}=F_{ED}$ and $F_{AB}=F_{BC}$
+    \end{enumerate}
+  }
+  \cbox{
+    \underline{Joint A:}\parm\centering
+    \tikz{%color
+      \draw[very thick, -latex] (0,0)--+(90:1.5)node[above]{$ 2.9442\,\textsf{kN} $};
+      \draw[very thick, -latex] (0,0)--+(0:2)node[below]{$ R_{Ax} $};
+      \draw[very thick, -latex] (0,0)--+(38:2)node[above]{$ F_{AE} $};
+      \draw[latex-latex] ($(A)+(1.5,0)$)arc(0:38:1.5)node[midway,fill=white,xshift=0.125cm]{\footnotesize $38.136\deg$};
+      \fill (0,0) circle (2pt)node[left]{\normalsize $ A $};
+    }
+    \begin{align*}
+      \Sigma F_y &= F_{AE}\cd\sin 38.136\deg + 2.9442\,\textsf{kN}=0\\[0.25em]
+      \Ra F_{AE} &= -4.7677\,\textsf{kN}\\\\
+       \Sigma F_x &= (-4.7677\,\textsf{kN})\cd\cos 38.136\deg + R_{Ax}=0\\[0.25em]
+      \Ra F_{AB} &= 3.7500\,\textsf{kN}
+    \end{align*}
+  }
+\end{textblock*}
+\begin{textblock*}{3.25in}(4.625in, 2.875in)
+	\cbox{
+    \underline{Joint D:}\parm\centering
+    \tikz{%color
+      \draw[very thick, -latex] (0,0)--+(180:2)node[above]{$ 3.75\,\textsf{kN} $};
+      \draw[very thick, -latex] (0,0)--+(-90:2)node[below]{$ F_{CD} $};
+      \draw[very thick, Latex-] (0,0)--+(218:2)node[left]{$ 4.7677\,\textsf{kN} $};
+      \draw[latex-latex] ($(A)+(-1.5,0)$)arc(180:218:1.5)node[midway,fill=white,xshift=-0.125cm]{\footnotesize $38.136\deg$};
+      \fill (0,0) circle (2pt)node[right]{\normalsize $ D $};
+    }
+    \begin{align*}
+      \Sigma F_y &= (4.7677\,\textsf{kN})\cd\sin 38.136\deg - F_{CD} = 0 \\[0.25em]
+      F_{CD} &= 2.9442\,\textsf{kN}
+    \end{align*}
+  }
+  \cbox{
+      \underline{Answers}        
+      \begin{align*}
+        AB &= 3.75\,\textsf{kN}\qquad\text{(Tension)} \\[0.25em]       
+        AE &= 4.77\,\textsf{kN}\qquad\text{(Compress)} \\[0.25em]       
+        BC &= 3.75\,\textsf{kN}\qquad\text{(Tension)} \\[0.25em]       
+        BD &= 0\\[0.25em]       
+        BE &= 0\\[0.25em]       
+        CD &= 2.94\,\textsf{kN}\qquad\text{(Tension)} \\[0.25em]       
+        DE &= 4.77\,\textsf{kN}\qquad\text{(Compression)}         
+      \end{align*} 
+    }    
+\end{textblock*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% page 4
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+~\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% page 5
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+~\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% page 6
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+~\newpage
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% page 7
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+~\newpage
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% page 8
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+~\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% page 9
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+~\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+~\newpage
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% page 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+~\newpage
+
+
+     
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% page 12
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+~\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% page 13
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+~\newpage
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% page 13
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+~\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% page 14
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+~\newpage
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% page 15
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+~\newpage
+
+
+\end{document}

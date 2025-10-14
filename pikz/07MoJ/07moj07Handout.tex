@@ -1,0 +1,51 @@
+
+%%%%%%%%%%%%%%%%%%%%%%% TRUSS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{tikzpicture}[scale=\scale]
+
+	\coordinate (A) at (0,0);
+	\coordinate (B)	at (4, 0);
+	\coordinate (C) at (8,0);
+	\coordinate (D) at (8,5);
+	\coordinate (E) at (4,2.5);
+	\small
+	\PC{C}{gray}{black}{0.5}{0.125}
+	\Rocker{A}{gray}{black}{0.5}{0.125}
+
+	
+	\fill[gray] ($(A)+(-1,-0.5)$)rectangle($(A)+(1,-1.25)$);
+	\fill[gray] ($(C)+(-1,-0.5)$)rectangle($(C)+(1,-1.25)$);
+	\draw ($(A)+(-1,-0.5)$)--($(A)+(1,-0.5)$);
+	\draw ($(C)+(-1,-0.5)$)--($(C)+(1,-0.5)$);
+
+	\Meme{B}{A}{myGray3}{myGray3}{black}{0.3}{0.15}{0.125}
+	\Meme{B}{C}{myGray3}{myGray3}{black}{0.3}{0.15}{0.125}
+	\Meme{D}{C}{myGray3}{myGray3}{black}{0.3}{0.15}{0.125}
+	\Meme{E}{A}{myGray3}{myGray3}{black}{0.3}{0.15}{0.125}
+	\Meme{D}{E}{myGray3}{myGray3}{black}{0.3}{0.15}{0.125}
+	\Meme{D}{B}{myGray3}{myGray3}{black}{0.3}{0.15}{0.125}
+	\Meme{E}{B}{myGray3}{myGray3}{black}{0.3}{0.15}{0.125}
+
+
+	\draw[ultra thick,-Latex] (D)--+(-2,0)node[yshift=0.325cm,black]{$3.75\,$kN};
+
+	\shadedraw[ball color=Honeydew4, draw=black] (A) circle (2pt)node[xshift=-0.15cm, yshift=0.25cm]{ $A$};
+	\shadedraw[ball color=Honeydew4, draw=black] (B) circle (2pt)node[xshift=-0.25cm, yshift=0.25cm]{ $B$};
+	\shadedraw[ball color=Honeydew4, draw=black] (C) circle (2pt)node[xshift=0.25cm, yshift=0.25cm]{ $C$};
+	\shadedraw[ball color=Honeydew4, draw=black] (D) circle (2pt)node[yshift=0.325cm]{ $D$};
+	\shadedraw[ball color=Honeydew4, draw=black] (E) circle (2pt)node[yshift=0.325cm]{ $E$};
+	%
+	\draw[thin] ($(D)+(-2.25,0)$)--+(-7,0);
+	\draw[thin] ($(E)+(-0.5,0)$)--+(-4.75,0);
+	\draw[thin] ($(A)+(0,-0.25)$)--+(0,-0.75);
+	\draw[thin] ($(B)+(0,-0.25)$)--+(0,-0.75);
+	\draw[thin] ($(C)+(0,-0.25)$)--+(0,-0.75);
+	\draw[thin] ($(A)+(-0.25,0)$)--+(-1,0);
+	\footnotesize
+	\draw[latex-latex] ($(A)+(-0.75,0)$)--node[fill=white]{$950\,$mm}($(E)+(-4.75,0)$);
+	\draw[latex-latex] ($(E)+(-4.75,0)$)--node[fill=white]{$950\,$mm}($(D)+(-8.75,0)$);
+	\draw[latex-latex] ($(A)+(0,-0.75)$)--node[fill=white]{$1210\,$mm}($(B)+(0,-0.75)$);
+	\draw[latex-latex] ($(B)+(0,-0.75)$)--node[fill=white]{$1210\,$mm}($(C)+(0,-0.75)$);
+
+
+	%
+\end{tikzpicture}
