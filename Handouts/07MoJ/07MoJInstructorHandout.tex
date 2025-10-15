@@ -360,20 +360,345 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % page 4
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 ~\newpage
+\begin{textblock*}{2in}(1in, 0.2in)
+	\cbox{
+		\underbar{\bf Example 1:} Determine the force in each truss member.
+	}
+\end{textblock*}
+\begin{textblock*}{4.25in}(3.625in, 0.2in)
+	\cbox{
+    \centering
+    \def\scale{0.75}
+    \input{../../pikz/07MoJ/07moj08Handout.tex}
+  }
+\end{textblock*}
+
+
+\begin{textblock*}{3.125in}(1in, 3.5in)
+	\cbox{
+		\underbar{\bf FBD and reactions} \parm\centering
+    \tikz[scale=0.55]{
+      \coordinate (A) at (0,0);
+      \coordinate (B)	at (2,0);
+      \coordinate (C) at (4,0);
+      \coordinate (D) at (6,0);
+      \coordinate (E) at (8,0);
+      \coordinate (F) at (10,0);
+      \coordinate (G) at (12,0);
+      \coordinate (H) at (10,1.5);
+      \coordinate (I) at (8,3);
+      \coordinate (J) at (6,4.5);
+      \coordinate (K) at (4,3);
+      \coordinate (L) at (2,1.5);
+
+      \fill[gray!30] (A)--(J)--(G)--cycle;
+      \draw[ultra thick, -Latex] (D)--+(0,-3)node[below,black]{$12.0\,$kN};
+      \draw[ultra thick, -Latex] (C)--+(0,-2.25)node[below,black]{$10.0\,$kN};
+      \draw[ultra thick, -Latex] (E)--+(0,-2.25)node[below,black]{$10.0\,$kN};
+
+      \draw[ultra thick, -latex] (A)--+(90:2)node[right]{$ R_A $};
+      \draw[ultra thick, -latex] (G)--+(90:2)node[left]{$ R_{Gy} $};
+      \draw[ultra thick, -latex] (G)--+(0:2)node[above left]{$ R_{Gx} $};
+
+      \draw[thin] ($(A)+(0,-0.25)$)--+(0,-1.25);
+      \draw[thin] ($(G)+(0,-0.25)$)--+(0,-1.25);
+
+      \draw[latex-latex] ($(A)+(0,-1)$)--node[fill=white,inner sep=0.25mm]{$3.00\,$m}($(C)+(0,-1)$);
+      \draw[latex-latex] ($(E)+(0,-1)$)--node[fill=white,inner sep=0.25mm]{$3.00\,$m}($(G)+(0,-1)$);
+      \draw[latex-latex] ($(C)+(0,-1)$)--node[fill=white,inner sep=0.25mm, rotate=60]{$1.50\,$m}($(D)+(0,-1)$);
+      \draw[latex-latex] ($(E)+(0,-1)$)--node[fill=white,inner sep=0.25mm, rotate=60]{$1.50\,$m}($(D)+(0,-1)$);
+    }
+    \begin{align*}
+      \Sigma M_G &= (10.0\,\textsf{kN})\cd(3.00\,\textsf{m})+(12.0\,\textsf{kN})\cd(4.50\,\textsf{m})\\[0.25em]
+      &\qquad +(10.0\,\textsf{kN})\cd(6.00\,\textsf{m}) +R_A\cd (9.00\,\textsf{m})=0 \\[0.25em]
+      \Ra R_A &= 16.000\,\textsf{m} \\\\
+      \Sigma F_x &= R_{Gx} = 0 \\[0.25em]
+      \Ra R_{Gx} &= 0 \\\\
+      \Sigma F_y &= R_{Gy} +16.000\,\textsf{kN}-10.0\,\textsf{kN} \\[0.25em] 
+      &\qquad\quad -12.0\,\textsf{kN} -10.0\,\textsf{kN}= 0 \\[0.25em]
+      \Ra R_{Gx} &= 16.000\,\textsf{kN} 
+    \end{align*}
+	}
+  \cbox{
+    \underline{\bf Note:} 
+    \begin{enumerate}
+      \item The system is symmetrical about member $DJ$ so we only have to solve half of it - either the right half or the left half.
+      \item Member $BF$ is a zero-force member and, because of this, $CL$ is also a zero-force member. (Similarly, so are $FH$ and $EH$.)
+    \end{enumerate}
+  }
+\end{textblock*}
+
+\begin{textblock*}{3.125in}(4.75in, 3.5in)
+	\cbox{
+    \underline{\bf Joint A:}\parm\centering
+    \tikz{%color
+      \draw[very thick, -latex] (0,0)--+(90:1.5)node[above]{$ 16.000\,\textsf{kN} $};
+      \draw[very thick, -latex] (0,0)--+(0:2.5)node[below]{$ F_{AB} $};
+      \draw[very thick, -latex] (0,0)--+(37.5:2.5)node[above]{$ F_{AL} $};
+      \draw[latex-latex] ($(A)+(2,0)$)arc(0:37.5:2)node[midway,fill=white,xshift=-0.125cm]{\footnotesize $37.476\deg$};
+      \fill (0,0) circle (2pt)node[left]{\normalsize $ A $};
+    }
+    \begin{align*}
+      \Sigma F_y &= F_{AL}\cd\sin 37.476\deg + 16.000\,\textsf{kN} = 0 \\[0.25em]
+      F_{AL} &= -26.297\,\textsf{kN} \\\\
+      \Sigma F_x &= F_{AB} + (-26.297\,\textsf{kN})\cd\cos 37.476\deg = 0 \\[0.25em]
+      F_{AB} &= 20.870\,\textsf{kN}
+    \end{align*}
+  }
+  \cbox{
+    \underline{\bf Note:}\parm
+    Since $BL$ and $CL$ are zero-force members, we can ignore them. That means that $F_{AB}= F_{BC}$
+    and $F_{AL}= F_{KL}$.
+  }
+  \cbox{
+    \underline{\bf Joint C:}\parm\centering
+    \tikz{%color
+      \draw[very thick, -latex] (0,0)--+(90:1.5)node[left]{$ F_{CK} $};
+      \draw[very thick, -latex] (0,0)--+(-90:1.5)node[right]{$ 10.0\,\textsf{kN} $};
+      \draw[very thick, -latex] (0,0)--+(0:1.5)node[right]{$ F_{CD} $};
+      \draw[very thick, -latex] (0,0)--+(180:1.5)node[left]{$ 20.870\,\textsf{kN} $};
+      \fill (0,0) circle (2pt)node[above left]{\normalsize $ C $};
+    }
+    $$ F_{CD} = 20.870\,\textsf{kN}\text{, } F_{CK} = 10.0\,\textsf{kN} $$    
+  }
+\end{textblock*}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % page 5
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 ~\newpage
+
+\begin{textblock*}{3.125in}(1in, 0.1in)
+	\cbox{
+		\underbar{\bf Joint K:} \parm\centering
+     \tikz{%color
+      \draw[very thick, -latex] (0,0)--+(37.5:2.5)node[right]{$ F_{JK} $};
+      \draw[very thick, Latex-] (0,0)--+(217.5:2.5)node[below]{$ 26.297\,\textsf{kN} $};
+      \draw[very thick, -latex] (0,0)--+(-90:1.625)node[below]{$ 10.0\,\textsf{kN}  $};
+      \draw[very thick, -latex] (0,0)--+(-57:2.5)node[right]{$ F_{DK} $};
+      \fill (0,0) circle (2pt)node[above left]{\normalsize $ K $};
+      \draw[thin, gray]($ (0,0)+(0:0.5)$)--+(2,0);
+      \draw[latex-latex] ($(0,0)+(2,0)$)arc(0:37.5:2)node[midway,fill=white]{$ 37.476\deg $};
+      \draw[latex-latex] ($(0,0)+(2,0)$)arc(0:-57:2)node[midway,fill=white]{$ 56.889\deg $};
+    }
+    \begin{align*}
+      \Sigma F_x &= F_{JK}\cd\cos 37.476\deg + F_{DK}\cd\cos 56.889\deg \\[0.25em]
+      &\qquad\qquad +( 26.297\,\textsf{kN})\cd\cos 37.476\deg \\[0.25em]
+      &= 0.79361F_{JK} + 0.54626F_{DK} + 20.870\,\textsf{kN}=0\\\\
+      \Sigma F_y &= F_{JK}\cd\sin 37.476\deg - F_{DK}\cd\sin 56.889\deg \\[0.25em]
+      &\qquad\qquad +( 26.297\,\textsf{kN})\cd\sin 37.476\deg-10.0\,\textsf{kN} \\[0.25em]
+      &= 0.60843F_{JK}-0.83761F_{DK}+5.9999\,\textsf{kN} = 0
+    \end{align*}
+    \raggedright
+    Solve the system:
+    \begin{align}
+      0.79361F_{JK} + 0.54626F_{DK} &= -20.870\,\textsf{kN} \\[0.25em]
+      0.60843F_{JK}-0.83761F_{DK} &= -5.9999\,\textsf{kN}
+    \end{align}
+    From the system-solver:
+    $$ F_{DK}=-7.9595\,\textsf{kN, }F_{JK}=20.819\,\textsf{kN} $$
+  }
+  \cbox{
+    \underbar{\bf Joint L:} \parm\centering
+    \tikz{%color
+      \draw[very thick, -latex] (0,0)--+(-37.5:2.5)node[right]{$ F_{IJ} $};
+      \draw[very thick, Latex-] (0,0)--+(217.5:2.5)node[left]{$ 20.819\,\textsf{kN} $};
+      \draw[very thick, -latex] (0,0)--+(-90:2.25)node[below]{$ F_{DJ}  $};
+      \fill (0,0) circle (2pt)node[above left]{\normalsize $ L $};
+      \draw[latex-latex] ($(0,0)+(-90:1.75)$)arc(-90:-37.5:1.75)node[midway,fill=white,inner sep = 0.5mm]{\footnotesize $ 52.524\deg $};
+      \draw[latex-latex] ($(0,0)+(-90:1.75)$)arc(-90:-142.52:1.75)node[midway,fill=white,inner sep = 0.5mm]{\footnotesize $ 52.524\deg $};
+    }
+    \begin{align*}
+      \Sigma F_x &= F_{IJ}\cd\sin 52.524\deg+20.819\,\textsf{kN}\cd\sin 52.524\deg = 0 \\[0.25em]
+      \Ra F_{IJ} &= -20.819\,\textsf{kN}\\\\
+      \Sigma F_y &= 20.819\,\textsf{kN}\cd\cos 52.524\deg - \\[0.25em]
+      &\qquad\quad - (-20.819\,\textsf{kN})\cd\cos 52.524\deg - F_{DJ} = 0 \\[0.25em]
+      \Ra F_{DJ} &= 25.334\,\textsf{kN}
+    \end{align*}
+  }
+  
+\end{textblock*}
+\begin{textblock*}{3.125in}(4.75in, 0.1in)
+	 \cbox{
+    \underbar{{\bf Check at Joint D }(assuming symmetry):} \parm\centering
+    \tikz{%color
+      \draw[very thick, -latex] (0,0)--+(90:2)node[above]{$ 25.334\,\textsf{kN} $};
+      \draw[very thick, -latex] (0,0)--+(0:2.5)node[right]{$ 20.870\,\textsf{kN} $};
+      \draw[very thick, -latex] (0,0)--+(180:2.5)node[left]{$ 20.870\,\textsf{kN} $};
+      \draw[very thick, -latex] (0,0)--+(-90:1.5)node[below]{$ 12.0\,\textsf{kN}  $};
+      \draw[very thick, Latex-] (0,0)--+(57:2.25)node[right]{$ 7.9595\,\textsf{kN}  $};
+      \draw[very thick, Latex-] (0,0)--+(123:2.25)node[left]{$ 7.9595\,\textsf{kN}  $};
+      \fill (0,0) circle (2pt)node[below right]{\normalsize $ D $};
+      \draw[latex-latex] ($(0,0)+(0:1.75)$)arc(0:57:1.75)node[midway,fill=white,inner sep = 0.5mm]{\footnotesize $ 56.889\deg $};
+      \draw[latex-latex] ($(0,0)+(123:1.75)$)arc(123:180:1.75)node[midway,fill=white,inner sep = 0.5mm]{\footnotesize $ 56.889\deg $};
+      % \draw[latex-latex] ($(0,0)+(-90:1.75)$)arc(-90:-142.52:1.75)node[midway,fill=white,inner sep = 0.5mm]{\footnotesize $ 52.524\deg $};
+    }
+    \begin{align*}
+      \Sigma F_y &= 25.334\,\textsf{kN}-12.0\,\textsf{kN}\\[0.25em]
+      &\qquad\qquad -2(7.9595\,\textsf{kN})\cd\sin 56.889\deg \\[0.25em]     
+      &= 0.00002\,\textsf{kN} \approx 0 \qquad\text{\Large \checkmark}
+    \end{align*}
+  }
+    \cbox{
+      \underline{Answers}        
+      \begin{align*}
+        AB &= 20.9\,\textsf{kN}\qquad\text{(Tension)} \\[0.25em]       
+        AL &= 26.3\,\textsf{kN}\qquad\text{(Compression)} \\[0.25em]       
+        BC &= 20.9\,\textsf{kN}\qquad\text{(Tension)} \\[0.25em]       
+        BL &= 0\\[0.25em]       
+        CD &= 20.9\,\textsf{kN}\qquad\text{(Tension)} \\[0.25em]       
+        CK &= 10.0\,\textsf{kN}\qquad\text{(Tension)} \\[0.25em]       
+        CL &= 0 \\[0.25em]       
+        DE &= 20.9\,\textsf{kN}\qquad\text{(Tension)} \\[0.25em]         
+        DI &= 7.96\,\textsf{kN}\qquad\text{(Compression)}  \\[0.25em]        
+        DJ &= 25.3\,\textsf{kN}\qquad\text{(Tension)}  \\[0.25em]        
+        DK &= 7.96\,\textsf{kN}\qquad\text{(Compression)}  \\[0.25em]        
+        EF &= 20.9\,\textsf{kN}\qquad\text{(Tension)}  \\[0.25em]        
+        EH &= 0  \\[0.25em]        
+        EI &= 10.0\,\textsf{kN}\qquad\text{(Tension)}  \\[0.25em]        
+        FG &= 20.9\,\textsf{kN}\qquad\text{(Tension)}  \\[0.25em]        
+        FH &= 0  \\[0.25em]        
+        GH &= 26.3\,\textsf{kN}\qquad\text{(Compression)}  \\[0.25em]        
+        HI &= 26.3\,\textsf{kN}\qquad\text{(Compression)}  \\[0.25em]        
+        IJ &= 20.8\,\textsf{kN}\qquad\text{(Compression)}  \\[0.25em]        
+        JK &= 20.8\,\textsf{kN}\qquad\text{(Compression)}  \\[0.25em]        
+        KL &= 26.3\,\textsf{kN}\qquad\text{(Compression)}  \\[0.25em]        
+      \end{align*} 
+    } 
+\end{textblock*}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % page 6
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 ~\newpage
+\begin{textblock*}{2in}(1in, 0.2in)
+	\cbox{
+		\underbar{\bf Exercise 1:} Determine the force in each truss member.
+	}
+\end{textblock*}
+\begin{textblock*}{4.25in}(3.625in, 0.2in)
+	\cbox{
+    \centering
+    \def\scale{0.75}
+    \input{../../pikz/07MoJ/07moj09Handout.tex}
+  }
+\end{textblock*}
+
+\begin{textblock*}{3.125in}(1in, 3.125in)
+	\cbox{
+		\underbar{\bf FBD and reactions:} \parb\centering
+    % \footnotesize
+    \tikz[scale=0.625]{%color
+      \coordinate (A) at (0,0);
+      \coordinate (B)	at (3,0);
+      \coordinate (C) at (6,0);
+      \coordinate (D) at (9,0);
+      \coordinate (E) at (6,3.5);
+      \coordinate (F) at (3,3.5);
+      \coordinate (G) at (0,3.5);
+
+      \fill[gray!30] (A)--(D)--(E)--(G)--cycle;
+      \draw[very thick, -Latex] (D)--+(0,-2.75)node[below,black]{$12.0\,$kN};
+	    \draw[very thick, -Latex] (C)--+(0,-2.25)node[below,black]{$10.0\,$kN};
+
+      \draw[very thick, -Latex] (A)--+(0:1.5)node[above]{$R_{Ax}$};
+      \draw[very thick, -Latex] (A)--+(90:1.5)node[left]{$R_{Ay}$};
+      \draw[very thick, -Latex] (G)--+(0:1.5)node[below]{$R_{G}$};
+
+      \draw[thin] ($(A)+(0,-0.25)$)--+(0,-1);
+      % \draw[thin] ($(B)+(0,-0.25)$)--+(0,-1);
+      \draw[thin] ($(D)+(0.5,0)$)--+(1,0);
+      \draw[thin] ($(E)+(0.5,0)$)--+(4,0);
+      \draw[latex-latex] ($(A)+(0,-1)$)--node[fill=white,inner sep=0.25mm]{$3.30\,$m}($(C)+(0,-1)$);
+      % \draw[latex-latex] ($(B)+(0,-1)$)--node[fill=white,inner sep=0.25mm]{$1.65\,$m}($(C)+(0,-1)$);
+      \draw[latex-latex] ($(C)+(0,-1)$)--node[fill=white,inner sep=0.25mm]{$1.65\,$m}($(D)+(0,-1)$);
+      \draw[latex-latex] ($(D)+(1,0)$)--node[fill=white,inner sep=0.5mm]{$2.10\,$m}($(E)+(4,0)$);
+
+      \fill (A) circle (2.5pt)node[xshift=0.2cm, yshift=-0.25cm]{ $A$};
+      % \fill (B) circle (2.5pt)node[xshift=0.2cm, yshift=-0.25cm]{ $B$};
+      \fill (C) circle (2.5pt)node[xshift=0.2cm, yshift=-0.25cm]{ $C$};
+      \fill (D) circle (2.5pt)node[xshift=0.2cm, yshift=-0.25cm]{ $D$};
+      % \fill (E) circle (2.5pt)node[yshift=0.25cm]{ $E$};
+      % \fill (F) circle (2.5pt)node[yshift=0.25cm]{ $F$};
+      \fill (G) circle (2.5pt)node[yshift=0.25cm]{ $G$};	%
+    }
+    \small
+    \begin{align*}
+      \Sigma M_A &= -(10.0\,\textsf{kN})\cd (3.30\,\textsf{m})-(12.0\,\textsf{kN})\cd (4.95\,\textsf{m}) \\[0.25em]
+      &\qquad\qquad -R_G\cd (2.10\,\textsf{m}) = 0 \\[0.25em]
+      \Ra R_G &= -44.000\,\textsf{kN} \\\\
+      \Sigma F_x &= R_{Ax}-44.000\,\textsf{kN} = 0 \\[0.25em]
+      \Ra R_{Ax} &= 44.000\,\textsf{kN} \\\\
+      \Sigma F_y &= R_{Ay}-10.0\,\textsf{kN} -12.0\,\textsf{kN}= 0 \\[0.25em]
+      \Ra R_{Ax} &= 22.000\,\textsf{kN}
+    \end{align*}
+  }
+   \cbox{
+    \underline{\bf Joint A:}\parm\centering\small\vspace{-1em}
+    \tikz{%color
+      \draw[thick, -latex] (0,0)--+(90:1.5)node[left]{$ 22.000\,\textsf{kN} $};
+      \draw[thick, Latex-] (0,0)--+(180:1.5)node[below]{$ 44.000\,\textsf{kN}  $};
+      \draw[thick, -latex] (0,0)--+(0:2)node[below]{$ F_{AB} $};
+      \draw[thick, -latex] (0,0)--+(52:2)node[right]{$ F_{AF} $};
+      \draw[latex-latex] (1.5,0)arc(0:52:1.5)node[midway, fill=white]{$ 51.843\deg $};
+      \fill (0,0) circle (2pt)node[below]{\normalsize $ A $};
+    }
+    \begin{align*}
+      \Sigma F_y &= F_{AF}\cd\sin 51.843\deg + 22.000\,\textsf{kN} = 0 \\[0.25em]
+      \Ra F_{AF} &= -27.978\,\textsf{kN} \\\\
+      \Sigma F_x &= F_{AB}+(-27.978\,\textsf{kN})\cd\cos 51.843\deg\\[0.25em]
+      &\qquad\qquad+44.000\,\textsf{kN} = 0 \\[0.25em]
+      \Ra F_{AB} &= -26.715\,\textsf{kN}
+    \end{align*}    
+  }
+\end{textblock*}
+
+\begin{textblock*}{3.125in}(4.75in, 3.125in)
+	 \cbox{
+    \underline{\bf Note:}\parm\small
+    $BF$ is a zero-force member and $F_{BC}=F_{AB}=17.286\,\textsf{kN}$. Also, $F_{FG}=44.000\,\textsf{kN}$, equal and opposite to the reaction $R_G$.   
+  }
+	 \cbox{
+    \underline{\bf Joint F:}\parm\centering\small
+    \tikz{%color
+      % \draw[thick, -latex] (0,0)--+(90:1.5)node[left]{$ 22.000\,\textsf{kN} $};
+      \draw[thick, -latex] (0,0)--+(180:2)node[above]{$ 44.000\,\textsf{kN}  $};
+      \draw[thick, -latex] (0,0)--+(0:2)node[above]{$ F_{EF} $};
+      \draw[thick, -latex] (0,0)--+(-52:2)node[below]{$ F_{CF} $};
+      \draw[thick, Latex-] (0,0)--+(232:2)node[below]{$ 27.978\,\textsf{kN} $};
+      \draw[thick, -latex, gray!50] (0,0)--+(-90:1.5)node[below]{$ 0 $};
+      % \draw[thick, -latex] (0,0)--+(52:2)node[right]{$ F_{AF} $};
+
+      \draw[latex-latex] (1.5,0)arc(0:-52:1.5)node[midway, fill=white]{$ 51.843\deg $};
+      \draw[latex-latex] (232:1.5)arc(232:180:1.5)node[midway, fill=white]{$ 51.843\deg $};
+      \fill (0,0) circle (2pt)node[above]{\normalsize $ F $};
+    } 
+    \begin{align*}
+      \Sigma F_y &= (27.978\,\textsf{kN})\cd\sin 51.843\deg - F_{CF}\cd\sin 51.843\deg =0\\[0.25em]
+      \Ra F_{CF} &= 27.978\,\textsf{kN} \\\\
+      \Sigma F_x &= F_{EF} + 2(27.978\,\textsf{kN})\cd\cos 51.843\deg-44.000\,\textsf{kN} = 0\\[0.25em]
+      \Ra F_{EF} &= 9.4294\,\textsf{kN}
+    \end{align*}  
+  }
+  \cbox{
+    \underline{\bf Joint E:}\parm\centering\small
+    \tikz{%color
+      \draw[thick, -latex] (0,0)--+(180:1.5)node[above]{$ 9.4294\,\textsf{kN}  $};
+      \draw[thick, -latex] (0,0)--+(-90:2)node[below]{$ F_{CE} $};
+      \draw[thick, -latex] (0,0)--+(-52:2)node[below]{$ F_{DE} $};
+      \draw[thin, gray] (0.5,0)--+(0:1.5);
+      \draw[latex-latex] (1.5,0)arc(0:-52:1.5)node[midway, fill=white]{$ 51.843\deg $};
+      \fill (0,0) circle (2pt)node[above]{\normalsize $ E $};
+    } 
+    \begin{align*}
+      \Sigma F_x &= F_{DE}\cd\cos 51.843\deg - 9.4294\,\textsf{kN} =0\\[0.25em]
+      \Ra F_{DE} &= 15.262\,\textsf{kN} \\\\
+      \Sigma F_y &= -F_{CE} -(15.262\,\textsf{kN}) \cd\sin 51.843\deg = 0\\[0.25em]
+      \Ra F_{CE} &= -12.001\,\textsf{kN}
+    \end{align*}  
+  }
+\end{textblock*}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -381,6 +706,60 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 ~\newpage
+\begin{textblock*}{3.125in}(1in, .125in)
+	\cbox{
+		\underbar{\bf Joint D:} \parb\centering
+    \tikz{%color
+      \draw[thick, -latex] (0,0)--+(180:2)node[left]{$ F_{CD}  $};
+      \draw[thick, -latex] (0,0)--+(-90:1.25)node[below]{$12.0\,\textsf{kN} $};
+      \draw[thick, -latex] (0,0)--+(128:2)node[above]{$ 15.262\,\textsf{kN} $};
+      % \draw[thin, gray] (0.5,0)--+(0:1.5);
+      \draw[latex-latex] (128:1.5)arc(128:180:1.5)node[midway, fill=white,xshift=-0.5mm]{$ 51.843\deg $};
+      \fill (0,0) circle (2pt)node[right]{\normalsize $ D $};
+    }
+    \begin{align*}
+      \Sigma F_x &= -(15.262\,\textsf{kN})\cd\cos 51.843\deg -F_{CD}=0\\[0.25em]
+      \Ra F_{CD} &= -9.4294\,\textsf{kN}
+    \end{align*}
+  }
+  \cbox{
+		\underbar{\bf Do a check at joint C:} \parb\centering\small
+    \tikz{%color
+      \draw[thick, Latex-] (0,0)--+(180:2)node[left]{$ 26.715\,\textsf{kN}  $};
+      \draw[thick, -latex] (0,0)--+(-90:1.25)node[below]{$10.0\,\textsf{kN} $};
+      \draw[thick, -latex] (0,0)--+(128:2)node[above]{$ 27.978\,\textsf{kN} $};
+      \draw[thick, Latex-] (0,0)--+(0:1.5)node[above]{$ 9.4294\,\textsf{kN} $};
+      \draw[thick, Latex-] (0,0)--+(90:1.5)node[right]{$ 12.000\,\textsf{kN} $};
+      % \draw[thin, gray] (0.5,0)--+(0:1.5);
+      \draw[latex-latex] (128:1.5)arc(128:180:1.5)node[midway, fill=white,xshift=-0.5mm]{$ 51.843\deg $};
+      \fill (0,0) circle (2pt)node[below right]{\normalsize $C $};
+    }
+    \begin{align*}
+      \Sigma F_x &= 26.715\,\textsf{kN} -9.4294\,\textsf{kN}\\ 
+      &\qquad\qquad -(27.978\,\textsf{kN})\cos 51.843\deg \\
+      &= 0.00027562\,\textsf{kN} \approx 0 \qquad\text{\Large \checkmark} \\
+      \Sigma F_y &= (27.978\,\textsf{kN})\cd\sin 51.843\deg - 10.0\,\textsf{kN}- 12.001\,\textsf{kN} \\
+      &= -0.0013172\,\textsf{kN} \approx 0 \qquad\text{\Large \checkmark}
+    \end{align*}
+  }
+\end{textblock*}
+\begin{textblock*}{3.125in}(4.75in, .125in)
+  \cbox{
+      \underline{Answers}        
+      \begin{align*}
+        AB &= 26.7\,\textsf{kN}\qquad\text{(Compression)} \\[0.25em]       
+        AF &= 28.0\,\textsf{kN}\qquad\text{(Compression)} \\[0.25em]       
+        BC &= 26.7\,\textsf{kN}\qquad\text{(Compression)} \\[0.25em]       
+        BF &= 0\\[0.25em]       
+        CD &= 9.43\,\textsf{kN}\qquad\text{(Compression)} \\[0.25em]       
+        CE &= 12.0\,\textsf{kN}\qquad\text{(Compression)} \\[0.25em]       
+        CF &= 28.0\,\textsf{kN} \qquad\text{(Tension)}\\[0.25em]       
+        DE &= 15.3\,\textsf{kN}\qquad\text{(Tension)} \\[0.25em]              
+        EF &= 9.43\,\textsf{kN}\qquad\text{(Tension)}  \\[0.25em]        
+        FG &= 44.0\,\textsf{kN}\qquad\text{(Tension)}         
+      \end{align*} 
+    } 
+\end{textblock*}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

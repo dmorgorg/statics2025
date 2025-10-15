@@ -1,0 +1,51 @@
+
+%%%%%%%%%%%%%%%%%%%%%%% TRUSS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{tikzpicture}[scale=\scale]
+
+	\coordinate (A) at (0,0);
+	\coordinate (B)	at (3,0);
+	\coordinate (C) at (6,0);
+	\coordinate (D) at (9,0);
+	\coordinate (E) at (6,3.5);
+	\coordinate (F) at (3,3.5);
+	\coordinate (G) at (0,3.5);
+
+	\fill[myGray] ($(A)+(-0.5,-3)$)rectangle($(G)+(-1.5,1)$);
+	\draw ($(A)+(-0.5,-3)$)--($(G)+(-0.5,1)$);
+	\PC[-90]{G}{myGray}{black}{0.5}{0.125}
+	\PC[-90]{A}{myGray}{black}{0.5}{0.125}
+
+	\footnotesize
+	\Meme{C}{F}{gray!30}{gray!30}{black}{0.3}{0.15}{0.125}	
+	\Meme{A}{F}{gray!30}{gray!30}{black}{0.3}{0.15}{0.125}
+	\Meme{A}{B}{gray!30}{gray!30}{black}{0.3}{0.15}{0.125}
+	\Meme{C}{B}{gray!30}{gray!30}{black}{0.3}{0.15}{0.125}
+	\Meme{C}{D}{gray!30}{gray!30}{black}{0.3}{0.15}{0.125}
+	\Meme{E}{D}{gray!30}{gray!30}{black}{0.3}{0.15}{0.125}
+	\Meme{E}{F}{gray!30}{gray!30}{black}{0.3}{0.15}{0.125}
+	\Meme{G}{F}{gray!30}{gray!30}{black}{0.3}{0.15}{0.125}
+	\Meme{B}{F}{gray!30}{gray!30}{black}{0.3}{0.15}{0.125}
+	\Meme{C}{E}{gray!30}{gray!30}{black}{0.3}{0.15}{0.125}
+
+	\draw[ultra thick, -Latex] (D)--+(0,-2.75)node[below,black]{$12.0\,$kN};
+	\draw[ultra thick, -Latex] (C)--+(0,-2.25)node[below,black]{$10.0\,$kN};
+	%
+	\fill (A) circle (2.5pt)node[xshift=0.2cm, yshift=-0.325cm]{ $A$};
+	\fill (B) circle (2.5pt)node[xshift=0.2cm, yshift=-0.325cm]{ $B$};
+	\fill (C) circle (2.5pt)node[xshift=0.2cm, yshift=-0.325cm]{ $C$};
+	\fill (D) circle (2.5pt)node[xshift=0.2cm, yshift=-0.325cm]{ $D$};
+	\fill (E) circle (2.5pt)node[yshift=0.325cm]{ $E$};
+	\fill (F) circle (2.5pt)node[yshift=0.325cm]{ $F$};
+	\fill (G) circle (2.5pt)node[yshift=0.325cm]{ $G$};
+
+	\draw[thin] ($(A)+(0,-0.25)$)--+(0,-1);
+	\draw[thin] ($(B)+(0,-0.25)$)--+(0,-1);
+	\draw[thin] ($(D)+(0.5,0)$)--+(1,0);
+	\draw[thin] ($(E)+(0.5,0)$)--+(4,0);
+
+	\draw[latex-latex] ($(A)+(0,-1)$)--node[fill=white,inner sep=0.25mm]{$1.65\,$m}($(B)+(0,-1)$);
+	\draw[latex-latex] ($(B)+(0,-1)$)--node[fill=white,inner sep=0.25mm]{$1.65\,$m}($(C)+(0,-1)$);
+	\draw[latex-latex] ($(C)+(0,-1)$)--node[fill=white,inner sep=0.25mm]{$1.65\,$m}($(D)+(0,-1)$);
+	\draw[latex-latex] ($(D)+(1,0)$)--node[fill=white,inner sep=0.5mm]{$2.10\,$m}($(E)+(4,0)$);
+
+\end{tikzpicture}

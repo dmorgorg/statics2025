@@ -1,0 +1,87 @@
+
+%%%%%%%%%%%%%%%%%%%%%%% TRUSS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{tikzpicture}[scale=\scale]
+
+	\coordinate (A) at (0,0);
+	\coordinate (B)	at (2,0);
+	\coordinate (C) at (4,0);
+	\coordinate (D) at (6,0);
+	\coordinate (E) at (8,0);
+	\coordinate (F) at (10,0);
+	\coordinate (G) at (12,0);
+	\coordinate (H) at (10,1.5);
+	\coordinate (I) at (8,3);
+	\coordinate (J) at (6,4.5);
+	\coordinate (K) at (4,3);
+	\coordinate (L) at (2,1.5);
+	\footnotesize
+	\PC{G}{myGray}{black}{0.5}{0.125}
+	\Rocker{A}{myGray}{black}{0.5}{0.125}
+
+	% \filldraw[fill=Cornsilk2] ($(DD)+(25:2.5)$)--++(205:2.5)--+(2.25,0);
+	% \draw[latex-latex] ($(DD)+(25:1.75)$)arc(25:0:1.75)node[fill=Cornsilk2, midway, inner sep=0.5mm]{$25\degree$};
+	\fill[myGray] ($(A)+(-1,-0.5)$)rectangle($(A)+(1,-1)$);
+	\fill[myGray] ($(G)+(-1,-0.5)$)rectangle($(G)+(1,-1)$);
+	\draw ($(A)+(-1,-0.5)$)--($(A)+(1,-0.5)$);
+	\draw ($(G)+(-1,-0.5)$)--($(G)+(1,-0.5)$);
+
+	\Meme{B}{L}{myGray2}{myGray2}{black}{0.3}{0.15}{0.125}
+	\Meme{C}{K}{myGray2}{myGray2}{black}{0.3}{0.15}{0.125}
+	\Meme{D}{J}{myGray2}{myGray2}{black}{0.3}{0.15}{0.125}
+	\Meme{E}{I}{myGray2}{myGray2}{black}{0.3}{0.15}{0.125}
+	\Meme{F}{H}{myGray2}{myGray2}{black}{0.3}{0.15}{0.125}
+	\Meme{C}{L}{myGray2}{myGray2}{black}{0.3}{0.15}{0.125}
+	\Meme{D}{K}{myGray2}{myGray2}{black}{0.3}{0.15}{0.125}
+	\Meme{D}{I}{myGray2}{myGray2}{black}{0.3}{0.15}{0.125}
+	\Meme{E}{H}{myGray2}{myGray2}{black}{0.3}{0.15}{0.125}
+	\Meme{A}{B}{myGray2}{myGray2}{black}{0.3}{0.15}{0.125}
+	\Meme{C}{B}{myGray2}{myGray2}{black}{0.3}{0.15}{0.125}
+	\Meme{C}{D}{myGray2}{myGray2}{black}{0.3}{0.15}{0.125}
+	\Meme{E}{D}{myGray2}{myGray2}{black}{0.3}{0.15}{0.125}
+	\Meme{E}{F}{myGray2}{myGray2}{black}{0.3}{0.15}{0.125}
+	\Meme{G}{F}{myGray2}{myGray2}{black}{0.3}{0.15}{0.125}
+	\Meme{A}{L}{myGray2}{myGray2}{black}{0.3}{0.15}{0.125}
+	\Meme{K}{L}{myGray2}{myGray2}{black}{0.3}{0.15}{0.125}
+	\Meme{K}{J}{myGray2}{myGray2}{black}{0.3}{0.15}{0.125}
+	\Meme{G}{H}{myGray2}{myGray2}{black}{0.3}{0.15}{0.125}
+	\Meme{I}{H}{myGray2}{myGray2}{black}{0.3}{0.15}{0.125}
+	\Meme{I}{J}{myGray2}{myGray2}{black}{0.3}{0.15}{0.125}
+	
+	\draw[ultra thick, -Latex] (D)--+(0,-2.75)node[below,black]{$12.0\,$kN};
+	\draw[ultra thick, -Latex] (C)--+(0,-2.25)node[below,black]{$10.0\,$kN};
+	\draw[ultra thick, -Latex] (E)--+(0,-2.25)node[below,black]{$10.0\,$kN};
+	%
+	\fill (A) circle (2.5pt)node[xshift=-0.125cm, yshift=0.25cm]{\normalsize $A$};
+	\fill (B) circle (2.5pt)node[xshift=0.2cm, yshift=-0.3cm]{\normalsize $B$};
+	\fill (C) circle (2.5pt)node[xshift=0.2cm, yshift=-0.3cm]{\normalsize $C$};
+	\fill (D) circle (2.5pt)node[xshift=0.2cm, yshift=-0.3cm]{\normalsize $D$};
+	\fill (E) circle (2.5pt)node[xshift=0.2cm, yshift=-0.3cm]{\normalsize $E$};
+	\fill (F) circle (2.5pt)node[xshift=0.2cm, yshift=-0.3cm]{\normalsize $F$};
+	\fill (G) circle (2.5pt)node[yshift=0.35cm]{\normalsize $G$};
+	\fill (H) circle (2.5pt)node[yshift=0.35cm]{\normalsize $H$};
+	\fill (H) circle (2.5pt)node[yshift=0.35cm]{\normalsize $H$};
+	\fill (I) circle (2.5pt)node[yshift=0.35cm]{\normalsize $I$};
+	\fill (J) circle (2.5pt)node[yshift=0.35cm]{\normalsize $J$};
+	\fill (K) circle (2.5pt)node[yshift=0.35cm]{\normalsize $K$};
+	\fill (L) circle (2.5pt)node[yshift=0.35cm]{\normalsize $L$};
+	%
+	\draw[thin] ($(A)+(-0.5,0)$)--+(-1,0);
+	\draw[thin] ($(L)+(-0.5,0)$)--+(-3,0);
+	\draw[thin] ($(K)+(-0.5,0)$)--+(-5,0);
+	\draw[thin] ($(J)+(-0.5,0)$)--+(-7,0);
+	\draw[thin] ($(A)+(0,-0.25)$)--+(0,-1.25);
+	\draw[thin] ($(B)+(0,-0.25)$)--+(0,-1.25);
+	\draw[thin] ($(F)+(0,-0.25)$)--+(0,-1.25);
+	\draw[thin] ($(G)+(0,-0.25)$)--+(0,-1.25);
+
+	\draw[latex-latex] ($(A)+(0,-1.25)$)--node[fill=white,inner sep=0.25mm]{$1.50\,$m}($(B)+(0,-1.25)$);
+	\draw[latex-latex] ($(B)+(0,-1.25)$)--node[fill=white,inner sep=0.25mm]{$1.50\,$m}($(C)+(0,-1.25)$);
+	\draw[latex-latex] ($(C)+(0,-1.25)$)--node[fill=white,inner sep=0.25mm]{$1.50\,$m}($(D)+(0,-1.25)$);
+	\draw[latex-latex] ($(D)+(0,-1.25)$)--node[fill=white,inner sep=0.25mm]{$1.50\,$m}($(E)+(0,-1.25)$);
+	\draw[latex-latex] ($(E)+(0,-1.25)$)--node[fill=white,inner sep=0.25mm]{$1.50\,$m}($(F)+(0,-1.25)$);
+	\draw[latex-latex] ($(F)+(0,-1.25)$)--node[fill=white,inner sep=0.25mm]{$1.50\,$m}($(G)+(0,-1.25)$);
+	\draw[latex-latex] ($(A)+(-1,0)$)--node[fill=white]{$1.15\,$m}($(L)+(-3,0)$);
+	\draw[latex-latex] ($(L)+(-3,0)$)--node[fill=white]{$1.15\,$m}($(K)+(-5,0)$);
+	\draw[latex-latex] ($(K)+(-5,0)$)--node[fill=white]{$1.15\,$m}($(J)+(-7,0)$);
+	
+\end{tikzpicture}
