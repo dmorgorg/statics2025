@@ -1,0 +1,91 @@
+% !TEX root = ../../Beamer/07MoJ/07MoJd.tex
+
+\begin{tikzpicture}[scale=\scale]
+
+	\coordinate (A) at (0,0);
+	\coordinate (B) at (2,0);
+	\coordinate (C) at (4,0);
+	\coordinate (D) at (6,0);
+	\coordinate (E) at (8,0);	
+	\coordinate (F) at (10,0);
+	\coordinate (G) at (12,0);
+	\coordinate (H) at (10,-2);
+	\coordinate (I) at (8,-2);
+	\coordinate (J) at (6,-2);
+	\coordinate (K) at (4,-2);
+	\coordinate (L) at (2,-2);
+	\coordinate (M) at (0,-2);
+	\coordinate (N) at (-2,-2);
+
+	\Meme{A}{B}{LightCyan4}{LightCyan3}{black}{0.25}{0.12}{0.1225}
+	\Meme{C}{B}{LightCyan4}{LightCyan3}{black}{0.25}{0.12}{0.1225}
+	\Meme{C}{D}{LightCyan4}{LightCyan3}{black}{0.25}{0.12}{0.1225}
+	\Meme{E}{D}{LightCyan4}{LightCyan3}{black}{0.25}{0.12}{0.1225}
+	\Meme{E}{F}{LightCyan4}{LightCyan3}{black}{0.25}{0.12}{0.1225}
+	\uncover<1>{
+		\Meme{G}{F}{LightCyan4}{LightCyan3}{black}{0.25}{0.12}{0.1225}	
+	}
+	\uncover<2->{
+		\Meme{G}{F}{gray!75}{gray!5}{black}{0.25}{0.12}{0.1225}
+		\Meme{G}{H}{gray!75}{gray!5}{black}{0.25}{0.12}{0.1225}
+	}	
+	\uncover<1-5>{
+		\Meme{I}{H}{LightCyan4}{LightCyan3}{black}{0.25}{0.12}{0.1225}
+	}
+	\uncover<6>{
+		\Meme{I}{H}{gray!75}{gray!5}{black}{0.25}{0.12}{0.1225}
+	}	
+	\Meme{I}{J}{LightCyan4}{LightCyan3}{black}{0.25}{0.12}{0.1225}
+	\Meme{K}{J}{LightCyan4}{LightCyan3}{black}{0.25}{0.12}{0.1225}
+	\Meme{K}{L}{LightCyan4}{LightCyan3}{black}{0.25}{0.12}{0.1225}
+	\Meme{F}{I}{LightCyan4}{LightCyan3}{black}{0.25}{0.12}{0.1225}
+	\Meme{E}{J}{LightCyan4}{LightCyan3}{black}{0.25}{0.12}{0.1225}
+	\Meme{C}{J}{LightCyan4}{LightCyan3}{black}{0.25}{0.12}{0.1225}
+	\Meme{C}{L}{LightCyan4}{LightCyan3}{black}{0.25}{0.12}{0.1225}
+	\Meme{A}{L}{LightCyan4}{LightCyan3}{black}{0.25}{0.12}{0.1225}	
+	\Meme{B}{L}{LightCyan4}{LightCyan3}{black}{0.25}{0.12}{0.1225}
+	\uncover<1-3>{
+		\Meme{C}{K}{LightCyan4}{LightCyan3}{black}{0.25}{0.12}{0.1225}
+		\Meme{D}{J}{LightCyan4}{LightCyan3}{black}{0.25}{0.12}{0.1225}
+	}
+	\uncover<4->{
+		\Meme{C}{K}{gray!75}{gray!5}{black}{0.25}{0.12}{0.1225}
+		\Meme{D}{J}{gray!75}{gray!5}{black}{0.25}{0.12}{0.1225}
+	}	
+	\Meme{E}{I}{LightCyan4}{LightCyan3}{black}{0.25}{0.12}{0.1225}
+	\Meme{H}{F}{LightCyan4}{LightCyan3}{black}{0.25}{0.12}{0.1225}
+	\uncover<1>{
+		\Meme{G}{H}{LightCyan4}{LightCyan3}{black}{0.25}{0.12}{0.1225}
+	}
+
+	\draw[ultra thick, statsMaroon, -latex] (H)--+(0,-1);
+	\draw[ultra thick, statsMaroon, -latex] (J)--+(0,-1);
+	\draw[ultra thick, statsMaroon, -latex] (L)--+(0,-1);
+	\draw[ultra thick, statsMaroon, -latex] (A)--+(0,-1);
+	
+
+	\shadedraw [ball color = LightCyan4,thin] (A) circle (0.5mm) node[yshift=0.255cm] {\footnotesize $A$};
+	\shadedraw [ball color = LightCyan4,thin] (B) circle (0.5mm) node[xshift=0.45cm, yshift=0.245cm] {\footnotesize $B$};
+	\shadedraw [ball color = LightCyan4,thin] (C) circle (0.5mm) node[yshift=0.255cm] {\footnotesize $C$};
+	\shadedraw [ball color = LightCyan4,thin] (D) circle (0.5mm) node[yshift=0.255cm] {\footnotesize $D$};
+	\shadedraw [ball color = LightCyan4,thin] (E) circle (0.5mm) node[yshift=0.255cm] {\footnotesize $E$};
+	\shadedraw [ball color = LightCyan4,thin] (F) circle (0.5mm) node[yshift=0.255cm] {\footnotesize $F$};
+	\uncover<1>{
+	\shadedraw [ball color = LightCyan4,thin] (G) circle (0.5mm) node[yshift=0.255cm] {\footnotesize $G$};
+	}	
+	\uncover<2->{
+		\shadedraw [ball color = LightCyan4,thin, opacity=0.4] (G) circle (0.5mm) node[yshift=0.255cm] {\footnotesize $G$};
+	}
+	\shadedraw [ball color = LightCyan4,thin] (H) circle (0.5mm) node[xshift=0.2cm, yshift=-0.255cm] {\footnotesize $H$};
+	\shadedraw [ball color = LightCyan4,thin] (I) circle (0.5mm) node[xshift=0.325cm, yshift=-0.245cm] {\footnotesize $I$};
+	\shadedraw [ball color = LightCyan4,thin] (J) circle (0.5mm) node[xshift=0.15cm, yshift=-0.255cm] {\footnotesize $J$};
+	\shadedraw [ball color = LightCyan4,thin] (K) circle (0.5mm) node[yshift=-0.255cm] {\footnotesize $K$};
+	\shadedraw [ball color = LightCyan4,thin] (L) circle (0.5mm) node[xshift=0.15cm, yshift=-0.255cm] {\footnotesize $L$};
+
+
+	\fill[Cornsilk4] ($(B)+(-1,0.5)$) rectangle +(2,0.5);
+	\fill[Cornsilk4] ($(I)+(-1,-0.5)$) rectangle +(2,-0.5);
+	\PC[180]{B}{Cornsilk3}{black}{0.5}{0.1225};
+	\Rone{I}{Cornsilk3}{black}{0.5}{0.1225};
+
+\end{tikzpicture}

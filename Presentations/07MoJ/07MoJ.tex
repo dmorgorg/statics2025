@@ -447,16 +447,41 @@
 			\centering
 			\small
 			\def\scale{0.55}
-			\input{../../pikz/07MoJ/07MoJZero01a}
+			\input{../../pikz/07MoJ/07MoJ07withZero}
 		\end{statsbox}
 	\end{textblock*}
 
 	\begin{textblock*}{0.9\textwidth}(1.75cm, 6.5cm)
-		There may be members in a truss that have no loading, as seen in the previous example.\par
+		There may be members in a truss that have no internal force, as seen in the previous example.\par
 		\textbf{Zero-force} members may be used to increase the stability of the truss during construction or to add support
 		if the loading is changed.\par
 		Identifying zero-force members can greatly simplify the analysis of a truss.
 	\end{textblock*}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Recognizing Zero-Force Members}
+	% \begin{textblock*}{1\textwidth}(1cm, 1.5cm)
+		\begin{statsbox}{}{}
+			\centering
+			\small
+			\def\scale{0.75}
+			\input{../../pikz/07MoJ/07MoJZero05}
+		\end{statsbox}
+		% \parb
+		\begin{enumerate}
+			\item<1-> Any two member joint, where the two members are not parallel and there is no externally applied load or reaction, the two members are zero-force members. (Why? Do you see any?)\parm
+			\item<3-> If two forces of a three force joint are parallel and there is no externally applied load or reaction, the member that is not parallel is a zero-force member. (Why? Do you see any?)
+		\end{enumerate}
+		\uncover<5->{
+			\centering
+			Any more?
+		}
+			
+	% \end{textblock*}
+
+
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -476,7 +501,7 @@
 		\end{statsbox}
 	\end{textblock*}
 
-	\begin{textblock*}{0.35\textwidth}(8.25cm, 1.875cm)
+	\begin{textblock*}{0.35\textwidth}(8.25cm, 1.85cm)
 		\footnotesize
 		\only<1-2>{
 			\begin{statsbox}[adjusted title=Joint A]{}{}
@@ -541,22 +566,25 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{frame}{Zero-Force Members}
 
 	\begin{textblock*}{0.7\textwidth}(2.75cm, 1.375cm)
 		\begin{statsbox}{}{}
 			\centering
 			\small
-			\def\scale{0.55}
+			\def\scale{0.5}
 			\input{../../pikz/07MoJ/07MoJZero02}
 		\end{statsbox}
 	\end{textblock*}
 
-	\begin{textblock*}{0.7\textwidth}(2.875cm, 8.0cm)
+	\begin{textblock*}{0.7\textwidth}(2.875cm, 7.125cm)
 		\centering
 		\uncover<1->{
 			Truss members $BC$, $CD$ and $DE$ are collinear.\lb
-			Are there any zero-force members?	\parm
+			Are there any zero-force members?	\lb
 		}
 		\uncover<2->{
 			$AD$ is a zero-force member.\lb
@@ -590,12 +618,12 @@
 		\end{statsbox}
 	\end{textblock*}
 
-	\begin{textblock*}{1\textwidth}(1cm, 6.25cm)
+	\begin{textblock*}{1\textwidth}(1cm, 6cm)
 		\raggedright
 		% \footnotesize
-	If $AC$ and $D$ are zero-force members, why not just omit them altogether and have a single member from $B$ to $E$? \par
+	If $AC$ and $AD$ are zero-force members, why not just omit them from the structure altogether and have a single member from $B$ to $E$? \par
 		\uncover<2->{
-		Of course, all designs are different, but $BE$ is long and slender, and the force $F$ will put it in compression. If the load is too high, $BE$ will buckle. (You will learn about the buckling of columns in your strength of materials course.) \par 
+		Of course, all designs are different, but here $BE$ is long and slender, and the force $F$ will cause it to be in compression. If the load is too high, $BE$ will buckle. (You will learn about the buckling of columns in your strength of materials course.) \par 
 		}\uncover<3> {Braces at $C$ and $D$ can increase the load before buckling by up to nine times.		}
 	
 	\end{textblock*}
@@ -615,10 +643,10 @@
 		\end{statsbox}
 	\end{textblock*}
 
-	\begin{textblock*}{0.7\textwidth}(2.875cm, 6.5cm)
+	\begin{textblock*}{0.9\textwidth}(1.75cm, 6.5cm)
 		\centering
 		\uncover<1->{
-			Truss members $BC$, $CD$ and $DE$ are collinear.\lb
+			Truss members $BC$, $CD$ and $DE$ are collinear. As are $AH$ and $GH$. \lb And $EF$ and $FG$.
 			Are there any zero-force members?	\parm
 		}
 		\uncover<2->{
@@ -663,6 +691,37 @@
 
 \end{frame}
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{A Dynamically Changing Load Illustration}
+	
+	\begin{textblock*}{8cm}(0.5cm, 1.125cm)
+		\stcsfig[1]{../../images/bridgeTruckOne.png}
+	\end{textblock*}
+	\begin{textblock*}{3cm}(9cm, 2.125cm)
+		% \small
+		A truck is driving across a bridge. Notice that member $FH$ is a zero-force member.		
+	\end{textblock*}
+	
+	\begin{textblock*}{3cm}(0.5cm, 5cm)
+		\uncover<2->{
+			When the truck load crosses joint $E$, some of the load is transferred to joint $F$ and member $FH$ is no longer a zero-force member.
+		}
+	\end{textblock*}
+	\begin{textblock*}{8cm}(4.125cm,4.625cm)
+		\uncover<2->{
+		\stcsfig[1]{../../images/bridgeTruckTwo.png}
+		}
+	\end{textblock*}
+	\begin{textblock*}{1\textwidth}(1cm, 8.125cm)
+		\centering
+		\uncover<3->{
+			You can examine how internal forces and loadings change using the bridge simulation \href{https://www.eduk8r.org/bridge/index.html}{here}.
+		}
+	\end{textblock*}
+	
+	
+\end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}{}
