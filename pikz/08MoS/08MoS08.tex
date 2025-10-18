@@ -1,0 +1,111 @@
+%%%%%%%%%%%%%%%%%%%%%%% TRUSS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{tikzpicture}[scale=\scale]
+
+	\footnotesize
+
+	\coordinate (A) at (0,0);
+	\coordinate (B)	at (2, 0);
+	\coordinate (C) at (4,0);
+	\coordinate (D) at (6,0);
+	\coordinate (E) at (8,0);
+	\coordinate (F) at (10,0);
+	\coordinate (G) at (12,0);
+	\coordinate (H) at (14,0);
+	\coordinate (I) at (16,0);
+	\coordinate (J) at (18,0);
+	\coordinate (Btop) at (2,3);
+	\coordinate (Ctop) at (4,3);
+	\coordinate (Dtop) at (6,3);
+	\coordinate (Etop) at (8,3);
+	\coordinate (Ftop) at (10,3);
+	\coordinate (Gtop) at (12,3);
+	\coordinate (Htop) at (14,3);
+	\coordinate (Itop) at (16,3);
+	\coordinate (Bmid) at (2,1.5);
+	\coordinate (Cmid) at (4,1.5);
+	\coordinate (Dmid) at (6,1.5);
+	\coordinate (Emid) at (8,1.5);
+	\coordinate (Fmid) at (10,1.5);
+	\coordinate (Gmid) at (12,1.5);
+	\coordinate (Hmid) at (14,1.5);
+	\coordinate (Imid) at (16,1.5);
+
+	\Meme{A}{B}{LightYellow4}{LightYellow2}{black}{0.3}{0.15}{0.125}
+	\Meme{C}{B}{LightYellow4}{LightYellow2}{black}{0.3}{0.15}{0.125}
+	\Meme{C}{D}{LightYellow4}{LightYellow2}{black}{0.3}{0.15}{0.125}
+	\Meme{E}{D}{LightYellow4}{LightYellow2}{black}{0.3}{0.15}{0.125}
+	\Meme{E}{F}{DarkOrange4}{DarkOrange2}{black}{0.3}{0.15}{0.125}
+	\Meme{G}{F}{LightYellow4}{LightYellow2}{black}{0.3}{0.15}{0.125}
+	\Meme{G}{H}{LightYellow4}{LightYellow2}{black}{0.3}{0.15}{0.125}
+	\Meme{I}{H}{LightYellow4}{LightYellow2}{black}{0.3}{0.15}{0.125}
+	\Meme{Gtop}{Htop}{LightYellow4}{LightYellow2}{black}{0.3}{0.15}{0.125}
+	\Meme{Gtop}{Ftop}{LightYellow4}{LightYellow2}{black}{0.3}{0.15}{0.125}
+	\Meme{Etop}{Ftop}{DarkOrange4}{DarkOrange2}{black}{0.3}{0.15}{0.125}
+	\Meme{Etop}{Dtop}{LightYellow4}{LightYellow2}{black}{0.3}{0.15}{0.125}
+	\Meme{Ctop}{Dtop}{LightYellow4}{LightYellow2}{black}{0.3}{0.15}{0.125}
+	\Meme{Ctop}{Btop}{LightYellow4}{LightYellow2}{black}{0.3}{0.15}{0.125}
+
+	\Meme{Ctop}{Bmid}{LightYellow4}{LightYellow2}{black}{0.3}{0.15}{0.125}
+	\Meme{Btop}{B}{LightYellow4}{LightYellow2}{black}{0.3}{0.15}{0.125}
+	\Meme{C}{Bmid}{LightYellow4}{LightYellow2}{black}{0.3}{0.15}{0.125}
+	
+	\Meme{Dtop}{Cmid}{LightYellow4}{LightYellow2}{black}{0.3}{0.15}{0.125}
+	\Meme{Ctop}{C}{LightYellow4}{LightYellow2}{black}{0.3}{0.15}{0.125}
+	\Meme{D}{Cmid}{LightYellow4}{LightYellow2}{black}{0.3}{0.15}{0.125}
+
+	\Meme{Etop}{Dmid}{LightYellow4}{LightYellow2}{black}{0.3}{0.15}{0.125}
+	\Meme{Dtop}{D}{LightYellow4}{LightYellow2}{black}{0.3}{0.15}{0.125}
+	\Meme{E}{Dmid}{LightYellow4}{LightYellow2}{black}{0.3}{0.15}{0.125}
+
+	\Meme{Etop}{Fmid}{DarkOrange4}{DarkOrange2}{black}{0.3}{0.15}{0.125}	
+	\Meme{Ftop}{F}{LightYellow4}{LightYellow2}{black}{0.3}{0.15}{0.125}
+	\Meme{Fmid}{E}{DarkOrange4}{DarkOrange2}{black}{0.3}{0.15}{0.125}
+
+	\Meme{Ftop}{Gmid}{LightYellow4}{LightYellow2}{black}{0.3}{0.15}{0.125}	
+	\Meme{Gtop}{G}{LightYellow4}{LightYellow2}{black}{0.3}{0.15}{0.125}
+	\Meme{Gmid}{F}{LightYellow4}{LightYellow2}{black}{0.3}{0.15}{0.125}
+
+	\Meme{Gtop}{Hmid}{LightYellow4}{LightYellow2}{black}{0.3}{0.15}{0.125}	
+	\Meme{Htop}{H}{LightYellow4}{LightYellow2}{black}{0.3}{0.15}{0.125}
+	\Meme{Hmid}{G}{LightYellow4}{LightYellow2}{black}{0.3}{0.15}{0.125}
+
+	\Meme{Etop}{E}{LightYellow4}{LightYellow2}{black}{0.3}{0.15}{0.125}
+	\Meme{Htop}{I}{LightYellow4}{LightYellow2}{black}{0.3}{0.15}{0.125}
+	\Meme{Btop}{A}{LightYellow4}{LightYellow2}{black}{0.3}{0.15}{0.125}
+
+	\foreach \coord in {A,B,...,I, Bmid, Cmid,Dmid, Fmid, Gmid, Hmid, Btop, Ctop, Dtop, Etop, Ftop, Gtop, Htop}{
+		\filldraw[ball color = LightYellow4] (\coord) circle (2pt);
+	};
+	\foreach \coord in {Btop, Ctop, Dtop, Etop, Ftop, Gtop, Htop}{
+		\draw ($(\coord)+(0,0.5)$) -- +(0,1);
+	};
+	\draw ($(A)+(0,0.5)$) -- +(0,4);
+	\draw ($(I)+(0,0.5)$) -- +(0,4);
+	\draw ($(Btop)+(-0.5,0)$) -- +(-3,0);
+	\draw ($(A)+(-0.5,0)$) -- +(-1,0);
+	\draw ($(Bmid)+(-1.5,0)$) -- +(-2,0);
+
+	\foreach \x in {0, 1, ..., 7}{
+		\draw[latex-latex] (2*\x, 4) -- +(2,0)node[fill=white, midway, inner sep = 0.25mm]{\footnotesize $ 5.0\,\textsf{m} $};
+	}
+
+	\draw[latex-latex] (-1,3) -- (-1,1.5)node[fill=white, midway, inner sep = 0.5mm]{\footnotesize $ 3.75\,\textsf{m} $};
+	\draw[latex-latex] (-1,1.5) -- (-1,0)node[fill=white, midway, inner sep = 0.5mm]{\footnotesize $ 3.75\,\textsf{m} $};
+
+	\fill[DarkOliveGreen] ($(A)+(-1,-0.5)$) rectangle +(2,-0.5);
+	\fill[DarkOliveGreen] ($(I)+(-1,-0.5)$) rectangle +(2,-0.5);
+	\PC{A}{DarkOliveGreen4}{black}{0.5}{0.125}
+	\Rocker{I}{DarkOliveGreen4}{black}{0.5}{0.125}
+
+	\draw[very thick, -latex, statsMaroon] (B)--+(0,-1.25)node[below, black]{$ 6.0\,\textsf{kN}$ };
+	\draw[very thick, -latex, statsMaroon] (D)--+(0,-1.25)node[below, black]{$ 8.0\,\textsf{kN}$ };
+	\draw[very thick, -latex, statsMaroon] (G)--+(0,-1.25)node[below, black]{$ 10.0\,\textsf{kN}$ };
+
+	\small
+	\node[yshift=-0.25cm] at (E) {$ A $};
+	\node[yshift=-0.25cm] at (F) {$ B $};
+	\node[yshift=0.25cm, fill=white, inner sep = 0.2mm] at (Ftop) {$ D $};
+	\node[yshift=0.25cm, fill=white, inner sep = 0.2mm] at (Etop) {$ E $};
+	\node[xshift=0.25cm,] at (Fmid) {$ C $};
+	
+\end{tikzpicture}

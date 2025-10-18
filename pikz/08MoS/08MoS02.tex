@@ -1,0 +1,83 @@
+
+%%%%%%%%%%%%%%%%%%%%%%% TRUSS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{tikzpicture}[scale=\scale]
+
+	\footnotesize
+
+	\coordinate (A) at (0,0);
+	\coordinate (B)	at (3.5,0);
+	\coordinate (C) at (7,0);
+	\coordinate (D) at (10.5,0);
+	\coordinate (E) at (14,0);
+	\coordinate (F) at (10.5,-3);
+	\coordinate (G) at (7,-4.5);
+	\coordinate (H) at (3.5,-3);	
+
+	\gettikzxy{(A)}{\ax}{\ay}
+	\gettikzxy{(B)}{\bx}{\by}
+	\gettikzxy{(C)}{\cx}{\cy}
+	\gettikzxy{(D)}{\ddx}{\ddy}
+	\gettikzxy{(E)}{\eex}{\eey}
+	\gettikzxy{(F)}{\fx}{\fy}
+	\gettikzxy{(G)}{\gx}{\gy}
+	
+	\Meme{A}{B}{DarkSeaGreen4}{DarkSeaGreen2}{black}{0.3}{0.15}{0.125}
+	\Meme{C}{B}{Orange3}{Orange1}{black}{0.3}{0.15}{0.125}
+	\Meme{C}{D}{DarkSeaGreen4}{DarkSeaGreen2}{black}{0.3}{0.15}{0.125}
+	\Meme{E}{D}{DarkSeaGreen4}{DarkSeaGreen2}{black}{0.3}{0.15}{0.125}
+	\Meme{E}{F}{DarkSeaGreen4}{DarkSeaGreen2}{black}{0.3}{0.15}{0.125}
+	\Meme{G}{F}{DarkSeaGreen4}{DarkSeaGreen2}{black}{0.3}{0.15}{0.125}
+	\Meme{G}{H}{Orange3}{Orange1}{black}{0.3}{0.15}{0.125}
+	\Meme{A}{H}{DarkSeaGreen4}{DarkSeaGreen2}{black}{0.3}{0.15}{0.125}
+	\Meme{C}{H}{Orange3}{Orange1}{black}{0.3}{0.15}{0.125}
+	\Meme{C}{F}{DarkSeaGreen4}{DarkSeaGreen2}{black}{0.3}{0.15}{0.125}
+	\Meme{B}{H}{DarkSeaGreen4}{DarkSeaGreen2}{black}{0.3}{0.15}{0.125}
+	\Meme{C}{G}{DarkSeaGreen4}{DarkSeaGreen2}{black}{0.3}{0.15}{0.125}
+	\Meme{D}{F}{DarkSeaGreen4}{DarkSeaGreen2}{black}{0.3}{0.15}{0.125}
+
+	\draw[ultra thick, Latex-, saitMaroon] (B)--+(0,1.5)node[right, black]{$ 4.00\,\textsf{kN}$ };
+	\draw[ultra thick, Latex-, saitMaroon] (C)--+(0,1.5)node[right, black]{$ 5.50\,\textsf{kN}$ };
+
+	\node[above left, outer sep = 1mm] at (A) {$ A $};
+	\node[above left, outer sep = 1mm] at (B) {$ B $};
+	\node[above left, outer sep = 1mm] at (C) {$ C $};
+	\node[above left, outer sep = 1mm] at (D) {$ D $};
+	\node[above left, outer sep = 1mm] at (E) {$ E $};
+	\node[below, outer sep = 1mm] at (F) {$ F $};
+	\node[below, outer sep = 1mm] at (G) {$ G $};
+	\node[below, outer sep = 1mm] at (H) {$ H $};
+	
+
+	\foreach \coord in {A,B,C,D,...,H}{
+		\filldraw[ball color = NavajoWhite4] (\coord) circle (2.5pt);
+	};
+
+	\begin{scope}[rotate around= {315:(A)}]
+		\fill[Tan] ($(A)+(-1,-0.75)$) rectangle ($(A)+(1,-1.25)$);
+		\draw  ($(A)+(-1,-0.75)$) -- ($(A)+(1.,-0.75)$);
+		\PC{A}{Tan}{black}{0.75}{0.2}
+	\end{scope}
+	\fill[Tan] ($(E)+(-0.5,-0.75)$) rectangle ($(E)+(0.5,-1.25)$);
+	\draw  ($(E)+(-0.5,-0.75)$) -- ($(E)+(0.5,-0.75)$);
+	\Rone{E}{Tan}{black}{0.75}{0.2}	
+
+	\draw[thin, gray]($ (E)+(0.5,0)$)--+(2.25,0);
+	\draw[thin, gray]($ (F)+(0.5,0)$)--+(5.75,0);
+	\draw[thin, gray]($ (G)+(0.75,0)$)--+(9,0);
+
+	\draw[thin, gray]($ (A)+(90:0.5)$)--+(90:2.5);
+	\draw[thin, gray]($ (D)+(90:0.5)$)--+(90:2.5);
+	\draw[thin, gray]($ (E)+(90:0.5)$)--+(90:2.5);
+	\draw[thin, gray]($ (B)+(90:2)$)--+(90:1);
+	\draw[thin, gray]($ (C)+(90:2)$)--+(90:1);
+	
+	\draw[latex-latex] ($(E)+(1.5,0)$)--($(F)+(5,0)$)node[midway, fill=white, inner sep=0.5mm]{$ 2.50\,\textsf{m} $};
+	\draw[latex-latex] ($(G)+(8.5,0)$)--($(F)+(5,0)$)node[midway, fill=white, inner sep=0.5mm]{$ 1.25\,\textsf{m} $};
+
+	\draw[latex-latex] ($(A)+(0,2.5)$)--($(B)+(0,2.5)$)node[midway, fill=white, inner sep=0.5mm]{$ 2.90\,\textsf{m} $};
+	\draw[latex-latex] ($(C)+(0,2.5)$)--($(B)+(0,2.5)$)node[midway, fill=white, inner sep=0.5mm]{$ 2.90\,\textsf{m} $};
+	\draw[latex-latex] ($(C)+(0,2.5)$)--($(D)+(0,2.5)$)node[midway, fill=white, inner sep=0.5mm]{$ 2.90\,\textsf{m} $};
+	\draw[latex-latex] ($(E)+(0,2.5)$)--($(D)+(0,2.5)$)node[midway, fill=white, inner sep=0.5mm]{$ 2.90\,\textsf{m} $};
+	
+	
+\end{tikzpicture}

@@ -1,0 +1,119 @@
+
+%%%%%%%%%%%%%%%%%%%%%%% TRUSS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{tikzpicture}[scale=\scale]
+
+	\footnotesize
+
+	\coordinate (A) at (0,0);
+	\coordinate (B)	at (3,2);
+	\coordinate (C) at (6,4);
+	\coordinate (D) at (9,6);
+	\coordinate (E) at (12,4);
+	\coordinate (F) at (15,2);
+	\coordinate (G) at (18,0);
+	\coordinate (H) at (15,0);
+	\coordinate (I) at (12,0);
+	\coordinate (J) at (9,0);
+	\coordinate (K) at (6,0);
+	\coordinate (L) at (3,0);
+	
+
+	\gettikzxy{(A)}{\ax}{\ay}
+	\gettikzxy{(B)}{\bx}{\by}
+	\gettikzxy{(C)}{\cx}{\cy}
+	\gettikzxy{(D)}{\ddx}{\ddy}
+	\gettikzxy{(E)}{\eex}{\eey}
+	\gettikzxy{(F)}{\fx}{\fy}
+	\gettikzxy{(G)}{\gx}{\gy}
+	
+
+	
+	\Meme{C}{B}{NavajoWhite4}{NavajoWhite2}{black}{0.4}{0.2}{0.125}
+	\Meme{C}{D}{NavajoWhite4}{NavajoWhite2}{black}{0.4}{0.2}{0.125}
+	\Meme{E}{D}{NavajoWhite4}{NavajoWhite2}{black}{0.4}{0.2}{0.125}
+	\Meme{E}{F}{NavajoWhite4}{NavajoWhite2}{black}{0.4}{0.2}{0.125}
+	
+	\Meme{G}{H}{NavajoWhite4}{NavajoWhite2}{black}{0.4}{0.2}{0.125}
+	\Meme{I}{H}{NavajoWhite4}{NavajoWhite2}{black}{0.4}{0.2}{0.125}
+	\Meme{I}{J}{NavajoWhite4}{NavajoWhite2}{black}{0.4}{0.2}{0.125}
+	\Meme{K}{J}{NavajoWhite4}{NavajoWhite2}{black}{0.4}{0.2}{0.125}
+	\Meme{K}{L}{NavajoWhite4}{NavajoWhite2}{black}{0.4}{0.2}{0.125}
+	\Meme{A}{L}{NavajoWhite4}{NavajoWhite2}{black}{0.4}{0.2}{0.125}
+	\Meme{A}{B}{NavajoWhite4}{NavajoWhite2}{black}{0.4}{0.2}{0.125}
+	\Meme{G}{F}{NavajoWhite4}{NavajoWhite2}{black}{0.4}{0.2}{0.125}
+	\Meme{B}{K}{NavajoWhite4}{NavajoWhite2}{black}{0.4}{0.2}{0.125}
+	\Meme{C}{J}{NavajoWhite4}{NavajoWhite2}{black}{0.4}{0.2}{0.125}
+	\Meme{E}{J}{NavajoWhite4}{NavajoWhite2}{black}{0.4}{0.2}{0.125}
+	\Meme{F}{I}{NavajoWhite4}{NavajoWhite2}{black}{0.4}{0.2}{0.125}
+	\Meme{B}{L}{NavajoWhite4}{NavajoWhite2}{black}{0.4}{0.2}{0.125}
+	\Meme{C}{K}{NavajoWhite4}{NavajoWhite2}{black}{0.4}{0.2}{0.125}
+	\Meme{D}{J}{DarkOrange4}{DarkOrange2}{black}{0.4}{0.2}{0.125}
+	\Meme{E}{I}{NavajoWhite4}{NavajoWhite2}{black}{0.4}{0.2}{0.125}
+	\Meme{F}{H}{NavajoWhite4}{NavajoWhite2}{black}{0.4}{0.2}{0.125}
+
+	
+	
+
+	\foreach \coord in {A,B,...,G}{
+		\filldraw[ball color = NavajoWhite4] (\coord) circle (3pt)node[yshift=0.325cm] {$ \coord $};
+	};
+	\foreach \coord in {H, I, J, K, L}{
+		\filldraw[ball color = NavajoWhite4] (\coord) circle (3pt)node[left, yshift=-0.25cm] {$ \coord $};		
+	};	
+
+	\fill[DarkSeaGreen4] ($(A)+(-1,-0.75)$) rectangle +(2,-0.5);
+	\fill[DarkSeaGreen4] ($(G)+(-1,-0.75)$) rectangle +(2,-0.5);
+	\PC{G}{DarkSeaGreen4}{black}{0.75}{0.2}
+	\Roller{A}{DarkSeaGreen4}{black}{0.75}{0.2}
+	\filldraw[ball color = NavajoWhite4] (A) circle (4pt);
+	\filldraw[ball color = NavajoWhite4] (G) circle (4pt);
+
+	\draw[thin, gray]($ (A)+(0,-1.5)$)--+(0,-1.75);
+	\draw[thin, gray]($ (G)+(0,-1.5)$)--+(0,-1.75);
+	\draw[thin, gray]($ (J)+(0,-.5)$)--+(0,-2.75);
+	\draw[thin, gray]($ (H)+(0,-.5)$)--+(0,-2.75);
+	\draw[thin, gray]($ (L)+(0,-2)$)--+(0,-1.25);
+	\draw[thin, gray]($ (K)+(0,-2)$)--+(0,-1.25);
+	\draw[thin, gray]($ (I)+(0,-2)$)--+(0,-1.25);
+	\draw[thin, gray]($ (A)+(-0.5,0)$)--(-2, \ay);
+	\draw[thin, gray]($ (B)+(-0.75,0)$)--(-2, \by);
+	\draw[thin, gray]($ (C)+(-0.75,0)$)--(-2, \cy);
+	\draw[thin, gray]($ (D)+(-0.75,0)$)--(-2, \ddy);
+
+	\foreach \x in {0,1,2,...,5} {
+		\draw[latex-latex] (\x*3, -2.625)--+(3,0)node[midway, fill=white]{$ 4.25\,\textsf{m} $};
+	}
+	\draw[latex-latex] (\ax-1.125cm, \ay)--(\ax-1.125cm, \by)node[midway, fill=white, inner sep = 0.5mm]{$ 2.75\,\textsf{m} $};
+	\draw[latex-latex] (\ax-1.125cm, \by)--(\ax-1.125cm, \cy)node[midway, fill=white]{$ 2.75\,\textsf{m} $};
+	\draw[latex-latex] (\ax-1.125cm, \cy)--(\ax-1.125cm, \ddy)node[midway, fill=white]{$ 2.75\,\textsf{m} $};
+	
+	
+	% \foreach \coord in {F, G, ...,I }{
+	% 	\filldraw[ball color = NavajoWhite4] (\coord) circle (2pt)node[above,outer sep = 0.125cm, xshift=-0.2cm] {$ \coord $};
+	% 	\draw[thin, gray] ($(\coord)+(0,0.5)$)--+(0,1.5);
+	% };
+	% \draw[thin, gray] ($(E)+(0,0.5)$)--+(0,3.5);
+
+	% \draw[thin, gray] ($(A)+(-0.75,0)$)--(\elx, \ay);
+	% \draw[thin, gray] (\bx-0.75cm, \by)--(\elx, \by);
+	% \draw[thin, gray] (\cx-0.75cm, \cy)--(\elx, \cy);
+	% \draw[thin, gray] (\eex-0.5cm, \eey)--(\elx, \eey);
+	% \draw[thin, gray] (\fx-0.75cm, \fy)--(\elx, \fy);
+
+
+
+	\draw[very thick, -latex, statsMaroon] (L)--+(0,-1.25)node[below, black, yshift=0.75mm]{$ 5.0\,\textsf{kN}$ };
+	\draw[very thick, -latex, statsMaroon] (K)--+(0,-1.25)node[below, black, yshift=0.75mm]{$ 5.0\,\textsf{kN}$ };
+	\draw[very thick, -latex, statsMaroon] (I)--+(0,-1.25)node[below, black, yshift=0.75mm]{$ 10.0\,\textsf{kN}$ };
+
+	% \draw[latex-latex] (\eex, 8)--(\fx,8)node[midway, fill=white] {$ 2.25\,\textsf{m} $};
+	% \draw[latex-latex] (\fx, 8)--(\gx,8)node[midway, fill=white] {$ 2.25\,\textsf{m} $};
+	% \draw[latex-latex] (\gx, 8)--(\hx,8)node[midway, fill=white] {$ 2.25\,\textsf{m} $};
+	% \draw[latex-latex] (\hx, 8)--(\ix,8)node[midway, fill=white] {$ 2.25\,\textsf{m} $};
+
+	% \draw[latex-latex] (\elx+0.75cm, \fy)--(\elx+0.75cm, \eey)node[midway, fill=white] {$ 1.50\,\textsf{m} $};
+	% \draw[latex-latex] (\elx+0.75cm, \eey)--(\elx+0.75cm, \cy)node[midway, fill=white] {$ 1.50\,\textsf{m} $};
+	% \draw[latex-latex] (\elx+0.75cm, \cy)--(\elx+0.75cm, \by)node[midway, fill=white] {$ 1.50\,\textsf{m} $};
+	% \draw[latex-latex] (\elx+0.75cm, \by)--(\elx+0.75cm, \ay)node[midway, fill=white] {$ 1.50\,\textsf{m} $};
+	
+\end{tikzpicture}

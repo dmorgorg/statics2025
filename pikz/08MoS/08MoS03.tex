@@ -1,0 +1,104 @@
+
+%%%%%%%%%%%%%%%%%%%%%%% TRUSS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{tikzpicture}[scale=\scale]
+
+	\footnotesize
+
+	\coordinate (A) at (-1,0);
+	\coordinate (B)	at (5,0);
+	\coordinate (C) at (0,4);
+	\coordinate (D) at (2,4);
+	\coordinate (E) at (4,4);
+	\coordinate (F) at (0,6);
+	\coordinate (G) at (2,6);
+	\coordinate (H) at (4,6);
+	\coordinate (I) at (0,8);
+	\coordinate (J) at (2,8);
+	\coordinate (K) at (4,8);	
+	\coordinate (L) at (-2,10);	
+	\coordinate (M) at (2,10);	
+	\coordinate (N) at (6,10);	
+
+	\gettikzxy{(A)}{\ax}{\ay}
+	\gettikzxy{(B)}{\bx}{\by}
+	\gettikzxy{(C)}{\cx}{\cy}
+	\gettikzxy{(D)}{\ddx}{\ddy}
+	\gettikzxy{(E)}{\eex}{\eey}
+	\gettikzxy{(F)}{\fx}{\fy}
+	\gettikzxy{(G)}{\gx}{\gy}
+
+	\clip(-3,2) rectangle (8.5,12);
+	% \draw(-3,2) rectangle (8.5,12);
+	
+	\Meme{A}{C}{SkyBlue4}{SkyBlue1}{black}{0.3}{0.15}{0.125}
+	\Meme{B}{E}{SkyBlue4}{SkyBlue1}{black}{0.3}{0.15}{0.125}
+	\Meme{C}{F}{Orange4}{Orange1}{black}{0.3}{0.15}{0.125}
+	\Meme{E}{H}{Orange4}{Orange1}{black}{0.3}{0.15}{0.125}
+	\Meme{C}{E}{SkyBlue4}{SkyBlue1}{black}{0.3}{0.15}{0.125}
+	\Meme{F}{H}{SkyBlue4}{SkyBlue1}{black}{0.3}{0.15}{0.125}
+	\Meme{A}{D}{SkyBlue4}{SkyBlue1}{black}{0.3}{0.15}{0.125}
+	\Meme{B}{D}{SkyBlue4}{SkyBlue1}{black}{0.3}{0.15}{0.125}
+	\Meme{C}{G}{Orange4}{Orange1}{black}{0.3}{0.15}{0.125}
+	\Meme{E}{G}{Orange4}{Orange1}{black}{0.3}{0.15}{0.125}
+	\Meme{I}{F}{SkyBlue4}{SkyBlue1}{black}{0.3}{0.15}{0.125}
+	\Meme{I}{F}{SkyBlue4}{SkyBlue1}{black}{0.3}{0.15}{0.125}
+	\Meme{H}{K}{SkyBlue4}{SkyBlue1}{black}{0.3}{0.15}{0.125}
+	\Meme{I}{K}{SkyBlue4}{SkyBlue1}{black}{0.3}{0.15}{0.125}
+	\Meme{F}{J}{SkyBlue4}{SkyBlue1}{black}{0.3}{0.15}{0.125}
+	\Meme{H}{J}{SkyBlue4}{SkyBlue1}{black}{0.3}{0.15}{0.125}
+	\Meme{I}{L}{SkyBlue4}{SkyBlue1}{black}{0.3}{0.15}{0.125}
+	\Meme{K}{N}{SkyBlue4}{SkyBlue1}{black}{0.3}{0.15}{0.125}
+	\Meme{L}{N}{SkyBlue4}{SkyBlue1}{black}{0.3}{0.15}{0.125}
+	\Meme{I}{M}{SkyBlue4}{SkyBlue1}{black}{0.3}{0.15}{0.125}
+	\Meme{K}{M}{SkyBlue4}{SkyBlue1}{black}{0.3}{0.15}{0.125}
+
+	
+	\draw[gray!60!black, ultra thick, dashed, line cap = round] (-2,2.05)--+ (8,0);
+
+	\draw[ultra thick, -latex, saitMaroon] (L)--+(0,-1.5)node[below, black]{$ 5.30\,\textsf{kN}$ };
+	\draw[ultra thick, -latex, saitMaroon] (N)--+(0,-1.5)node[below, black, yshift=1mm]{$ 7.10\,\textsf{kN}$ };
+
+	\node[left, outer sep = 1mm] at (C) {$ C $};
+	\node[above, outer sep = 1mm] at (D) {$ D $};
+	\node[right, outer sep = 1mm] at (E) {$ E $};
+	\node[left, outer sep = 1mm] at (F) {$ F $};
+	\node[above, outer sep = 1mm] at (G) {$ G $};
+	\node[right, outer sep = 1mm] at (H) {$ H $};
+	\node[left, outer sep = 1mm, yshift=-0.5mm] at (I) {$ I $};
+	\node[above, outer sep = 1mm] at (J) {$ J $};
+	\node[right, outer sep = 1mm, yshift=-0.5mm] at (K) {$ K $};
+	\node[above left] at (L) {$ L $};
+	\node[above left, outer sep = 0.5mm] at (M) {$ M $};
+	\node[above right] at (N) {$ N $};
+	
+
+	\foreach \coord in {B,C,D,...,N}{
+		\filldraw[ball color = NavajoWhite4] (\coord) circle (2.5pt);
+	};
+	
+
+	\draw[thin, gray]($ (E)+(0.75,0)$)--+(3.25,0);
+	\draw[thin, gray]($ (H)+(0.75,0)$)--+(3.25,0);
+	\draw[thin, gray]($ (K)+(0.75,0)$)--+(3.25,0);
+	\draw[thin, gray]($ (N)+(0.5,0)$)--+(1.5,0);
+	\draw[thin, gray]($ (L)+(90:0.5)$)--+(90:1.25);
+	\draw[thin, gray]($ (M)+(90:0.5)$)--+(90:1.25);
+	\draw[thin, gray]($ (N)+(90:0.5)$)--+(90:1.25);
+	\draw[thin, gray]($ (M)+(90:0.5)+(2,0)$)--+(90:1.25);
+	\draw[thin, gray]($ (L)+(90:0.5)+(2,0)$)--+(90:1.25);
+
+
+
+	\draw[latex-latex] ($(E)+(3.5,0)$)--($(H)+(3.5,0)$)node[midway, fill=white]{$ 2.25\,\textsf{m} $};
+	\draw[latex-latex] ($(H)+(3.5,0)$)--($(K)+(3.5,0)$)node[midway, fill=white]{$ 2.25\,\textsf{m} $};
+	\draw[latex-latex] ($(K)+(3.5,0)$)--($(N)+(1.5,0)$)node[midway, fill=white]{$ 2.25\,\textsf{m} $};
+	\draw[latex-latex] ($(L)+(90:1.25)$)--($(L)+(2,1.25)$)node[midway, fill=white, inner sep=0.3mm]{$ 1.95\,\textsf{m} $};
+	\draw[latex-latex] ($(M)+(90:1.25)$)--($(L)+(2,1.25)$)node[midway, fill=white, inner sep=0.3mm]{$ 1.95\,\textsf{m} $};
+	\draw[latex-latex] ($(M)+(90:1.25)$)--($(M)+(2,1.25)$)node[midway, fill=white, inner sep=0.3mm]{$ 1.95\,\textsf{m} $};
+	\draw[latex-latex] ($(N)+(90:1.25)$)--($(M)+(2,1.25)$)node[midway, fill=white, inner sep=0.3mm]{$ 1.95\,\textsf{m} $};
+	
+	
+	
+% \draw[ultra thick, latex-, saitMaroon] (D)--+(-1.5,0)node[below, black]{$ 15.0\,\textsf{kN}$ };	
+	
+\end{tikzpicture}
