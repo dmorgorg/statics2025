@@ -1,0 +1,143 @@
+
+%%%%%%%%%%%%%%%%%%%%%%% TRUSS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{tikzpicture}[scale=\scale, line cap=round]
+
+	\footnotesize
+
+	\coordinate (A) at (0,3);
+	\coordinate (B)	at (3,3);
+	\coordinate (C) at (6,3);
+	\coordinate (D) at (9,0);
+	\coordinate (E) at (6,0);
+	\coordinate (F) at (3,0);
+	\coordinate (G) at (0,0);
+	\coordinate (BC) at ($(B)!.5!(C)$);
+	\coordinate (EF) at ($(E)!.5!(F)$);
+	\coordinate (BE) at ($(B)!.5!(E)$);
+
+	\gettikzxy{(A)}{\ax}{\ay}
+	\gettikzxy{(B)}{\bx}{\by}
+	\gettikzxy{(C)}{\cx}{\cy}
+	\gettikzxy{(D)}{\ddx}{\ddy}
+	\gettikzxy{(E)}{\eex}{\eey}
+	\gettikzxy{(F)}{\fx}{\fy}
+	\gettikzxy{(G)}{\gx}{\gy}
+	
+	\only<1-9>{
+		\Meme{A}{B}{DarkGoldenrod}{PaleGoldenrod}{black}{0.3}{0.15}{0.125}
+		\Meme{C}{B}{DarkGoldenrod}{PaleGoldenrod}{black}{0.3}{0.15}{0.125}
+		\Meme{E}{F}{DarkGoldenrod}{PaleGoldenrod}{black}{0.3}{0.15}{0.125}
+		\Meme{G}{F}{DarkGoldenrod}{PaleGoldenrod}{black}{0.3}{0.15}{0.125}
+		\Meme{B}{E}{DarkGoldenrod}{PaleGoldenrod}{black}{0.3}{0.15}{0.125}
+		\Meme{A}{F}{DarkGoldenrod}{PaleGoldenrod}{black}{0.3}{0.15}{0.125}
+		\Meme{A}{G}{DarkGoldenrod}{PaleGoldenrod}{black}{0.3}{0.15}{0.125}
+		\Meme{B}{F}{DarkGoldenrod}{PaleGoldenrod}{black}{0.3}{0.15}{0.125}
+	}
+	\only<10->{		
+		\Meme{A}{B}{Cornsilk3}{white}{gray!50}{0.3}{0.15}{0.125}
+		\Meme{BC}{B}{Cornsilk3}{white}{gray!50}{0.3}{0.15}{0.125}
+		\Meme{EF}{F}{Cornsilk3}{white}{gray!50}{0.3}{0.15}{0.125}
+		\Meme{G}{F}{Cornsilk3}{white}{gray!50}{0.3}{0.15}{0.125}
+		\Meme{B}{BE}{Cornsilk3}{white}{gray!50}{0.3}{0.15}{0.125}
+		\Meme{A}{F}{Cornsilk3}{white}{gray!50}{0.3}{0.15}{0.125}
+		\Meme{A}{G}{Cornsilk3}{white}{gray!50}{0.3}{0.15}{0.125}
+		\Meme{A}{G}{Cornsilk3}{white}{gray!50}{0.3}{0.15}{0.125}
+		\Meme{B}{F}{Cornsilk3}{white}{gray!50}{0.3}{0.15}{0.125}
+		\Meme{E}{BE}{DarkGoldenrod}{PaleGoldenrod}{black}{0.3}{0.15}{0.125}		
+		\Meme{E}{EF}{DarkGoldenrod}{PaleGoldenrod}{black}{0.3}{0.15}{0.125}		
+		\Meme{C}{BC}{DarkGoldenrod}{PaleGoldenrod}{black}{0.3}{0.15}{0.125}		
+	}
+	\Meme{E}{D}{DarkGoldenrod}{PaleGoldenrod}{black}{0.3}{0.15}{0.125}	
+	\Meme{C}{D}{DarkGoldenrod}{PaleGoldenrod}{black}{0.3}{0.15}{0.125}	
+	\Meme{C}{E}{DarkGoldenrod}{PaleGoldenrod}{black}{0.3}{0.15}{0.125}
+	
+
+	\draw[very thick, -latex, saitMaroon] (D)--+(0,-1.5)node[above right, black,
+	yshift=-0.75mm]{ $ 850\,\textsf{N}$ };
+
+	\only<1-7, 10->{
+		\node[above, outer sep = 1mm] at (A) { $ A $};
+	}
+	\only<8-9>{
+		\node[above left, outer sep = 0.5mm] at (A) { $ A $};
+	}
+	\only<8-9>{			
+		\draw[very thick, saitRed, -latex] (A)--+(0:1.25)node[above, outer sep=1mm,xshift=2mm]{\small $ R_{Ax} $};
+		\draw[very thick, saitRed, -latex] (A)--+(90:1)node[below right, outer sep=0.5mm, yshift=0.75mm,xshift=-0.25mm]{\small $ R_{Ay} $};
+		\draw[very thick, saitRed, -latex] (G)--+(0:1.25)node[above, outer sep=1mm]{\small $ R_{Gx} $};
+		\draw[very thick, saitRed, -latex] (G)--+(90:1.25)node[right, outer sep=1mm]{\small $ R_{Gy} $};
+	}
+	
+	\node[above, outer sep = 1.25mm] at (B) { $ B $};
+	\node[above, outer sep = 1.25mm] at (C) { $ C $};
+	\node[below right, outer sep = 0.5mm] at (D) { $ D $};
+	\node[below, outer sep = 1.25mm] at (E) { $ E $};
+	\node[below, outer sep = 1.25mm] at (F) { $ F $};
+	\node[below, outer sep = 1.25mm] at (G) { $ G $};
+
+	\draw[thin, gray]($ (E)+(0,-0.625)$)--+(0,-0.5);
+	\draw[thin, gray]($ (F)+(0,-0.625)$)--+(0,-0.5);
+	\draw[thin, gray]($ (G)+(0,-0.625)$)--+(0,-0.5);
+	\draw[thin, gray]($ (D)+(0:0.25)$)--+(0:1);
+	\draw[thin, gray]($ (C)+(0:0.5)$)--+(0:3.75);	
+	
+	\draw[latex-latex] ($(D)+(0.75,0)$)--($(C)+(3.75,0)$)node[midway, fill=white, inner sep=0.5mm]{$ 1.50\,\textsf{m} $};
+	\draw[latex-latex] ($(G)+(0,-0.875)$)--($(F)+(0,-0.875)$)node[midway, fill=white, inner sep=0.5mm]{$ 1.50\,\textsf{m} $};
+	\draw[latex-latex] ($(E)+(0,-0.875)$)--($(F)+(0,-0.875)$)node[midway, fill=white, inner sep=0.5mm]{$ 1.50\,\textsf{m} $};
+	\draw[latex-latex] ($(D)+(0,-0.875)$)--($(E)+(0,-0.875)$)node[midway, fill=white, inner sep=0.5mm]{$ 1.50\,\textsf{m} $};
+
+	\only<2>{
+		\begin{scope}[rotate around = {10:(\bx/2+\cx/2, \by/2+\eey/2)}]
+			\draw[ultra thick, LimeGreen] (\bx/2+\cx/2, \cy+0.5cm)--(\fx/2+\eex/2, \fy-0.5cm);
+			\node[above, LimeGreen!62.55!black] at (\bx/2+\cx/2+0.187cm, \cy+0.25cm) {$a$};
+			\node[below, LimeGreen!62.55!black] at (\fx/2+\eex/2 +0.25cm, \fy-0.25cm) {$a$};
+		\end{scope}
+	}
+	\only<3->{
+		\begin{scope}[rotate around = {10:(\bx/2+\cx/2, \by/2+\eey/2)}]
+			\fill[white] (\bx+0.75cm, \by+0.5cm) rectangle (\eex-0.75cm, \eey-0.5cm);
+		\end{scope}
+	}
+
+	\only<1-2>{
+		\fill[DarkGoldenrod]($(A)+(-0.5,1)$) rectangle ($(G)+(-1.25,-1.5)$);
+		\draw[thick]($(A)+(-0.5,1)$) -- ($(G)+(-0.5,-1.5)$);
+		\PC[-90]{A}{DarkGoldenrod}{black}{0.5}{0.2}
+		\PC[-90]{G}{DarkGoldenrod}{black}{0.5}{0.2}
+	}
+
+	\only<3->{
+		\begin{scope}[opacity=0]
+			\fill[DarkGoldenrod,opacity=0]($(A)+(-0.5,1)$) rectangle ($(G)+(-1.25,-2)$);
+			\draw[thick,opacity=0]($(A)+(-0.5,1)$) -- ($(G)+(-0.5,-2)$);
+			\PC[-90]{A}{DarkGoldenrod}{black}{0.5}{0.2}
+			\PC[-90]{G}{DarkGoldenrod}{black}{0.5}{0.2}
+		\end{scope}		
+	}
+	\only<4->{
+		\tikzset{outer sep=-0.25mm}		
+		\draw[very thick, -latex] (C)--+(180:1.4)node[left]{$F_{BC}$};		
+		\draw[very thick, -latex] (E)--+(180:1.0625)node[left,xshift=0.125mm]{$F_{EF}$};		
+		\draw[very thick, -latex] ($(E)+(135:0)$)--+(135:1.5)node[xshift=-3mm, yshift=3.5mm]{$F_{BE}$};
+	}	
+	\only<4-9>{
+		\tikzset{outer sep=-0.25mm}
+		\draw[very thick, -latex] (B)--+(0:1);
+		\draw[very thick, -latex] (B)--+(-45:1.5);
+		\draw[very thick, -latex] (F)--+(0:1.4);
+	}
+
+	\foreach \coord in {A,B,C,D,...,G}{
+		\filldraw[ball color = NavajoWhite4] (\coord) circle (2.5pt);
+	};
+	\only<10->{
+		\foreach \coord in {A,B,F,G}{
+			\fill[thin, ball color = Cornsilk2] (\coord) circle (2.5pt);
+		};
+	}
+
+	\pgfresetboundingbox
+	\path(-1.5,4.25) rectangle (10.75,-1.75);
+	% \draw[red](-1.5,4.25) rectangle (10.75,-1.75);
+	
+\end{tikzpicture}

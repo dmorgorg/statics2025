@@ -101,20 +101,122 @@
 
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{}
-	\def\scale{0.75}
+\begin{frame}{}	
+	% \addtocounter{framenumber}{42}
 	\begin{myexam}{}{}
+		\def\scale{0.675}
 		\parb\centering
 		\input{../../pikz/08MoS/08MoS01.tex}
+		\parb
+		\cmini[0.75]{
+			\centering
+			Use the method of sections to determine the internal forces in members $BC$, $CH$ and $GH$.
+		}			
 		\pars
-		Use the method of sections to determine the internal forces in members $BC$, $CH$ and $GH$.
-		\pars
+		\addtocounter{\tcbcounter}{-1}
 	\end{myexam}
+\end{frame}
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}	
+	
+	\begin{statsbox}[height=5.25cm, top=0mm]{}
+		\def\scale{0.825}			
+		\centering
+		\input{../../pikz/08MoS/08MoS01b.tex}			
+	\end{statsbox}
+	\parm
+	\only<1-7>{
+		\begin{statsbox}[height=2.5cm]{The Method of Sections}
+			\only<1-4>{
+				\begin{itemize}
+					\item<1-> The method of sections technique is widely used in engineering. 
+					\item<2-> It involves drawing a section $a\!-\!a$ through a structure or member.
+					\item<3-> Then the segments on each side of the section are also be in equilibrium.
+					\item<4-> The section 'exposes' the internal forces in cut members.				
+				\end{itemize}
+			}
+			\only<5-7>{
+				\begin{itemize}				
+					\item <5-> We are free to place our section wherever is most convenient.\parm
+					\item <6-> We generally look for a section that 'cuts' the members we need. \parm
+					\item <7->	Then we choose whichever is the easier of the two segments to analyze.
+				\end{itemize}
+			}
+		\end{statsbox}
+	}
+		\only<8-9>{
+			\begin{myexam}[height=2.5cm, left=0mm]{Solution}{}
+				\only<8-9>{
+					\begin{itemize}
+						\item<8-> The right segment is the easiest to analyze since it only contains a single external force.					
+						\item<9-> Note that in this case we only have the one choice since the reactions at $A$ and $G$ are '{\bf statically indeterminate}.' (That is, we can't determine them using only the equilibrium equations. Why is this?) 
+						\item <10-> ten			
+					\end{itemize}
+				}
+			\end{myexam}
+		}
+		\only<10->{
+			\begin{myexam}[height=2.5cm, left=0mm]{Solution}{}
+				\small
+				\only<10>{
+					\begin{align*}
+						\Sigma M_E &= F_{BC}\cd(1.50\,\textsf{m}) - (850\,\textsf{N})\cd (1.50\,\textsf{m}) = 0\\\\
+						\Ra F_{BC} &= 850\,\textsf{N}
+					\end{align*}
+				}
+				\only<11>{
+					\begin{align*}
+						\Sigma M_B &= -F_{EF}\cd(1.50\,\textsf{m}) - (850\,\textsf{N})\cd (3.00\,\textsf{m}) = 0\\\\
+						\Ra F_{EF} &= -1700\,\textsf{N}
+					\end{align*}
+				}
+				\only<12-13>{
+					\begin{align*}
+						\Sigma F_y &= -F_{BE}\cd\sin 45\deg - 850\,\textsf{N} = 0\\\\
+						\Ra F_{BE} &= -1202.1\,\textsf{N}
+					\end{align*}
+				}
+			\end{myexam}
+		}
+		\only<13->{
+			\begin{textblock*}{\columnwidth}(0.875cm,0.125cm)
+				\input{../../pikz/modalCloud.tex}	
+			\end{textblock*}
+				
+			\only<13->{
+				\begin{textblock*}{5cm}(7cm,0.5cm)
+					\begin{statsbox}{The Answers}
+						\small
+						\begin{align*}
+							BC &= 850\,\textsf{N}\quad\textsf{(Tension)}\\[0.25em]
+							BE &= 1200\,\textsf{N}\quad\textsf{(Compression)}\\[0.25em]
+							EF &= 1700\,\textsf{N}\quad\textsf{(Compression)}
+						\end{align*}
+						\par
+					\end{statsbox}
+				\end{textblock*}
+			}
+			
+			\only<14->{
+				\begin{textblock*}{9cm}(3cm,3cm)
+					\begin{statsbox}[left = 0mm, right=2mm]{Note:}
+						\small
+						\begin{enumerate}
+							\item<14-> If any structure (not only a truss) is in equilibrium, then any section will cut it into two segments, each of which is itself in equilibrium. 
+							\item<15-> To solve for more than three truss members, it is necessary to repeat the method of sections using a different section (one that cuts the additional members required by the problem).
+							\item<16-> We can use all three equilibrium equations $\Sigma M = 0$, $\Sigma F_x=0$ and $\Sigma F_y=0$ but it is often less work to take moments about conveniently located joints.
+							\item<17> It is not necessary to take moments using joints in the 'active' segment. Moments can be taken about anywhere on the truss -- or even anywhere on the plane in which the truss is situated. If a structure is in equilibrium, its moments about any point in the plane still sum to zero.
+						\end{enumerate}
+					\end{statsbox}
+				\end{textblock*}
+			}	
+		}
+		% \addtocounter{framenumber}{0}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{}
