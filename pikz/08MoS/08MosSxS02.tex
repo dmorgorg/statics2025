@@ -1,0 +1,157 @@
+
+%%%%%%%%%%%%%%%%%%%%%%% TRUSS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{tikzpicture}[scale=\scale, line cap = round]
+
+	\footnotesize
+
+	\coordinate (A) at (0,0);
+	\coordinate (B)	at (3.5,0);
+	\coordinate (C) at (7,0);
+	\coordinate (D) at (10.5,0);
+	\coordinate (E) at (14,0);
+	\coordinate (F) at (10.5,-3);
+	\coordinate (G) at (7,-4.5);
+	\coordinate (H) at (3.5,-3);
+	\coordinate (BC) at ($(B)!.5!(C)$);
+	\coordinate (CH) at ($(C)!.5!(H)$);
+	\coordinate (GH) at ($(G)!.5!(H)$);	
+
+	\gettikzxy{(A)}{\ax}{\ay}
+	\gettikzxy{(B)}{\bx}{\by}
+	\gettikzxy{(C)}{\cx}{\cy}
+	\gettikzxy{(D)}{\ddx}{\ddy}
+	\gettikzxy{(E)}{\eex}{\eey}
+	\gettikzxy{(F)}{\fx}{\fy}
+	\gettikzxy{(G)}{\gx}{\gy}
+	\gettikzxy{(H)}{\hx}{\hy}
+	
+	\only<1-5>{
+		\Meme{A}{B}{LightYellow4}{LightYellow2}{black}{0.375}{0.175}{0.125}
+		\Meme{C}{B}{LightYellow4}{LightYellow2}{black}{0.375}{0.175}{0.125}		
+		\Meme{A}{H}{LightYellow4}{LightYellow2}{black}{0.375}{0.175}{0.125}
+		\Meme{G}{H}{LightYellow4}{LightYellow2}{black}{0.375}{0.175}{0.125}
+		\Meme{C}{H}{LightYellow4}{LightYellow2}{black}{0.375}{0.175}{0.125}
+		\Meme{B}{H}{LightYellow4}{LightYellow2}{black}{0.375}{0.175}{0.125}
+		\draw[very thick, latex-, saitMaroon] (B)--+(0,1.5)node[right, black]{$ 4.00\,\textsf{kN}$ };
+		
+	}
+	\only<6->{
+		\Meme{B}{A}{Cornsilk3}{white}{gray!50}{0.375}{0.175}{0.125}
+		\Meme{C}{BC}{LightYellow4}{LightYellow2}{black}{0.375}{0.175}{0.125}
+		\Meme{H}{A}{Cornsilk3}{white}{gray!50}{0.375}{0.175}{0.125}
+		\Meme{C}{CH}{LightYellow4}{LightYellow2}{black}{0.375}{0.175}{0.125}
+		\Meme{G}{GH}{LightYellow4}{LightYellow2}{black}{0.375}{0.175}{0.125}
+		\Meme{H}{GH}{Cornsilk3}{white}{gray!50}{0.375}{0.175}{0.125}		
+		\Meme{B}{BC}{Cornsilk3}{white}{gray!50}{0.375}{0.175}{0.125}
+		\Meme{CH}{H}{Cornsilk3}{white}{gray!50}{0.375}{0.175}{0.125}
+		\Meme{B}{H}{Cornsilk3}{white}{gray!50}{0.375}{0.175}{0.125}
+		
+	}
+	
+	
+	\Meme{C}{D}{LightYellow4}{LightYellow2}{black}{0.375}{0.175}{0.125}
+	\Meme{E}{D}{LightYellow4}{LightYellow2}{black}{0.375}{0.175}{0.125}
+	\Meme{E}{F}{LightYellow4}{LightYellow2}{black}{0.375}{0.175}{0.125}
+	\Meme{G}{F}{LightYellow4}{LightYellow2}{black}{0.375}{0.175}{0.125}	
+	\Meme{C}{F}{LightYellow4}{LightYellow2}{black}{0.375}{0.175}{0.125}	
+	\Meme{C}{G}{LightYellow4}{LightYellow2}{black}{0.375}{0.175}{0.125}
+	\Meme{D}{F}{LightYellow4}{LightYellow2}{black}{0.375}{0.175}{0.125}
+
+	
+	\draw[very thick, latex-, saitMaroon] (C)--+(0,1.5)node[right, black]{$ 5.50\,\textsf{kN}$ };
+
+	\node[above left, outer sep = 1mm] at (A) {$ A $};
+	\node[above left, outer sep = 1mm] at (B) {$ B $};
+	\node[above left, outer sep = 1mm] at (C) {$ C $};
+	\node[above left, outer sep = 1mm] at (D) {$ D $};
+	\node[above left, outer sep = 1mm] at (E) {$ E $};
+	\node[below, outer sep = 1mm] at (F) {$ F $};
+	\node[below, outer sep = 1mm] at (G) {$ G $};
+	\node[below, outer sep = 1mm] at (H) {$ H $};	
+
+	\foreach \coord in {A,B,C,D,...,H}{
+		\filldraw[ball color = NavajoWhite4] (\coord) circle (2.5pt);
+	};
+	\only<1-5>{
+	\begin{scope}[rotate around= {315:(A)}]
+		\fill[LightYellow3] ($(A)+(-1,-0.75)$) rectangle ($(A)+(1,-1.25)$);
+		\draw  ($(A)+(-1,-0.75)$) -- ($(A)+(1.,-0.75)$);
+		\PC{A}{LightYellow4}{black}{0.75}{0.2}
+	\end{scope}
+	}
+	\only<6->{
+		\begin{scope}[rotate around= {315:(A)}, opacity=0]
+			\fill[LightYellow3] ($(A)+(-1,-0.75)$) rectangle ($(A)+(1,-1.25)$);
+			\draw  ($(A)+(-1,-0.75)$) -- ($(A)+(1.,-0.75)$);
+			\PC{A}{LightYellow4}{black}{0.75}{0.2}
+		\end{scope}
+	}
+
+	\fill[LightYellow3] ($(E)+(-0.5,-0.75)$) rectangle ($(E)+(0.5,-1.25)$);
+	\draw  ($(E)+(-0.5,-0.75)$) -- ($(E)+(0.5,-0.75)$);
+	\Rone{E}{LightYellow4}{black}{0.75}{0.2}	
+
+	\draw[thin, gray]($ (E)+(0.5,0)$)--+(1.75,0);
+	\draw[thin, gray]($ (F)+(0.5,0)$)--+(5.25,0);
+	\draw[thin, gray]($ (G)+(0.75,0)$)--+(8.5,0);
+
+	\draw[thin, gray]($ (A)+(90:2)$)--+(90:1);
+	\draw[thin, gray]($ (D)+(90:2)$)--+(90:1);
+	\draw[thin, gray]($ (E)+(90:2)$)--+(90:1);
+	\draw[thin, gray]($ (B)+(90:2)$)--+(90:1);
+	\draw[thin, gray]($ (C)+(90:2)$)--+(90:1);
+	
+	\draw[latex-latex] ($(E)+(1.5,0)$)--($(F)+(5,0)$)node[midway, fill=white, inner sep=0.5mm]{$ 2.50\,\textsf{m} $};
+	\draw[latex-latex] ($(G)+(8.5,0)$)--($(F)+(5,0)$)node[midway, fill=white, inner sep=0.5mm]{$ 1.25\,\textsf{m} $};
+
+	\draw[latex-latex] ($(A)+(0,2.5)$)--($(B)+(0,2.5)$)node[midway, fill=white, inner sep=0.5mm]{$ 2.90\,\textsf{m} $};
+	\draw[latex-latex] ($(C)+(0,2.5)$)--($(B)+(0,2.5)$)node[midway, fill=white, inner sep=0.5mm]{$ 2.90\,\textsf{m} $};
+	\draw[latex-latex] ($(C)+(0,2.5)$)--($(D)+(0,2.5)$)node[midway, fill=white, inner sep=0.5mm]{$ 2.90\,\textsf{m} $};
+	\draw[latex-latex] ($(E)+(0,2.5)$)--($(D)+(0,2.5)$)node[midway, fill=white, inner sep=0.5mm]{$ 2.90\,\textsf{m} $};
+
+	\only<2>{
+		\begin{scope}[rotate around = {7.5:(\bx/2+\cx/2, \by/2+\gy/4+\hy/4)}]
+			\draw[ultra thick, LimeGreen] (\bx/2+\cx/2, \cy+0.75cm)--(\hx/2+\gx/2, \gy-0.5cm);
+			\node[above, LimeGreen!62.55!black] at (\bx/2+\cx/2+0.187cm, \cy+0.5cm) {$a$};
+			\node[above, LimeGreen!62.55!black] at (\gx/2+\hx/2+0.187cm, \gy-0.75cm) {$a$};
+		\end{scope}
+	}
+	\only<3->{
+		\begin{scope}[rotate around = {7.55:(\bx/2+\cx/2, \by/2+\gy/4+\hy/4)}]
+			\fill[white] (\bx+0.875cm, \by+0.5cm) rectangle (\gx-1cm, \gy-0.5cm);
+		\end{scope}
+	}
+	\only<4-5>{			
+		\draw[very thick, saitRed, -latex] (A)--+(0:1.25)node[above, outer sep=1mm]{\small $ R_{Ax} $};
+		\draw[very thick, saitRed, -latex] (A)--+(90:1.25)node[right]{\small $ R_{Ay} $};
+		
+		
+	}
+	\only<4>{
+		\draw[very thick, saitRed, -latex] (E)--+(90:1.25)node[right, outer sep=1mm]{\small $ R_{E} $};
+	}
+	\only<5->{		
+		\draw[very thick, saitRed, -latex] (E)--+(90:1.25)node[right, outer sep=1mm]{ $ 3.75\,\textsf{kN} $};
+		
+	}
+	\only<6->{
+		\foreach \coord in {A,B,H}{
+			\fill[thin, ball color = Cornsilk2] (\coord) circle (2.5pt);
+		};
+	}
+	\only<6->{
+		\tikzset{outer sep=-0.25mm}
+		\draw[very thick, -latex] ($(C)+(180:0.325)$)--+(180:2.25)node[above,outer sep = 0.5mm]{$ F_{BC} $};
+		\draw[very thick, -latex] ($(C)+(220.8:0.325)$)--+(220.8:2.25)node[below]{$ F_{CH} $};
+		\draw[very thick, -latex] ($(G)+(156.8:0.325)$)--+(156.8:2.125)node[below,outer sep = 0.5mm]{$ F_{GH} $};
+		
+	}
+	\only<7->{
+		\draw[latex-latex] ($(C)+(180:2)$)arc(180:220.8:2)node[midway, fill=white, inner sep= 0.1mm]{\footnotesize $40.764\deg $};
+	}
+	\only<8->{
+		\draw[latex-latex] ($(G)+(90:1.875)$)arc(90:156.8:1.875)node[midway, fill=white, inner sep= 0.15mm]{\footnotesize $66.682\deg $};
+	}
+	
+	
+\end{tikzpicture}

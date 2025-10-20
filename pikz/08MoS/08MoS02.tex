@@ -21,22 +21,22 @@
 	\gettikzxy{(F)}{\fx}{\fy}
 	\gettikzxy{(G)}{\gx}{\gy}
 	
-	\Meme{A}{B}{DarkSeaGreen4}{DarkSeaGreen2}{black}{0.3}{0.15}{0.125}
-	\Meme{C}{B}{Orange3}{Orange1}{black}{0.3}{0.15}{0.125}
-	\Meme{C}{D}{DarkSeaGreen4}{DarkSeaGreen2}{black}{0.3}{0.15}{0.125}
-	\Meme{E}{D}{DarkSeaGreen4}{DarkSeaGreen2}{black}{0.3}{0.15}{0.125}
-	\Meme{E}{F}{DarkSeaGreen4}{DarkSeaGreen2}{black}{0.3}{0.15}{0.125}
-	\Meme{G}{F}{DarkSeaGreen4}{DarkSeaGreen2}{black}{0.3}{0.15}{0.125}
-	\Meme{G}{H}{Orange3}{Orange1}{black}{0.3}{0.15}{0.125}
-	\Meme{A}{H}{DarkSeaGreen4}{DarkSeaGreen2}{black}{0.3}{0.15}{0.125}
-	\Meme{C}{H}{Orange3}{Orange1}{black}{0.3}{0.15}{0.125}
-	\Meme{C}{F}{DarkSeaGreen4}{DarkSeaGreen2}{black}{0.3}{0.15}{0.125}
-	\Meme{B}{H}{DarkSeaGreen4}{DarkSeaGreen2}{black}{0.3}{0.15}{0.125}
-	\Meme{C}{G}{DarkSeaGreen4}{DarkSeaGreen2}{black}{0.3}{0.15}{0.125}
-	\Meme{D}{F}{DarkSeaGreen4}{DarkSeaGreen2}{black}{0.3}{0.15}{0.125}
+	\Meme{A}{B}{LightYellow4}{LightYellow2}{black}{0.375}{0.175}{0.125}
+	\Meme{C}{B}{LightYellow4}{LightYellow2}{black}{0.375}{0.175}{0.125}
+	\Meme{C}{D}{LightYellow4}{LightYellow2}{black}{0.375}{0.175}{0.125}
+	\Meme{E}{D}{LightYellow4}{LightYellow2}{black}{0.375}{0.175}{0.125}
+	\Meme{E}{F}{LightYellow4}{LightYellow2}{black}{0.375}{0.175}{0.125}
+	\Meme{G}{F}{LightYellow4}{LightYellow2}{black}{0.375}{0.175}{0.125}
+	\Meme{G}{H}{LightYellow4}{LightYellow2}{black}{0.375}{0.175}{0.125}
+	\Meme{A}{H}{LightYellow4}{LightYellow2}{black}{0.375}{0.175}{0.125}
+	\Meme{C}{H}{LightYellow4}{LightYellow2}{black}{0.375}{0.175}{0.125}
+	\Meme{C}{F}{LightYellow4}{LightYellow2}{black}{0.375}{0.175}{0.125}
+	\Meme{B}{H}{LightYellow4}{LightYellow2}{black}{0.375}{0.175}{0.125}
+	\Meme{C}{G}{LightYellow4}{LightYellow2}{black}{0.375}{0.175}{0.125}
+	\Meme{D}{F}{LightYellow4}{LightYellow2}{black}{0.375}{0.175}{0.125}
 
-	\draw[ultra thick, Latex-, saitMaroon] (B)--+(0,1.5)node[right, black]{$ 4.00\,\textsf{kN}$ };
-	\draw[ultra thick, Latex-, saitMaroon] (C)--+(0,1.5)node[right, black]{$ 5.50\,\textsf{kN}$ };
+	\draw[very thick, latex-, saitMaroon] (B)--+(0,1.5)node[right, black]{$ 4.00\,\textsf{kN}$ };
+	\draw[very thick, latex-, saitMaroon] (C)--+(0,1.5)node[right, black]{$ 5.50\,\textsf{kN}$ };
 
 	\node[above left, outer sep = 1mm] at (A) {$ A $};
 	\node[above left, outer sep = 1mm] at (B) {$ B $};
@@ -53,13 +53,13 @@
 	};
 
 	\begin{scope}[rotate around= {315:(A)}]
-		\fill[Tan] ($(A)+(-1,-0.75)$) rectangle ($(A)+(1,-1.25)$);
+		\fill[LightYellow3] ($(A)+(-1,-0.75)$) rectangle ($(A)+(1,-1.25)$);
 		\draw  ($(A)+(-1,-0.75)$) -- ($(A)+(1.,-0.75)$);
-		\PC{A}{Tan}{black}{0.75}{0.2}
+		\PC{A}{LightYellow4}{black}{0.75}{0.2}
 	\end{scope}
-	\fill[Tan] ($(E)+(-0.5,-0.75)$) rectangle ($(E)+(0.5,-1.25)$);
+	\fill[LightYellow3] ($(E)+(-0.5,-0.75)$) rectangle ($(E)+(0.5,-1.25)$);
 	\draw  ($(E)+(-0.5,-0.75)$) -- ($(E)+(0.5,-0.75)$);
-	\Rone{E}{Tan}{black}{0.75}{0.2}	
+	\Rone{E}{LightYellow4}{black}{0.75}{0.2}	
 
 	\draw[thin, gray]($ (E)+(0.5,0)$)--+(2.25,0);
 	\draw[thin, gray]($ (F)+(0.5,0)$)--+(5.75,0);

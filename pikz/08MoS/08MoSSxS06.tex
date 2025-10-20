@@ -13,7 +13,7 @@
 	\coordinate (G) at (-6,6.5);
 	\coordinate (H) at (-3,6.5);
 	\coordinate (I) at (0,6.5);
-	\coordinate (Eleft) at ($(E)+(-3,0)$);
+	\coordinate (Eleft) at ($(E)+(-2.25,0)$);
 	% \coordinate (top) at ($(F)+(0,2)$);
 
 	\gettikzxy{(A)}{\ax}{\ay}
@@ -42,32 +42,64 @@
 	\Meme{C}{G}{LightBlue4}{LightBlue3}{black}{0.4}{0.2}{0.125}
 	\Meme{D}{F}{LightBlue4}{LightBlue3}{black}{0.4}{0.2}{0.125}	
 
+	\draw[thin, gray] ($(E)+(0,0.5)$)--+(0,3.5);
+	\draw[thin, gray] ($(A)+(-0.75,0)$)--(\elx+0.125cm, \ay);
+	\draw[thin, gray] (\bx-0.75cm, \by)--(\elx+0.125cm, \by);
+	\draw[thin, gray] (\cx-0.75cm, \cy)--(\elx+0.125cm, \cy);
+	\draw[thin, gray] (\eex-0.5cm, \eey)--(\elx+0.125cm, \eey);
+	\draw[thin, gray] (\fx-0.75cm, \fy)--(\elx+0.125cm, \fy);
+
+	\draw[thin, gray] ($(I)+(0,0.5)$)--+(0,1.5);
+
+	\only<1-2>{
+		\fill[LightBlue3!50!LightBlue4] ($(I)+(0.75,2.25)$) rectangle ($(A)+(2,-1.5)$);
+		\draw[semithick]  ($(I)+(0.75,2.25)$) rectangle ($(A)+(0.75,-1.5)$);
+		\PC[90]{A}{LightBlue4}{black}{0.75}{0.125}
+		\PC[90]{I}{LightBlue4}{black}{0.75}{0.125}
+	}
+	\only<3->{
+		\begin{scope}[opacity=0]
+			\fill[LightBlue3!50!LightBlue4] ($(I)+(0.75,2.25)$) rectangle ($(A)+(2,-1.5)$);
+			\draw[semithick]  ($(I)+(0.75,2.25)$) rectangle ($(A)+(0.75,-1.5)$);
+			\PC[90]{A}{LightBlue4}{black}{0.75}{0.125}
+			\PC[90]{I}{LightBlue4}{black}{0.75}{0.125}
+		\end{scope}
+	}
+
+	\only<3->{
+		\begin{scope}[rotate around = {-7.5:(\bx/2+\cx/2, \by/2+\gy/4+\hy/4)}]
+			\fill[white] (\gx+0.75cm, \gy+0.5cm) rectangle (\bx-0.875cm, \by+0.325cm);
+		\end{scope}
+		\draw[saitRed, very thick, -latex] (I)--+(1.5,0)node[above] {\small $ R_{Ix} $};
+		\draw[saitRed, very thick, -latex] (I)--+(0, 2.125)node[right,yshift=-0.25cm,] {\small $ R_{Iy} $};
+		\draw[saitRed, very thick, -latex] (A)--+(-33.69:1.75)node[above, yshift=0.125cm] {\small $ R_{A} $};
+	}
+
 	\foreach \coord in {A,B,C}{
 		\filldraw[ball color = LightBlue4] (\coord) circle (2pt)node[below left] {$ \coord $};
 	};
 	\foreach \coord in {D,E}{
 		\filldraw[ball color = LightBlue4] (\coord) circle (2pt)node[left, yshift=-0.25cm] {$ \coord $};
 	};
-	\foreach \coord in {F, G, ...,I }{
-		\filldraw[ball color = LightBlue4] (\coord) circle (2pt)node[above,outer sep = 0.125cm, xshift=-0.2cm] {$ \coord $};
-		\draw[thin, gray] ($(\coord)+(0,0.5)$)--+(0,1.5);
-	};
-	\draw[thin, gray] ($(E)+(0,0.5)$)--+(0,3.5);
-
-	\draw[thin, gray] ($(A)+(-0.75,0)$)--(\elx, \ay);
-	\draw[thin, gray] (\bx-0.75cm, \by)--(\elx, \by);
-	\draw[thin, gray] (\cx-0.75cm, \cy)--(\elx, \cy);
-	\draw[thin, gray] (\eex-0.5cm, \eey)--(\elx, \eey);
-	\draw[thin, gray] (\fx-0.75cm, \fy)--(\elx, \fy);
+	\filldraw[ball color = LightBlue4] (F) circle (2pt)node[xshift=-0.125cm, yshift=0.25cm] {$ F $};
+	\draw[thin, gray] ($(F)+(0,0.5)$)--+(0,1.5);
+	\filldraw[ball color = LightBlue4] (G) circle (2pt)node[xshift=-0.125cm, yshift=0.25cm] {$ G $};
+	\draw[thin, gray] ($(G)+(0,0.5)$)--+(0,1.5);
+	\filldraw[ball color = LightBlue4] (H) circle (2pt)node[xshift=0.125cm, yshift=0.25cm] {$ H $};
+	\draw[thin, gray] ($(H)+(0,0.5)$)--+(0,1.5);
+	\filldraw[ball color = LightBlue4] (I) circle (2pt)node[xshift=-0.125cm, yshift=0.25cm] {$ I $};
+	
 
 
-	\fill[LightBlue3!50!LightBlue4] ($(I)+(0.75,2.25)$) rectangle ($(A)+(2,-1.5)$);
-	\draw[semithick]  ($(I)+(0.75,2.25)$) rectangle ($(A)+(0.75,-1.5)$);
-	\PC[90]{A}{LightBlue4}{black}{0.75}{0.125}
-	\PC[90]{I}{LightBlue4}{black}{0.75}{0.125}
+
+	
+
+
+
+	
 
 	\draw[very thick, -latex, statsMaroon] (B)--+(0,-1.25)node[below, black, yshift=0.75mm]{$ 5.0\,\textsf{kN}$ };
-	\draw[very thick, -latex, statsMaroon] (C)--+(0,-1.25)node[below, black, yshift=0.75mm]{$ 5.0\,\textsf{kN}$ };
+	\draw[very thick, -latex, statsMaroon] (C)--+(0,-1.25)node[left, black, yshift=0.75mm]{$ 5.0\,\textsf{kN}$ };
 	\draw[very thick, -latex, statsMaroon] (D)--+(0,-1.25)node[below, black, yshift=0.75mm]{$ 5.0\,\textsf{kN}$ };
 	\draw[very thick, -latex, statsMaroon] (E)--+(0,-1.25)node[below, black, yshift=0.75mm]{$ 10.0\,\textsf{kN}$ };
 
@@ -80,5 +112,14 @@
 	\draw[latex-latex] (\elx+0.75cm, \eey)--(\elx+0.75cm, \cy)node[midway, fill=white] {$ 1.50\,\textsf{m} $};
 	\draw[latex-latex] (\elx+0.75cm, \cy)--(\elx+0.75cm, \by)node[midway, fill=white] {$ 1.50\,\textsf{m} $};
 	\draw[latex-latex] (\elx+0.75cm, \by)--(\elx+0.75cm, \ay)node[midway, fill=white] {$ 1.50\,\textsf{m} $};
+
+	\only<2>{
+		\begin{scope}[rotate around = {-7.5:(\bx/2+\cx/2, \by/2+\gy/4+\hy/4)}]
+			\draw[very thick] (\bx/2+\cx/2, \by+0.325cm)--(\hx/2+\gx/2, \gy+0.75cm);
+			\node[above] at (\bx/2+\cx/2+0.25cm, \by+0.25cm) {$a$};
+			\node[above] at (\gx/2+\hx/2-0.1275cm, \gy+0.25cm) {$a$};
+		\end{scope}
+	}
+
 	
 \end{tikzpicture}

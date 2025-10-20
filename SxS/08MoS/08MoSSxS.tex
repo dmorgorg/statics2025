@@ -1,0 +1,390 @@
+%!TEX option = --enable-write18
+
+\documentclass[8pt, xcolor={svgnames, x11names}]{beamer}
+
+\input{../../includes/definedColors.tex}
+\input{../../includes/macros.tex}
+% \input{../../includes/Member.tex}
+\input{../../includes/Meme.tex}
+\input{../../includes/PC.tex}
+\input{../../includes/Rocker.tex}
+\input{../../includes/Roller.tex}
+\input{../../includes/Rone.tex}
+
+\usepackage{mathtools}
+\usefonttheme[onlymath]{serif} 
+\usepackage{mathpazo} % for mathpazo font
+% \usepackage{gensymb} % for \degree
+\usepackage[detect-all]{siunitx}
+\usepackage{bm}
+
+\setbeamertemplate{navigation symbols}{} % remove navigation symbols
+\setbeamertemplate{headline}{\vspace{0.125cm}}
+% \setbeamertemplate{footline}{ \hfill \insertshorttitle\qquad \insertsection \qquad \insertframenumber/\inserttotalframenumber\quad{ }\vspace{0.125cm}}
+\setbeamertemplate{footline}{ \hfill \insertshorttitle\qquad \insertsection \qquad\vspace{0.125cm}}
+\setbeamertemplate{items}[default]
+\setbeamertemplate{blocks}[shadow=true]
+
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, math, calc, shadings}
+\usepackage{pgfmath}
+\usepackage{cancel}
+\usepackage[absolute,overlay]{textpos}
+\setlength{\TPHorizModule}{1.0cm}
+\setlength{\TPVertModule}{\TPHorizModule}
+\textblockorigin{0.0cm}{0.0cm}  %start all at upper left corner
+% \textblockcolor{yellow}
+\usepackage[many]{tcolorbox}
+% \usepgflibrary{shadings}
+
+\colorlet{boxBG}{Ivory3!50}
+
+
+\usecolortheme[named=statsMaroon]{structure}
+\setbeamercolor{title}{bg=statsMaroon, fg=boxBG}
+\setbeamercolor{frametitle}{fg=boxBG, bg=statsMaroon}
+\setbeamercolor{block title}{bg=statsMaroon, fg=boxBG}
+\setbeamercolor{block body}{bg=MistyRose, fg=black}
+
+\setlength{\parskip}{\medskipamount}
+\setlength{\parindent}{0pt}
+
+\renewcommand{\ttdefault}{pcr}
+
+\def\scale{1}
+
+% https://tex.stackexchange.com/questions/731957/how-to-supress-missing-character-there-is-no-u003b-in-font-nullfont
+\tracinglostchars=1
+
+\hfuzz=110pt % suppress Overfull \hbox warnings, up to specified size
+\vfuzz=100pt
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title[Method of Sections]{\huge \textcolor{white}{Method of Sections --- Step by Step Examples}}
+\subtitle[]{\Large\textcolor{white}{Engineering Statics}}
+
+\date{Last revision on \today}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\small
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[plain]
+    \titlepage
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Example 2}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}
+
+%   \begin{textblock*}{0.9\paperwidth}(0.875cm, 0.5cm)
+%     \def\scale{0.5}\centering
+%     \input{../../pikz/08MoS/08MoSSxS02.tex}
+%   \end{textblock*}
+
+%   \only<1>{  
+%     \begin{textblock*}{8cm}(2.5cm, 5.5cm)
+%       \normalsize
+%       \begin{statsbox}[colback=LightCyan3!50]{Method of Sections: Example 2}
+%         \centering
+%         Use the method of sections to determine the forces in members $BC$, $CH$ and $GH$.
+%       \end{statsbox}
+%     \end{textblock*}
+%   }
+%   \only<2-8>{  
+%     \begin{textblock*}{6cm}(0.5cm, 5cm)      
+%       \begin{statsbox}[colback=LightCyan3!50, left=-2mm, right=2mm, height=3.625cm]{}
+%         \centering
+%         \begin{itemize}
+%           \item<2-> Section $a\mm a$ is the obvious choice for exposing the forces in members $BC$, $CH$ and $GH$.
+%           \item<3-> There is no clear advantage to using one side of the section over the other.  Each side has one load and one reaction to consider. We shall use the right segment, simply because then we don't have to find $R_A$.
+%           \item<4-> Find the reaction at $E$.
+%           \item<6-> Now for some angles...
+%           \suspend
+%         \end{itemize}        
+%       \end{statsbox}
+%     \end{textblock*}
+%   }
+%   \only<9-10>{  
+%     \begin{textblock*}{6cm}(0.5cm, 5cm)      
+%       \begin{statsbox}[colback=LightCyan3!50, left=-2mm, right=2mm, height=3.625cm]{}
+%         \centering        
+%         \begin{itemize}
+%           \resume
+%           \item<9-> Taking moments about the intersection of the lines of action of two of the required forces allows us to solve for the third unknown without resorting to solving simultaneous equations. Thus, taking moments about $C$ will give direct access to $F_{GH}$.
+%           \item <10-> Similarly, moments about $H$ yield $F_{BC}$.
+%           \suspend   
+%         \end{itemize}             
+%       \end{statsbox}
+%     \end{textblock*}
+%   }
+%   \only<11->{  
+%     \begin{textblock*}{6cm}(0.5cm, 5cm)      
+%       \begin{statsbox}[colback=LightCyan3!50, left=-2mm, right=2mm, height=3.625cm, top=1.5mm]{}
+%         \centering
+%         \begin{itemize}
+%           \resume
+%           \item<11-> There are a number of options now: \par $\Sigma F_y=0$ involves $5$ terms; \par $\Sigma F_x=0$ involves $3$ terms; \par $\Sigma M_G=0$ involves $3$ terms.\par We could even recognize that the lines of action of $F_{BC}$ and of $F_{GH}$ intersect at a point $2.90\,\textsf{m}$ to the left of $A$ -- moments about this point would involve $3$ terms. \parm
+%           Taking moments about $G$ is a good option.
+%         \end{itemize}        
+%       \end{statsbox}
+%     \end{textblock*}
+%   }
+
+%   \only<5>{
+%     \begin{textblock*}{5.25cm}(7cm, 5.875cm)      
+%       \begin{statsbox}[colback=LightCyan3!50, top=0mm]{}
+%         \begin{align*}
+%           \Sigma M_A &= R_E\cd(11.60\,\textsf{m})-(4.00\,\textsf{kN})\cd(2.90\,\textsf{m})\\[0.25em]
+%           &\qquad\qquad - (5.50\,\textsf{kN})\cd(5.80\,\textsf{m})=0\\[0.25em]
+%           \Ra R_E &= 3.75\,\textsf{kN}
+%         \end{align*}     
+%       \end{statsbox}
+%     \end{textblock*}
+%   }
+%     \only<7-8 >{
+%       \begin{textblock*}{5.25cm}(7cm, 5cm)      
+%         \begin{statsbox}[colback=LightCyan3!50, top=0mm, height=3.625cm]{}
+%           \begin{align*}
+%             \uncover<7->{
+%               \angle BCH &=\tan^{-1}\left[\frac{2.50\,\textsf{m}}{2.90\,\textsf{m}}\right]\\[0.25em]
+%               &= 40.764\deg\\\\
+%             }
+%             \uncover<8->{
+%               \angle CGH &= \tan^{-1}\left[\frac{2.90\,\textsf{m}}{1.25\,\textsf{m}}\right]\\[0.25em]
+%               &= 66.682\deg
+%             }
+%           \end{align*}     
+%         \end{statsbox}
+%       \end{textblock*}
+%     }
+%     \only<9-10>{
+%       \begin{textblock*}{5.25cm}(7cm, 5cm)      
+%         \begin{statsbox}[colback=LightCyan3!50, top=0mm, height=3.625cm, left=1mm]{}
+%           \begin{align*}
+%             \uncover<9->{
+%               \Sigma M_C &= (3.75\,\textsf{kN})\cd(5.80\,\textsf{m})\\
+%               &\quad-F_{GH}\cd\sin 66.682\deg\cd(3.75\,\textsf{m})=0\\
+%               \Ra F_{GH} &= 6.3159\,\textsf{kN}\\[0.75em]
+%             }
+%             \uncover<10->{
+%               \Sigma M_H &= (3.75\,\textsf{kN})\cd (8.70\,\textsf{m}) \\
+%               &\qquad +F_{BC}\cd (2.50\,\textsf{m})\\
+%               &\qquad\qquad-(5.50\,\textsf{kN})\cd (2.90\,\textsf{m})=0\\
+%               \Ra F_{BC} &= -6.6700\,\textsf{kM}
+%             }
+%           \end{align*}     
+%         \end{statsbox}
+%       \end{textblock*}
+%     }
+%     \only<12->{
+%       \begin{textblock*}{5.25cm}(7cm, 5cm)      
+%         \begin{statsbox}[colback=LightCyan3!50, top=0mm, height=3.625cm, left=1mm]{}
+%           \begin{align*}
+%             \uncover<12->{
+%               \Sigma M_G &= (3.75\,\textsf{kN})\cd(5.80\,\textsf{m})\\
+%               &\qquad + F_{CH}\cd\cos 40.764\deg (3.75\,\textsf{m})\\  
+%               &\qquad\qquad + F_{BC}\cd (3.75\,\textsf{m})\\
+%               &= 21.75\cd\mathsf{kN\cd m}+F_{CH}(2.8403\,\textsf{m})\\
+%               &\qquad +(-6.6700\,\textsf{kN})\cd (3.75\,\textsf{m})=0\\\\
+%               \Ra F_{CH} &=  1.1486\,\textsf{kN}                       
+%             }
+%             \uncover<13->{
+%               % \Sigma M_H &= (3.75\,\textsf{kN})\cd (8.70\,\textsf{m}) \\
+%               % &\qquad +F_{BC}\cd (2.50\,\textsf{m})\\             
+%             }
+%           \end{align*}     
+%         \end{statsbox}
+%       \end{textblock*}
+%     } 
+    
+%     \only<14->{
+% 			\begin{textblock*}{1 cm}(0.1cm,0.1cm)
+% 				\def\modalFill{white} 
+% 				\input{../../pikz/modalCloud.tex}	
+% 			\end{textblock*}
+				
+% 			\begin{textblock*}{5cm}(6.75cm,4cm)
+% 					\begin{statsbox}[colback=LightCyan3!50]{The Answers}
+% 						\small
+% 						\begin{align*}
+% 							BC &= 6.67\,\textsf{kN}\quad\textsf{(Compression)}\\[0.25em]
+% 							BE &= 1.15\,\textsf{kN}\quad\textsf{(Tension)}\\[0.25em]
+% 							EF &= 6.32\,\textsf{kN}\quad\textsf{(Tension)}
+% 						\end{align*}
+% 						\par
+% 					\end{statsbox}
+% 				\end{textblock*}
+%     }
+  
+% \end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Example 3} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}
+
+\begin{frame}
+
+  \only<1>{
+    \begin{textblock*}{0.9\paperwidth}(0.875cm, 0.5cm)
+      \def\scale{0.5}\centering
+      \input{../../pikz/08MoS/08MoSSxS06.tex}
+    \end{textblock*}
+  }
+  \only<2->{
+    \begin{textblock*}{5cm}(5.125cm, 0.35cm)
+     \def\scale{0.45}\centering
+      \input{../../pikz/08MoS/08MoSSxS06.tex}
+    \end{textblock*}
+  }
+
+  \only<1>{  
+    \begin{textblock*}{8cm}(2.5cm, 8cm)
+      \normalsize
+      \begin{statsbox}[colback=LightCyan3!50]{Method of Sections: Example 3}
+        \centering
+        Use the method of sections to determine the forces in members $BC$, $CH$ and $GH$.
+      \end{statsbox}
+    \end{textblock*}
+  }
+  \only<2-8>{  
+    \begin{textblock*}{6cm}(0.5cm, 5.325cm)      
+      \begin{statsbox}[colback=LightCyan3!50, left=-2mm, right=2mm, height=3.625cm]{}
+        \centering
+        \begin{itemize}
+          \item<2-> Draw section $a\mm a$ to expose the forces in members $BC$, $CH$ and $GH$.
+          \item<3-> Analyze the frame segment to the left of section $a\mm a$. There are more external loads to consider but we don't need to calculate, and later include, the reactions at $A$ and $I$.
+          \item<4-> Find the reaction at $E$.
+          \item<6-> Now for some angles...
+          \suspend
+        \end{itemize}        
+      \end{statsbox}
+    \end{textblock*}
+  }
+  \only<9-10>{  
+    \begin{textblock*}{6cm}(0.5cm, 5cm)      
+      \begin{statsbox}[colback=LightCyan3!50, left=-2mm, right=2mm, height=3.625cm]{}
+        \centering        
+        \begin{itemize}
+          \resume
+          \item<9-> Taking moments about the intersection of the lines of action of two of the required forces allows us to solve for the third unknown without resorting to solving simultaneous equations. Thus, taking moments about $C$ will give direct access to $F_{GH}$.
+          \item <10-> Similarly, moments about $H$ yield $F_{BC}$.
+          \suspend   
+        \end{itemize}             
+      \end{statsbox}
+    \end{textblock*}
+  }
+  \only<11->{  
+    \begin{textblock*}{6cm}(0.5cm, 5cm)      
+      \begin{statsbox}[colback=LightCyan3!50, left=-2mm, right=2mm, height=3.625cm, top=1.5mm]{}
+        \centering
+        \begin{itemize}
+          \resume
+          \item<11-> There are a number of options now: \par $\Sigma F_y=0$ involves $5$ terms; \par $\Sigma F_x=0$ involves $3$ terms; \par $\Sigma M_G=0$ involves $3$ terms.\par We could even recognize that the lines of action of $F_{BC}$ and of $F_{GH}$ intersect at a point $2.90\,\textsf{m}$ to the left of $A$ -- moments about this point would involve $3$ terms. \parm
+          Taking moments about $G$ is a good option.
+        \end{itemize}        
+      \end{statsbox}
+    \end{textblock*}
+  }
+
+  \only<5>{
+    \begin{textblock*}{5.25cm}(7cm, 5.875cm)      
+      \begin{statsbox}[colback=LightCyan3!50, top=0mm]{}
+        \begin{align*}
+          \Sigma M_A &= R_E\cd(11.60\,\textsf{m})-(4.00\,\textsf{kN})\cd(2.90\,\textsf{m})\\[0.25em]
+          &\qquad\qquad - (5.50\,\textsf{kN})\cd(5.80\,\textsf{m})=0\\[0.25em]
+          \Ra R_E &= 3.75\,\textsf{kN}
+        \end{align*}     
+      \end{statsbox}
+    \end{textblock*}
+  }
+    \only<7-8 >{
+      \begin{textblock*}{5.25cm}(7cm, 5cm)      
+        \begin{statsbox}[colback=LightCyan3!50, top=0mm, height=3.625cm]{}
+          \begin{align*}
+            \uncover<7->{
+              \angle BCH &=\tan^{-1}\left[\frac{2.50\,\textsf{m}}{2.90\,\textsf{m}}\right]\\[0.25em]
+              &= 40.764\deg\\\\
+            }
+            \uncover<8->{
+              \angle CGH &= \tan^{-1}\left[\frac{2.90\,\textsf{m}}{1.25\,\textsf{m}}\right]\\[0.25em]
+              &= 66.682\deg
+            }
+          \end{align*}     
+        \end{statsbox}
+      \end{textblock*}
+    }
+    \only<9-10>{
+      \begin{textblock*}{5.25cm}(7cm, 5cm)      
+        \begin{statsbox}[colback=LightCyan3!50, top=0mm, height=3.625cm, left=1mm]{}
+          \begin{align*}
+            \uncover<9->{
+              \Sigma M_C &= (3.75\,\textsf{kN})\cd(5.80\,\textsf{m})\\
+              &\quad-F_{GH}\cd\sin 66.682\deg\cd(3.75\,\textsf{m})=0\\
+              \Ra F_{GH} &= 6.3159\,\textsf{kN}\\[0.75em]
+            }
+            \uncover<10->{
+              \Sigma M_H &= (3.75\,\textsf{kN})\cd (8.70\,\textsf{m}) \\
+              &\qquad +F_{BC}\cd (2.50\,\textsf{m})\\
+              &\qquad\qquad-(5.50\,\textsf{kN})\cd (2.90\,\textsf{m})=0\\
+              \Ra F_{BC} &= -6.6700\,\textsf{kM}
+            }
+          \end{align*}     
+        \end{statsbox}
+      \end{textblock*}
+    }
+    \only<12->{
+      \begin{textblock*}{5.25cm}(7cm, 5cm)      
+        \begin{statsbox}[colback=LightCyan3!50, top=0mm, height=3.625cm, left=1mm]{}
+          \begin{align*}
+            \uncover<12->{
+              \Sigma M_G &= (3.75\,\textsf{kN})\cd(5.80\,\textsf{m})\\
+              &\qquad + F_{CH}\cd\cos 40.764\deg (3.75\,\textsf{m})\\  
+              &\qquad\qquad + F_{BC}\cd (3.75\,\textsf{m})\\
+              &= 21.75\cd\mathsf{kN\cd m}+F_{CH}(2.8403\,\textsf{m})\\
+              &\qquad +(-6.6700\,\textsf{kN})\cd (3.75\,\textsf{m})=0\\\\
+              \Ra F_{CH} &=  1.1486\,\textsf{kN}                       
+            }
+            \uncover<13->{
+              % \Sigma M_H &= (3.75\,\textsf{kN})\cd (8.70\,\textsf{m}) \\
+              % &\qquad +F_{BC}\cd (2.50\,\textsf{m})\\             
+            }
+          \end{align*}     
+        \end{statsbox}
+      \end{textblock*}
+    } 
+    
+    \only<14->{
+			\begin{textblock*}{1 cm}(0.1cm,0.1cm)
+				\def\modalFill{white} 
+				\input{../../pikz/modalCloud.tex}	
+			\end{textblock*}
+				
+			\begin{textblock*}{5cm}(6.75cm,4cm)
+					\begin{statsbox}[colback=LightCyan3!50]{The Answers}
+						\small
+						\begin{align*}
+							BC &= 6.67\,\textsf{kN}\quad\textsf{(Compression)}\\[0.25em]
+							BE &= 1.15\,\textsf{kN}\quad\textsf{(Tension)}\\[0.25em]
+							EF &= 6.32\,\textsf{kN}\quad\textsf{(Tension)}
+						\end{align*}
+						\par
+					\end{statsbox}
+				\end{textblock*}
+    }
+  
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

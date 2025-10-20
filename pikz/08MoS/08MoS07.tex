@@ -28,15 +28,15 @@
 	% \gettikzxy{(top)}{\tx}{\ty}
 
 	\Meme{A}{B}{SlateGray4}{SlateGray2}{black}{0.4}{0.2}{0.125}
-	\Meme{C}{B}{Orange4}{Orange2}{black}{0.4}{0.2}{0.125}
+	\Meme{C}{B}{SlateGray4}{SlateGray2}{black}{0.4}{0.2}{0.125}
 	\Meme{C}{D}{SlateGray4}{SlateGray2}{black}{0.4}{0.2}{0.125}
 	\Meme{E}{D}{SlateGray4}{SlateGray2}{black}{0.4}{0.2}{0.125}
 	\Meme{E}{F}{SlateGray4}{SlateGray2}{black}{0.4}{0.2}{0.125}
 	\Meme{G}{F}{SlateGray4}{SlateGray2}{black}{0.4}{0.2}{0.125}
-	\Meme{G}{H}{Orange4}{Orange2}{black}{0.4}{0.2}{0.125}
+	\Meme{G}{H}{SlateGray4}{SlateGray2}{black}{0.4}{0.2}{0.125}
 	\Meme{I}{H}{SlateGray4}{SlateGray2}{black}{0.4}{0.2}{0.125}
 	\Meme{F}{C}{SlateGray4}{SlateGray2}{black}{0.4}{0.2}{0.125}
-	\Meme{B}{G}{Orange4}{Orange2}{black}{0.4}{0.2}{0.125}
+	\Meme{B}{G}{SlateGray4}{SlateGray2}{black}{0.4}{0.2}{0.125}
 	\Meme{A}{H}{SlateGray4}{SlateGray2}{black}{0.4}{0.2}{0.125}
 	\Meme{B}{H}{SlateGray4}{SlateGray2}{black}{0.4}{0.2}{0.125}
 	\Meme{C}{G}{SlateGray4}{SlateGray2}{black}{0.4}{0.2}{0.125}
@@ -62,9 +62,10 @@
 
 
 	% \fill[LightYellow4] ($(A)+(-1,-0.5)$) rectangle +(2,-0.5);
-	\fill[LightYellow4] ($(I)+(0.75,2.25)$) rectangle ($(A)+(2,-1.5)$);
-	\PC[90]{A}{LightYellow3}{black}{0.75}{0.125}
-	\PC[90]{I}{LightYellow3}{black}{0.75}{0.125}
+	\fill[SlateGray4] ($(I)+(0.75,2.25)$) rectangle ($(A)+(2,-1.5)$);
+	\draw[semithick]  ($(I)+(0.75,2.25)$) rectangle ($(A)+(0.75,-1.5)$);
+	\PC[90]{A}{SlateGray4}{black}{0.75}{0.125}
+	\PC[90]{I}{SlateGray4}{black}{0.75}{0.125}
 
 	\draw[very thick, -latex, statsMaroon] (B)--+(0,-1.25)node[below, black, yshift=0.75mm]{$ 5.0\,\textsf{kN}$ };
 	\draw[very thick, -latex, statsMaroon] (C)--+(0,-1.25)node[below, black, yshift=0.75mm]{$ 5.0\,\textsf{kN}$ };
