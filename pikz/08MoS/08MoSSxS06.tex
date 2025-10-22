@@ -1,6 +1,6 @@
 
 %%%%%%%%%%%%%%%%%%%%%%% TRUSS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{tikzpicture}[scale=\scale]
+\begin{tikzpicture}[scale=\scale, line cap = round]
 
 	\footnotesize
 
@@ -13,8 +13,11 @@
 	\coordinate (G) at (-6,6.5);
 	\coordinate (H) at (-3,6.5);
 	\coordinate (I) at (0,6.5);
+	\coordinate (J) at (-12,6.5);
+	\coordinate (BC) at ($(B)!0.6!(C)$);
+	\coordinate (CH) at ($(H)!0.5!(C)$);
+	\coordinate (GH) at ($(H)!0.4!(G)$);
 	\coordinate (Eleft) at ($(E)+(-2.25,0)$);
-	% \coordinate (top) at ($(F)+(0,2)$);
 
 	\gettikzxy{(A)}{\ax}{\ay}
 	\gettikzxy{(B)}{\bx}{\by}
@@ -27,20 +30,41 @@
 	\gettikzxy{(I)}{\ix}{\iy}
 	% \gettikzxy{(top)}{\tx}{\ty}
 
-	\Meme{A}{B}{LightBlue4}{LightBlue3}{black}{0.4}{0.2}{0.125}
-	\Meme{C}{B}{LightBlue4}{LightBlue3}{black}{0.4}{0.2}{0.125}
+	
+
+		
+
+	\only<1-3>{
+		\Meme{G}{H}{LightBlue4}{LightBlue3}{black}{0.4}{0.2}{0.125}	
+		\Meme{I}{H}{LightBlue4}{LightBlue3}{black}{0.4}{0.2}{0.125}
+		\Meme{A}{B}{LightBlue4}{LightBlue3}{black}{0.4}{0.2}{0.125}
+		\Meme{C}{B}{LightBlue4}{LightBlue3}{black}{0.4}{0.2}{0.125}
+		\Meme{C}{H}{LightBlue4}{LightBlue3}{black}{0.4}{0.2}{0.125}
+		\Meme{B}{I}{LightBlue4}{LightBlue3}{black}{0.4}{0.2}{0.125}
+		\Meme{B}{H}{LightBlue4}{LightBlue3}{black}{0.4}{0.2}{0.125}
+	}
+	\only<4->{
+		\Meme{GH}{H}{Cornsilk3}{white}{gray!50}{0.4}{0.2}{0.125}	
+		\Meme{GH}{G}{LightBlue4}{LightBlue3}{black}{0.4}{0.2}{0.125}	
+		\Meme{A}{B}{Cornsilk3}{white}{gray!50}{0.4}{0.2}{0.125}
+		\Meme{BC}{B}{Cornsilk3}{white}{gray!50}{0.4}{0.2}{0.125}
+		\Meme{BC}{C}{LightBlue4}{LightBlue3}{black}{0.4}{0.2}{0.125}
+		\Meme{CH}{H}{Cornsilk3}{white}{gray!50}{0.4}{0.2}{0.125}
+		\Meme{CH}{C}{LightBlue4}{LightBlue3}{black}{0.4}{0.2}{0.125}
+		\Meme{B}{I}{Cornsilk3}{white}{gray!50}{0.4}{0.2}{0.125}
+		
+		\Meme{I}{H}{Cornsilk3}{white}{gray!50}{0.4}{0.2}{0.125}
+		\Meme{B}{H}{Cornsilk3}{white}{gray!50}{0.4}{0.2}{0.125}
+	}
+
 	\Meme{C}{D}{LightBlue4}{LightBlue3}{black}{0.4}{0.2}{0.125}
 	\Meme{E}{D}{LightBlue4}{LightBlue3}{black}{0.4}{0.2}{0.125}
 	\Meme{E}{F}{LightBlue4}{LightBlue3}{black}{0.4}{0.2}{0.125}
 	\Meme{G}{F}{LightBlue4}{LightBlue3}{black}{0.4}{0.2}{0.125}
-	\Meme{G}{H}{LightBlue4}{LightBlue3}{black}{0.4}{0.2}{0.125}
-	\Meme{I}{H}{LightBlue4}{LightBlue3}{black}{0.4}{0.2}{0.125}
-	\Meme{D}{G}{LightBlue4}{LightBlue3}{black}{0.4}{0.2}{0.125}
-	\Meme{C}{H}{LightBlue4}{LightBlue3}{black}{0.4}{0.2}{0.125}
-	\Meme{B}{I}{LightBlue4}{LightBlue3}{black}{0.4}{0.2}{0.125}
-	\Meme{B}{H}{LightBlue4}{LightBlue3}{black}{0.4}{0.2}{0.125}
+	
+	\Meme{D}{G}{LightBlue4}{LightBlue3}{black}{0.4}{0.2}{0.125}	
 	\Meme{C}{G}{LightBlue4}{LightBlue3}{black}{0.4}{0.2}{0.125}
-	\Meme{D}{F}{LightBlue4}{LightBlue3}{black}{0.4}{0.2}{0.125}	
+	\Meme{D}{F}{LightBlue4}{LightBlue3}{black}{0.4}{0.2}{0.125}
 
 	\draw[thin, gray] ($(E)+(0,0.5)$)--+(0,3.5);
 	\draw[thin, gray] ($(A)+(-0.75,0)$)--(\elx+0.125cm, \ay);
@@ -65,40 +89,47 @@
 			\PC[90]{I}{LightBlue4}{black}{0.75}{0.125}
 		\end{scope}
 	}
+	\only<1-3>{
+			\draw[very thick, -latex, statsMaroon] (B)--+(0,-1.25)node[below, black, yshift=0.75mm]{$ 5.0\,\textsf{kN}$ };
+	}
 
 	\only<3->{
 		\begin{scope}[rotate around = {-7.5:(\bx/2+\cx/2, \by/2+\gy/4+\hy/4)}]
-			\fill[white] (\gx+0.75cm, \gy+0.5cm) rectangle (\bx-0.875cm, \by+0.325cm);
-		\end{scope}
+			\fill[white] (\gx+0.75cm, \gy+0.5cm) rectangle (\bx-1.125cm, \by+0.325cm);
+		\end{scope}	
+	}
+
+	\only<3>{
 		\draw[saitRed, very thick, -latex] (I)--+(1.5,0)node[above] {\small $ R_{Ix} $};
 		\draw[saitRed, very thick, -latex] (I)--+(0, 2.125)node[right,yshift=-0.25cm,] {\small $ R_{Iy} $};
 		\draw[saitRed, very thick, -latex] (A)--+(-33.69:1.75)node[above, yshift=0.125cm] {\small $ R_{A} $};
 	}
 
-	\foreach \coord in {A,B,C}{
-		\filldraw[ball color = LightBlue4] (\coord) circle (2pt)node[below left] {$ \coord $};
-	};
-	\foreach \coord in {D,E}{
-		\filldraw[ball color = LightBlue4] (\coord) circle (2pt)node[left, yshift=-0.25cm] {$ \coord $};
-	};
-	\filldraw[ball color = LightBlue4] (F) circle (2pt)node[xshift=-0.125cm, yshift=0.25cm] {$ F $};
+	
+	\filldraw[ball color = LightBlue4] (F) circle (3pt)node[xshift=-0.125cm, yshift=0.25cm] {$ F $};
 	\draw[thin, gray] ($(F)+(0,0.5)$)--+(0,1.5);
-	\filldraw[ball color = LightBlue4] (G) circle (2pt)node[xshift=-0.125cm, yshift=0.25cm] {$ G $};
+	\filldraw[ball color = LightBlue4] (G) circle (3pt)node[xshift=-0.125cm, yshift=0.25cm] {$ G $};
 	\draw[thin, gray] ($(G)+(0,0.5)$)--+(0,1.5);
-	\filldraw[ball color = LightBlue4] (H) circle (2pt)node[xshift=0.125cm, yshift=0.25cm] {$ H $};
+	\filldraw[ball color = LightBlue4] (H) circle (3pt)node[xshift=0.125cm, yshift=0.25cm] {$ H $};
 	\draw[thin, gray] ($(H)+(0,0.5)$)--+(0,1.5);
-	\filldraw[ball color = LightBlue4] (I) circle (2pt)node[xshift=-0.125cm, yshift=0.25cm] {$ I $};
+	\filldraw[ball color = LightBlue4] (I) circle (3pt)node[xshift=-0.125cm, yshift=0.25cm] {$ I $};
 	
+	\only<4->{
+		\foreach \coord in {A,B,H,I}{
+			\fill[ball color = Cornsilk2] (\coord) circle (2.5pt);		
+		};
+		
+		\draw[very thick, -latex] ($(C)+(53.1:0.325)$)--+(53.1:2)node[above]{$ F_{CH} $};
+		\draw[very thick, -latex] ($(C)+(-33.7:0.325)$)--+(-33.7:1.5)node[below,xshift=-0.3mm]{$ F_{BC} $};
+		\draw[very thick, -latex] ($(G)+(0:0.325)$)--+(0:1.5)node[above,xshift=-0.3mm]{$ F_{GH} $};		
+	}
+	\only<5->{
+		\draw[thin, gray] ($(C)+(0:0.7)$)--+(0:1.25);
+		\node at ($(C)+(-15:1.25)$){\small $ \theta $};
+		\node at ($(C)+(25:1.25)$){\small $ \phi $};
+	}
 
 
-
-	
-
-
-
-	
-
-	\draw[very thick, -latex, statsMaroon] (B)--+(0,-1.25)node[below, black, yshift=0.75mm]{$ 5.0\,\textsf{kN}$ };
 	\draw[very thick, -latex, statsMaroon] (C)--+(0,-1.25)node[left, black, yshift=0.75mm]{$ 5.0\,\textsf{kN}$ };
 	\draw[very thick, -latex, statsMaroon] (D)--+(0,-1.25)node[below, black, yshift=0.75mm]{$ 5.0\,\textsf{kN}$ };
 	\draw[very thick, -latex, statsMaroon] (E)--+(0,-1.25)node[below, black, yshift=0.75mm]{$ 10.0\,\textsf{kN}$ };
@@ -115,11 +146,23 @@
 
 	\only<2>{
 		\begin{scope}[rotate around = {-7.5:(\bx/2+\cx/2, \by/2+\gy/4+\hy/4)}]
-			\draw[very thick] (\bx/2+\cx/2, \by+0.325cm)--(\hx/2+\gx/2, \gy+0.75cm);
+			\draw[ultra thick,Green3] (\bx/2+\cx/2, \by+0.325cm)--(\hx/2+\gx/2, \gy+0.75cm);
 			\node[above] at (\bx/2+\cx/2+0.25cm, \by+0.25cm) {$a$};
 			\node[above] at (\gx/2+\hx/2-0.1275cm, \gy+0.25cm) {$a$};
 		\end{scope}
 	}
+
+	\foreach \coord in {A,B,C}{
+		\filldraw[ball color = LightBlue4] (\coord) circle (3pt)node[below left] {$ \coord $};
+	};
+	\foreach \coord in {D,E}{
+		\filldraw[ball color = LightBlue4] (\coord) circle (3pt)node[left, yshift=-0.25cm] {$ \coord $};
+	};
+
+	% \only<8->{
+	% 	\filldraw[ball color = LightBlue4] (J) circle (3pt)node[left, yshift=0.25cm] {$\bm J $};
+	% }
+
 
 	
 \end{tikzpicture}
