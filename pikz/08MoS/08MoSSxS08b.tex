@@ -1,0 +1,171 @@
+%%%%%%%%%%%%%%%%%%%%%%% TRUSS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{tikzpicture}[scale=\scale, line cap=round]
+
+	\footnotesize
+
+	
+	\coordinate (D) at (6,0);
+	\coordinate (E) at (8,0);
+	\coordinate (F) at (10,0);
+	\coordinate (G) at (12,0);
+	\coordinate (H) at (14,0);
+	\coordinate (I) at (16,0);
+	
+	\coordinate (N) at (6,3);
+	\coordinate (M) at (8,3);
+	\coordinate (L) at (10,3);
+	\coordinate (K) at (12,3);
+	\coordinate (J) at (14,3);
+	\coordinate (Dmid) at (6,1.5);
+	\coordinate (Emid) at (8,1.5);
+	\coordinate (Fmid) at (10,1.5);
+	\coordinate (Gmid) at (12,1.5);
+	\coordinate (Hmid) at (14,1.5);
+	\coordinate (LM) at ($(L)!0.5!(M)$);
+	\coordinate (LLM) at ($(L)!0.45!(M)$);
+	\coordinate (LFmid) at ($(L)!0.45!(Fmid)$);
+	\coordinate (EF) at ($(E)!0.5!(F)$);
+	\coordinate (EFmid) at ($(E)!0.5!(Fmid)$);
+	\coordinate (MFmid) at ($(M)!0.5!(Fmid)$);
+	\coordinate (EFF) at ($(E)!0.55!(F)$);
+	\coordinate (FFmid) at ($(F)!0.5!(Fmid)$);
+	\coordinate (LQ) at ($(L)!0.45!(Fmid)$);
+	\coordinate (FQ) at ($(F)!0.45!(Fmid)$);
+	\coordinate (MML) at ($(M)!0.35!(L)$);
+	\coordinate (EEF) at ($(E)!0.35!(F)$);
+
+
+
+
+	% \coordinate (LM2) at ($(L)!0.5!(M)$);
+	\only<1-4>{
+		\Meme{E}{D}{LightYellow4}{LightYellow2}{black}{0.3}{0.15}{0.125}
+		\Meme{E}{F}{Salmon4}{Salmon4!50}{black}{0.3}{0.15}{0.125}
+		\Meme{M}{L}{Salmon4}{Salmon4!50}{black}{0.3}{0.15}{0.125}
+		\Meme{M}{N}{LightYellow4}{LightYellow2}{black}{0.3}{0.15}{0.125}
+		\Meme{M}{Dmid}{LightYellow4}{LightYellow2}{black}{0.3}{0.15}{0.125}	
+		\Meme{E}{Dmid}{LightYellow4}{LightYellow2}{black}{0.3}{0.15}{0.125}
+		\Meme{M}{Fmid}{Salmon4}{Salmon4!50}{black}{0.3}{0.15}{0.125}	
+		\Meme{L}{F}{LightYellow4}{LightYellow2}{black}{0.3}{0.15}{0.125}
+		\Meme{Fmid}{E}{Salmon4}{Salmon4!50}{black}{0.3}{0.15}{0.125}
+		\Meme{M}{E}{LightYellow4}{LightYellow2}{black}{0.3}{0.15}{0.125}
+
+	}
+	\only<5->{
+		\Meme{E}{D}{gray!25}{white}{gray!50}{0.3}{0.15}{0.125}
+		\Meme{E}{F}{gray!25}{white}{gray!50}{0.3}{0.15}{0.125}
+		\Meme{F}{EFF}{Salmon4}{Salmon4!50}{black}{0.3}{0.15}{0.125}
+		\Meme{M}{L}{gray!25}{white}{gray!50}{0.3}{0.15}{0.125}
+		\Meme{M}{N}{gray!25}{white}{gray!50}{0.3}{0.15}{0.125}
+		\Meme{M}{Dmid}{gray!25}{white}{gray!50}{0.3}{0.15}{0.125}	
+		\Meme{E}{Dmid}{gray!25}{white}{gray!50}{0.3}{0.15}{0.125}
+		\Meme{M}{Fmid}{gray!25}{white}{gray!50}{0.3}{0.15}{0.125}	
+		\Meme{E}{Fmid}{gray!25}{white}{gray!50}{0.3}{0.15}{0.125}	
+		\Meme{L}{F}{gray!25}{white}{gray!50}{0.3}{0.15}{0.125}		
+		\Meme{M}{E}{gray!25}{white}{gray!50}{0.3}{0.15}{0.125}
+		\Meme{F}{FFmid}{LightYellow4}{LightYellow2}{black}{0.3}{0.15}{0.125}
+		\Meme{L}{LLM}{Salmon4}{Salmon4!50}{black}{0.3}{0.15}{0.125}
+		\Meme{L}{LFmid}{LightYellow4}{LightYellow2}{black}{0.3}{0.15}{0.125}
+	}
+	\only<8->{
+		\Meme{Fmid}{MFmid}{Salmon4}{Salmon4!50}{black}{0.3}{0.15}{0.125}
+		\Meme{L}{F}{LightYellow4}{LightYellow2}{black}{0.3}{0.15}{0.125}
+		\Meme{Fmid}{EFmid}{Salmon4}{Salmon4!50}{black}{0.3}{0.15}{0.125}
+	}
+	
+	\Meme{G}{F}{LightYellow4}{LightYellow2}{black}{0.3}{0.15}{0.125}
+	\Meme{G}{H}{LightYellow4}{LightYellow2}{black}{0.3}{0.15}{0.125}
+	\Meme{I}{H}{LightYellow4}{LightYellow2}{black}{0.3}{0.15}{0.125}
+	\Meme{K}{J}{LightYellow4}{LightYellow2}{black}{0.3}{0.15}{0.125}
+	\Meme{K}{L}{LightYellow4}{LightYellow2}{black}{0.3}{0.15}{0.125}	
+	\Meme{L}{Gmid}{LightYellow4}{LightYellow2}{black}{0.3}{0.15}{0.125}	
+	\Meme{K}{G}{LightYellow4}{LightYellow2}{black}{0.3}{0.15}{0.125}
+	\Meme{Gmid}{F}{LightYellow4}{LightYellow2}{black}{0.3}{0.15}{0.125}
+	\Meme{K}{Hmid}{LightYellow4}{LightYellow2}{black}{0.3}{0.15}{0.125}	
+	\Meme{J}{H}{LightYellow4}{LightYellow2}{black}{0.3}{0.15}{0.125}
+	\Meme{Hmid}{G}{LightYellow4}{LightYellow2}{black}{0.3}{0.15}{0.125}
+	
+	\Meme{J}{I}{LightYellow4}{LightYellow2}{black}{0.3}{0.15}{0.125}
+	
+	\foreach \coord in {M, L, K, J}{
+		\draw ($(\coord)+(0,0.875)$) -- +(0,1);
+	};
+	
+	\draw ($(I)+(0,0.5)$) -- +(0,4.325);
+
+	\foreach \x in {4,5,6,7}{
+		\draw[latex-latex] (2*\x, 4.325) -- +(2,0)node[fill=white, midway, inner sep = 0.25mm]{\footnotesize $ 5.00\,\textsf{m} $};
+	}
+
+	\fill[white] (5,-0.5) rectangle (7,3.5);
+	\draw[LightYellow4, dashed, very thick, line cap = round] (7,-0.75) -- (7,3.75);
+	\draw (5.5,3) -- (6.75,3);
+	\draw (5.5,1.5) -- (7.625,1.5);
+	\draw (5.5,0) -- (6.75,0);
+
+
+
+	\draw[latex-latex] (6,3) -- (6,1.5)node[fill=white, midway, inner sep = 0.5mm]{\footnotesize $ 3.75\,\textsf{m} $};
+	\draw[latex-latex] (6,1.5) -- (6,0)node[fill=white, midway, inner sep = 0.5mm]{\footnotesize $ 3.75\,\textsf{m} $};
+
+
+	\draw[very thick, -latex, saitRed] (G)--+(0,-1.25)node[below, black]{$ 10.0\,\textsf{kN}$ };
+
+	\footnotesize
+	\node[xshift=0.25cm] at (I) {$ I $};	
+	\node[xshift=0.25cm,] at (Fmid) {$ Q $};
+
+	\foreach \coord in {E,F,H}{
+		\node at ($ (\coord)+(0,-0.5) $) {$ \coord $};
+	}
+	
+	\node[right] at ($ (G)+(0,-0.5) $) {$ G $};
+	
+	\foreach \coord in {J,K,L,M}{
+		\node at ($ (\coord)+(0,0.5) $) {$ \coord $};
+	}
+
+	\draw[very thick, -latex, saitRed] (I)--+(0,1.5)node[above,fill=white,xshift=1mm,yshift=-0.725mm]{$11.250\,\textsf{kN}$};	
+
+	\foreach \coord in {E,F,...,I, Fmid, Gmid, Hmid, M, L, K, J}{
+		\filldraw[ball color = LightYellow4] (\coord) circle (2.5pt);
+	};
+	\only<4>{
+		\draw[ultra thick, Green3, rounded corners=0.5cm, line cap = round] ($(LM)+(0,0.5cm)$)--($(LM)+(0,-0.4cm)$)--($(Fmid)+(1.25,0)$)--($(LM)+(0,-2.625cm)$)--($(LM)+(0,-3.5cm)$);
+		\node[yshift=0.5cm] at (LM) {\small $a$};
+		\node[yshift=-2.625cm] at (LM) {\small $a$};
+	}
+	
+	\only<5-7>{
+		\draw[line width=0.3cm, white, rounded corners=0.5cm,] ($(LM)+(0,0.5cm)$)--($(LM)+(0,-0.3cm)$)--($(Fmid)+(1.25,0)$)--($(EF)+(0,0.3cm)$)--($(EF)+(0,-0.5cm)$);		
+	}
+	\only<5->{
+		\foreach \coord in {E,Fmid, M}{
+		\fill[ball color = white] (\coord) circle (2.5pt);
+		}
+	}
+	\only<7>{
+		\draw[ultra thick, Green3, rounded corners=0.5cm, line cap = round] ($(MML)+(0,0.5cm)$)--($(MML)+(0,-3.5cm)$);
+		\node[yshift=0.5cm] at (MML) {\small $b$};
+		\node[yshift=-2.625cm] at (MML) {\small $b$};
+	}
+	\only<8->{
+		\draw[line width=0.4cm, white] ($(LM)+(0,0.5cm)$)--($(LM)+(0,-3.5cm)$);	
+		\filldraw[ball color = LightYellow4] (Fmid) circle (2.5pt);	
+	}
+	\only<5->{
+		\draw[very thick, -latex] ($(F)+(-0.25,0)$)--+(-0.875,0)node[below right, yshift=-0.5mm]{$ F_{EF}$};
+		\draw[very thick, -latex] ($(L)+(-0.25,0)$)--+(-0.875,0)node[above right, yshift=0.5mm]{$ F_{LM}$};
+	}
+	\only<8->{
+		\draw[very thick, -latex] ($(Fmid)+(143.1:0.325)$)--+(143.1:1)node[above right, yshift=-1.5mm]{$ F_{MQ}$};
+		\draw[very thick, -latex] ($(Fmid)+(216.9:0.325)$)--+(216.9:1)node[below right, yshift=1mm]{$ F_{EQ}$};
+	}
+	\only<8->{
+		\draw[thin, gray] ($(Emid)+(0.325,0)$) -- ($(Fmid)+(-0.5,0)$);
+		\draw[latex-latex] ($(Fmid)+(143.1:1.5)$)arc(143.1:180:1.5)node[midway, fill=white,inner sep=0.2mm]{\small $\theta$};
+		\draw[thin, gray] ($(Fmid)+(143.1:1.375)$)--+(143.1:0.25);
+	}
+	
+	
+\end{tikzpicture}

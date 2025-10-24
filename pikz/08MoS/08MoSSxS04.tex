@@ -1,0 +1,137 @@
+
+%%%%%%%%%%%%%%%%%%%%%%% TRUSS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{tikzpicture}[scale=\scale, line cap = round]
+
+	\footnotesize
+
+	\coordinate (A) at (0,0);
+	\coordinate (B)	at (0,3);
+	\coordinate (C) at (0,6);
+	\coordinate (D) at (0,9);
+	\coordinate (E) at (4,9);
+	\coordinate (F) at (4,6);
+	\coordinate (G) at (4,3);
+	\coordinate (H) at (4,0);
+	\coordinate (I) at (2,9);
+	\coordinate (J) at (2,6);
+	\coordinate (K) at (2,3);	
+	\coordinate (BK) at ($(B)!0.5!(K)$);	
+	\coordinate (GK) at ($(G)!0.5!(K)$);	
+	\coordinate (AB) at ($(A)!0.55!(B)$);	
+	\coordinate (GH) at ($(H)!0.55!(G)$);	
+
+	\gettikzxy{(A)}{\ax}{\ay}
+	\gettikzxy{(B)}{\bx}{\by}
+	\gettikzxy{(C)}{\cx}{\cy}
+	\gettikzxy{(D)}{\ddx}{\ddy}
+	\gettikzxy{(E)}{\eex}{\eey}
+	\gettikzxy{(F)}{\fx}{\fy}
+	\gettikzxy{(G)}{\gx}{\gy}
+	\gettikzxy{(H)}{\hx}{\hy}
+	\gettikzxy{(I)}{\ix}{\iy}
+	\gettikzxy{(J)}{\jx}{\jy}
+	\gettikzxy{(K)}{\kx}{\ky}
+	
+	\only<1-6>{
+		\Meme{B}{G}{Snow4}{Snow1}{black}{0.3}{0.15}{0.125}
+		\Meme{A}{B}{Snow4}{Snow1}{black}{0.3}{0.15}{0.125}
+		\Meme{G}{H}{Snow4}{Snow1}{black}{0.3}{0.15}{0.125}
+	}
+	\only<7->{
+		\Meme{B}{G}{gray!25}{white}{gray!50}{0.3}{0.15}{0}
+		\Meme{B}{A}{gray!25}{white}{gray!50}{0.3}{0.15}{0}
+		\Meme{G}{H}{gray!25}{white}{gray!50}{0.3}{0.15}{0}
+		\Meme{B}{BK}{Snow4!65}{Snow1}{black}{0.3}{0.15}{0.125}
+		\Meme{G}{GK}{Snow4!65}{Snow1}{black}{0.3}{0.15}{0.125}
+		\Meme{B}{AB}{Snow4!65}{Snow1}{black}{0.3}{0.15}{0.125}
+		\Meme{G}{GH}{Snow4!65}{Snow1}{black}{0.3}{0.15}{0.125}
+	}
+	
+	\Meme{C}{F}{Snow4}{Snow1}{black}{0.3}{0.15}{0.125}
+	\Meme{E}{D}{Snow4}{Snow1}{black}{0.3}{0.15}{0.125}
+	% \Meme{A}{H}{Snow4}{Snow1}{black}{0.3}{0.15}{0.125}
+	
+	\Meme{C}{B}{Snow4}{Snow1}{black}{0.3}{0.15}{0.125}
+	\Meme{C}{D}{Snow4}{Snow1}{black}{0.3}{0.15}{0.125}
+	
+	\Meme{E}{F}{Snow4}{Snow1}{black}{0.3}{0.15}{0.125}
+	\Meme{G}{F}{Snow4}{Snow1}{black}{0.3}{0.15}{0.125}
+	
+	
+	\Meme{C}{I}{Snow4}{Snow1}{black}{0.3}{0.15}{0.125}
+	\Meme{F}{I}{Snow4}{Snow1}{black}{0.3}{0.15}{0.125}
+	\Meme{B}{J}{Snow4}{Snow1}{black}{0.3}{0.15}{0.125}
+	\Meme{G}{J}{Snow4}{Snow1}{black}{0.3}{0.15}{0.125}
+	\only<1-6>{		
+		\Meme{A}{K}{Snow4}{Snow1}{black}{0.3}{0.15}{0.125}
+		\Meme{H}{K}{Snow4}{Snow1}{black}{0.3}{0.15}{0.125}		
+	}
+	\only<7->{		
+		\Meme{A}{K}{gray!25}{white}{gray!50}{0.3}{0.15}{0}
+		\Meme{H}{K}{gray!25}{white}{gray!50}{0.3}{0.15}{0}		
+	}
+
+	\only<1-6>{
+	\fill[OliveDrab4] ($(A)+(-1.5,-0.5)$)rectangle($(H)+(1.5,-1.5)$);
+	\PC{A}{OliveDrab4}{black}{0.5}{0.2}
+	\PC{H}{OliveDrab4}{black}{0.5}{0.2}	
+	}	
+
+	\foreach \coord in {B,C,D}{
+		\filldraw[ball color = Snow4] (\coord) circle (2.5pt)node[xshift=-0.25cm,yshift=0.25cm] {$ \coord $};
+	};
+	\filldraw[ball color = Snow4] (A) circle (2.5pt)node[xshift=-0.25cm] {$ A $};
+	\foreach \coord in {E,F,G,H}{
+		\filldraw[ball color = Snow4] (\coord) circle (2.5pt)node[xshift=0.25cm,yshift=0.25cm] {$ \coord $};		
+	};	
+	\foreach \coord in {J,K}{
+		\filldraw[ball color = Snow4] (\coord) circle (2.5pt)node[yshift=0.25cm] {$ \coord $};		
+	};
+	\filldraw[ball color = Snow4] (I) circle (2.5pt)node[left,yshift=0.25cm] {$ I $};	
+
+	\draw[thin, gray]($ (E)+(0.25,0)$)--+(1.25,0);
+	\draw[thin, gray]($ (F)+(0.25,0)$)--+(1.25,0);
+	\draw[thin, gray]($ (G)+(0.25,0)$)--+(1.25,0);
+	\draw[thin, gray]($ (H)+(0.25,0)$)--+(1.25,0);
+
+	\draw[thin, gray]($ (D)+(0,0.25)$)--+(0,1.5);
+	\draw[thin, gray]($ (I)+(0,0.25)$)--+(0,1.5);
+	\draw[thin, gray]($ (E)+(0,0.25)$)--+(0,1.5);
+
+	\draw[latex-latex] ($(H)+(1.125,0)$)--($(G)+(1.125,0)$)node[midway, fill=white]{$ 2.05\,\textsf{m} $};
+	\draw[latex-latex] ($(G)+(1.125,0)$)--($(F)+(1.125,0)$)node[midway, fill=white]{$ 2.05\,\textsf{m} $};
+	\draw[latex-latex] ($(E)+(1.125,0)$)--($(F)+(1.125,0)$)node[midway, fill=white]{$ 2.05\,\textsf{m} $};	
+	\draw[latex-latex] ($(E)+(0,1.125)$)--($(I)+(0,1.125)$)node[midway, fill=white, inner sep = 0.1mm]{$ 1.35\,\textsf{m} $};	
+	\draw[latex-latex] ($(D)+(0,1.125)$)--($(I)+(0,1.125)$)node[midway, fill=white, inner sep = 0.1mm]{$ 1.35\,\textsf{m} $};	
+	
+	\draw[ultra thick, latex-, saitMaroon] (B)--+(-1.5,0)node[below, black]{$ 5.0\,\textsf{kN}$ };
+	\draw[ultra thick, latex-, saitMaroon] (C)--+(-1.5,0)node[below, black]{$ 10.0\,\textsf{kN}$ };
+	\draw[ultra thick, latex-, saitMaroon] (D)--+(-1.5,0)node[below, black]{$ 15.0\,\textsf{kN}$ };
+	
+	\only<5>{
+			\draw[ultra thick,Green3] (\ax-0.325cm, \ay/2+\by/2)--(\hx+0.325cm, \gy/2+\hy/2);
+			\node at (\ax-0.325cm, \ay/2+\by/2+0.2cm) {$a$};
+			\node at (\hx+0.325cm, \ay/2+\by/2+0.2cm) {$a$};
+	}
+	
+	\only<6>{
+			\draw[ultra thick,Green3] (\ax-0.325cm, \ay/3+2*\by/3)[rounded corners=0.5cm]--(\ax+0.4cm,\ay/3+2*\by/3)--(\kx, \ky+1.25cm)--(\hx-0.4cm, \ay/3+2*\by/3)--(\hx+0.325cm, \ay/3+2*\by/3);
+			\node at (\ax-0.5cm, \ay/3+2*\by/3) {$b$};
+			\node at (\hx+0.5cm, \ay/3+2*\by/3) {$b$};
+			% \node at (\hx+0.325cm, \ay/2+\by/2+0.2cm) {$a$};
+	}
+	\only<7->{
+			\draw[white, line width=0.325cm] (\ax-0.75cm, \ay/3+1.25*\by/3)[rounded corners=0.5cm]--(\ax+0.25cm,\ay/3+1.75*\by/3)--(\kx, \ky+1.25cm)--(\hx-0.25cm, \ay/3+2*\by/3)--(\hx+0.325cm, \ay/3+1.25*\by/3);
+
+			\draw[thick, -latex] (B)--(AB)node[right]{$ F_{AB} $};
+			\draw[thick, -latex] (G)--(GH)node[left]{$ F_{GH} $};
+
+			\fill[ball color = white] (A) circle (2.75pt);
+			\fill[ball color = white] (H) circle (2.75pt);
+			\fill[ball color = white] (K) circle (2.75pt);
+
+			
+			
+	}
+	
+\end{tikzpicture}

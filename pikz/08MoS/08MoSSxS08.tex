@@ -12,7 +12,6 @@
 	\coordinate (G) at (12,0);
 	\coordinate (H) at (14,0);
 	\coordinate (I) at (16,0);
-	% \coordinate (J) at (18,0);
 	\coordinate (P) at (2,3);
 	\coordinate (O) at (4,3);
 	\coordinate (N) at (6,3);
@@ -20,7 +19,6 @@
 	\coordinate (L) at (10,3);
 	\coordinate (K) at (12,3);
 	\coordinate (J) at (14,3);
-	% \coordinate (Itop) at (16,3);
 	\coordinate (Bmid) at (2,1.5);
 	\coordinate (Cmid) at (4,1.5);
 	\coordinate (Dmid) at (6,1.5);
@@ -28,7 +26,6 @@
 	\coordinate (Fmid) at (10,1.5);
 	\coordinate (Gmid) at (12,1.5);
 	\coordinate (Hmid) at (14,1.5);
-	% \coordinate (Imid) at (16,1.5);
 
 	\Meme{A}{B}{LightYellow4}{LightYellow2}{black}{0.3}{0.15}{0.125}
 	\Meme{C}{B}{LightYellow4}{LightYellow2}{black}{0.3}{0.15}{0.125}
@@ -84,11 +81,11 @@
 	\draw ($(Bmid)+(-1.5,0)$) -- +(-2.5,0);
 
 	\foreach \x in {0, 1, ..., 7}{
-		\draw[latex-latex] (2*\x, 4.325) -- +(2,0)node[fill=white, midway, inner sep = 0.75mm,rotate=45]{\footnotesize $ 5.00\,\textsf{m} $};
+		\draw[latex-latex] (2*\x, 4.325) -- +(2,0)node[fill=white, midway, inner sep = 0.25mm]{\footnotesize $ 5.0\,\textsf{m} $};
 	}
 
-	\draw[latex-latex] (-1.5,3) -- (-1.5,1.5)node[fill=white, midway, inner sep = 1mm]{\footnotesize $ 3.75\,\textsf{m} $};
-	\draw[latex-latex] (-1.5,1.5) -- (-1.5,0)node[fill=white, midway, inner sep = 1mm]{\footnotesize $ 3.75\,\textsf{m} $};
+	\draw[latex-latex] (-1.5,3) -- (-1.5,1.5)node[fill=white, midway, inner sep = 0.5mm]{\footnotesize $ 3.75\,\textsf{m} $};
+	\draw[latex-latex] (-1.5,1.5) -- (-1.5,0)node[fill=white, midway, inner sep = 0.5mm]{\footnotesize $ 3.75\,\textsf{m} $};
 
 	\fill[OliveDrab4!60] ($(A)+(-1,-0.5)$) rectangle +(2,-0.5);
 	\fill[OliveDrab4!60] ($(I)+(-1,-0.5)$) rectangle +(2,-0.5);
@@ -116,10 +113,15 @@
 		\node at ($ (\coord)+(0,0.5) $) {$ \coord $};
 	}
 
-	
+	\only<2>{
+		\draw[very thick, -latex, saitRed] (I)--+(0,1.5)node[above,fill=white,yshift=-0.725mm]{$\bm{R_I}$};
+	}
+	\only<3->{
+		\draw[very thick, -latex, saitRed] (I)--+(0,1.5)node[above,fill=white,xshift=1mm,yshift=-0.725mm]{$11.250\,\textsf{kN}$};
+	}
 
 	\foreach \coord in {A,B,...,I, Bmid, Cmid,Dmid, Fmid, Gmid, Hmid, P, O, N, M, L, K, J}{
-		\filldraw[ball color = LightYellow4] (\coord) circle (2pt);
+		\filldraw[ball color = LightYellow4] (\coord) circle (2.5pt);
 	};
 	
 \end{tikzpicture}
