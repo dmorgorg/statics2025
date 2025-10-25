@@ -29,8 +29,8 @@
 \input{../../includes/WBeam.tex}
 % \input{../../includes/includesExisting/tikzObjects.tex}
 
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{\medskipamount}
+% \setlength{\parindent}{0pt}
+% \setlength{\parskip}{\medskipamount}
 \def\bgcolor{Gainsboro!50}
 
 
@@ -90,20 +90,42 @@
 	\titlepage
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Trusses by the Method of Sections}
+	\begin{itemize}
+		\item We have learned how to find the internal forces in truss members using the Method of Joints.\parb
+		\item An alternative approach is the Method of Sections, useful when we want to examine the forces in a grouping of truss members rather than the forces in every member.\parb
+		\item The method of sections can also be used to check results partway through a lengthy method of joints analysis.
+	\end{itemize}
 
+\end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Trusses by the Method of Sections}
+	\begin{itemize}
+		\item There is nothing new in the Method of Sections; we use techniques that we are already familiar with.\parb
+		\item In particular, {\bf if a truss is in equilibrium, it follows that each segment of the truss must also be in equilibrium}.\parb
+		\item If we draw a section through a truss, both portions of the truss -- on each side of the section -- is in equilibrium. \parb
+		\item A section through a truss 'cuts' through members, exposing the internal forces for analysis.
+	\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Trusses by the Method of Sections}
+	\begin{itemize}
+		\item We can solve for at most three truss members with a single section through the truss. It may be necessary to use multiple sections.\parb
+		\item Depending upon the truss and the members to be analyzed, it may be easier to take moments two or three times around carefully chosen points. Often of interest are points where the lines of action of the 'cut' members intersect.\parm
+		 If we take moments around such a point, the moments of the forces through the intersection point are zero.\parb
+		\item It may sound complicated but it is not. The following examples will illustrate how to use the method of sections efficiently.
+	\end{itemize}
+
+\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{}	
 	% \addtocounter{framenumber}{42}
 	\begin{myexam}{}{}
@@ -113,7 +135,7 @@
 		\parb
 		\cmini[0.75]{
 			\centering
-			Use the method of sections to determine the internal forces in members $BC$, $CH$ and $GH$.
+			Use the method of sections to determine the internal forces in members $BC$, $BE$ and $EF$.
 		}			
 		\pars
 		\addtocounter{\tcbcounter}{-1}

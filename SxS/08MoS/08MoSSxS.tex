@@ -1,6 +1,6 @@
 %!TEX option = --enable-write18
 
-\documentclass[8pt, xcolor={svgnames, x11names}]{beamer}
+\documentclass[8pt, xcolor={svgnames, x11names}, professionalfonts]{beamer}
 
 \input{../../includes/definedColors.tex}
 \input{../../includes/macros.tex}
@@ -13,14 +13,13 @@
 
 \usepackage{mathtools}
 \usefonttheme[onlymath]{serif} 
+\tcbset{fonttitle=\itshape\rmfamily}
 \usepackage{mathpazo} % for mathpazo font
-% \usepackage{gensymb} % for \degree
 \usepackage[detect-all]{siunitx}
 \usepackage{bm}
 
 \setbeamertemplate{navigation symbols}{} % remove navigation symbols
 \setbeamertemplate{headline}{\vspace{0.125cm}}
-% \setbeamertemplate{footline}{ \hfill \insertshorttitle\qquad \insertsection \qquad \insertframenumber/\inserttotalframenumber\quad{ }\vspace{0.125cm}}
 \setbeamertemplate{footline}{ \hfill \insertshorttitle\qquad \insertsection \qquad\vspace{0.125cm}}
 \setbeamertemplate{items}[default]
 \setbeamertemplate{blocks}[shadow=true]
@@ -33,9 +32,9 @@
 \setlength{\TPHorizModule}{1.0cm}
 \setlength{\TPVertModule}{\TPHorizModule}
 \textblockorigin{0.0cm}{0.0cm}  %start all at upper left corner
-% \textblockcolor{yellow}
 \usepackage[many]{tcolorbox}
-% \usepgflibrary{shadings}
+\usefonttheme[onlymath]{serif} % this needs to be before structureitalicserif?
+\usefonttheme{structureitalicserif} %make titles fancy ;-)
 
 \colorlet{boxBG}{Ivory3!50}
 
@@ -73,583 +72,678 @@
     \titlepage
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Example 1}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+
+  \only<1>{
+    \begin{textblock*}{0.9\paperwidth}(0.875cm, 0.5cm)
+      \def\scale{0.875}\centering
+      \input{../../pikz/08MoS/08MoSSxS01.tex}
+    \end{textblock*}
+  }
+  
+  \only<2->{
+    \begin{textblock*}{1\paperwidth}(0cm, 0.5cm)
+      \def\scale{0.625}\centering
+      \input{../../pikz/08MoS/08MoSSxS01b.tex}
+    \end{textblock*}
+  }
+
+  \only<1>{  
+    \begin{textblock*}{8cm}(2.5cm, 6.5cm)
+      \normalsize
+      \begin{statsbox}[colback=PaleGoldenrod!45]{Method of Sections: Example 1}
+        \centering
+        Use the method of sections to determine the forces in members $BC$, $BE$ and $EF$.
+      \end{statsbox}
+    \end{textblock*}
+  }
+  \only<2->{  
+    \begin{textblock*}{6cm}(0.5cm, 5cm)      
+      \begin{statsbox}[colback=PaleGoldenrod!45, left=-1mm, height=3.5cm]{}
+        \only<2-4>{
+          \begin{enumerate}
+            \item Draw section $a\mm a$. 
+            \item <3-> This section exposes the forces in members $BC$, $BE$ and $EF$
+            \item <4-> The right portion of the truss is the easier to analyze --  it does not require solving for, and then using, the reactions at $A$ and $G$. \par({\bf Note} that we can't actually solve for those reactions at this stage: they are statically indeterminate.)
+            \suspend           		
+          \end{enumerate}
+        }
+        \only<5->{
+          \begin{enumerate}	
+            \resume			
+            \item Take moments about the joint $B$ to find $F_{EF}$.
+            \item <6-> Take moments about the joint $E$ to find $F_{BC}$.
+            \item <7-> Notice that $\angle BEF=45\deg$. \lb Sum the $y$-components to find $F_{BE}$.
+          \end{enumerate}
+        }
+      \end{statsbox}
+    \end{textblock*}
+  }
+  \only<5->{  
+    \begin{textblock*}{5.375cm}(7cm, 5cm)      
+      \begin{statsbox}[colback=PaleGoldenrod!45, left=-1mm, height=3.5cm, top=0mm]{}
+        \begin{align*}
+          \only<5-6>{
+						\Sigma M_B &= -F_{EF}\cd (1.50\,\textsf{m}) \\
+            &\qquad\qquad - (850\,\textsf{N})\cd (3.00\,\textsf{m}) = 0 \\[0.25em]
+						\Ra F_{EF} &= -1700\,\textsf{N}\\\\
+          }
+          \only<6>{
+            \Sigma M_E &= F_{BC}\cd(1.50\,\textsf{m}) \\
+              &\qquad\qquad - (850\,\textsf{N})\cd (1.50\,\textsf{m}) = 0 \\[0.25em]
+            \Ra F_{BC} &= 850\,\textsf{N}\\\\
+          }
+          \only<7>{
+            F_{EF} &= -1700\,\textsf{N}\\
+            F_{BC} &= 850\,\textsf{N}\\\\\\
+            \Sigma F_y &= -F_{BE}\cd\sin 45\deg - 850\,\textsf{N} = 0\\[0.25em]
+						\Ra F_{BE} &= -1202.1\,\textsf{N}
+          }
+				\end{align*}         
+      \end{statsbox}
+    \end{textblock*}
+
+    \only<8>{
+			\begin{textblock*}{1 cm}(0.1cm,0.1cm)
+				\def\modalFill{white} 
+				\input{../../pikz/modalCloud.tex}	
+			\end{textblock*}
+				
+			\begin{textblock*}{5cm}(6.75cm,4cm)
+					\begin{statsbox}[colback=PaleGoldenrod!45]{The Answers}
+						\small
+						\begin{align*}
+							BC &= 850\,\textsf{N}\quad\textsf{(Tension)}\\[0.25em]
+							BE &= 1200\,\textsf{N}\quad\textsf{(Compression)}\\[0.25em]
+							EF &= 1700\,\textsf{N}\quad\textsf{(Compression)}
+						\end{align*}
+						\par
+					\end{statsbox}
+				\end{textblock*}
+    }
+  }
+
+  
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Example 2}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \begin{frame}
+\begin{frame}
 
-%   \begin{textblock*}{0.9\paperwidth}(0.875cm, 0.5cm)
-%     \def\scale{0.5}\centering
-%     \input{../../pikz/08MoS/08MoSSxS02.tex}
-%   \end{textblock*}
+  \begin{textblock*}{0.9\paperwidth}(0.875cm, 0.5cm)
+    \def\scale{0.5}\centering
+    \input{../../pikz/08MoS/08MoSSxS02.tex}
+  \end{textblock*}
 
-%   \only<1>{  
-%     \begin{textblock*}{8cm}(2.5cm, 5.5cm)
-%       \normalsize
-%       \begin{statsbox}[colback=LightYellow3!55]{Method of Sections: Example 2}
-%         \centering
-%         Use the method of sections to determine the forces in members $BC$, $CH$ and $GH$.
-%       \end{statsbox}
-%     \end{textblock*}
-%   }
-%   \only<2-8>{  
-%     \begin{textblock*}{6cm}(0.5cm, 5cm)      
-%       \begin{statsbox}[colback=LightYellow3!55, left=-2mm, right=2mm, height=3.625cm]{}
-%         \centering
-%         \begin{itemize}
-%           \item<2-> Section $a\mm a$ is the obvious choice for exposing the forces in members $BC$, $CH$ and $GH$.
-%           \item<3-> There is no clear advantage to using one side of the section over the other.  Each side has one load and one reaction to consider. We shall use the right portion of the truss, simply because then we don't have to find $R_A$.
-%           \item<4-> Find the reaction at $E$.
-%           \item<6-> Now for some angles...
-%           \suspend
-%         \end{itemize}        
-%       \end{statsbox}
-%     \end{textblock*}
-%   }
-%   \only<9-10>{  
-%     \begin{textblock*}{6cm}(0.5cm, 5cm)      
-%       \begin{statsbox}[colback=LightYellow3!55, left=-2mm, right=2mm, height=3.625cm]{}
-%         \centering        
-%         \begin{itemize}
-%           \resume
-%           \item<9-> Taking moments about the intersection of the lines of action of two of the required forces allows us to solve for the third unknown without resorting to solving simultaneous equations. Thus, taking moments about $C$ will give direct access to $F_{GH}$.
-%           \item <10-> Similarly, moments about $H$ yield $F_{BC}$.
-%           \suspend   
-%         \end{itemize}             
-%       \end{statsbox}
-%     \end{textblock*}
-%   }
-%   \only<11->{  
-%     \begin{textblock*}{6cm}(0.5cm, 5cm)      
-%       \begin{statsbox}[colback=LightYellow3!55, left=-2mm, right=2mm, height=3.625cm, top=1.5mm]{}
-%         \centering
-%         \begin{itemize}
-%           \resume
-%           \item<11-> There are a number of options now: \par $\Sigma F_y=0$ involves $5$ terms; \par $\Sigma F_x=0$ involves $3$ terms; \par $\Sigma M_G=0$ involves $3$ terms.\par We could even recognize that the lines of action of $F_{BC}$ and of $F_{GH}$ intersect at a point $2.90\,\textsf{m}$ to the left of $A$ -- moments about this point would involve $3$ terms. \parm
-%           Taking moments about $G$ is a good option.
-%         \end{itemize}        
-%       \end{statsbox}
-%     \end{textblock*}
-%   }
+  \only<1>{  
+    \begin{textblock*}{8cm}(2.5cm, 5.5cm)
+      \normalsize
+      \begin{statsbox}[colback=LightYellow3!55]{Method of Sections: Example 2}
+        \centering
+        Use the method of sections to determine the forces in members $BC$, $CH$ and $GH$.
+      \end{statsbox}
+    \end{textblock*}
+  }
+  \only<2-8>{  
+    \begin{textblock*}{6cm}(0.5cm, 5cm)      
+      \begin{statsbox}[colback=LightYellow3!55, left=-2mm, right=2mm, height=3.625cm]{}
+        \centering
+        \begin{itemize}
+          \item<2-> Section $a\mm a$ is the obvious choice for exposing the forces in members $BC$, $CH$ and $GH$.
+          \item<3-> There is no clear advantage to using one side of the section over the other.  Each side has one load and one reaction to consider. We shall use the right portion of the truss, simply because then we don't have to find $R_A$.
+          \item<4-> Find the reaction at $E$.
+          \item<6-> Now for some angles...
+          \suspend
+        \end{itemize}        
+      \end{statsbox}
+    \end{textblock*}
+  }
+  \only<9-10>{  
+    \begin{textblock*}{6cm}(0.5cm, 5cm)      
+      \begin{statsbox}[colback=LightYellow3!55, left=-2mm, right=2mm, height=3.625cm]{}
+        \centering        
+        \begin{itemize}
+          \resume
+          \item<9-> Taking moments about the intersection of the lines of action of two of the required forces allows us to solve for the third unknown without resorting to solving simultaneous equations. Thus, taking moments about $C$ will give direct access to $F_{GH}$.
+          \item <10-> Similarly, moments about $H$ yield $F_{BC}$.
+          \suspend   
+        \end{itemize}             
+      \end{statsbox}
+    \end{textblock*}
+  }
+  \only<11->{  
+    \begin{textblock*}{6cm}(0.5cm, 5cm)      
+      \begin{statsbox}[colback=LightYellow3!55, left=-2mm, right=2mm, height=3.625cm, top=1.5mm]{}
+        \centering
+        \begin{itemize}
+          \resume
+          \item<11-> There are a number of options now: \par $\Sigma F_y=0$ involves $5$ terms; \par $\Sigma F_x=0$ involves $3$ terms; \par $\Sigma M_G=0$ involves $3$ terms.\par We could even recognize that the lines of action of $F_{BC}$ and of $F_{GH}$ intersect at a point $2.90\,\textsf{m}$ to the left of $A$ -- moments about this point would involve $3$ terms. \parm
+          Taking moments about $G$ is a good option.
+        \end{itemize}        
+      \end{statsbox}
+    \end{textblock*}
+  }
 
-%   \only<5>{
-%     \begin{textblock*}{5.25cm}(7cm, 5.875cm)      
-%       \begin{statsbox}[colback=LightYellow3!55, top=0mm]{}
-%         \begin{align*}
-%           \Sigma M_A &= R_E\cd(11.60\,\textsf{m})-(4.00\,\textsf{kN})\cd(2.90\,\textsf{m})\\[0.25em]
-%           &\qquad\qquad - (5.50\,\textsf{kN})\cd(5.80\,\textsf{m})=0\\[0.25em]
-%           \Ra R_E &= 3.75\,\textsf{kN}
-%         \end{align*}     
-%       \end{statsbox}
-%     \end{textblock*}
-%   }
-%     \only<7-8 >{
-%       \begin{textblock*}{5.25cm}(7cm, 5cm)      
-%         \begin{statsbox}[colback=LightYellow3!55, top=0mm, height=3.625cm]{}
-%           \begin{align*}
-%             \uncover<7->{
-%               \angle BCH &=\tan^{-1}\left[\frac{2.50\,\textsf{m}}{2.90\,\textsf{m}}\right]\\[0.25em]
-%               &= 40.764\deg\\\\
-%             }
-%             \uncover<8->{
-%               \angle CGH &= \tan^{-1}\left[\frac{2.90\,\textsf{m}}{1.25\,\textsf{m}}\right]\\[0.25em]
-%               &= 66.682\deg
-%             }
-%           \end{align*}     
-%         \end{statsbox}
-%       \end{textblock*}
-%     }
-%     \only<9-10>{
-%       \begin{textblock*}{5.25cm}(7cm, 5cm)      
-%         \begin{statsbox}[colback=LightYellow3!55, top=0mm, height=3.625cm, left=1mm]{}
-%           \begin{align*}
-%             \uncover<9->{
-%               \Sigma M_C &= (3.75\,\textsf{kN})\cd(5.80\,\textsf{m})\\
-%               &\quad-F_{GH}\cd\sin 66.682\deg\cd(3.75\,\textsf{m})=0\\
-%               \Ra F_{GH} &= 6.3159\,\textsf{kN}\\[0.75em]
-%             }
-%             \uncover<10->{
-%               \Sigma M_H &= (3.75\,\textsf{kN})\cd (8.70\,\textsf{m}) \\
-%               &\qquad +F_{BC}\cd (2.50\,\textsf{m})\\
-%               &\qquad\qquad-(5.50\,\textsf{kN})\cd (2.90\,\textsf{m})=0\\
-%               \Ra F_{BC} &= -6.6700\,\textsf{kM}
-%             }
-%           \end{align*}     
-%         \end{statsbox}
-%       \end{textblock*}
-%     }
-%     \only<12->{
-%       \begin{textblock*}{5.25cm}(7cm, 5cm)      
-%         \begin{statsbox}[colback=LightYellow3!55, top=0mm, height=3.625cm, left=1mm]{}
-%           \begin{align*}
-%             \uncover<12->{
-%               \Sigma M_G &= (3.75\,\textsf{kN})\cd(5.80\,\textsf{m})\\
-%               &\qquad + F_{CH}\cd\cos 40.764\deg (3.75\,\textsf{m})\\  
-%               &\qquad\qquad + F_{BC}\cd (3.75\,\textsf{m})\\
-%               &= 21.75\cd\mathsf{kN\cd m}+F_{CH}(2.8403\,\textsf{m})\\
-%               &\qquad +(-6.6700\,\textsf{kN})\cd (3.75\,\textsf{m})=0\\\\
-%               \Ra F_{CH} &=  1.1486\,\textsf{kN}                       
-%             }
-%             \uncover<13->{
-%               % \Sigma M_H &= (3.75\,\textsf{kN})\cd (8.70\,\textsf{m}) \\
-%               % &\qquad +F_{BC}\cd (2.50\,\textsf{m})\\             
-%             }
-%           \end{align*}     
-%         \end{statsbox}
-%       \end{textblock*}
-%     } 
+  \only<5>{
+    \begin{textblock*}{5.25cm}(7cm, 5.875cm)      
+      \begin{statsbox}[colback=LightYellow3!55, top=0mm]{}
+        \begin{align*}
+          \Sigma M_A &= R_E\cd(11.60\,\textsf{m})-(4.00\,\textsf{kN})\cd(2.90\,\textsf{m})\\[0.25em]
+          &\qquad\qquad - (5.50\,\textsf{kN})\cd(5.80\,\textsf{m})=0\\[0.25em]
+          \Ra R_E &= 3.75\,\textsf{kN}
+        \end{align*}     
+      \end{statsbox}
+    \end{textblock*}
+  }
+    \only<7-8 >{
+      \begin{textblock*}{5.25cm}(7cm, 5cm)      
+        \begin{statsbox}[colback=LightYellow3!55, top=0mm, height=3.625cm]{}
+          \begin{align*}
+            \uncover<7->{
+              \angle BCH &=\tan^{-1}\left[\frac{2.50\,\textsf{m}}{2.90\,\textsf{m}}\right]\\[0.25em]
+              &= 40.764\deg\\\\
+            }
+            \uncover<8->{
+              \angle CGH &= \tan^{-1}\left[\frac{2.90\,\textsf{m}}{1.25\,\textsf{m}}\right]\\[0.25em]
+              &= 66.682\deg
+            }
+          \end{align*}     
+        \end{statsbox}
+      \end{textblock*}
+    }
+    \only<9-10>{
+      \begin{textblock*}{5.25cm}(7cm, 5cm)      
+        \begin{statsbox}[colback=LightYellow3!55, top=0mm, height=3.625cm, left=1mm]{}
+          \begin{align*}
+            \uncover<9->{
+              \Sigma M_C &= (3.75\,\textsf{kN})\cd(5.80\,\textsf{m})\\
+              &\quad-F_{GH}\cd\sin 66.682\deg\cd(3.75\,\textsf{m})=0\\
+              \Ra F_{GH} &= 6.3159\,\textsf{kN}\\[0.75em]
+            }
+            \uncover<10->{
+              \Sigma M_H &= (3.75\,\textsf{kN})\cd (8.70\,\textsf{m}) \\
+              &\qquad +F_{BC}\cd (2.50\,\textsf{m})\\
+              &\qquad\qquad-(5.50\,\textsf{kN})\cd (2.90\,\textsf{m})=0\\
+              \Ra F_{BC} &= -6.6700\,\textsf{kM}
+            }
+          \end{align*}     
+        \end{statsbox}
+      \end{textblock*}
+    }
+    \only<12->{
+      \begin{textblock*}{5.25cm}(7cm, 5cm)      
+        \begin{statsbox}[colback=LightYellow3!55, top=0mm, height=3.625cm, left=1mm]{}
+          \begin{align*}
+            \uncover<12->{
+              \Sigma M_G &= (3.75\,\textsf{kN})\cd(5.80\,\textsf{m})\\
+              &\qquad + F_{CH}\cd\cos 40.764\deg (3.75\,\textsf{m})\\  
+              &\qquad\qquad + F_{BC}\cd (3.75\,\textsf{m})\\
+              &= 21.75\cd\mathsf{kN\cd m}+F_{CH}(2.8403\,\textsf{m})\\
+              &\qquad +(-6.6700\,\textsf{kN})\cd (3.75\,\textsf{m})=0\\\\
+              \Ra F_{CH} &=  1.1486\,\textsf{kN}                       
+            }
+            \uncover<13->{
+              % \Sigma M_H &= (3.75\,\textsf{kN})\cd (8.70\,\textsf{m}) \\
+              % &\qquad +F_{BC}\cd (2.50\,\textsf{m})\\             
+            }
+          \end{align*}     
+        \end{statsbox}
+      \end{textblock*}
+    } 
     
-%     \only<14->{
-% 			\begin{textblock*}{1 cm}(0.1cm,0.1cm)
-% 				\def\modalFill{white} 
-% 				\input{../../pikz/modalCloud.tex}	
-% 			\end{textblock*}
+    \only<14->{
+			\begin{textblock*}{1 cm}(0.1cm,0.1cm)
+				\def\modalFill{white} 
+				\input{../../pikz/modalCloud.tex}	
+			\end{textblock*}
 				
-% 			\begin{textblock*}{5cm}(6.75cm,4cm)
-% 					\begin{statsbox}[colback=LightYellow3!55]{The Answers}
-% 						\small
-% 						\begin{align*}
-% 							BC &= 6.67\,\textsf{kN}\quad\textsf{(Compression)}\\[0.25em]
-% 							BE &= 1.15\,\textsf{kN}\quad\textsf{(Tension)}\\[0.25em]
-% 							EF &= 6.32\,\textsf{kN}\quad\textsf{(Tension)}
-% 						\end{align*}
-% 						\par
-% 					\end{statsbox}
-% 				\end{textblock*}
-%     }
+			\begin{textblock*}{5cm}(6.75cm,4cm)
+					\begin{statsbox}[colback=LightYellow3!55]{The Answers}
+						\small
+						\begin{align*}
+							BC &= 6.67\,\textsf{kN}\quad\textsf{(Compression)}\\[0.25em]
+							BE &= 1.15\,\textsf{kN}\quad\textsf{(Tension)}\\[0.25em]
+							EF &= 6.32\,\textsf{kN}\quad\textsf{(Tension)}
+						\end{align*}
+						\par
+					\end{statsbox}
+				\end{textblock*}
+    }
   
-% \end{frame}
+\end{frame}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Example 3} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % 
 
-% \begin{frame}{}
+\begin{frame}{}
 
-%   \only<1>{
-%     \begin{textblock*}{0.9\paperwidth}(0.875cm, 0.5cm)
-%       \def\scale{0.5}\centering
-%       \input{../../pikz/08MoS/08MoSSxS06.tex}
-%     \end{textblock*}
-%   }
-%   \only<2->{
-%     \begin{textblock*}{5cm}(5.125cm, 0.35cm)
-%      \def\scale{0.45}\centering
-%       \input{../../pikz/08MoS/08MoSSxS06.tex}
-%     \end{textblock*}
-%   }
+  \only<1>{
+    \begin{textblock*}{0.9\paperwidth}(0.875cm, 0.5cm)
+      \def\scale{0.5}\centering
+      \input{../../pikz/08MoS/08MoSSxS06.tex}
+    \end{textblock*}
+  }
+  \only<2->{
+    \begin{textblock*}{5cm}(5.125cm, 0.35cm)
+     \def\scale{0.45}\centering
+      \input{../../pikz/08MoS/08MoSSxS06.tex}
+    \end{textblock*}
+  }
 
-%   \only<1>{  
-%     \begin{textblock*}{8cm}(2.5cm, 6.75cm)
-%       \normalsize
-%       \begin{statsbox}[colback=LightYellow3!55]{Method of Sections: Example 3}
-%         \centering
-%         Use the method of sections to determine the forces in members $BC$, $CH$ and $GH$.
-%       \end{statsbox}
-%     \end{textblock*}
-%   }
+  \only<1>{  
+    \begin{textblock*}{8cm}(2.5cm, 6.75cm)
+      \normalsize
+      \begin{statsbox}[colback=LightBlue3!35]{Method of Sections: Example 3}
+        \centering
+        Use the method of sections to determine the forces in members $BC$, $CH$ and $GH$.
+      \end{statsbox}
+    \end{textblock*}
+  }
 
-%   \only<2-5>{  
-%     \begin{textblock*}{6cm}(0.5cm, 5.625cm)      
-%       \begin{statsbox}[colback=LightYellow3!55, left=-2mm, right=2mm, height=3.25cm]{}
-%         \centering
-%         \begin{itemize}
-%           \item<2-> Draw section $a\mm a$ to expose the forces in members $BC$, $CH$ and $GH$.
-%           \item<3-> The right portion of the truss involves solving for the reactions, and then including these reactions in all our calculations. Although the left portion has more applied loads, it is still the more convenient option. 
-%           \item<5-> Find the angles we'll need...
-%         \end{itemize}        
-%       \end{statsbox}
-%     \end{textblock*}
-%   }
+  \only<2-5>{  
+    \begin{textblock*}{6cm}(0.5cm, 5.625cm)      
+      \begin{statsbox}[colback=LightBlue3!35, left=-2mm, right=2mm, height=3.25cm]{}
+        \centering
+        \begin{itemize}
+          \item<2-> Draw section $a\mm a$ to expose the forces in members $BC$, $CH$ and $GH$.
+          \item<3-> The right portion of the truss involves solving for the reactions, and then including these reactions in all our calculations. Although the left portion has more applied loads, it is still the more convenient option. 
+          \item<5-> Find the angles we'll need...
+        \end{itemize}        
+      \end{statsbox}
+    \end{textblock*}
+  }
 
-%   \only<5>{
-%     \begin{textblock*}{5.25cm}(7cm, 5.625cm)      
-%       \begin{statsbox}[colback=LightYellow3!55, top=0mm, height=3.25cm]{}
-%         \begin{align*}
-%           \theta &= \tan^{-1}\left[\frac{1.50\,\textsf{m}}{2.25\,\textsf{m}}\right]=33.690\deg\\\\
-%           \phi &= \tan^{-1}\left[\frac{3.00\,\textsf{m}}{2.25\,\textsf{m}}\right]=53.130\deg       
-%         \end{align*}     
-%       \end{statsbox}
-%     \end{textblock*}
-%   }
+  \only<5>{
+    \begin{textblock*}{5.25cm}(7cm, 5.625cm)      
+      \begin{statsbox}[colback=LightBlue3!35, top=0mm, height=3.25cm]{}
+        \begin{align*}
+          \theta &= \tan^{-1}\left[\frac{1.50\,\textsf{m}}{2.25\,\textsf{m}}\right]=33.690\deg\\\\
+          \phi &= \tan^{-1}\left[\frac{3.00\,\textsf{m}}{2.25\,\textsf{m}}\right]=53.130\deg       
+        \end{align*}     
+      \end{statsbox}
+    \end{textblock*}
+  }
 
-%   \only<6->{  
-%     \begin{textblock*}{5cm}(0.5cm, 5.625cm)      
-%       \begin{statsbox}[colback=LightYellow3!55, left=-2mm, right=2mm, height=3.5cm]{}
-%         \centering        
-%         \begin{itemize}         
-%           \item<6-> Sum moments about $C$ to find $F_{GH}$.
-%           \item <7-> In this example, it is probably simplest now to sum both the $x$-components and the $y$-components,
-%           \uncover<8->{ and to then solve the resulting system of equations.}          
-%         \end{itemize}             
-%       \end{statsbox}
-%     \end{textblock*}
-%   }
+  \only<6->{  
+    \begin{textblock*}{5cm}(0.5cm, 5.625cm)      
+      \begin{statsbox}[colback=LightBlue3!35, left=-2mm, right=2mm, height=3.5cm]{}
+        \centering        
+        \begin{itemize}         
+          \item<6-> Sum moments about $C$ to find $F_{GH}$.
+          \item <7-> In this example, it is probably simplest now to sum both the $x$-components and the $y$-components,
+          \uncover<8->{ and to then solve the resulting system of equations.}          
+        \end{itemize}             
+      \end{statsbox}
+    \end{textblock*}
+  }
 
-%   \only<6>{
-%     \begin{textblock*}{6.25cm}(6cm, 5.625cm)      
-%       \begin{statsbox}[colback=LightYellow3!55, top=0mm, height=3.5cm]{}
-%         \begin{align*}
-%           \Sigma M_C &= (10.0\,\textsf{kN})\cd (4.50\,\textsf{m})\\[0.25em]
-%           &\qquad +(5.0\,\textsf{kN})\cd (2.25\,\textsf{m})\\[0.25em] 
-%           &\qquad\qquad - F_{GH}(3.00\,\textsf{m}) = 0 \\\\
-%           \Ra F_{GH} &= 18.750\,\textsf{kN}
-%         \end{align*}     
-%       \end{statsbox}
-%     \end{textblock*}
-%   }
+  \only<6>{
+    \begin{textblock*}{6.25cm}(6cm, 5.625cm)      
+      \begin{statsbox}[colback=LightBlue3!35, top=0mm, height=3.5cm]{}
+        \begin{align*}
+          \Sigma M_C &= (10.0\,\textsf{kN})\cd (4.50\,\textsf{m})\\[0.25em]
+          &\qquad +(5.0\,\textsf{kN})\cd (2.25\,\textsf{m})\\[0.25em] 
+          &\qquad\qquad - F_{GH}(3.00\,\textsf{m}) = 0 \\\\
+          \Ra F_{GH} &= 18.750\,\textsf{kN}
+        \end{align*}     
+      \end{statsbox}
+    \end{textblock*}
+  }
 
-%   \only<7>{
-%     \begin{textblock*}{6.25cm}(6cm, 5.625cm)      
-%       \begin{statsbox}[colback=LightYellow3!55, top=0mm, height=3.5cm]{}
-%         \begin{align*}
-%           \Sigma F_x &= F_{GH}+F_{CH}\cd\cos\phi +F_{BC}\cd\cos\theta \\[0.25em]
-%           &= 18.750\,\textsf{kN} + F_{CH}\cd 0.60000\,\textsf{kN} + F_{BC}\cd 0.83205\,\textsf{kN}\\[0.25em]
-%           &=0\\\\
-%           \Sigma F_y &= F_{CH}\cd\sin\phi -F_{BC}\cd\sin\theta-20.0\,\textsf{kN}\\[0.25em]
-%           &= F_{CH}\cd 0.80000\,\textsf{kN} - F_{BC}\cd 0.55470\,\textsf{kN}-20.0\,\textsf{kN}\\[0.25em]
-%           &=0
-%         \end{align*}     
-%       \end{statsbox}
-%     \end{textblock*}
-%   }
+  \only<7>{
+    \begin{textblock*}{6.25cm}(6cm, 5.625cm)      
+      \begin{statsbox}[colback=LightBlue3!35, top=0mm, height=3.5cm]{}
+        \begin{align*}
+          \Sigma F_x &= F_{GH}+F_{CH}\cd\cos\phi +F_{BC}\cd\cos\theta \\[0.25em]
+          &= 18.750\,\textsf{kN} + F_{CH}\cd 0.60000\,\textsf{kN} + F_{BC}\cd 0.83205\,\textsf{kN}\\[0.25em]
+          &=0\\\\
+          \Sigma F_y &= F_{CH}\cd\sin\phi -F_{BC}\cd\sin\theta-20.0\,\textsf{kN}\\[0.25em]
+          &= F_{CH}\cd 0.80000\,\textsf{kN} - F_{BC}\cd 0.55470\,\textsf{kN}-20.0\,\textsf{kN}\\[0.25em]
+          &=0
+        \end{align*}     
+      \end{statsbox}
+    \end{textblock*}
+  }
 
-%   \only<8->{
-%     \begin{textblock*}{6.25cm}(6cm, 5.625cm)      
-%       \begin{statsbox}[colback=LightYellow3!55, top=0mm, height=3.5cm]{}
-%         \begin{align*}
-%           0.83205\cd F_{BC}+0.60000\cd F_{CH} &= -18.750\,\textsf{kN} \\[0.25em]
-%           0.55470\cd F_{BC}-0.80000\cd F_{CH} &= -20.0\,\textsf{kN}     
-%         \end{align*}
-%         From the system-solver:
-%         \begin{align*}
-%           F_{BC} & = -27.042\,\textsf{kN}\\[0.25em]   
-%           F_{CH} & = 6.2500\,\textsf{kN}
-%         \end{align*}
-%       \end{statsbox}
-%     \end{textblock*}
-%   }
+  \only<8->{
+    \begin{textblock*}{6.25cm}(6cm, 5.625cm)      
+      \begin{statsbox}[colback=LightBlue3!35, top=0mm, height=3.5cm]{}
+        \begin{align*}
+          0.83205\cd F_{BC}+0.60000\cd F_{CH} &= -18.750\,\textsf{kN} \\[0.25em]
+          0.55470\cd F_{BC}-0.80000\cd F_{CH} &= -20.0\,\textsf{kN}     
+        \end{align*}
+        From the system-solver:
+        \begin{align*}
+          F_{BC} & = -27.042\,\textsf{kN}\\[0.25em]   
+          F_{CH} & = 6.2500\,\textsf{kN}
+        \end{align*}
+      \end{statsbox}
+    \end{textblock*}
+  }
 
-%   \only<9->{
-%     \begin{textblock*}{1 cm}(0.1cm,0.1cm)
-%       \def\modalFill{white} 
-%       \input{../../pikz/modalCloud.tex}	
-%     \end{textblock*}
+  \only<9->{
+    \begin{textblock*}{1 cm}(0.1cm,0.1cm)
+      \def\modalFill{white} 
+      \input{../../pikz/modalCloud.tex}	
+    \end{textblock*}
 				
-%     \begin{textblock*}{5cm}(6.75cm,4cm)
-%       \begin{statsbox}[colback=LightYellow3!55]{The Answers}
-%         \small
-%         \begin{align*}
-%           BC &= 27.0\,\textsf{kN}\quad\textsf{(Compression)}\\[0.25em]
-%           CH &= 6.25\,\textsf{kN}\quad\textsf{(Tension)}\\[0.25em]
-%           GH &= 18.8\,\textsf{kN}\quad\textsf{(Tension)}						
-%         \end{align*}
-%         \par
-%       \end{statsbox}
-%     \end{textblock*}
-%   }
+    \begin{textblock*}{5cm}(6.75cm,4cm)
+      \begin{statsbox}[colback=LightBlue3!35]{The Answers}
+        \small
+        \begin{align*}
+          BC &= 27.0\,\textsf{kN}\quad\textsf{(Compression)}\\[0.25em]
+          CH &= 6.25\,\textsf{kN}\quad\textsf{(Tension)}\\[0.25em]
+          GH &= 18.8\,\textsf{kN}\quad\textsf{(Tension)}						
+        \end{align*}
+        \par
+      \end{statsbox}
+    \end{textblock*}
+  }
   
-% \end{frame}
+\end{frame}
 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \section{Example 4} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Example 4} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 
-% \begin{frame}{}
+\begin{frame}{}
 
-%   \only<1>{
-%     \begin{textblock*}{12.8cm}(0cm, 0.25cm)
-%       \def\scale{0.5}\centering
-%       \input{../../pikz/08MoS/08MoSSxS05.tex}
-%     \end{textblock*}
-%   }
+  \only<1>{
+    \begin{textblock*}{12.8cm}(0cm, 0.25cm)
+      \def\scale{0.5}\centering
+      \input{../../pikz/08MoS/08MoSSxS05.tex}
+    \end{textblock*}
+  }
 
-%   \only<2->{
-%     \begin{textblock*}{12.8cm}(0cm, 0.25cm)
-%      \def\scale{0.4}\centering
-%       \input{../../pikz/08MoS/08MoSSxS05.tex}
-%     \end{textblock*}
-%   }
+  \only<2->{
+    \begin{textblock*}{12.8cm}(0cm, 0.25cm)
+     \def\scale{0.4}\centering
+      \input{../../pikz/08MoS/08MoSSxS05.tex}
+    \end{textblock*}
+  }
 
-%   \only<1>{  
-%     \begin{textblock*}{8cm}(2.5cm, 6.75cm)
-%       \normalsize
-%       \begin{statsbox}[colback=LightYellow3!55]{Method of Sections: Example 4}
-%         \centering
-%         Use the method of sections to determine the force in $DJ$.
-%       \end{statsbox}
-%     \end{textblock*}
-%   }
+  \only<1>{  
+    \begin{textblock*}{8cm}(2.5cm, 6.75cm)
+      \normalsize
+      \begin{statsbox}[colback=NavajoWhite3!45]{Method of Sections: Example 4}
+        \centering
+        Use the method of sections to determine the force in $DJ$.
+      \end{statsbox}
+    \end{textblock*}
+  }
 
-%   \only<2-9>{  
-%     \begin{textblock*}{6cm}(0.5cm, 4.75cm)      
-%       \begin{statsbox}[colback=LightYellow3!55, left=-2mm, right=2mm, height=4.255cm]{}
-%         \centering
-%         \begin{itemize}
-%           \item<2-> Each section that cuts through $DJ$, such as $a\mm a$, also cuts through at least three other members. But we cannot solve for four unknowns with the three equilibrium equations.
-%           \item<3-> A vertical section $b\mm b$ will enable us to solve for the force in $IJ$, after which we can solve for what we need using $a\mm a$.
-%           \item <4-> First, find the reactions.
-%           \item <8-> Now, find the force in $IJ$ using section $b\mm b$. 
-%           \item <9-> Using the right portion of the truss... 
-%         \end{itemize}        
-%       \end{statsbox}
-%     \end{textblock*}
-%   }
+  \only<2-9>{  
+    \begin{textblock*}{6cm}(0.5cm, 4.75cm)      
+      \begin{statsbox}[colback=NavajoWhite3!45, left=-2mm, right=2mm, height=4.255cm]{}
+        \centering
+        \begin{itemize}
+          \item<2-> Each section that cuts through $DJ$, such as $a\mm a$, also cuts through at least three other members. But we cannot solve for four unknowns with the three equilibrium equations.
+          \item<3-> A vertical section $b\mm b$ will enable us to solve for the force in $IJ$, after which we can solve for what we need using $a\mm a$.
+          \item <4-> First, find the reactions.
+          \item <8-> Now, find the force in $IJ$ using section $b\mm b$. 
+          \item <9-> Using the right portion of the truss... 
+        \end{itemize}        
+      \end{statsbox}
+    \end{textblock*}
+  }
 
-%   \only<5-7>{
-%     \begin{textblock*}{5.25cm}(7cm, 4.75cm)      
-%       \begin{statsbox}[colback=LightYellow3!55, top=0mm, height=4.25cm]{}
-%         \begin{align*}
-%           \uncover<5->{
-%             \Sigma M_G &= (10.0\,\textsf{kN})\cd(8.5\,\textsf{m})\\[0.125em]
-%             &\quad+(5.00\,\textsf{kN})\cd (17.0\,\textsf{m})\\[0.125em]         
-%             &\quad+(5.00\,\textsf{kN})\cd (21.25\,\textsf{m})\\[0.125em]         
-%             &\quad -R_{A}\cd (25.50\,\textsf{m})=0\\[0.125em] 
-%             \Ra R_{A} &= 10.833\,\textsf{kN}\\[0.5em] 
-%           }
-%           \uncover<6->{
-%             \Sigma F_y &= R_{Gy}+10.833\,\textsf{kN}-20.0\,\textsf{kN}=0\\[0.125em]
-%             \Ra R_{Gy} &= 9.1670\,\textsf{kN}\\[0.5em]
-%           }          
-%           \uncover<7->{           
-%             R_{Gx} &= 0
-%           }         
-%         \end{align*}  
-%       \end{statsbox}
-%     \end{textblock*}
-%   }
-%   \only<9>{
-%     \begin{textblock*}{5.25cm}(7cm, 4.75cm)      
-%       \begin{statsbox}[colback=LightYellow3!55, top=0mm]{}
-%         \begin{align*}
-%           \uncover<9->{
-%             \Sigma M_E &= (9.1670\,\textsf{kN})\cd(8.5\,\textsf{m})\\[0.125em]
-%             &\qquad - T_{IJ}\cd (5.50\,\textsf{m})=0\\[0.125em]              
-%             \Ra F_{IJ} &= 14.167\,\textsf{kN}
-%           }                 
-%         \end{align*}  
-%       \end{statsbox}
-%     \end{textblock*}
-%   }
+  \only<5-7>{
+    \begin{textblock*}{5.25cm}(7cm, 4.75cm)      
+      \begin{statsbox}[colback=NavajoWhite3!45, top=0mm, height=4.25cm]{}
+        \begin{align*}
+          \uncover<5->{
+            \Sigma M_G &= (10.0\,\textsf{kN})\cd(8.5\,\textsf{m})\\[0.125em]
+            &\quad+(5.00\,\textsf{kN})\cd (17.0\,\textsf{m})\\[0.125em]         
+            &\quad+(5.00\,\textsf{kN})\cd (21.25\,\textsf{m})\\[0.125em]         
+            &\quad -R_{A}\cd (25.50\,\textsf{m})=0\\[0.125em] 
+            \Ra R_{A} &= 10.833\,\textsf{kN}\\[0.5em] 
+          }
+          \uncover<6->{
+            \Sigma F_y &= R_{Gy}+10.833\,\textsf{kN}-20.0\,\textsf{kN}=0\\[0.125em]
+            \Ra R_{Gy} &= 9.1670\,\textsf{kN}\\[0.5em]
+          }          
+          \uncover<7->{           
+            R_{Gx} &= 0
+          }         
+        \end{align*}  
+      \end{statsbox}
+    \end{textblock*}
+  }
+  \only<9>{
+    \begin{textblock*}{5.25cm}(7cm, 4.75cm)      
+      \begin{statsbox}[colback=NavajoWhite3!45, top=0mm]{}
+        \begin{align*}
+          \uncover<9->{
+            \Sigma M_E &= (9.1670\,\textsf{kN})\cd(8.5\,\textsf{m})\\[0.125em]
+            &\qquad - T_{IJ}\cd (5.50\,\textsf{m})=0\\[0.125em]              
+            \Ra F_{IJ} &= 14.167\,\textsf{kN}
+          }                 
+        \end{align*}  
+      \end{statsbox}
+    \end{textblock*}
+  }
 
-%   \only<10->{  
-%     \begin{textblock*}{6cm}(0.5cm, 4.75cm)      
-%       \begin{statsbox}[colback=LightYellow3!55, left=-2mm, right=2mm, height=4.25cm]{}
-%         \centering
-%         \begin{itemize}
-%           \item<10-> Now we'll use section $a\mm a...$%\only<10>{...}\only<11->{, and using the right portion of the truss again...} 
-%           \item <11-> Some angles that we'll need...         
-%           \item <12-> Take moments about $J$ to find $F_{CD}$         
-%           \item <13-> Sum the $x$-components to find $F_{EJ}$         
-%           \item <14-> Sum the $y$-components to find $F_{DJ}$         
-%         \end{itemize}        
-%       \end{statsbox}
-%     \end{textblock*}
-%   }
+  \only<10->{  
+    \begin{textblock*}{6cm}(0.5cm, 4.75cm)      
+      \begin{statsbox}[colback=NavajoWhite3!45, left=-2mm, right=2mm, height=4.25cm]{}
+        \centering
+        \begin{itemize}
+          \item<10-> Now we'll use section $a\mm a...$%\only<10>{...}\only<11->{, and using the right portion of the truss again...} 
+          \item <11-> Some angles that we'll need...         
+          \item <12-> Take moments about $J$ to find $F_{CD}$         
+          \item <13-> Sum the $x$-components to find $F_{EJ}$         
+          \item <14-> Sum the $y$-components to find $F_{DJ}$         
+        \end{itemize}        
+      \end{statsbox}
+    \end{textblock*}
+  }
 
-%   \only<11>{
-%     \begin{textblock*}{5.25cm}(7cm, 4.75cm)      
-%       \begin{statsbox}[colback=LightYellow3!55, top=0mm]{}
-%         \begin{align*}         
-%             \theta &= \tan^{-1}\left[\frac{4.25}{2.75}\right]=57.095\deg\\\\
-%             \phi &= \tan^{-1}\left[\frac{4.25}{5.50}\right]=75.694\deg 
-%         \end{align*}  
-%       \end{statsbox}
-%     \end{textblock*}
+  \only<11>{
+    \begin{textblock*}{5.25cm}(7cm, 4.75cm)      
+      \begin{statsbox}[colback=NavajoWhite3!45, top=0mm]{}
+        \begin{align*}         
+            \theta &= \tan^{-1}\left[\frac{4.25}{2.75}\right]=57.095\deg\\\\
+            \phi &= \tan^{-1}\left[\frac{4.25}{5.50}\right]=75.694\deg 
+        \end{align*}  
+      \end{statsbox}
+    \end{textblock*}
 
-%   }
-%   \only<11->{
-%     \begin{textblock*}{2cm}(8.5cm, 0.2cm)
-%       \footnotesize 
-%       \begin{align*}         
-%         \theta &= 57.095\deg\\[-0.325em]
-%         \phi &= 75.694\deg\\[-0.325em]
-%         \only<12->{
-%           F_{CD} &= -10.738\,\textsf{kN}\\[-0.325em]
-%         } 
-%         \only<13->{
-%           F_{EJ} &= -8.4254\,\textsf{kN}\\[-0.325em]
-%         } 
-%       \end{align*}  
-%     \end{textblock*}
-%   }
-%   \only<12>{
-%     \begin{textblock*}{5.25cm}(7cm, 4.75cm)      
-%       \begin{statsbox}[colback=LightYellow3!55, top=0mm]{}
-%         \begin{align*}         
-%             \Sigma M_J &= F_{CD}\cd\sin57.095\deg\cd (8.25\,\textsf{m})\\[0.25em]
-%              & \qquad +  (9.1670\,\textsf{kN})\cd (12.75\,\textsf{m})\\[0.25em]
-%              & \qquad\qquad -  (10.0\,\textsf{kN})\cd (4.25\,\textsf{m})\\[0.25em]
-%              & =0\\[0.25em]
-%              \Ra F_{CD} &= -10.738\,\textsf{kN}
-%         \end{align*}  
-%       \end{statsbox}
-%     \end{textblock*}
-%   }
-%   \only<13>{
-%     \begin{textblock*}{5.25cm}(7cm, 4.75cm)      
-%       \begin{statsbox}[colback=LightYellow3!55, top=0mm, height=4.25cm]{}
-%         \begin{align*}         
-%             \Sigma F_x &= -F_{CD}\cd\sin\theta\\[0.25em]
-%              & \qquad\quad -  (14.167\,\textsf{kN})\\[0.25em]
-%              & \qquad\qquad\quad -F_{EJ}\cd\sin\phi\\[0.25em]
-%              &= -(-10.738\,\textsf{kN})\cd\sin 57.095\deg\\[0.25em]
-%              & \qquad\quad -  (14.167\,\textsf{kN})\\[0.25em]
-%              & \qquad\qquad\quad -F_{EJ}\cd\sin 75.694\deg\\[0.25em]
-%              & =0\\[0.25em]
-%              \Ra F_{EJ} &= -8.4254\,\textsf{kN}
-%         \end{align*}  
-%       \end{statsbox}
-%     \end{textblock*}
-%   }
-%   \only<14>{
-%     \begin{textblock*}{5.25cm}(7cm, 4.75cm)      
-%       \begin{statsbox}[colback=LightYellow3!55, top=0mm, height=4.25cm]{}
-%         \begin{align*}         
-%             \Sigma F_y &= -F_{CD}\cd\cos\theta-F_{DJ}\\[0.25em]             
-%              & \qquad -F_{EJ}\cd\cos\phi\\[0.25em]
-%              & \qquad\quad -  10.0\,\textsf{kN}+9.1760\,\textsf{kN}\\[0.25em]
-%              &= 10.738\,\textsf{kN}\cd\cos 57.095\deg-F_{DJ}\\[0.25em]
-%              & \qquad + 8.4254\,\textsf{kN}\cd\cos 75.694\deg\\[0.25em]
-%              & \qquad\quad -0.82400\,\textsf{kN}\\[0.25em]
-%              & =0\\[0.25em]
-%              \Ra F_{DJ} &= 11.676\,\textsf{kN}
-%         \end{align*}  
-%       \end{statsbox}
-%     \end{textblock*}
-%   }
+  }
+  \only<11->{
+    \begin{textblock*}{2cm}(8.5cm, 0.2cm)
+      \footnotesize 
+      \begin{align*}         
+        \theta &= 57.095\deg\\[-0.325em]
+        \phi &= 75.694\deg\\[-0.325em]
+        \only<12->{
+          F_{CD} &= -10.738\,\textsf{kN}\\[-0.325em]
+        } 
+        \only<13->{
+          F_{EJ} &= -8.4254\,\textsf{kN}\\[-0.325em]
+        } 
+      \end{align*}  
+    \end{textblock*}
+  }
+  \only<12>{
+    \begin{textblock*}{5.25cm}(7cm, 4.75cm)      
+      \begin{statsbox}[colback=NavajoWhite3!45, top=0mm]{}
+        \begin{align*}         
+            \Sigma M_J &= F_{CD}\cd\sin57.095\deg\cd (8.25\,\textsf{m})\\[0.25em]
+             & \qquad +  (9.1670\,\textsf{kN})\cd (12.75\,\textsf{m})\\[0.25em]
+             & \qquad\qquad -  (10.0\,\textsf{kN})\cd (4.25\,\textsf{m})\\[0.25em]
+             & =0\\[0.25em]
+             \Ra F_{CD} &= -10.738\,\textsf{kN}
+        \end{align*}  
+      \end{statsbox}
+    \end{textblock*}
+  }
+  \only<13>{
+    \begin{textblock*}{5.25cm}(7cm, 4.75cm)      
+      \begin{statsbox}[colback=NavajoWhite3!45, top=0mm, height=4.25cm]{}
+        \begin{align*}         
+            \Sigma F_x &= -F_{CD}\cd\sin\theta\\[0.25em]
+             & \qquad\quad -  (14.167\,\textsf{kN})\\[0.25em]
+             & \qquad\qquad\quad -F_{EJ}\cd\sin\phi\\[0.25em]
+             &= -(-10.738\,\textsf{kN})\cd\sin 57.095\deg\\[0.25em]
+             & \qquad\quad -  (14.167\,\textsf{kN})\\[0.25em]
+             & \qquad\qquad\quad -F_{EJ}\cd\sin 75.694\deg\\[0.25em]
+             & =0\\[0.25em]
+             \Ra F_{EJ} &= -8.4254\,\textsf{kN}
+        \end{align*}  
+      \end{statsbox}
+    \end{textblock*}
+  }
+  \only<14>{
+    \begin{textblock*}{5.25cm}(7cm, 4.75cm)      
+      \begin{statsbox}[colback=NavajoWhite3!45, top=0mm, height=4.25cm]{}
+        \begin{align*}         
+            \Sigma F_y &= -F_{CD}\cd\cos\theta-F_{DJ}\\[0.25em]             
+             & \qquad -F_{EJ}\cd\cos\phi\\[0.25em]
+             & \qquad\quad -  10.0\,\textsf{kN}+9.1760\,\textsf{kN}\\[0.25em]
+             &= 10.738\,\textsf{kN}\cd\cos 57.095\deg-F_{DJ}\\[0.25em]
+             & \qquad + 8.4254\,\textsf{kN}\cd\cos 75.694\deg\\[0.25em]
+             & \qquad\quad -0.82400\,\textsf{kN}\\[0.25em]
+             & =0\\[0.25em]
+             \Ra F_{DJ} &= 11.676\,\textsf{kN}
+        \end{align*}  
+      \end{statsbox}
+    \end{textblock*}
+  }
 
-%   \only<15>{
-%     \begin{textblock*}{1 cm}(0.1cm,0.1cm)
-%       \def\modalFill{white} 
-%       \input{../../pikz/modalCloud.tex}	
-%     \end{textblock*}
+  \only<15>{
+    \begin{textblock*}{1 cm}(0.1cm,0.1cm)
+      \def\modalFill{white} 
+      \input{../../pikz/modalCloud.tex}	
+    \end{textblock*}
 				
-%     \begin{textblock*}{5cm}(6.75cm,2.5cm)
-%       \begin{statsbox}[colback=LightYellow3!55,top=0mm]{The Answer}
-%         \small
-%         \begin{align*}
-%           F_{DJ} &= 11.7\,\textsf{kN}\quad\textsf{(Tension)}				
-%         \end{align*}
-%         \par
-%       \end{statsbox}
-%     \end{textblock*}
+    \begin{textblock*}{5cm}(6.75cm,2.5cm)
+      \begin{statsbox}[colback=NavajoWhite3!45,top=0mm]{The Answer}
+        \small
+        \begin{align*}
+          F_{DJ} &= 11.7\,\textsf{kN}\quad\textsf{(Tension)}				
+        \end{align*}
+        \par
+      \end{statsbox}
+    \end{textblock*}
 
-%     \begin{textblock*}{8cm}(3.75cm,3.75cm)
-%       \begin{statsbox}[colback=LightYellow3!55]{Notes:}
-%         \small
-%         \begin{enumerate}
-%           \item There was considerable work in this example. The method of sections was required by the example statement but it might not be the simplest procedure for this truss.
-%           \item Given that this is a relatively 'narrow' truss, the method of joints would only have required analysis of three joints: $G$, $F$ and $D$ since $FH$ and $IF$ are zero-force members.
-%           \item The most straightforward -- and -- quickest approach, if free to choose, is to use either of sections $a\mm a$ or $b\mm b$ to take moments about $J$ and find $F_{CD}$ or $F_{DE}$. Then a single method of joints analysis, of joint $D$, gives $F_{DJ}$.
-%           \item A combination of the method of sections and the method of joints is worth considering.
+    \begin{textblock*}{8cm}(3.75cm,3.75cm)
+      \begin{statsbox}[colback=NavajoWhite3!45]{Notes:}
+        \small
+        \begin{enumerate}
+          \item There was considerable work in this example. The method of sections was required by the example statement but it might not be the simplest procedure for this truss.
+          \item Given that this is a relatively 'narrow' truss, the method of joints would only have required analysis of three joints: $G$, $F$ and $D$ since $FH$ and $IF$ are zero-force members.
+          \item The most straightforward -- and -- quickest approach, if free to choose, is to use either of sections $a\mm a$ or $b\mm b$ to take moments about $J$ and find $F_{CD}$ or $F_{DE}$. Then a single method of joints analysis, of joint $D$, gives $F_{DJ}$.
+          \item A combination of the method of sections and the method of joints is often worth considering.
          			
-%         \end{enumerate}
-%         \par
-%       \end{statsbox}
-%     \end{textblock*}
-%   }
+        \end{enumerate}
+        \par
+      \end{statsbox}
+    \end{textblock*}
+  }  
 
-  
-
-%   \end{frame}
+  \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \section{Example 5} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Example 5} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 
-% \begin{frame}{}
+\begin{frame}{}
 
-%   \only<1>{
-%     \begin{textblock*}{12.8cm}(0cm, 0.25cm)
-%       \def\scale{0.575}\centering
-%       \input{../../pikz/08MoS/08MoSSxS04.tex}
-%     \end{textblock*}
-%   }
+  \only<1>{
+    \begin{textblock*}{12.8cm}(0cm, 0.25cm)
+      \def\scale{0.575}\centering
+      \input{../../pikz/08MoS/08MoSSxS04.tex}
+    \end{textblock*}
+  }
 
-%   \only<2->{
-%     \begin{textblock*}{6cm}(0.5cm, 0.7cm)
-%      \def\scale{0.66}\centering
-%       \input{../../pikz/08MoS/08MoSSxS04.tex}
-%     \end{textblock*}
-%   }
+  \only<2->{
+    \begin{textblock*}{6cm}(0.5cm, 0.7cm)
+     \def\scale{0.66}\centering
+      \input{../../pikz/08MoS/08MoSSxS04.tex}
+    \end{textblock*}
+  }
 
-%   \only<1>{  
-%     \begin{textblock*}{9cm}(2cm, 7.75cm)
-%       \normalsize
-%       \begin{statsbox}[colback=LightYellow3!55]{Method of Sections: Example 5}
-%         \centering
-%         Use the method of sections to determine the forces in $AB$ and $GH$.
-%       \end{statsbox}
-%     \end{textblock*}
-%   }
+  \only<1>{  
+    \begin{textblock*}{9cm}(2cm, 7.75cm)
+      \normalsize
+      \begin{statsbox}[colback=Snow3!55]{Method of Sections: Example 5}
+        \centering
+        Determine the forces in members $AB$ and $GH$.
+      \end{statsbox}
+    \end{textblock*}
+  }
 
-%   \only<2-6>{  
-%     \begin{textblock*}{5.5cm}(6.75cm, 1.25cm)      
-%       \begin{statsbox}[colback=LightYellow3!55, left=-2mm, right=2mm]{Notes:}
-%         \centering
-%         \begin{enumerate}
-%           \item <2-> The reactions at $A$ and $H$ cannot be immediately determined. There are four unknowns ($R_{Ax}$, $R_{Ay}$,  $R_{Hx}$ and  $R_{Hy}$) and we can only solve systems with three unknowns using the equations of equilibrium. $A$ and $H$ are said to be {\bf statically indeterminate}.
-%           \item <3-> We {\bf could} determine the reactions at $A$ and $H$ (if required) by calculating the forces in $AB$, $AK$, $GH$ and $HK$.
-%           \item <4-> Can we use the method of sections? Any section going through either $AB$ or $GH$ cuts at least four members. 
-%           \item <5-> Section $a\mm a$ doesn't help: there is nowhere to take moments about that will isolate either of $AB$ or $GH$
-%           \item <6-> Section $b\mm b$ {\bf does} help. Moments about $B$ isolates $GH$ and moments about $G$ isolates $AB$.
+  \only<2-6>{  
+    \begin{textblock*}{5.5cm}(6.75cm, 1.25cm)      
+      \begin{statsbox}[colback=Snow3!55, left=-2mm, right=2mm]{Notes:}
+        \centering
+        \begin{enumerate}
+          \item <2-> The reactions at $A$ and $H$ cannot be immediately determined. There are four unknowns ($R_{Ax}$, $R_{Ay}$,  $R_{Hx}$ and  $R_{Hy}$) and we can only solve systems with three unknowns using the equations of equilibrium. $A$ and $H$ are said to be {\bf statically indeterminate}.
+          \item <3-> We {\bf could} determine the reactions at $A$ and $H$ (if required) by calculating the forces in $AB$, $AK$, $GH$ and $HK$.
+          \item <4-> Can we use the method of sections? Any section going through either $AB$ or $GH$ cuts at least four members. 
+          \item <5-> Section $a\mm a$ doesn't help: there is nowhere to take moments about that will isolate either of $AB$ or $GH$
+          \item <6-> Section $b\mm b$ {\bf does} help. Moments about $B$ isolates $GH$ and moments about $G$ isolates $AB$.
           
-%         \end{enumerate}        
-%       \end{statsbox}
-%     \end{textblock*}
-%   }
-%   \only<7->{  
-%     \begin{textblock*}{5.5cm}(6.75cm, 1.75cm)      
-%       \begin{statsbox}[colback=LightYellow3!55]{}
-%         \centering        
-%         Take moments about $B$ to determine $F_{GH}$:
-%         \begin{align*}
-%           \Sigma M_B &= -(15.0\,\textsf{kN})\cd(4.10\,\textsf{m})\\[0.25em]
-%           & \qquad -(10.0\,\textsf{kN})\cd(2.05\,\textsf{m})\\[0.25em]
-%           & \qquad -F_{GH}\cd(2.70\,\textsf{m})=0\\[0.25em]
-%           \Ra F_{GH} &= -30.370\,\textsf{kN}\\
-%         \end{align*}
-%         \uncover<8->{
-%           Now, take moments about $G$ to find $F_{AB}$:
-%             \begin{align*}
-%               \Sigma M_G &= -(15.0\,\textsf{kN})\cd(4.10\,\textsf{m})\\[0.25em]
-%               & \qquad -(10.0\,\textsf{kN})\cd(2.05\,\textsf{m})\\[0.25em]
-%               & \qquad +F_{AB}\cd(2.70\,\textsf{m})=0\\[0.25em]
-%               \Ra F_{AB} &= 30.370\,\textsf{kN}
-%             \end{align*}
-%         }      
+        \end{enumerate}        
+      \end{statsbox}
+    \end{textblock*}
+  }
+  \only<7->{  
+    \begin{textblock*}{5.5cm}(6.75cm, 1.75cm)      
+      \begin{statsbox}[colback=Snow3!55]{}
+        \centering        
+        Take moments about $B$ to determine $F_{GH}$:
+        \begin{align*}
+          \Sigma M_B &= -(15.0\,\textsf{kN})\cd(4.10\,\textsf{m})\\[0.25em]
+          & \qquad -(10.0\,\textsf{kN})\cd(2.05\,\textsf{m})\\[0.25em]
+          & \qquad -F_{GH}\cd(2.70\,\textsf{m})=0\\[0.25em]
+          \Ra F_{GH} &= -30.370\,\textsf{kN}\\
+        \end{align*}
+        \uncover<8->{
+          Now, take moments about $G$ to find $F_{AB}$:
+            \begin{align*}
+              \Sigma M_G &= -(15.0\,\textsf{kN})\cd(4.10\,\textsf{m})\\[0.25em]
+              & \qquad -(10.0\,\textsf{kN})\cd(2.05\,\textsf{m})\\[0.25em]
+              & \qquad +F_{AB}\cd(2.70\,\textsf{m})=0\\[0.25em]
+              \Ra F_{AB} &= 30.370\,\textsf{kN}
+            \end{align*}
+        }      
          
-%       \end{statsbox}
-%     \end{textblock*}
-%   }
-%   \only<9>{
-%     \begin{textblock*}{1 cm}(0.1cm,0.1cm)
-%       \def\modalFill{white} 
-%       \input{../../pikz/modalCloud.tex}	
-%     \end{textblock*}
+      \end{statsbox}
+    \end{textblock*}
+  }
+  \only<9>{
+    \begin{textblock*}{1 cm}(0.1cm,0.1cm)
+      \def\modalFill{white} 
+      \input{../../pikz/modalCloud.tex}	
+    \end{textblock*}
 				
-%     \begin{textblock*}{5cm}(6cm,4.5cm)
-%       \begin{statsbox}[colback=LightYellow3!55,top=0mm]{The Answers}
-%         \small
-%         \begin{align*}
-%           F_{AB} &= 30.4\,\textsf{kN}\quad\textsf{(Tension)}	\\	
-%           F_{GH} &= 30.4\,\textsf{kN}\quad\textsf{(Compression)}			
-%         \end{align*}
-%         \par
-%       \end{statsbox}
-%     \end{textblock*}    
-%   }
-%   \end{frame}
+    \begin{textblock*}{5cm}(6cm,4.5cm)
+      \begin{statsbox}[colback=Snow3!55,top=0mm]{The Answers}
+        \small
+        \begin{align*}
+          F_{AB} &= 30.4\,\textsf{kN}\quad\textsf{(Tension)}	\\	
+          F_{GH} &= 30.4\,\textsf{kN}\quad\textsf{(Compression)}			
+        \end{align*}
+        \par
+      \end{statsbox}
+    \end{textblock*}    
+  }
+  \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Example 5} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Example 6} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 
