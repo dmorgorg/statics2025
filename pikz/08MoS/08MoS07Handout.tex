@@ -1,0 +1,85 @@
+
+%%%%%%%%%%%%%%%%%%%%%%% TRUSS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{tikzpicture}[scale=\scale]
+
+	\footnotesize
+
+	\coordinate (A) at (0,-1.5);
+	\coordinate (B)	at (-3, 0.5);
+	\coordinate (C) at (-6,2.5);
+	\coordinate (D) at (-9,4.5);
+	\coordinate (E) at (-12,4.5);
+	\coordinate (F) at (-9,6.5);
+	\coordinate (G) at (-6,6.5);
+	\coordinate (H) at (-3,6.5);
+	\coordinate (I) at (0,6.5);
+	\coordinate (Eleft) at ($(E)+(-3,0)$);
+	% \coordinate (top) at ($(F)+(0,2)$);
+
+	\gettikzxy{(A)}{\ax}{\ay}
+	\gettikzxy{(B)}{\bx}{\by}
+	\gettikzxy{(C)}{\cx}{\cy}
+	\gettikzxy{(E)}{\eex}{\eey}
+	\gettikzxy{(Eleft)}{\elx}{\ely}
+	\gettikzxy{(F)}{\fx}{\fy}
+	\gettikzxy{(G)}{\gx}{\gy}
+	\gettikzxy{(H)}{\hx}{\hy}
+	\gettikzxy{(I)}{\ix}{\iy}
+	% \gettikzxy{(top)}{\tx}{\ty}
+
+	\Meme{A}{B}{myGray}{myGray3}{black}{0.4}{0.2}{0.125}
+	\Meme{C}{B}{myGray}{myGray3}{black}{0.4}{0.2}{0.125}
+	\Meme{C}{D}{myGray}{myGray3}{black}{0.4}{0.2}{0.125}
+	\Meme{E}{D}{myGray}{myGray3}{black}{0.4}{0.2}{0.125}
+	\Meme{E}{F}{myGray}{myGray3}{black}{0.4}{0.2}{0.125}
+	\Meme{G}{F}{myGray}{myGray3}{black}{0.4}{0.2}{0.125}
+	\Meme{G}{H}{myGray}{myGray3}{black}{0.4}{0.2}{0.125}
+	\Meme{I}{H}{myGray}{myGray3}{black}{0.4}{0.2}{0.125}
+	\Meme{F}{C}{myGray}{myGray3}{black}{0.4}{0.2}{0.125}
+	\Meme{B}{G}{myGray}{myGray3}{black}{0.4}{0.2}{0.125}
+	\Meme{A}{H}{myGray}{myGray3}{black}{0.4}{0.2}{0.125}
+	\Meme{B}{H}{myGray}{myGray3}{black}{0.4}{0.2}{0.125}
+	\Meme{C}{G}{myGray}{myGray3}{black}{0.4}{0.2}{0.125}
+	\Meme{D}{F}{myGray}{myGray3}{black}{0.4}{0.2}{0.125}	
+
+	\foreach \coord in {A,B,C}{
+		\filldraw[ball color = myGray] (\coord) circle (2pt)node[below left] {$ \coord $};
+	};
+	\foreach \coord in {D,E}{
+		\filldraw[ball color = myGray] (\coord) circle (2pt)node[left, yshift=-0.25cm] {$ \coord $};
+	};
+	\foreach \coord in {F, G, ...,I }{
+		\filldraw[ball color = myGray] (\coord) circle (2pt)node[above,outer sep = 0.125cm, xshift=-0.2cm] {$ \coord $};
+		\draw[thin, gray] ($(\coord)+(0,0.5)$)--+(0,1.5);
+	};
+	\draw[thin, gray] ($(E)+(0,0.5)$)--+(0,3.5);
+
+	\draw[thin, gray] ($(A)+(-0.75,0)$)--(\elx, \ay);
+	\draw[thin, gray] (\bx-0.75cm, \by)--(\elx, \by);
+	\draw[thin, gray] (\cx-0.75cm, \cy)--(\elx, \cy);
+	\draw[thin, gray] (\eex-0.5cm, \eey)--(\elx, \eey);
+	\draw[thin, gray] (\fx-0.75cm, \fy)--(\elx, \fy);
+
+
+	% \fill[LightYellow4] ($(A)+(-1,-0.5)$) rectangle +(2,-0.5);
+	\fill[myGray] ($(I)+(0.75,2.25)$) rectangle ($(A)+(2,-1.5)$);
+	\draw[semithick]  ($(I)+(0.75,2.25)$) rectangle ($(A)+(0.75,-1.5)$);
+	\PC[90]{A}{myGray}{black}{0.75}{0.125}
+	\PC[90]{I}{myGray}{black}{0.75}{0.125}
+
+	\draw[very thick, -latex] (B)--+(0,-1.25)node[below, black, yshift=0.75mm]{$ 5.0\,\textsf{kN}$ };
+	\draw[very thick, -latex] (C)--+(0,-1.25)node[below, black, yshift=0.75mm]{$ 5.0\,\textsf{kN}$ };
+	\draw[very thick, -latex] (D)--+(0,-1.25)node[below, black, yshift=0.75mm]{$ 5.0\,\textsf{kN}$ };
+	\draw[very thick, -latex] (E)--+(0,-1.25)node[below, black, yshift=0.75mm]{$ 10.0\,\textsf{kN}$ };
+
+	\draw[latex-latex] (\eex, 8)--(\fx,8)node[midway, fill=white] {$ 2.25\,\textsf{m} $};
+	\draw[latex-latex] (\fx, 8)--(\gx,8)node[midway, fill=white] {$ 2.25\,\textsf{m} $};
+	\draw[latex-latex] (\gx, 8)--(\hx,8)node[midway, fill=white] {$ 2.25\,\textsf{m} $};
+	\draw[latex-latex] (\hx, 8)--(\ix,8)node[midway, fill=white] {$ 2.25\,\textsf{m} $};
+
+	\draw[latex-latex] (\elx+0.75cm, \fy)--(\elx+0.75cm, \eey)node[midway, fill=white] {$ 1.50\,\textsf{m} $};
+	\draw[latex-latex] (\elx+0.75cm, \eey)--(\elx+0.75cm, \cy)node[midway, fill=white] {$ 1.50\,\textsf{m} $};
+	\draw[latex-latex] (\elx+0.75cm, \cy)--(\elx+0.75cm, \by)node[midway, fill=white] {$ 1.50\,\textsf{m} $};
+	\draw[latex-latex] (\elx+0.75cm, \by)--(\elx+0.75cm, \ay)node[midway, fill=white] {$ 1.50\,\textsf{m} $};
+	
+\end{tikzpicture}

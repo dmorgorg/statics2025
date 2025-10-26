@@ -1,0 +1,206 @@
+\documentclass[10pt,oneside]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb} % for \checkmark
+\usepackage{bm}
+\usepackage{mathpazo}
+\usepackage{graphicx}
+\usepackage{enumerate}
+\usepackage[x11names, svgnames]{xcolor} % for \definecolor
+
+\usepackage[letterpaper]{geometry}
+\geometry{verbose,tmargin=0.25in,bmargin=0.5in,lmargin=1in,rmargin=1.15in}
+
+\input{../../includes/definedColors.tex}
+\input{../../includes/macros.tex}
+\input{../../includes/Channel.tex}
+\input{../../includes/Couple.tex}
+\input{../../includes/DL.tex}
+\input{../../includes/DLdown.tex}
+\input{../../includes/Member.tex}
+\input{../../includes/Meme.tex}
+\input{../../includes/PC.tex}
+\input{../../includes/EyeConnection.tex}
+\input{../../includes/EyeBolt.tex}
+\input{../../includes/Skywalker.tex}
+\input{../../includes/PulleyC.tex}
+\input{../../includes/Pulley.tex}
+\input{../../includes/Ring.tex}
+\input{../../includes/Rone.tex}
+\input{../../includes/Ronly.tex}
+\input{../../includes/Rocker.tex}
+\input{../../includes/Roller.tex}
+\input{../../includes/WBeam.tex}
+
+% https://tex.stackexchange.com/questions/731957/how-to-supress-missing-character-there-is-no-u003b-in-font-nullfont
+\tracinglostchars=1
+
+\hfuzz=250pt
+\setlength{\parindent}{0pt}
+\def\scale{1}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% page 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{textblock*}{6.775in}(1in, 0.225in)
+  \cbox{
+    \centering\huge
+    \textbf{Engineering Statics - 08 Method of Sections - Instructor Copy}
+  }
+\end{textblock*}
+
+\begin{textblock*}{2.5in}(1in, 1.5in)
+	\cbox{
+		\underbar{\bf Exercise 1:} Determine the force in truss members $BC$, $BG$ and $GH$.
+	}
+\end{textblock*}
+\begin{textblock*}{3.75in}(4.025in, 1.5in)
+	\cbox{
+    \centering
+    \def\scale{0.5}
+    \input{../../pikz/08MoS/08MoS07Handout.tex}
+  }
+\end{textblock*}
+  \begin{textblock*}{6.775in}(1in, 4.375in)
+    \small
+    \cbox{
+      \underline{\bf Draw Section $\bm{a\mm a}$ and analyze the left portion of the truss.}\parb
+      \mini[0.325]{
+        \centering
+        \def\scale{0.5}
+        \input{../../pikz/08MoS/08MoS07bHandout.tex}
+        \parb
+        \cbox{
+          \underline{\bf Answers:}
+          \begin{align*}
+            F_{BC} &= 22.5\,\textsf{kN}\qquad\textsf{(Compression)}\\
+            F_{BG} &= 8.39\,\textsf{kN}\qquad\textsf{(Compression)}\\
+            F_{GH} &= 22.0\,\textsf{kN}\qquad\textsf{(Tension)}\\
+          \end{align*}
+        }
+      }
+      \hfill
+      \mini[0.55]{      
+        \begin{align*}
+          \theta &= \tan^{-1}\left[\frac{4.5}{2.25}\right]=63.435\deg\\[0.25em]
+          \phi &= \tan^{-1}\left[\frac{1.5}{2.25}\right]=33.690\deg          
+        \end{align*}
+        Take moments about $G$ to find $F_{BC}$: 
+        \begin{align*}
+          \Sigma M_G &= (F_{BC}\cd \cos\phi)\cd (3.00\,\textsf{m})+(5.00\,\textsf{kN})\cd (2.25\,\textsf{m})\\[0.25em]
+          &\qquad\qquad +(10.00\,\textsf{kN})\cd (4.50\,\textsf{m})\\[0.25em]
+          &= F_{BC}\cd (2.4962\,\textsf{m})+56.250\,\mathsf{kN\cd m}=0\\\\
+          \Ra F_{BC} &= -22.534\,\textsf{kN}        
+        \end{align*} 
+        Take moments about $B$ to find $F_{GH}$: 
+        \begin{align*}
+          \Sigma M_B &= -(F_{GH})\cd (4.50\,\textsf{m})+(5.00\,\textsf{kN})\cd (2.25\,\textsf{m})\\[0.25em]
+          &\qquad\qquad +(5.00\,\textsf{kN})\cd (4.50\,\textsf{m})+(10.00\,\textsf{kN})\cd (6.75\,\textsf{m})=0\\\\
+          \Ra F_{GH} &= 22.500\,\textsf{kN}        
+        \end{align*}
+        Multiple options: sum $x$-components, sum $y$-components or take moments around point $J$ to find $F_{BG}$. (Taking moments here.)
+        \begin{align*}
+          \Sigma M_J &= -(F_{BG}\cd \sin\theta)\cd (4.50\,\textsf{m})-(5.00\,\textsf{kN})\cd (4.50\,\textsf{m})\\
+          &\qquad\qquad -(5.00\,\textsf{kN})\cd (2.25\,\textsf{m})\\[0.25em]
+          \Sigma M_J &= -F_{BG}\cd (4.0249\,\textsf{m})-(33.750\,\mathsf{kN\cd m})=0\\\\
+          \Ra F_{BG} &= -8.3853\,\textsf{kN}        
+        \end{align*}
+      } 
+    }   
+  \end{textblock*}
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ % page 2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+~\newpage
+
+\begin{textblock*}{2.5in}(1in, .15in)
+	\cbox{
+		\underbar{\bf Exercise 2:} Determine the force in truss members $CF$, $CG$, $EG$ and $EH$.
+	}
+\end{textblock*}
+\begin{textblock*}{3.75in}(4.025in, .15in)
+	\cbox{
+    \centering
+    \def\scale{0.7}
+    \input{../../pikz/08MoS/08MoS03Handout.tex}
+  }
+\end{textblock*}
+  \begin{textblock*}{6.775in}(1in, 3.375in)
+    \small
+    \cbox{
+      \underline{\bf First Section: Draw $\bm{a\mm a}$ and, using the upper portion of the truss, determine $\bm{ F_{CF}}$ and $\bm{F_{EH}}$.}\parb
+      \mini[0.45]{
+        \centering
+        \def\scale{0.65}
+        \input{../../pikz/08MoS/08MoS03bHandout.tex}
+        % \parb
+        % \cbox{
+        %   \underline{\bf Answers:}
+        %   \begin{align*}
+        %     F_{BC} &= 22.5\,\textsf{kN}\qquad\textsf{(Compression)}\\
+        %     F_{BG} &= 8.39\,\textsf{kN}\qquad\textsf{(Compression)}\\
+        %     F_{GH} &= 22.0\,\textsf{kN}\qquad\textsf{(Tension)}\\
+        %   \end{align*}
+        % }
+      }
+      \hfill
+      \mini[0.45]{      
+        \begin{align*}
+          \Sigma M_F &= 5.30\,\textsf{kN}\cd (1.95\,\textsf{m})-F_{EH}\cd(3.90\,\textsf{m})-7.10\,\textsf{kN}\cd (5.85\,\textsf{m})=0 \\[0.25em] 
+          \Ra F_{EH} &= -8.0000\,\textsf{kN}\qquad \underline{\textsf{\bf Ans.}\thickspace\bm{F_{EH}=8.00\,\textsf{\bf kN}} \thickspace(\textsf{\bf Compression})}\\\\    
+          \Sigma M_H &= 5.30\,\textsf{kN}\cd (5.85\,\textsf{m})+F_{CF}\cd(3.90\,\textsf{m})-7.10\,\textsf{kN}\cd (1.95\,\textsf{m})=0 \\[0.25em] 
+          \Ra F_{CF} &= -4.4000\,\textsf{kN}\qquad \underline{\textsf{\bf Ans.}\thickspace\bm{F_{CF}=4.40\,\textsf{\bf kN}}\thickspace (\textsf{\bf Compression})}\\\\    
+        \end{align*}        
+      } 
+    % }   
+    % \cbox{
+    \parb
+      \underline{\bf Second Section: Draw $\bm{b\mm b}$ and, using the upper portion of the truss, determine $\bm{ F_{CG}}$ and $\bm{F_{EG}}$.}\parb
+      \mini[0.45]{
+        \centering
+        \def\scale{0.65}
+        \input{../../pikz/08MoS/08MoS03cHandout.tex}
+        % \parb
+        % \cbox{
+        %   \underline{\bf Answers:}
+        %   \begin{align*}
+        %     F_{BC} &= 22.5\,\textsf{kN}\qquad\textsf{(Compression)}\\
+        %     F_{BG} &= 8.39\,\textsf{kN}\qquad\textsf{(Compression)}\\
+        %     F_{GH} &= 22.0\,\textsf{kN}\qquad\textsf{(Tension)}\\
+        %   \end{align*}
+        % }
+      }
+      \hfill
+      \mini[0.45]{      
+        \begin{align*}
+          \theta &= \tan^{-1}\left[\frac{2.25\,\textsf{m}}{1.95\,\textsf{m}}\right] = 49.086\deg\\\\
+          \Sigma F_x &= F_{EG}\cd\cancel{\cos 49.086\deg} - F_{CG}\cd\cancel{\cos 49.086\deg} =0 \\[0.25em] 
+          \Ra F_{CG} &= F_{EG}\\\\    
+          \Sigma F_y &= -5.30\,\textsf{kN}-7.10\,\textsf{kN}-F_{CF}-F_{EH}\\[0.25em]
+          &\qquad\qquad -2F_{CG}\cd\sin 49.086\deg\\[0.25em] 
+           &= -12.400\,\textsf{kN}-(-4.4000\,\textsf{kN}) -(-8.0000\,\textsf{kN})\\[0.25em]
+          &\qquad\qquad -2F_{CG}\cd\sin 49.086\deg \\[0.25em] 
+          &=-2F_{CG}\cd\sin 49.086\deg = 0 \\[0.25em] 
+          \Ra F_{CG} &= 0 \qquad \underline{\textsf{\bf Ans.}\thickspace\bm{F_{CF}=0}}\\[0.25em]   
+          \Ra F_{EG} &= 0 \qquad \underline{\textsf{\bf Ans.}\thickspace\bm{F_{EG}=0}}\\[0.25em]   
+        \end{align*}
+        
+      } 
+    }   
+  \end{textblock*}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% page 8
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document}
