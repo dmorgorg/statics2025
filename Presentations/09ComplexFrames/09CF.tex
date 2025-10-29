@@ -1,0 +1,221 @@
+
+%!TEX option = --shell-escape
+
+\documentclass[9pt, xcolor={svgnames, x11names},professionalfonts]{beamer}
+
+
+\input{../../includes/macros}
+\input{../../includes/definedColors}
+\input{../../includes/Channel.tex}
+\input{../../includes/Couple.tex}
+\input{../../includes/DL.tex}
+\input{../../includes/DLdown.tex}
+\input{../../includes/EyeBolt.tex}
+\input{../../includes/EyeConnection.tex}
+\input{../../includes/Member}
+\input{../../includes/Mem}
+\input{../../includes/Meme}
+\input{../../includes/PC}
+\input{../../includes/Ring}
+\input{../../includes/Rocker}
+\input{../../includes/Roller}
+\input{../../includes/Rone}
+\input{../../includes/Ronly}
+\input{../../includes/Pulley}
+\input{../../includes/PulleyB}
+\input{../../includes/PulleyC}
+\input{../../includes/Luke.tex}
+\input{../../includes/Skywalker.tex}
+\input{../../includes/WBeam.tex}
+% \input{../../includes/includesExisting/tikzObjects.tex}
+
+% \setlength{\parindent}{0pt}
+% \setlength{\parskip}{\medskipamount}
+\def\bgcolor{Gainsboro!50}
+
+
+\tcbset{fonttitle=\itshape\rmfamily}
+\usepackage{mathpazo}
+\usepackage{amssymb} % for /checkmark
+ 
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usefonttheme[onlymath]{serif} % this needs to be before structureitalicserif?
+\usefonttheme{structureitalicserif} %make titles fancy ;-)
+
+
+\usecolortheme[named=statsMaroon]{structure}
+\setbeamertemplate{navigation symbols}{} % remove navigation symbols
+\setbeamertemplate{headline}{\vspace{0.125cm}}
+\setbeamertemplate{footline}{ \hfill \insertshorttitle\qquad \insertsection \qquad \insertframenumber/\inserttotalframenumber\quad{ }\vspace{0.125cm}}
+\setbeamertemplate{items}[default]
+\setbeamertemplate{blocks}[shadow=true]
+
+\setbeamercolor{title}{bg=statsMaroon, fg=Azure}
+\setbeamercolor{frametitle}{fg=white, bg=statsMaroon}
+\setbeamercolor{background canvas}{bg=Gainsboro!50}
+\setbeamercolor{block title}{bg=statsMaroon, fg=white}
+\setbeamercolor{block body}{bg=white, fg=black}
+
+\setlength{\parskip}{\medskipamount}
+\setlength{\parindent}{0pt}
+
+% https://tex.stackexchange.com/questions/731957/how-to-supress-missing-character-there-is-no-u003b-in-font-nullfont
+\tracinglostchars=1
+% \hfuzz 120pt
+
+\def\scale{1}
+\newcounter{examnumber}
+\newcounter{exernumber}
+%test
+\resetcounteronoverlays{tcb@cnt@myexam}
+\resetcounteronoverlays{tcb@cnt@myexer}
+% \newcounter{myexercisecounter}
+
+% Title page details: 
+\title[09 Complex Frames]{\Huge 09 Complex Frames}
+\subtitle[Engineering Statics]{\Large\textcolor{white}{Engineering Statics}}
+\author{}
+\date{\small Updated on: \today}
+
+% \raggedright
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[plain]    %don't need footer on titlepage
+	\titlepage
+\end{frame}
+
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Simple Frames}
+ 	\begin{textblock*}{10cm}(1.5cm,1cm)
+  	\begin{itemize}
+			\item  In the problems we investigated in the module on the equilibrium of rigid bodies, there was  a structural member, acted upon by a force, or forces, each with a known magnitude and direction (such as weight and/or applied loads). \parm
+			\item There was a single force with a known direction but unknown magnitude (such as a hydraulic hoist, or a chain in tension,\ldots) and a reaction with unknown $x$- and $y$-components.\parm
+			\item We are limited, by the equations of equilibrium, to solving for a maximum of three unknowns. These problems can be considered {\bf simple frames}.
+  	\end{itemize}
+ 	\end{textblock*}
+
+ \def\scale{0.45}
+ \begin{textblock*}{4cm}( 1.75cm, 6cm )	
+  	\input{../../pikz/06ERB/06erb20b.tex}
+ \end{textblock*}
+ %
+ \def\scale{0.325}
+ \begin{textblock*}{4cm}(7.5cm, 6cm)
+  \input{../../pikz/06ERB/06erb09b.tex}
+ \end{textblock*}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Statical Determinancy}
+ \begin{textblock*}{1\textwidth}(1cm, 1.5cm)
+  \centering
+  \def\scale{0.625}
+  \input{../../pikz/09CF/09CF09a}
+ \end{textblock*}
+
+ \begin{textblock*}{1\textwidth}(1cm, 5.5cm)
+  \only<1->{
+   There is a fixed connection at $C$. We have solved problems like this.\par
+  }
+  \only<2->{
+   But how about now? How many unknowns are there?}
+  \only<3->{
+   {\bfseries \!Four!}\par
+  }
+  \only<4->{
+   With the three equations of statics, we can only solve for three unknowns. We cannot solve this with statics alone. This is a {\bfseries statically indeterminant} problem. \par
+  }
+  \only<5->{
+  But this is a complex frame and we {\bf can} solve this!\parm
+  }
+  
+ \end{textblock*}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{}
+
+	\only<1>{
+		\begin{myexam}{}{}
+			\centering
+			\def\bgcolor{white}
+			\def\scale{0.625}
+			\input{../../pikz/09CF/09CF21.tex}
+			\parb
+			There is a rocker at $A$, a pinned connection at $B$ and a fixed connection at $C$. Determine the reactions at $A$ and $C$.
+			\addtocounter{\tcbcounter}{-1}
+		\end{myexam}
+	}
+	
+	\begin{textblock*}{1\textwidth}(1cm,0.25cm)
+		\only<2->{	
+			\def\scale{0.562}
+			\begin{statsbox}[height=3.75cm,top=0mm]{}
+				\centering
+				\vspace{-0.375em}
+				\input{../../pikz/09CF/09CF22.tex}
+			\end{statsbox}
+		}	
+	\end{textblock*}
+	\begin{textblock*}{1\textwidth}(1cm,4.25cm)
+		\only<2-3>{				
+			\begin{myexam}[height=4.325cm]{Solution}{}
+				\parb
+				\begin{enumerate}
+					\item How many unknowns are there?
+					\only<3->{
+						\parb Notice that member $AB$ exerts an equal and opposite force (with components $B_x$ and $B_y$) on member $BC$. This is a necessary condition for equilibrium at $B$.\parb
+						$A_y$, $B_x$, $B_y$, $C_x$, $C_y$ and $M_C$ makes 6 unknowns.
+					}
+					\addtocounter{\tcbcounter}{-1}
+					\suspend					
+				\end{enumerate}
+				
+			\end{myexam}
+		}	
+	\end{textblock*}
+	\begin{textblock*}{1\textwidth}(1cm,4.25cm)
+		\only<4-6>{				
+			\begin{myexam}[height=4.325cm]{Our Method}{}
+				\raggedright\parb
+				Consider a vertical section through $B$.
+				\parm
+				\only<5->{
+				The portion to the left of the section (that is, member $AB$) is in equilibrium. It has three unknowns: $A_y$, $B_x$ and $B_y$. We can solve for these.
+				}
+				\parm
+				\only<6->{
+					The portion to the right of the section (member $BC$), now that we know $B_x$ and $B_y$, has three remaining unknowns: $M_C$, $C_x$ and $C_y$. We can solve for these.
+				}	
+			\end{myexam}
+		}			
+	\end{textblock*}
+	\begin{textblock*}{1\textwidth}(1cm,4.25cm)
+		\only<7->{				
+			\begin{myexam}[height=4.325cm]{Solution}{}
+				\parb				
+				\begin{enumerate}
+					\resume
+					\item Draw members separated for analysis.
+					\only<8->{
+						\item Resolve the distributed loads
+					}
+					\addtocounter{\tcbcounter}{-1}					
+				\end{enumerate}
+			\end{myexam}
+		}	
+	\end{textblock*}
+
+ 
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}

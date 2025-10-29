@@ -7,9 +7,9 @@
 
 		\coordinate (A) at (0,0);
 		\coordinate (AA) at (-0.25,0);
-		\coordinate (B) at (6,0);
-		\coordinate (BB) at (5.75,0);
-		\coordinate (BBB) at (6.25,0);
+		\coordinate (B) at (3,0);
+		\coordinate (BB) at (2.75,0);
+		\coordinate (BBB) at (3.25,0);
 		\coordinate (C) at (9,0);
         \coordinate (CC) at (9.25,0);
         
@@ -26,30 +26,20 @@
         \shade[top color=DarkSeaGreen4, bottom color=DarkSeaGreen3,opacity=0] (\ax-0.75cm, \ay-0.6cm) rectangle +(1.5, -0.75);
 
         \begin{scope}[yshift=0.2cm]
-            \DLdown{(\ax, \ay+1cm)}{(\bbx, \bby+1cm)}{(\bbx, \bby)}{LightBlue3}{black}{8}{0.25}{7}
-            \DLdown{(\bbx, \bby+1cm)}{(\cx, \cy+2.5cm)}{(\cx, \cy)}{LightBlue3}{black}{4}{0.25}{7}
-        \end{scope}
-
-        % \Meme{B}{CC}{LightYellow4}{LightYellow3}{black}{0.4}{0.02}{0.15}
-        % \Meme{A}{B}{LightYellow4}{LightYellow3}{black}{0.4}{0.2}{0.15}
-        \only<1-4>{
-            \Meme{A}{C}{LightYellow4}{LightYellow3}{black}{0.5}{0.25}{0.125}
-        }
-        \only<5>{
-            \Meme{A}{BB}{LightYellow4}{LightYellow3}{black}{0.5}{0.25}{0.125}
-            \Meme{C}{BBB}{LightYellow4}{LightYellow3}{black}{0.5}{0.25}{0.125}
-        }
+            \DLdown{(\ax, \ay)}{(\bbx, \bby+2.5cm)}{(\bbx, \bby)}{LightBlue3}{black}{4}{0.25}{7}
+            \DLdown{(\bbx, \bby+2.5cm)}{(\cx, \cy+1.5cm)}{(\cx, \cy)}{LightBlue3}{black}{8}{0.25}{7}
+        \end{scope}       
+     
+        \Meme{A}{BB}{LightYellow4}{LightYellow3}{black}{0.5}{0.25}{0.125}
+        \Meme{C}{BBB}{LightYellow4}{LightYellow3}{black}{0.5}{0.25}{0.125}
         
-
-
-
         \fill[left color=DarkSeaGreen4, right color=DarkSeaGreen3] (\cx, \top) -- +(1.5,0) -- (\cx+1.5cm, \btm) -- +(-1.5,0);
 
-        \only<2->{
+  
         \Rone{A}{DarkSeaGreen4}{black}{0.6}{0.175}
         \shade[top color=DarkSeaGreen4, bottom color=DarkSeaGreen3] (\ax-0.75cm, \ay-0.6cm) rectangle +(1.5, -0.75);
         \draw (\ax-0.75cm, \ay-0.6cm) -- +(1.5, 0);
-        }
+    
 
         \draw[line width=0.5mm] (\cx-0.525cm, \cy+0.225cm) -- (\cx-0.025cm, \cy+0.225cm) -- (\cx-0.025cm, \cy+0.725cm);
         \draw[line width=0.5mm] (\cx-0.525cm, \cy-0.225cm) -- (\cx-0.025cm, \cy-0.225cm) -- (\cx-0.025cm, \cy-0.725cm);
@@ -62,11 +52,11 @@
 		\draw[thin] (\ax, \ay-0.5cm)--(\ax, \btm);
 
          \only<1->{
-            \draw[latex-latex] (\ax,\btmdim) -- node[fill=bgcolor]{$4.25\>\text{m}$}(\bbx,\btmdim);
-            \draw[latex-latex] (\bbx,\btmdim) -- node[fill=bgcolor]{$2.25\>\text{m}$}(\cx,\btmdim);
-            \node at (\ax+0.25cm, \ay+1.5cm){$1.25\>\text{kN/m}$};
-            \node[ inner sep=0.2mm,xshift=-1.75mm,yshift=-0.4mm] at (\cx-0.9cm, \cy+3cm){$3.50\>\text{kN/m}$};
-            % \fill (\cx, \cy+1.7cm) circle (0.5mm);
+            \draw[latex-latex] (\ax,\btmdim) -- node[fill=\bgcolor]{$2.25\>\text{m}$}(\bbx,\btmdim);
+            \draw[latex-latex] (\bbx,\btmdim) -- node[fill=\bgcolor]{$4.50\>\text{m}$}(\cx,\btmdim);
+            \node at (\bbx+0.25cm, \bby+2.9cm){$3.84\>\text{kN/m}$};
+            \node[fill=LightBlue3, inner sep=0.2mm,xshift=-1.75mm,yshift=-0.4mm] at (\cx-0.9cm, \cy+1.5cm){$2.56\>\text{kN/m}$};
+            \fill (\cx, \cy+1.7cm) circle (0.5mm);
         }
         
         % \only<2>{
@@ -78,16 +68,16 @@
         % }
 
         % \normalsize
-        \fill[black] (C) circle (0.05cm)node[xshift=-0.25cm]{$C$};
+        \fill[black] (C) circle (0.05cm)node[xshift=0.175cm]{$C$};
 		\shadedraw[ball color=DarkSeaGreen4] (B) circle (0.075cm)node[xshift=-0.25cm]{$B$};
-		\shadedraw[ball color=DarkSeaGreen4] (A) circle (0.075cm)node[xshift=0.25cm]{$A$};
+		\shadedraw[ball color=DarkSeaGreen4] (A) circle (0.075cm)node[xshift=-0.325cm]{$A$};
 
-        \only<3-4>{
+  
             \draw[ultra thick, Red, -latex] (C)--+(90:1.3755);
             \draw[ultra thick, Red, -latex] (C)--+(0:1.375);
             \draw[ultra thick, Red, latex-] (A)--+(-90:1.375);
             \Couple{C}{Red}{0.625}{0.5}
-        }
+    
 		
 	\end{tikzpicture}
 

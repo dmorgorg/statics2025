@@ -1,0 +1,182 @@
+
+	\begin{tikzpicture}[scale=\scale, line cap = round]
+
+    \draw[red](-3,-2.5)rectangle(13,4);
+    % \path (-4,-2.5)rectangle(12,4);
+            
+		\coordinate (A) at (0,0);
+		\coordinate (AA) at (-0.25,0);
+		\coordinate (B) at (6,0);
+		\coordinate (BB) at (5.75,0);
+		\coordinate (BBB) at (6.25,0);
+		\coordinate (C) at (9,0);
+    \coordinate (CC) at (9.25,0);
+
+    % separation
+    \coordinate (AL) at (-1.5,0);
+		\coordinate (AAL) at (-1.75,0);
+		\coordinate (BL) at (4.5,0);
+		\coordinate (BBL) at (4.25,0);
+		\coordinate (BR) at (7.5,0);
+		\coordinate (BBR) at (7.75,0);
+    \coordinate (CR) at (10.75,0);
+        
+		\gettikzxy{(B)}{\bbx}{\bby}
+		\gettikzxy{(C)}{\cx}{\cy}
+		\gettikzxy{(A)}{\ax}{\ay}
+		\gettikzxy{(BL)}{\blx}{\bby}
+		\gettikzxy{(BBL)}{\bblx}{\bbly}
+		\gettikzxy{(BBR)}{\bbrx}{\bbry}
+		\gettikzxy{(BR)}{\brx}{\bry}
+		\gettikzxy{(CR)}{\crx}{\cry}
+		\gettikzxy{(AL)}{\alx}{\aly}
+		
+		\def\btm{-2}
+		\def\btmdim{-1.65}
+		\def\btmup{-1.15}
+    \def\top{3.5}
+		\def\topdim{2.875}
+
+    \small
+        
+
+    \only<1-6>{
+    
+      
+      \begin{scope}[yshift=0.25cm]
+        \DLdown{(\ax, \ay+1cm)}{(\bbx, \bby+1cm)}{(\bbx, \bby)}{LightBlue3}{black}{8}{0.25}{7}
+        \DLdown{(\bbx, \bby+1cm)}{(\cx, \cy+2.5cm)}{(\cx, \cy)}{LightBlue3}{black}{4}{0.25}{7}
+      \end{scope}
+
+      \Meme{A}{BB}{LightYellow4}{LightYellow3}{black}{0.5}{0.25}{0.125}
+      \Meme{BBB}{C}{LightYellow4}{LightYellow3}{black}{0.5}{0.25}{0.125}
+
+      %prevent image shift when covering element is removed
+      \fill[white] (\ax-0.75cm, \ay-0.6cm) rectangle +(1.5, -0.75);
+      \fill[white] (\cx, \top) -- +(1.5,0) -- (\cx+1.5cm, \btm) -- +(-1.5,0);
+      
+      % \only<1->{
+      \draw[latex-latex] (\ax,\btmdim) -- node[fill=white]{$4.50\>\text{m}$}(\bbx,\btmdim);
+      \draw[latex-latex] (\bbx,\btmdim) -- node[fill=white]{$2.25\>\text{m}$}(\cx,\btmdim);
+      \node at (\ax+0.25cm, \ay+1.5cm){$1.25\>\text{kN/m}$};
+      \node[ inner sep=0.2mm,xshift=-1.75mm,yshift=-0.4mm] at (\cx-0.9cm, \cy+3cm){$3.50\>\text{kN/m}$};
+      % }
+      % \fill[pink] (\cx, \top) -- +(1.5,0) -- (\cx+1.5cm, \btm) -- +(-1.5,0);
+      
+
+      \only<1-2>{
+          \Rone{A}{DarkSeaGreen4}{black}{0.6}{0.175}
+          \shade[top color=DarkSeaGreen4, bottom color=DarkSeaGreen3] (\ax-0.75cm, \ay-0.6cm) rectangle +(1.5, -0.75);
+          \draw (\ax-0.75cm, \ay-0.6cm) -- +(1.5, 0);
+          \fill[left color=DarkSeaGreen4, right color=DarkSeaGreen3] (\cx, \top) -- +(1.5,0) -- (\cx+1.5cm, \btm) -- +(-1.5,0);
+          \draw[thin] (\cx, \top)--(\cx, \btm);
+          \draw[line width=0.5mm] (\cx-0.525cm, \cy+0.275cm) -- (\cx-0.025cm, \cy+0.275cm) -- (\cx-0.025cm, \cy+0.725cm);
+          \draw[line width=0.5mm] (\cx-0.525cm, \cy-0.275cm) -- (\cx-0.025cm, \cy-0.275cm) -- (\cx-0.025cm, \cy-0.725cm);	
+      }
+
+      \fill[black] (C) circle (0.05cm)node[xshift=-0.175cm]{$C$};
+      \shadedraw[ball color=DarkSeaGreen4] (B) circle (0.075cm)node[xshift=-0.175cm,yshift=-0.325cm]{$B$};
+      \shadedraw[ball color=DarkSeaGreen4] (A) circle (0.075cm)node[xshift=-0.325cm]{$A$};
+
+      \draw[thin] (\cx, \cy-0.5cm)--(\cx, \btm);		
+      \draw[thin] (\bbx, \bby-0.5cm)--(\bbx, \btm);
+      \draw[thin] (\ax, \ay-0.5cm)--(\ax, \btm);
+
+     
+
+      \only<3->{
+          \draw[very thick, Red, -latex] (C)--+(90:1.375)node[right]{$C_y$};
+          \draw[very thick, Red, -latex] (C)--+(0:1.375)node[right]{$C_x$};
+          \draw[very thick, Red, -latex] ($(B)+(0.125,0)$)--+(90:1.5)node[above right,xshift=-2mm,yshift=-1.5mm]{$B_y$};
+          \draw[very thick, Red, -latex] ($(B)+(0.125,0)$)--+(0:1.375)node[yshift=-0.325cm]{$B_x$};
+          \draw[very thick, Red, -latex] ($(B)+(-0.125,0)$)--+(-90:1.375)node[xshift=-0.25cm,yshift=0.125cm]{$B_y$};
+          \draw[very thick, Red, -latex] ($(B)+(-0.125,0)$)--+(180:1.375)node[yshift=-0.325cm]{$B_x$};
+          \draw[very thick, Red, latex-] (A)--+(-90:1.375)node[left]{$A_y$};
+          \Couple{C}{Red}{0.5}{0.45}
+          \node[below right, Red, yshift=-0.175cm] at (C) {$ M_C $};  
+      }
+
+      \only<5>{
+        \fill[white,opacity=0.875] ($(B)+(0,-2.5)$) rectangle ($(C)+(2.5,3.5)$); 
+      }
+      \only<6>{
+        \fill[white,opacity=0.875] ($(A)+(-1,-2.5)$) rectangle ($(B)+(0,2)$); 
+      }
+      \only<4-6>{
+        \draw[ultra thick, Green3] ($(B)+(0,3.5)$) -- ($(B)+(0,-2)$);
+      }      
+    }
+      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \only<7->{
+
+      \def\btm{-1.75}
+
+      \only<7-8>{
+      \draw[latex-latex] (\alx,\btmup) -- node[fill=white]{$4.50\>\text{m}$}(\blx,\btmup);
+      }
+      \draw[latex-latex] (\brx,\btmup) -- node[fill=white]{$2.25\>\text{m}$}(\crx,\btmup);
+      \only<7-8>{
+        \node at (\alx+0.25cm, \ay+1.5cm){$1.25\>\text{kN/m}$};
+      }
+      \node[left] at (\bbrx+.125cm, \ay+1.5cm){$1.25\>\text{kN/m}$};
+      \node[ inner sep=0.2mm,xshift=-1.75mm,yshift=-0.4mm] at (\crx+0.9cm, \cry+3.125cm){$3.50\>\text{kN/m}$};
+     
+      \begin{scope}[yshift=0.25cm]
+        \only<7-8>{
+          \DLdown{(\alx, \ay+1cm)}{(\blx, \bbly+1cm)}{(\blx, \bbly)}{LightBlue3}{black}{8}{0.25}{7}
+        }        
+        \DLdown{(\brx, \bry+1cm)}{(\crx, \cry+2.5cm)}{(\crx, \cry)}{LightBlue3}{black}{4}{0.25}{7}
+      \end{scope}
+
+      \Meme{AL}{BBL}{LightYellow4}{LightYellow3}{black}{0.5}{0.25}{0.125}
+      \Meme{BBR}{CR}{LightYellow4}{LightYellow3}{black}{0.5}{0.25}{0.125}
+      %overwrite rounded end of member at C
+      \fill[white] ($(CR)+(0,0.275)$) rectangle +(0.55,-0.55);
+      \draw ($(CR)+(0,0.275)$)--+(0,-0.5);
+
+      \fill[black] (CR) circle (0.075cm)node[xshift=-0.175cm]{$C$};
+      \fill[black] (BL) circle (0.075cm)node[xshift=-0.175cm,yshift=-0.325cm]{$B$};
+      \fill[black] (BR) circle (0.075cm)node[xshift=-0.175cm,yshift=-0.325cm]{$B$};
+      \fill[black] (AL) circle (0.075cm)node[xshift=-0.325cm]{$A$};
+
+      \draw[thin] (\crx, \cry-0.5cm)--(\crx, \btm);		
+      \draw[thin] (\blx, \bbly-0.5cm)--(\blx, \btm);
+      \draw[thin] (\brx, \bbry-0.5cm)--(\brx, \btm);
+      \draw[thin] (\alx, \aly-0.5cm)--(\alx, \btm); 
+
+      \only<9->{
+        \draw[Red2, ultra thick, latex-] (\alx/2+\blx/2, \ay+0.25cm)--+(0,1.5)node[above,black]{$5.6250\,\textsf{kN}$};
+        \draw[thin] (\alx/2+\blx/2, \aly-0.5cm)--(\alx/2+\blx/2, \btm); 
+        \draw[latex-latex] (\alx,\btmup) -- node[fill=white]{$2.25\>\text{m}$}(\alx/2+\blx/2,\btmup);
+        \draw[latex-latex] (\alx/2+\blx/2,\btmup) -- node[fill=white]{$2.25\>\text{m}$}(\blx,\btmup);
+      }
+      \only<10->{
+        \draw[Red2, ultra thick, latex-] (\alx/2+\blx/2, \ay+0.25cm)--+(0,1.5)node[above,black]{$5.6250\,\textsf{kN}$};
+        % \draw[thin] (\alx/2+\blx/2, \aly-0.5cm)--(\alx/2+\blx/2, \btm); 
+        % \draw[latex-latex] (\alx,\btmup) -- node[fill=white]{$2.25\>\text{m}$}(\alx/2+\blx/2,\btmup);
+        % \draw[latex-latex] (\alx/2+\blx/2,\btmup) -- node[fill=white]{$2.25\>\text{m}$}(\blx,\btmup);
+      }
+    }
+    
+
+
+
+
+
+
+
+
+
+
+	\end{tikzpicture}
+
+
+
+
+
+
+
+
+
+
+    
